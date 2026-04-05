@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Cross Entropy - Clase 5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #fa709a;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .diagram-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: #fa709a;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #fee140;
+        }
+
+        .explanation {
+            background: #fff9e6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #fa709a;
+        }
+
+        .explanation p {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .problem-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .problem-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .solution-box {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .solution-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .formula-box {
+            background: #fff;
+            border: 3px solid #fa709a;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            font-size: 1.4em;
+            font-family: 'Courier New', monospace;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .perceptron-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .perceptron-node {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 40px;
+            border-radius: 50%;
+            margin: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-width: 120px;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .perceptron-node:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .perceptron-node .sub-text {
+            font-size: 0.7em;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .arrow-down {
+            font-size: 3em;
+            color: #fa709a;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .value-card {
+            background: white;
+            border: 3px solid #fa709a;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .value-card.zero {
+            border-color: #667eea;
+        }
+
+        .value-card.one {
+            border-color: #fa709a;
+        }
+
+        .value-card h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .value-card.zero h3 {
+            color: #667eea;
+        }
+
+        .value-card.one h3 {
+            color: #fa709a;
+        }
+
+        .bce-formula {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 3px solid #fa709a;
+        }
+
+        .bce-formula h3 {
+            color: #fa709a;
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .bce-parts {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .bce-part {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .bce-part h4 {
+            color: #fa709a;
+            margin-bottom: 10px;
+        }
+
+        .bce-part p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 6px solid #fa709a;
+        }
+
+        .key-point h3 {
+            color: #fa709a;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .key-point p {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background: #fee140;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+
+            .bce-parts {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Binary Cross Entropy (BCE)</h1>
+        <p class="subtitle">La función que permite usar perceptrones en modelos autorregresivos</p>
+
+        <div class="diagram-section">
+            <h2 class="section-title">El Problema del Perceptrón</h2>
+
+            <div class="problem-box">
+                <h3>🚫 Limitación del Perceptrón</h3>
+                <p>Un perceptrón binario SOLO nos da la probabilidad de que el valor sea 1:</p>
+                <p style="margin-top: 15px; font-size: 1.2em;">Perceptrón → P(xᵢ = 1 | x<sub>&lt;i</sub>)</p>
+            </div>
+
+            <div class="explanation">
+                <p><strong>Pero nosotros necesitamos:</strong> P<sub>θ</sub>(xᵢ = <span class="highlight">valor_real</span> | x<sub>&lt;i</sub>)</p>
+                <p>Es decir, necesitamos la probabilidad de que xᵢ tome el valor que realmente tiene (que puede ser 0 o 1).</p>
+            </div>
+
+            <div class="perceptron-diagram">
+                <div class="perceptron-node">
+                    Perceptrón
+                    <div class="sub-text">Red neuronal</div>
+                </div>
+                <div class="arrow-down">↓</div>
+                <div class="perceptron-node" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    P(xᵢ = 1)
+                    <div class="sub-text">Solo una dirección</div>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <h3>❓ Pregunta Clave</h3>
+                <p>Si mi dato xᵢ es un <strong>0</strong>, ¿cómo obtengo P(xᵢ = 0) si el perceptrón solo me da P(xᵢ = 1)?</p>
+                <p style="margin-top: 10px;">Podríamos hacer: P(xᵢ = 0) = 1 - P(xᵢ = 1), pero esto no se puede usar directamente en la optimización de manera elegante.</p>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">La Solución: Binary Cross Entropy</h2>
+
+            <div class="solution-box">
+                <h3>✅ BCE resuelve el problema</h3>
+                <p>Binary Cross Entropy es una función que "selecciona" automáticamente la probabilidad correcta según el valor real del dato.</p>
+            </div>
+
+            <div class="bce-formula">
+                <h3>Fórmula de BCE</h3>
+                <div class="formula-box" style="border-color: #fa709a;">
+                    BCE(xᵢ) = xᵢ · log(P(xᵢ=1|x<sub>&lt;i</sub>)) + (1-xᵢ) · log(1-P(xᵢ=1|x<sub>&lt;i</sub>))
+                </div>
+            </div>
+
+            <div class="explanation">
+                <p><strong>¿Cómo funciona esta fórmula?</strong></p>
+                <p>Es un "selector" inteligente que solo activa una de las dos partes dependiendo del valor real de xᵢ:</p>
+            </div>
+
+            <div class="comparison-container">
+                <div class="value-card zero">
+                    <h3>Si xᵢ = 0</h3>
+                    <p style="margin: 15px 0; font-size: 1.1em;">El primer término se anula (0 × log...)</p>
+                    <div class="formula-box" style="background: #e8eaf6; border-color: #667eea; font-size: 1em;">
+                        BCE = log(1 - P(xᵢ=1))
+                    </div>
+                    <p style="margin-top: 15px; color: #667eea; font-weight: bold;">Obtenemos la probabilidad de que sea 0</p>
+                </div>
+
+                <div class="value-card one">
+                    <h3>Si xᵢ = 1</h3>
+                    <p style="margin: 15px 0; font-size: 1.1em;">El segundo término se anula (0 × log...)</p>
+                    <div class="formula-box" style="background: #fce4ec; border-color: #fa709a; font-size: 1em;">
+                        BCE = log(P(xᵢ=1))
+                    </div>
+                    <p style="margin-top: 15px; color: #fa709a; font-weight: bold;">Obtenemos la probabilidad de que sea 1</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">Descomposición de BCE</h2>
+
+            <div class="bce-parts">
+                <div class="bce-part">
+                    <h4>Primera Parte</h4>
+                    <div class="formula-box" style="font-size: 1em;">
+                        xᵢ · log(P(xᵢ=1))
+                    </div>
+                    <p><strong>Función:</strong> Se activa cuando el valor real es 1</p>
+                    <p><strong>Penaliza:</strong> Si el modelo predice baja probabilidad cuando xᵢ=1</p>
+                </div>
+
+                <div class="bce-part">
+                    <h4>Segunda Parte</h4>
+                    <div class="formula-box" style="font-size: 1em;">
+                        (1-xᵢ) · log(1-P(xᵢ=1))
+                    </div>
+                    <p><strong>Función:</strong> Se activa cuando el valor real es 0</p>
+                    <p><strong>Penaliza:</strong> Si el modelo predice alta probabilidad cuando xᵢ=0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">Integración con el Modelo Autorregresivo</h2>
+
+            <div class="key-point">
+                <h3>🔗 Conexión con la Clase Anterior</h3>
+                <p>Recordemos que en el modelo autorregresivo queremos minimizar:</p>
+            </div>
+
+            <div class="formula-box">
+                -log P<sub>θ</sub>(x) = -Σ log P<sub>θᵢ</sub>(xᵢ | x<sub>&lt;i</sub>)
+            </div>
+
+            <div class="explanation">
+                <p><strong>Reemplazando con BCE:</strong></p>
+                <p>Para cada posición i en nuestra imagen (o dato):</p>
+            </div>
+
+            <div class="formula-box">
+                -log P<sub>θᵢ</sub>(xᵢ) = -BCE(xᵢ, Perceptrón<sub>θᵢ</sub>(x<sub>&lt;i</sub>))
+            </div>
+
+            <div class="explanation">
+                <p>Donde Perceptrón<sub>θᵢ</sub>(x<sub>&lt;i</sub>) es la red neuronal que recibe todos los píxeles anteriores y predice la probabilidad de que xᵢ = 1.</p>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">Ejemplo Concreto: Imagen de 3 Píxeles</h2>
+
+            <div class="explanation">
+                <p><strong>Supongamos una imagen con 3 píxeles:</strong> [1, 0, 1]</p>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; margin: 20px 0;">
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #fa709a; margin-bottom: 10px;">Para x₁ = 1:</h4>
+                    <div class="formula-box" style="font-size: 1em;">
+                        BCE₁ = 1 · log(P<sub>θ₁</sub>(x₁=1)) + 0 · log(...)
+                    </div>
+                    <p style="margin-top: 10px; color: #666;">Solo importa log(P(x₁=1))</p>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #fa709a; margin-bottom: 10px;">Para x₂ = 0:</h4>
+                    <div class="formula-box" style="font-size: 1em;">
+                        BCE₂ = 0 · log(...) + 1 · log(1 - P<sub>θ₂</sub>(x₂=1|x₁))
+                    </div>
+                    <p style="margin-top: 10px; color: #666;">Solo importa log(1 - P(x₂=1|x₁))</p>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <h4 style="color: #fa709a; margin-bottom: 10px;">Para x₃ = 1:</h4>
+                    <div class="formula-box" style="font-size: 1em;">
+                        BCE₃ = 1 · log(P<sub>θ₃</sub>(x₃=1|x₁,x₂)) + 0 · log(...)
+                    </div>
+                    <p style="margin-top: 10px; color: #666;">Solo importa log(P(x₃=1|x₁,x₂))</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <h4 style="color: #fa709a; margin-bottom: 15px;">Pérdida Total:</h4>
+                    <div class="formula-box" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); font-size: 1.1em;">
+                        Loss = -(BCE₁ + BCE₂ + BCE₃)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">¿Por Qué BCE es una Función de Costo Local?</h2>
+
+            <div class="key-point">
+                <h3>📍 Entendiendo "Local"</h3>
+                <p>BCE es "local" porque calcula la pérdida para <strong>cada píxel individual</strong> (cada probabilidad condicional).</p>
+                <p style="margin-top: 15px;">La pérdida <strong>global</strong> del dato completo es la suma de todas las BCE locales.</p>
+            </div>
+
+            <div class="explanation">
+                <p><strong>Proceso completo:</strong></p>
+                <p>1. Para cada píxel i, calculamos BCE<sub>i</sub> (pérdida local)</p>
+                <p>2. Sumamos todas las BCE<sub>i</sub> para obtener la pérdida del dato completo</p>
+                <p>3. Promediamos sobre todos los datos de entrenamiento</p>
+                <p>4. Aplicamos descenso de gradiente para optimizar θ</p>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">Resumen de Conceptos Clave</h2>
+
+            <div class="key-point">
+                <h3>📚 Puntos Esenciales</h3>
+                <p><strong>1. Problema:</strong> El perceptrón solo da P(xᵢ=1), pero necesitamos P(xᵢ=valor_real).</p>
+                <p><strong>2. Solución:</strong> BCE actúa como selector automático según el valor real del dato.</p>
+                <p><strong>3. Funcionamiento:</strong> BCE tiene dos términos, pero solo uno se activa dependiendo si xᵢ es 0 o 1.</p>
+                <p><strong>4. Derivación:</strong> BCE surge de la necesidad de expresar P<sub>θ</sub>(xᵢ=valor) de forma que podamos optimizar con perceptrones.</p>
+                <p><strong>5. Conexión:</strong> Minimizar BCE es equivalente a minimizar la KL divergence entre nuestro modelo y la distribución real.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

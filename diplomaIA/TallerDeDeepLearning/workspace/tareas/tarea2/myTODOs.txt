@@ -1,0 +1,2 @@
+1. Make all console logs spanish
+2. Explain and jsutify preprocesamiento

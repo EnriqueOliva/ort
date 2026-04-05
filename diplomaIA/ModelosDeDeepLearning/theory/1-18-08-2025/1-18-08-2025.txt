@@ -1,0 +1,2666 @@
+WEBVTT
+Sí,
+ya va.
+No digo
+ah,
+por sí,
+me nada.
+La verdadera estaba un poco
+más seguro
+la que
+sí.
+La con un pla. Claro. No.
+Cómo no?
+No,
+sí, no, no, claro, fue
+de la plaza.
+Pero igual en vez de eso.
+Sí, sí, sí, sí,
+así.
+De acuerdo, la sí.
+Bueno, te of
+tiene mucha
+a,
+bueno, yo
+cuál
+a meter
+buenas noche. Buenas,
+Buenas. Bonita.
+No sabía que que eras el docente de esta materia.
+Sí. No iban a sacar tan fácil de rico
+Como rico.
+Sí. Había visto
+sí
+o o qué?
+Arrancar cero todo
+estamo arrancando el pasito.
+Lo los que están virtual, eh? Ven la pantalla.
+Tengo compartiendo pantalla. Pueden ver?
+Sí. Sí, sí, perfecto,
+Claro.
+Por bueno,
+bienvenidos el cost de modelo de a casi todo.
+Nos conozco algo par por este.
+A la gran mayoría estuvieron en el que pasado también.
+Gran gran, lo conozco de otras de otra
+de otras situaciones en solo
+digamos, eh?
+Es decir, como ahí que que le puede iniciar el
+el diploma o el master, eh,
+en este curso quería saber no más.
+Si había alguien que estaba arrancando ahora y que no
+había hecho machine
+Yo no, yo no hay
+Tú no estás arrancando, eh, alguien más?
+Pero me has dado con online. Nadie más dijo
+Sí, yo buenas, John na,
+Cómo en las and bien, sí, eran ahí está extrañando.
+Bueno, fue bien
+que el día de ahí
+es broma.
+Este bueno, se lo este,
+esta materia va o sea igual todos se están haciendo
+o alguien que no est este capaz que más es fácil allá.
+Alguien que no esté haciendo taller de di
+nadie más está, pues esta materia va sincronizada
+con taller de learning.
+Este sería como el teórico
+y taller de sería como el práctico, eh?
+Vamos, tenemos la mala suerte de que nosotros vamos a tener
+más feriados que ellos.
+O sea que lo que, o sea,
+hay más feriados en los lunes que los mier los
+miércoles que taller.
+Entonces, eh, muy probablemente taller.
+Si, adelante un poquito. Eso sí,
+no es malo porque todas las cosas, eh,
+de de repente de un punto de vista práctico y después
+bajarla, ver el teórico ver bien, cómo funcionan de por sí?
+Creo que esto puede funcionar este.
+Así que van a ir un yo después hablar con eh,
+joaquín es el profesor de taller que tienen
+que voy a hablar con él después para avisarle que él,
+nosotros nos vamos atra un poquito porque además, eh,
+tengo ganas de entrar al hueso y en algunos aspectos este
+que antes nos entrado, eh, sobre todo,
+es decir, si vamos a usar a alguna notebook,
+vamos a hacer ah, decir no va a ser solo teórico
+este algunas notebooks, eh?
+Haremos pero la parte de aprender este, o sea,
+vamos a usar la librería pay para hacer este código, eh,
+eh, vamos, o sea, en ese sentido,
+vamos a estar unificado con taller que van a hacer eso.
+Y ahí van a ver todo. Van a ver todo desde cero, digamos,
+o sea el tall ayer van a tener tutoriales de
+de paych desde c.
+Sí, eh, no, yo capaz que eso no lo hago este
+en agentes en taller de inteligencia artificial.
+Usar un poco eso.
+Entonces algo conocen también en machine hicimos,
+hicimos un poquito de en redes.
+Entonces alguna cosita conocen?
+No es que lo o sea, no es que lo voy a dar por asumido,
+pero este vamos a poder ir un poquito
+más rápido en algunas cosas.
+Y la todo queda medio mágico.
+Este algo que unos se ponga a
+explorar un poquito más en detalle.
+Cómo funciona, eh?
+Piech al en el en su aspecto de, eh, motor
+de diferenciación automática, verdad?
+Y eso es a lo que yo en las primeras clases,
+quiero entrar un poquito más en detalle.
+Sí, porque es la es, es el carburador de Pat.
+Es, es eso? Sí, este y, y bueno,
+entonces este para eso,
+vamos a a repasar un poquito, eh?
+Algunas nociones que seguramente está en medio olvidadas
+de matrices.
+Sí. Este, por ejemplo.
+Piensen que en nuestro objetivo final del pulso, o sea,
+nosotros ahora más o menos deberíamos de saber, eh,
+lo que significa seleccionar un modelo, eh, se,
+eh validar un modelo, probar diferentes hip parámetros,
+eh, seco, varianza, tener esa,
+esas nociones están un poquito ahí
+rondando en en nuestra cabeza.
+Para la mayoría los que no lo tengan, no se preocupen,
+me consultan cuando quieran.
+Si quen dudas, son aspectos concretos de esos, mi problema
+este, pero eh, o sea que el objetivo nuestro que,
+cuál, cuál era el objetivo que teníamos en señalando en era
+bueno, aprender a evitar el sobre ajuste.
+Sí, básicamente se podía decir además de
+entender conceptualmente cómo funcionaba, o sea,
+cuál es el marco teórico de un
+algoritmo de machine learning?
+El objetivo del curso era cuáles son las herramientas que
+tenemos para evitar el eso?
+Justo sí. Porque el problema teórico era muy sencillo.
+Pues ahora ahora los repaso, o sea el el el pre,
+el problema teórico era sencillo de plantear, eh, después,
+eh, resolverlo.
+Bien, era la parte difícil de sí.
+Y el objetivo de este curso es, eh, bueno,
+ver qué cosas eh
+cambian, eh, eh?
+Con la profundidad, sí.
+O sea, la parte de deep learning va a aparecer ahí de o sea,
+tiene que aparecer de forma muy importante.
+Hay aspectos que cambian. Sí.
+Y vamos a llegar a, eh,
+tratar de entender arquitecturas este un poquito más
+complejas, como por ejemplo, este nos transformas.
+Sí, que sería como sobre el final, el curso.
+Y para entender, eh, sobre todo, por ejemplo,
+la parte de los mecanismos de atención, el tenerlos bien,
+este, tenemos que tener un re repas de álgebra lineal y de
+algunas cositas, tenemos que tener claras porque sino va a
+seguir siendo todo medio mágico.
+Sí. Entonces el objetivo para el arranque para las primeras
+clases es hoy voy a hacer una introducción,
+un poquito histórica de cuáles han sido los citos de
+de learning sí.
+Y sus momentos oscuros, este y,
+eh, empezar con un repaso de tensores y álgebra lineal que
+sin asustar a nadie, o sea,
+los que ya me conocen del curso anterior, sabe,
+yo voy a poner todas las fórmulas.
+No quiere decir que después que en los parciales les vaya a
+preguntar este hágame el producto de esta matriz en esta
+matriz no es ese objetivo, sino es que ustedes,
+cuando vean una ecuación,
+la logren entender y más o menos sepan lo de
+de que está hablando y lo y lo hagan corresponder al código.
+Sí, vamos a hacer un reito de eso.
+Y vamos a hacer un re repas de derivadas y de a grads porque
+son fundamentales.
+Ah, básicamente un eh deep learning,
+eso voy a entrar un poquito más en en detalle.
+Después se puede ver como una su varia
+de un área de la ciencia de la
+populación adelante.
+Un segundo, un segundito que interrumpimos
+atina huco Chea ela galino
+ella es la coordinadora en junta de la parte de el día.
+Yo soy la coordinadora eh académica de la
+parte coo de la PTA de ingeniería.
+Y quería a haber la bienvenida a los que se incorporan
+a la maestría por diploma en este segundo semestre de la
+simplemente d, la bienvenida.
+Bueno, bienvenidos al programa.
+Bienvenidos a la fabulad de ingeniería, la la universidad,
+que bueno, que podamos cumplir las expectativas.
+Y y bueno, que sepan que estamos a las órdenes.
+Sí, eh, mi cargo es más general que, eh,
+el cargo del mateus con quien seguramente ustedes estuvieron
+conversando o de Sergio que que es el coordinador
+académico del programa, pero pero bueno,
+de todas maneras este a las órdenes, eh,
+mi oficinas a este, bueno,
+yo vivo por allí, son la seis.
+Y ella en este tercer piso para todo lo que es de
+de índole administrativo.
+Digamos que que bueno, que es mi mano derecha.
+Así que este digo, yo no podría hacer nada porque además,
+no sé a las cosas ya y que es la de ella.
+Así que bueno, bienvenidos y lo que necesiten,
+estamos a las órdenes por teams también o por mail,
+que creo que a los nuevo ya les llev llevó el usuario
+y al que no, en que un correo y hacemos
+llegar y bienvenidos.
+Bueno, es la pequeñísima, eh?
+Interrupción, pero no queríamos dejar de
+de esa algo de venir a bienvenido.
+Bueno, si hay nuevos en el equipo zoom, bienvenidos.
+Eh? También ustedes. Sí. Escucha, escucha,
+Gracias. Gracias. Gracias.
+Muy bien, este bueno, por favor. Gracias. Gracias.
+Gracias. Gracias. Y con continuo. Gracias.
+Usted Disfrutando y como dices todos los docentes,
+este curso es divertido de amigo,
+Eh?
+Ninguna varia de la ciencia de la computación
+por el tema privados.
+Claro, este el es decir,
+va muy ir viendo en esa en esa historia que que les voy a ir
+contando que hay dos, dos aspectos después,
+si usted tengo una, una lectura recomendada con pita que se
+la recomiendo que todos conocen a Richard suton,
+que fue el el del libro Roberto y suton, eh?
+Y tiene una una nota
+reflexiva son de los avances del allá en ya es vieja, pero
+este tiene en la actualidad este.
+Y básicamente hay dos componentes muy importantes que son
+la capacidad de los tres componentes,
+la capacidad de cómputo, eh?
+La capacidad de eh, acceder a datos si.
+Y eh, una área que es bastante nueva en la así
+que se llama diferencia del programing o
+programación diferencial.
+Sí. Y tiene que ver con esto de eh,
+tener programas que dependen de ciertos parámetros.
+Sí. Y esos programas se pueden diferenciar de cierta forma
+con motores de diferenciación automática al estilo p.
+Eso es automático diferenciación, eh?
+Auto grad es la librería de pch que hace
+automática diferenciación.
+Y este y es todo un área de investigación
+este que para optimizar programas.
+Este no son los redes neuronales, sino programas en general.
+Sí. O sea que esos son como tres avances.
+Entonces ese ese ese componente de lograr de derar algo,
+hacer una derivada de forma automática es altamente, es,
+es, es muy importante.
+Si no es si no es simplemente como se suele decir por ahí
+es la regla de la academia.
+Ah, no es eso? Es mucho más importante que eso.
+Cuál fue la librería que dijo que pay to
+automática diferencia auto grado, que es un m,
+es un módulo de esa librería que es la que se encarga de
+hacer la parte de diferenciación automática.
+Ah, entonces, pero bueno, ahora solo voy a una pres, eh,
+presentar un poquito en la parte formal del curso.
+Yo soy Matías carrasco. Voy a estar a los teóricos.
+Va a ser casi todos teóricos.
+Este la parte de práctico, este Martín, este iturbide
+este que sabe un montón este y lo que pasa es que,
+como el curso es más que nada, teórico,
+son pocas horas dedicadas al práctico.
+Si. Pero algunas notebooks van a ver y y tengo ganas de
+hacer algunas cosas este sobre todo no tanto para que
+aprendan código, sino para que vean, eh,
+ciertos fenómenos que se supone vamos a explicar en el
+teórico que los vean realizarse en código.
+Sí. Este eh, por ejemplo,
+perdón, sí, práctico.
+Este con práctico.
+El taller con el práctico de taller es que este no, no, no,
+vamos a, no vamos aprender pay, por ejemplo.
+Sí, eso lo van aprender el even sí,
+este nosotros agarra,
+agarraremos una notebook yo ahora ahora tengo una notebook
+que que les ubique está en aulas,
+que es para que las cositas de derivadas las puedan ver.
+O sea, cómo se deriva en p? Sí.
+Pero la idea, por ejemplo, va a ser, eh, tengo ganas de, eh,
+mostrarles un ejemplo, eh,
+de de que se llama de David el fenómeno de David descent que
+yo algo les comenté en machine learning de que en deep
+tenemos la típica curva u cuando realizamos el error.
+Pero cuando llegamos a el fresco de interpolación total,
+eso empieza a bajar de nuevo.
+Sí. Bueno, me me gustaría hacer un práctico con eso.
+Y y no, no nos vamos a detener en el detalle de eh,
+que digamos en la parte de código,
+sino que va a ser más como el machine learning,
+que es este lo vamos a usar.
+Es como herramienta eso,
+eso es un poco la filosofía, eh?
+O sea, voy a poner más casi que no había
+notebooks el año pasado.
+Voy a poner más notebooks para que haya un poquito más de
+correlación entre o sobre todo porque creo que hay mucha
+gente que la parte de matemática la entienden
+mejor cuando la ven en coil.
+Entonces, como para hacer ese ese, ese correlato
+de los libros, eh?
+Bueno, hay miles de libros.
+Obviamente este este es el libro más clásico de todos que
+para mí hoy, o sea, es un libro espectacular,
+pero hoy ya está un poco, eh, viejo.
+Sí. Si es el primer libro de texto de deep learning
+propiamente dicho que existió,
+entonces está bueno porque explica muchas cosas.
+Este por primera vez es un poquito viejo.
+Yo no lo voy a seguir. Ah, eh?
+Este que está acá es un poco matemático de más.
+Este el pie, eh delin es un poquito matemático de más.
+Este lo pongo para aquel aquello que este les interese más.
+La matemática. Este deb es
+una versión moderna del del de good filo.
+Sí. Que b. Shop es el mismo que tenía libro.
+Se acuerdan cuando vimos PCI y prob PCA es el mismo Bill,
+pero tiene un libro sobre de PL.
+Ah, este que está muy bueno, muy bueno.
+Pero eh, tal vez un poquito de, o sea,
+un nivel matemático un poquito más arriba, el del del curso,
+nuestro, el feliz más arriba y el que
+voy a seguir casi el pie.
+Y la letra es este libro que está acá que se llama,
+eh, alice adventure.
+Sin diferencia por wonderland,
+que es este un libro reciente, en realidad,
+si van a la página del autor, hay una,
+hay versiones más actualizadas acá tienen un link a
+a al libro.
+Pero si van a la página del autor ahí este
+tienen versiones más actualizadas, eh?
+Y es un libro que me pareció que tiene el balance
+perfecto entre matemática y código.
+Sí. Este que es el que voy a tratar de seguir al pie de la
+letra, lo cual no quiere decir que digo igual,
+voy a hacer las diapositivas así.
+Eso. Ah. Y si yo usar alguna cosa extra se los
+se los indico en clase.
+Pero este libro me encantó porque es concreto.
+Y quién es todos los temas?
+Este sobre la evaluación, eh?
+Son de laboratorios.
+Sí, con eh, de 30 puntos, eh,
+ahí no hay que farar ni un punto.
+Ah, este en estos laboratorios, eh?
+Estoy viendo todavía si,
+si hago alguna cosita más de código, o sea,
+lo que estaba hecho es este preguntas, este tipo teóricas.
+Ah, eso es lo que estaba hecho.
+Estoy viendo todavía un poco a ver cómo lo voy a llevar,
+cómo lo voy a hacer capaz que les deco alguna de estas cosas
+más interesantes de biler que ustedes simplemente en código
+este en vez de el único malo que hay equipo corregir,
+pero buena este lo otros son cuestionarios que hay ya hechos
+que están en aulas y sobre ejercicios teóricos que tienen la
+aventaja de se corrigen solos.
+Pero este no sé, los voy a mirar.
+Bien, y voy a ver que tipo de preguntas hay este.
+O sea, no tengo definido todavía exactamente cómo van a
+hacer pero o o bien son entregas de notebooks o algún
+ejercicio o múltiple opción.
+Algunas cosa así. Ah, pero eso acuérdense,
+digo, ahí es flexible.
+Ah, es flexible porque es por aulas.
+Si se atrasan una semana,
+me avisan si justo están complicados en el trabajo.
+Me avisan eso avisándome con tiempo no hay problema.
+Hay flexibilidad. Ah, eh, lo que sí,
+después de los parciales, eso son esos de
+es en día que cae y list.
+Sí, este pues ahí hay dos parciales.
+Uno de 30 y el segundo parcial de 40 son presenciales.
+Y el segundo parcial tiene segunda instancia, eh? Creo.
+Hay un mínimo de 30 por percent, creo.
+Sí, hay un mínimo de 30 por percent en la nota que tienen
+que sacar para en el segundo parcial.
+O sea, cuándo es que van a segunda distancia?
+Van a hacer una instancia si no llegan en los 70,
+70 puntos de aprobación, sí.
+Pero a su vez tienen que tener un mínimo
+en el en el segundo parcial.
+O sea, si sacan menos del 30 por percent en el segundo
+parcial, no pueden ir a segunda distancia.
+Este igual, eso lo chequeamos,
+pero estoy casi seguro que es así, eh?
+Y igual. Y la segunda instancia, lo más, lo que tiene.
+Bueno, acá no hay obligatorio, pero lo o sea,
+es solo sobre esos 40 puntos.
+Sí. O sea, no es sobre todo, no,
+no es como una revancha global.
+Es solo es sobre esos 40 puntos.
+Y en caso de que ustedes aprueben,
+se toea en el mínimo el 70.
+Ah, este y bueno, eso es lo administrativo.
+No sé si tiene una duda y igual esas cosas. Las charlamos.
+Algunas si tienen este, bueno,
+sí que arranco con la intro.
+Algunos dipo les van a haber repet algunos dipo va a parecer
+repetida de machine pero
+pero vale la pena pasado así igual.
+Acuérdense que la la pregunta esencial no
+es esta y esta esta, eh,
+es interesante porque se acuerdan a ver,
+pregunta cuánto se acuerdan?
+Quién era? Impulsamos
+fue el que inventó fue el que fue el primero una
+cuñar la palabra machine.
+Le te acuerdan que trabajaba en i bm este y
+y fue el que inventó la palabra machine la
+básicamente por estos años.
+Y o sea que esto fíjense que viene hace este casi del origen
+de la de la reputación.
+Y él se pregunta, eh,
+cómo podemos hacer que las computadoras aprendan a son no
+problemas sin ser programas explícitamente?
+Ah, y eso siempre que acordarse que es el objetivo de todo
+de estas áreas, ah, o sea, aquí,
+plane es una sub área de machine learning objetivo es, sí,
+este de Wikipedia.
+Y esto sirve porque di plane lo que ha, o sea,
+va a agregar un componente que se lo voy a explicar ahora,
+pero como como partida, no de en machine learning es
+una rama de la inteligencia artificial
+que este estudia algoritmos estadísticos
+este que pueden aprender de datos
+y genera generalizar a datos no vistos sin ser o sea,
+sin haberle dado instrucciones explícitas,
+lo cual muy un añoso porque alguna instrucción le damos no.
+O sea, por lo menos le damos la instrucción de cómo extraer
+la información de los datos y cómo hacer,
+eh, esa inferencia.
+Pero hay palabras claves que van a seguir estando acá,
+no que es bueno algoritmo estadísticos.
+O sea, la estadística va a estar siempre este
+datos, este inteligencia artificial que uno habría que ver
+exactamente qué tiene decir.
+Es interesante porque la palabra inteligencia artificial
+surge como oposición a la gente que estudiaba redes
+neuronales, la la gente que estudiaba red red neuronales en
+la época, eh, de los orígenes de todo esto,
+se llamaban conexion y era era gente que venía más como del
+palo de la neurociencia intentando moderar el
+cerebro y esas cosas.
+Y este la gente que se autodenominó que estudiaba una
+inteligencia artificial era gente que estudiaba cosas más
+simbólicas o más este formales, eh?
+Hacían cosas que llamaban sistemas,
+expertos y cosas así que después este terminaron la nada
+y este y al fin,
+pero el nombre lo pusieron en contra posición a los que
+hacían redes neuro honorario que hay por hoy.
+Sí, juntos este.
+Y les recomiendo esta lectura acá pueden clic, limpiar este,
+si clic le va, le va a abrir esta
+de de un lado a perdón.
+Esta esta es una, es,
+es simplemente una nota que se llama de Peter leson de
+suton el mismo del libro, eh, no se las llevo ahora.
+Pero eh, creo que está buena para que me lean que dice que
+la lección amarga es que, o sea,
+y después vamos mover unos gráficos que confirman lo que les
+dice es que, eh,
+si bien uno tiene como ganas de hacer que las cosas tengan
+cierta lógica y de, eh, decir bueno, este
+el ser humanos se comporta de esta forma,
+piensa de esta manera.
+Entonces, de repente podemos imitar este mecanismo, eh,
+o este hecho que se los pajaritos este se comportan así.
+Entonces, hagamos un modelo que más o menos se invita a a
+eso, eh?
+Como que tenemos esas ganas de ponerle principios
+a, eh, principios generales que le den
+fundamento a los algoritmos.
+Lo que ha hecho progresar a a deep,
+inteligencia artificial es
+entre comillas y las fuerzas abruptas no este.
+Y entonces, si él dice que es la lección amarga, porque este
+nos damos una otra vez contra esa pared, sí,
+de que este los ca, eh,
+si uno intenta ponerle como principios y y y hacer cosas que
+sean como más razonables se estanca.
+Y sin embargo, si intenta implementar o sea,
+obviamente bien implementados, no este bien armados este.
+Pero si logra hacer sistemas que escalen, que
+que se aprovechen de más cómputos que aprovechen de más
+datos que consuman más energía que le den
+con toda ahí avanza.
+Sí, este entonces este, eh,
+está bueno para que lo lean y después le voy a mostrar este,
+eh, algunos graos este en la actualidad para que vean que
+efectivamente es persona.
+Sí, este entonces es un poco
+es un poco frustrante, eh?
+Porque porque la explicación de
+por qué las cosas funcionan bien, todavía falta.
+Sí. O sea,
+hay avance en base a este en base músculo.
+Sí. Y astucia de cómo hacer que ese músculo funcione bien,
+no de cómo organizar las cosas para que el músculo funcione
+bien, pero faltan principios teóricos que sustenten,
+o sea, o que den alguna explicación de por qué, eh,
+las cosas funcionan bien.
+Y eso va a parecer entonces esto,
+esto lo pongo porque acá dice no, bien, que acá dice este,
+eh, algoritmos estadísticos.
+Y eso es, ya se lo se se había dicho,
+el recurso pasado es altamente no trivial.
+Si, es decir, si uno quiere hacer un sistema
+inteligente que resuelva, por ejemplo,
+acá hay problemas típicos problemas de computer Bill,
+no que algunos nos vamos a ver este
+de clasificar una imagen o este cla detectar algo en una
+imagen, o sea, clasificar y clasificar y localizarlo,
+si son varios objetos o sementar no,
+esos problemas son imposibles de resolver.
+Si uno intenta hacerlo a través de instrucciones, sí.
+Entonces a alguien se le ocurrió o a la comunidad,
+a la comunidad la humanidad se le ocurrió
+no que si vos decir, bueno,
+yo no sé explicar lo que es un gato,
+entonces no puedo o poner un Ford pixel.
+Y no sé qué este si el pixel del del costado, no sé cuánto,
+o sea, no lo puedo hacer, pero alguien se le ocurrió que yo
+le doy muchos ejemplos de gatos y muchos ejemplos de no
+gatos, eh, te pu de esa forma.
+Puedo crear este programas que logren
+resolver bien ese problema.
+Sí. Entonces este,
+ese es el típico problema que que que vamos a estar
+estudiando son problemas que
+se resuelven mostrándole ejemplos.
+Sí, ejemplo, o sea vos, no sabes definir el concepto.
+No, no lo podés ni siquiera definir con palabras.
+Pero si pods darle un montón de ejemplos
+de cosas que son y que no son sí, y
+y y vamos a ver que eso que están
+primitivo bien.
+Incluso se puede llevar a niveles, eh, de eh,
+aprender este representaciones de cosas que eso, eso,
+eso es el corazón de de acá.
+Acá hay otro ejemplo, eh, simplemente otro ejemplo
+pasar del de texto escrito a a
+a texto plano, por ejemplo,
+o sea text imágenes de texto escrito al texto plano,
+hacer un programa que haga eso,
+si no es con ejemplo, es imposible.
+Y este o en como funcionan los modelos de lenguaje no que
+predicen la siguiente palabra en base a una ventana.
+Acaso una vent Anita ejemplo, eh, diminuta.
+Pero acuérdense que todos los modelos de lenguaje tienen una
+cierta ventana de contexto que más allá de eso no pueden
+mirar, no este y y pre decirlo que la palabra que va a venir
+y va a ser a lo anterior,
+tratar de hacer un programa a mano de eso sería
+pensar obviamente.
+Entonces le eh, de bitter leson es
+que para poder hacer algo con chat gpt u que darle el
+conocimiento de toda la humanidad, no?
+Sí, eh? Se consumió todo.
+Entonces digo, o sea,
+nosotros aprendemos a escribir y a hacer historia y a
+redactar con muchísimo menos información.
+Y esa, esa es la la lección amarga
+de este.
+Entonces, siendo un poquito más este al grano para tratar de
+como enfocar un poquito, eh, la disciplina,
+se acuerdan el machine?
+Realmente teníamos no tres componentes.
+O sea, hay tres componentes importantes.
+El aprendizaje el le le pide disculpa a el que no hicieron
+machine que pero en cualquier cosa
+teníamos la parte de representación.
+O sea, hay tres componentes muy importantes a la hora de
+aprender la parte de representación.
+Cómo representamos los datos?
+Este me olvidé,
+pero le iba a pedir al echar que me diera un algoritmo para
+dividir el número romano.
+Este le hacia le iba a decir supente que eso es un romano
+que vive en los que que dame un algoritmo para dividir
+este y y ese es un infierno.
+Sí. Entonces, cómo cómo representamos las cosas?
+Es es súper importante cómo representamos los
+objetos es súper importante.
+O sea, puede ir incluso a nivel de datos de cómo
+representamos los datos y eso van a ver que,
+sobre todo cuando hablamos, eh,
+cuando estudiemos el lenguaje, lenguaje natural,
+la representación del texto va a jugar
+un papel real importante.
+Sí, cómo representamos el texto?
+Este numéricamente va a ser fundamental
+y y las hipótesis es cómo, cómo representamos o sea,
+cómo hacen los modelos para este
+crear representaciones o usar esas representaciones para
+resolver problemas.
+Y después estaban en estos dos componentes que ya los fueron
+en los que nos entramos en el uso de machine learning
+memorización y generalización que acaban de seguir
+presentes, eh, esto, o sea,
+estos dos siempre van a estar luchando entre sí, eh,
+permanentemente, eh,
+acá sería otro eje se acuerdan de lo que sería
+una representación en la cual
+es este más fácil resolver un problema?
+No sea si, si mis datos originales
+son vienen así en esta en esta forma,
+y yo tengo que distinguir puntos rojos de puntos azules
+en su en su forma original,
+la curva que tengo que at trazar para diferenciar uno de
+otros es bastante más complicada.
+Y de repente encuentro una representación
+en la cual este con una cur con una una decisión más simple,
+no un plano, este po para algo azules de los de los rojos.
+Sí. O sea que el tema de cómo representamos nosotros la
+información para después pasarla a un algoritmo es,
+este es el tema central de diplom sí.
+Y yo volví a se vue para atrás.
+Y es básicamente estas burji es,
+son un poco en la historia también.
+Sí, este ah acá lo que dice es este ejemplos
+dice este knowledge basis.
+O sea, son como, eh, programas basados en conocimiento, sí,
+igual hacemos reglas este
+hechas a mano para tomar decisiones o si, eh, no sé,
+tenemos información y dice si quiere pico, si tiene plumas,
+si no se qué, entonces es un pájaro,
+eso sería como un sistema basado en reglas.
+Este después en en machine learning, no?
+Eh, vimos acá el ejemplo que pone acá
+típico sería la regulación logística.
+Lo vimos que, bueno,
+si vos me das este ciertas features saladas
+en forma numérica,
+yo puedo entrenar de repente un un algoritmo
+como regresión logística para este,
+predecir este si algo es un pajarito o no,
+pero esa, esa, esa, ese,
+ese vector de característica ya lo suado, verdad?
+Lo suado o fue hecho a mano en una etapa anterior
+y después entre los dos entre deep learning.
+Y y esto
+sería como este la parte de representation learning no.
+O sea en la historia, se pasó por representation learning y
+después se llevó a deep, eh?
+Representation learning, eh?
+Serían como las este ahora.
+Ahora, después les le mure un ejemplo.
+Pero este, eh, por ejemplo,
+el ejemplo clásico de del problema de representation lales
+los los embeds de texto en espacios vectoriales.
+Esos son eh,
+típicos ejemplos de problemas en los cuales aprendemos
+a representar información numéricamente
+sin ningún objetivo especial.
+Sí, sino que nuestro objetivo es encontrar una buena
+representación de la información.
+Ah, este y después.
+Bueno, deeplearning que le agrega este más profundidad como
+para, eh, eh, hacer de esa representación hacerla
+que jerárquica y posicionales.
+Sí. Este entonces,
+por ejemplo, acá, o sea, es como paradigma de
+de representación los los embedding de texto.
+Sí, este algunos, vamos a ver esto.
+Esto es de, es de war tube, eh? No sé si le suena este.
+Este es de depend de los años.
+Es la que es la primera vez que se logra hacer con un
+o sea que qué significa?
+Es básicamente, en realidad se trabaja a nivel de tokens,
+pero este es podemos pensar que son palabras o sea,
+les componemos el texto en palabras
+y cada palabra la vamos a
+este en beber en un espacio numérico de inmersión grande,
+pero no tan grande como el vocabulario
+que tenemos en el visionario.
+Sí. Y este y qué quiere decir o o encajar?
+Encajar sería la la palabra cuando uno
+encaja algo en otro lugar.
+Este es como que no rompe su estructura.
+Sí, o sea, lo quiero llevar a
+a a un espacio, eh?
+Cierta dimensión, nu médico, pero sin romper su estructura.
+Sí. Y en el caso del texto, por ejemplo, podría ser
+este que ciertas relaciones semánticas se se mantengan no?
+Entonces, por ejemplo, en ese espacio
+que haya una dirección que si yo me muevo en esa dirección,
+estoy haciendo es cambiar el género de la palabra y
+o este relaciones del tipo sintáctico.
+Sea que que haya una dirección en la cual si yo me muevo en
+esa dirección, estoy pasando al a, eh, de big a bigs.
+Y les mol les moles.
+No sé cómo sería en español pequeño y no, eh,
+pequeño, eh, cómo?
+Pero cómo? Cómo se llama ese?
+Este formativa es,
+es eso no va este?
+Y y y esto es un ejemplo típico de re, eh,
+representation down.
+Si. Si. Cómo aprendemos a representar texto
+de forma numérica,
+pero que preserve las propiedades del texto.
+Sí. No, no es poner, no es ponerlo un vector
+a cada palabra, sino más.
+Sí, este y y, por ejemplo, warbeck que fue en el
+si, si me quedan acá abajo, pueden ir al 30
+el el el primero, ven hacerlo exitosamente, eh?
+Lo hicieron de dos maneras.
+Este una es este, por ejemplo, eh?
+Si uno uno fija un contexto de la palabra no, por ejemplo,
+de las dos palabras adyacentes.
+Sí. Y o sea, hoy uno tiene datos no?
+Por ejemplo, todos los textos de Wikipedia.
+Sí, tiene tiene mu mucho texto. Sí.
+Si lo que haces es entrenar una red neuronal que este mire,
+vaya, mirando ventanitas.
+Sí, ese texto pueden estar Tomás sala azar o pueden
+seguir un orden de eso.
+Hay varias formas de hacerlo, pero que sean, por ejemplo,
+eh, cinco palabras consecutivas.
+Sí. Y lo que lo que va a hacer es mirar es intentar
+predecir la palabra del medio.
+O sea, nosotros sabemos cuál es, pero la ocultamos
+y y le pedimos que prediga esa palabra en base a las
+palabras de contexto.
+Sí? O puede ser al revés.
+Si yo le doy una palabra que me prediga el contexto, sí,
+esa palabra y entrenando, o sea,
+lo bueno de eso es que no preciso datos etiquetados, no?
+Porque el texto ya lo tengo. Sería como en en en imágenes.
+Es algo parecido como agarrar una imagen,
+ocultar una parte de la imagen
+y pedirle el modelo que prediga la parte que oculté.
+Sí, y eso son lo que logra hacer es este
+aprender, o sea para intentar resolver ese problema, eh?
+Como como byproduct no
+aprende a representar el texto de forma adecuada.
+Sí, y y y.
+Y eso es lo que es de origen a world a este tipo de de
+Bien, entonces, como resumen, digamos del el, o sea que
+lo que cambia en en deep learning, pues es que,
+o sea esto esto hasta ahora, digamos si, si quieren esto,
+esto que les conté, eh, es, estamos en esta parte de la
+en laita no en representation.
+Entonces, lo que lo que cambia en deep learning es que, eh,
+lo que vamos a hacer es, eh, intentar, eh,
+jerarquizar, eh, las representaciones, sí.
+Es decir, hacer que, eh,
+las representaciones vayan de bajo nivel a alto nivel,
+sí o o si quieren de menos abstracto a más abstracto, no
+este y hacerlo eso en en varias etapas,
+por lo menos ese es el objetivo original.
+Entonces acá en este eje,
+la la entrada de o sea, imagínense esto.
+Esto es una red normal que todavía no sabemos mucho lo que
+quiere decir, pero o sí, pero este manejemos no de forma
+intuitiva a acá entran los los pixe les
+brutos en la imagen este y la y la primer capa.
+De repente este, o sea por arte de magia,
+se entrena cuando la entrenamos,
+el col con el objetivo de clasificar esta imagen,
+este se termina entrenando
+y aprende a reconocer este bordes por decir
+a d al primer cabo.
+Entonces hace una primera extracción y después la segunda,
+este aprende que usando esos bordes, aprende esquinas.
+Este contornos sí,
+este y la tercera aprende usando sus contornos y esas
+esquinas aprende objetos, eh?
+Se una rue así una pilota este.
+Y así se seguiría hasta una atracción total en la cual
+obviamente es la clasificación final.
+Sí. Entonces, eh, es clave acá en este, en esta, en este,
+en esta arquitectura de de modelos
+que es este jerárquico y que es posicional.
+Sí, es un uno puente del otro.
+Ah, este y esto es un poquito de lo que lo que ya les había
+hablado es bueno, al principio ha hacíamos las cosas a mano,
+no de input, eh?
+Programas diseñados a mano output em
+machine learning clásico es input
+características diseñadas a mano.
+Un prof, el o sea, un programa,
+un modelo aprendido que responde a un output.
+Todo lo que es gris es aprendido no, eh,
+en representation learning ha dado el input.
+Aprendemos las características como what tube,
+no dado texto.
+Aprendemos esos en bess, en en esos espacios vectoriales
+este los pasamos por algún modelo y resolvemos
+alguna algún problema.
+Por ejemplo, es una reseña positiva sobre un producto o no?
+Sí, y este en hacemos eso muchas veces
+esperando que se jerarquice el conocimiento y que, eh,
+cada vez que uno pasa de una etapa a la siguiente, eh,
+se aprenda una abstracción mayor.
+Bueno, entonces voy a seguir un poquito a la línea de tiempo
+que acá le faltan cosas
+y que es un poco injustas sobre todo ver el final, pero
+este porque creo que nos sirve para ver, bueno,
+cuál o sea, qué cosas vamos aprender en en el curso,
+sobre todo cu nos ayudamos acá, pero
+este, estos se acuerdan?
+No este los inventaron.
+Las redes rurales fueron macul y pi los años
+40 en el 43.
+Se acuerdan que este era un neuro científico,
+este un matemático que también nombre el loco, este vigente,
+el cargos, eh?
+Y las inventaron se acuerdan con el propósito,
+no de hacer cosas, eh?
+Imaginar nada de eso,
+sino este para ver si el cerebro humano podía computar las
+mismas cosas que una máquina detur sí, este
+después quien quien usó esos modelos que habían hecho ellos
+fue Rosenberg que los usó para predecir es que, por ejemplo,
+eh, palabras en el alfabeto, eh, letras en el alfabeto.
+Si uno dibujaba una letra en un monitor medio extraño que
+había y el perrón de Rosenberg predecía qué le letra a
+él este?
+Y después vinieron estos que lo que hicieron,
+o sea rosa plat hizo todo muy a mano usando
+las redes neuronales.
+Creo que acá está dibujado la la función signo.
+O sea, él usaba como función de activación
+una una una función que no era di es diferenciada este.
+Entonces las neuronas básicamente para él eran
+bastante parecidas a los a los modelos biológicos se decía
+disparaban cuando llegaban,
+cuando acumulaban cierta cierta cantidad de cuando
+so sobrepasaban un cierto umbral, disparaban no
+este y lo que hicieron un wiro bi Hof con una con un
+perceptron que se llamaba adaline fue decir no, no,
+hagamos todo suave, suave diferencia.
+Y fue la primera vez que usaron que cosas como este tiene
+pueda error cosas usando redes.
+Sí, pero esencialmente seguía seguía siendo el perrón solo
+que este matemáticamente más a mí.
+Y después vino en estos dos muchachos.
+Soy doki que eh pobre, eh?
+Hay entrevistas en youtube de miki que trabajaba en el MIT,
+eh, bruto investigador, eh, en ciencias de la computación,
+por ejemplo, aquí aquí, un libro que está muy bueno que se
+llama eh finit
+infinite state Machines de sobre
+la teoría formal de de de la computabilidad y esas cosas.
+Un un gran investigador que escribió con papa un libro
+sobre el perceptron de roseberg, eh,
+y bastante crítico sobre el libro
+diciendo que bueno que el que el
+que el perceptron podía resolver algunos problemas,
+pero que había cosas triviales como el problema deor no
+puede volver a hablar, no, este exor se
+sabe lo que es es, es la exclu es lo exclusivo exacto.
+O sea que solo da uno si, si es uno cero o uno, no.
+Si, si, es uno uno de cero.
+Y si es este cero cero de hacer
+y lo que pasa es que lo el perrón esencialmente busca un
+un plano o un hiper plano que separe las clases
+y el sort no es no es separable por por planos.
+O sea, no es linealmente separable este
+entonces se dice un poco con concierto es, es,
+es un poco un mito, pero que esto, esto,
+esto es lo que se conoce como el exor problem que yo ahora
+les voy a hablar de más adelante de una una
+una generalización de ese problema que sigue existiendo.
+Se dice que eso dio origen a el primer invierno
+de la inteligencia artificial.
+Eso no es del todo así, digamos si bien,
+obviamente contribuye, eh,
+que lo que lo que dicen los historiadores es que hubo un
+previo a eso con lo que hicieron rosen y de huro incluso
+ellos mismos, eh?
+Viki eso en el libro es el dicen que la forma de resolver es
+poner varias capas.
+Pero claro, nadie tenía datos.
+Nadie tenía poder de cómputo para entrenar dos capas.
+O sea que imag o sea,
+la computadora de bro la que ocupaba toda la habitación y
+era una neurona no este todo el método, eh,
+con eléctrico real o sea electrónico realmente.
+Entonces, eh,
+dicen que hasta acá hubo una especie de hay en la en la en
+la sociedad de esto es, eh.
+Además, si, si ustedes miran hay documentales de MIT de los
+años de roseberg este y ven, dicen que
+que va a cambiar el mundo que se viene el
+apocalipsis, todo, todo lo mismo.
+Este lo dicen este en esos documentales, este,
+o sea que hubo un boom de impresionante y una decepción
+brutal después este cuando vieron que secó.
+Entonces esa esa decepción enorme de se dejó de financiar la
+la investigación en la inteligencia artificial.
+Este hubo el algunos resultados teóricos negativos como este
+y bueno, está y murió el tema.
+Sí. Hasta que
+en los 80, eh?
+Ah, yo creo que algunas eh,
+lo había pensado para ir y venir esto.
+Esto era lo de de Rosenberg,
+no lo los voy a poder mucho con eso.
+Este este es el mejor problem en que después te comento cómo
+sigue siendo un problema.
+Y ahora, si lo de del 86, hasta que
+en los 80, eh,
+aparecen boomer heart hion williams con el algoritmo de back
+propagation sí.
+Entonces, o sea, ven que realmente es una pieza clave.
+O sea, la diferenciación automática es,
+fue una pieza clave para volver a despertar el interés
+por las redes neuronales.
+Sí. Entonces, eh, eh, creo que está bueno porque el
+o sea, acá tienen un link el pay no tienen por que leer pero
+eh, publicaron este este pay,
+pero que es este aprendiendo representaciones con bad
+propagation vieron que el objetivo de ellos era aprender las
+representaciones de cosas.
+O sea, esto sigue siendo dentro de lo que es este sha
+low networks.
+O sea, esa esa, esa Burj que estaba en el medio, o sea, no
+to todavía no es dipl.
+Pero si son redes que son un poco más
+profundas que él perón de rosen este
+y tal esto, yo ya digamos délo tranquilos,
+después está bueno, dice cómo, o sea lo que hace, o sea,
+básicamente describe cómo es, cómo son,
+cómo son los algoritmos que semos ahora?
+O sea, dice muy dice de describimos un nuevo
+procedimiento de aprendizaje, eh?
+Back propagation, eh?
+Diste el que no fueron los primeros que ya había frente de
+que había inventado esto no, eh, pero bueno,
+está siempre pelea, no que los llamaron back propagation
+para redes del estilo, eh,
+neuro like no dice networks este
+el proced el procedimiento adju a
+ajusta de forma repetida los pesos de las conexiones en la
+red de tal forma a minimizar una medida de la diferencia
+entre el lapu actual, el o sea,
+el vector de output actual de la red,
+el vector de output deseado.
+Sí, sea, tenemos una función de pérdida ahí
+este iterativamente vamos ajustando los pesos de la red para
+este, hacer que esa diferencia sea chiqui como resultado
+de este a ajuste de pesos.
+Esos esas, este unidades, eh,
+escondidas que les llamaban esas hidden units que están en
+el medio, eh que no son parte ni del input ni del out food.
+Este aprenden representaciones
+importantes, eh?
+Para, eh, la para la tarea en cuestión, eh, este,
+eh, no sé de más.
+Dice como que esas representaciones están escondidas en las
+interacciones entre esas unidades este y dice la eh,
+bueno, en pues ya the ability useful features
+distinguish back convergence.
+Sí. O sea, fue un salto importante este en la
+en la capacidad de entrenar y de y de poder
+aprender esas representaciones.
+Claro. Todo bien. Bueno,
+entonces teníamos o o sea, ahora vuelvo sobre esto, dijimos
+hubo hubo exor no.
+Y hubo un renacimiento con back propagation y en el medio
+un el lo llama el ella hay winter.
+Sí. Y esto fue a causa de la burbuja causada por el
+entusiasmo anterior.
+Básicamente este ahora el el problema AOR
+es un problema que sigue existiendo a acá tienen dos things
+esto es un blog que llama the new problem.
+Pueden ar y vago. Y esto es un paper, eh?
+Y básicamente dice que los transformers
+satur transformers son lo o sea, los transformers, eh?
+Uno de los objetivos del curso va a ser estudiados en dodus
+y ver que tienes un mecanismo de atención que se llama que
+este que es soft sí.
+O sea que más o menos mira y pondera en base a eh,
+o sea en texto, no,
+mira y pondera en base de lo que ya está escrito.
+La eh, la siguiente palabra, a,
+a qué cosa le tiene que prestar atención?
+Sí, de forma ponderada, eh?
+Cuando se dice saturado es cuando se lo hace que
+que sea de forma strict.
+Es decir, este, por ejemplo, eh que que no sea una softmax,
+sino que mire, eh, cuál es?
+Cuál es el lugar más probable que tiene que mirar? Sí.
+Entonces este, este es un un paper que muestra que los
+transformas saturados de esa forma
+son equivalentes a circuitos de de puertas lógicas.
+Este cómo? Como estos que están acá. Ah, ahora qué pasa?
+Imagínense que ustedes quieren resolver un problema al como
+el el, el problema de la paridad.
+Ah, es, le dan una secuencia de celos y unos
+y ustedes tienen que decir si hay una cantidad par
+de unos, sí.
+Entonces, obviamente, si usted tiene que inscribir un
+programa de pyon para eso que haría contar
+m dos m, los dos sumar módulo dos, no sumamos los unos.
+Hacemos np sam, un módulo dos?
+No, si es par, lo que pasa es que sumar,
+si vas al bajo nivel,
+sumar está lleno de de compuertas lógicas, verdad?
+Cuando uno suma, no.
+Entonces este, acá hay dos ejemplos de cómo de de
+cómo se puede resolver eso.
+Uno de una forma ineficiente que es el que está la la
+izquierda y es una una forma eficiente,
+pero en cualquiera de ellos.
+Miren, por ejemplo, acá lo que hacemos es, ponemos un note
+arriba del todo y empezamos a hablar desde abajo
+para arriba, no?
+Ah, o sea, acá yo tengo un dos, tres, cuatro.
+O sea, me tiene que decir que hay una cantidad par de unos.
+Sí. Pues y y y después lo que vamos, encadenar un Mont.
+Un montón de exor sí.
+Entonces em, acá va uno, no,
+este este con este mero sí, este este con este
+mero este con este me da uno este con este mero este conecte
+mi cero que con este me cero y un note al final uno.
+O sea, hay una cantidad par, eh
+que cuál es el problema de esto?
+Es que preciso la misma cantidad casi de exor que el tamaño
+de la tira que ten.
+Hay una forma más suficiente que es encadenar note source a
+hacia el forma forma de árboles.
+Sí. Y va a pasar lo mismo.
+No acá este y este es un not sol, no?
+Entonces este y este me a cero,
+este y este me da cero este y este me estaría dando cero,
+pero el not me lo transforma en verde.
+Sí, ahí si siguen así, el arbolito, bueno,
+a llegar a lo mismo este, o sea que este,
+este crece como n, su profundidad.
+La profundidad de este programa crece como n.
+Y la profundidad de este programa crece como lo n.
+Ah, pero en cualquier caso, se va infinito.
+Sí, y y en y en este tipo de paypass y y hay otro pay per
+citado en ese blog muestran
+este que los transformers.
+Los language models de ahora, por ejemplo,
+tienen una cota teórica,
+dada que si igual le pasas una tira más grande que eh,
+ese tamaño no te van a saber decir si hay un número paro y
+par de unos ah, este
+obviamente no es un problema que uno encararía con un
+preguntándole a chat porque uno puede hacer np
+sam y ya está.
+No. Pero muestra que eh,
+que ese problemita de o sea, eh, que la profundidad y la
+y y el problema de exor este siguen sobrevolando ahí.
+Eso no es que est este
+que estemos completamente librado, eh,
+Eh?
+Bueno, entonces voy a línea de tiempo y ya y voy
+con, no me estamos bien de tiempo.
+Sí, eh? La línea de tiempo, no llegamos a los no.
+O sea, en el seis.
+Estos señores inventaron va propagation reinventar bad
+propagation este hoy por hoy.
+Eso, eso se llama en pa en pay.
+Ya no propagation eso se llama automática. Diferenciación.
+No es un poquito más general este,
+pero ya a finales de los 90, eh,
+este señor que también ganó el premio Turing ya en le cu
+eh, junto con pencho sí,
+este acá tienen el link del artículo.
+Todo esto es por publicidad.
+Si quieren ver, eh,
+que publicar un paper que se llama gra base learning apply
+to document recog ah,
+que lo que hacían era este óptica óptica.
+El carácter recognition de de documentos
+con una red conal no,
+no muy grande que se llamaba lenet cinco.
+Sí. Cuando este trabajaban en este los ver labs. Sí.
+Bueno, pas.
+Bien, tú
+pueden decir y yo gabriela sí, acá
+familia bonne. Sí, a
+Ahora, Eh, car, hay
+cherno chiri chirino chu.
+Sodio, eh? Dinero, sal. Ajá.
+Fueron eh,
+por acá.
+Bien, González, eh?
+Gar aj
+guerrero acá.
+Bien, in you a acá López. Sí.
+Eh, mag aca,
+eh, ma?
+Sí, Méndez, mora. Sí.
+Morón acá, eh,
+Sandi. Muy bien,
+Gracias. Mucho.
+Bien. Sí,
+le encantaría
+Tampoco.
+Sí. Si
+el peso.
+Bien. Y perdón, perdón, no digo
+era, es, es una red evolucionar que son uno de los modelos
+que vamos a ver para tratar imágenes, eh?
+Relativamente sofisticada.
+No año, no, no, 28 piensa que
+había antes no era mucho más sofisticado que el perceptron
+este la la pudieron entrenar andaba bien.
+Pero eh, de todas maneras era eh, o sea,
+llevaba una eternidad entrenar esto y había pocos datos.
+Entonces, de nuevo, se como que se estaca la cosa sí.
+O sea, se tiene
+el conocimiento como para entrenar las cosas.
+Pero lo que entra acá, el progreso es la falta de cómputo
+y de das este y ahí,
+o sea, na deep learning con estos dos señores,
+es este paper acá pueden flear ir al payal.
+Este es un poco viejo porque es el pero está bueno
+por menos la la introducción de cómo
+lo presenta diciendo bueno, acá hay un tema, o sea, acá no,
+nuestro nuevo desafío es cómo diseñar arquitecturas
+profundas y que puedan ser entren nables.
+O sea, eh, es, es es un artículo bastante divulga,
+digamos para la época hoy por revista obsoleto, pero es este
+en el o sea, se se puede leer el lo los desafíos del del
+memento, digamos sí, y y acá en realidad, lo que hace
+quinto cocino y t
+es inventar formas de entrenar rápido.
+Esas redes lo hacían capa capa con cosas que se llamaban
+oldman Machines, cosas complicadas este,
+pero entrenaban de alguna forma encontrar métodos que eran
+practicables en ese memento para entrenar redes.
+Y por eso digo que esta línea de tiempo es un poco injusta
+porque menciona Hilton con otro loco que se
+llama ruly.
+Pero en realidad
+esto es lo que hicieron fue aplicar lo que Hilton había
+desarrollado en este otro paint que era que era
+era como más teórico.
+Sí? O sea que en en la línea de tiempo aparece como, eh,
+es esto baja, eh, hecho realidad,
+em y bueno, y y todo explota, eh?
+Con Alex ne sí.
+Que á Alex net fue, no sé si conocen alguno, eh?
+O sea, en realidad viene por este señor,
+el nombre de la red, pero a
+lo deben conocer no anda por ahí.
+Este en el
+ganaron la competencia denet que era una competencia muy
+prestigiosa de, eh,
+una casse muy grande, eh?
+Con muchas clases de cosas tipo aviones, personas,
+los árboles, edificios.
+No sé cuántos categorías tenía y este usualmente eh,
+tratado por eh,
+ingenieros eléctricos que eran que se dedicaban al
+tratamiento de señales y al reconocimiento
+de imagens y esas cosas.
+Y eh, en el es la primera vez que usan este
+una red neuronal para entrar en esa competencia muy parecida
+a penita más grande que la de denet lo que pasa es que ya
+tenían más datos para entrenar este y ganan la competencia.
+No, no, espectacular. Pero después, bien, que
+bien, bien rápido.
+O sea, con técnicas de deep learning se lleva
+a porcentajes este, eh, super estos.
+Sí. Y esto fue un una explosión.
+O sea, en el mundo de computer vision, eso marcó el fin
+de todos los demás y de a ganado.
+Ahora más es simple, o sea computer Bill de ahora más
+que es un poco lo que pasó con muchacha gpt
+en lenguaje natural.
+Este a acá tienen la el paper, si quieren verlo.
+Y después vino este señor completamente desconocido
+de mi que que estaba hecho también acá.
+Me hecho aparece en todos lados, eh?
+Pero badau es el autor principal de esa publicación
+que se llama eh, never machine translation by join
+online translate y fue el que inventó a atención.
+Sí, pero nadie lo nadie lo conoce
+este, eh?
+Y entonces acá les puse el
+nosotros lo leímos en un seminario,
+pero este película este el acá les puse el
+el el resumen, porque hay este palabras tan buenas.
+El lo dice que en ese memento,
+lo que se estudiaba muchísimo era el problema de traducción.
+Sí, lo mejor que existía era, eh, eh,
+Google translate seguir capaz que algunos son
+muy chicos para correrse.
+Pero yo he vivido todo,
+todo esto estofamos la computadora cab, cosas para
+hemos vivido todo este y y me acuerdo cuando Google el
+transla y era una cosa espantosa.
+Entonces se acuerdan? Comía si era indio, eh,
+queda se acuerdan?
+No va entonces estudiaban mucho ese
+problema, eh?
+Porque había muchos datos.
+O sea, había mucho texto, eh, mucho texto bilingüe.
+Entonces, era un problema en el que se podía acceder
+fácilmente da datos y intentar mejorar.
+Sí. Y entonces dice y lo que se usaba en ese memento eran en
+las redes normales recurrentes.
+Sí, que es algo que vamos a ver también.
+O sea que en realidad el mecanismo de atención se inventó
+para las redes rurales recurrentes, o sea,
+transformar no es lo mismo que atención.
+Sí, este este concepto existió antes
+y em, las redes recurrentes llevan o se concentran toda la
+información en una cosa que se llama hidden state,
+que es un vector de RN en cierta dimensión,
+que es el que va guardando toda la información
+y a lo largo de los pasos va guardando toda la
+información de lo que viene pasando.
+Sí, entonces ellos dicen este,
+los modelos propuestos recientemente para, eh, eh,
+traducción pertenece a una familia de en code de codes.
+Esto, esto sí, ya ya existía.
+O sea, había una red que procesaba el texto y transformaba
+ese eso era el in code como de
+codificado a eso en un vector.
+Y el de code agarraba ese cito y lo de codificaba el texto
+nuevo este,
+pero este es eso es un vector de la de dimensión fija.
+Sí, dice eh, en,
+o sea, en este artículo conjeturamos que el uso
+de un vector que el longitud fija para eso es el cuello de
+botella, eh?
+En hacer que la performance de de estos el sistemas mejor.
+Sí. Entonces proponemos dice extender esto,
+permitiendo al modelo automáticamente
+soft search sería o sea, no, no le llamaban acá
+dice como buscar no este
+en partes de de la fuente,
+sentencias que son relevantes para predecir la palabra
+target este y
+este y, bueno, tal y después dice bueno, este
+for este una nativo muestra que este soft alignment
+que le llamaban eh, parece este, eh?
+Estar de acuerdo con nuestra intuición.
+O sea lo que el modelo estaba aprendiendo era relaciones
+entre palabras que parecían tener sentido
+gramatical para nosotros.
+Sí. Entonces ahí inventaron eso.
+Y después que inventaron eso, vino, eh,
+bajo con los transformas que,
+eh publicaron en paper, que se llama a
+que creo que es el más citado de la historia, eh?
+Cómo se la historia? Sí, creo que sí, es impresionante.
+Y y tienen acá les puse la ecuación de atención solo para
+que se soporten lo que va a venir después que
+son actrices y cosas.
+Ah, pero para que vean que para entender profundamente lo
+que atención hace, hay que recordar un poquito a que perial
+ah, este y
+en realidad tuvo dos cosas importantes.
+La primera es que, bueno, este modificó un poquito.
+Si simplificó un poquito, lo que había hecho badana
+bado había hecho algo como más generada y más teórico.
+Este le hicieron como más concreto
+lo res escalaron con un con un coeficiente medio mágico que
+que hizo que funcionara mejor.
+Pero además, lo eh,
+la clave fue que pu que que sacaron del camino
+a las redes recurrentes.
+Las dijeron no hay que usar red red recurrentes.
+Y este inventaron la arquitectura de transforma sí.
+Para que la gran ventaja que tiene es que puede para aliar
+mucho más el cómputo que una red recurrente, una red
+recurrente tiene que ir paso a paso en base, o sea,
+ir leyendo letra, eh, token a token, no
+este el transformer consume todo de una sí.
+Y eso lo hace mucho más para analizable escalable.
+Y la bit les es que si es escalable, si tenemos datos,
+si tenemos poder de cómputo, esa es la vida de progreso, sí,
+igual siempre o por hoy.
+Si uno busca por ahí,
+siempre hay nuevo artículos que dicen bueno,
+tal forma una hermana que dar en el olvido porque sal tal
+cosa, o sea,
+en algún memento va a pasar que los transforman.
+También van a quedar en vida.
+Pero bueno, ya veremos cuando este
+y bueno y unito hacemos la
+hacemos la pausa, pero le vamos a dar unos gráficos que
+confirman la Peter leson este,
+o sea que acá explota el mundo de lo o sea con con Alex ne
+explotó computer vision y con y con esto
+explotó lenguaje en el natural.
+Sí, este y entonces acá, por ejemplo, hay un gráfico de, eh,
+los tamaños no este,
+o sea el el número de parámetros acá está el año,
+acá los colores, el viollet tita es esta e visión,
+y el verdecillo es tu lenguaje natural.
+Entonces acá está Alex net, que fue la que ganó ne
+este la vez que dieciseis es una una red, eh?
+Para imagen enorme.
+Sí que tiene cosas como sky connexions,
+que son cosas que vamos a ver.
+Y después acá tenemos un montón de transformers este que van
+improvisando a lo largo del tiempo.
+Acá está gente tres. Sí, jefe de dos.
+Creo que es el último libre, no este ya
+este y otro gráfico
+más modernos.
+Estos son del si quieren, por ejemplo, si entra acá,
+les puse en Stanford, eh?
+Hay in index report ahí tienen un montón de estadísticas
+sobre cómo van los modelos y qué tamaño tienen y cuánto
+cuesta hay est entrenados y ahí, pa llenos gráficos.
+Si entra ahí con eh.
+Pero por ejemplo, eh, esto ya sería, eh, más moderno.
+Y era una llave abajo. Quedó Alex ne ojo que esto se está la
+arrítmica sí.
+Perdón. Entonces, Alex net,
+digamos 100,000,000 de parámetros.
+Y eh, no sé tip si de tres
+casi enterra de parámetros lo de los millones igual.
+No lo entiendo, porque nunca sido lo que significa en, ah,
+mi para nosotros de mi miles de millones, no?
+Sí. Y eh, acá tienen una,
+una especie de la performance en en función del tamaño.
+Básicamente que los años que está medido en una cosa que te
+llama lock per PL título, bien, en el caso, ah,
+solo lo que porque es lo que conseguí.
+Ah, pero lo que muestra es que
+vamos agrandando estos modelos y cada vez andan mejor.
+Sí, este es un poco triste.
+Este está medido en en flox esto no el tamaño
+que estos son este cuantos este flow point operations haces
+para entrenar un modelo.
+Sí. Después, acá está el costo que está. Así es mortal.
+Esto es el costo en dólares de entrenar.
+No tengo lo qué modelo es cada cosa,
+pero la era a ese bi gráfico que tenía, eh?
+Pero fíjense que los últimos estamos hablando de 10 a la
+ocho ci mill, eh?
+Ci, mi millones ci millones de dólares para
+entrenar un modelo de estos.
+Este sé que no lo vamos a entrenar nosotros.
+Este después de acá es, ah, el cómputo de entrenamiento.
+O sea, cuánto te cuesta?
+Pero un cómputo en escala logarítmica, o sea,
+estos son los flows también, eh?
+Y acá está, por ejemplo, gt o que
+se cree que está hasta hace poquito.
+El 25 en no sé, no está acá
+está flow, creo.
+O sea, visión, es Violetta, que es Alex ne. Ya Alex n.
+Ah, no, acá hay, hay algo de visión que es se,
+no sé si alguna con ellos poco poco
+el lenguaje y edad,
+supongo que son los modelos que son
+capaces de usar varias cosas.
+O sea, pero vieron que
+este, Eh nada.
+Confirmo un poco esa la la bitter leson no, de
+esto es como la carrera espacial.
+O sea, después llega un me memento en el que es este,
+a ver quién, quién le pone más plata al asunto,
+más gente trabajando más este, eh, y bueno.
+Y eso, ah, por ahora hace avanzar las cosas
+este, eh?
+Los que tenemos una cabecita más teórica.
+No se gustaría ver algún principio que GUI en poco no decía
+que diga bueno, no está esto funciona porque tal cosa esto
+no funciona porque tal otra,
+esto tiene tales límites teóricos que no puede sobrepasar,
+no, eh, pero pero bueno,
+las transformas que por por accidentes de terminar mejorando
+la capacidad de traducir también sí o hacer,
+o sea, en en realidad con lo no, no, eh, el tra.
+O sea, estaba eso que lo perdí acá acá ya con el mecanismo
+de de atención, eh, ya lograron hacer, por ejemplo,
+traducciones mucho mejores, no con los transformer.
+Lo que lograron fue mejorar el mecanismo de atención y
+encima hacerlo mucho más rápido y escalable.
+Y y y esas dos palabras son claras, eh? Rápido y escalable.
+Explo, todo este y por hoy, si es pero no hay o sea,
+eh, o sea, son, eh, digo,
+yo soy incapaz de llevar a cabo
+cualquiera de esas cosas, no?
+O sea, digo, se precisa una capacidad impresionante para
+lidear ese tipo de empresa.
+Pero digo, eh, no deja de ser eh.
+O sea, como teórico, es un poquito triste
+porque no tenéis los principios que te dicen hacia donde
+hacia hoy hay que ir Bueno,
+hagamos la paus parece
+Por Nada que lo pongo para
+teléfono.
+Un
+café fech eh?
+Por no tengo donde sí, no, no.
+Si insist tema la pi tampoco café tampoco.
+Qué estoy hablando? Usted puede escuchando
+son son susceptibles a dormir.
+Me y yo que estoy hablando un poco
+eso actualizado.
+Y si me sobre giro, mucha puede bravo.
+Si yo ponerle después hacer la tarde mate.
+No, no, porque espera,
+bueno, seguimos
+años que quiere decir la palabra tensor en matemática.
+Un tensor es un op operador multi es un qué? Perdón.
+Un operador multi, por ejemplo,
+un tensor más famoso es el tensor de curvatura
+de ricchi, y es el que está de la base de la ecuación de
+eso es un tensor en matemática.
+Y este en computación se usa un poco
+más un poco informal.
+Pero quiere decir,
+se acuerdan de la relación que había entre mano
+y transformaciones lineales vagamente?
+Bueno, en realidad, si quisiéramos, o sea,
+un tensor es un operador multiline en el este va a
+corresponder con una especie de matriz de más dimensiones.
+Sí, eh, vamos un poco.
+Pero solo quería decirles el origen de la palabra.
+Ah, el origen de la palabra que viene de ahí este.
+Y vamos, vamos a ir ya a poquito.
+Bueno, antes solo para no olvidarnos,
+porque no vamos a poner un poquito con la matemática
+ahora no, eh?
+Siempre vamos a tratar de pasar lo peor al principio.
+Este solo para no olvidarnos un poco.
+Cuál es, eh, nuestro objeto estudio y esto, esto,
+esto es una de las de las cosas más potentes que tiene redes
+ales, que es que, eh,
+con un input, sí, se le puede dar casi por cosa.
+Y y como output, pueden darnos casi cualquier cosa
+este siempre y cuando representemos de de forma adecuada
+esos inputs y esos autos a través de tenor, sí.
+O sea, en realidad una red neuronal
+consume tensores y devuelve tensores.
+Sí, este. Pero esos tensores van a representar imágenes.
+Se acuerdan que la una imagen, por ejemplo,
+es una puede ser una matriz, no?
+Si es en blanco y negro o o un tensor
+este de dimensión tres.
+Si, si. Tengo los tres canales, no, eh, eh,
+audio es un, es un tensor.
+Es esencialmente, es un vector,
+no que tengo el tiempo muestreado.
+No? Y cierta frecuencia, cierta intensidad de frecuencia
+este el fix dijimos, por ejemplo,
+pues representaciones al estilo war tobe me pasan,
+eh palabras, me las transforman in vectores?
+No este los grafos este existen,
+me llaman las al network sí.
+Que, por ejemplo, eh,
+que son las más adecuadas para estudiar cosas, por ejemplo,
+relacionadas a a las redes sociales,
+cómo se conecta la gente y eso, este, o sea,
+a cada nodo y una de una red compleja puede tener asociado
+un doctor de características si
+esos y esos vectores de características se
+se representa nuestra vez defensores.
+Sí. Y lo que va a consumir esa red,
+esa gra ni en network o hacer
+este una especie de red defensores.
+Sí, están diseñadas para eso.
+Pero en definitiva,
+la esto es algo real importante que no que no pasaba.
+Se acuerdan con los algoritmos de machine,
+como que cada uno, eh?
+Siempre el link put era una una tabla no este una planilla
+de éxito acá acá es el link limpio.
+Puede ser cualquier cosa mientras siempre y cuando se
+represente bien como un tensor
+y puede puede devolver cualquier cosa siempre en cuando se
+representa bien como un tensor pero por ejemplo,
+que van a ver en gener mundo puede neuronales
+que devuelven una mar.
+Sí,
+este entonces, eh?
+Nada. Los tensores aparecen ahí y aparecen también como los
+parámetros de la red.
+O sea, los parámetros de la red.
+Esto va a ser un modelo para métrico, una función
+para métrica que va a tener cuyos parámetros van
+a ser tensores también.
+Entonces, de ahí ya, por lo menos sabemos que la palabra
+tensor va a ser importante, todo.
+Sí. Y algo importante es que las redes son
+este disponibles es si uno puede componer
+redes o o o tienen capas que se que
+se componen una detrás de la otra.
+Son diferenciales, no, eso que es importante, o sea, hacen
+entran dentro del mundo, lo llama la
+programación diferencial.
+Y eh, este pueden optimizarse en tu sí.
+O sea, eso es lo que quiere decir es que, eh,
+Teniendo un moto de inputs y un montón de outputs, eh,
+esta propiedad de que sean diferencias este
+teniendo una función de pérdida apropiada me permite este
+usar el bol de optimización para entrenar esa red este
+y encontrar este los valores óptimos de de los tenores que
+hacen eh, de pars sí,
+solo para si se acuerdan se acuerdan cómo era pero
+para tener el mapa a ver cuántos vendieron machine learning,
+me acuerdan este?
+Cómo era igualito
+ritmo de machine también.
+No tenemos una cost cajita. Claro que es este algoritmo
+cuáles eran los inputs para in para bien
+sea en input, son dos datos especie.
+Y qué nos devolvía muy bien, el auto es el modelo
+Y Qué más?
+Teníamos par parámetros
+parámetros que eran esencialmente dos.
+Cuáles eran los parámetros en perdida,
+perdida la función de pérdida y él se tu tío
+bueno, entonces, cómo?
+Cómo era el proceso de todos los salud?
+Algoritmos que conocemos, no cuando, o sea,
+una vez que el dimos esto, imagínense esto,
+que esto se lo vamos con para no es a, decimos esto, okey,
+leamos una función de pérdida
+en el contexto de redes neuronales.
+Esto básicamente va a ser, eh,
+la arquitectura en la cantidad de capas, no este,
+ese tipo de cosas se acaba hacer.
+No? Entonces, imagínese que le quedamos esto.
+Tenemos los datos, no? Cómo?
+Cómo es el proceso que me escupe un modelo?
+Un o sea, un modelo que va a ser un modelo es una red
+neuronal concreta con sus pesos concretos, verdad?
+Eh, que es una una cera
+crea no.
+Entonces, qué? Qué era lo que pasaba acá?
+Liga risk. Bien, exacto. Peso.
+Funciona contento de
+esencialmente, lo que hacíamos era este, eh?
+Resolvíamos un problema de optimización sin que era bien,
+avisar la o sea,
+el empírica risk es la pérdida promedio en los datos, no?
+Y aplicábamos algún algoritmo de optimización
+para tratar de encontrar el mínimo de esa de esa función
+Regularizando porque teníamos el problema de sobre ajuste,
+no este usando alguna regularización han visto y una cosa,
+así que vamos a d, pasar este
+para tratar de este evitar el sobre sí, pero este,
+este paso no se vuelve extremadamente complicado.
+Si la la hipótesis de diferencia no está
+si la hipócrita,
+si esta si esta hipótesis de acá de diferenciaría no está,
+sí, este paso se vuelve casi imposible.
+Sí. Entonces, hipótesis
+Profe, perdón que no.
+No vi porque no se ve cuando cuando apunta al pizarrón.
+Pero la hipótesis de dilia son todos esos puntos.
+No el el el empirical risk minimization sí.
+Este paso se vuelve muy difícil de hacer.
+Si tú estás estás trabajando con con
+con un sistema de este estilo que no es
+diferencial. Sí, okey, okey,
+Perfecto, perfecto.
+Entiende
+Porque se acuerdan que los algoritmos de optimización que
+usábamos se basaban en el cálculo de y
+Ahí. Ahí está
+Como se hace, si se puede hacer, se puede.
+Sí, este hay varios métodos. Hay muchos, muchos métodos.
+Los más conocidos son este hay uno que se llama este
+ay, eh, algoritmos evolutivos.
+La idea es la se encontr el mínimo.
+La idea es la misma es este encontrar el mínimo sí.
+O sea, ahí va como problema. Problema, eh?
+Como plante el problema es esto, ese problem, eh?
+Ahora después cómo se resuelve este paso que es encontrar
+el mínimo ahí?
+Sí, hay diversas técnicas, eh?
+Lo lo que funciona ahora es este cosas eh,
+que usan la fiabilidad.
+Pero hay otros métodos que siempre son más lentos.
+Este que es históricamente son, por ejemplo, cuando
+Turing hablaba de inteligencia artificial en los años 50,
+él, él estaba pensando en cosas tipo algoritmos evolutivos
+que son métodos de utilización, eh,
+especial que no precisan derivada, eh?
+Después hay otras que se llaman eh, SW o sea que sería como
+este, eh?
+Uno pone varias partículas.
+Este el en el espacio de búsqueda
+y y esas partículas cada una cual tiene información y se van
+compartiendo esa información sobre que la función y se van
+iendo como este hay hay algunos, eh?
+Si uno va a Wikipedia, suena costoso, eh?
+Costoso las rectos.
+O sea, el eh se se usa siempre lo lo lo más eficiente es
+este esto gaste y gray y dicen pero
+déjenme buscar no más el no.
+Perdón, muy me
+creo que hay a la mis página
+de de Wikipedia.
+Creo que hay acá un gift.
+Este, eh?
+De alguna forma uno pone varias partículas en el espacio de
+búsqueda que se comparten información y
+to y y todos terminan buscando
+e encontrando el óptimo de la de la función, digamos, eh,
+ta no, no.
+O sea, todos tienen sus precios contras.
+Pero pero existen varios métodos que no usan la diferencia.
+Sí, eh?
+Bien, nada eso como recordatorio.
+Bien, entonces tensores lo tensores, eh, está,
+han clasificado tengo cu cuatro cosas, eh?
+Los escalares que son los tensores de dimensión cero.
+Sí, que son los números este,
+los vectores que son tensores de dimensión.
+Uno que iba a haber una sutileza enseguida que vamos a ver.
+Ah, este pero matemáticamente un
+tensor es un vector de dimensión.
+Uno acá está representado como una fila, pero en realidad,
+en matemáticas se representan como uno, una columna este,
+los tensores de dimensión.
+Esto es el orden o la dimensión del tensor de dime,
+son matrices de dimensión dos
+y de dimensión tres en adelante.
+Es un tensor de n o de orden? Sí.
+Por ejemplo, esto podría ser una imagen en
+rrgb no tengo los tres canales.
+Este esto puede ser una imagen, eh? Está las grises.
+Y esto podría ser, por ejemplo, eh, un
+un un una señal de audio audio.
+Sí, de dime, misión.
+Sí, este ah, este y el y el
+ah, acuérdense nom más el el numerito.
+Este este, eh?
+Los llamamos dimensión o por un orden del del sol
+está los tensores.
+Nos vamos a escribir siempre con la le con una letra así,
+negrita x mayúscula.
+Y en realidad nos va a importar bastante.
+Cuál es el shape del tensor?
+Sí, que a veces los llama.
+Si no sé por qué, pero
+el shape que es la tula
+de este de dimensiones que tiene sí.
+Por ejemplo, eh, eh, en un tensor de dimension
+de de orden tres.
+No, que sería una imagen en rrgb sí, el j
+va a ser una eterna de numeritos no.
+Cuando hacemos el punto j, nos va de numeritos
+que el primero nos dice la altura de la imagen,
+no el hi.
+El segundo, el w nos dice la cantidad de columnas, el luis
+y el tercero nos dice la cantidad de canales no que tiene la
+la imagen en r, g.
+B son tres canales. Cada elemento
+lo lo lo vamos a in indexar así.
+O sea, este es si bonito yoki va a querer decir shape
+en las dio ya.
+O sea que e xy h.
+W quiere decir que es un tensor tridimensional de shape h w.
+Las entradas específicas de tensor, la vamos a escribir
+con x, pero si me grita pero le vamos a poner sub
+índices k, no.
+Y a veces podemos ponerlo en o sea,
+el tensor en negrita y poner corchetes y coca porque a veces
+nos gusta hacer cosas de este estilo.
+Por ejemplo, la entrada hijo acá del tensor suma. Sí.
+Entonces ponemos los corchetes para decir para ser el tensor
+suma este.
+Y esto es es sumar entrada de entrada, no?
+Y después tenemos a veces van a aparecer operaciones del
+estilo lining, no, que es este, por ejemplo,
+a ver, sí, este tensor que está acá, no en que yo pongo
+agarro x y le pongo dos puntos y dos puntos que sha tiene
+dos es la dimensión dos, dos es el orden, no?
+Pero que Jake tiene si, el si el x tiene sha h, w, c,
+h, h, h, c
+tiene h.
+C. Sí, se entiende porque ya ya
+fijé, eh, esa ordenada ahí.
+Sí,
+sí, no, eh?
+Mira, vamos a hacer un dibujito
+ah,
+Cómo Que compr sí, sí, sí, clases.
+O sea, yo tengo, no tengo, eh,
+no sea, tengo estos h.
+Esto es este te b, no. Y después tengo de estos que
+conceptos son Una forma muy inconveniente ahí de
+presentado Delores.
+No. Entonces, acá esta, esta dimensión está acá es c.
+Sí, yo lo que estoy haciendo esto que esto es x me, ah,
+me pasé por este no,
+pero igual ya se ve.
+Esto es lo que lo que nosotros llamamos x no este.
+Entonces, cuando hacemos, o sea, si yo hago esto, no,
+si yo hago x dos puntos como ahí, eh, perdón,
+dijimos este tiene shape h.
+W. Si. Yo hago esto, dos puntos, eh, cómo puntos?
+No, qué es lo que estoy haciendo?
+Estoy agarrando un w y lo estoy fijando. No?
+Entonces sa, acá este, este w va a estar fijo.
+Y básicamente es como si estuviera cortando acá
+no de otra
+Profe.
+Sí. Profe,
+Disculpe, dónde está el do b en el dibujo? No se ve acá
+Acá. Perdón,
+eh, acá ahí se ve ahí.
+Ah, acá, no,
+Ya. Ok,
+Acá, Ahí está el doble.
+Ya. Gracias.
+Gracia. El doble, eh,
+sería entonces esto que está acá, que sería elsing
+esto tienes, qué dimensiones tienes?
+Tienes shape c por h, o sea h
+o
+ya esta dimensión?
+Tres. Llegamos a entender,
+sí, no.
+Y y van a ver que el el tema del shape siempre es un niño
+siempre, eh,
+las operaciones siempre un error por el tema de de de tener
+más en el shape y el sensor siempre aparece
+capaz que no va a pasar acá porque no es tan práctico,
+pero lo va a pasar en y van a estar dos horas y y les
+devuelve que no es la dirección correcta.
+Y van a mirar y está ahí. Ay no, pas te va a hacer un
+estamos bien hasta acá.
+Bueno, entonces escalares y vectores, eh?
+Los escalares son tensores de dimensión uno, siempre.
+O sea, son números los este.
+Y tenemos las operaciones usuales que hacemos
+entre ellos no sum.
+Prestar este, eh?
+Todas las funciones que conozcan
+este las las pueden hacer tan en p.
+Existen no les pueden hacer hacen torch
+z es ceno torch co o ceno
+torch ex es la exponencial.
+Tienen todas las funciones que se les pueden ocurrir que
+esto allí para utilizar este el igual que estaba en nu país.
+Sí. O sea, es muy parecido en nu país en ese sentido.
+Sí, tiene lo que los diferencia es que tiene el motor de
+auto diferenciación este, eh, por detrás
+y que en pay esto lo van a ver bien en taller, eh?
+Cada tensor va asignado a un device sí
+y de tensores que estén en device distinto.
+Si se están en p u en en no pueden o eh o operar
+tres, ellos sí viven.
+Es como si vivieran en un universo para el entonces se
+conocen, o sea, y los vectores ah,
+para nosotros son vectores, columna matemáticamente,
+son vectores, columna, eso es porque es la extradición,
+el matemático, un vector con columna.
+Ah. Entonces su traspuesta, que es este, eh?
+La traspuesta de una matriz es cambiar sus sus filas por
+columnas o columnas por filas.
+Es un, es un vector fie sí. Ahora, qué pasa?
+Esto impone hay un problemita ahí de la nutura entre la
+matemática y el código en que
+un vector en realidad en código es un tensor.
+Sí, en la dimensión uno.
+O sea que cuyo shape
+es un número que nos dice simplemente
+cuántas entradas tiene no?
+O sea, un vector de shape 10 quiere decir
+que tiene 10 entradas típicamente, eh,
+nu para yo p devuelve eso como una tupla
+que dice 10 coma nada.
+Sí, porque es un tensor de dimensión u,
+pero en matemática, un vector en realidad,
+si lo traslad tal el cual el código es un tensor
+de dimensión dos.
+Sí. Cuyo shape es, eh,
+acá sería m, eh, m.
+Uno no. Pues tiene m filas y una columna y y este
+sería uno m.
+Sí. Y eso este, eh, hay que tener cuidado porque, eh,
+esto no, no es el mismo objeto que este.
+Entonces, por ejemplo, si yo agarro si en torch hago un un
+un tensor random que tiene shape cuatro uno,
+esto sería para mi unctor columna, verdad?
+Tiene cuatro, o sea, una columna cuatro, cuatro elementos.
+Sí, eso o sea, es un vector columna,
+pero es un tensor de dimensión dos
+que tiene forma cuatro uno.
+Ahora, si yo hago, eh,
+esto que sería como equivalente no hacer cuatro o manada,
+esto es un tensor de dn uno.
+Y esto es un tensor de dimensión dos.
+Entonces, por ejemplo, entonces no lo sumo.
+Sí, eh, Payton.
+Y al igual que en un pay, va a ser un broadcasting.
+Sí, es porque hay dimensiones que le faltan. Sí.
+Y me va a devolver un un tensor de de una matriz de cuatro
+por cuatro, no este.
+Ahora, pues, sobre el final les muestro este algunas,
+cómo funciona el el los casting?
+Unas operaciones básicas.
+Entonces, si en el medio del código, ustedes le erran de
+después da todo mal por el malito brote.
+O sea, no es para enloquecer o no, no es para enloquecer,
+pero sí, hay que tener presente eso que eh, que bueno,
+que muchas veces, a veces nos resulta cómo
+presentar o sea, un vector así.
+Y en algunas otras ocasiones así.
+Pero bueno, hay que tener cuidado de
+con cuáles operaciones que hacemos.
+Sí, se se entendió esto más o menos de
+el es una columna, digamos, con cuatro filas en dos casas.
+Bueno, acá es difícil decir
+matemáticamente esto.
+No sé qué es. Sí, esto, esto sí, es una co.
+Corresponde con una columna esto,
+esto es una rey de cuatro elementos,
+pero no sé si es columna o o o o horizontal es,
+es, es una rey de cuatro elementos.
+O sea, algunas operaciones entre vectores no usuales que
+hacemos tenemos el, podemos combinarlos, linealmente.
+No se acuerdan qué quiere decir combinar linealmente?
+Dos vectores, eh?
+Simplemente quiere decir sumar entrada, entrada, verdad?
+O sea, multiplicar,
+multiplicar por un escalar un vector es es multiplicar cada
+una de sus entradas por ese número.
+Y sumar es sumar entrada a entrada.
+Ah, entonces si p ustedes suman dos tensores va a hacer esto
+va a sumar en entrar después tenemos cómo medimos la
+longitud de vector?
+La forma usual es la norma euclide que la norma dos
+que se puede sumar sus cuadrados.
+Hay otras normas se acuerdan con la otra que No?
+Qué vimos en
+del valor absoluto?
+El valor absoluto como la la norma uno no, no,
+que sería sumar esto.
+Esto es lo que se llama norma dos.
+Pero la norma uno es sumar los valores absolutos.
+Por ejemplo, la mayoría hay varias
+normas que uno puede usar.
+Sí, las más usuales, eh?
+Si no quiere medir la longitud in vector,
+las más usuales es sumar sus coordenadas al cuadrado.
+Y pues, a raíz cuadrada de eso.
+Y esto viene de lo que se llama el producto
+interno entre dos rectores.
+Sí, que a veces lo llaman producto, punto o producto.
+Escalar el dot product que aparece en muchos en
+muchas documentaciones.
+Sí, le pague, toso es el producto escalar que
+se suele escribir así entre entre entre ángulos o
+con un puntito grueso en el medio,
+no x puntito grueso en el medio i sí, que es el
+el producto interno que
+que consiste es hacer hago el producto, entrada,
+entrada, no?
+Y sumo todo eso.
+Sí, estoy haciendo como un reito de álgebra, dignidad para
+y eso si, si ustedes lo lo lo escriben como matrices,
+a ver si están de acuerdo, que es lo mismo que hacer.
+Esto no es que está puesta por ahí.
+Si yo no lo escribe como matrices esto
+Y eso duda bastante la hora de hacer este describir, eh,
+ecuaciones, usar este de los productos más
+oficiales ayuda mucho.
+No, eh? O sea, el producto interno entre entre x, no, eh,
+a suma de igual uno a n, eh?
+Qui. Sí, llega ahí. Tú eso por definición este.
+Pero si yo hiciera, eh, esto lo puedo ver también,
+como hacer x transpuesto por eso que es es agarro director
+qui qui y lo multiplico
+por y uno.
+Y bien, esto que está acá es qui transpuesto
+y esto está a vez y sí.
+Y eso puede, estoy haciendo x x
+más,
+etcétera.
+Sí.
+Bien. Y
+esto va a ser o sea, aunque parezca medio mentira, este, eh,
+la la función, la función de atención no es más que
+esto es un producto cal.
+Es un poquito, es una softmax de producto.
+Carga un producto interno
+este y en realidad la la la mejor forma de pensarlo
+al al producto interno es que,
+eh geométricamente mide
+lo que se llama la similaridad coseno entre dos rectores,
+que es el coseno del ángulo que forman esos dos vectores.
+Sí, sea sirve.
+Si yo tengo dos vectores que está x no está ahí
+Y forma un ángulo el
+el pro, o sea, el producto escalar este x conin o producto
+interno, es lo mismo que el producto de las normas
+por el coo de Tito.
+Sí. Y entonces, eh, cuando uno toma esto,
+no este cuando cuando hace x y
+x o de que es algo que perfectamente puede hacer con Payton,
+no lo que está haciendo a este especular esto,
+esto es lo que se llama la José, no
+en entre esos dos vectores.
+Sí. Entonces, por ejemplo,
+esto aparece mucho en sistema de recomendación
+de uno.
+Codifica un producto como un vector,
+codifica en usuario como un vector y calcula la
+similaridad co entre ellos.
+A ver si se parece o no caso que cero.
+Sí, Claro, cero. Ahí está aproximarse a cero.
+Ya cuando el cuando el ángulo es cero,
+el coceo vale, uno no.
+Entonces, cuanto más grande es, o sea, el coo de cero,
+vale, uno corre, eh?
+Entonces este este numerito varía entre menos uno y uno.
+Sí, eh?
+Vale, uno cuando son alineados, dirección,
+una misma dirección, vale, cero cuando
+ortogonales y vale menos uno cuando son opuestos.
+Sí. Y en realidad, eh, eso otra.
+O sea, la cor se acuerda que la correlación la correlación
+tenía el mismo tipo de comportamiento.
+Se puede describir como un,
+como un producto in interno en la cor
+falta.
+Entonces, es eso no más cuando son cuando son ortogonales y
+ese product escalar vale, cero.
+Este vale menos uno cuando son opuestos y uno cuando están
+aniñados este y la distancia en realidad
+Está vinculada con el producto interno porque
+la norma en realidad de un vector es el producto interno de
+o sea la la norma de un vector al cuadrado en realidad es
+el producto intern de consigo mí.
+Sí. Entonces este usando esa relación
+pueden sacar form bonitas como esta que nos dicen que la
+distancia entre dos juntos.
+Sí, se puede escribir cómo?
+Pero honest esto es, eh, hipo, tenes al cuadrado.
+Es la suma de los catetos.
+Ha cuadrado más un término corrector,
+lo que tiene que ver con el ángulo entre ellos,
+que si fue el ortogonales,
+no te aparece y es el terreno hospital.
+Entonces, si esto, esto es un poquito ya la geometría básica
+que está atrás de los vectores, básicamente,
+en realidad lo único que que es importante que retengan es
+esto es este concepto no que cuando yo hago un producto,
+escalar o un producto interno entre dos vectores,
+básicamente lo que estoy haciendo es calcular
+la la similitud que hay entre ellos.
+Sí,
+bueno, sensor y dimensión dos son matrices
+este y las matrices, eh, no están más acostumbrados.
+Caps a empresa a raro.
+Son simplemente un arreglo rectangular de entradas. No?
+Esto sería una matriz con m filas,
+no n columnas este.
+Y a veces las podemos escribir, eh?
+Como una especie de pi, vida de vectores, fila o
+una pira de vectores columnas, sí.
+O sea, según se más cómodo, Eh? Son las matrices.
+Y tenemos este Digamos, eh,
+operaciones entre entre matrices.
+Y además, hay una operación particular que es la multipl
+implicación que, eh, tiene un correlato en base.
+Va este transformación en lineales? Sí que no.
+Sí, se acuerdan que una matriz en realidad representa una
+transformación lineal entre dos espacios vectoriales
+Sue, por lo menos las palabras no por sí.
+O sea la, es decir, uno uno,
+uno puede pensar que una matriz es un bloque de números
+o puede pensar que una matriz es una transformación
+que si yo le dey un input, me devuelve un output.
+O sea, si le doy un x, me devuelve una griega que es
+multiplicar por ese x.
+Sí, eh? Y y eso.
+Y eso representa todas las transformaciones
+lineales posibles que hay.
+Sí. O sea, en cualquier transformación lineal,
+se puede escribir cómo el producto
+de una matriz por un vector.
+Pero entonces, pero igual vamos un poquito más suave.
+O sea, las las las las matrices se se pueden combinar
+linealmente igual que los vectores, eh,
+yo puedo multiplicar una matriz por un número.
+Eso significa multiplicar todas sus entradas por un número.
+Puedo sumar dos matrices de la misma forma, no?
+O sea, si tiene el mismo shape, la puedo sumar
+es sumar entrada de entrada, Eh?
+Y puedo ver una matriz como una transformación in mico. Sí.
+Que qué es? Es hacer, eh, la la matriz por
+y este y este tipo de cosas do b x
+van a aparecer en las redes, no todo el tiempo.
+Sí. Entonces, qué sería ese ese w b x?
+Se acuerdan todo? Hacer? No, claro, va a ser un vector.
+Tengo Una matriz. Lo le ve?
+No? Si yo lo si yo multiplico esto
+por un vector x me puede ser que es un vector columna
+de qué dimensión tiene que ser ese.
+O sea que je tiene que tener ese vector n, verdad?
+O sea esto que está acá, que es n,
+tiene que coincidir con esta con esta dimensión de acá
+es n, no.
+Y me van a volver un vector de leer dimensión. M.
+No que se hace haciendo el producto, escalar de esta fila
+con el vector, no?
+O sea que cal terminar resultado de eso.
+El punto escalar de
+cómo escribo esta fila haciendo un slice
+sería w o manera
+uno, uno, dos juntos o b, uno, dos puntos, no
+con x, eh?
+Después acá atendría la segundo después com punto x
+y a l, b.
+M es horrible esto
+y este sería aquí no.
+Entonces este esto agarra un vector, o sea,
+w b es una matriz que tiene sha m como n no,
+pero se puede ver como una transformación línea que agarra
+un x que tiene sha n.
+Sí. Y me devuelve w por x
+que tiene esto es el ahí igual a ve por x que tiene sha m.
+Sí. Y esto que está acá es una transform.
+Esto lo que se llama es una transformación.
+El cur no que ya les digo,
+acuérdense la la idea es yo les explico esto para que
+después ustedes vean fórmulas y las entiendan, pero no,
+no le voy a pedir que hagan las cosas, eh?
+También puedo multiplicar dos matrices. Sí, eso eh?
+Es algo, eh? Nunca país. Y se acudan.
+Es este cómo se multiplicaban en dos matrices
+al mum exacto.
+Va np ma Mull me multiplica dos matrices.
+Y lo que hace es, es, es esta operación que es agarra
+la fila y de la primer matriz y la y hace el producto
+escalar con la columna j de la segunda.
+Sí. Y eso lo hace para todo ahí para toda j.
+Entonces, lo que tiene que pasar es que la dimensión del
+medio intermedia, esa tiene que coincidir.
+Sí, tienen que tienen que conformar esas dos dimensiones
+para que para que yo pueda hacer ah, no genera casos, no?
+Claro. Bueno,
+puede ser que genere algo si puede ser, no sé, está.
+Y esa esta multiplicación entre matrices,
+lo eh corresponde a componer transformaciones lineales.
+Sí. O sea, si yo compongo las transformaciones line linees
+la matriz correspondiente es el producto de la matrice ah,
+cuando yo estoy, por ejemplo,
+una una una ver neuronal que que me está adelantando un
+pero agarra una entrada,
+lo que implica por la matriz de pesos.
+Si no hace una activación, no, si no aplica una non lineal
+y vuelve a hacer otra matriz de pesos.
+Es como hacer una sola matriz de peso porque es una,
+mi es componer dos transformaciones niveles que me
+queda una preocupación mundial.
+Sí. Entonces las no necesidades en el medios tienen que
+estar sino es eso esa San santo pepe poner varias cars
+este una una particularidad de
+del producto artificial Es que uno lo puede
+ver como que está haciendo operaciones en
+bar este.
+Y esto, esto es la realidad es
+bastante importante porque es lo que hace que es el gran
+fuerte de las venales que relaciona a otros
+algoritmos de machine.
+Y esto fue casual porque ya existían la GP para hacer juegos
+que para la gente que jugaba, existían en la gpe y
+usaban matrices para justamente de las
+las transformaciones lineas.
+Yo yo me acuerdo el obligatorio que tuve en programación
+uno, el primero de facultad era hacer este una,
+una animación que hiciera este, eh,
+cómo una transformación inal transforma un vector, no este.
+Entonces este uno puede modelar muchas cosas,
+muchos movimientos, movimientos rígidos, este, eh,
+una vez del espacio y cosas usando matrices, eh?
+Y eh, le este entonces ya ahora,
+gracias a eso y a y a que con la gente juega juegos,
+existían las GP bus y las g bus están optimizadas para tiene
+muchos núcleos para para elizar operaciones con matrices.
+Este usan un lenguaje particular, las de envidia,
+no los excitan que pre de varias marcas.
+Creo que las más conocidas son envidia.
+Y la otra como es el otro radio, la radio,
+este MD, no?
+Sí,
+Pero bueno compr Adiós
+Lati y después No sé si siguen siendo caras.
+Yo hubo un tiempo que buscaba, pero todo que muy no sé si ha
+ya que viendo domic cierto, no que
+este eh no porque habían dicho que un como que en algún
+memento iban a bajar el precio, pero nunca pasó pasó,
+eh, de las eh, lo de las máquinas AP de las máquinas
+Te mey cuesta más cara en las que teque las
+Bueno, siquiera las guijas
+Que busca una 30.
+No de a
+Ah, pero eso es bastante
+Más o menos una 50, no como
+Sí, sí, este no, eh?
+La cuestión es en que digo la de el video.
+Tienen un lenguaje de programación particular,
+no que se deuda.
+Entonces este veía como pytorch saben,
+traducir las instrucciones que le vamos en python a a puda y
+poder procesarlas, sino también si inútiles para nosotros.
+Salgo que aprendiéramos puda eh y eh,
+la diferencia con los cp es que tienen muchísimas más
+núcleos que los cp entre los cuatro y ocho núcleos,
+el g de los miles núcleos.
+Entonces pueden para elizar operaciones marciales de forma
+mucho más eficiente que ocp este.
+Y ahí está la gracia en eficiencia que uno Habana a la hora
+de este de hacer CPUs sí, a
+entonces cuando uno o sea por em, por qué
+la las operaciones en barch suelen ser operaciones rápidas,
+eh, eh?
+Porque porque en el fondo,
+las operaciones en impact se pueden traducir en
+operaciones matriciales.
+Sí. Y las GP o saben hacer reforms eficientes
+operaciones oficiales.
+Entonces, por ejemplo, y uno vieron que nunca nunca
+escucharon esos, eh, avances que hubo, eh,
+mi que para para multiplicar dos matrices uno uno tiene esta
+formita y esto es una definición y no hay algo quedado, no.
+O sea, eso es la definición del producto de matrices.
+No hay nada que hacer, es eso.
+Pero hay algoritmos que son más rápidos para multiplicar
+matrices porque a una computadora lo que más le cuesta
+es hacer un producto.
+Entonces, si vos podés poner los paréntesis de forma
+adecuada para minimizar la cantidad de productos que hacés
+una suma lo hace rápido, pero un producto de cuesta.
+Pues si vos ponés los paréntesis,
+los de forma adecuada para minimizar la cantidad de
+productos cases, podéis lograr algoritmos más rápidos.
+Sí. Y y se se han encontrado algoritmos rápidos,
+pero incluso se han encontrado usando, eh,
+the force mandating algunos, pero qué pasa?
+Por qué no se usan? No se usan porque no
+son para el el less.
+Sí, porque la GP uno están hechas para usar esos productos.
+Entonces este, eh las o sea, las a,
+lo que voy es hay un vínculo muy fuerte entre la GP y el
+producto matricial clásico.
+Este está viendo que está acá, por ejemplo,
+que es un producto entre dos matrices.
+No es un producto x por w.
+Puede verse como hacer una operación que yo estoy haciendo
+porque x uno o dos punto que es un vector no pila.
+Entonces yo estoy haciendo una operación en
+ese vector que imagínense.
+Es un dato que lo estoy multiplicando por donde b. Sí.
+Y eso lo hago en Bach.
+Todo esto sería un Bach no de m datos.
+Entonces todo ese Bach de m datos que sería hacer
+esa multiplicación.
+M bs, no,
+yo puedo hacer un como un producto matricial único.
+Sí. Y entonces me puedo beneficiar de
+la rapidez de la GP para hacer operaciones de ese estilo de
+forma rápida, eh?
+Por ejemplo, si yo quiero pedir esto, esto no,
+que es hacer x por equis traspuesta
+es un producto matricial que me calculan los productos
+escalares de de todos contra todos.
+Entonces eso lo hago rapidísimo en medio.
+O sea, lo peor que podría hacer es hacer un doble four
+para hacer eso y usar la gente un sí.
+O sea, lo mejor que puedo hacer es usar la matriz es
+usar el producto eficiente.
+Entonces este todas las operaciones vectorizadas que hay
+torche ya está para estar pensado para eso, eh?
+Ganan en eficiencia y
+bueno, y después de esto, solo un eje,
+en realidad pats tiene muchas formas de multiplicar este
+tensores de orden mayor porque no
+cómo multiplicamos tensores de orden mayor?
+No está obvio, no este, pero, por ejemplo,
+es común en tensores de orden tres porque son imágenes
+bicolor, lo que se llama este el Bach matrix multipl
+multiplication, que es, eh, simplemente, eh,
+es multiplicar, eh, digamos
+canal a canal, o sea, eh, no,
+o sea, no quiero entrar mucho el detalle en esto,
+pero es este básicamente es este es uno uno fija?
+No, este, eh, piensa ser no salt.
+Hay que hacer el luquita es ese eh de de la de la el
+el pan, el pan me molde?
+No el el mojito del pan de molde.
+Entonces, cuando uno dice bueno, si yo hago este x y punto,
+lo que estoy haciendo es fijar la la primer coordinado se
+estoy mirando una rebanada que es así.
+Sí. Y voy a hacer lo mismo.
+Voy a mirar una rebanada que es así del otro
+del otro pan de molde.
+Entonces se voy a tener una matriz.
+Si yo miro las las segundas dos son a y b, sí.
+Y las y las segundas dos de esta otra son b c.
+Entonces, como la b del medio con coincide con esta,
+puedo multiplicar.
+Y lo que me va a dar es una cosa que tiene
+a sí, sí.
+Entonces me va a quedar este un tensor que
+va a tener Shane n.
+C, llegado el memento.
+Si lo llegamos a usar lo lo ref, repasamos.
+Sí, esto es simplemente le como ejemplo, digo
+a la hora de o sea, por ejemplo,
+si ustedes hacen acá acá hay un ejemplar, no?
+Si ustedes agarran entor y hacen
+agarran un un tensor de j cinco, dos, cuatro, dos, tres,
+sí, eh?
+Le va a quedar a ver si me dicen de qué le de qué shape les
+queda el el mat cuatro, cinco, tres,
+cuatro, cinco, tres.
+Esta el que que está en común desaparece.
+No? Eh,
+bueno, último, última cosa.
+Hay una cosa que llama producto de adamar, que es, eh,
+simplemente si ustedes multiplican a lo bestia,
+hacen eh, x por i.
+Este lo que hace es lo que llama el producto de adamar,
+que es un un matemático del siglo 20
+que es simplemente el producto punto a punto de decir
+entrada, entrada, no agarra sea,
+tienen que tener la misma forma las matrices.
+Si no, creo que hace un broad casting que eh,
+y multiplica el primer elemento por el primer elemento,
+el segundo con el segundo y hace una nueva matriz que
+simplemente todos los elementos multiplicados.
+Y esto lo pueden llegar a ver si ustedes deben algún pay
+pero o algún tutorial.
+Este sim bollito lo es muy usado de lo pueden llegar a
+ver, no se asusten.
+Lo único que significa es el producto entrada de entrada.
+Esa es como la competición, no, no su más claro,
+no sum más exacto.
+Lo el te falta sumar te te falta sumar.
+Entonces, yo podría escribir la conclución de forma fácil,
+haciendo la suma de el núcleo producto de amar
+con la imagen.
+Entonces, en los paper, si en lo las cosas es muy común ver
+ser tipo denotaciones para saber que qué estás haciendo.
+Y después esto, eh,
+lo del broadcasting que ahora ahora mure una idea por por
+algunos casos concretos es que imagínese si yo agarr unbe un
+tensor es una mar gris, no de shape nm, salud.
+Y eso es perdón, agarre usted que tiene shape nn, no.
+Y le sumo un un tensor de dimensión.
+Uno no que que tiene solo fake n.
+Esto lo que va a hacer es va a ser un broadcasting
+y y en realidad es como sumar ese vector
+a cada una de las filas.
+Sí. Pues ahora les muestro en la en esta dipo a quedar más
+claro como, como hace esto es nu pay,
+pero p tiene las las mismas reglas.
+Entonces, imagínate que ustedes quieren sumar este vector es
+que tiene este j tres, no su y le suman una escalar.
+Ah, entonces lo que hace es repetir ese escalar no,
+este hace eso, lo que llama el broadcasting y le suma o sea,
+repite en en la la dimensión que falta es escalar,
+se va a sumar y me va a quedar cinco, seis, siete, cinco,
+seis, siete, sí, eh?
+Si quiero sumar una matriz de tres por tres con un vector
+en dimen uno, no, eh?
+Hay que pensarlo así. Lo que hace es este lo lo repite en la
+dimensión faltante y entonces es faltaba acá.
+Va a ser va a ser todo lo mismo porque va a sumar uno,
+uno, uno al cero.
+Uno, dos, sí.
+Y acá, por ejemplo, que los tengo en
+son los dos de dimensión dos,
+pero los tengo en shape distintos.
+No repite el vector.
+Los dos los repite en la dimensión faltante. No?
+Entonces, eh, eh? Nada, nada para repetir el cero, pero acá,
+o sea, repite el cero como fila,
+pero acá repite el cero como calor y después un ah, eso,
+eso es la operación de blood que más más usual.
+Entonces, a veces, si uno le epie con shape y suma cosas,
+nunca le va a tirar una un error.
+Probablemente siempre haga algún broadcasting o algo y sea
+difícil de de de vaar
+y si una reg variamos cómo que broadcasting sigue una regla
+que es difícil de entender, eh, que es
+lee lee las dimensiones de derecha izquierda, o sea,
+empieza a mirar los shapes de de derecha izquierda o o sea
+un shape de ah c y de
+otra es a no.
+Entonces en empieza a mirar de derecha izquierda de los
+shapes, no?
+Y cuando ve que falta uno,
+lo que hace es lo pone como un uno y después lo expande.
+Y no sé qué. Y pero la hora de expandirlo
+lo hace de izquierda de derecha.
+No sé, o sea, está está todo especificado.
+Si vos atrás a la a la documentación te dice perfecto,
+vamos hacer el nuevo casting, pero ya no entendí nada.
+Sea o sea, estos ejes te te muestran mejor.
+O sea, siempre que siempre tenés que ir al caso concreto.
+Si llegas a tener algún problema,
+te tenés que ir al caso concreto tuyo y a yo tengo un de
+esta shape y uno de este shape, cómo es el broadcasting?
+De esto es que hay caso ras,
+pero sí, sí, es un
+algoritmo, eh?
+Y y lo último rápido son hay algunas operaciones que se
+llaman de reducción.
+Sí, que es, por ejemplo,
+cuando sumamos las columnas o sumamos las filas de una
+matriz, no?
+Típicamente las indicamos con axis igual cero axis igual al
+uno, no, por ejemplo, hacemos es nupa.
+Y cómo hacemos np sam de x axis igual cero.
+Eso que a qué corresponde?
+Como las a la suma de las
+después ser la suma, las filas, creo.
+Creo que te, eh, creo que tienes razón, eh?
+Pero eh, sería esto esto, esto? O sea, aes igual cero.
+Quiere decir suma la primera, eh, la la primera,
+eh, para sum.
+La primera es sumar las columnas. Si.
+Igual el serio, sumas las columnas, no?
+O sea esto esto que está acá, no tengo,
+tengo un tensor que tiene shape ABC.
+Sí. Y esto que estoy haciendo es
+summe en el eje uno en el ej cero,
+pero que es el primer eje?
+No? Porque es y estoy sumando.
+Entonces eso me va a dar
+impulsor de shape de sí.
+Si yo tuviera una matriz y sumo, eh, en
+aro lo que estoy haciendo es
+No.
+Si yo, si yo tengo una matriz y le digo suma este,
+o sea, las las entradas, no el i, esto, esto sería si,
+si la x no.
+Entonces x, este j no.
+Entonces, si yo voy o lo que voy a hacer es voy a sumar
+x y punto.
+Su maní no?
+Y x y punto es, eh, estoy
+eh, mirando esta fila, no
+con x y
+0.2
+Puntos es esta fila que está acá.
+No estoy sumando todos esos vectores. No?
+Si yo as sumo a todos estos vectores en en definitiva,
+me va a dar un vector acá.
+Es como si yo sumiera las columnas.
+Yo suo todas las filas.
+Es como si estuviera sumando la columna.
+Pero cuando me pone suma aero es es sumar las columnas,
+eh, alguna duda?
+Hacemos una paita avanza. No, no, muy larga.
+Se le da para hablar algo de derivada que es un poquito más
+de dibujito
+Sí,
+vamos medio rapidito, ulises.
+Bueno, tensores, tensores, ya.
+Lo otro que tenemos que acordarnos es de deriva
+o oportunamente se acuerdan la la
+derivada de una función?
+Si tiene una función escalar, o sea,
+cuya entrada es escalar,
+no subí que es escalar y le vuelve un escalar, eh?
+La derivada es el límite
+de este de este cociente no incremental,
+pero no es otra cosa que la pendiente de la función.
+O sea est, estoy diciendo delta x, no?
+Si yo muevo delta x,
+cuánto cuanto hace el delta f, eh?
+Te sería burl límite cuando ese del ta que tienda cero.
+Y lo que me termina dando es la pendiente de la
+tangente en ese punto.
+Entonces, deriva positiva si indica que la función está
+creciendo y deriva negativa significa que la
+función está bajando.
+A veces yo lo vamos a a anotar así
+este delta f x.
+Este es un delta medio raro porque
+es un deta de ACTIV más parciales, pero nada es como,
+es, como, es como un un delta f,
+pero por una agrupación rara para indicar que este tipo
+infinitesimal que no.
+Pero esto más o menos intuitivamente
+todos conocemos, verdad?
+Ahora, qué significa geométricamente
+en realidad esto es importante.
+Y y esto es lo que esto es lo que
+después la clase viene después.
+Yo voy a, pues tampoco les quiero atomizar,
+pero es la idea que está detrás de los motores de
+de diferenciación automática es que, eh,
+es esta aproximación lineal que, o sea,
+básicamente es imagínense una,
+una función esta como co, no, no.
+Y yo agarro un este punto en porex este,
+pero voy, voy ir haciendo zoom en ese punto,
+pero voy haciendo zoom, eh,
+tanto estirando la x como estirando la le le idea.
+Porque si yo hago zoom, solo estirando la x,
+qué es lo que les parece que va a pasar con el gráfico de la
+función yo me saco pero solo quiero solo like
+solo, eh?
+Va más horizontal. Exacto.
+Me va a quedar cada vez más horizontal porque
+la función es continua.
+Sí, que la función sea continua.
+Lo que quiere decir es que si yo tiro la y se tiro y se tiro
+x tiro x, el límite que veo es una recta horizontal
+y que la función sea derivable quiere decir que si yo tiro
+la y si tiro la ahí, me me converge a qué?
+Una una recta con alguna pendiente? No?
+Entonces, si yo, si yo hago un zoom ahí, empieza hacer zoom
+hasta que no me fui acercando, me fui acercando,
+me fui acercando tanto que para mí,
+la función ahí es una recta.
+Sí. Y eso es
+lo que está detrás de esta de esto que se llama el Taylor de
+uno que tanto nos asustó en cálculo.
+Sí, pero no es otra cosa
+que decir que la función piensa cerquita de un punto
+se comporta como la recta.
+Qué es que recta es la recta que
+arranca en el valor de la función?
+Sí. Y tiene pendiente la derivada.
+Eso es lo que quiere decir eso.
+Y después tenemos algunas reglas de la derivada, eh?
+Las reglas de las del que lineal la suma todo se acuerdan?
+No la la suma, la derivada de la suma,
+la suma de las derivadas y yo las
+constantes, las puedo sacar para afuera.
+Si. El siempre que tengo una constante,
+la puedo sacar para afuera de derivada
+después tengo la regla del producto
+que para alguna cosita nos va a servir este
+que me dice que si tengo que derivar f por g,
+es lo mismo que hacer la derivada f por g más.
+Eso es por la derivada de g.
+Sí, teníamos la regla de la división, pero importa.
+Y la una muy importante que es la regla de la cadena
+que está así va a ser clave para los los auto Brad,
+que es que la derivada de una composición
+es la derivada de la función de afuera.
+En qué no por la DEG
+y de qué raro lo difícil de entender
+los los motores de diferenciación automática
+o propagation es que esta regla está
+escrita en su versión forward.
+Sí. O sea, esta esta, esta recta está escrita,
+es esta regla está escrita hacia adelante y la y la
+entendemos hacia adelante.
+Sí. Entonces, después de entenderla hacia
+atrás, nos va a costar un poquito.
+Pero este es lo que es la base de este
+de vas propagation y todo eso.
+O sea, se puede deriva yendo hacia atrás usando esta regla,
+pero nos parece con intuitivo porque las
+reglas te escrita hacia adelante.
+Para qué pasa si tengo más dimensiones? No.
+Si tengo más dimensiones,
+Te puedo pedir un poquito que vuelvas atrás.
+Sí, sí. Tú decís que arrancamos del término de la derecha.
+Y para llegar el término de izquierda,
+conocí que volvimos atrás.
+O sea, Desde la ecuación,
+Claro de la Fecha hacia la
+Izquierda, exacto.
+O sea el cómo, o sea, cómo va?
+Cómo, cómo le video para es
+la la composición tal cual está escrita es
+yo arranco con un x, hago la g y después hago la f.
+Sí, pero le Edward al revés. No.
+Y la y la y la y la y la regla de derivación es bueno de
+derivadas la primera, este es multiplicado por la derivada
+de la segunda no está en ese orden.
+Sí, este,
+pero dos propagations y y la diferenciación automática,
+eh, eh, va al revés.
+Pongo, claro, va al revés.
+Entonces es un poquito agua.
+Y por eso di por eso no es la regla de la cadena.
+No es o sea, no, no es, ah, la vela de la cadena,
+este tal o sea, pa país no es la regla cadena porque a ver
+si darse cuenta de poderle esto al revés y hacerlo de forma
+eficiente, tiene tiene su astucia.
+Eso va a mover batía sí, detalle. Sí.
+Con el detalle que quieran. Podemos si.
+Hasta hasta que arnos todo el curso haciendo grafos de de de
+no, no, pero tengo ganas de por lo menos mostrarlos algún
+ejemplo, si yo,
+yo lo que quiero es que ustedes entiendan cuando hacen punto
+backward punto grad, Ciro, gra, todo eso.
+Quiero que entiendan que están haciendo ah,
+eso es lo que yo quiero que entiend era como antes cuando
+hacían punto fit que yo quería que entendieran que estaban
+haciendo porque esto se puede dar así, eh?
+Esto puede ser ah, el punto hora de
+y y no tener ni idea que está pasando.
+Este puede d igual, eh, puede andar no sé quién, ah,
+pu puede andar el tema es cuando no anda
+no tener ni idea por donde
+es el problema es como cuando se te quedó el auto, eh?
+No, y está y tenés que llamar
+ahí este.
+Ahora, si tengo una función de varias variables, no?
+O sea cuya entrada es un vector,
+pero su salida es un escalar.
+Tengo en direcciones en las cuales deriva no?
+Entonces eso es lo que llamamos la derivada parcial
+respecto de la coordenada.
+Ahí es el cociente incremental.
+Pero si solo hago el cociente incremental respecto de esa
+dirección y dejo todas las demás quietas, sí.
+Entonces cuando yo hago eso y me formo el vector de
+derivadas parciales, lo que estoy haciendo es el gradiente
+de la función, pero tiene cumple la misma idea esencial
+que es que es la aproximación lineal de la función y eso con
+un eje imagínense que ustedes tienen una función así.
+Esto, estos son las crudas de nivel.
+O sea que en varias dimensiones, esto,
+esto sería como una especie de de voy, no de paralelo.
+Y entonces quiero ver que el iient en ese punto
+y empezó a hacer zoom ahí.
+Ah, hago zoom en todas las direcciones y que hacer zoom
+y lo que veo es que cada vez se parece
+más a una función lineal.
+Y esa función lineal que es esa función lineal es proyectar
+en esta dirección en la en la dirección parang.
+Creo que los valores de la función cambian, de acuerdo?
+Va la dirección ortogonal.
+Entonces es como si la función cerca de este punto fuera
+proyectar sobre ese sobre esa dirección.
+Entonces, en el fondo, este esto que está acá es el grad,
+ese sí, este la aproximación lineal es,
+es el valor de la función más la más
+proyectar sobre el grad.
+O sea, este, este producto interno se puede pensar como una
+proyección también es algo que no le fije, pero este,
+pero en el fondo es la es la misma lógica, este
+y bueno, y yo hora y está el Jacob, no?
+Quiénes se acuerdan de Jacob?
+Alguien se tiene que acordar Jacob de su nombre.
+Y el nombre es me nombre, el nombre es gusta.
+O sea, si yo, si, yo tengo una función que recibe
+un vector de dimensión d y devuelve un vector de dime k.
+Sí, eh?
+La derivada de esa función es lo que se llama el jacobian
+sí, en realidad esa, esa,
+esa función poco puedo pensarla como k
+funciones escalares, verdad?
+Que que toman un vector y devuelven una escalar. Sí.
+Entonces el Jacob viano es
+poner el grad de cada una de esas funciones.
+O sea, si terminan esta fila que está acá,
+es el grad de la función uno, pero que
+so solo tengo el uno acá arriba.
+Sí. Entonces es como poner el gradiente de
+cada una de esas funciones.
+Eso es el Jacob biano. Por qué? Por qué lo menciono?
+Porque en realidad la regla de la cadena en dimensión más
+grande funciona con Jacob biano sí, queda se se escribe más,
+más fácil conano este.
+Y además, vamos a usar cosas como w por x, que son funciones
+de RN en rm.
+Sí. Entonces derivar esas funciones es,
+tiene adiano como derivamos
+este sea un ejemplario y ya y ya los dejo.
+Es esto, esto es un ejemplo? No? Si, si.
+Yo tengo una matriz lo le que esto va a aparecer en las
+redes, no, no de pesos donde ve
+y y multiplico por un x.
+Y eso me dali. Eso es una función que va,
+digamos de r d en r, no.
+Si yo le derivo con respecto a x
+como esto es una función lineal, así es, es bien fácil.
+Su derivada es ella misma.
+Si yo le derivo re respecto a x, es fácil probar
+la cuenta que que me que su Jacob viano es la es la matriz
+lo de también más difícil es ver que pasa si yo hago la
+derivada respecto a w,
+que en realidad es lo que es lo que nos interesa,
+porque a nosotros nos interesa derar respecto de lo para sí.
+Y y le les digo como ejercicio que y que vean,
+yo tengo una igualita haciendo la cuenta,
+pero que vean que la derivada respecto a w
+da esta ma.
+Este Jacob es lo que está acá.
+No se preocupes el ejercicio, pero en la notebook este
+el que que yo le subin está hecho en con
+es una línea de código, es hacer punto backward, eh,
+punto grado, sí.
+Y le y y se imprimen lo que da es más este cosa que
+una identidad de la transpuesta no es este es es,
+es agarrar el equis, transpuesto no y ponerlo eh,
+en los bloques de la identidad de o sea,
+esta esta matriz tiene k por k por d.
+Se tiene k, k filas y k por d columna,
+porque cada cito de estos tiene d, tiene dimensión d.
+Y hay cada de ellos este no, no.
+O sea, no, no, no se preocupen. Lo eh, eh?
+En la en la notebook este está está este ejemplo.
+Lo lo hacemos en la clase que viene.
+Miramos en la notebook, eh?
+Lamentablemente va a ser no la semana que viene,
+sino la otra la semana que viene.
+O sin favor que sí, que allá antes de clase.
+Yo voy a arrancar con la notebook ah, este revice eh?
+Por lo menos vi en la notebook durante la semana. Perdón.
+Viene la no por acá.
+Sí,
+sí, sí.
+No anda
+conras
+qué semestre.
+Okey, okey, perfecto.
+Sí.
+El programa, claro. No sé eso. D.
+Voy a a ver si te no
+luego bien, bueno, chacho la
+con con por eficiencia para cha.
+Gracias. Buena la noche que con chao nos vemos
+sino te conviene enfocarte en curso de este
+para que sea una na
+Me parecía. Pero
+Por para empezar de una duda me quizá si me sí,
+eso que como ustedes viene de antes o algo y yo te ah, yo
+Me le te preguntado cuando vi vos y esta referencia otra a
+veces es común que cuando uno da la misma bat materia,
+Continúa y me va a pasar.
+Entonces, vos preguntarme si mi miedo
+Ya tengo, si hubiera dicho no sea médico,
+fue hace el están modelos y el taller me mejor a la otra
+porque de inteligencia artificial mismo tanto claro.
+Eh? Yo he hecho algunos cursos.
+Viste como los de los de Stanford? Está co.
+Ah bá Y esas cosas así.
+Pero más que nada, como los sivo
+Pero no así los as claro,
+Algunos de los de cable, por ejemplo,
+Pero No es lo mismo que hacer un curso completo.
+Entonces dije está capaz que yo que se hicieron un
+obligatorio que ahora vas a continuarlo?
+No, no, no, no es como, es completamente autocontenido.
+Debería de ser pero de todas maneras, eh,
+yo puedo llegar a tener la tendencia de
+como son los mismos alumnos.
+Claro. De de tener la tendencia de de pasar alguna cosa
+rápido, eh?
+Vos ahí. Preguntar sin miedo. Está perfecto.
+Va a ser lo más eficiente. Pues si no te vas a
+a distraer con otras cosas que me parece bien. Sí.
+Y dudo mucho de me de para hacer las dos cosas
+En tiempo. Exacto. Está
+Perfecto. Entonces no te
+mando nada. Mail. Eh? Dale, tengo dudaste.
+Pregunto. Perfecto. Más bien, exacto. Perfecto.
+Ahí a la orden para lo ques. Dale, gracias, por favor.

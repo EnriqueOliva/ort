@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura Completa del Transformer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .architecture {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .side {
+            flex: 1;
+            max-width: 450px;
+        }
+
+        .side-title {
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .encoder-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .decoder-title {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .block {
+            background: #f7fafc;
+            border: 3px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: #667eea;
+        }
+
+        .block-title {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .layer {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .layer:hover {
+            background: #edf2f7;
+            transform: translateX(5px);
+        }
+
+        .layer-name {
+            font-weight: bold;
+            color: #4a5568;
+            margin-bottom: 5px;
+        }
+
+        .layer-description {
+            color: #718096;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .input-output {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2d3748;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin: 10px 0;
+        }
+
+        .info-box {
+            background: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .info-title {
+            font-weight: bold;
+            color: #c53030;
+            margin-bottom: 8px;
+        }
+
+        .info-text {
+            color: #742a2a;
+            line-height: 1.6;
+        }
+
+        .n-times {
+            background: #fef5e7;
+            border: 2px dashed #f39c12;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        .connection {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+        }
+
+        .connection-text {
+            color: #234e52;
+            font-size: 0.95em;
+        }
+
+        .dimensions {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #22543d;
+        }
+
+        .key-concept {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .key-concept-title {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .key-concept-text {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Arquitectura Completa del Transformer</h1>
+        <p class="subtitle">Encoder-Decoder para Traducción Automática</p>
+
+        <div class="key-concept">
+            <div class="key-concept-title">💡 Concepto Clave</div>
+            <div class="key-concept-text">
+                <strong>Encoder:</strong> Aprende una representación eficiente, comprime la información y la codifica.
+                Encuentra una representación latente que se pasa al decoder.<br><br>
+                <strong>Decoder:</strong> Aprende a decodificar esa información para generar la salida en el idioma objetivo.
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-title">⚠️ Importante: No es Recurrencia</div>
+            <div class="info-text">
+                Cada bloque tiene <strong>sus propios pesos independientes</strong>. No es como las RNN donde se reutilizan
+                los pesos. Si N=2, son literalmente 2 capas diferentes de encoder y 2 capas diferentes de decoder,
+                cada una con sus propios parámetros entrenables.
+            </div>
+        </div>
+
+        <div class="architecture">
+            <!-- ENCODER -->
+            <div class="side">
+                <div class="side-title encoder-title">ENCODER</div>
+
+                <div class="input-output">
+                    📝 Input: Frase en Español
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="layer">
+                    <div class="layer-name">Input Embedding</div>
+                    <div class="layer-description">
+                        Convierte cada palabra en un vector de dimensión d_model
+                    </div>
+                    <div class="dimensions">
+                        Vocabulario × d_model<br>
+                        Ejemplo: 5000 × 128
+                    </div>
+                </div>
+
+                <div class="arrow">+</div>
+
+                <div class="layer">
+                    <div class="layer-name">Positional Encoding</div>
+                    <div class="layer-description">
+                        Agrega información de posición porque el attention es invariante a permutaciones
+                    </div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="n-times">
+                    ⟲ Se repite N veces (N = 2 en el ejercicio)
+                </div>
+
+                <div class="block">
+                    <div class="block-title">Bloque Encoder</div>
+
+                    <div class="layer">
+                        <div class="layer-name">1️⃣ Multi-Head Self Attention</div>
+                        <div class="layer-description">
+                            Todas las palabras se miran entre sí. Captura relaciones semánticas y sintácticas.
+                        </div>
+                    </div>
+
+                    <div class="connection">
+                        <div class="connection-text">
+                            ➕ Add (Skip Connection) + Layer Normalization
+                        </div>
+                    </div>
+
+                    <div class="layer">
+                        <div class="layer-name">2️⃣ Feed Forward Network</div>
+                        <div class="layer-description">
+                            MLP de 2 capas: d_model → d_ff → d_model<br>
+                            Se aplica a cada palabra por separado
+                        </div>
+                        <div class="dimensions">
+                            128 → 512 → 128
+                        </div>
+                    </div>
+
+                    <div class="connection">
+                        <div class="connection-text">
+                            ➕ Add (Skip Connection) + Layer Normalization
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="input-output" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    📊 Output: Representación Latente<br>
+                    (N palabras × d_model)
+                </div>
+            </div>
+
+            <!-- DECODER -->
+            <div class="side">
+                <div class="side-title decoder-title">DECODER</div>
+
+                <div class="input-output">
+                    🎯 Input: Frase en Inglés<br>
+                    (durante entrenamiento)
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="layer">
+                    <div class="layer-name">Output Embedding</div>
+                    <div class="layer-description">
+                        Convierte cada palabra en un vector de dimensión d_model
+                    </div>
+                    <div class="dimensions">
+                        Vocabulario × d_model<br>
+                        Ejemplo: 6000 × 128
+                    </div>
+                </div>
+
+                <div class="arrow">+</div>
+
+                <div class="layer">
+                    <div class="layer-name">Positional Encoding</div>
+                    <div class="layer-description">
+                        Mismo propósito que en el encoder
+                    </div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="n-times">
+                    ⟲ Se repite N veces (N = 2 en el ejercicio)
+                </div>
+
+                <div class="block">
+                    <div class="block-title">Bloque Decoder</div>
+
+                    <div class="layer" style="border-left-color: #f5576c;">
+                        <div class="layer-name">1️⃣ Masked Multi-Head Self Attention</div>
+                        <div class="layer-description">
+                            <strong>¡Con máscara!</strong> No puede ver el "futuro". Solo palabras anteriores.
+                        </div>
+                    </div>
+
+                    <div class="connection">
+                        <div class="connection-text">
+                            ➕ Add + Layer Normalization
+                        </div>
+                    </div>
+
+                    <div class="layer" style="border-left-color: #f093fb;">
+                        <div class="layer-name">2️⃣ Cross-Attention (Encoder-Decoder)</div>
+                        <div class="layer-description">
+                            <strong>Conecta con el Encoder.</strong><br>
+                            Query: del decoder | Keys y Values: del encoder
+                        </div>
+                    </div>
+
+                    <div class="connection">
+                        <div class="connection-text">
+                            ➕ Add + Layer Normalization
+                        </div>
+                    </div>
+
+                    <div class="layer" style="border-left-color: #f5576c;">
+                        <div class="layer-name">3️⃣ Feed Forward Network</div>
+                        <div class="layer-description">
+                            Igual que en el encoder
+                        </div>
+                        <div class="dimensions">
+                            128 → 512 → 128
+                        </div>
+                    </div>
+
+                    <div class="connection">
+                        <div class="connection-text">
+                            ➕ Add + Layer Normalization
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="layer">
+                    <div class="layer-name">Capa Lineal</div>
+                    <div class="layer-description">
+                        Proyecta a la dimensión del vocabulario
+                    </div>
+                    <div class="dimensions">
+                        (d_model + 1) × Vocabulario<br>
+                        Ejemplo: 129 × 6000
+                    </div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="layer">
+                    <div class="layer-name">Softmax</div>
+                    <div class="layer-description">
+                        Convierte a probabilidades sobre todo el vocabulario
+                    </div>
+                </div>
+
+                <div class="arrow">↓</div>
+
+                <div class="input-output" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    ✨ Output: Frase Traducida<br>
+                    (probabilidad por palabra)
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" style="background: #f0fff4; border-left-color: #48bb78;">
+            <div class="info-title" style="color: #276749;">📏 Importante sobre Dimensiones</div>
+            <div class="info-text" style="color: #22543d;">
+                <strong>En el Encoder:</strong> Si entra una frase de longitud N, sale una matriz de N × d_model<br>
+                <strong>En el Decoder:</strong> Si entra una frase de longitud M, sale una matriz de M × d_model<br>
+                <strong>Las longitudes pueden ser diferentes:</strong> Una frase de 5 palabras en español puede traducirse a 8 palabras en inglés.
+            </div>
+        </div>
+
+        <div class="key-concept" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+            <div class="key-concept-title">🎓 Ejemplo del Profesor</div>
+            <div class="key-concept-text">
+                Con N=2 bloques, d_model=128, H=4 heads, d_ff=512:<br>
+                <strong>Total de parámetros: ~3.1 millones</strong><br><br>
+                "Y eso con un vocabulario de 5000 tokens es minúsculo. Esto es minúsculo."
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,578 @@
+Recording in progress. Bueno, todo bien. Este, mi idea para hoy es hacer algunos ejercicios de de reparto. Este, no hay mucha cosa. Yo les habilité el parcial del año pasado y una guía de ejercicio que pasamos Pero el orden que se dieron las firmas fue bastante distinto y hay unos o dos ejercicios hicieron bien cosas además. Entonces algún un par de ejercicios se puede rescatar, pero no mucho. Entonces preparé acá una listita medio de c***. Este mi idea sería ir haciéndolos y que vayan saltando dudas y nada, aprovechar la clase para hacer un repaso. Ya es el lunes que viene, ¿no? Entonces aprovechar para hacer un repaso y que salten dudas y que se vea bien este lo más dinámica posible la clase para que salten todas las dudas. Entonces si les parece arrancamos a hacer los ejercicios y a esto lo tienen allí en en aulas en la parte de material adicional. se dispone de un dat de aerolíneas que recogir información de vuelos para predecir la probabilidad de que un vuelo se ref. Concretamente el dat tiene las siguientes variables proyectores hora de salida formato 24 horas día de la semana de 0 a 6 eh mes de 1 a 12 aerolínea codificada como entero único para cada de línea y duración del vuelo en minutos. Dice, y la variable a predecir es probabilidad de retraso del vuelo que es un valor entre y un o es una probabilidad lo que hay que decir. Dice, "Para resolver el problema de predicción se desea construir una red neuronal con la siguiente arquitectura." Aquí tenemos arquitectura es bastante sencillita. Este, tenemos cuántas capas, digamos, este, capastivas activaciones. Eh, acá tenemos los shapes de salida, ¿no? Cada una de esas capas y este y la cantidad de parámetros que está como como incógnita, digamos. Pero si sabemos, ah, no, tampoco sabemos el total de par, ¿no? Entonces nos dice dice después dice, "Determine la dimensión de salida M de la primera capa, sabiendo que triplica el tamaño de su que hacer un dibujito, ¿no? ¿Cuál cuál es el tamaño?" O sea, son dos capas, ¿no? Entonces, ¿cuál cuál es el ¿Cuál es la dimensión de entrada del
+cinco,
+exacto? Cinco variables. Sí. Y entonces, si en Micaa la dimensión de entrada, m vale 15. 15. La Esta es la primer capa, ¿no? La la de segundo. Sí. Después tiene una una activación que deja exactamente todo igual. A 15 también es la la activación activación A1
+y después dice ón. Sí, ahora, ahora, ahora pongo, déjame leer n más eso y ya le pongo el pizarrón. Este dice, determine la dimensión de salida eh n en base al problema planteado. Entonces, ¿qué dimensión de salida en base al uno? Baja directo a un otra capa y la L2. Es esta, ¿no? Esta es la L2.
+Esta es la L2. Sí.
+Y después hay una activación A2. Sí, son dos capas. Bien. O sea, que acá m, o sea, dijimos m vale 15, eh, sí, no, 15 y n vale 1. Sí. Acá fácil, ¿no? Alguna consulta. Em, bien. Y ahora nos dice, eh, calcule la cantidad de parámetros de la red detallada durante calcular la cantidad de parámetros inputado conemplo. Claro. O sea, Eh, de cada capa, ¿no?
+Claro. Para una para una capa, ¿no? Se, o sea, o sea, la cantidad de parámetros totales, ¿no? Es la realidad de parámetros de la capa L1 más la cantidad de parámetros capa L2 porque las situaciones para no. Entonces este y esto es el input de la capa uno. ¿Qué pasa? O sea, todos estos Al conectarse acá, ¿no? Con esta zona contribuye tamaño del input, ¿no? Este más unas, ¿no? Entonces es input multiplicado por el out. ¿Sí? Entonces acá esto es el input más 1 multiplicado por el output más el input de la tapa dos, o sea, que es eh 6* 15 más 16, o sea, esto es 60 + 30 90 + 16 106 106 parámetros un ejercicio así es muy
+en vez de que triplica podrés ponerle más difícil. Ahora dice, "Determine la activación A1 si la misma debe andrar los valores negativos y mantener los positivos iguales.
+Re bien fácil. Lación está a un tiene que ser un O sea, esta activación A1 es una R. Después dice, determine la activación A2 en base al problema. ¿Cuál es la activación A2 en base al problema? Que a dos es ¿Cuál era la formulita? ¿Cuál era el gráfico de la idea? La Z.
+1 sobre 1 e
+1 sobre 1 e
+adiós.
+Este yo gráfico, ¿cómo es el Al cero, ¿cuánto vale? 1 medio.
+1 medio. Cer vale 1 medio, ¿no? Y en menos infinito cero.
+Tiende a cero. Y en más infinito
+calcular la pendiente acá haciendo la derivada. Este, y la regu, ¿cómo era? ¿Cómo era el gráfico de la de la regu? ¿Cómo es la fórmula de la reg si z si z es
+podemos poner igual en cualquier lado, ¿verdad? En un punto donde no es diferenciable, que es que es ahí justo en el cero. Esto se puede escribir también. Así, ¿no? Como el máximo entre 0 y Z. Sí. Este, si Z es negativo, el máximo vale cer y si Z es positivo, el máximo vale cer. Eh, ¿y cómo es el gráfico de la
+el cero para menos infinito es sale 45 grad? con cable. Esto digo a veces este no es que se acuerden de la fórmula, pero sí este qué propiedades tiene un juicio de activación esta activación este valor Entonces no hace falta acordarse de la fórmula, pero sino también el grafiquito de los más comunes, este, ¿qué propiedades tienen? La obra nos dice, indique una función de pérdida los apropiados. unaidad claro la
+este, o sea, la función de dos apropiada. Voy a borrar este cálculo, si me permiten. Están copiando. Aguanto dos es la vaina de los centros este que lo important digamos a ver es que yo la voy a escribir, pero es medio pero qué qué propiedades tiene y de repente cuál es sufál gráfico. Sí. Este, primero es una función eh digo acá no dice nada, ¿no? Pero este puede decir este describa brevemente cómo es esa función de Entonces es una función queé qué toma como
+lación y la etiqueta
+no depende de lo que llame y
+ah predicción La predicción de qué etiqueta es, si es uno o cero.
+Está, pero cuando es una probabilidad, ¿cómo nos conviene llamar la predicción?
+Borrito.
+P gorrito, ¿no?
+Ah, p gorrito.
+O sea, toma una predicción pito, porque lo que devuelve la red, ¿qué es? No, hicimos una al final acá, o sea, que lo que sale acá es pito, ¿no? Eh, entonces es tiene como input la predicción, ¿no? Y el valor real divide. Entonces, esto es la predicción es una probabilidad y esto es la etiqueta real, ¿no? Y la fórmula es menos este algo. A ver si hay alguien que se acuerde. cuadro logaritmo de
+logaritmo de p y logaritmo de p es por i
+por
+a ver si quieren pueden hacerlo por casos
+cuando cuando la etiqueta es positiva entonces
+cuando la etiqueta es positiva vale logaritmo de
+vale menos
+y cuando es es 1 menos la etiqueta sea uno
+por el logaritmo de 1 menos.
+Exacto. O sea, menos logaritmo es,
+o sea, es el es la probabilidad siempre es la probabilidad de la etiqueta. Sí. Si la etiqueta real es uno, es el logaritmo de la probabilidad de que de que sea uno. Imaginándonos que la red la diseñamos para que nos devuelva la probabilidad que sea uno. Y si es este si y si la etiqueta es cero, ¿no? Perdón, acá este esto es Si la etiqueta es uno y esto es si la etiqueta es cerc si la etiqueta es cero es la probabilidad de que de que la etiqueta cero es uno menos la probabilidad de la etiqueta un o sea que en el fondo se puede resumir como si quieren este
+esto se escribía como suma
+sí se puede escribir como una suma tal cual se puede escribir así como menos y logaritmo de p sombrero + 1 - y logaritmo de el sombrero. Sí, así como suma es lo mismo que esto, que es lo mismo que esto porque uno se te va. Claro, porque la i puede valer cer o uno no más. Y y en realidad, ¿qué pasa con, o sea, en realidad como que podemos resumir esta cuestión, no? Eh, sí, diciendo que es el logaritmo de la probabilidad estimada de Pero perdón, en la etiqueta real, ¿no? Y por eso si yo tengo muchos datos, ¿cómo se vincula esto? ¿Con con qué se vincula esto? O sea, si yo estoy haciendo logaritmo de una de la probabilidad,
+Exacto. O sea, si Yo la función de costo asociada, ¿no? Este, ¿cómo se llama? Eso, esa es la es la función de pérdido, ¿no? La función de costo acá no lo pide, ¿no? Pero voy a pedir la función de costo. Nosotros llamamos J. Este va a ser este es el promedio en todos los datos, ¿no? 2 de n la suma de igual 1 hasta n, ¿sí? De este esta vainacentro aquí. Y eso entonces si yo lo escribo como como logaritmo de la etiqueta del dato del dato útil, ¿no? Esto dicho mal y pronto es Es, o sea, si escribo con palabras, que no que no me importa que escriban las fases con palabra, es el promedio de este menos logaritmo de la probabilidad. Este es el promedio en datosamiento. medioamiento de menos que es no es otra cosa que menos el logaritmo de la velocidad. Nosotros usamos esta función de pérdida, composición de costo Está acá en orden. Consultas
+no una consulta. Sí, con esta limos la vaina de centrop en definitiva es un problema binario que el modelo va a tratar de o darte uno o darte cero.
+Claro.
+Acuerdo. Pero en realidad el problema ahora sí los gráficos de eso.
+Sí, pero la pregunta es, en realidad lo que pedía la letra era eh estimar la probabilidad de trazo.
+Y acá no estás devolviendo siempre cero y uno y estás como tratando de capturar cuál es la probabilidad del refazo.
+No, no, porque pesero es la probabilidad de reemplazo. O sea, si si llamas uno a refraso, sí, llamando un
+Sí, entiendo que pero te va a dar valores entre cer y un
+a retraso y cero. No, retraso y Vas a tener tu datacet con las variables y después este si hubo retraso o número retraso. Claro.
+Teng perdón.
+Entonces cuando pues esta red va a devolver un numerito entre y uno. Sí. Este que cuando vos lo que intentass hacer es minimizar esta función de pérdida o esta función de costo. Sí. Lo que va, o sea, cómo qué es lo que te va a quedar es que cuando le y es uno. Sí. Eh, fíjate que esto, ¿cuándo es más chico? Lo más chico posible es cuando p se acerca uno y cuando la y a cer, lo más chico es cuando p se acerca cero. Pero lo que va a intentar hacer el modelo es que para todos los datos en donde un retraso, hacer que la red devuelva, o sea, ajustar los pesos de la red para que la red devuelva un pescano uno y cuando no hubo un retraso ajustar los pesos de la red para que la red vuelva un pie cercano a cero. Entonces, vuelvo puedes interpretar ese numerito como que es la probabilidad de que haya un retraso. Lo que te está devolviendo la red es la probabilidad de que haya uno.
+Yo cuando cuando di el ejercicio me comí dice la variable predecide es seis puntos probabilidad del retraso. O sea, no Yo me di cuenta como que era la columna target si tenía retraso.
+Ah, entiendo por tu confusión también. Sí,
+yo pensé como que era una regresión que vos tenías como que predecir la probabilidad valores entre cer y un
+para saber si en base a los cinco features que tenés qué probabilidad te da.
+Sí. No, no, no. Es este poco usual que está bien. Entiendo la función. Perfecto. La letra es ambigua en eso. Es Este es poco probable que vos tengas datos en los que vos tengas ciertos atributos y que tu target sea cuál es la probabilidad de retraso.
+O sea, vos tenés como dato si se retrasó el vuelo o no. Eso, o sea, tenés tu su target es 01.
+Okay. Y te una cosa, suponiendo que sea
+igual dice clasificación binaria de no
+consulta. Suponiendo que diga que sea el este este caso, ¿no? El hacer una predicción de la probabilidad o de el valor que tendría la la el retraso.
+Sí,
+ahí como
+adión
+como función de Claro, como función de pérdida aplicaría una min square error.
+Sí, sí, por ejemplo, podría aplicar una,
+o sea, podrías si la interpretas así, si si lo que realmente tus datos, si tus datos te dicen probabilidad de una regresión, la regresa,
+pero Bueno, nunca vas a tener datos así, pero sí, sí, bueno, entiendo y sí, sí es ambigua ese en el caso de que en vez de la probabilidad tengas que decir se retrasa o no se retrasa, simplemente bueno si la probabilidad más elegís el umbral ahí.
+Claro. ¿Cómo tomas una decisión en base acá? Tomas un
+retornas uno y si no retas.
+Exacto.
+Este y podrías tomar un umbral que no es 05 en qué situación. ¿Quieres ser un conservador?
+Si quieres ser un conservador o
+si tenés datos. Por ejemplo, si hay pocos retrasos,
+¿sí? Este eh si tenés pocos retrasos, ¿no? Eh podrías este poner un umbral más pequeño, ¿sí? Para que se la juegue un poquito más a decir este retraso o eh, ¿qué otras cosas podrían hacer? Podrían, no sé si han visto algo en en el taller o pueden cambiar la función de pérdida, ¿no? Y en vez de hacer una suma así tal cual ponderan, ¿no? O sea, hay dos clases. Entonces, van a poner un W1, un W2, ¿sí? Un W1 y un W0, digo, ¿no? Y ponderan acá con un numerito según la I, sea cer o sea uno, y le dan un costo distinto a cada una de las clases. Entonces, le dan un costo mayor. a la clase minoritaria. Eso lo pueden hacer, no estoy seguro en Python, yo creo que no generalmente llama class weights, le pueden, o sea, le pueden poner pesos a las clases para que si está muy desbalanceado eh la función de costo eh tengan en cuenta eso. Entonces, penaliza más Eh, cuando son poquitos para que el total promedie parecido pondera más las clases inventarias. Sí. Eh, y si no hay técnicas de ramo, creo que pueden usar son complicadas. Se acabó el tiempo de que estás grabando eso.
+Está grabando. Sí, no bien. Ah, no, perdón, les iba a hacer el gráfico, eh, o sea, a mí, o sea, ¿cómo cómo se interpreta esta esta función de costo? Es es un poco la respuesta que yo le hice a Santi pensando, preguntando eso, este, y es que, o sea, ¿cómo es el gráfico de logaritmo, ¿no? Entre y un cóm es el gráfico de logaritmo infinito 0 y un logaritmo hace hace así de y vale un entonces yo hago menos el logaritmo eh lo que me queda es eh funciona así, ¿no? Esto sería la BC, ¿no? O sea, si yo acá pongo P, ¿no? Esto es la la vainacentro de P si la etiqueta es un no. Entonces, cuanto más grande es la probabilidad, más baja es la finalización y cuanto más chiquita es la probabilidad para una etiqueta de un eh la penalización se va a Y si lo hiciera con eh con la otra etiqueta Vamos a hacer el P también. Lo que va a pasar es completamente al revés. Silencio. Acá va a ser la vaina microcentro aquí en P. La etiqueta es cero.
+¿Cómo queda, profe?
+Sí, un segundo. Entonces, penaliza, o sea, si la etiqueta es cero, la penización tiende a cero cuando el P tiende a cero, pero tiende a ser muy grande cuando el P tiende uno. Entonces, básicamente lo que lo que dice, bueno, yo base un poco a la confianza que vos tengas, o sea, si si la etiqueta real es cero y vos me decís, "Estás 99% seguro de que son uno, eh, te mato." Porque ahora si me decís que estás 20 No sé, 45% seguro que es un te mató menos. Sí. O sea, depende un poco de la seguridad que tengas, o sea, es eh nada, esas esas propiedades, repásenla. Este,
+sí, diga eh de la pregunta anterior me quedé calculando de si si lo si técnicamente lo llam problema de clasificación. No, porque lo tratamos todo como un problema de clasificación, elegimos las activaciones como un problema de clasificación y y la pérdida también, pero la salida que dice acá es una probabilidad,
+¿no? No, ahí va. Sí, sí.
+Es una un problema de regresión en realidad. No,
+no, no está, o sea, es es una ambigüedad de la de la,
+o sea, lo lo que nos pedía acá es que es que es que decidamos es eh se se quedó el avión o no las palabras.
+Si se retras o no. Si se retras o no. Exacto. Sí. O sea, tus datos son si es para atraso o no. Eh, lo que pasa que el objetivo el objetivo del del problema es predecir la probabilidad de retraso, pero tus datos eh dicen eh o sea, el histórico de datos que tenés si el duelo se retrasó o no, o sea, no sabés eh no tenés como dato la probabilidad de si se retrasó o no.
+Entiendo. Yo estaba tomando como criterio, para llamar regresión si la variable predecir era continua o no.
+Sí, sí, sí, está perfecto. Eso
+puede ser todo igual y que me pidan la probabilidad. de que se retrase como ese problema y llamar un problema de regresión. Entonces, sea el
+eh no, o sea, sigue siendo un problema de clasificación, sí es como regresión logística porque lo que vos este lo que devuelve el modelo es una probabilidad. Sí, la función de pérdida usa esa probabilidad, pero vos la clasificación final la vas a hacer como
+en función del umbral.
+En función del umbral. Sí. Sí.
+Sí, sí. Es eso.
+Es un problema de clasificación. una medias en realidad
+porque lo que devuelve el modelo es un numerito real,
+un número. A vos no te interesa cómo lo clasificar, simplemente vas a saber decir esta es la probabilidad de que se retrase. Si es chica vas a asumir que no se va a retrasar. Si es grande, vas a asumir que sí. Siempre así, o sea,
+eh, sí, sí. Para las redes siempre, digamos, un problema de clasificación probabilidad de Exacto. Pero bueno, una probabilidad. con imágenes cuando tenés que reconocer imágenes y puedes
+igualito igualito.
+Este, o sea, vos este eh precís una probabilidad de cada clase y después este con algún criterio tomarás la decisión, ¿sí? Este, de con qué clase te quedas en base a las probabilidades que tengas. Eh, ahora dice su primer intento de entrenamiento con 100 genera la de riesgo costo en amiento y variación mostrar explique lo que observa y proponga alguna posible solución en el problema. Acá está el grafito. Eh, trade y validación. Si no estuvieran indicadas, ¿no? ¿Cómo se dan cuenta cuál es cuál? Siempre baja.
+Siempre baja.
+Siempre baja cuando sobre todo eox siempre baja. Empieza. Si si le da si le da el inductivo, digamos, si si la cantidad de parámetros y la arquitectura de la red es lo suficientemente compleja, va a lograr aproximar todo. Sí, va a tener a cero. Diría que le doy más, pero en validación nos puede pasar esto. Entonces, ¿qué es lo que observan acá en este gráfico? Overfel enemigra vez.
+¿Y qué y qué soluciones, qué técnicas? como para intentar solucionar esto con regularizar. Exacto. Eh, y entonces por ejemplo es una dec, o sea, richo, ¿no? O sea, regularización en los pesos decones, ¿no? Un norma dos. Eh, acá en este ejercicio no pide más que eso, más que enumeradas, pero de repenteir que en detalle o digo obviamente de qué se trata la la técnica.
+Sí, está y eso es este ejercicio. No sé si lo queda alguna duda. Seó un mate y pasamos al segundo. parecidos parecido un poquito más y se considere la siguiente red de tipo mdp la arquitectura tiene cuántas tiene tres. Acá sí tenemos algunos que son incógnitas, ¿sí? Algunos datos tipo del output shap y y no. Sí. Y tenemos el total de parámetros. Sí. Entonces nos piden calcule la dimensión de salida D de la capa L2. unas cosas que sí sabemos, o sea, parámetros de la primero no sabemos cuál es el No, o sea, el input de la capa uno no sabemos cuál es, pero sí sabemos cuál es el auto, ¿no? ¿Cuánto vale el se o sea que uno es seis y después tenemos, no sé, yo lo hago cualquier como si se agrandara, pero sea no tengo idea si se agranda chica, solo para tener un esquema. No, no, después este el output de esta capa, o sea, esto va a ser lo mismo, ¿no? Esto es tiene que ser igual input de segunda capa y el output de la, o sea, no estoy dibujando las activaciones, el output de la segunda es de que no lo conocemos. Y después tenemos e pasamos a tres, ¿no?, o sea, que el output de la tercer capa de tres y después hay una activación más. Sí, una activación final. Ya. Entonces, ¿qué cómo hacemos? Ah, pero tenemos un dato más, ¿no? ¿Qué dato más? Tenemos total de parámetros.
+Total de parámetros que cuántos cuánto es el total de parámetros
+140 y
+esto es el total de parámetros que va a ser la cantidad de parámetros de L1 la cantidad de parámetros de L2 la cantidad de parámetros de L3 y tenemos otro dato
+de parámetros de L2 es Entonces, ¿cómo hacemos para despejar de cuáles son las capas si tienen? O sea, esta es un ser dos y este ser 3, ¿no? Entonces, ¿cuál es la formulita? Bueno, no sé.
+Claro. La la cantidad de parámetros L2 es El input de L2 + 1, ¿no? Por el output, perdón. Este, el output no lo conoce D y el input es 6. Así que 7* D, ¿no? Esto tiene que ser 84, o sea, que D vale 84 di 7 que es 2
+2. apareció.
+¿Cómo apareció? ¿Qué cosa?
+Eh, porque O2 es B. Este de acá. Sí, pero que este a ver si querés olvidarte de esta parte por ahora que Ya no lo us
+el uno más un hizo 6+ 1 2
+O sea, si si queres puedes pensarlo así también Si si les dan algo mal. Bien, ahora dice, calcule la dimensión de entrada de la red. ¿Cómo hacemos para calcular la dimensión de entrada de ángulám? Tenemos los parámetros totales, son Sabemos que este de acá vale 84. En realidad al conocer D ahora,
+claro, D vale 12, ¿no? O sea, que podemos calcular la cantidad de parámetros de L3.
+La cantidad de parámetros de L3 es 3 1 3, o sea, es 13* 3. No, esto da 39. Así que este de acá vale 39. Entonces, la cantidad de parámetros de L1, ¿cuánto es? Es 141 - 84 - 3 * 9 Sí, está complicado. 18 y por otro lado, esto a su vez tiene que ser igual al input de la capa 1 + 1 por su output y su output de seis vectores de la capa 1 + 1 * 6, ¿no? Que da Acá sacamos que es 18/ 6 3, o sea, que vale 2. consulta
+eso de los parámetros no entrenables,
+¿no? Claro. E
+demasiado de
+Sí, exacto. Notar eh parámetros no entrenables son cero, o sea, que todos los parámetros que aparecen son entrenables. Eso pasa cuando uno va a hacer este fine tuning. por ejemplo, que eh puede congelar ciertas capas, ¿sí? Es decir, estas capas quedan frisadas. Entonces, si bien el total de parámetros que hay de 141, de repente el total de parámetros entrenables es más chico, ya, pero acá eso no se hizo. Acá son todos entrenables. Digo, esta frase podría no estar, estas dos podrían no estar ahí, hay que ignorarlas no más. Una cosa shape. Cuando tenés y el número se asume como una Eh, perdona el shape. Es el shape non y seempl.
+Sí. Dame un segundo para ver si no se pregunta. A ver, pero ya es una buena pregunta. Bueno, cuando uno genera un modelo así, ¿no? Este, y hace un resumen, este, acá hay un shape. El n que no está definido, ¿verdad? Es una cantidad que no se ha definido aún. Sí, pero ¿qué qué a qué corresponde? ¿Por qué la salida? ¿Cómo es la salida de una red en general? O sea, está bien, esto va a ser este va a tener eh dimensión seis, ¿no? Al salir cuando yo le paso un dato, ¿no? El output shape va a ser 1,6. Ahora, si yo le paso dos, va a ser 2,6. Y si le paso un B de n va a ser n6, pero va a tener dimensión seis, o sea, seis columnas y el n filas. ¿Sí? O sea, que este none o nome eh se define a la hora de entrenar, digamos, ¿no? Cuando vos pas
+Exacto. Cuando definís el optimizador y todo eso, ahí definís el batch size y recién ahí esa variable pasa a tomar un valor definido. Pero lo que indica es el tamaño del B. Entonces, por ejemplo, acá que dice dada la siguiente salida de la activación A1, o sea, que esto ya es la salida de la activación, dice, ¿cuál es la función de activación que se usó? ¿Cuál parece? Redu, ¿verdad? Es Ru porque eh solo sobrevivieron números positivos, tenemos números mayores que un este lo único que no hay son números neg que aparecen un montón de ceros que efectivamente es que la relu pasó a cero, ¿no? Todo de acuerdo. ¿Y cuál es el tamaño del BCH?
+Cuatro, ¿verdad? Tenemos cuatro filas. Fíjate que el shape es este 4,6. Ahí ahí recién se instanció esta variable, digamos, se definió realmente y vale cu e todo el orden. Ahora, supongan que la salida de la capa A3 es la siguiente. Obtienen, o sea, pasa est la salida de la capa A1, después pasa por la activación A2, dos, no sé qué y en A3 sale esto. Entonces, ¿cuál es la función de activación que se usa? Pregunta. pregunta. ¿Profe, ¿estás señalando algo?
+Sí, perdón, que estoy señalando el acá esta parte en la parte cuatro.
+Ahí va. Bien.
+Dos más, ¿verdad?
+¿Cómo se dieron cuenta?
+Componentes del elementos que suman uno entre ellos.
+Las filas, ¿verdad? Suman uno, ¿no?, o sea, cada fila es un dato del BCH. Sí. Y lo que estamos haciendo es este Esto sería una probabilidad, es otra probabilidad, est es otra probabilidad, ¿no? Son tres probabilidades que suman uno. Sí. Este, entonces, ¿qué tipo de problema de machine learning está intentando resolver esto? Clasificación multiclase
+con tres clases, ¿no? Este, ¿qué función de los usarían?
+Categoric con Si la salida de la parte cuatro se sabe que la variable target es esta, ¿qué significa esto? O sea, para ese batch de datos, el target es este que está acá. ¿Qué significa? Corresponde a la clase.
+Exacto. O sea, que el dato, el primer dato es de la clase tres, digamos, ¿no? Eh, el segundo es de la clase dos, dos y clase uno. Sí. Y entonces nos preguntan, ¿cuántos aciertos hay en este bar? Los valores, algo, o sea, si la salida de la red es esta que está acá, ¿no?
+Tres,
+¿cómo se hace la clasificación? Hay tres, ¿verdad?
+La segunda
+como son tres, en realidad no hay un umbral único, ¿verdad? Sino lo que
+la probabilidad mayor.
+Sí, puede que la mayor no sea mayor a 05. Es el mayor elemento del
+Claro.
+Este, por ejemplo, en el de abajo, ¿no?
+En la segunda fila tiene 04.
+Claro.
+Entonces acá va eh predecir esta clase, ¿sí? Que es correcta. Acá acá la agarra, ¿verdad? Predice esta, ¿no? Y después en estas dos este ya le invoca. Acá le invoca y acá le envoca. Tiene tres Y después dice eh en la gráfica se muestran las curvas de validation loss yol y train los de un entrenamiento de la red neuronal inicializado en 12 épocas y con a partir de la misma determine el valor de la paciencia y la época en la que se obtiene el mejor modelo. Entonces, Eh, primero mirando ustedes esa gráfica, saben que paró porque se agotó la paciencia, porque el entrenamiento fue inicializado en 12 épocas, pero paró en ocho. O sea, que saben que paró por la paciencia, porque se agotó la paciencia. Entonces, en realidad, ¿qué es lo que hay que hacer para saber cuánto vale la paciencia? O sea, pueden hacer, pueden ejecutar el algoritmo, ¿no?
+Contar a partir del mínimo que tú Pero si no la forma más fácil es el mínimo. ¿Cuál es? Es este, ¿no? Entonces, dos, 3, cu. Sí. O sea, que la paciencia es cuatro. Sí.
+¿Por qué la paciencia no puede ser dos?
+¿Dónde? ¿Dónde hubiera parado
+acá?
+¿Y por qué no puede ser? tres
+hubiera parado en el o
+hubiera parado acá, ¿no?
+No es, o sea, sea hace un paso. Sí, hagámoslo de otra forma para que se para que se den cuenta. El algoritmo tal cual es. Se arranca con una paciencia P acá, ¿no? El siguiente bajó. Sí. Así que la ¿Cuánto vale la paciencia ahora? menos
+P sigue valiendo P.
+Ahora es peor que el mínimo, así que la paciencia vale P - 1. Ahora
+P - 1. Ahora
+P se res porque bajó el mínimo. Sí. Ahora P - 1. Ahora P - 2, P - 3, P - 4. Y sabemos que corta cuando la paciencia llega a cer0. Así que p - 4 = 0. Sí, si yo tuve esta duda pasado del mismo grand
+si el contador era tres fuera cuatro cuando llega a cero después la siguiente ya no no baja del mínimo. Ahí sí el top pasa después de cuatro cu de cuatro pero el contador mi duda era si era eh Pero viste que hicimos el algoritmo tal cual, ¿no?
+O sea, el algoritmo corta cuando la paciencia llega a cero y ahí corta con si todavía tenés uno de paciencia, él va a seguir un paso más o sea que corta cuando la paciencia llega llega a cero. Entonces en realidad es lo mismo que contar la cantidad de segmentos que tenés, o sea, tenés 1 2 3 cu el 10 el mínimo. ¿Cuántos pasos diste? Y la y bueno, ¿y qué valor va a devolver? O sea, ¿con qué pesos de la red se va a quedar? Época.
+Exacto. Hasta el de la época. Sí.
+Y cortó en la nueve.
+Claro. Eh, eh, no, corta acá. Eh, sí, en la nueve, perdón. Sí, sí, en la nu.
+Eh, consulta
+y devuelve el
+y devuelve.
+Arrancó el cuadro la paciencia, digamos.
+Exacto. O sea, exactamente la última vez. que que la paciencia valió pneamente. Es el mejor.
+Sí,
+no. En este ejercicio sí
+podría eventualmente no.
+Si pones más la paciencia
+siempre. No, no, no. A ver,
+si hubiera puesto menos paciencia,
+te quedas allá.
+¿Qué pasa si a ver si hubiera puesto cuál, por ejemplo,
+ah, vos decís este puesto de acá en adelante no lo conozco. Y anterior, tenías dos, por ejemplo,
+te va a volver el
+Ah, está bien lo que decis tú.
+Para adelante no lo sé. Claro, porque yo me estoy yendo para
+para adelante no lo sé. O sea, puede que más adelante baje esto y sí, ahí, pero hacia atrás
+mejor. Imposible, mejor imposible,
+porque siempre se va a quedar con el mínimo que vio hasta ahí. O sea, de todo lo visto se queda se queda con el mínimo. Él vuelve él vuelve hasta donde está el mínimo. Sí. Ah, no ha estado donde di Pero mi pregunta es, por ejemplo,
+la paciencia, la paciencia corta cuando vos no superá el mínimo. O sea, acá por ejemplo podría haber bajado de nuevo y no haber superado este mínimo
+y la paciencia seguía restando porque solo se resetea cuando el mínimo cuando bajas el mínimo que ya tenés descubierto. Esa es la pregunta. Perfecto. Es el mínimo que toda la historia Es una pregunta un poco más genérica, pero siempre obviamente asociamos que el valor mínimo de variaciones sí
+o sea es un poco genérico, ¿no? Porque depende del contexto principal me parece que puede mejorar si lo ves un rato más y cambiar la paciencia, por ejemplo.
+Es unación un poco más larga que suelo decir como variación medio.
+Sí, tené que probar con dos o tres valores de paciencia a ver este, pero sí, no, no el f tuneo, o sea, de de de hiperparámetros acá, eh, es Este, puede ser terriblemente costoso de de horas y horas de probar distintas cosas.
+Claro. Para nosotros en los casos que estamos aplicando, digo, no no no es un tema, digamos, volver a correr o probar cosas, pero
+claro. Sí, sí,
+la misma el mismo entrenamiento podrías hacerlo varias veces igual igualito, inicializando en distintos lugares.
+En realidad datoer cambia,
+te cambia el orden, la inicialización es distinta y ver si este y hacer una especie de promedio medio de repente tal cual. O sea, en realidad no es tan simple como correr una sola vez y y te quedas con esto es una que me quedó el pasado estando ahora.
+Sí, creo que en una diapositiva este que
+sí
+decía que una vez que se seleccionan losparámetros y se dice, bueno, estas son la cantidad de épocas que vamos a usar, estas redes, usando los datos que yo utilizo para hacer el modelo oficial con el que después yo voy a testear. Sí, es con los datos de validación también. Sí, sí, sí. Una vez que todo,
+o sea, con el modelo que yo pruebo, el test es entrenamiento con los datos de validación.
+Sí, exacto. Si vos separaste un test aparte al principio que no lo vas a tocar nunca, eh lo vas a usar solo para validar. Sí. Entonces, vos este eh eh una vez que seleccionaste todos los hiperparámetros, elegiste la red que más te gusta,
+pero eso lo hice con un conjunto de validación.
+Eso lo hiciste con un conjunto de validación.
+Exacto. Pero después para validar ese vos ahí usaste hiciste Selección de modelo. Sí. Una vez que hiciste eso, juntas todo y validas el modelo que vos elegiste.
+Validas, no.
+Validar. Sí, es lo mismo. O sea, valida o no valida.
+No, la terminología, la terminología es es mala. Sí. Este, se se tendría que llamar así. Eh, el de test que vos sacás se tendría que llamar validación y el de validación que vos llamás se tendría llamar de selección.
+Sí,
+pero nadie lo llama así.
+Yo cuando valido eh uso selección y trading,
+¿no?
+Claro.
+No, cuando seleccionas,
+cuando seleccionas usas train y selección,
+queres pero no tranqui, tranqu
+con training uso solo training
+y y en la curva de esa uso selección.
+Sí. Exacto.
+Sí. Y cuando voy a usar eh al final validation, al final usó seleccion.
+Sí, exacto.
+Lo que pasa es que nadie usa esta terminología. Todo el mundo usa validation y test. Sí, pero no estás validando nada. Acá no estás validando nada.
+Claro.
+Acá estás seleccionando.
+Okay. Y después en realidad para variar, ¿no? O sea,
+no es que estás seleccionando, no tenes ni idea. O sea, acá estás este explorando
+ese ese lo que hablábamos recién, o sea, de ahí no voy a sacar ninguna conclusión. O sea, Claro, de ahí, o sea, vas a decir, "Bueno, está la mejor es cinco." Está
+profe, profe,
+sí,
+profe, disculpe, es que si momento se me sale cámara, no sé si está señalando algo en otro lado cuando dice que estáando por algún lado.
+No, no, pero nada importante, o sea, cosas acá del gráfico no más, pero no, no.
+Bueno, ya, ya que tengo su atención, eh, si yo
+si yo uso stopping y corro todo, corro todas las épocas sin aplicar Significa que Stopping nunca nunca encontró un mínimo. Debería estar aplicando más, debería estar usando más épocas, ¿verdad?
+Exacto. Claro. ¿Qué pasa si eh si el entrenamiento hubiera sido hubiera sido de nuox? No, si hubiésemos inicializado el entrenamiento con nu, ¿qué puede concluir?
+Mayor,
+mayor o igual
+mayor igual.
+De repente justo ahí en el último paso
+lo que podrías decir es que la paciencia es mayor igual. Exacto. La pregunta, perdón.
+No, digo si si en vez de decir que se inicializa en 12, se inicializa en en nueve. No sé qué hora quieren. Recording in progress esperar un poquito a ver si llegan el que se hayan ido aar las cosas Sí, no se supone que deba saber los algoritmos, por ejemplo, la parte del momentum, el el
+eh no
+ahora el y el Adam, eso
+no no sobre eso no no No, no voy a preguntar, o sea, yo ahora le cuando terminemos un poco los ejercicios les comento un poquito cosas eh que no aparecen en los ejercicios que como comentaba las funciones bienquitos este pero un caso de los algoritmos en particular No, no, no es que memorizar. Hay cosas que terminas teniendo que memorizar, o sea, si es el paso, ¿cómo es? Pero
+claro, ahí va. Hay que saber, hay que saber el paso, o sea, cómo es que se actualiza una red, ¿sí? En su versión más sencilla que es parámetro más por grad. Ahí va. Ah, eso es que entra meter una componente Sol Bueno, hagamos otro más de de MLP.
+Este dice, "Considere dos vees neuronales para un problema de clasificación multiclase que tiene 10 clases. Este no se indican las activaciones para simplificar los diagramas queden kilométricos, pero después de cada después de cada hay una activación. Entonces ahí tenemos esas dos Vieron que el esquemita es un poquito más informativo, por lo menos este nos dice input y output. Sí, este y después en realidad el output shape aparece también con una n que la n que indica
+el tamaño del B. Ya. Este, entonces primer pregunta es, ¿qué activación utilizaría en la última capa para producir una probabilidad en cualquiera? digamos, en realidad eh en cualquiera de las dos, ¿verdad? En cualquiera de las dos este, ¿verdad? Tenemos 10 clases para producir una un vector de probabilidades. Eh, ¿por qué? Bueno, este porque la SMM hace eso. Ese por qué quedó la SN produce. Ese ese es el por qué el por qué que me preguntan mis hijos que y por qué y por qué y por qué no que llegase un momento que
+y porque todo cuerpo que se un líquido empuje de abajo hacia arriba y
+te voy a sumergir
+solo para quienes conocen elido.
+Después dice, "De una regla de decisión explícita para asignar una clase a partir de la salida de la RX. Rmax. Perfecto. Todos de acuerdo. La probabilidad más alta. Indique una función de pérdida apropiada. Está esto es muy parecido. Categorica
+categórica crossentropy. Y este la única pregunta interesante es esta, es ¿qué valores de D hacen que la red B tenga menos parámetros que la red A? ¿Por qué es raro eso? ¿Por qué les parece, les puede parecer raro el principio? Porque tiene más porque tiene más capa. ¿Será posible hacer que tengan menos? Entonces contemos la la cantidad de parámetros que tiene la red A. Voy a escribir en el pizarrón y después pongo la pantalla porque es preciso ver el PDF. Para la red tenemos ¿Cuántos parámetros tiene L1? D + 1 por 12. Después L2 por 64 y L3 tiene 65. Exacto. 650. Vamos a escribir siempre con escribir 65 eh por este 10. O sea, que este de acá da 650, este de acá 825.
+8256 y este queda esto que está ahí. O sea, que en total tenemos No, la cantidad de parámetros totales es eh b + 1 por 128 más y la suma de estos dos te da 8906. Me gustó, me gustó. que le voy a mostrar a los hicimos cuánto hay en la red. Ahora, ¿qué pasa con la red B? Vamos a tener L1, L2, L3 y L4. Dijimos que N4 es igual, ¿no? O sea, es de 65* 10 y la y la L1 también es de + 1 por 128. Esta, ¿alguno de ustedes tiene cuántos? 128
+128 es 1 por mayúscula y esta va a ser b + 1 64 * 64. Así que el total es b + 1 * 128 más eh 129 * b + b + 1 mayúscula + 1 64 + 650. Entonces cuando comparamos esta con esta, ¿no? Eh Este, este no importa y el primero tampoco, o sea, que en realidad la dimensión del input no altera y tenemos que comparar 8256 con, o sea, tiene que ser que esto sea mayor o igual, ¿no?, que esto que está acá, que es 129 * D + 64* D + 64. Eso da eh 129 + 64 da C
+93, ¿no? 193* B + 64. Pasa el 64 para el grado.
+¿Cuánto?
+81.
+8192 mayor o igual que 193 por D o O sea, D menor o igual que 8192/ 193 que puede dar con coma
+42
+42 con
+con 44. O sea, que si nos garantizamos que D sea menor o igual que 42, ¿no? O sea, si o sea, si si D es menor o igual que Entonces una red puede tener más capas menos y además que es igualita, no son igualitas, solo que tiene un un cuello de botella en el medio que hace que tenga menos parámetros. Eh, todo Okay. Bueno, vayamos al siguiente. Este sí va a ser un poquito más conceptual. Acá se pone Bien, tenemos esa red que está ahí y se considere la red esa que está ahí. Tiene su los pesos están dados, hay una activación, o sea, ¿cuántas capas tiene? Bueno, está bien. Tres, pero en realidad
+dos porque hay una que es una activación, ¿no? Está bien. Digo,
+este y esa activación es la activación R. ¿Cuántas capas tiene? ¿Cuántas?
+Digo, tiene dos. O sea, para mí tiene dos. Puedes decir que tiene tres porque también es una capa. de activación se puede considerar como una capa en cito. Sí, pero lo que pasa como no tiene sentido hacer dos capas seguidas sin una activación en el medio, eh en realidad la activación es parte de la capa como lo venimos definiendo
+es parte hay dos. Exacto. Lo que digo es que en las implementaciones te deja poner una lineal y después poner una activación, ¿no? Porque si pones lineal lineal es como no tiene sentido. Sí, claro. Eh, entonces para el input x1 x2 = 55 dice, calcule z1 y z2 y determine qué neuronas quedan activas. Veamos cómo se calcula Z1, o sea, el input es x1 x2 = 55 y tenemos que calcular Z1 y Z2. ¿Cómo calculamos Z1, por ejemplo, X1? Exacto. O sea, W. ¿Cuál? ¿Cuál de los W multiplica a X1?
+1.
+El 1
+1 P un arriba en paréntesis para indicar que es la primer capa, ¿no? Eso porque eso por X1 más 2 1 W 2 1 por x2, ¿verdad? Y acá nos dice que no hay términos de sesgo, o sea, los sesgos son todos ceros, ¿no? Para simplificar. Así que esto vale según que está ahí es 2 * 5 más -1 por 5, o sea, que es 5. La Z1 vale 5 y Z2 es lo mismo, ¿verdad? Es W eh 1 2 multiplicado por X1 W 2 2 multiplicado por X2 que es W1 2 -3 5 más -1 * 5 queda - 20. Esta fue la cuenta. Vallas, lo único que hacemos es sumar el vallas. Ahora nos dice, e qué neuronas quedan activas, es decir, ¿qué pasa con A1 y con A2? A1, ¿cuánto vale?
+Cco, ¿verdad? Porque la redu para los positivos tiene identidad y A2 C
+C, o sea, que A2 se apagó. Bien. Y ahora dice, "Agregue un sesgo B1 B2 en la primera capa de forma tal que las activaciones sean positivas. Entonces, lo único que tendríamos que hacer es agregar la primera ya es positiva, ¿no? Entonces, el sesgo podría ser B1 simplemente igual a B110, perdón, 0 021, ¿no? Porque en la primera en la primera no hace falta agregar nada, puede ser cero el CO, pero en la segunda precisamos sumar algo para que esto quede positivo. Cualquier cosa mayor que 20, ¿no? Por ejemplo, eh, podemos poner el 0220, o sea, cero para la primera y 21 para el segundo. Acá lo que puse fue e dice parte dos, mantenga x1 y x2 fijos y suponga que a1 es positivo y a es cer. Ah, como si como si estuviéramos en esta situación,
+dice, "¿Cómo cambia la salida de la red y sombrero al variar W21 dos?" ¿Qué pasa si variamos W212?
+¿Cómo es? ¿Cómo es y sombrero en término de las activaciones a un a dos? Es W11. El 2 * A1 + W 2 1 2 por A2, ¿no? Pero si A2 es 0, ¿no? Esto vale cer0 y por más que yo varíe esto, cambiarita. parte de atant. Si eso no fuera cero, ¿cómo se respondería?
+Y si eh y si no fuera cero, a ver, ¿qué te parece?
+Porque variar puede variar.
+Eh, claro, o sea, eh digamos lo que puedes decir es al aumentar el W en una unidad, aunque mi sombrero aumenta a dos. En realidad la mejor manera de decirlo es la derivada. de sombrero, ¿no? Que es la tasa de cambio, ¿no? O sea, ¿cómo cambia el sombrero cuando cambio este coeficiente? Es la derivada de esto respecto a esto, ¿no? Su derivada es es a dos. Sí. Entonces, este, o sea, en general la respuesta general sería así, que la derivada respecto al w es a 2. Como a es 0. eh los cambios podés pensarlo simplemente así, digamos, si lación complica es pensarlo así. Pequeño cambio en W genera un pequeño cambio en y, ¿sí? Que si vos dejás esto constante, eso se va a cancelar, ¿no? Entonces, el delta y digamos Esta parte como es constante se cancela y te queda este el a dos multiplicado por, o sea, esto esto digo, o sea, no tenés por qué acordarte de cómo derivar y eso, o sea, puedes razonarlo, eh, tipo varío esta cantidad un poquito y y qué pasa, ¿no? Vas a agarrar y decir, bueno, seguir vos puedes agarrar y decir, o sea, cuánto es delta y son no es como esta parte es la misma, es común para un y final y una y inicial, digamos, aparte se va a cancelar porque estás dejando este este coeficiente lo estás constante. Esto se cancela y acá lo que te va a quedar es el W final, digamos, menos el W inicial multiplicado por 2, quedar el delta W por a2. Si hicieras la diferencia, ¿no? Si yo
+no sé si se entiende, pero
+si yo hiciera una especie de y final menos y inicial, ¿no? Teniendo que tengo un W inicial y un W final, entonces cuando pasas dividiendo este ves que la derivada es do. Entonces, un pequeño cambio en esto, o sea, al variar esto, Eh, varía este de acuerdo a multiplicar C por 2. Como dos es 0. El este es Bien, ahora bajo min square error con objetivo y que de la actualización Número dos, cuando y sombrero es menor que y va a pasar con, o sea, cuando yo actualice, cuando haga un paso de actualización, ¿qué va a pasar con el W? No, no, no cambia, queda queda igualito. Sí. Y ahora acá lo que nos está preguntando es si yo tengo una y que es más chico que y sombrero. Si mi predicción y sombrero es más chica que que y real. ¿Qué pasa con hacia dónde va? ¿Se achica o se agranda el W 112? Cuando hago una actualización
+se veía agrandar
+y hay que ver, hay que ver, hay que hay que mirar el, o sea, hay que ir acá y ver qué pasa, ¿no? Pues o sea, nos pregunta el W112, ¿no? Que es este
+es que es este. No, no, no, pero puede ser que tenga razón, pero Hay que ver eh cómo sería, o sea, cómo es la actualización. Voy a borrar esto. Paraillo la mano. Sí, pero es pero es es un un paso solo.
+Es un paso solo, ¿no? Tenes que derivarte.
+Claro. O sea, cuando cuando uno hace back propagation siempre El el último paso en realidad a la salida no es la función de pérdida y en la letra nos está diciendo que usamos la min square R, ¿no? Entonces este, o sea, la salida final es y sombrero men y al cuadrado. Es ese es el valor que va a salir al final, ¿no? Ahora, eso eso de ahí, ¿cuál es la derivada de esto? Eh, respecto a esta porque la esto es el valor real que es una constante, ¿no? Vale lo que vale uno, o sea, esta sería la L, ¿no? La los cesunto cuánto es la derivada de la los respecto a el y son 2 yorro men y O sea, que esto nos indica el signo. O sea, si sabemos que y es menor que que Y, no, esto va a tener un signo que es negativo. Sí. ¿Y qué pasa con este? ¿Cómo varía el y? O sea, y gorro es igual a qué cosa respecto de la Ya ya lo escribimos recién hoy, ¿no? Es es el w eh 1 2 por A1 + W 2 1 2 por A2, ¿no? Y nos pregunta por este de acá, ¿no? Sí. Ahora, es decir, yo yo lo que quiero saber es si yo aumento el W. Sí. Eh, o sea, quiero quiero saber cuál es el signo de la derivada respecto a este a este W. En realidad, quiero saber el signo de esto. Tendrías que aumentar tendrías que aumentar,
+o sea, esto, ¿cómo hacemos? Es borroorro
+deriva lleorro. de 1 2, ¿no?
+Este de acá dijimos que es negativo y este de acá, ¿cuánto vale? Este, este es bien fácil. ¿Cuánto vale?
+Entonces me queda a
+claro, ¿no? Aún así consulta en este es un ítem que te hace resolver suponiendo que a uno
+es positivo y a dos es cer.
+Claro,
+quizás lo podés llegar a resolver.
+Sí, sí, ya está. O sea,
+arriba sin tener que avanzar en derivar, ¿no?
+A ver, ¿cómo cómo decir
+en el término? Ahí
+sí. Va. Eh, me gusta la idea.
+Ah,
+él dice a1 es positivo y a dos es cero. No, para me dejaste terminar esto y después este vamos con tu método que que está bueno.
+Este este es positivo dice la letra, ¿verdad? No, perdón, no es cinco porque la letra cambió. Dijo, o sea, la letra decía a uno es positivo, pero entonces esto que me da negativo, ¿sí? ¿No? Entonces, ¿qué qué va a pasar con W con este W cuando yo haga la actualización? Te va a agrandar o achicar.
+¿Cómo es la actualización de descenso de gradiente?
+Claro, es negativo. ¿Y cómo es descenso de gradiente? La actualización
+es peso peso, o sea, peso nuevo es peso actual más eh la Ray por gradiente. Sí, esta esta es es la es la única ecuación que se tienen que saber sobre de senso de la y la pueden saber con palabra.
+Perdón.
+Sí. Entonces, si la derivada es negativa No, ¿qué va a pasar con el peso nuevo?
+Se va aar.
+Se va a agrandar. O sea, que el W se va a grand, o sea, en en la en la situación en la que pone la letra ahí en la situación esta en la que nos pone la letra, que nos dice que a uno es positivo y a dos es cer. Eh, sí, en realidad este dato es irrelevante para la cuenta como la hicimos, pero como Él como él dice este, en realidad tenemos una forma más sencilla de verlo, eh, que ya lo vamos a ver. Este eh lo que ocurre con el DW12 es que se agrande al hacer una actualización, o sea, o si quieren el signo es positivo, el signo de la actualización positivo. Sí. Ahora, ¿cómo decías tú de resolver?
+No, manotazo de ahogado. Tal cual. Igual no lo sé, no lo llegué a resolver, eh, pero se me ocurrió. Digo, a dos me dicen que es cero. Entonces, el segundo término se me
+Este término se va, ¿verdad? A dos es cer. Este término se va
+y a uno es es positivo
+y a uno positivo. Exacto. O sea, olvidémonos de todo esto. Sí. Dec a un es positivo, ¿no? Entonces, ¿qué pasa si yo e si necesitas que crezca el techo? Claro, o sea, o sea, si yo aumento el W sube y techo y te acercas porque dijimos que era menor
+porque por la letra decía que el techo era menor que i. Por eso yo te dije que que había que aumentar, que había que aumentar.
+Claro.
+Estaba de derecho.
+E cómo el razonamiento corto dijimos que te es menor que i.
+Sí. O sea, que por eso que estás ahí, la única manera de hacer crecer para que se obser, perdón, techo para que se acerque ahí es que crezca W11 un capaz que está mal el razonamiento porque es el razonamiento,
+¿eh? Sí, no, lo que lo que hay que hacer es como uno positivo, o sea, hay que o sea, no queda otra que pensarlo en eh de la de la siguiente forma. O sea, esto quiere decir que la función de los eh es es negativa en donde yo estoy. Sí. Eh, su Iba. Sí.
+Sí.
+Entonces, este, si yo aumento un poquito el y, si yo aumento un poquito y la
+no
+si si yo aumento un un poquitito, un poquititito no más el y, la función de los va a bajar. Eso es lo que me dice eso. ¿Cómo puedo hacer para aumentar un poquito el y? Y lo que tengo que hacer es aumentar un poquito el W porque este término es positivo. Si aumento un poquitito el W, El y aumenta un poquititito y entonces la función de los vaun pero lo mismo, así que quiero saber si está bien.
+Nosotros techo se quiere acercar a
+Sí,
+por letra me dice que techo es menor que i.
+Sí,
+yo tengo que hacer crecer y techo.
+Perfecto.
+Y la única manera que tengo que hacer crecer el techo con A1 positivo es sumando. Está perfecto. Es aumentar de B.
+Ah, por eso perfecto. Está perfecto. Igualmente como la respuesta sería que el signo debería permanecer positivo.
+Sí, sí,
+exactamente. A ver, consulta sobre esto porque no quiero que quede claro. La idea no es que domine propagation ni nada de eso, pero que ustedes entiendan como pequeños cambios en los pesos alteran la salida y aumentan o disminuyen la luz. Y eso esa es la idea. Sí. O sea, no es necesario saber back para ello. No tienen por qué repasarlo, digamos, el algoritmo ni nada de eso. Si bien podrían hacerlo acá, pero no no es necesario que sino que tener claro eso, ¿no? Cómo afecta eh cambiar un en una red sencillita, ¿no? Acá era un paso solo. ¿Cómo afecta eh cambiar eh un peso un poco eh la los si la aumenta o si la baja. Creo que el razonamiento más sencillo terminó siendo el tuyo. Quiero hacer que el y se el y techo se acerque y lo tengo que subir para aumentar el y tengo que subir entre. Sí, lo que pasa capaz que le estaba haciendo trampa al ejercicio. No, no, no está perfecto. En realidad la idea e, o sea, eh eh en el parcial va Van a haber cosas de este estilo, pero sin cálculo, o sea, no no van a tener que calcular derivad ni nada. Lo que pasa que fue lo que me resultó a mí hacer, pero no sé, o sea, la idea es que no tenga que calcular ninguna derivada, pero sin razonar un poquito sobre cuáles son los efectos. Eh, en realidad la derivada, ¿qué es la derivada? Es mueve un poquito el W, ¿cómo se mueve la no? Eso, eso es lo que intuitivamente hay que manejar, ¿no? Entonces, a mí Me dicen que el amo es positivo, está yo aumento un poquito el W, se me fica la, o sea, ni siquiera tengo que mirar la derivada de la
+pasa que yo viene dado entre i la tech la diferencia y techo y la i común ya viene dado derivado.
+Sí, sí, sí. Va,
+parece exacto.
+Y va para el otro lado. Pero, pero, pero ponerle que que Exacto. Que solo sé este que solo sé que tengo que aumentar, o sea, que este es más chico que este, ¿no? Entonces tengo que aumentarlo para que Eh, no, imaginate que solo sé eso, o sea, no dice la derivada, solo sé esto, no, solo sé que y sombrero es más chico que i. Entonces, este lo que tengo que hacer para que este se acerque dijo aumentar el W un poquito. Sí. Y este, entonces este se me va a acercar a este y la se va a checar. O sea, ese análisis tiene que hacer si yo tuviera que graficar cuadrado ahí me quedaría una función de quedaría una u si estuviera grafica. Sí,
+yo lo que iba a decir, pero después me quedo así la gráfica así porque vos
+al estar y gorro ser menor a y estás lado izquierdo mínimo.
+Entonces, si vos tenés que ir contra la derivada, vos tenés que
+ir moviéndote desde el lado izquierdo hasta
+acá está el gorro es tu variable en realidad, ¿no?
+Entonces, este es una parábola Así que vos estás de este lado. Y entonces por eso la derivada de la L, esta es la L, que es este y Y vale 0 en Y. La derivada es negativa, entonces este tenes que aumentar el y gordo, o sea, tu y gorro está acá en realidad.
+Entonces este tenés que aumentar el yorro para que para que seque la luz. Son son todas formas equivalentes de pensar.
+Bien, ahora dice, considero un minimchi. Ahora, ahora tenemos dos dos inputs de datos, x1 y x2. Ah, pero los dos son vectores. Sí. Los dos son vectores. Este, o sea, son el el x1 es un x1 1 paréntesis x2 paréntesis 1, ¿no? Y el x2 es x1 paréntesis 2, x2 paréntesis 2. ¿Se entiende? Son dos vectores inputs x1 x2. Este y pasa que z1 es positivo y z2 es menor o igual que 0 en el primero, pero en el segundo Z1 es menor o igual que 0 y Z2 es positivo. O sea, nosotros recién teníamos un dato solo, ¿no? Entonces, los pesos relacionados a esa, ¿cuáles son? Si ustedes miran la red, ¿no? Y saben que A2 es cer, ¿cuáles son todos los pesos que no se van a actualizar? O sea, que no van a cambiaron a ver, ¿cuáles son? O sea, ¿cuáles son los que es decir, cuál estos pesos, cuál cuál es la única forma que que tienen de cambiar de griega pasando por pasando, o sea, pasando por acá, ¿verdad? O sea, este este no se va a actualizar porque solo interviene en el griego.
+Profe, profe, disculpe, ¿estás señalando algo?
+Perdón, perdón. Este este no se no se va a autorizar, ¿no? Porque la única forma en la que afecta y es pasando por A2, pero a es cer. Sí. Lo mismo pasa con No, perdón, este sale para arriba con este, ¿verdad? ¿Y qué otro? Y está, ¿no? Y este, perdón, y este de acá, ¿verdad? Tampoco se va a actualizar porque el a es cer, entonces valga lo que valga él, cambie lo que cambie. ¿Se entiende? Sí,
+se entiende.
+No se actualiza a partir de,
+o sea, piens lo siguiente,
+no se a partir de del resultado final para atrás, ¿no?
+Sí, sí, sí. Eso, eso es back para ello, pero, pero pensalo, pensalo hacia hacia adelante. Pensar hacia adelante que es más fácil. Si vos si vos agarrás acá y decís, o sea, con -3 este de acá, no sé cuánto me daba este
+- 20 ponle, ¿no? Entonces, si yo cambio un pelín que esté W, sigue siendo cero el setador sigue siendo cero este no me cambia nada la y
+corre. Sí. Eh, Lo mismo pasa, lo mismo pasa con este, ¿no? Si lo cambio un pelín, no me cambia la y este de acá, por más que lo camb este sí que lo puedo cambiar 10,000 millones y y no pasa nada porque el A2 sigue siendo cero, entonces multiplica por cero y no cambia nada y en particular eh su derivada también es cero. Entonces hay tres pesos acá que no se actualizan, o sea, que quedan iguales cuando hago la actualización de gradiente. Ahora Eso era porque teníamos un solo dato, ¿no? Que en el cual esto se anlaba. Ahora, ¿qué pasa si tenemos un dos? W 2 de dos
+W2.
+Entiendo que no afecta, o sea, el último
+es
+entiendo que no afecta el valor de de y techo.
+Claro.
+No se actualiza.
+No se actualiza porque la derivada porque ¿qué quiere decir que no afecta? Que si vos lo cambiá, ¿no? Si lo si lo varías un poco, el techo sigue quietito. Entonces, la derivada es cero.
+Se va a actualizar, pero con valor cero.
+Claro, tiene tiene derivada
+porque la derivada es cero, entonces se va a actualizar pero con cero.
+Claro. Este, y entonces la pregunta es que ahora si yo tengo uno en el que igual uno es mayor que cer y el otro es menor o igual a cer y en el otro es al revés, ¿no? Eh, explique por qué la ización de pesos en el minibatch. Ambas columnas pueden recibir gradiente no promedio
+porque es el promedio. Exactamente. Porque lo que se hace es promediar la derivada en en el batch. ¿Sí? Entonces, vos vas a tener una derivada en un para un dato del batch, esta derivada va a ser cero, ¿no? Para el otro dato del batch, esta derivada, o sea, este va a ser cero, ¿no? Pero eh las derivadas se promedian en el Entonces, ninguna va a ser cero. De acuerdo. Van a ser la mitad. Van a ser la mitad de lo que eran, pero no van a ser cer.
+Este está marcha.
+Yo leí la letra leer la letra y no había entendido. Ahora explico. Para eso de la letra no no voy a lograrlo
+de esta parte.
+Claro, pero de la letra después que lo explicaste.
+Claro. La letra.
+En realidad lo que lo que trata lo que trata de preguntar es que eh esa parte del mini batch que tengan claro que cómo se hace la actualización cuando tengo un mini batch, que es que se promedian los gradientes. Y la última parte, sí, es un poco más sencilla, es, ¿qué pasa si reemplazamos eh la activación por una Esto es lo que se llama una licky relu. Sí. Este que eh cómo es el gráfico de la rel, ¿se acuerdan? Es parecido, o sea, alfa alfa es positivo pero chiquitito. Pendiente más cercana al eje de la
+Claro. Acá es así. O sea, esto esto es con ángulo 45 para negativo,
+pero acá claro, tiene una sierra pendiente alfa, entonces no vale exactamente cero, sino que es chiquito, pero es cero.
+Sí,
+en realidad con alfa suficientemente grande hasta podría
+Sí, sí, sí, por eso no, pero eh alfa menor a un tiene que acá alfa positivo y y menor a uno para que de este lado te dé la identidad. Eh, entonces, ¿qué pasa con las derivadas ahí? Ahí ya no hay más derivad cero. Ahí las derivadas de esto pueden ser alfa o un digamos. Entonces, se solucionó el asunto este, o sea, uno uno de los problemas que puede tener este la redu es eso es que tiene llevar a cero y puede lo que puede pasar con otras activaciones como la sismoidea o tangente hiperbólica o mismo la Sofmax, este es que eh si bien no son eh nunca cero la derivada, saturan bastante rápido si los números se hacen en grande. Sí, si lo o sea, vieron cómo era la el gráfico de la softma. Muy sencillo. En realidad bastante hay unas exponenciales bastante rápido se hace constante la función entonces tiene derivada cero bastante, o sea, tiene un rango muy acotado en donde no es cero la derivada. Sí,
+esto tiene que ver con el paper de BNET que habla cuando vos tenés una arquitectura de redes neutras muy complejas, tenés el problema de que tendes a perder o o sea el término amarilla tal. No sé si tiene que ver esto
+no tiene que ver con esto porque esto es una propiedad de la softmax o de la Claro es que se llama la saturación de la sigmoida o de la softmax, pero lo que vos decís de vanishing gradient es correcto es cuando tenés una red que es muy profunda, empezas a multiplicar números o estás cerca del estás cerca del o te estás acercando al mínimo, esos números generalmente son menores que uno, entonces va multiplicando muchas derivadas que son chiquitas termina dando un número muy chiquito, ¿eh? Y entonces este incluso te vas del de la precisión del float y ya te da cero. Entonces este senso con gradiente no te actualiza más los pesos. Entonces, para evitar eso, para evitar eh haces este conexiones que saltean capas para que los gradientes porque ahí este traés, ¿no? O sea, eh para que el este peso influye sobre la salida salteándose un montón de capas y entonces este su gradiente se va a agrandar por esa skip por esa connection que es con
+Sí, era la ide la idea original de hacer skip connections era para eso.
+Entonces hay las justificaciones que que no no son nulas por construcción argumento. No no no son nulas porque porque sí no hay ninguna derivada. Digo, puede ser de casual. que alguna te denula pero con pura casualidad. ¿Cómo te la anula en función de la forma que tiene la rel? ¿Cómo cómo te da bina, digamos?
+Eh, no ponerle que justo tenés un peso que vale cero y o sea, no sé, arrancaste con un con un W que vale cero este y y hay algunas derivadas, o sea, no sé, digo, pero son casos como extern, o sea, no es que nunca
+no este No digo son casos si los W son todos son todos distintos de cero o no es posible que sea cero porque la ley la liquid no es nul
+no es nulla no tiene derivada nul claro
+e bien un ejercicio más eh bajadito a tierra a ver más tranqua la técnica de dropout durante entrenamientoo Me tomo un mate y se
+apaga neuronas aleatoriamente.
+¿Cómo?
+Apaga neuronas aleatoriamente.
+Apaga neuronas aleatoriamente. Bien. Y un poquito más específico, un poquito más concreto.
+Cada la capa dropout, cada neurona tiene asignada una probabilidad que es con la que aprendida o apagada. Si tuviéramos si tuviéramos que definir lo que es una capa dropout, ¿no? O sea, una capa dropout tiene un input y tiene una Sí.
+Sí, input es la salida capa anterior y el
+el input es la salida de la capa que está justo antes que ella
+y el va a ser lo mismo
+y el output va a ser
+multiplicado por la cer o uno según con cierta probabilidad.
+Claro. O sea, en entrenamiento. No, no,
+cuando cuando para un batch dado ya llega llega un mini batch, el datalader nos carga un mini batch, ¿no? Y eh se sortea una máscara, ¿no? Eh, binaria, ¿no? De ceros hijos de
+Sí,
+está bien. Sigue sorteo. una por capa densa, porque en realidad estamos explicando lo que es una capa dropout
+en abstracto, o sea,
+o sea, le llega le llega un miniatch que que viene de de de antes de algo, pero en realidad no le importa a la capa dropout en sí este si por ejemplo podía ser el propio input de la red si está al principio o podría ser lo que sale de una capa densa que de que estaba justo antes que digamos que ese ese miniatch es este es un no este drop out de ese mini batch va a ser igual a qué va a ser, perdón, esto se sortea está va a ser igual a m, ¿no? Por x, o sea, lo que se hace es se multiplica coordenada coordenada,
+¿no? Ojo, si no se acuerdan de estas anotaciones, este, multiplico coordenada, coordenada que o sea, no tienen por qué escribir las cosas como les escribo yo, o sea, sí, sí aproximarse, tratar de ser lo menos vago, vago posible, sentido vago de la palabra de de
+deado.
+Claro, ponte No, no, pero no es lo que quise decir. No sé,
+no sé. E, ¿cómo se sortea esa máscara?
+Claro, cada entrada de X, ¿no? Este es, o sea, es este se sortea una vermuli, ¿no? La Vernul compro el AP. para cada para cada entrada de X, ¿no? O si quieren se tiene una moneda que tiene probabilidad P de ser un este para cada entrada X o para cada neurona, digo, lo pueden expresar como quieran. Sí, para cada neurona está bien porque se sobreentiende que si se viene una densa, justamente el output de la densa es la cantidad de neuronas, que tienen acá. Em, así que bueno, eso así funciona dropout en entrenamiento, ¿verdad?, o sea, así funciona una capa de dropout en sí, en explicar que eh en cada luego de cada capa densa, yo puedo poner un dropout con distintos pés. Sí. Eh, eh tener alguna especie de regla bolsillo de esto deir según el tamaño de la capa, un poquito más grande si la capa es grande más chico, si la capa chica ahí son decorativos que pueden agregar a la a la respuesta para dar un valor. Sí, la explicación. Bien, ahora, ¿cómo debe ajustarse el forward en inferencia? tiene una capa así. Entonces, ¿qué pasa en inferencia?
+No se apaganas. Peso, los pesos por la probabilidad de de apagado, ¿no? Que
+por el mica por O sea, que una forma, o sea, si lo si lo si lo ponen dentro del contexto de una red es, ¿no?, o sea, una forma de explicarlo, o sea, ustedes pueden decir acá este lo que hace dropout x es este, o sea, esto salió, ¿no? Este, esencialmente como que se multiplica por x, ¿no? Inferencia, perdón que
+es cuando ya no estás entre Enando, o sea, es este cuando haces una predicción.
+Ah, okay.
+Sí,
+ahí se le llama inferencia cuando haces eso. Cuando pagaste el entrenamiento, ya tenés los pesos fijos y vas a hacer una predicción, un dato.
+Ah, y eso es sin pausa.
+Ahí lo Claro, o sea, ¿cómo se ajusta? O sea, vos en realidad la la pregunta tiene que ser más más específica es, o sea, imagínense que eh el repartidor No, es lo del repartidor. Es lo del repartidor.
+Buenísimo.
+O sea, tienen esta capa, ¿no? Este, no sé, no importa si es más chic o más grande salida, ¿no? Esta es la capa que tiene este unos ciertos Ws. Sí. Este y después acá hay un dropout, ¿no? Okay. Este, entonces, eh, es, o sea, ¿cuál es el efecto en realidad? Es como si multiplicáramos los pesos por P, ¿sí? O sea, los pesos que resultaron de haber entrenado la neurona, la red, ¿no? Con dropout, si a la hora de hacer inferencia, en vez de quedarnos por pesos, lo que se hace es se multiplica por el p, o sea, si esto es un drop p, los pesos de esta capa se multiplican por Eso de cap,
+sí, de la capa de la capa que está justo antes, eh, que es una aproximación, sí, a a lo que va a ser el promedio. Sí, no es exactamente en realidad, pues va a haber una activación que es no lineal y arruina el hecho. Vieron aquella justificación que se había dado eh si un número
+una consulta, Matías, ahí
+en inferencia. Porque yo no sería que me quedo con el supout de 70 en de 0.7.
+Sí,
+sí,
+sí.
+En inferencia, mis pesos quedarían al 30%.
+Eh, no, no, no. Al 70.
+Al 70. Digo, depende de lo que
+Claro, claro. Queda al 70%.
+Sí. O sea, si la si la probabilidad que quedó 70, tus pesos los resescalas al 70. 70% 1 men p.
+Claro. O cloud. Lo que pasa es que
+lo que pasa es que en el ¿cómo se llama? Eh, en en la implementación lo que pones es 1 men p no p. Claro.
+Entonces este por eso en realidad eh en realidad uno podría, o sea, el parámetro P de la dropout de Py Torch en realidad acá sería una veri 1- P y acá iría 1 - P por
+y acá 1- P por Pero la, o sea, tenés que multiplicar por la probabilidad de que quede en Sí. E no, ¿cómo era la justificación de eso? No es si yo tengo algo que con probabilidad vale x y que con probabilidad 1 men p vale 0, ¿no? Este en promedio vale en promedio vale p * x. Sí, vale p * x + 1 - p * 0 o se p * x Ahora, en realidad eso es cuando en la en la parte lineal, eso es exacto, pero como después hay inactivación en realidad ese, o sea, no es el verdadero promedio, o sea, a mí lo que me gustaría es predecir el promedio, ¿no? O sea, pensando en el en el problema del repartidor que te gustó, a mí me gustaría eh estimar el promedio de lo que me llega. Sí, el verdadero promedio. Sí, pero esto en realidad va a ser una aproximación, o sea, lo que pasa que es es super complicado calcular el verdadero promedio porque están esas esas no linealidades en el medio que hacen que sea redifícil de calcular ese promedio. Entonces este está es una aproximación multiplicar do pesos por P es es una aproximación que anda cerca. Si no hubiera no linealidades es exacto, pero ahí la red sería Entonces, e la pregunta puede pasar que nunca le nunca le caiga a un neurona la máscara y le está reduciendo y en redes porque también puede pasar exacto.
+También puede pasar eso
+también. En realidad siempre va a pasar algo de eso, no tan extremo como
+Claro. Exacto.
+Este y bueno, y acá dice, ¿por qué se dice que el dropout este como técnica regularizadora tiene un aspecto de Emle. Bueno, está en realidad para los que no hicieron machine learning no importa. Esto quedó de antes, pero dice que eh los ensembles son métodos que combinan este muchos modelos, ¿no? Y justamente lo que está haciendo el Dropout es como combinar, o sea,
+Exacto. O sea, todavía es como que estuviéramos promediando un montón de redes distintas. O sea, lo que pasa que hacer un ensemble de redes hipercostoso. Entonces, una forma barata de hacerlo es con drop. Es, o sea, ¿qué sería un ensemble? Imagínate que que te clasificar. Digo, para los que no hicieron este entrenarías muchas redes, ¿sí? distintas y este y las pones a votar. Cada una te dice perro, gato, perro, perro, perro, gato. Y las pones a votar porque es es un promedico. Este, eso sería un semio.
+Este, esto funciona medio parecido. No, no tenés poder sobre la arquitectura.
+Claro, no tenés poder sobre Claro, es como aleatorio. Claro.
+Bien. Eh, no sé si quieren hacer una pausa de unos minutitos y hacemos este o sí bien o seguimos el árbol.
+Es un ejercicio no más de es es el último. No es no es tan complicado, pero hagamos C 5 minutitos de pausa. Bienvenido. Bueno, seguimos.
+Este, entonces un ejercicio de redes convencionales. ¿Qué dice lo siguiente? Dice, "Considere imágenes de entrada que son de tamaño 32* 32 por 3. Creo que es el tamaño de usar este y un problema de clasificación en 10 clases. 10 se desea diseñar la red convolucional compuesta por bloques convolucionales y una capa lineal final. Sí. Este, entonces elija los canales de salida de los bloques C1 y C2. Este complete la siguiente tabla con los shapes de salida para batch N. O sea, acá N n de nuevo es el tamaño del batch, ¿no? Este operación. E entonces, a ver, un poco qué qué info hay. Es primero, ¿cuántos cuántos bloques cuántos bloques convolucionales ustedes logran ver acá?
+Cuinamos el primero después, El P es el que se para.
+Claro, el primero es este. Sí, este es el primer bloque convolucional.
+Ah, bloque no
+no capa.
+No capa
+bloque.
+No capa puede estar compuest un bloque puede estar.
+Acuérdense, un bloque es una capa convolucional activación, capa convolucional, activación capa convolucional, activación puling. Sí, el pulling puede ser opcional, lo cual haría que sea difícil. de distinguir este no generalmente hay un este y vieron son dos bloques iguales que tienen dos capas convolucionales seguidas de una activación, ¿sí? Y un pul y un max pul. Después está esta que está acá es la otra que es igualita. Sí. Después está el gap. ¿Qué es el gap? Es el global average pulling que aplana Y después hay una capa lineal que me lo lleva a 10 y después
+y después unas cierto. Entonces, a ver que elijamos dos números C1 y C2, ¿no? Y hagamos los shapes. Ah, perdón, stride uno. Todos de De acuerdo que significa lo voy moviendo de a uno, ¿no? Y este y acá same, ¿qué significa? Es es el padding que eh no quiere decir cero, quiere decir que eh está calculado de forma automática para que
+se mantenga la dimensión de 32.
+Sí,
+para que se mantenga 32.
+Para que se mantenga 32* 32 o lo o lo que venía siendo es un pading igual uno.
+Depende del tamaño del kernel.
+Ese kernel, sí.
+Eh, En este kernel es un padding de tamaño uno.
+Exacto. Si fuera de 5* 5 es de tamaño dos.
+Ya.
+Claro. Pero creo que tiene una opción por defecto que es pading same para que mantengan el tamaño. Bien. Entonces la entrada es esta. ¿Cuál va a ser la salida de hacer? Bueno, elijamos dos o o escribimos todos en términos de C1 y C2, como quieran, pero para tener números concretos. ¿Qué número le gustaría elegir para C1?
+10.
+10. C1 = 10 C2.
+Ponemos cero. No sé, pero mira la primera vale,
+no sé.
+Generalmente es más grande, ¿no? Este
+20 Es suelen usarse números que son potencial de dos, pero
+para simplificar hasta ahora hora de la noche original
+este las cuentas van a quedar más fácil.
+Este, entonces, ¿cuál es el shape de eh la primer convolucional?
+N, o sea, este de acá está. Ahí va. El n ni lo ponemos porque va a ser el mismo en todo, ¿verdad? Va, o sea, el n se va a mantener en todos, todos, todos, todos, todos, todos. Sí, porque lo que vamos a hacer es tratar una imagen a la vez, solo que están todas apiladas.
+32 por 32 porque el pin es el same, ¿no? O sea, que para la primera vamos, o sea, el n ya no lo pongo. Está 32
+10 y 10
+y 10. Exacto.
+Eh, esto va a estar complicado para mostrar la está. Voy a ir dictando. Estos numeritos no más les aviso a los que están online cualquier cosa me piden porque si no vamos a ir y venir 1 veces. Se puede dividir,
+eh se podría se podría dividir
+si necesit la computadora.
+Wow, un poco
+todo, ¿no?
+Ahí se ve algo. hiciste un padínco. Este, bien. E ahora la siguiente convolucional, ¿cuál tiene? Va de C1 en C1, o sea, que cuál va a ser su perdón, la relu que hace
+todo igual, o sea, que deja todo igual, ¿verdad? O sea, lo único que hace es las entradas que sean cero, que sean negativas, digo, las ponen cero, ¿no? O sea, que para la Ru va a ser lo mismo. Y para la siguiente va a ser, ¿no? Porque la salida de canales sigue siendo segundo.
+La reg igual
+10. ¿Y qué pasa con el max?
+Reduce la mitad del tamaño de Exactamente. Así que importante que sea par o que sea potencia de dos lo suficiente como para que porque si no este el max empieza a poner va algo distinto
+igual el sen no te importa.
+El c no importa no no digo las dimensiones de la imagen si no te queda sobrando alguna cosita o algo.
+O sea, que la salida del max va a ser 16 16 10 No, después ahora pasamos de C1 a C2, ¿no? O sea, que este es el primer bloque, ¿no? Este, entonces ahora el segundo bloque va a tener, ¿cuál va a ser la salida de la primer capa?
+16
+16 16
+20
+20 Perfecto. 6 20 La salida de eh va a ser lo mismo. 16 16 20. La salida de la otra, esto es igual son iguales, ¿no? O sea, y este acá usted puede poner todo, o sea, todo es igual
+y la única que importa es el max full que ahora me va a quedar 88. Sí, yo acá podría seguir poniendo bloques convolicionales igualitos hasta llegar, por ejemplo, a 1 un y un cierto y un cierto número acá que ya queda aplanado, ¿vieron? Porque queda un uno es un píxel y un montón de canales y eso ya se lo puedo pasar a una a una lineal, no sería necesario, o sea, ahí el global average pulling el Es la identidad de si yo llegara a eso. Igual no tendría sentido y cambiar el shape, hacer el simplemente cambiaría el shape porque el shape va a ser para la alinear precisarías de N por la cantidad de neuronas.
+Bueno, ten que apanado en ese caso simplemente porque una capa porque dijo que la igual
+Sí, hay una reli bien. Y ahora, ¿qué pasa con el global average pulling? ¿Cómo queda el shape del global 180? Ah, no, porque es que aplanar, ¿no? Esa etapa.
+No,
+a ver,
+eso es eso es un flat. Eso es un flating. Eso va a ser un flat o un resap si queres
+que lo qué hace el global.
+Deja un píxel de de varios, pasa como el filtro, digamos, y deja un píxel de un solo píxel.
+O sea, nosotros acá tenemos una imagen que es de y tenemos 20 imágenes de 8* 8, ¿no? El global lo que hace es promediar esas 8* 8, las promedia en un solo valor y entonces me queda un vector de 20.
+Claro, pero ya queda de 20 no más.
+Sí, el global average ya está hecho para que quede, pues si no es el re que decía César.
+José Luis,
+José Luis, Jul César, ¿no?
+José Luis,
+eh, o sea que Este va a ser es este en realidad es tipo 20 coma digamos, o sea, sí que son o solo paréntesis 20 digamos. Sí se entiende. Este este es el el Ahora, si fuera un flating, si fuera un flating, ¿cómo cómo quedaría el shape?
+Ahí sí multiplicamos todo.
+64* 20, ¿cuánto decir que vale? 12. 1280 y este y entonces eh el setout, ¿cuánto vale el cout? Vale, digamos, tal cual está ahí. Este es el set, o sea, Cout es después la Sofmax no no altera tampoco la O sea, bueno, está y el último el último shape, o sea, el de la lineal, ¿no? 10.
+Bien, todo en orden.
+Perdón, el una pregunta, el Sut, entonces quedó en 20, ¿no?
+Quedó en 20 porque la letra del ejercicio dice dice que hacemos global average fulling, pero si si hubieras hecho flaten, el se sería 280.
+Ah, y después viene una lineal. Es el SEO.
+El Cout, el Cout es 20.
+Es 20.
+Sí, Matías, cuando dijimos C1 = 10, C2 = 20, pudimos dado cuenta que se ya lo estamos ahí. Claro, porque es un gap. Sí, sí, sí, sí. Porque es un gap. Claro. Y fueron si es un Flaten es el producto de lo que te haya quedado. Una cosa, el señ es una propiedad particular de la convolución en sí o o del ping.
+El ping. El ping, o sea, es es es la técnica de ping. Es este para porque no no me queda claro. Yo estoy viendo un kernel, o sea, si yo me voy corriendo con strike B1, este es como que cuando aplico el kernel me imagino como que no te da un resultado y si esoía me cambia la dimensión de
+te cambia si no si no está en spading te la cambia seguro.
+Sí, sí. Si Le pones padding y le pones la cantidad de padding correcta.
+El pading me permite seguir un padding que me permita seguir salteando sin modificar la dimensión
+sin modificar la dimensión de la de examen. Padding same lo que hace acá en este caso es hacer padding de un
+rellena, va tener la misma cantidad de
+Claro. O sea, es muy común, o sea, lo habitual es que las dimensiones de los kernes justamente para evitar eh sea más chica, ¿no?
+Eh, depende. Eh, en realidad quien juega rol de eso es el es el el es el max full o el average full. El el down sampling lo hace el average full.
+Sí, vos vos acá básicamente estás es como, o sea, pensé que esto que que la idea de esto viene de de tratamiento de imágenes en el cual vos aplicabas un filtro para detectar bordes, yo que sé, o para detectar contrastes o no sé qué, ¿no? Entonces, este eh tradicionalmente mantenías la dimensión de la Pero y digo, obviamente vos puedes poner el pading que tú quieras,
+eh, y y o sea, puedes poner un pading menor al necesario. Acá acá es uno, digamos, o sea, o ponés pading uno para que sea la misma dimensión o ponés padding o no pones padding y te va a checar en uno la o sea, si no hubiéramos puesto si hubiera alguna de estas capas que no tuviera padding, ¿no? Eh, por ejemplo, la primera, te queda de 31 por 31 Porque al del borde no puede llegar. Todos los que están en el borde no les puedes aplicar el núcleo.
+Había una formulita que era menos.
+Hay una formulita. Sí, no hace falta que se aprendan esa formulita, digamos. Nada va a ser super complicado.
+No, yo creo Sí. Em, bien. Ahora, ahora nos pregunta e calcule el número total de parámetros de la red con acá dice con vallas, ya. O sea, hay vallas. A ver, ¿qué les parece? ¿De qué depende el número de parámetros de una, o sea, tamaño del carn
+del tamaño del carnizad? Eh, cuáles son estas esta es una com, ¿no? Esta es una relu conta con y
+cuáles no tienen paros
+y este entonces parámetros tiene esta convolucion 3*
+el núcleo, el núcleo de por sí, ¿cuánto? Nueve, ¿no?
+3 por, o sea, tenemos nueve
+por los canales que tenías y los canales
+eh nueve, exacto. Por la cantidad de canales que tengo de que entran, ¿no?
+Que cuántos son la cantidad de canales que tengo que entran.
+Son tres,
+o sea, pero vamos a ponerlo aparte, ¿no? Tres. O sea, esto es este eh el kernel size. Entonces, S al cuadrado, ¿no? Por C, no por la cantidad de canales de salida, o sea, que acá es 10,
+¿no?
+No,
+más 10.
+Más 10. ¿Por qué más 10?
+Por el Vas. Sí,
+gracias. No había un dividido. No, no hab un cocinento.
+No, no. Eso, eso tiene que ver con las dimensiones de la imagen, cómo queda cómo son las dimensiones de la imagen, pero no los parámetros de la claro.
+Eh, todos queda les queda claro esto. El + 10 sí es este, o sea, yo tengo un núcleo por cada canal, ¿no? De de entrada. Sí, pero se acuerdan cómo era la operación. No, eh, eh, creo que en qué día
+la buscamos
+este es este eh básicamente, o sea, se multiplica, ¿no? Este, cada, o sea, tengo 10 canales, ¿no? Tengo 10 núcleos distintos de 9* 9, de 3* 3 Cada uno de ellos sí hago lo las convoluciones en cada canal con cada uno de suso todos y le sumo un vas. Eso me da un canal de sal. Sí. Ahora hago lo mismo con otro vallas y me da otro canal. Si hago lo mismo con otro vallas y tengo otro canal con otros núcleos también, ¿no? Sí, con otros núcleos y con otro vallas, ¿no? Y voy haciendo para cada canal de salida me invento 10 núcleos y un vallas nuevo. Sí, por eso como tengo 10 canales de salida, voy a tener 10 vallas. Me siguen ya. Entonces, y acá eh en esta entonces, ¿cómo va a ser? El núcleo es igual nueve
+por los canales de entrada que son 10,
+canales de salida que son 10
+más 10.
+E está, ¿no? Y después acá, ¿no? Esta esta era la com, ¿no? Max. Sí. Entonces acá tengo eh nu. Gracias. Por eh la cantidad de canales de entrada que son 10 por la cantidad de canales de salida más. Acá igual 9 * 20 * 20 + 20 y acá y el más full es cer0. Esto es cer y después, ¿qué pasa acá? Les dirá cuántos parámetros tiene. Ninguno. Cualquier público. No tiene parámetros.
+Acá me quedó el flat en el medio. Tampoco tiene parámetros.
+Cero. Sí. Y la lineal que va de 20 en 10 tiene
+20 + 1, o sea, 21.
+No sé si alguien hizo la encuentra para tenerme idea cuánto parámetros son este, pero bueno, se los dejo porque hay una parte después que dice, "Ah, perdón, cambia la cantidad de parámetros si se usa batchn."
+Sí, aparece el
+acuérdense que batch normalization tiene parámetros ordenables. Entonces, ustedes si hacen el summary de una red con batch normaliz van a ver que aparecen parámetros en las capas de normamos normaliza en función de la data solo del batch o normaliza el bat
+igual que Dropout tiene un comportamiento durante entrenamiento y después otro en diferencia durante entrenamiento eh le resta la media del batch a cada columna divide entre el sigma del batch. Acá se digo, cada columna sería un píxel si querés. Entonces, vos tenés tenés un batch de imágenes. Entonces, a cada píxel tenés varios píxeles que corresponden. El píxel de acá, ¿no? Tenés la medi o de
+de ese batch, sí. Durante entrenamiento, ¿no? O sea, le resta la media a cada píxel del batch y divide entre el sigma de cada píxel de ese batch y después
+siempre con respecto al batch. respecto al bacho y después multiplica por un alfa, ¿sí? Este, o sea, que el alfa tiene que tener la misma cantidad de que de entrada que tenga la imagen, ¿sí? Entonces, por ejemplo, acá si pusieran una capa, si pusiéramos una capa de B normalization, acá vas a tener 8 por 8, o sea, 64 parámetros que vienen del alfa y 64 parámetros que vienen del eh, ¿cómo se llama esto?
+Del beta. 34.
+Eh, no hice 8 por 8 no más, pero me parece que también hay que multiplicar por por los 20 canales. Sí, porque por canal también es es todo el producto. Sí, digo, no importa. Conceptualmente para para cada para cada valor que tengas este tenés un batch normal eh le restas la media divid entre 5 al cuadrado, ¿sí? Y agarr y lo multiplicas por un numerito y le sumas otro para que tenga un desvío y una media entrenables. Pero a lo largo de los batch, mientras se van es como que vas acumulando esos promedios de una forma, una especie de media móvil. Este, y entonces después al final tenés un mo y un sigma calculados. de todo,
+de todo el entrenamiento. Sí. Y usas y en inferencia se usan esos.
+Claro. Eh, y ahora dice, compare esta red convolucional con un mlp que vectorice, ¿no?, la imagen. O sea, si hacen 32 * 32 * 3 les da 3072. Sí. Este y que y que tiene eh dos capas ocultas de 502 12 neuronas con RELU antes de la salida de 10 clases y discuta el número de parámetros, la equivalencia por traslación y el sobrejuste esperado. La idea es que obtengan algo que es mucho más grande, ¿sí? Más propenso a sobre ajuste y obviamente no va a tener la propiedad de invarianza con transacciones porque eso es lo que nos llevó a las redes convolucionales este y va a tener mucho más para Una capa convolucional tiene mucho menos parámetros que una capación sobre al tener muchos más parámetros es más propenso a
+laerencia por traslación no la tiene esa ese cu porque no estamos capsulando con todos los canales todas esas cositas
+claro o sea no está teniendo la relación de cercanía entre la por completo O sea, como vos tenés, ¿no? Y como no hay pesos compartidos,
+no sabes si en esta esquina es lo mismo que estaba en esta
+cl,
+eh, o sea, puede ser local y no tener invarianza por translación. Lo que hace que sea que tenga invariancia por translación es la localidad más los pesos compartidos. Como una densa no tiene pesos compartidos,
+este eh primero no es local porque es todo el mundo conectado con todo el mundo y además al al no tener precio compartido, si vos tenés Es acá un pedacito de imagen. El mismo emoji que acá los pesos acá no pueden tener nada que ver. La salida acá va a ser distinta de la salida acá.
+Perfecto.
+Gracias.
+Y bueno, nada, para, no sé, les quedó alguna duda de esto, como hay que tener, o sea, recuerden esta formulita de cómo calcular parámetros y eso de las redes y practiquen, o sea, de lo que no está acá, yo el el parcial casi lo tengo definido, pero este practiquen por ejemplo eh en un ejemplo concreto, cómo se hace un maxpoling, cómo se cómo se aplica un núcleo a una imagen, ¿sí? Este eh en determinadas situaciones, ¿no? O sea, si un ejercicio puede ser este se tiene esta imagen que va a ser un conjunto de píxeles, ¿no? Chiquititos y este se viene este núcleo y se le aplica un spray de dos haga la convolusión. ¿Qué qué imagen resulta?
+Claro. ¿Cómo queda la imagen? Sí. Y después se le hace un max,
+¿no? ¿Cómo queda? ¿Cómo queda? O sea, practiquen eso. Recuerden, repasen las técnicas de regularización que hemos visto con ellas. ¿Cuándo el parcial? ¿Cómo?
+¿Qué qué fecha tiene el parcial?
+El lunes que viene. Es el lunes que viene.
+El lunes que viene. La sangre en la cara a Sí, creo que ya estás anotado, pero siguiente igual fíjate que horas
+sí además de regularización, algo más regularización. Este, recuerden, hagan, repasen bien el ejercicio ese de
+el ejercicio que hicimos de descenso de gradiente es
+el que hicimos ¿Qué pasa con el peso si cero? Si el peso de hoy, el de hoy.
+Yo les diría que repasen estos ejercicios, los entiendan a fondo y y no van a tener problema, solo que repasen algunas cositas de esas este que no que no vimos de bueno, cómo se aplica un núcleo, cómo se aplica maxping, cómo
+yo creo que esd,
+no. Eso no se preocupen, lo único tienen que saber esta ecuación que yo escribí hoy acá es parámetro nuevo, es el parámetro viejo. más learning, menos learning rate. Podemos hacer, ¿qué fue lo que te preguntaron recién que no se escucha?
+Se están mezclando las voces tuyas con las de la clase. No, no llegué a escuchar. La pregunta de que te hicieron,
+me preguntaron si las diferencias entre
+no pará, para par, no se escucha,
+no se escucha.
+A ver si ahí me escucha mejor.
+Sí, sí, impecable.
+No, que digo que me preguntaron por las y había que estudiar las diferencias entre SGD, Adam, y todo eso. Sí. Y la respuesta es que no.
+Okay.
+Lo que lo único que tiene que saber es eh la actualización de gradiente que les escribí en el pizarrón hoy. Eh ah el parámetro nuevo es el parámetro viejo menos el rate por el gradiente.
+Gracias.
+No, por favor. Hasta luego.

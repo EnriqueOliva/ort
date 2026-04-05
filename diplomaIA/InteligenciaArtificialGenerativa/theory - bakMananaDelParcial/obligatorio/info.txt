@@ -1,0 +1,35 @@
+Hola, cómo están?
+
+Queda disponible en el siguiente link la planilla de grupos de obligatorio para que completen (agreguen por favor nombre y nro. de estudiante).
+
+-------> LINK
+
+Les dejo debajo también algunos temas de referencia usados el semestre pasado que pueden servirles de inspiración.
+
+CelebA - CVAE
+Normalizing Flow for Speech Synthesis
+LLM - Tecnica de Finne Tunning para generacion de texto
+Conditional GANs
+LLM - Comparacion entre distintos modelos
+Neural style transfer
+Rags vs graph rag
+Progressive Growing GANs
+
+Saludos.
+
+Temas elegidos por otros grupos hasta ahora:
+
+1	Fernando Zanetti - 167581	Sebastian Guerrero - 158947		AudioVAE		TBD
+2	Juan Cruz Rodriguez - 292790			CycleGAN 		TBD
+3	Carlos Dutra da Silveira - 342909	Lorenzo Foderé - 357640	Bruno Dinello - 192158	Image captioning		TBD
+4	Lucas González Petti - 359420			RAG con LLM		TBD
+5	Johny Kidd - 228175			PLMs		TBD
+6	Joaquin Guerra - 307854	Ramiro Sanes - 368397		Style Transfer con Perceptual Loss		TBD
+7	Marcos Mussio - 362839	Ma Virginia Magnifico - 140710				TBD
+8	Leonel Tambasco	Rodrigo Mendez	David Pereira			TBD
+9	José Luis Cabrera - 227487	Germán López - 164030	Rodrigo Paz - 325277	Generación de rostros condicionada por atributos mediante Modelos de Difusión		TBD
+10	Guillermo Repetto - 188864					TBD
+11	Reichel Larez - 344474			Storyteller (LLM) + Audio generation		TBD
+12						TBD
+13						TBD
+14						TBD

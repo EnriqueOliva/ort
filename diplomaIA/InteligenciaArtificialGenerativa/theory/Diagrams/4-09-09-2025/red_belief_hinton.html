@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Belief Networks de Hinton</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #11998e;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .explanation {
+            background: #e7fff8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #11998e;
+            font-weight: bold;
+        }
+
+        svg {
+            width: 100%;
+            height: 700px;
+            border: 2px solid #11998e;
+            border-radius: 10px;
+            background: white;
+            margin: 20px 0;
+        }
+
+        .neuron {
+            fill: white;
+            stroke: #11998e;
+            stroke-width: 2.5;
+        }
+
+        .neuron-input {
+            fill: #e7fff8;
+            stroke: #11998e;
+            stroke-width: 2.5;
+        }
+
+        .neuron-output {
+            fill: #11998e;
+            stroke: #11998e;
+            stroke-width: 2.5;
+        }
+
+        .connection {
+            stroke: #666;
+            stroke-width: 2;
+            opacity: 0.5;
+        }
+
+        .connection-active {
+            stroke: #11998e;
+            stroke-width: 3;
+            opacity: 1;
+        }
+
+        .connection-zero {
+            stroke: #ff6b6b;
+            stroke-width: 2;
+            stroke-dasharray: 5,5;
+            opacity: 0.3;
+        }
+
+        .label {
+            font-size: 14px;
+            fill: #333;
+            font-weight: bold;
+        }
+
+        .matrix-box {
+            fill: #f8f9fa;
+            stroke: #11998e;
+            stroke-width: 2;
+        }
+
+        .matrix-text {
+            font-size: 12px;
+            fill: #333;
+            font-family: 'Courier New', monospace;
+        }
+
+        .zero-weight {
+            fill: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border-left: 4px solid #11998e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .formula {
+            font-size: 1.1em;
+            text-align: center;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Red Belief Networks de Hinton</h1>
+
+        <div class="explanation">
+            <p>La idea de <span class="highlight">Geoffrey Hinton</span> (Premio Turing 2018) fue organizar los perceptrones autorregresivos en una <span class="highlight">única red neuronal</span> con una característica especial:</p>
+            <p style="margin-top: 10px;">En lugar de tener perceptrones separados, todos se combinan en una red donde <span class="highlight">ciertos pesos están fijados en cero</span> para mantener la dependencia autorregresiva.</p>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula">
+                Matriz de pesos W con estructura triangular inferior:
+            </div>
+            <div class="formula" style="margin-top: 15px;">
+                W = [0    0    0    0  ]
+                    [W₂₁  0    0    0  ]
+                    [W₃₁  W₃₂  0    0  ]
+                    [W₄₁  W₄₂  W₄₃  0  ]
+            </div>
+            <div class="formula" style="margin-top: 15px;">
+                x̂ = σ(W · x + b)
+            </div>
+        </div>
+
+        <svg id="hintonSvg"></svg>
+
+        <div class="explanation">
+            <p><strong>Ventajas de esta arquitectura:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><span class="highlight">Entrenamiento en paralelo:</span> Podemos pasar toda la imagen a la vez y calcular todas las predicciones simultáneamente</li>
+                <li><span class="highlight">Menos parámetros:</span> En vez de crecer exponencialmente (2ⁿ), crece linealmente (n)</li>
+                <li><span class="highlight">Optimización eficiente:</span> Usamos backpropagation sobre toda la red a la vez</li>
+                <li><span class="highlight">Generación secuencial:</span> Para generar/muestrear, seguimos usando el proceso secuencial</li>
+            </ul>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula">
+                <strong>Entrenamiento:</strong> Paralelo (todas las salidas a la vez)
+            </div>
+            <div class="formula">
+                Loss = -Σᵢ [xᵢ·log(x̂ᵢ) + (1-xᵢ)·log(1-x̂ᵢ)]
+            </div>
+            <div class="formula" style="margin-top: 15px;">
+                <strong>Generación:</strong> Secuencial (un píxel a la vez)
+            </div>
+            <div class="formula">
+                x₁ ~ Bernoulli(x̂₁), luego x₂ ~ Bernoulli(x̂₂), etc.
+            </div>
+        </div>
+
+        <div class="explanation">
+            <p><strong>Restricción autorregresiva:</strong></p>
+            <p style="margin-top: 10px;">Los pesos en <span class="highlight">rojo punteado</span> están fijados en <span class="highlight">cero</span> y NO se entrenan. Esto asegura que:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>x₁ no depende de nada (solo de b₁)</li>
+                <li>x₂ solo depende de x₁</li>
+                <li>x₃ solo depende de x₁ y x₂</li>
+                <li>x₄ depende de x₁, x₂ y x₃</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const svg = document.getElementById('hintonSvg');
+
+        function drawHintonNetwork() {
+            svg.innerHTML = '';
+
+            const width = 1100;
+            const height = 700;
+            const layerSpacing = 350;
+            const neuronSpacing = 100;
+            const neuronRadius = 30;
+
+            const inputLayer = [
+                {x: 150, y: 150, label: 'x₁'},
+                {x: 150, y: 250, label: 'x₂'},
+                {x: 150, y: 350, label: 'x₃'},
+                {x: 150, y: 450, label: 'x₄'}
+            ];
+
+            const outputLayer = [
+                {x: 500, y: 150, label: 'x̂₁'},
+                {x: 500, y: 250, label: 'x̂₂'},
+                {x: 500, y: 350, label: 'x̂₃'},
+                {x: 500, y: 450, label: 'x̂₄'}
+            ];
+
+            for (let i = 0; i < inputLayer.length; i++) {
+                for (let j = 0; j < outputLayer.length; j++) {
+                    const active = j >= i;
+                    const isZero = j < i;
+
+                    if (isZero) {
+                        svg.innerHTML += `<line x1="${inputLayer[i].x + neuronRadius}" y1="${inputLayer[i].y}" x2="${outputLayer[j].x - neuronRadius}" y2="${outputLayer[j].y}" class="connection-zero"/>`;
+                    } else if (active) {
+                        svg.innerHTML += `<line x1="${inputLayer[i].x + neuronRadius}" y1="${inputLayer[i].y}" x2="${outputLayer[j].x - neuronRadius}" y2="${outputLayer[j].y}" class="connection-active"/>`;
+                    } else {
+                        svg.innerHTML += `<line x1="${inputLayer[i].x + neuronRadius}" y1="${inputLayer[i].y}" x2="${outputLayer[j].x - neuronRadius}" y2="${outputLayer[j].y}" class="connection"/>`;
+                    }
+                }
+            }
+
+            inputLayer.forEach(neuron => {
+                svg.innerHTML += `<circle cx="${neuron.x}" cy="${neuron.y}" r="${neuronRadius}" class="neuron-input"/>`;
+                svg.innerHTML += `<text x="${neuron.x}" y="${neuron.y + 5}" class="label" text-anchor="middle">${neuron.label}</text>`;
+            });
+
+            outputLayer.forEach(neuron => {
+                svg.innerHTML += `<circle cx="${neuron.x}" cy="${neuron.y}" r="${neuronRadius}" class="neuron-output"/>`;
+                svg.innerHTML += `<text x="${neuron.x}" y="${neuron.y + 5}" class="label" text-anchor="middle" fill="white">${neuron.label}</text>`;
+            });
+
+            svg.innerHTML += `<text x="150" y="100" class="label" text-anchor="middle" font-size="16">Entrada (píxeles)</text>`;
+            svg.innerHTML += `<text x="500" y="100" class="label" text-anchor="middle" font-size="16">Salida (probabilidades)</text>`;
+
+            const matrixX = 700;
+            const matrixY = 150;
+            const cellSize = 80;
+
+            svg.innerHTML += `<text x="${matrixX + 160}" y="${matrixY - 20}" class="label" font-size="18">Matriz W (triangular inferior)</text>`;
+
+            const weights = [
+                ['0', '0', '0', '0'],
+                ['W₂₁', '0', '0', '0'],
+                ['W₃₁', 'W₃₂', '0', '0'],
+                ['W₄₁', 'W₄₂', 'W₄₃', '0']
+            ];
+
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    const x = matrixX + j * cellSize;
+                    const y = matrixY + i * cellSize;
+
+                    const isZero = weights[i][j] === '0';
+                    svg.innerHTML += `<rect x="${x}" y="${y}" width="${cellSize}" height="${cellSize}" class="matrix-box" fill="${isZero ? '#ffe0e0' : '#e7fff8'}"/>`;
+                    svg.innerHTML += `<text x="${x + cellSize/2}" y="${y + cellSize/2 + 5}" class="${isZero ? 'matrix-text zero-weight' : 'matrix-text'}" text-anchor="middle">${weights[i][j]}</text>`;
+                }
+            }
+
+            svg.innerHTML += `<text x="${matrixX + 320}" y="${matrixY + 50}" class="label" font-size="14" fill="#ff6b6b">← Ceros fijos</text>`;
+            svg.innerHTML += `<text x="${matrixX + 320}" y="${matrixY + 150}" class="label" font-size="14" fill="#11998e">← Pesos entrenables</text>`;
+
+            svg.innerHTML += `<text x="550" y="550" class="label" font-size="16">Vector de bias: b = [b₁, b₂, b₃, b₄]ᵀ</text>`;
+            svg.innerHTML += `<text x="550" y="580" class="label" font-size="16">Función de activación: σ (sigmoide)</text>`;
+
+            svg.innerHTML += `<text x="325" y="520" class="label" font-size="14" fill="#11998e" text-anchor="middle">x̂₁ = σ(b₁)</text>`;
+            svg.innerHTML += `<text x="325" y="540" class="label" font-size="14" fill="#11998e" text-anchor="middle">x̂₂ = σ(W₂₁·x₁ + b₂)</text>`;
+            svg.innerHTML += `<text x="325" y="560" class="label" font-size="14" fill="#11998e" text-anchor="middle">x̂₃ = σ(W₃₁·x₁ + W₃₂·x₂ + b₃)</text>`;
+            svg.innerHTML += `<text x="325" y="580" class="label" font-size="14" fill="#11998e" text-anchor="middle">x̂₄ = σ(W₄₁·x₁ + W₄₂·x₂ + W₄₃·x₃ + b₄)</text>`;
+        }
+
+        drawHintonNetwork();
+    </script>
+</body>
+</html>

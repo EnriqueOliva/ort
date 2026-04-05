@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAE: Reparametrization Trick - Clase 6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #00d4ff;
+            padding-bottom: 10px;
+        }
+        .problem-box {
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid #ff6b6b;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .problem-box h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+        }
+        .solution-box {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .solution-box h3 {
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+        .formula {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            color: #00ff88;
+            text-align: center;
+            font-size: 1.3em;
+            margin: 20px 0;
+        }
+        .diagram {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .flow-box {
+            background: linear-gradient(145deg, #4a4a6a, #2d2d44);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 140px;
+            border: 2px solid #00d4ff;
+        }
+        .flow-box.encoder {
+            border-color: #ff6b6b;
+        }
+        .flow-box.latent {
+            border-color: #ffd93d;
+            background: linear-gradient(145deg, #5a5a3a, #3d3d24);
+        }
+        .flow-box.decoder {
+            border-color: #00ff88;
+        }
+        .flow-arrow {
+            font-size: 2em;
+            color: #00d4ff;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .compare-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid #666;
+        }
+        .compare-card.wrong {
+            border-color: #ff6b6b;
+        }
+        .compare-card.right {
+            border-color: #00ff88;
+        }
+        .compare-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        .compare-card.wrong h4 {
+            color: #ff6b6b;
+        }
+        .compare-card.right h4 {
+            color: #00ff88;
+        }
+        p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .highlight {
+            color: #00ff88;
+            font-weight: bold;
+        }
+        .note {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #ffd93d;
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+        svg text {
+            font-family: 'Segoe UI', sans-serif;
+        }
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reparametrization Trick</h1>
+        <p class="subtitle">El truco que permite entrenar VAEs con backpropagation</p>
+
+        <div class="section">
+            <h2>El Problema: Muestreo No es Diferenciable</h2>
+
+            <div class="problem-box">
+                <h3>❌ ¿Por qué no podemos simplemente muestrear?</h3>
+                <p>En un VAE, el encoder produce los parámetros de una distribución (μ y σ), y queremos muestrear z de esa distribución.</p>
+                <p><strong>El problema:</strong> La operación de muestreo es <span class="highlight">estocástica</span> (aleatoria), lo que significa que no podemos calcular gradientes a través de ella.</p>
+                <p>Sin gradientes, no podemos usar backpropagation para entrenar el encoder.</p>
+            </div>
+
+            <div class="formula">
+                z ~ N(μ, σ²) ← ¡No diferenciable!
+            </div>
+
+            <p style="text-align: center; color: #ff6b6b;">El gradiente ∂z/∂μ y ∂z/∂σ no están definidos porque z es aleatorio</p>
+        </div>
+
+        <div class="section">
+            <h2>La Solución: Reparametrization Trick</h2>
+
+            <div class="solution-box">
+                <h3>✓ Separar la aleatoriedad de los parámetros</h3>
+                <p>En lugar de muestrear directamente de N(μ, σ²), hacemos:</p>
+                <ol style="margin-left: 20px; color: #ccc;">
+                    <li>Muestreamos ε de una distribución fija N(0, 1)</li>
+                    <li>Calculamos z = μ + σ × ε</li>
+                </ol>
+                <p>Ahora z es una <strong>función determinística</strong> de μ y σ (dado ε), ¡y podemos calcular gradientes!</p>
+            </div>
+
+            <div class="formula">
+                ε ~ N(0, 1)  →  z = μ + σ × ε
+            </div>
+
+            <div class="diagram">
+                <svg width="800" height="250" viewBox="0 0 800 250">
+                    <!-- Encoder output -->
+                    <rect x="50" y="80" width="120" height="90" rx="10" fill="#4a4a6a" stroke="#ff6b6b" stroke-width="2"/>
+                    <text x="110" y="110" fill="#ff6b6b" text-anchor="middle" font-size="14" font-weight="bold">ENCODER</text>
+                    <text x="110" y="135" fill="#fff" text-anchor="middle" font-size="12">Produce:</text>
+                    <text x="110" y="155" fill="#00ff88" text-anchor="middle" font-size="12">μ, σ</text>
+
+                    <!-- Arrow to operation -->
+                    <line x1="170" y1="125" x2="250" y2="125" stroke="#00d4ff" stroke-width="2"/>
+                    <polygon points="250,125 240,120 240,130" fill="#00d4ff"/>
+
+                    <!-- Epsilon input -->
+                    <rect x="280" y="20" width="100" height="50" rx="8" fill="#3d3d24" stroke="#ffd93d" stroke-width="2"/>
+                    <text x="330" y="40" fill="#ffd93d" text-anchor="middle" font-size="12">ε ~ N(0,1)</text>
+                    <text x="330" y="58" fill="#888" text-anchor="middle" font-size="10">(ruido fijo)</text>
+
+                    <!-- Arrow from epsilon -->
+                    <line x1="330" y1="70" x2="330" y2="90" stroke="#ffd93d" stroke-width="2"/>
+                    <polygon points="330,90 325,80 335,80" fill="#ffd93d"/>
+
+                    <!-- Operation box -->
+                    <rect x="260" y="90" width="140" height="70" rx="10" fill="#2d2d44" stroke="#00d4ff" stroke-width="3"/>
+                    <text x="330" y="115" fill="#fff" text-anchor="middle" font-size="12">OPERACIÓN</text>
+                    <text x="330" y="140" fill="#00ff88" text-anchor="middle" font-size="16" font-weight="bold">z = μ + σ × ε</text>
+
+                    <!-- Arrow to z -->
+                    <line x1="400" y1="125" x2="480" y2="125" stroke="#00d4ff" stroke-width="2"/>
+                    <polygon points="480,125 470,120 470,130" fill="#00d4ff"/>
+
+                    <!-- Z output -->
+                    <circle cx="530" cy="125" r="40" fill="#4a4a6a" stroke="#00ff88" stroke-width="3"/>
+                    <text x="530" y="120" fill="#fff" text-anchor="middle" font-size="14">Latente</text>
+                    <text x="530" y="140" fill="#00ff88" text-anchor="middle" font-size="18" font-weight="bold">z</text>
+
+                    <!-- Arrow to decoder -->
+                    <line x1="570" y1="125" x2="620" y2="125" stroke="#00d4ff" stroke-width="2"/>
+                    <polygon points="620,125 610,120 610,130" fill="#00d4ff"/>
+
+                    <!-- Decoder -->
+                    <rect x="630" y="80" width="120" height="90" rx="10" fill="#4a4a6a" stroke="#00ff88" stroke-width="2"/>
+                    <text x="690" y="115" fill="#00ff88" text-anchor="middle" font-size="14" font-weight="bold">DECODER</text>
+                    <text x="690" y="140" fill="#fff" text-anchor="middle" font-size="12">Reconstruye</text>
+                    <text x="690" y="160" fill="#ccc" text-anchor="middle" font-size="11">imagen</text>
+
+                    <!-- Gradient flow -->
+                    <path d="M 690 180 Q 690 210 530 210 Q 330 210 110 210 Q 80 210 80 180" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="5,5"/>
+                    <text x="400" y="235" fill="#ff6b6b" text-anchor="middle" font-size="12">← Gradientes fluyen hacia atrás (backprop) ←</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Comparación: Sin vs Con Reparametrization</h2>
+
+            <div class="comparison">
+                <div class="compare-card wrong">
+                    <h4>❌ Sin Reparametrization</h4>
+                    <div class="formula" style="font-size: 1em;">z ~ N(μ, σ²)</div>
+                    <p>• z es directamente muestreado</p>
+                    <p>• La aleatoriedad está "dentro" del nodo z</p>
+                    <p>• No hay camino diferenciable de z a μ, σ</p>
+                    <p style="color: #ff6b6b;"><strong>Resultado:</strong> No se puede entrenar con backprop</p>
+                </div>
+
+                <div class="compare-card right">
+                    <h4>✓ Con Reparametrization</h4>
+                    <div class="formula" style="font-size: 1em;">z = μ + σ × ε</div>
+                    <p>• z es una función de μ, σ y ε</p>
+                    <p>• La aleatoriedad está "fuera" en ε (fijo)</p>
+                    <p>• z es diferenciable respecto a μ y σ</p>
+                    <p style="color: #00ff88;"><strong>Resultado:</strong> ¡Backprop funciona!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Los Gradientes</h2>
+
+            <p>Con el reparametrization trick, los gradientes son simples:</p>
+
+            <div class="formula">
+                ∂z/∂μ = 1
+            </div>
+            <p style="text-align: center;">El gradiente respecto a la media es simplemente 1</p>
+
+            <div class="formula">
+                ∂z/∂σ = ε
+            </div>
+            <p style="text-align: center;">El gradiente respecto a la desviación estándar es el ruido muestreado</p>
+
+            <div class="note">
+                <h3 style="color: #ffd93d; margin-bottom: 10px;">💡 Intuición</h3>
+                <p>Piénsalo así: antes, le pedíamos a la "caja negra" de muestreo que nos diera z. Ahora, nosotros mismos calculamos z usando una fórmula simple. La caja negra solo nos da el ruido ε, que no depende de los parámetros del modelo.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>En Código (PyTorch)</h2>
+
+            <div style="background: #1e1e1e; border-radius: 12px; padding: 25px; overflow-x: auto;">
+                <pre style="color: #d4d4d4; font-family: 'Courier New', monospace; font-size: 0.95em; line-height: 1.6;">
+<span style="color: #569cd6;">class</span> <span style="color: #4ec9b0;">VAE</span>(nn.Module):
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">encode</span>(self, x):
+        <span style="color: #6a9955;"># El encoder produce μ y log(σ²)</span>
+        h = self.encoder(x)
+        mu = self.fc_mu(h)
+        log_var = self.fc_var(h)
+        <span style="color: #569cd6;">return</span> mu, log_var
+
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">reparameterize</span>(self, mu, log_var):
+        <span style="color: #6a9955;"># Reparametrization trick</span>
+        std = torch.exp(<span style="color: #b5cea8;">0.5</span> * log_var)  <span style="color: #6a9955;"># σ = exp(log_var/2)</span>
+        eps = torch.randn_like(std)        <span style="color: #6a9955;"># ε ~ N(0, 1)</span>
+        z = mu + std * eps                 <span style="color: #6a9955;"># z = μ + σ × ε</span>
+        <span style="color: #569cd6;">return</span> z
+
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">forward</span>(self, x):
+        mu, log_var = self.encode(x)
+        z = self.reparameterize(mu, log_var)  <span style="color: #6a9955;"># ¡Diferenciable!</span>
+        <span style="color: #569cd6;">return</span> self.decode(z), mu, log_var
+                </pre>
+            </div>
+
+            <div class="note">
+                <p><strong>¿Por qué log_var en lugar de σ?</strong></p>
+                <p>Usamos log(σ²) porque:</p>
+                <ul style="margin-left: 20px; color: #ccc;">
+                    <li>σ debe ser positivo, pero log(σ²) puede ser cualquier número real</li>
+                    <li>Es más estable numéricamente</li>
+                    <li>Para obtener σ: σ = exp(log_var / 2)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Actualmente nos encontramos dentro de C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa, el cual es un espacio de trabajo dedicado a un curso en IA Generativa, en el cual almacenamos principalmente una transcripción de cada clase del curso.
+
+Estoy extremadamente perdido, nunca asistí a ninguna clase, no sé nada sobre ningún tema, no sé qué se dio, y vengo de otra disciplina por lo que no sé nada sobre lo que se dio. A su vez, estoy muy corto de tiempo. Hoy es 9 de noviembre y debo brindar una breve presentación oral sobre mi obligatorio (trabajo final de curso) este próximo 11 de noviembre, explicando qué tema elegí y por qué.
+
+Haz un análisis megaexhaustivo de todas las trancripciones de todas las clases, una por una, para determinar en qué clase se hizo la lectura oficial del obligatorio, y luego escribir un archivo md nuevo en el dir raíz que explique absolutamente todos los detalles mencionados sobre el obligatorio en clase. 
+
+Un vez que termines, vuelve a analizar la clase correspondiente en busca de detalles que hayas omitido leer en la primera vez. Repite el proceso 3 veces, y solo al final escribe el md. Ultrathink. 

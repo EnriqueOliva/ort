@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Head Attention</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .key-concept {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .key-concept-title {
+            font-weight: bold;
+            font-size: 1.4em;
+            color: #2d3748;
+            margin-bottom: 12px;
+        }
+
+        .key-concept-text {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .heads-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .head {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .head:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .head:nth-child(1) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .head:nth-child(2) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .head:nth-child(3) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .head:nth-child(4) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .head-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .head-description {
+            line-height: 1.6;
+            text-align: center;
+            font-size: 0.95em;
+        }
+
+        .head-matrices {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+        }
+
+        .flow-diagram {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f7fafc;
+            border-radius: 15px;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            gap: 20px;
+        }
+
+        .flow-box {
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+
+        .flow-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .flow-title {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .flow-content {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .flow-arrow {
+            font-size: 2.5em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .dimension-box {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            color: #22543d;
+        }
+
+        .formula-box {
+            background: #2d3748;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .info-box {
+            background: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .info-title {
+            font-weight: bold;
+            color: #c53030;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .info-text {
+            color: #742a2a;
+            line-height: 1.6;
+        }
+
+        .parameter-calculation {
+            background: #e6fffa;
+            border: 3px solid #38b2ac;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .calc-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #234e52;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .calc-step {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #38b2ac;
+        }
+
+        .calc-label {
+            font-weight: bold;
+            color: #2c7a7b;
+            margin-bottom: 5px;
+        }
+
+        .calc-value {
+            font-family: 'Courier New', monospace;
+            color: #234e52;
+            font-size: 1.1em;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .highlight-title {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table tr:hover {
+            background: #edf2f7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 Multi-Head Attention</h1>
+        <p class="subtitle">Múltiples perspectivas en paralelo</p>
+
+        <div class="key-concept">
+            <div class="key-concept-title">💡 ¿Qué es Multi-Head Attention?</div>
+            <div class="key-concept-text">
+                Es hacer Self-Attention <strong>varias veces en paralelo</strong> con diferentes matrices de pesos.
+                La esperanza es que cada "head" (cabeza) capture <strong>diferentes tipos de relaciones</strong>:
+                semánticas, sintácticas, temporales, etc.<br><br>
+                <em>"Lo de multihead es simplemente hacer attention varias veces con la esperanza de que cada una
+                de ellas capture distintas relaciones."</em> - Profesor
+            </div>
+        </div>
+
+        <div class="heads-container">
+            <div class="head">
+                <div class="head-title">Head 1 🎯</div>
+                <div class="head-description">
+                    Podría capturar relaciones sintácticas<br>
+                    (sujeto-verbo, verbo-objeto)
+                </div>
+                <div class="head-matrices">
+                    W_Q1, W_K1, W_V1<br>
+                    (128 × 32 cada una)
+                </div>
+            </div>
+
+            <div class="head">
+                <div class="head-title">Head 2 🎯</div>
+                <div class="head-description">
+                    Podría capturar relaciones semánticas<br>
+                    (palabras con significados relacionados)
+                </div>
+                <div class="head-matrices">
+                    W_Q2, W_K2, W_V2<br>
+                    (128 × 32 cada una)
+                </div>
+            </div>
+
+            <div class="head">
+                <div class="head-title">Head 3 🎯</div>
+                <div class="head-description">
+                    Podría capturar relaciones temporales<br>
+                    (secuencia de eventos)
+                </div>
+                <div class="head-matrices">
+                    W_Q3, W_K3, W_V3<br>
+                    (128 × 32 cada una)
+                </div>
+            </div>
+
+            <div class="head">
+                <div class="head-title">Head 4 🎯</div>
+                <div class="head-description">
+                    Podría capturar otras relaciones<br>
+                    (contexto, co-referencias)
+                </div>
+                <div class="head-matrices">
+                    W_Q4, W_K4, W_V4<br>
+                    (128 × 32 cada una)
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" style="background: #f0fff4; border-left-color: #48bb78;">
+            <div class="info-title" style="color: #276749;">⚠️ Importante</div>
+            <div class="info-text" style="color: #22543d;">
+                Cada head tiene sus <strong>propias matrices de pesos independientes</strong>.
+                No comparten parámetros entre sí. Por eso multiplicamos por H (número de heads)
+                al calcular los parámetros totales.
+            </div>
+        </div>
+
+        <div class="flow-diagram">
+            <h2 style="text-align: center; color: #2d3748; margin-bottom: 25px;">
+                🔄 Flujo del Multi-Head Attention
+            </h2>
+
+            <div class="flow-step">
+                <div class="flow-box">
+                    <div class="flow-title">Entrada Z</div>
+                    <div class="flow-content">
+                        Matriz de N palabras × d_model
+                    </div>
+                    <div class="dimension-box">
+                        N × 128
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow" style="text-align: center;">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-box" style="border-color: #667eea;">
+                    <div class="flow-title">Head 1</div>
+                    <div class="formula-box" style="font-size: 0.9em;">
+                        Attention(Q₁, K₁, V₁)
+                    </div>
+                    <div class="dimension-box">
+                        Salida: N × 32
+                    </div>
+                </div>
+
+                <div class="flow-box" style="border-color: #f5576c;">
+                    <div class="flow-title">Head 2</div>
+                    <div class="formula-box" style="font-size: 0.9em;">
+                        Attention(Q₂, K₂, V₂)
+                    </div>
+                    <div class="dimension-box">
+                        Salida: N × 32
+                    </div>
+                </div>
+
+                <div class="flow-box" style="border-color: #00f2fe;">
+                    <div class="flow-title">Head 3</div>
+                    <div class="formula-box" style="font-size: 0.9em;">
+                        Attention(Q₃, K₃, V₃)
+                    </div>
+                    <div class="dimension-box">
+                        Salida: N × 32
+                    </div>
+                </div>
+
+                <div class="flow-box" style="border-color: #38f9d7;">
+                    <div class="flow-title">Head 4</div>
+                    <div class="formula-box" style="font-size: 0.9em;">
+                        Attention(Q₄, K₄, V₄)
+                    </div>
+                    <div class="dimension-box">
+                        Salida: N × 32
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow" style="text-align: center;">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-box" style="border-color: #38b2ac;">
+                    <div class="flow-title">Concatenación</div>
+                    <div class="flow-content">
+                        Se concatenan todos los heads lado a lado
+                    </div>
+                    <div class="dimension-box">
+                        [H₁ | H₂ | H₃ | H₄]<br>
+                        N × (32+32+32+32) = N × 128
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow" style="text-align: center;">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-box" style="border-color: #48bb78;">
+                    <div class="flow-title">Proyección Final (W_O)</div>
+                    <div class="flow-content">
+                        Multiplicación por matriz W_O + bias b_O
+                    </div>
+                    <div class="dimension-box">
+                        (N × 128) × (128 × 128) + 128<br>
+                        Salida: N × 128
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow" style="text-align: center;">↓</div>
+
+            <div class="flow-step">
+                <div class="flow-box" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); border: none;">
+                    <div class="flow-title">Output Final</div>
+                    <div class="flow-content">
+                        Misma dimensión que la entrada original
+                    </div>
+                    <div class="dimension-box">
+                        N × 128
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="parameter-calculation">
+            <div class="calc-title">📊 Cálculo de Parámetros del Multi-Head Attention</div>
+            <p style="text-align: center; color: #234e52; margin-bottom: 20px;">
+                Ejemplo con d_model=128, H=4 heads, d_k=d_v=32
+            </p>
+
+            <div class="calc-step">
+                <div class="calc-label">Para UNA cabeza (head):</div>
+                <div class="calc-value">
+                    W_Q: 128 × 32 = 4,096 parámetros<br>
+                    W_K: 128 × 32 = 4,096 parámetros<br>
+                    W_V: 128 × 32 = 4,096 parámetros<br>
+                    b_Q, b_K, b_V: 32 + 32 + 32 = 96 parámetros<br>
+                    <strong>Total por head: 12,288 parámetros</strong>
+                </div>
+            </div>
+
+            <div class="calc-step">
+                <div class="calc-label">Para CUATRO cabezas:</div>
+                <div class="calc-value">
+                    12,288 × 4 = <strong>49,152 parámetros</strong>
+                </div>
+            </div>
+
+            <div class="calc-step">
+                <div class="calc-label">Matriz de proyección final W_O:</div>
+                <div class="calc-value">
+                    W_O: 128 × 128 = 16,384 parámetros<br>
+                    b_O: 128 parámetros<br>
+                    <strong>Total W_O: 16,512 parámetros</strong>
+                </div>
+            </div>
+
+            <div class="calc-step" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); border: none;">
+                <div class="calc-label">TOTAL Multi-Head Attention:</div>
+                <div class="calc-value" style="font-size: 1.3em;">
+                    49,152 + 16,512 = <strong>66,048 parámetros</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <div class="highlight-title">🎯 ¿Por qué d_k = d_model / H?</div>
+            <p style="color: #4a5568; line-height: 1.8;">
+                Es una convención estándar por <strong>facilidad de implementación</strong>:
+            </p>
+            <ul style="color: #4a5568; margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                <li>Si d_k = d_model / H, entonces H × d_k = d_model</li>
+                <li>Al concatenar los H heads, recuperas exactamente d_model</li>
+                <li>Puedes implementarlo como una sola matriz grande de 128×128</li>
+                <li>Luego divides las columnas en H partes iguales</li>
+            </ul>
+            <p style="color: #4a5568; margin-top: 15px; font-style: italic;">
+                "Podés implementar como una sola capa lineal, dividís las columnas en H y te quedan las H heads."
+                - Profesor
+            </p>
+        </div>
+
+        <div class="info-box">
+            <div class="info-title">❓ ¿Qué captura cada head?</div>
+            <div class="info-text">
+                La verdad es que <strong>no sabemos exactamente</strong> qué aprende cada head.
+                Es parte del aprendizaje automático: la red decide por sí misma qué tipo de relaciones
+                son útiles para la tarea. Algunos estudios han visualizado los heads y encontrado patrones,
+                pero no hay garantías de qué aprenderá cada uno.
+            </div>
+        </div>
+
+        <div class="key-concept" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+            <div class="key-concept-title">📝 Comparación: Single vs Multi-Head</div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Single-Head</th>
+                        <th>Multi-Head (H=4)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Matrices Q, K, V</strong></td>
+                        <td>3 matrices</td>
+                        <td>12 matrices (3 por head)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dimensión d_k</strong></td>
+                        <td>d_model (128)</td>
+                        <td>d_model/H (32)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tipos de relaciones</strong></td>
+                        <td>Una sola perspectiva</td>
+                        <td>Múltiples perspectivas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Parámetros (sin W_O)</strong></td>
+                        <td>~49,152</td>
+                        <td>~49,152 (similar)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Salida</strong></td>
+                        <td>N × 128</td>
+                        <td>N × 128 (después de concat + W_O)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Capacidad expresiva</strong></td>
+                        <td>Limitada</td>
+                        <td>Mayor (múltiples perspectivas)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="highlight-box" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);">
+            <div class="highlight-title">🎓 Cita del Profesor</div>
+            <p style="color: #2d3748; line-height: 1.8; font-size: 1.05em;">
+                "Cada head usa todo el Z, pero tiene su propia W. Usa todo el Z, pero tiene su propia matriz de pesos.
+                Lo podés implementar como un solo MLP con una sola capa lineal, dividís las columnas en H
+                y te quedan las H heads."
+            </p>
+        </div>
+    </div>
+</body>
+</html>

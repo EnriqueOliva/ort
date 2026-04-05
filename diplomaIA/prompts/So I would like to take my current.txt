@@ -1,0 +1,19 @@
+So I would like to take my current notebook and add an extra stage in the beginning. After the first training where we train ideal wgan and ideal wgan-gp, i want you to add training of wgan and wgangp with the fair setup you mentioned:
+
+"Control all variables except regularization: WGAN:
+Optimizer: RMSProp
+Learning rate: 1e-4
+Betas: (0.5, 0.9)
+Regularization: Weight clipping (c=0.01)
+WGAN-GP:
+Optimizer: Adam
+Learning rate: 1e-4
+Betas: (0.5, 0.9)
+Regularization: Gradient penalty (λ=10)
+Only difference: Clipping vs Penalty This isolates whether gradient penalty is truly superior to weight clipping, independent of optimizer choice."
+
+So do this and ensure you add all the information needed about this and why these 2 types of comparison but be extremely brief about it. 
+
+Uphold the current practices, standards, styles and patterns observed in the current notebook.
+
+Analyze the entire notebook and its results first so you have a completely understanding of the current status before actually proceeding with the implementation. Ultrathink.

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 2: Redes Bayesianas (Belief Networks)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2::before {
+            content: "▶";
+            margin-right: 15px;
+            color: #764ba2;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .formula {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            color: #764ba2;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+            overflow-x: auto;
+        }
+
+        .example {
+            background: #fff9e6;
+            border-left: 5px solid #ffd700;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .example h4 {
+            color: #d4a017;
+            margin-bottom: 10px;
+        }
+
+        .diagram {
+            margin: 30px 0;
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e8f4f8;
+            border-radius: 8px;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffd700 0%, #ffed4e 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tr:hover {
+            background: #e8f4f8;
+        }
+
+        .node {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .node:hover circle,
+        .node:hover ellipse {
+            filter: brightness(1.2);
+            stroke-width: 4;
+        }
+
+        .edge {
+            transition: all 0.3s ease;
+        }
+
+        .edge:hover {
+            stroke-width: 4;
+            filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.8));
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .comparison-item h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 900px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌐 Clase 2: Redes Bayesianas (Belief Networks)</h1>
+
+        <div class="section">
+            <h2>¿Qué es una Red Bayesiana?</h2>
+            <div class="card">
+                <h3>Definición</h3>
+                <div class="explanation">
+                    Una <span class="highlight">Red Bayesiana</span> (o Belief Network) es un <strong>grafo acíclico dirigido (DAG)</strong> que representa relaciones de dependencia probabilística entre variables aleatorias.
+                </div>
+
+                <ul style="font-size: 1.1em; margin-top: 20px;">
+                    <li>📌 <strong>Nodos:</strong> Representan variables aleatorias</li>
+                    <li>📌 <strong>Arcos (flechas):</strong> Indican dependencias directas entre variables</li>
+                    <li>📌 <strong>Acíclico:</strong> No hay ciclos (no puedes volver al mismo nodo siguiendo las flechas)</li>
+                    <li>📌 <strong>Dirigido:</strong> Las flechas tienen dirección (de causa a efecto)</li>
+                </ul>
+
+                <div class="formula">
+                    Cada nodo Xᵢ tiene una distribución condicional:
+                    <br><br>
+                    P(Xᵢ | Padres(Xᵢ))
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Ejemplo: La Alarma de Sally</h2>
+            <div class="card">
+                <h3>Contexto del Problema</h3>
+                <div class="explanation">
+                    Sally tiene una alarma en su casa que puede sonar por dos razones:
+                    <ul>
+                        <li>🏠 <strong>Burglar (B):</strong> Entra un ladrón</li>
+                        <li>🌍 <strong>Earthquake (E):</strong> Hay un terremoto</li>
+                    </ul>
+                    Cuando la alarma suena:
+                    <ul>
+                        <li>📞 <strong>John (J):</strong> Puede llamar a Sally (quiere mucho a Sally)</li>
+                        <li>📞 <strong>Mary (M):</strong> Puede llamar a Sally</li>
+                    </ul>
+                    Además:
+                    <ul>
+                        <li>📻 <strong>Radio (R):</strong> Si hay terremoto, se informa en la radio</li>
+                    </ul>
+                </div>
+
+                <div class="diagram">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="gradBurglar" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gradEarthquake" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#f39c12;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#d68910;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gradAlarm" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gradJohn" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gradMary" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#9b59b6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#8e44ad;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gradRadio" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2ecc71;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#27ae60;stop-opacity:1" />
+                            </linearGradient>
+                            <marker id="arrowhead2" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+                                <polygon points="0 0, 12 6, 0 12" fill="#2c3e50" />
+                            </marker>
+                        </defs>
+
+                        <!-- Nodos independientes en la parte superior -->
+                        <!-- Burglar -->
+                        <g class="node" id="burglar">
+                            <ellipse cx="200" cy="80" rx="80" ry="50" fill="url(#gradBurglar)" stroke="#2c3e50" stroke-width="3"/>
+                            <text x="200" y="75" text-anchor="middle" font-size="18" font-weight="bold" fill="white">Burglar</text>
+                            <text x="200" y="95" text-anchor="middle" font-size="14" fill="white">(Ladrón)</text>
+                        </g>
+
+                        <!-- Earthquake -->
+                        <g class="node" id="earthquake">
+                            <ellipse cx="600" cy="80" rx="90" ry="50" fill="url(#gradEarthquake)" stroke="#2c3e50" stroke-width="3"/>
+                            <text x="600" y="75" text-anchor="middle" font-size="18" font-weight="bold" fill="white">Earthquake</text>
+                            <text x="600" y="95" text-anchor="middle" font-size="14" fill="white">(Terremoto)</text>
+                        </g>
+
+                        <!-- Alarma en el centro -->
+                        <g class="node" id="alarm">
+                            <ellipse cx="400" cy="250" rx="80" ry="50" fill="url(#gradAlarm)" stroke="#2c3e50" stroke-width="3"/>
+                            <text x="400" y="245" text-anchor="middle" font-size="18" font-weight="bold" fill="white">Alarm</text>
+                            <text x="400" y="265" text-anchor="middle" font-size="14" fill="white">(Alarma)</text>
+                        </g>
+
+                        <!-- Radio -->
+                        <g class="node" id="radio">
+                            <ellipse cx="650" cy="250" rx="70" ry="50" fill="url(#gradRadio)" stroke="#2c3e50" stroke-width="3"/>
+                            <text x="650" y="245" text-anchor="middle" font-size="18" font-weight="bold" fill="white">Radio</text>
+                            <text x="650" y="265" text-anchor="middle" font-size="14" fill="white">(Radio)</text>
+                        </g>
+
+                        <!-- John y Mary en la parte inferior -->
+                        <!-- John -->
+                        <g class="node" id="john">
+                            <ellipse cx="250" cy="420" rx="70" ry="50" fill="url(#gradJohn)" stroke="#2c3e50" stroke-width="3"/>
+                            <text x="250" y="415" text-anchor="middle" font-size="18" font-weight="bold" fill="white">John</text>
+                            <text x="250" y="435" text-anchor="middle" font-size="14" fill="white">(Llama)</text>
+                        </g>
+
+                        <!-- Mary -->
+                        <g class="node" id="mary">
+                            <ellipse cx="550" cy="420" rx="70" ry="50" fill="url(#gradMary)" stroke="#2c3e50" stroke-width="3"/>
+                            <text x="550" y="415" text-anchor="middle" font-size="18" font-weight="bold" fill="white">Mary</text>
+                            <text x="550" y="435" text-anchor="middle" font-size="14" fill="white">(Llama)</text>
+                        </g>
+
+                        <!-- Arcos (dependencias) -->
+                        <!-- Burglar -> Alarm -->
+                        <path class="edge" d="M 260 110 L 350 220" stroke="#2c3e50" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+
+                        <!-- Earthquake -> Alarm -->
+                        <path class="edge" d="M 540 110 L 450 220" stroke="#2c3e50" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+
+                        <!-- Earthquake -> Radio -->
+                        <path class="edge" d="M 620 130 L 640 200" stroke="#2c3e50" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+
+                        <!-- Alarm -> John -->
+                        <path class="edge" d="M 350 280 L 280 380" stroke="#2c3e50" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+
+                        <!-- Alarm -> Mary -->
+                        <path class="edge" d="M 450 280 L 520 380" stroke="#2c3e50" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+
+                        <!-- Leyenda -->
+                        <rect x="20" y="520" width="760" height="60" fill="#f8f9fa" stroke="#667eea" stroke-width="2" rx="10"/>
+                        <text x="400" y="545" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">Las flechas indican DEPENDENCIA DIRECTA</text>
+                        <text x="400" y="570" text-anchor="middle" font-size="14" fill="#666">Por ejemplo: La alarma depende de si hay ladrón O terremoto</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Fórmula de la Probabilidad Conjunta</h3>
+                <div class="explanation">
+                    La red bayesiana nos permite descomponer la probabilidad conjunta de TODAS las variables en un producto de probabilidades más simples:
+                </div>
+
+                <div class="formula">
+                    P(B, E, A, R, J, M) = P(B) · P(E) · P(A|B,E) · P(R|E) · P(J|A) · P(M|A)
+                </div>
+
+                <div class="explanation">
+                    <strong>Interpretación:</strong>
+                    <ul>
+                        <li>✅ <strong>P(B):</strong> Prob. de que haya ladrón (independiente)</li>
+                        <li>✅ <strong>P(E):</strong> Prob. de terremoto (independiente)</li>
+                        <li>✅ <strong>P(A|B,E):</strong> Prob. de que suene alarma DADO que sabemos si hay ladrón y/o terremoto</li>
+                        <li>✅ <strong>P(R|E):</strong> Prob. de que salga en radio DADO si hay terremoto</li>
+                        <li>✅ <strong>P(J|A):</strong> Prob. de que John llame DADO si suena alarma</li>
+                        <li>✅ <strong>P(M|A):</strong> Prob. de que Mary llame DADO si suena alarma</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Tablas de Probabilidad Condicional (CPD)</h3>
+                <div class="explanation">
+                    Para cada nodo, necesitamos especificar las probabilidades condicionales para todas las combinaciones de sus padres:
+                </div>
+
+                <h4 style="color: #667eea; margin: 20px 0 10px 0;">📊 P(A | B, E) - Probabilidad de Alarma</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Burglar (B)</th>
+                            <th>Earthquake (E)</th>
+                            <th>P(A=1 | B, E)</th>
+                            <th>P(A=0 | B, E)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0 (No ladrón)</td>
+                            <td>0 (No terremoto)</td>
+                            <td style="color: #27ae60; font-weight: bold;">0.001</td>
+                            <td>0.999</td>
+                        </tr>
+                        <tr>
+                            <td>0 (No ladrón)</td>
+                            <td>1 (Sí terremoto)</td>
+                            <td style="color: #f39c12; font-weight: bold;">0.29</td>
+                            <td>0.71</td>
+                        </tr>
+                        <tr>
+                            <td>1 (Sí ladrón)</td>
+                            <td>0 (No terremoto)</td>
+                            <td style="color: #e74c3c; font-weight: bold;">0.94</td>
+                            <td>0.06</td>
+                        </tr>
+                        <tr>
+                            <td>1 (Sí ladrón)</td>
+                            <td>1 (Sí terremoto)</td>
+                            <td style="color: #c0392b; font-weight: bold;">0.95</td>
+                            <td>0.05</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="example">
+                    <h4>💡 Observación del Profesor:</h4>
+                    <p>"La alarma está mejor configurada para ladrones que para terremotos. Si solo hay terremoto, la probabilidad de que suene es 0.29. Pero si hay ladrón (sin terremoto), ¡la probabilidad es 0.94!"</p>
+                </div>
+
+                <h4 style="color: #667eea; margin: 20px 0 10px 0;">📊 P(J | A) - Probabilidad de que John llame</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Alarm (A)</th>
+                            <th>P(J=1 | A)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0 (No suena)</td>
+                            <td>0.05</td>
+                        </tr>
+                        <tr>
+                            <td>1 (Sí suena)</td>
+                            <td style="color: #3498db; font-weight: bold;">0.90</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="example">
+                    <h4>💡 Nota del Profesor:</h4>
+                    <p>"John quiere más a Sally que Mary, porque si suena la alarma, John llama con probabilidad 0.90. ¡Mary casi ni llama si NO suena la alarma!"</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Independencia Condicional</h2>
+            <div class="card">
+                <h3>Concepto Clave</h3>
+                <div class="explanation">
+                    Dos variables X y Z son <span class="highlight">condicionalmente independientes</span> dado Y si:
+                </div>
+
+                <div class="formula">
+                    P(X, Z | Y) = P(X | Y) · P(Z | Y)
+                </div>
+
+                <div class="explanation">
+                    <strong>En lenguaje simple:</strong> Cuando conocemos Y, saber X no nos da información adicional sobre Z.
+                </div>
+
+                <div class="example">
+                    <h4>Ejemplo en la Red de Sally:</h4>
+                    <p><strong>John y Mary son condicionalmente independientes dada la Alarma:</strong></p>
+                    <p>Si sabemos que la alarma sonó (A=1), entonces saber que John llamó NO nos dice nada adicional sobre si Mary va a llamar.</p>
+                    <div class="formula" style="font-size: 1em;">
+                        P(J, M | A) = P(J | A) · P(M | A)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Comparación de Estrategias de Modelado</h2>
+            <div class="card">
+                <div class="comparison">
+                    <div class="comparison-item" style="border: 3px solid #e74c3c;">
+                        <h4>❌ Todas Independientes</h4>
+                        <div class="formula" style="font-size: 0.9em;">
+                            P(X₁,...,Xₙ) = P(X₁)·P(X₂)·...·P(Xₙ)
+                        </div>
+                        <p style="margin-top: 10px;">Parámetros: <strong>n</strong></p>
+                        <p style="color: #e74c3c;">Poco realista</p>
+                    </div>
+
+                    <div class="comparison-item" style="border: 3px solid #f39c12;">
+                        <h4>⚠️ Independencia Condicional</h4>
+                        <div class="formula" style="font-size: 0.8em;">
+                            Xᵢ depende solo de Xᵢ₋₁
+                        </div>
+                        <p style="margin-top: 10px;">Parámetros: <strong>2n</strong></p>
+                        <p style="color: #f39c12;">Más realista</p>
+                    </div>
+
+                    <div class="comparison-item" style="border: 3px solid #27ae60;">
+                        <h4>✅ Red Bayesiana Arbitraria</h4>
+                        <div class="formula" style="font-size: 0.9em;">
+                            Estructura personalizada
+                        </div>
+                        <p style="margin-top: 10px;">Parámetros: <strong>Depende</strong></p>
+                        <p style="color: #27ae60;">Flexible y realista</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Aplicación a Imágenes (Concepto Avanzado)</h2>
+            <div class="card">
+                <h3>Modelando MNIST con Variables Bernoulli</h3>
+                <div class="explanation">
+                    El profesor explicó cómo podemos pensar una imagen de 28×28 píxeles como:
+                </div>
+
+                <ul style="font-size: 1.1em; margin-top: 15px;">
+                    <li>📌 <strong>784 variables aleatorias</strong> (una por píxel)</li>
+                    <li>📌 Cada píxel sigue una <strong>distribución de Bernoulli</strong> (0 o 1, prendido/apagado)</li>
+                    <li>📌 Los píxeles <strong>NO son independientes</strong> (si lo fueran, ¡tendríamos ruido!)</li>
+                    <li>📌 Necesitamos modelar las <strong>dependencias</strong> entre píxeles vecinos</li>
+                </ul>
+
+                <div class="example">
+                    <h4>⚠️ Problema de Escalabilidad:</h4>
+                    <p>Si usamos la regla de la cadena sin independencia:</p>
+                    <div class="formula">
+                        Parámetros necesarios = 2^784 - 1
+                    </div>
+                    <p style="color: #e74c3c; font-weight: bold; margin-top: 10px;">
+                        ¡Esto es más que la cantidad de protones en el universo conocido!
+                    </p>
+                    <p style="margin-top: 15px;">
+                        <strong>Solución futura:</strong> Usar redes neuronales para aproximar estas distribuciones con muchos menos parámetros.
+                    </p>
+                </div>
+
+                <div class="diagram">
+                    <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grid de píxeles simplificado -->
+                        <text x="300" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">Imagen 28×28 = 784 Variables Aleatorias</text>
+
+                        <!-- Representación de píxeles -->
+                        <g transform="translate(150, 60)">
+                            <rect x="0" y="0" width="20" height="20" fill="#2c3e50"/>
+                            <rect x="25" y="0" width="20" height="20" fill="#2c3e50"/>
+                            <rect x="50" y="0" width="20" height="20" fill="white" stroke="#ccc"/>
+                            <rect x="75" y="0" width="20" height="20" fill="white" stroke="#ccc"/>
+                            <text x="110" y="15" font-size="14" fill="#666">... (784 píxeles total)</text>
+
+                            <rect x="0" y="25" width="20" height="20" fill="#2c3e50"/>
+                            <rect x="25" y="25" width="20" height="20" fill="#2c3e50"/>
+                            <rect x="50" y="25" width="20" height="20" fill="#2c3e50"/>
+                            <rect x="75" y="25" width="20" height="20" fill="white" stroke="#ccc"/>
+
+                            <rect x="0" y="50" width="20" height="20" fill="white" stroke="#ccc"/>
+                            <rect x="25" y="50" width="20" height="20" fill="#2c3e50"/>
+                            <rect x="50" y="50" width="20" height="20" fill="#2c3e50"/>
+                            <rect x="75" y="50" width="20" height="20" fill="white" stroke="#ccc"/>
+
+                            <text x="0" y="90" font-size="14" fill="#666">⋮</text>
+                        </g>
+
+                        <!-- Cada píxel = Variable Bernoulli -->
+                        <rect x="50" y="180" width="500" height="80" fill="#e8f4f8" stroke="#667eea" stroke-width="2" rx="10"/>
+                        <text x="300" y="205" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">Cada píxel Xᵢ ~ Bernoulli(θᵢ)</text>
+                        <text x="300" y="230" text-anchor="middle" font-size="14" fill="#666">θᵢ = probabilidad de que el píxel esté "prendido" (negro)</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Resumen de Conceptos Clave</h2>
+            <div class="card">
+                <ul style="font-size: 1.1em;">
+                    <li>📌 <strong>Red Bayesiana:</strong> Grafo acíclico dirigido que representa dependencias entre variables</li>
+                    <li>📌 <strong>Regla del Producto:</strong> P(X₁,...,Xₙ) = ∏ P(Xᵢ | Padres(Xᵢ))</li>
+                    <li>📌 <strong>Independencia Condicional:</strong> X ⊥ Z | Y significa que X y Z son independientes dado Y</li>
+                    <li>📌 <strong>CPD (Conditional Probability Distribution):</strong> Tablas que definen P(Xᵢ | Padres)</li>
+                    <li>📌 <strong>Ventaja:</strong> Reducen drásticamente el número de parámetros necesarios</li>
+                    <li>📌 <strong>Aplicación:</strong> Modelar imágenes como conjuntos de variables Bernoulli</li>
+                    <li>📌 <strong>Problema de Escalabilidad:</strong> Necesitamos aproximaciones (redes neuronales) para datos grandes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px;">
+            <h2 style="color: white; border: none; text-align: center;">🎯 Objetivo de la Clase</h2>
+            <p style="font-size: 1.2em; margin-top: 20px; line-height: 1.8; text-align: center;">
+                Entender cómo las <strong>Redes Bayesianas</strong> nos permiten modelar relaciones complejas entre variables,
+                reduciendo la complejidad de estimar distribuciones conjuntas mediante el uso de
+                <strong>independencias condicionales</strong>. Este es un paso fundamental hacia los modelos generativos profundos.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Interactividad básica para los nodos
+        document.querySelectorAll('.node').forEach(node => {
+            node.addEventListener('click', function() {
+                const nodeName = this.id;
+                alert(`📌 Variable: ${nodeName}\n\nEsta variable representa un evento del mundo real.\n\nLas flechas que salen de aquí indican qué otras variables dependen de esta.`);
+            });
+        });
+
+        document.querySelectorAll('.edge').forEach(edge => {
+            edge.addEventListener('mouseenter', function() {
+                this.style.stroke = '#667eea';
+            });
+            edge.addEventListener('mouseleave', function() {
+                this.style.stroke = '#2c3e50';
+            });
+        });
+    </script>
+</body>
+</html>

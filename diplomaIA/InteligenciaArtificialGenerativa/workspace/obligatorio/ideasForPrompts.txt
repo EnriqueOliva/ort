@@ -1,0 +1,4 @@
+1. Refactor all logs so they are super professional. "Entrenamiento WGAN-GP completado!" with exclamation sign is not acceptable. this is just an example.
+2. (me) Rename the first group and runs in wandb and delete the rest
+3. Make the notebook google colab compatible, especially around the json counter
+4. I ran the notebook. Update C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\obligatorio\OFFICIAL_HISTORY.md with our last run and its results.

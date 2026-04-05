@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAE: Pseudocodigo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #00d4ff;
+            padding-bottom: 8px;
+            font-size: 1.4em;
+        }
+        .code-block {
+            background: #0d1117;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.7;
+            overflow-x: auto;
+            border-left: 4px solid #00d4ff;
+        }
+        .code-block .comment { color: #6a9955; }
+        .code-block .keyword { color: #569cd6; }
+        .code-block .function { color: #dcdcaa; }
+        .code-block .variable { color: #9cdcfe; }
+        .code-block .operator { color: #d4d4d4; }
+        .highlight-box {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .highlight-box h3 { color: #00d4ff; margin-bottom: 10px; }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .two-column { grid-template-columns: 1fr; }
+        }
+        .trick-box {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #ffd93d;
+            padding: 15px;
+            border-radius: 0 10px 10px 0;
+            margin: 15px 0;
+        }
+        .summary-box {
+            background: linear-gradient(145deg, #1e3a5f, #0d1b2a);
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        .summary-box h3 { color: #00ff88; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pseudocodigo VAE</h1>
+
+        <div class="section">
+            <h2>1. ENTRENAMIENTO</h2>
+            <div class="code-block">
+<span class="keyword">PARA</span> <span class="variable">cada imagen X</span> <span class="keyword">del</span> dataset:
+
+    <span class="comment"># ENCODER: comprimir a espacio latente</span>
+    <span class="variable">mu</span>, <span class="variable">sigma</span> = <span class="function">Encoder</span>(<span class="variable">X</span>)
+
+    <span class="comment"># REPARAMETRIZATION TRICK</span>
+    <span class="variable">epsilon</span> = <span class="function">muestrear_normal</span>(0, 1)
+    <span class="variable">Z</span> = <span class="variable">mu</span> + <span class="variable">sigma</span> * <span class="variable">epsilon</span>
+
+    <span class="comment"># DECODER: reconstruir</span>
+    <span class="variable">X_reconstruida</span> = <span class="function">Decoder</span>(<span class="variable">Z</span>)
+
+    <span class="comment"># CALCULAR PERDIDA</span>
+    <span class="variable">Loss_recon</span> = <span class="function">MSE</span>(<span class="variable">X</span>, <span class="variable">X_reconstruida</span>)
+    <span class="variable">Loss_KL</span> = -0.5 * <span class="function">suma</span>(1 + log(<span class="variable">sigma</span><sup>2</sup>) - <span class="variable">mu</span><sup>2</sup> - <span class="variable">sigma</span><sup>2</sup>)
+    <span class="variable">Loss_total</span> = <span class="variable">Loss_recon</span> + <span class="variable">Loss_KL</span>
+
+    <span class="comment"># ACTUALIZAR PESOS</span>
+    <span class="function">backprop</span>(<span class="variable">Loss_total</span>)
+    <span class="function">actualizar_pesos</span>()
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. GENERACION</h2>
+            <div class="code-block">
+<span class="comment"># Muestrear del espacio latente (ruido)</span>
+<span class="variable">Z</span> = <span class="function">muestrear_normal</span>(0, 1)
+
+<span class="comment"># Decodificar para crear imagen nueva</span>
+<span class="variable">X_nueva</span> = <span class="function">Decoder</span>(<span class="variable">Z</span>)
+
+<span class="keyword">RETORNAR</span> <span class="variable">X_nueva</span>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Generacion = Solo el Decoder</h3>
+                <p>No necesitas el Encoder para generar. Solo muestreas ruido y lo decodificas.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. REPARAMETRIZATION TRICK</h2>
+
+            <div class="trick-box">
+                <strong>Problema:</strong> No podemos hacer backprop a traves de un muestreo aleatorio.
+            </div>
+
+            <div class="two-column">
+                <div style="background: rgba(255,100,100,0.1); padding: 15px; border-radius: 10px; border: 2px solid #ff6b6b;">
+                    <h4 style="color: #ff6b6b;">MAL (no diferenciable)</h4>
+                    <div class="code-block" style="margin-top: 10px;">
+Z = <span class="function">muestrear</span>(<span class="variable">mu</span>, <span class="variable">sigma</span>)
+<span class="comment"># El gradiente no puede pasar</span>
+                    </div>
+                </div>
+                <div style="background: rgba(0,255,136,0.1); padding: 15px; border-radius: 10px; border: 2px solid #00ff88;">
+                    <h4 style="color: #00ff88;">BIEN (diferenciable)</h4>
+                    <div class="code-block" style="margin-top: 10px;">
+<span class="variable">epsilon</span> = <span class="function">muestrear</span>(0, 1)
+<span class="variable">Z</span> = <span class="variable">mu</span> + <span class="variable">sigma</span> * <span class="variable">epsilon</span>
+<span class="comment"># Gradiente pasa por mu y sigma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <h3>RESUMEN PARA EL PARCIAL</h3>
+            <div class="code-block">
+<span class="comment"># ENTRENAR:</span>
+Z = <span class="function">Encoder</span>(X) <span class="operator">-></span> mu, sigma
+Z = mu + sigma * ruido
+X' = <span class="function">Decoder</span>(Z)
+Loss = Reconstruccion + KL
+
+<span class="comment"># GENERAR:</span>
+Z = ruido ~ Normal(0,1)
+X_nueva = <span class="function">Decoder</span>(Z)
+            </div>
+        </div>
+    </div>
+</body>
+</html>

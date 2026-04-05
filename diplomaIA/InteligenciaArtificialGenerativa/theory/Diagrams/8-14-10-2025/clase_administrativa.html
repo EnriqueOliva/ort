@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 8 - Información sobre el Obligatorio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 6px solid #667eea;
+        }
+
+        .info-box h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .important-box {
+            background: #fff3cd;
+            border-left: 6px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .important-box h3 {
+            color: #ff6f00;
+            margin-bottom: 15px;
+        }
+
+        .warning-box {
+            background: #ffebee;
+            border-left: 6px solid #f44336;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .warning-box h3 {
+            color: #c62828;
+            margin-bottom: 15px;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 10px 5px;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        ul li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .note {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .note strong {
+            color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Clase 8: 14 de Octubre 2025</h1>
+        <p class="subtitle">Información Administrativa sobre el Obligatorio</p>
+
+        <div class="info-box">
+            <h2>ℹ️ Contenido de la Clase</h2>
+            <p style="font-size: 1.1em; color: #555; line-height: 1.8;">
+                Esta clase fue una <strong>sesión administrativa</strong> dedicada a:
+            </p>
+            <ul>
+                <li>Lectura oficial de la letra del trabajo obligatorio</li>
+                <li>Explicación de las fechas de entrega y presentaciones</li>
+                <li>Aclaración de dudas sobre el alcance del proyecto</li>
+                <li>Tiempo de consulta para avance en los prácticos</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            <strong>📌 Nota importante:</strong> Esta clase no incluyó contenido técnico sobre modelos de IA o arquitecturas de deep learning. Por lo tanto, no hay diagramas de modelos para esta fecha.
+        </div>
+
+        <div class="important-box">
+            <h3>📅 Fechas Importantes del Obligatorio</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <div class="date-badge">11 de Noviembre</div>
+                <div class="date-badge">18 de Noviembre</div>
+                <div class="date-badge">8 de Diciembre</div>
+            </div>
+            <ul>
+                <li><strong>11 y 18 de Noviembre:</strong> Talleres expositivos (10 minutos por grupo)</li>
+                <li><strong>8 de Diciembre a las 21:00:</strong> Entrega final por Gestión (fecha límite rígida)</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ Advertencias Importantes</h3>
+            <ul>
+                <li>La hora límite de entrega (21:00) es <strong>rígida</strong></li>
+                <li>Si no se entrega antes de las 21:00, se pierde la instancia automáticamente</li>
+                <li>Se recomienda subir un archivo preliminar días antes para evitar problemas de último momento</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h2>🎯 Temas Sugeridos para el Obligatorio</h2>
+            <ul>
+                <li>Image Captioning (descripción automática de imágenes)</li>
+                <li>Uso de Large Language Models</li>
+                <li>Variantes de GANs (como GANs condicionales)</li>
+                <li>Variantes de Variational Autoencoders</li>
+                <li>Generación de audio</li>
+                <li>Otros temas propuestos por los estudiantes (deben ser validados con los docentes)</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            <strong>💡 Recomendación del profesor:</strong> Se desaconseja trabajar con generación de audio ya que la evaluación es más difícil (requiere escuchar cada muestra generada, lo cual consume mucho tiempo).
+        </div>
+
+        <div class="info-box">
+            <h2>📦 Entregables</h2>
+            <ul>
+                <li><strong>Presentaciones (11 y 18 de Nov):</strong> Explicar qué van a implementar, por qué es interesante, y mostrar avances si los hay</li>
+                <li><strong>Entrega final (8 de Dic):</strong> Informe escrito + código del prototipo funcional</li>
+                <li><strong>Formato:</strong> Archivo ZIP o PDF (máximo 40 MB)</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h2>👥 Detalles del Trabajo</h2>
+            <ul>
+                <li><strong>Grupos:</strong> Hasta 3 personas del mismo dictado</li>
+                <li><strong>Inscripción:</strong> Por Gestión</li>
+                <li><strong>Alcance:</strong> Debe acordarse previamente con los docentes</li>
+                <li><strong>Uso de IA Generativa:</strong> Permitido pero con responsabilidad (la IA es una herramienta, no debe hacer el trabajo por ustedes)</li>
+            </ul>
+        </div>
+
+        <div class="note" style="background: #e8f5e9; border-left-color: #4caf50;">
+            <strong style="color: #2e7d32;">🎓 Espíritu del trabajo:</strong> El obligatorio está diseñado como una herramienta de aprendizaje. Los ejes centrales son:
+            <ul style="margin-top: 10px;">
+                <li>Comprender una técnica nueva no presentada en clase</li>
+                <li>Poder presentarla frente a pares</li>
+                <li>Desarrollar un prototipo funcional en un caso acotado</li>
+            </ul>
+        </div>
+
+        <div class="info-box" style="margin-top: 40px;">
+            <h2>📚 Para ver diagramas de modelos de IA</h2>
+            <p style="font-size: 1.1em; color: #555; line-height: 1.8; margin-bottom: 20px;">
+                Como esta clase no tuvo contenido técnico sobre modelos de deep learning, te recomendamos revisar los diagramas de la <strong>Clase 7 (GANs)</strong>:
+            </p>
+            <ul>
+                <li><strong>gan_arquitectura_general.html:</strong> Esquema completo del sistema GAN</li>
+                <li><strong>gan_funcion_perdida.html:</strong> Explicación detallada de las funciones de pérdida</li>
+                <li><strong>gan_entrenamiento_alternado.html:</strong> Visualización interactiva del proceso de entrenamiento</li>
+                <li><strong>dcgan_arquitectura.html:</strong> Arquitectura de DC-GAN con convoluciones</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

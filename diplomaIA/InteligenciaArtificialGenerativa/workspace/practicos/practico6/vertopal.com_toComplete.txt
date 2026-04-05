@@ -1,0 +1,756 @@
+
+
+Práctico: Introducción a Modelos de Lenguaje usando Hugging Face y GPT-2
+
+    # Primero, instala la librería transformers si no está instalada
+    # Descomenta la línea de abajo si necesitas instalar la librería
+    # !pip install transformers
+
+    # Importando las librerías necesarias
+    import time
+    import torch
+    import torch.nn.functional as F
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+    from transformers import logging as transformers_logging
+
+    # Configurar el logging para que no muestre warnings de transformers
+    transformers_logging.set_verbosity_error()
+
+    c:\Users\Enrique\anaconda3\envs\IAGenerativaPracticos\Lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+      from .autonotebook import tqdm as notebook_tqdm
+
+## 1. Introducción a los Modelos de Lenguaje
+
+Un modelo de lenguaje predice la siguiente palabra en una secuencia de
+texto basándose en las palabras previas.
+
+En este práctico, utilizaremos un modelo preentrenado GPT-2,
+específicamente una versión distilada, que es más pequeña y rápida.
+
+## 2. La Importancia de los Tokenizers
+
+Los tokenizers convierten el texto en tokens numéricos, que el modelo
+puede entender. Utilizaremos el tokenizer de GPT-2 para codificar texto
+en tokens y decodificar los tokens de vuelta a texto.
+
+    # Cargando el tokenizer
+    tokenizer = AutoTokenizer.from_pretrained('distilgpt2')
+
+    c:\Users\Enrique\anaconda3\envs\IAGenerativaPracticos\Lib\site-packages\huggingface_hub\file_download.py:143: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\Enrique\.cache\huggingface\hub\models--distilgpt2. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+    To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+      warnings.warn(message)
+
+    # Ejemplo: Tokenizando una oración
+    sentence = "A long time ago in a galaxy far, far away there was an astrophysicist"
+
+    # Tokenizar la oración
+    tokens = tokenizer.encode(sentence)
+    print("Oración tokenizada:", tokens)
+
+    Oración tokenizada: [32, 890, 640, 2084, 287, 257, 16161, 1290, 11, 1290, 1497, 612, 373, 281, 48782, 893, 48187]
+
+Los tokens son los números que representan las palabras o partes de las
+palabras.
+
+    # Decodificando los tokens de nuevo a texto
+    decoded_sentence = tokenizer.decode(tokens)
+    print("Oración decodificada:", decoded_sentence)
+
+    Oración decodificada: A long time ago in a galaxy far, far away there was an astrophysicist
+
+Tokenizador de GPT-2 vs Tokenizador BERT.
+
+    bert_tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
+
+    print("BERT tokenizer:")
+
+    bert_tokens = bert_tokenizer.encode(sentence)
+    print("- Tokens:", bert_tokens)
+    print("- Cantidad de tokens:", len(bert_tokens))
+
+    indivitual_tokens = bert_tokenizer.convert_ids_to_tokens(bert_tokens)
+    print("- Tokens individuales: ", indivitual_tokens)
+
+    bert_decoded_sentence = bert_tokenizer.decode(bert_tokens)
+    print("- Oración decodificada:", bert_decoded_sentence, '\n')
+
+
+    print("GPT-2 tokenizer:")
+
+    gpt2_tokens = tokenizer.encode(sentence)
+    print("- Tokens:", gpt2_tokens)
+    print("- Cantidad de tokens:", len(gpt2_tokens))
+
+    gpt2_indivitual_tokens = tokenizer.convert_ids_to_tokens(gpt2_tokens)
+    print("- Tokens individuales: ", gpt2_indivitual_tokens)
+
+    gpt2_decoded_sentence = tokenizer.decode(gpt2_tokens)
+    print("- Oración decodificada:", gpt2_decoded_sentence)
+
+    c:\Users\Enrique\anaconda3\envs\IAGenerativaPracticos\Lib\site-packages\huggingface_hub\file_download.py:143: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\Enrique\.cache\huggingface\hub\models--bert-base-uncased. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+    To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+      warnings.warn(message)
+
+    BERT tokenizer:
+    - Tokens: [101, 1037, 2146, 2051, 3283, 1999, 1037, 9088, 2521, 1010, 2521, 2185, 2045, 2001, 2019, 28625, 21281, 19570, 2923, 102]
+    - Cantidad de tokens: 20
+    - Tokens individuales:  ['[CLS]', 'a', 'long', 'time', 'ago', 'in', 'a', 'galaxy', 'far', ',', 'far', 'away', 'there', 'was', 'an', 'astro', '##phy', '##sic', '##ist', '[SEP]']
+    - Oración decodificada: [CLS] a long time ago in a galaxy far, far away there was an astrophysicist [SEP] 
+
+    GPT-2 tokenizer:
+    - Tokens: [32, 890, 640, 2084, 287, 257, 16161, 1290, 11, 1290, 1497, 612, 373, 281, 48782, 893, 48187]
+    - Cantidad de tokens: 17
+    - Tokens individuales:  ['A', 'Ġlong', 'Ġtime', 'Ġago', 'Ġin', 'Ġa', 'Ġgalaxy', 'Ġfar', ',', 'Ġfar', 'Ġaway', 'Ġthere', 'Ġwas', 'Ġan', 'Ġastroph', 'ys', 'icist']
+    - Oración decodificada: A long time ago in a galaxy far, far away there was an astrophysicist
+
+Ejercicio:
+
+-   ¿Qué son los tokens [CLS] y [SEP] que aparecen en la Oracion
+    decodificada de BERT?
+-   ¿Por qué hay tokens que comienzan con ## cuando usamos el
+    tokenizador de BERT? ¿Qué significan? ¿Y los que no lo tienen?
+-   ¿Por qué hay tokens que comienzan con Ġ cuando usamos el tokenizador
+    de distill GPT-2? ¿Qué significan? ¿Y los que no lo tienen?
+-   ¿Cree que son necesarios estos tokens? ¿Por qué?
+-   ¿Qué pasaría si usamos el tokenizador de BERT para generar texto
+    usando distil GPT-2?
+
+Respuestas:
+
+-   Los tokens [CLS] y [SEP] son tokens especiales de BERT. [CLS] se
+    pone al inicio de la secuencia y se usa para tareas de
+    clasificación. [SEP] se pone al final y sirve para separar
+    secuencias cuando hay más de una.
+
+-   Los tokens con ## en BERT indican que son continuación de una
+    palabra. Los que no tienen ## son el inicio de una palabra nueva.
+    Por ejemplo, "astrophysicist" se divide en "ast", "##rop", "##hys",
+    "##icist".
+
+-   Los tokens con Ġ en GPT-2 indican que hay un espacio antes, o sea
+    que son el inicio de una palabra. Los que no tienen Ġ son
+    continuación de la palabra anterior. Es la manera que tiene GPT-2 de
+    marcar los espacios.
+
+-   Sí son necesarios porque sin estos símbolos especiales no podríamos
+    saber dónde empiezan y terminan las palabras, y no podríamos
+    reconstruir el texto original correctamente.
+
+-   Si usamos el tokenizador de BERT con GPT-2, el modelo no va a
+    funcionar bien porque está entrenado con otro tokenizador. Los
+    números que genera BERT no significan lo mismo para GPT-2, entonces
+    la salida no va a tener sentido.
+
+## 3. Cargando el Modelo Preentrenado y el Tokenizer
+
+Hugging Face proporciona una gran variedad de modelos preentrenados.
+Usaremos el modelo 'distilgpt2' para este ejercicio.
+
+    # Cargar el modelo
+    model = AutoModelForCausalLM.from_pretrained('distilgpt2')
+
+    Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+
+    # Poner el modelo en modo de evaluación
+    model.eval()
+
+    GPT2LMHeadModel(
+      (transformer): GPT2Model(
+        (wte): Embedding(50257, 768)
+        (wpe): Embedding(1024, 768)
+        (drop): Dropout(p=0.1, inplace=False)
+        (h): ModuleList(
+          (0-5): 6 x GPT2Block(
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (attn): GPT2Attention(
+              (c_attn): Conv1D(nf=2304, nx=768)
+              (c_proj): Conv1D(nf=768, nx=768)
+              (attn_dropout): Dropout(p=0.1, inplace=False)
+              (resid_dropout): Dropout(p=0.1, inplace=False)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): GPT2MLP(
+              (c_fc): Conv1D(nf=3072, nx=768)
+              (c_proj): Conv1D(nf=768, nx=3072)
+              (act): NewGELUActivation()
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+        )
+        (ln_f): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (lm_head): Linear(in_features=768, out_features=50257, bias=False)
+    )
+
+## 4. Salida Cruda (Logits)
+
+Obtendremos la salida cruda del modelo (logits).
+
+Los logits son la salida del modelo antes de la capa de activación para
+cada token en el vocabulario.
+
+    # Ejemplo de prompt
+    prompt = "Yesterday, I dreamed of a world where"
+
+    # Tokenizar la entrada
+    inputs = tokenizer(prompt, return_tensors="pt")
+
+    inputs["input_ids"].shape
+
+    torch.Size([1, 8])
+
+    # Pasar la entrada por el modelo para obtener los logits (puntajes sin normalizar)
+    with torch.no_grad():
+        outputs = model(**inputs)
+        logits = outputs.logits  # Salida cruda del modelo
+
+    logits
+
+    tensor([[[-34.2138, -32.5889, -34.5217,  ..., -45.8648, -45.4755, -34.5368],
+             [-73.7791, -73.7084, -73.1784,  ..., -77.2609, -76.5639, -71.1657],
+             [-80.8371, -80.4167, -82.7387,  ..., -88.8969, -81.7753, -82.5226],
+             ...,
+             [-73.3639, -73.6931, -76.6878,  ..., -82.1660, -78.2536, -73.7446],
+             [-56.6977, -59.0596, -63.5706,  ..., -69.0110, -65.6015, -60.3717],
+             [-59.4074, -60.2301, -63.9869,  ..., -63.8053, -65.4991, -62.3250]]])
+
+    logits.shape
+
+    torch.Size([1, 8, 50257])
+
+    next_token_logits = logits[:, -1, :]  # Logits para el último token en el prompt
+
+Ejercicio:
+
+-   Explique las dimensiones de los logits.
+-   ¿Qué función de activación usaría?
+-   Calcule la salida del modelo del siguiente token con la función de
+    activación que respodió en la pregunta anterior.
+-   ¿Qué token elegiría y por qué?
+
+Respuestas:
+
+-   Las dimensiones de los logits son (1, cantidad_tokens_entrada,
+    tamaño_vocabulario). El 1 es el batch size, la segunda dimensión es
+    cuántos tokens tiene nuestro prompt, y la tercera es el tamaño del
+    vocabulario (todos los tokens posibles que el modelo puede generar).
+
+-   Usaría la función softmax porque necesito convertir los logits en
+    una distribución de probabilidad, es decir, que todos los valores
+    sumen 1 y estén entre 0 y 1.
+
+-   Calcular con softmax:
+
+    probs = F.softmax(next_token_logits, dim=-1)
+
+-   Elegiría el token con la mayor probabilidad después de aplicar
+    softmax, que se obtiene con torch.argmax(probs). Se elige ese porque
+    es el que el modelo considera más probable como siguiente token.
+
+## 5. Selección Manual de Tokens: Top-K y Top-P Sampling
+
+Sampling con Top-K:
+
+En Top-K sampling, seleccionamos los K tokens más probables y
+descartamos el resto.
+
+Esto asegura que el modelo considere solo un número limitado de tokens
+de alta probabilidad, lo que ayuda a evitar tokens de baja probabilidad.
+
+    def top_k_sampling(logits, k=50):
+        top_k_probs, top_k_indices = torch.topk(logits, k)
+        top_k_probs = F.softmax(top_k_probs, dim=-1)
+        next_token_idx = torch.multinomial(top_k_probs, 1)
+        next_token = top_k_indices.gather(-1, next_token_idx)
+        return next_token
+
+Sampling con Top-P (Nucleus Sampling):
+
+En Top-P sampling, elegimos el conjunto más pequeño de tokens cuya
+probabilidad acumulada supera un umbral P.
+
+Esto significa que el modelo considera solo la porción más probable de
+la distribución de probabilidad.
+
+    def top_p_sampling(logits, p=0.9):
+        sorted_logits, sorted_indices = torch.sort(logits, descending=True)
+        sorted_probs = F.softmax(sorted_logits, dim=-1)
+        cumulative_probs = torch.cumsum(sorted_probs, dim=-1)
+        
+        sorted_indices_to_remove = cumulative_probs > p
+        sorted_indices_to_remove[..., 1:] = sorted_indices_to_remove[..., :-1].clone()
+        sorted_indices_to_remove[..., 0] = 0
+        
+        indices_to_remove = sorted_indices[sorted_indices_to_remove]
+        logits[indices_to_remove] = float('-inf')
+        
+        probs = F.softmax(logits, dim=-1)
+        next_token = torch.multinomial(probs, 1)
+        return next_token
+
+## 6. Selección Manual de Tokens y Generación de Texto
+
+Ahora usaremos los métodos de Top-K y Top-P para seleccionar manualmente
+el siguiente token y un texto.
+
+    def manual_text_generation(model, tokenizer, prompt, max_length=50, sampling_strategy=top_k_sampling, top_k=50, top_p=0.9):
+        input_ids = tokenizer.encode(prompt, return_tensors='pt')
+        
+        for _ in range(max_length):
+            with torch.no_grad():
+                outputs = model(input_ids)
+                logits = outputs.logits
+            
+            next_token_logits = logits[:, -1, :].squeeze(0)
+            
+            if sampling_strategy == top_k_sampling:
+                next_token = sampling_strategy(next_token_logits, k=top_k)
+            elif sampling_strategy == top_p_sampling:
+                next_token = sampling_strategy(next_token_logits, p=top_p)
+            else:
+                next_token = sampling_strategy(next_token_logits)
+            
+            if next_token.item() == tokenizer.eos_token_id:
+                break
+            
+            input_ids = torch.cat([input_ids, next_token.unsqueeze(0)], dim=-1)
+        
+        generated_text = tokenizer.decode(input_ids[0], skip_special_tokens=True)
+        return generated_text
+
+    print("Experimentos con Top-K Sampling")
+    print("=" * 60)
+
+    test_prompt = "Yesterday, I dreamed of a world where"
+    k_values = [10, 50, 100]
+
+    for k in k_values:
+        print(f"\nTop-K con k={k}:")
+        generated = manual_text_generation(
+            model, 
+            tokenizer, 
+            test_prompt, 
+            max_length=30, 
+            sampling_strategy=top_k_sampling, 
+            top_k=k
+        )
+        print(f"Texto generado: {generated}")
+        print("-" * 60)
+
+    Experimentos con Top-K Sampling
+    ============================================================
+
+    Top-K con k=10:
+    Texto generado: Yesterday, I dreamed of a world where the internet would have a much bigger role. I thought of the world where I could take on the role of a person who is actually an engineer.
+    ------------------------------------------------------------
+
+    Top-K con k=50:
+    Texto generado: Yesterday, I dreamed of a world where a world of high-power and superpowered people could be like the one they were. I had had dreamt out of all this—and one
+    ------------------------------------------------------------
+
+    Top-K con k=100:
+    Texto generado: Yesterday, I dreamed of a world where everything can be built with the simple idea of an engineer running a whole process. In this same short span, if you wanted software to really be a
+    ------------------------------------------------------------
+
+    print("Experimentos con Top-P Sampling")
+    print("=" * 60)
+
+    p_values = [0.5, 0.9, 0.95]
+
+    for p in p_values:
+        print(f"\nTop-P con p={p}:")
+        generated = manual_text_generation(
+            model, 
+            tokenizer, 
+            test_prompt, 
+            max_length=30, 
+            sampling_strategy=top_p_sampling, 
+            top_p=p
+        )
+        print(f"Texto generado: {generated}")
+        print("-" * 60)
+
+    Experimentos con Top-P Sampling
+    ============================================================
+
+    Top-P con p=0.5:
+    Texto generado: Yesterday, I dreamed of a world where you could be a baby.
+
+
+    In that world, I would have a world where you could be a baby.
+    I was dreaming of
+    ------------------------------------------------------------
+
+    Top-P con p=0.9:
+    Texto generado: Yesterday, I dreamed of a world where you would go to a chef who wouldn't make friends with the poor and eat nice food.
+
+    Included in this, will this complete soup
+    ------------------------------------------------------------
+
+    Top-P con p=0.95:
+    Texto generado: Yesterday, I dreamed of a world where Lego’s shelves were packed full of treasures. But no sooner had Lego been realized that they’re connected, maybe they’re
+    ------------------------------------------------------------
+
+    print("Comparación Top-K vs Top-P")
+    print("=" * 60)
+
+    comparison_prompts = [
+        "The future of artificial intelligence is",
+        "Once upon a time there was",
+        "The most important thing in life is"
+    ]
+
+    for comp_prompt in comparison_prompts:
+        print(f"\nPrompt: '{comp_prompt}'")
+        
+        text_topk = manual_text_generation(
+            model, 
+            tokenizer, 
+            comp_prompt, 
+            max_length=25, 
+            sampling_strategy=top_k_sampling, 
+            top_k=50
+        )
+        print(f"Top-K (k=50): {text_topk}")
+        
+        text_topp = manual_text_generation(
+            model, 
+            tokenizer, 
+            comp_prompt, 
+            max_length=25, 
+            sampling_strategy=top_p_sampling, 
+            top_p=0.9
+        )
+        print(f"Top-P (p=0.9): {text_topp}")
+        print("-" * 60)
+
+    Comparación Top-K vs Top-P
+    ============================================================
+
+    Prompt: 'The future of artificial intelligence is'
+    Top-K (k=50): The future of artificial intelligence is still a mystery, but Google and Apple are pushing for a very new cloud version of its cloud-based services. That might
+    Top-P (p=0.9): The future of artificial intelligence is a mystery and not really the way we would work out. There will be extremely early predictions, but as of right now,
+    ------------------------------------------------------------
+
+    Prompt: 'Once upon a time there was'
+    Top-K (k=50): Once upon a time there was another war which, for the benefit of the oppressed masses, spread over all the ages. By such measure, this war was
+    Top-P (p=0.9): Once upon a time there was quite a bit of content out there, so when you found out on Reddit that the Poksha account is for many smaller,
+    ------------------------------------------------------------
+
+    Prompt: 'The most important thing in life is'
+    Top-K (k=50): The most important thing in life is to be happy with a lot of things. I did not really get around to doing it because I had no idea what to
+    Top-P (p=0.9): The most important thing in life is education – it's about the social, moral and economic circumstances that make you value it. It's the mindset that we all
+    ------------------------------------------------------------
+
+Ejercicio:
+
+-   Complete el código de la función mual_text_generation y genere texto
+    jugando con los hyper-parámetros.
+-   Compare salidas con las estrategias de sampleo top p y top k.
+
+Respuesta:
+
+Esta celda requiere ejecutar experimentos para comparar los resultados.
+Las diferencias principales son que top-k siempre considera exactamente
+K tokens, mientras que top-p considera una cantidad variable de tokens
+dependiendo de la distribución de probabilidad.
+
+## 7. Experimentando con Hiperparámetros
+
+Hugging face ya nos provee con una implementación de todos estos
+métodos. Simplemente tenemos que pasarle por parámetro los valores que
+queremos usar a la hora de generar.
+
+Ahora, exploremos cómo podemos controlar la salida del modelo cambiando
+los parámetros de generación.
+
+Intenta cambiar los valores de max_length, temperature, top_k y top_p.
+
+    # Tokenizar la entrada
+    inputs = tokenizer(prompt, return_tensors="pt")
+
+    # Experimentar con diferentes configuraciones
+    output = model.generate(
+        **inputs,
+        max_length=20,
+        num_return_sequences=1,
+        temperature=0.7,
+        top_k=50,
+        top_p=0.9
+    )
+
+    # Decodificar y mostrar el texto generado
+    generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+    print("\nTexto generado con parámetros modificados:\n", generated_text.replace('\n', ' '))
+
+
+    Texto generado con parámetros modificados:
+     Yesterday, I dreamed of a world where I could be a little more human.   I
+
+Ejercicio:
+
+-   Compare este resultado con el generado en el punto anterior.
+-   ¿Cómo afecta la temperatura a los resultados del modelo?
+-   ¿Cómo afecta el top_p a los resultados del modelo?
+-   ¿Cómo afecta la top_k a los resultados del modelo?
+
+Respuestas:
+
+-   Esta comparación requiere ejecutar el notebook y ver los resultados
+    de ambos métodos.
+
+-   La temperatura controla qué tan "plana" o "puntiaguda" es la
+    distribución de probabilidad. Con temperatura alta (>1), el modelo
+    es más creativo y aleatorio. Con temperatura baja (<1), el modelo es
+    más conservador y predecible. Con temperatura=1 no hay cambios.
+
+-   El top_p controla cuántos tokens se consideran para samplear. Si p
+    es alto (ej: 0.9), se incluyen más tokens hasta que la probabilidad
+    acumulada llegue a 0.9. Si p es bajo (ej: 0.5), solo se consideran
+    los tokens más probables.
+
+-   El top_k limita el sampleo a los K tokens más probables. Un K grande
+    permite más variedad, un K chico hace que el texto sea más
+    predecible.
+
+## 8. Sesgo en modelos de lenguaje
+
+Ahora, exploraremos los sesgos que pueden tener estos modelos de
+lenguaje.
+
+    prompts = [
+        "The doctor is a man who",
+        "The nurse is a woman who",
+        "The engineer built",
+        "The secretary answered"
+    ]
+
+    for _ in range(5):
+        for prompt in prompts:
+            tokens = tokenizer(prompt, return_tensors='pt')
+            output = model.generate(
+                **tokens,
+                max_length=20,
+                temperature=0.7,
+                top_k=50,
+                top_p=.9,
+                do_sample=True,
+            )
+            generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+            print("Prompt: ",prompt)
+            print("Texto generado: ", generated_text.replace('\n', ' '))
+            print("-" * 50)
+
+    Prompt:  The doctor is a man who
+    Texto generado:  The doctor is a man who has been a great friend to me. He has been a great friend
+    --------------------------------------------------
+    Prompt:  The nurse is a woman who
+    Texto generado:  The nurse is a woman who has been on leave from the hospital, and is on the brink of
+    --------------------------------------------------
+    Prompt:  The engineer built
+    Texto generado:  The engineer built a prototype prototype of the Tesla Model S and has begun testing the car's autonomous driving
+    --------------------------------------------------
+    Prompt:  The secretary answered
+    Texto generado:  The secretary answered: 'The fact that the United States has not invaded Iraq is not a secret.
+    --------------------------------------------------
+    Prompt:  The doctor is a man who
+    Texto generado:  The doctor is a man who has lived in a residential area for almost a decade and has a reputation
+    --------------------------------------------------
+    Prompt:  The nurse is a woman who
+    Texto generado:  The nurse is a woman who is currently recovering from a serious spinal injury.     
+    --------------------------------------------------
+    Prompt:  The engineer built
+    Texto generado:  The engineer built a prototype of a prototype of the new Apple Watch. It was developed by a team
+    --------------------------------------------------
+    Prompt:  The secretary answered
+    Texto generado:  The secretary answered the question in an interview with The Guardian, which was broadcast on Thursday.  
+    --------------------------------------------------
+    Prompt:  The doctor is a man who
+    Texto generado:  The doctor is a man who has a history of drug abuse and is currently in the hospital with a
+    --------------------------------------------------
+    Prompt:  The nurse is a woman who
+    Texto generado:  The nurse is a woman who works in a nursing home, which is a non-profit organization that
+    --------------------------------------------------
+    Prompt:  The engineer built
+    Texto generado:  The engineer built a large, high-powered, two-way air balloon, which is equipped with
+    --------------------------------------------------
+    Prompt:  The secretary answered
+    Texto generado:  The secretary answered that he had been asked to take a second look at the matter before the meeting.
+    --------------------------------------------------
+    Prompt:  The doctor is a man who
+    Texto generado:  The doctor is a man who is a professional, professional, and well-respected physician. He was
+    --------------------------------------------------
+    Prompt:  The nurse is a woman who
+    Texto generado:  The nurse is a woman who has been living in a nursing home in the city for many years.
+    --------------------------------------------------
+    Prompt:  The engineer built
+    Texto generado:  The engineer built the bridge over the Hudson River to help the residents of the community.   
+    --------------------------------------------------
+    Prompt:  The secretary answered
+    Texto generado:  The secretary answered. ““““““““
+    --------------------------------------------------
+    Prompt:  The doctor is a man who
+    Texto generado:  The doctor is a man who is a man who is a man who is a man who is a
+    --------------------------------------------------
+    Prompt:  The nurse is a woman who
+    Texto generado:  The nurse is a woman who is a nurse and an educator who has a child who is a nurse
+    --------------------------------------------------
+    Prompt:  The engineer built
+    Texto generado:  The engineer built a 3D printer that he called "Dongles".     
+    --------------------------------------------------
+    Prompt:  The secretary answered
+    Texto generado:  The secretary answered that the issue of the status quo is not a question of whether or not the United
+    --------------------------------------------------
+
+Ejercicio:
+
+-   ¿Nota algún sesgo en las respuestas de este modelo?
+-   Proponga prompts que puedan detectar sesgos en este modelo.
+-   ¿A qué se deben estos sesgos?
+
+Respuestas:
+
+-   Esta respuesta requiere ejecutar el código anterior y analizar los
+    resultados generados.
+
+-   Algunos prompts que podrían detectar sesgos:
+
+    -   "The CEO walked into"
+    -   "The cleaning lady"
+    -   "Muslims are"
+    -   "Women are good at"
+    -   "Men are good at"
+
+-   Los sesgos se deben a que el modelo fue entrenado con textos de
+    internet que reflejan los sesgos de la sociedad. El modelo aprende
+    patrones que están en los datos de entrenamiento, incluyendo
+    estereotipos y prejuicios.
+
+## 9. Comparando con otro LM
+
+Ahora, comprararemos a distilled gpt-2 contra gpt-2.
+
+    # Cargar modelo distilado y completo para comparar
+    distil_gpt2_model = AutoModelForCausalLM.from_pretrained('distilgpt2')
+    gpt2_model = AutoModelForCausalLM.from_pretrained('gpt2')  # GPT-2 completo
+
+    gpt2_tokenizer = AutoTokenizer.from_pretrained('gpt2')
+
+    c:\Users\Enrique\anaconda3\envs\IAGenerativaPracticos\Lib\site-packages\huggingface_hub\file_download.py:143: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\Enrique\.cache\huggingface\hub\models--gpt2. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+    To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+      warnings.warn(message)
+    Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+
+    distil_gpt2_model.eval()
+    gpt2_model.eval()
+
+    GPT2LMHeadModel(
+      (transformer): GPT2Model(
+        (wte): Embedding(50257, 768)
+        (wpe): Embedding(1024, 768)
+        (drop): Dropout(p=0.1, inplace=False)
+        (h): ModuleList(
+          (0-11): 12 x GPT2Block(
+            (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (attn): GPT2Attention(
+              (c_attn): Conv1D(nf=2304, nx=768)
+              (c_proj): Conv1D(nf=768, nx=768)
+              (attn_dropout): Dropout(p=0.1, inplace=False)
+              (resid_dropout): Dropout(p=0.1, inplace=False)
+            )
+            (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+            (mlp): GPT2MLP(
+              (c_fc): Conv1D(nf=3072, nx=768)
+              (c_proj): Conv1D(nf=768, nx=3072)
+              (act): NewGELUActivation()
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+        )
+        (ln_f): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (lm_head): Linear(in_features=768, out_features=50257, bias=False)
+    )
+
+    prompt = "Photosyntheis is a process that"
+    max_length = 20
+
+    tokens_distil = tokenizer(prompt, return_tensors='pt')
+    tokens_gpt2 = gpt2_tokenizer(prompt, return_tensors='pt')
+
+    print("Texto de entrada:", prompt)
+
+    print("\nGeneración con el modelo distilado:")
+    start = time.time()
+    output_distil = distil_gpt2_model.generate(**tokens_distil, max_length=max_length, do_sample=False)
+    inference_time_distil = time.time() - start
+    generated_text_distil = tokenizer.decode(output_distil[0], skip_special_tokens=True)
+
+    print("- Texto generado: '", generated_text_distil, "'")
+    print("- Tiempo de inferencia: ", inference_time_distil)
+
+
+    print("\nGeneración con el modelo completo:")
+    start = time.time()
+    output_gpt2 = gpt2_model.generate(**tokens_gpt2, max_length=max_length, do_sample=False)
+    inference_time_gpt2 = time.time() - start
+    generated_text_gpt2 = gpt2_tokenizer.decode(output_gpt2[0], skip_special_tokens=True)
+
+    print("- Texto generado por GPT-2: '", generated_text_gpt2, "'")
+    print("- Tiempo de inferencia: ", inference_time_gpt2)
+
+    Texto de entrada: Photosyntheis is a process that
+
+    Generación con el modelo distilado:
+    - Texto generado: ' Photosyntheis is a process that is called a “toxic” process. It '
+    - Tiempo de inferencia:  0.20139455795288086
+
+    Generación con el modelo completo:
+    - Texto generado por GPT-2: ' Photosyntheis is a process that converts the carbon dioxide in the atmosphere into hydrogen and oxygen. '
+    - Tiempo de inferencia:  0.3637051582336426
+
+Ejercicio:
+
+-   Compare los dos modelos y sus resultados usando diferentes prompts y
+    valores de max_length.
+-   ¿Es necesario usar el parámetro max_legth? ¿Por qué?
+
+Respuestas:
+
+-   Esta comparación requiere ejecutar el código y analizar las
+    diferencias en calidad y tiempo de inferencia entre ambos modelos.
+
+-   Sí es necesario usar max_length porque el modelo no tiene garantía
+    de generar el token de fin de secuencia (eos_token). Sin max_length,
+    el modelo podría generar texto indefinidamente. El max_length
+    funciona como un límite de seguridad para que el proceso de
+    generación siempre termine.
+
+## 10. Entendiendo la Salida del Modelo
+
+Después de generar algunos ejemplos, reflexiona sobre la calidad del
+texto generado:
+
+-   ¿Considera que estos modelos generan texto coherente?
+-   ¿Qué tan creativo o repetitivo es el texto?
+-   ¿Hay ejemplos donde la generación falla o produce resultados sin
+    sentido?
+
+Respuestas:
+
+Estas respuestas requieren ejecutar todos los experimentos del notebook
+y analizar los resultados:
+
+-   La coherencia del texto depende del modelo y los parámetros. En
+    general, distilGPT-2 genera texto coherente a corto plazo pero puede
+    perder coherencia en secuencias más largas.
+
+-   La creatividad depende de los parámetros de temperatura y sampling.
+    Con temperatura alta y top_p/top_k generosos, el texto es más
+    creativo pero puede ser menos coherente. Con temperatura baja, el
+    texto es más repetitivo y predecible.
+
+-   Sí, hay casos donde la generación falla, especialmente cuando el
+    prompt tiene errores ortográficos o cuando se le pide generar sobre
+    temas muy específicos que no estaban bien representados en los datos
+    de entrenamiento.

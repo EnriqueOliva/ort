@@ -1,0 +1,115 @@
+class Critic(nn.Module):
+    def __init__(self, num_channels, num_features):
+        super(Critic, self).__init__()
+        
+        self.main = nn.Sequential(
+            nn.Conv2d(num_channels, num_features, 4, 2, 1, bias=False),
+            nn.LeakyReLU(0.2, inplace=True),
+            
+            nn.Conv2d(num_features, num_features * 2, 4, 2, 1, bias=False),
+            nn.LeakyReLU(0.2, inplace=True),
+            
+            nn.Conv2d(num_features * 2, num_features * 4, 4, 2, 1, bias=False),
+            nn.LeakyReLU(0.2, inplace=True),
+            
+            nn.Conv2d(num_features * 4, 1, 4, 1, 0, bias=False)
+        )
+        
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.normal_(m.weight.data, 0.0, 0.02)
+    
+    def forward(self, x):
+        return self.main(x).view(-1)
+
+test_critic = Critic(NUM_CHANNELS, CRITIC_FEATURES).to(device)
+test_img = torch.randn(1, NUM_CHANNELS, IMAGE_SIZE, IMAGE_SIZE, device=device)
+test_out = test_critic(test_img)
+print(f"Critic: → escalar sin bounds")
+del test_critic, test_img, test_out
+
+def get_wgan_optimizers(generator, critic):
+    optimizer_G = optim.RMSprop(generator.parameters(), lr=WGAN_LR)
+    optimizer_C = optim.RMSprop(critic.parameters(), lr=WGAN_LR)
+    return optimizer_G, optimizer_C
+
+def wgan_critic_loss(critic_real, critic_fake):
+    return -(critic_real - critic_fake)
+
+def wgan_generator_loss(critic_fake):
+    return -critic_fake
+
+def train_wgan(dataloader, num_epochs, log_interval=100):
+    if USE_WANDB:
+        wandb.init(project=WANDB_PROJECT, entity=WANDB_ENTITY, group=WANDB_GROUP,
+                   name=f"WGAN (c={WGAN_CLIP})", config={"modelo": "WGAN", "lr": WGAN_LR, "clip": WGAN_CLIP})
+    
+    print(f"Entrenando WGAN: lr={WGAN_LR}, c={WGAN_CLIP}, épocas={num_epochs}")
+    
+    generator = Generator(LATENT_DIM, GENERATOR_FEATURES, NUM_CHANNELS).to(device)
+    critic = Critic(NUM_CHANNELS, CRITIC_FEATURES).to(device)
+    optimizer_G, optimizer_C = get_wgan_optimizers(generator, critic)
+    
+    metrics = TrainingMetrics()
+    fixed_noise = torch.randn(64, LATENT_DIM, 1, 1, device=device)
+    start_time = time.time()
+    iteration = 0
+    
+    for epoch in range(num_epochs):
+        for real_images, _ in dataloader:
+            real_images = real_images.to(device)
+            batch_size = real_images.size(0)
+            
+            for _ in range(CRITIC_ITERATIONS):
+                optimizer_C.zero_grad()
+                
+                z = torch.randn(batch_size, LATENT_DIM, 1, 1, device=device)
+                fake_images = generator(z).detach()
+                
+                critic_real = critic(real_images).mean()
+                critic_fake = critic(fake_images).mean()
+                
+                c_loss = wgan_critic_loss(critic_real, critic_fake)
+                c_loss.backward()
+                optimizer_C.step()
+                
+                for p in critic.parameters():
+                    p.data.clamp_(-WGAN_CLIP, WGAN_CLIP)
+            
+            optimizer_G.zero_grad()
+            z = torch.randn(batch_size, LATENT_DIM, 1, 1, device=device)
+            fake_images = generator(z)
+            g_loss = wgan_generator_loss(critic(fake_images).mean())
+            g_loss.backward()
+            optimizer_G.step()
+            
+            if iteration % log_interval == 0:
+                w_dist = critic_real.item() - critic_fake.item()
+                metrics.log(iteration, c_loss.item(), g_loss.item(), w_dist)
+                metrics.log_gradients(get_gradient_norms(critic))
+                
+                if USE_WANDB:
+                    wandb.log({"loss_C": c_loss.item(), "loss_G": g_loss.item(), "W-dist": w_dist})
+            
+            iteration += 1
+        
+        with torch.no_grad():
+            fake_samples = generator(fixed_noise)
+            metrics.save_samples(fake_samples)
+            if USE_WANDB:
+                wandb.log({"samples": wandb.Image(vutils.make_grid(fake_samples[:16], normalize=True))})
+        
+        if epoch == num_epochs - 1:
+            metrics.log_weights(get_weight_stats(critic))
+        
+        print(f"\rÉpoca {epoch+1}/{num_epochs}", end='', flush=True)
+    
+    print()
+    metrics.training_time = time.time() - start_time
+    if USE_WANDB:
+        wandb.finish()
+    
+    print(f"Completado: {metrics.training_time/60:.2f} min")
+    return generator, critic, metrics
+
+wgan_gen, wgan_critic, wgan_metrics = train_wgan(dataloader, NUM_EPOCHS)

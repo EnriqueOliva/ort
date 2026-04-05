@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regla de la Cadena y Distribuciones Bernoulli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2::before {
+            content: "▶";
+            margin-right: 15px;
+            color: #764ba2;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .formula {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            color: #764ba2;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+            overflow-x: auto;
+        }
+
+        .example {
+            background: #fff9e6;
+            border-left: 5px solid #ffd700;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .diagram {
+            margin: 30px 0;
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e8f4f8;
+            border-radius: 8px;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffd700 0%, #ffed4e 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .warning {
+            background: #ffe6e6;
+            border-left: 5px solid #e74c3c;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .success {
+            background: #e6ffe6;
+            border-left: 5px solid #27ae60;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .step {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⛓️ Regla de la Cadena y Distribuciones Bernoulli</h1>
+
+        <div class="section">
+            <h2>Regla de la Cadena (Chain Rule)</h2>
+            <div class="card">
+                <h3>Concepto Fundamental</h3>
+                <div class="explanation">
+                    La <span class="highlight">Regla de la Cadena</span> nos permite descomponer cualquier probabilidad conjunta en un producto de probabilidades condicionales.
+                </div>
+
+                <div class="formula">
+                    P(X₁, X₂, X₃, ..., Xₙ) = P(X₁) · P(X₂|X₁) · P(X₃|X₁,X₂) · ... · P(Xₙ|X₁,...,Xₙ₋₁)
+                </div>
+
+                <div class="diagram">
+                    <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Conjunta original -->
+                        <rect x="50" y="50" width="200" height="100" fill="url(#grad1)" stroke="#2c3e50" stroke-width="3" rx="10"/>
+                        <text x="150" y="90" text-anchor="middle" font-size="18" font-weight="bold" fill="white">P(X₁, X₂, X₃)</text>
+                        <text x="150" y="115" text-anchor="middle" font-size="14" fill="white">Probabilidad Conjunta</text>
+
+                        <!-- Flecha de descomposición -->
+                        <path d="M 270 100 L 330 100" stroke="#2c3e50" stroke-width="4" marker-end="url(#arrow1)"/>
+                        <text x="300" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="#667eea">Regla de la Cadena</text>
+
+                        <defs>
+                            <marker id="arrow1" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+                                <polygon points="0 0, 12 6, 0 12" fill="#2c3e50" />
+                            </marker>
+                        </defs>
+
+                        <!-- Descomposición -->
+                        <g transform="translate(350, 0)">
+                            <!-- P(X1) -->
+                            <rect x="0" y="30" width="120" height="60" fill="#3498db" stroke="#2c3e50" stroke-width="2" rx="8"/>
+                            <text x="60" y="65" text-anchor="middle" font-size="16" font-weight="bold" fill="white">P(X₁)</text>
+
+                            <!-- × -->
+                            <text x="140" y="65" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">×</text>
+
+                            <!-- P(X2|X1) -->
+                            <rect x="180" y="30" width="140" height="60" fill="#9b59b6" stroke="#2c3e50" stroke-width="2" rx="8"/>
+                            <text x="250" y="65" text-anchor="middle" font-size="16" font-weight="bold" fill="white">P(X₂|X₁)</text>
+
+                            <!-- × -->
+                            <text x="340" y="65" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">×</text>
+
+                            <!-- P(X3|X1,X2) -->
+                            <rect x="380" y="30" width="170" height="60" fill="#e74c3c" stroke="#2c3e50" stroke-width="2" rx="8"/>
+                            <text x="465" y="55" text-anchor="middle" font-size="14" font-weight="bold" fill="white">P(X₃|X₁,X₂)</text>
+                            <text x="465" y="75" text-anchor="middle" font-size="11" fill="white">condicionada por</text>
+                            <text x="465" y="87" text-anchor="middle" font-size="11" fill="white">todas las anteriores</text>
+                        </g>
+
+                        <!-- Explicación paso a paso -->
+                        <rect x="50" y="180" width="900" height="180" fill="#f8f9fa" stroke="#667eea" stroke-width="2" rx="10"/>
+
+                        <text x="500" y="210" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">Demostración con 3 variables:</text>
+
+                        <text x="70" y="240" font-size="14" fill="#2c3e50">1️⃣ Aplicamos regla del producto dos veces:</text>
+                        <text x="100" y="265" font-size="13" fill="#666" font-family="Courier New">P(X₁, X₂, X₃) = P(X₁, X₂) · P(X₃ | X₁, X₂)</text>
+
+                        <text x="70" y="295" font-size="14" fill="#2c3e50">2️⃣ Expandimos P(X₁, X₂):</text>
+                        <text x="100" y="320" font-size="13" fill="#666" font-family="Courier New">P(X₁, X₂, X₃) = P(X₁) · P(X₂ | X₁) · P(X₃ | X₁, X₂)</text>
+
+                        <text x="70" y="350" font-size="14" fill="#27ae60" font-weight="bold">✅ ¡Listo! Producto de condicionales</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Ejemplo Numérico: 3 Variables</h3>
+
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Aplicar regla del producto (primera vez):</strong>
+                    <div class="formula" style="margin-top: 10px;">
+                        P(X, Y, Z) = P(X, Y) · P(Z | X, Y)
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Aplicar regla del producto al primer término:</strong>
+                    <div class="formula" style="margin-top: 10px;">
+                        P(X, Y) = P(X) · P(Y | X)
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Sustituir en la expresión original:</strong>
+                    <div class="formula" style="margin-top: 10px;">
+                        P(X, Y, Z) = P(X) · P(Y | X) · P(Z | X, Y)
+                    </div>
+                </div>
+
+                <div class="success">
+                    <strong>✅ Conclusión:</strong> Cualquier distribución conjunta se puede descomponer de esta manera, sin importar cuántas variables tengamos.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Distribución de Bernoulli</h2>
+            <div class="card">
+                <h3>¿Qué es una Distribución Bernoulli?</h3>
+                <div class="explanation">
+                    Una <span class="highlight">distribución de Bernoulli</span> modela eventos binarios (dos resultados posibles): éxito/fracaso, prendido/apagado, 1/0, cara/cruz.
+                </div>
+
+                <div class="formula">
+                    X ~ Bernoulli(θ)
+                    <br><br>
+                    P(X = 1) = θ
+                    <br>
+                    P(X = 0) = 1 - θ
+                </div>
+
+                <div class="explanation">
+                    Donde <strong>θ</strong> (theta) es el <span class="highlight">parámetro</span> que representa la probabilidad de éxito.
+                </div>
+
+                <div class="diagram">
+                    <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Moneda balanceada -->
+                        <g transform="translate(100, 50)">
+                            <text x="100" y="0" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">Moneda Balanceada</text>
+                            <text x="100" y="25" text-anchor="middle" font-size="14" fill="#666">θ = 0.5</text>
+
+                            <circle cx="50" cy="100" r="50" fill="#ffd700" stroke="#d4a017" stroke-width="3"/>
+                            <text x="50" y="110" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">C</text>
+                            <text x="50" y="170" text-anchor="middle" font-size="14" fill="#2c3e50">P = 0.5</text>
+
+                            <circle cx="150" cy="100" r="50" fill="#95a5a6" stroke="#7f8c8d" stroke-width="3"/>
+                            <text x="150" y="110" text-anchor="middle" font-size="24" font-weight="bold" fill="white">+</text>
+                            <text x="150" y="170" text-anchor="middle" font-size="14" fill="#2c3e50">P = 0.5</text>
+
+                            <!-- Gráfico de barras -->
+                            <rect x="20" y="220" width="70" height="100" fill="#3498db" opacity="0.7"/>
+                            <rect x="110" y="220" width="70" height="100" fill="#e74c3c" opacity="0.7"/>
+
+                            <text x="55" y="210" text-anchor="middle" font-size="12" fill="#3498db" font-weight="bold">50%</text>
+                            <text x="145" y="210" text-anchor="middle" font-size="12" fill="#e74c3c" font-weight="bold">50%</text>
+
+                            <line x1="20" y1="330" x2="180" y2="330" stroke="#2c3e50" stroke-width="2"/>
+                            <text x="55" y="350" text-anchor="middle" font-size="12" fill="#2c3e50">X=1</text>
+                            <text x="145" y="350" text-anchor="middle" font-size="12" fill="#2c3e50">X=0</text>
+                        </g>
+
+                        <!-- Moneda sesgada -->
+                        <g transform="translate(450, 50)">
+                            <text x="100" y="0" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">Moneda Sesgada</text>
+                            <text x="100" y="25" text-anchor="middle" font-size="14" fill="#666">θ = 0.8</text>
+
+                            <circle cx="50" cy="100" r="50" fill="#ffd700" stroke="#d4a017" stroke-width="3"/>
+                            <text x="50" y="110" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">C</text>
+                            <text x="50" y="170" text-anchor="middle" font-size="14" fill="#2c3e50">P = 0.8</text>
+
+                            <circle cx="150" cy="100" r="50" fill="#95a5a6" stroke="#7f8c8d" stroke-width="3"/>
+                            <text x="150" y="110" text-anchor="middle" font-size="24" font-weight="bold" fill="white">+</text>
+                            <text x="150" y="170" text-anchor="middle" font-size="14" fill="#2c3e50">P = 0.2</text>
+
+                            <!-- Gráfico de barras desigual -->
+                            <rect x="20" y="160" width="70" height="160" fill="#3498db" opacity="0.7"/>
+                            <rect x="110" y="280" width="70" height="40" fill="#e74c3c" opacity="0.7"/>
+
+                            <text x="55" y="150" text-anchor="middle" font-size="12" fill="#3498db" font-weight="bold">80%</text>
+                            <text x="145" y="270" text-anchor="middle" font-size="12" fill="#e74c3c" font-weight="bold">20%</text>
+
+                            <line x1="20" y1="330" x2="180" y2="330" stroke="#2c3e50" stroke-width="2"/>
+                            <text x="55" y="350" text-anchor="middle" font-size="12" fill="#2c3e50">X=1</text>
+                            <text x="145" y="350" text-anchor="middle" font-size="12" fill="#2c3e50">X=0</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Aplicación a Píxeles de Imágenes</h3>
+                <div class="explanation">
+                    En el contexto de imágenes binarias (como MNIST), cada píxel puede pensarse como una variable Bernoulli:
+                </div>
+
+                <ul style="font-size: 1.1em;">
+                    <li>✅ <strong>Xᵢ = 1:</strong> Píxel prendido (negro)</li>
+                    <li>✅ <strong>Xᵢ = 0:</strong> Píxel apagado (blanco)</li>
+                    <li>✅ <strong>θᵢ:</strong> Probabilidad de que el píxel i esté prendido</li>
+                </ul>
+
+                <div class="diagram">
+                    <svg viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Píxeles ejemplo -->
+                        <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">Cada Píxel = Variable Bernoulli</text>
+
+                        <g transform="translate(150, 80)">
+                            <!-- Píxel 1 -->
+                            <rect x="0" y="0" width="80" height="80" fill="#2c3e50" stroke="#667eea" stroke-width="3" rx="5"/>
+                            <text x="40" y="105" text-anchor="middle" font-size="14" fill="#2c3e50">X₁ = 1</text>
+                            <text x="40" y="125" text-anchor="middle" font-size="12" fill="#666">θ₁ = 0.9</text>
+
+                            <!-- Píxel 2 -->
+                            <rect x="120" y="0" width="80" height="80" fill="white" stroke="#667eea" stroke-width="3" rx="5"/>
+                            <text x="160" y="105" text-anchor="middle" font-size="14" fill="#2c3e50">X₂ = 0</text>
+                            <text x="160" y="125" text-anchor="middle" font-size="12" fill="#666">θ₂ = 0.1</text>
+
+                            <!-- Píxel 3 -->
+                            <rect x="240" y="0" width="80" height="80" fill="#2c3e50" stroke="#667eea" stroke-width="3" rx="5"/>
+                            <text x="280" y="105" text-anchor="middle" font-size="14" fill="#2c3e50">X₃ = 1</text>
+                            <text x="280" y="125" text-anchor="middle" font-size="12" fill="#666">θ₃ = 0.85</text>
+
+                            <!-- Píxel 4 -->
+                            <rect x="360" y="0" width="80" height="80" fill="#666" stroke="#667eea" stroke-width="3" rx="5"/>
+                            <text x="400" y="105" text-anchor="middle" font-size="14" fill="#2c3e50">X₄ = ?</text>
+                            <text x="400" y="125" text-anchor="middle" font-size="12" fill="#666">θ₄ = 0.5</text>
+
+                            <!-- Píxel 5 -->
+                            <rect x="480" y="0" width="80" height="80" fill="white" stroke="#667eea" stroke-width="3" rx="5"/>
+                            <text x="520" y="105" text-anchor="middle" font-size="14" fill="#2c3e50">X₅ = 0</text>
+                            <text x="520" y="125" text-anchor="middle" font-size="12" fill="#666">θ₅ = 0.05</text>
+                        </g>
+
+                        <!-- Explicación -->
+                        <rect x="50" y="240" width="800" height="80" fill="#e8f4f8" stroke="#667eea" stroke-width="2" rx="10"/>
+                        <text x="450" y="270" text-anchor="middle" font-size="15" font-weight="bold" fill="#2c3e50">🔑 Clave: Los píxeles NO son independientes</text>
+                        <text x="450" y="295" text-anchor="middle" font-size="14" fill="#666">Si un píxel está prendido, es más probable que sus vecinos también lo estén</text>
+                        <text x="450" y="315" text-anchor="middle" font-size="14" fill="#666">(de lo contrario, ¡solo tendríamos ruido aleatorio!)</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>El Problema de Escalabilidad</h2>
+            <div class="card">
+                <h3>MNIST: 28×28 píxeles = 784 variables</h3>
+
+                <div class="warning">
+                    <strong>⚠️ Explosión Combinatoria:</strong>
+                    <p style="margin-top: 10px;">Si usamos la regla de la cadena sin asumir ninguna independencia:</p>
+                    <div class="formula" style="background: white; margin-top: 15px;">
+                        Parámetros = 2⁷⁸⁴ - 1
+                    </div>
+                    <p style="margin-top: 15px; color: #e74c3c; font-weight: bold;">
+                        Esto es aproximadamente 10²³⁶ parámetros.
+                        <br>
+                        El universo tiene ~10⁸⁰ protones.
+                        <br>
+                        ¡IMPOSIBLE de estimar!
+                    </p>
+                </div>
+
+                <h3 style="margin-top: 30px;">Estrategias de Simplificación</h3>
+
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Asumir Independencia Total (MALO):</strong>
+                    <div class="formula" style="margin-top: 10px;">
+                        P(X₁,...,X₇₈₄) = P(X₁) · P(X₂) · ... · P(X₇₈₄)
+                    </div>
+                    <p style="margin-top: 10px;">Parámetros: <strong>784</strong> (uno por píxel)</p>
+                    <p style="color: #e74c3c;">❌ Genera solo ruido, no imágenes realistas</p>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Asumir Independencia Condicional (MEJOR):</strong>
+                    <div class="formula" style="margin-top: 10px;">
+                        Xᵢ depende solo de Xᵢ₋₁
+                    </div>
+                    <p style="margin-top: 10px;">Parámetros: <strong>2 × 784 = 1,568</strong></p>
+                    <p style="color: #f39c12;">⚠️ Más realista, pero aún limitado</p>
+                </div>
+
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Usar Redes Neuronales (ÓPTIMO):</strong>
+                    <div class="formula" style="margin-top: 10px;">
+                        P(Xᵢ | X₁,...,Xᵢ₋₁) ≈ σ(f_w(X₁,...,Xᵢ₋₁))
+                    </div>
+                    <p style="margin-top: 10px;">Donde <strong>f_w</strong> es una red neuronal con parámetros <strong>w</strong></p>
+                    <p style="color: #27ae60;">✅ Flexible, poderoso, escalable</p>
+                </div>
+
+                <div class="success">
+                    <strong>💡 Conclusión del Profesor:</strong>
+                    <p style="margin-top: 10px;">
+                        "Hasta ahora todo lo que simplificamos fue con tablas de frecuencia.
+                        La manera de desprendernos de esas tablas y manejar espacios grandes
+                        es usar <strong>aproximación de funciones</strong> con redes neuronales."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Función Sigmoide (σ)</h2>
+            <div class="card">
+                <h3>Convertir Valores Reales en Probabilidades</h3>
+                <div class="explanation">
+                    La función <span class="highlight">sigmoide</span> convierte cualquier número real en un valor entre 0 y 1, ideal para representar probabilidades.
+                </div>
+
+                <div class="formula">
+                    σ(x) = 1 / (1 + e^(-x))
+                </div>
+
+                <div class="diagram">
+                    <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Ejes -->
+                        <line x1="50" y1="200" x2="750" y2="200" stroke="#2c3e50" stroke-width="2"/>
+                        <line x1="400" y1="50" x2="400" y2="350" stroke="#2c3e50" stroke-width="2"/>
+
+                        <!-- Etiquetas de ejes -->
+                        <text x="400" y="370" text-anchor="middle" font-size="14" fill="#2c3e50">x</text>
+                        <text x="30" y="205" text-anchor="middle" font-size="14" fill="#2c3e50">σ(x)</text>
+
+                        <!-- Valores en Y -->
+                        <line x1="395" y1="75" x2="405" y2="75" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="380" y="80" text-anchor="end" font-size="12" fill="#2c3e50">1.0</text>
+
+                        <line x1="395" y1="137.5" x2="405" y2="137.5" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="380" y="142.5" text-anchor="end" font-size="12" fill="#2c3e50">0.75</text>
+
+                        <line x1="395" y1="200" x2="405" y2="200" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="380" y="205" text-anchor="end" font-size="12" fill="#2c3e50">0.5</text>
+
+                        <line x1="395" y1="262.5" x2="405" y2="262.5" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="380" y="267.5" text-anchor="end" font-size="12" fill="#2c3e50">0.25</text>
+
+                        <line x1="395" y1="325" x2="405" y2="325" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="380" y="330" text-anchor="end" font-size="12" fill="#2c3e50">0.0</text>
+
+                        <!-- Curva sigmoide -->
+                        <path d="M 50,322 Q 100,320 150,310 T 250,260 T 350,150 T 450,90 T 550,78 T 650,76 T 750,75"
+                              stroke="#667eea" stroke-width="4" fill="none"/>
+
+                        <!-- Puntos destacados -->
+                        <circle cx="400" cy="200" r="6" fill="#e74c3c"/>
+                        <text x="420" y="205" font-size="12" fill="#e74c3c" font-weight="bold">σ(0) = 0.5</text>
+
+                        <circle cx="550" cy="78" r="6" fill="#27ae60"/>
+                        <text x="570" y="70" font-size="12" fill="#27ae60" font-weight="bold">σ(+∞) ≈ 1</text>
+
+                        <circle cx="250" cy="260" r="6" fill="#3498db"/>
+                        <text x="190" y="250" font-size="12" fill="#3498db" font-weight="bold">σ(-∞) ≈ 0</text>
+
+                        <!-- Título -->
+                        <text x="400" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">Función Sigmoide: σ(x)</text>
+                    </svg>
+                </div>
+
+                <div class="example">
+                    <h4>Propiedades:</h4>
+                    <ul>
+                        <li>📊 <strong>Salida:</strong> Siempre entre 0 y 1</li>
+                        <li>📊 <strong>Punto medio:</strong> σ(0) = 0.5</li>
+                        <li>📊 <strong>Valores negativos grandes:</strong> σ(x) → 0</li>
+                        <li>📊 <strong>Valores positivos grandes:</strong> σ(x) → 1</li>
+                        <li>📊 <strong>Forma de S:</strong> Transición suave de 0 a 1</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px;">
+            <h2 style="color: white; border: none; text-align: center;">🎯 Resumen Final</h2>
+            <div style="font-size: 1.1em; margin-top: 20px; line-height: 1.8;">
+                <p><strong>✅ Regla de la Cadena:</strong> Permite descomponer cualquier distribución conjunta</p>
+                <p><strong>✅ Bernoulli:</strong> Modelo ideal para eventos binarios (píxeles, monedas, etc.)</p>
+                <p><strong>✅ Problema de Escalabilidad:</strong> Imposible estimar tablas de frecuencia para datos grandes</p>
+                <p><strong>✅ Solución:</strong> Usar redes neuronales para aproximar distribuciones</p>
+                <p><strong>✅ Sigmoide:</strong> Convierte valores reales en probabilidades [0,1]</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

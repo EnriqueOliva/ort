@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 1: Conceptos Fundamentales de Probabilidad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2::before {
+            content: "▶";
+            margin-right: 15px;
+            color: #764ba2;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .formula {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            color: #764ba2;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+            overflow-x: auto;
+        }
+
+        .example {
+            background: #fff9e6;
+            border-left: 5px solid #ffd700;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .example h4 {
+            color: #d4a017;
+            margin-bottom: 10px;
+        }
+
+        .diagram {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            background: white;
+            padding: 20px;
+        }
+
+        .interactive-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+
+        .interactive-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e8f4f8;
+            border-radius: 8px;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffd700 0%, #ffed4e 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Clase 1: Conceptos Fundamentales de Probabilidad</h1>
+
+        <div class="section">
+            <h2>Variables Aleatorias</h2>
+            <div class="card">
+                <h3>¿Qué es una Variable Aleatoria?</h3>
+                <div class="explanation">
+                    Una <span class="highlight">variable aleatoria</span> es una función matemática que representa un conjunto de valores posibles que puede tomar un evento.
+                </div>
+
+                <div class="formula">
+                    X: Ω → ℝ (o {0,1} para variables binarias)
+                </div>
+
+                <div class="example">
+                    <h4>Ejemplo del Dataset de Tenis:</h4>
+                    <ul>
+                        <li><strong>X₁ (Outlook):</strong> {Soleado, Nublado, Lluvia}</li>
+                        <li><strong>X₂ (Temperatura):</strong> {Calor, Frío}</li>
+                        <li><strong>X₃ (Humedad):</strong> {Alta, Normal}</li>
+                        <li><strong>X₄ (Viento):</strong> {Fuerte, Débil}</li>
+                        <li><strong>Y (Jugar Tenis):</strong> {Sí, No}</li>
+                    </ul>
+                </div>
+
+                <div class="diagram">
+                    <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Espacio de eventos (Omega) -->
+                        <ellipse cx="150" cy="150" rx="120" ry="100" fill="#e8f4f8" stroke="#667eea" stroke-width="3"/>
+                        <text x="150" y="60" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">Ω (Espacio Muestral)</text>
+
+                        <!-- Puntos de muestra -->
+                        <circle cx="100" cy="120" r="8" fill="#764ba2"/>
+                        <circle cx="150" cy="140" r="8" fill="#764ba2"/>
+                        <circle cx="180" cy="170" r="8" fill="#764ba2"/>
+                        <circle cx="120" cy="180" r="8" fill="#764ba2"/>
+
+                        <!-- Flecha de función -->
+                        <path d="M 270 150 L 330 150" stroke="#667eea" stroke-width="4" marker-end="url(#arrowhead)"/>
+                        <text x="300" y="140" text-anchor="middle" font-size="16" font-weight="bold" fill="#667eea">X</text>
+
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#667eea" />
+                            </marker>
+                        </defs>
+
+                        <!-- Espacio de valores -->
+                        <rect x="360" y="80" width="200" height="140" fill="#fff9e6" stroke="#ffd700" stroke-width="3" rx="10"/>
+                        <text x="460" y="105" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">Valores Posibles</text>
+                        <text x="460" y="135" text-anchor="middle" font-size="14" fill="#2c3e50">• Soleado</text>
+                        <text x="460" y="160" text-anchor="middle" font-size="14" fill="#2c3e50">• Nublado</text>
+                        <text x="460" y="185" text-anchor="middle" font-size="14" fill="#2c3e50">• Lluvia</text>
+
+                        <text x="300" y="280" text-anchor="middle" font-size="14" fill="#666">Variable Aleatoria = Función que mapea eventos a valores</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Probabilidad Conjunta</h2>
+            <div class="card">
+                <h3>Regla del Producto</h3>
+                <div class="explanation">
+                    La <span class="highlight">probabilidad conjunta</span> describe la probabilidad de que ocurran múltiples eventos simultáneamente.
+                </div>
+
+                <div class="formula">
+                    P(X, Y) = P(X) · P(Y|X)
+                </div>
+
+                <div class="example">
+                    <h4>Ejemplo: Moneda y Dado</h4>
+                    <p><strong>P(Moneda=Cara, Dado=1) = P(Moneda=Cara) · P(Dado=1|Moneda=Cara)</strong></p>
+                    <p>Si son independientes:</p>
+                    <p>= 1/2 · 1/6 = 1/12</p>
+                </div>
+
+                <div class="diagram">
+                    <svg viewBox="0 0 700 350" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Moneda -->
+                        <circle cx="150" cy="100" r="60" fill="#ffd700" stroke="#d4a017" stroke-width="3"/>
+                        <text x="150" y="105" text-anchor="middle" font-size="20" font-weight="bold" fill="#2c3e50">M</text>
+                        <text x="150" y="180" text-anchor="middle" font-size="14" fill="#2c3e50">Moneda</text>
+                        <text x="150" y="200" text-anchor="middle" font-size="12" fill="#666">{Cara, Cruz}</text>
+
+                        <!-- Dado -->
+                        <rect x="320" y="60" width="80" height="80" fill="white" stroke="#667eea" stroke-width="3" rx="5"/>
+                        <circle cx="340" cy="90" r="6" fill="#667eea"/>
+                        <circle cx="360" cy="90" r="6" fill="#667eea"/>
+                        <circle cx="380" cy="90" r="6" fill="#667eea"/>
+                        <circle cx="340" cy="110" r="6" fill="#667eea"/>
+                        <circle cx="360" cy="110" r="6" fill="#667eea"/>
+                        <circle cx="380" cy="110" r="6" fill="#667eea"/>
+                        <text x="360" y="180" text-anchor="middle" font-size="14" fill="#2c3e50">Dado</text>
+                        <text x="360" y="200" text-anchor="middle" font-size="12" fill="#666">{1, 2, 3, 4, 5, 6}</text>
+
+                        <!-- Símbolo de multiplicación -->
+                        <text x="250" y="110" text-anchor="middle" font-size="30" font-weight="bold" fill="#764ba2">×</text>
+
+                        <!-- Resultado -->
+                        <rect x="480" y="60" width="180" height="120" fill="url(#grad1)" stroke="#2c3e50" stroke-width="3" rx="10"/>
+                        <text x="570" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="white">Probabilidad</text>
+                        <text x="570" y="125" text-anchor="middle" font-size="16" font-weight="bold" fill="white">Conjunta</text>
+                        <text x="570" y="155" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffd700">P(M, D)</text>
+
+                        <!-- Explicación abajo -->
+                        <rect x="50" y="240" width="600" height="80" fill="#e8f4f8" stroke="#667eea" stroke-width="2" rx="10"/>
+                        <text x="350" y="265" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">📌 Si M y D son independientes:</text>
+                        <text x="350" y="290" text-anchor="middle" font-size="14" fill="#2c3e50">P(M=Cara, D=1) = P(M=Cara) × P(D=1) = 1/2 × 1/6 = 1/12</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Generalización para N Variables</h3>
+                <div class="formula">
+                    P(X₁, X₂, ..., Xₙ) = P(X₁) · P(X₂|X₁) · P(X₃|X₁,X₂) · ... · P(Xₙ|X₁,...,Xₙ₋₁)
+                </div>
+                <div class="explanation">
+                    Esta es la <span class="highlight">Regla de la Cadena</span>: descompone cualquier distribución conjunta en un producto de distribuciones condicionales.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Independencia</h2>
+            <div class="card">
+                <h3>Variables Independientes</h3>
+                <div class="explanation">
+                    Dos variables X e Y son <span class="highlight">independientes</span> si el conocimiento de una no afecta la probabilidad de la otra.
+                </div>
+
+                <div class="formula">
+                    X ⊥ Y  ⟺  P(X, Y) = P(X) · P(Y)
+                    <br><br>
+                    Equivalentemente: P(X|Y) = P(X)
+                </div>
+
+                <div class="interactive-box" onclick="this.style.background = this.style.background.includes('green') ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)'">
+                    <strong>🖱️ Click aquí:</strong> Ejemplo de Independencia
+                    <div style="margin-top: 10px; font-size: 0.95em;">
+                        El resultado de lanzar una moneda NO afecta el resultado de lanzar un dado.<br>
+                        P(Dado=6 | Moneda=Cara) = P(Dado=6) = 1/6
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Estimación por Frecuencia (Método Monte Carlo)</h2>
+            <div class="card">
+                <h3>¿Cómo estimamos probabilidades desde datos?</h3>
+                <div class="explanation">
+                    En el enfoque <span class="highlight">frecuentista</span>, estimamos probabilidades contando ocurrencias en nuestros datos.
+                </div>
+
+                <div class="formula">
+                    P̂(X = x) = Cantidad de veces que X=x / Total de observaciones
+                </div>
+
+                <div class="example">
+                    <h4>Ejemplo del Práctico de Tenis:</h4>
+                    <p>Si tenemos 14 días de datos y en 9 días se jugó tenis:</p>
+                    <div class="formula">
+                        P̂(Jugar=Sí) = 9/14 ≈ 0.643
+                    </div>
+                </div>
+
+                <div class="diagram">
+                    <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Tabla de frecuencias -->
+                        <rect x="50" y="50" width="500" height="150" fill="white" stroke="#667eea" stroke-width="3" rx="10"/>
+
+                        <!-- Encabezado -->
+                        <rect x="50" y="50" width="500" height="40" fill="url(#grad1)" rx="10 10 0 0"/>
+                        <text x="200" y="75" text-anchor="middle" font-size="16" font-weight="bold" fill="white">Valor</text>
+                        <text x="350" y="75" text-anchor="middle" font-size="16" font-weight="bold" fill="white">Frecuencia</text>
+                        <text x="480" y="75" text-anchor="middle" font-size="16" font-weight="bold" fill="white">P(X)</text>
+
+                        <!-- Datos -->
+                        <line x1="50" y1="90" x2="550" y2="90" stroke="#ccc" stroke-width="1"/>
+                        <text x="200" y="115" text-anchor="middle" font-size="14">Jugar = Sí</text>
+                        <text x="350" y="115" text-anchor="middle" font-size="14">9</text>
+                        <text x="480" y="115" text-anchor="middle" font-size="14" fill="#27ae60" font-weight="bold">9/14</text>
+
+                        <line x1="50" y1="130" x2="550" y2="130" stroke="#ccc" stroke-width="1"/>
+                        <text x="200" y="155" text-anchor="middle" font-size="14">Jugar = No</text>
+                        <text x="350" y="155" text-anchor="middle" font-size="14">5</text>
+                        <text x="480" y="155" text-anchor="middle" font-size="14" fill="#e74c3c" font-weight="bold">5/14</text>
+
+                        <line x1="50" y1="170" x2="550" y2="170" stroke="#ccc" stroke-width="1"/>
+                        <text x="200" y="190" text-anchor="middle" font-size="14" font-weight="bold">TOTAL</text>
+                        <text x="350" y="190" text-anchor="middle" font-size="14" font-weight="bold">14</text>
+                        <text x="480" y="190" text-anchor="middle" font-size="14" font-weight="bold">1.0</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Resumen de Conceptos Clave</h2>
+            <div class="card">
+                <ul style="font-size: 1.1em;">
+                    <li>📌 <strong>Variable Aleatoria:</strong> Función que mapea eventos a valores numéricos</li>
+                    <li>📌 <strong>Probabilidad Conjunta P(X,Y):</strong> Probabilidad de que X e Y ocurran simultáneamente</li>
+                    <li>📌 <strong>Regla del Producto:</strong> P(X,Y) = P(X) · P(Y|X)</li>
+                    <li>📌 <strong>Independencia:</strong> P(X,Y) = P(X) · P(Y) cuando X y Y no se afectan</li>
+                    <li>📌 <strong>Estimación Frecuentista:</strong> Contamos ocurrencias en datos para estimar probabilidades</li>
+                    <li>📌 <strong>Regla de la Cadena:</strong> Descompone distribuciones complejas en productos de condicionales</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px; text-align: center;">
+            <h2 style="color: white; border: none;">🎯 Objetivo de la Clase</h2>
+            <p style="font-size: 1.2em; margin-top: 20px; line-height: 1.8;">
+                Familiarizarse con conceptos fundamentales de probabilidad que son la base para entender modelos generativos.
+                Estos conceptos nos permitirán modelar y generar datos complejos como imágenes, texto y más.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+Actualmente nos encontramos dentro de C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa, el cual es un espacio de trabajo dedicado a un curso en deep learning, en el cual almacenamos principalmente una transcripción de cada clase del curso.
+
+Estoy extremadamente perdido, nunca asistí a ninguna clase, no sé nada sobre ningún tema, no sé qué se dio, y vengo de otra disciplina por lo que no sé nada sobre lo que se dio.
+
+Haz un análisis megaexhaustivo de toda la trancripciión de la clase C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory\14-25-11-2025\14-25-11-2025.txt, todas y cada de las líneas de la transcripción (es decir, todo el contenido, sin falta), para tú tener un entendimiento completo y exhaustivo de todos los temas que ella, y cómo se dieron, y luego escribir un archivo md nuevo en la carpeta de la clase en el que documentas todo.
+
+Invoca múltiples agentes para esta tarea. Que cada agente repita el proceso 3 veces; al terminar una pasada, que vuelva a analizar toda la transcripción (es decir, todo el contenido, sin falta), en orden, en busca de detalles que haya omitido leer la vez anterior. Solo al final, que cada uno brinde su propia versión del archivo md.
+
+Hazlo e la misma manera en que está explicada la clase "C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory\4-09-09-2025\4-09-09-2025.txt" en "C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory\4-09-09-2025\explicaciones.md". Mismo nivel de detalle, mismo estilo de explicar, etc.
+
+Asegúrate de que al igual que en "C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory\4-09-09-2025\4-09-09-2025.txt" incluyas una sección de "Definiciones para el parcial" de no más de dos renglones de explicación cada explicación, y una sección de "Posibles preguntas para el parcial", también respondidas en no más de dos renglones y simulando mi probable lenguaje básico a la hora de responder en el parcial real.
+
+Explica de la manera más sencilla posible.
+
+No entiendo nada de esto porque vengo de otra disciplina, así que explica hasta lo más básico.
+
+Es fundamental que tu respuesta me permita saber todo lo que dictó el profesor acerca de ese tema.
+
+Ultrathink. 

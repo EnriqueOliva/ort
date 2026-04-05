@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diffusion: Pseudocodigo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #00d4ff;
+            padding-bottom: 8px;
+            font-size: 1.4em;
+        }
+        .code-block {
+            background: #0d1117;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            overflow-x: auto;
+            border-left: 4px solid #00d4ff;
+        }
+        .code-block .comment { color: #6a9955; }
+        .code-block .keyword { color: #569cd6; }
+        .code-block .function { color: #dcdcaa; }
+        .code-block .variable { color: #9cdcfe; }
+        .highlight-box {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .highlight-box h3 { color: #00d4ff; margin-bottom: 10px; }
+        .key-point {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #ffd93d;
+            padding: 15px;
+            border-radius: 0 10px 10px 0;
+            margin: 15px 0;
+        }
+        .key-point strong { color: #ffd93d; }
+        .process-box {
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        .process-box.forward {
+            background: rgba(231, 76, 60, 0.1);
+            border: 2px solid #e74c3c;
+        }
+        .process-box.forward h3 { color: #e74c3c; }
+        .process-box.reverse {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+        }
+        .process-box.reverse h3 { color: #00ff88; }
+        .summary-box {
+            background: linear-gradient(145deg, #1e3a5f, #0d1b2a);
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        .summary-box h3 { color: #00ff88; margin-bottom: 15px; }
+        .flow-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .flow-item {
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.85em;
+        }
+        .flow-arrow { font-size: 1.5em; color: #ffd93d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pseudocodigo Diffusion</h1>
+
+        <div class="section">
+            <h2>IDEA CENTRAL</h2>
+            <div class="flow-visual">
+                <div class="flow-item" style="background: rgba(0,255,136,0.2); border: 2px solid #00ff88;">
+                    Imagen<br>limpia
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item" style="background: rgba(255,255,255,0.1);">+ruido</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item" style="background: rgba(255,255,255,0.1);">+ruido</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item" style="background: rgba(255,255,255,0.1);">...</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item" style="background: rgba(231,76,60,0.2); border: 2px solid #e74c3c;">
+                    Ruido<br>puro
+                </div>
+            </div>
+            <p style="text-align: center; color: #888;">Forward: Agregar ruido (matematica, no se entrena)</p>
+
+            <div class="flow-visual" style="margin-top: 30px;">
+                <div class="flow-item" style="background: rgba(231,76,60,0.2); border: 2px solid #e74c3c;">
+                    Ruido<br>puro
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item" style="background: rgba(255,255,255,0.1);">-ruido</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item" style="background: rgba(255,255,255,0.1);">-ruido</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item" style="background: rgba(255,255,255,0.1);">...</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item" style="background: rgba(0,255,136,0.2); border: 2px solid #00ff88;">
+                    Imagen<br>nueva
+                </div>
+            </div>
+            <p style="text-align: center; color: #888;">Reverse: Quitar ruido (se entrena el modelo)</p>
+        </div>
+
+        <div class="section">
+            <h2>1. ENTRENAMIENTO</h2>
+            <div class="code-block">
+<span class="keyword">PARA</span> <span class="variable">cada imagen x_0</span> del dataset:
+
+    <span class="comment"># 1. Elegir tiempo aleatorio</span>
+    <span class="variable">t</span> = <span class="function">random</span>(1, T)
+
+    <span class="comment"># 2. Agregar ruido (forma cerrada)</span>
+    <span class="variable">epsilon</span> = <span class="function">muestrear_normal</span>(0, 1)
+    <span class="variable">x_t</span> = sqrt(<span class="variable">alpha_bar[t]</span>) * <span class="variable">x_0</span> + sqrt(1 - <span class="variable">alpha_bar[t]</span>) * <span class="variable">epsilon</span>
+
+    <span class="comment"># 3. Predecir el ruido</span>
+    <span class="variable">epsilon_pred</span> = <span class="function">modelo</span>(<span class="variable">x_t</span>, <span class="variable">t</span>)
+
+    <span class="comment"># 4. Perdida: MSE entre ruido real y predicho</span>
+    <span class="variable">loss</span> = <span class="function">MSE</span>(<span class="variable">epsilon</span>, <span class="variable">epsilon_pred</span>)
+
+    <span class="comment"># 5. Actualizar pesos</span>
+    <span class="function">backprop</span>(<span class="variable">loss</span>)
+            </div>
+
+            <div class="key-point">
+                <strong>Forma Cerrada:</strong> Puedes ir directo de x₀ a cualquier x_t sin pasar por pasos intermedios.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. GENERACION (Reverse Process)</h2>
+            <div class="code-block">
+<span class="keyword">FUNCION</span> <span class="function">generar_imagen</span>():
+
+    <span class="comment"># Partir de ruido puro</span>
+    <span class="variable">x</span> = <span class="function">muestrear_normal</span>(0, 1)  <span class="comment"># Mismo tamano que imagen</span>
+
+    <span class="comment"># Quitar ruido paso a paso</span>
+    <span class="keyword">PARA</span> <span class="variable">t</span> = T <span class="keyword">hasta</span> 1:
+
+        <span class="comment"># Predecir el ruido en este paso</span>
+        <span class="variable">epsilon_pred</span> = <span class="function">modelo</span>(<span class="variable">x</span>, <span class="variable">t</span>)
+
+        <span class="comment"># Quitar un poco de ruido</span>
+        <span class="variable">x</span> = <span class="function">quitar_ruido</span>(<span class="variable">x</span>, <span class="variable">epsilon_pred</span>, <span class="variable">t</span>)
+
+    <span class="keyword">RETORNAR</span> <span class="variable">x</span>  <span class="comment"># Imagen limpia</span>
+            </div>
+
+            <div class="highlight-box">
+                <h3>T = 1000 pasos tipicamente</h3>
+                <p>La generacion es lenta porque hay que recorrer todos los pasos</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. PUNTOS CLAVE</h2>
+
+            <div class="key-point">
+                <strong>El modelo necesita t:</strong> Para saber cuanto ruido hay en la imagen actual
+            </div>
+
+            <div class="key-point">
+                <strong>Predecir ruido (no imagen):</strong> Mas estable porque el ruido siempre es Normal(0,1)
+            </div>
+
+            <div class="key-point">
+                <strong>Espacio latente = mismo tamano:</strong> A diferencia de VAE/GAN, el ruido tiene el mismo tamano que la imagen
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <h3>RESUMEN PARA EL PARCIAL</h3>
+            <div class="code-block">
+<span class="comment"># ENTRENAR:</span>
+t = random
+epsilon = ruido ~ Normal(0,1)
+x_t = sqrt(ᾱ_t) * x_0 + sqrt(1-ᾱ_t) * epsilon
+loss = <span class="function">MSE</span>(epsilon, <span class="function">modelo</span>(x_t, t))
+
+<span class="comment"># GENERAR:</span>
+x = ruido_puro
+<span class="keyword">PARA</span> t = T <span class="keyword">hasta</span> 1:
+    x = <span class="function">quitar_ruido</span>(x, <span class="function">modelo</span>(x, t), t)
+<span class="keyword">RETORNAR</span> x
+            </div>
+        </div>
+    </div>
+</body>
+</html>

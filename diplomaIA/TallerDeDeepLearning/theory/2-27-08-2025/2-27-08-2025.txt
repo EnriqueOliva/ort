@@ -1,0 +1,2460 @@
+WEBVTT
+Era, eh, de qué empresa era?
+Llama la meta
+mejor chiqui chiqui
+no hay una publicada.
+No tiene, vamos a, eh, esperan dos notebook. Vamos.
+Son la segunda. Y hice un par de extras cu.
+Sí, para que vengan ahí.
+Digo por claro,
+vamos.
+Bueno, pero he comprar una
+de no, no podemos no que hizo eso.
+Está bueno para probar la otra cosa.
+No apart
+todo esa temperatura y
+no un seis.
+No saber el día. Cosas nada
+para decir teatro, tu entrenamiento e
+educación localizado.
+Sí, muy
+sí a por a copi para aplicaciones en
+cómo requi puede corregir
+que, por ejemplo,
+el parece sí
+a veces, sino por una terminal de
+lazo, eh?
+Claro. Acá en el
+Perú, cómo estás?
+Bien. Pero puedo hacer el
+en tu trabajo.
+Algo quería hacer día así. Bueno, pero ya el seminario
+de la voy, cosa que sí,
+este es de vuelta.
+Bien,
+copies a través de aula
+de
+sí
+online.
+Me escuchan bien.
+Bien, perfectable Perfecto.
+Bueno, la clase de hoy,
+vamos a seguir con esta clase uno por dos motivos.
+La primera que no terminamos la segunda notebook.
+A eso lo podríamos dar en dos, no en una sola clase,
+pero hubo la dinámica y de segunda es que no dieron
+hacer lunes, por ende, ya eran darme dos clases.
+Es demasiado. Si.
+Bien el tema que vamos a dar hoy,
+ustedes lo van a dar más en profundidad el lunes.
+Por lo menos no quedamos dos semanas atrasados. No?
+Pero para algún implementar un poquito qui,
+hice lo cualquiera, lo que cualquiera hace un 25 de agosto,
+que es trabajar en nodus no, no vas a usted.
+Bueno, en extras acá tiene nada que ver con el tema.
+Pero parece como pues,
+en los juegos cuando tienen las a misiones de costado, como,
+no voy a preguntar nada de esto, pero
+como nos vos probablemente soar algo de tiempo
+con esta dos notebook donde diría que la primera lo más
+importante que es como funciona a los optimizadores y los
+gradientes cuando nosotros estamos entrenando
+y la segunda es un alumno, no para mí, no?
+Si a algún poquito día después la la precisión.
+Y cuando usamos flow dieci y cuando 64 cuánto 32
+armé ahí un poquito para que vean la
+diferencia entre cada uno. Ah,
+Buenas.
+Y podemos, vamos, discutir la partir de ahí. Hola.
+Está bien,
+Buenas.
+Todo bien, cómo te va pato?
+Atilio Tu número o es apellido
+En nombre?
+Okey atilio apellido nunca de nombre.
+Sí. Un gusto atilio está bien,
+Yeah en aquí está Bien, perfecto.
+Para poner todos en colonización acá. Dale, dale, dale.
+Acá en el tema, en la clase uno
+bajan lo que es el perceptron letra la la not
+principal que vamos a ver hoy.
+Y después podríamos ver alguna de lo que es
+se bajan esa dice extras, se bajan las dos,
+la parte de grads optimizadores y la parte de precisión.
+No digo que lo vamos a dar hoy para nada.
+Pero parece que si nos da el tiempo,
+podríamos van vamos a entrar unos primero en la en la
+notebook de perceptron.
+Y si quieren ah, saber un poco de lo que son precisiones.
+El flow dieciseis, el rain road que nombró
+Ah, También marcos está todo hablado ahí hay unas
+comparativas de de entrenar con los diferentes y qué errores
+podría tener, eh, usar uno vuelo, no armar algo o
+un poco explicativo en la misma.
+No vamos, pero vamos a entrarnos
+sobre todo acá en mi primer, supongo.
+Marque dinero el nombre pero bueno, está, eh,
+mi en mi segundo trabajo, lo médico.
+Luego haríamos de acuerdo, todo el mundo,
+incluso la gente que hace youtube es eliminar los clickback
+es como una nos oan.
+Por qué los click? Qué?
+Los títulos que son como míos, se se engañó como dicen,
+hice esto y llega dólares dos días.
+Cosas que te dicen el tipo cl que acaban
+si te quedas aparte por los mismo creadores,
+por qué vos haces clickback en tu trabajo?
+No es un chiste. Es un como primer oral de como,
+bueno click se llama click, click b, click
+sobre todo un youtube o tipo.
+Esos títulos se pueden una cara estar así sabe la que sí.
+Si. Sí. 20 de San sueño, claro.
+Y mismo los creadores se quejan porque igual por más que va
+muy buen contenido, te estás haciendo un contenido
+y no lo haces, te gana tu competencia que haces.
+Ah, ok, es verdad. Sí, estaba pensando en el bicho.
+Pero si el español me salió mal,
+nada demasiado un idioma o
+es que justamente no ninguna después de list de japonés,
+lo no la otra vez.
+Ah, lo que pasa es que si sabes chino,
+sabes un poco de japonés y yo no lo dije esta
+vez te puedo montar.
+Bueno, que vamos a hacer acá, pero vamos a implementar, eh,
+las operaciones eh, básicas de
+que son aquí las funciones lógicas and
+or exor y eh,
+las negativas que notando el no
+for y el no exor o exor no,
+ahí no sabe lo que son las las las funciones lógicas o
+las tab.
+Las lógicas viene por el an or.
+Como bien, ahí. Bien, perfecto.
+Entonces seguimos para mí, me van para mí.
+Así que básicamente lo que vamos a hacer es implementar
+estas operaciones uno a uno,
+la vamos a dar de diferentes maneras.
+Y vamos a terminar en el reina tratando de hacer aquellas
+que no podamos hacer con percees simples,
+así como unas más complejas en las cual, por ejemplo,
+podamos resol resolver todas las
+operaciones al mismo tiempo.
+Ah, vamos, vamos a ir paso a paso.
+Ah, básicamente la forma que vamos a iniciar tímidamente es
+simplemente con una multiplicación de matrices.
+Vamos, aar nuestro input que nosotros lo vamos a llamar x
+entrar w, que van a hacer nuestros pesos
+y vamos a tener un beques para hacer nuestro sesgo o per ah,
+para eso también necesitar una función
+de activación en la cual nosotros elegimos la del signo o,
+o sea, básicamente cuando nosotros tenemos
+una respuesta negativa,
+daríamos un menos uno en el caso de que sea una respuesta
+positiva, los ceros con cinco, digamos positiva, no?
+Entonces podemos definir cómo aquella
+aquel mi primer precepto,
+aquel que básicamente aplica el signo a aquello, eh?
+La multiplicación de nuestros x a nuestro input con los
+pesos, no.
+Entonces acá tenemos la primer tabla de verdad que vamos a a
+hacer que vamos a nuestros x donde eh, cuando eh,
+ya okey, bien, eh,
+donde solo en el caso de que ambos sean positivos es cuando
+me dan positivo en el caso de venir,
+ambos sean faults o cero, re va cero.
+Y cuando uno de ellos va a
+solo uno de ellos que es true va.
+Ah, entonces nosotros, de alguna manera,
+en nuestro primer intento,
+podríamos representar nuestro x con uno
+de poner un ta, por ejemplo,
+que es este menos uno de acá por donde este uno acá
+Podemos hacer, lo podríamos después.
+Acá tenemos el resultado, no menos uno menos uno menos uno.
+O sea para el CE CE, para tener menos uno para el CE,
+uno para tener menos uno para el uno
+CE para tener menos uno.
+Y sólo para el uno uno para tener uno nosotros al principio,
+simplemente vamos a multiplicar un x por un w, no?
+Si dos solo tuviéramos, ah, dos, dos, input,
+dejaríamos del lado el c de uno, simplemente un
+un lugar auxiliar para dejar el lugar al se.
+Tal manera es si multiplicamos x por estos pesos,
+se con cinco se con cinco y menos uno y aplicamos el signo.
+Deberíamos tener este resultado.
+Dicho trabajo, otra manera,
+nosotros hemos que encontrar aquellos pesos que he
+multiplicado a nuestro x nos de nuestro resultado,
+nos simplificamos con la función signo de tal manera de que
+si el resultado de esta multiplicación está cero más la uno
+y si da menor que cero,
+lo transformamos a menos ahí.
+Todo bien Pasado todo con pay.
+Así que que gustamos.
+Y lo que vamos a hacer es definir esta propia de función
+de signo, no?
+Cuál es el tema? Es de que tor ya tiene el signo ah,
+pero se comporta un poquito diferente a lo que nos esperemos
+otra, la definición de signo y probablemente la que vayan
+a ver ustedes, toma Matías.
+El lunes dice de que en el caso de que el valor sea mayor,
+igual que cero, da más uno.
+Y en el caso de que sea menor que cero, da menos un
+la función que hay nativa de pay torch de signo ocurre de
+que en el caso que sea cero,
+devuélveme ose es igual simplemente que en nuestro caso
+particular, sin nuestra cuenta da exactamente cero.
+Devuélveme para eso.
+Entonces definimos una función de esta manera.
+Ah, el bueno,
+lo acuerdo de la clase pasada es dependiendo así esta
+condición da true, devuelve esto.
+Si no devuelve estamos bien
+de un aumento un poquito más.
+Estamos bien. Entonces podríamos ver, eh,
+no sé, vamos traer un eh auxiliar que es un
+tensor em torch tensor.
+Y digamos que tenemos, no sé el eh,
+menos menos tenemos
+y tenemos, eh, 0.5,
+En qué divis se pone por defecto?
+Qué tipo tiene esto o si me acuerdo,
+puede que hubiese pasado s.
+Y qué tal puedo tener aquí lutes no exactamente.
+Si quieres queremos hacer un poquito más precisos.
+Es en flow 32.
+Ah, si pusiéramos simplemente enteros,
+hay que tener el cuidado que hay ya no es.
+Entonces lo que quiero hacer es para mostrarle de por qué
+hacemos esta función obligar de signo
+es auto utilizar el torch
+sign house y que nos va a devolver
+menos nuestro perfecto.
+Y si utilizamos con nuestra función
+maravillosa que no tiene que dar
+Es Eso maravilloso.
+Vamos A entonces que tenemos de alguna manera resuelta
+en nuestra función signo lo único tenemos que resolver ahora
+es bueno la multiplicación de matrices.
+Ya tenemos nuestro x que va a ser nuestro input.
+Tenemos ya los pesos ya dado.
+O sea, entramos tímidamente y yo les voy a dar el peso.
+Tal vez les voy a apoyar que para las otras operaciones,
+ustedes tienen que empezar a descubrir
+cuáles peso nosotros necesitamos.
+Y después vamos automatizar como descubrir dichos pesos.
+Entonces, acá me dice de que en el caso de que yo multipl
+no por 0.5, junto cinco y menos uno,
+vamos a tener un resultado.
+Ah, de esta manera,
+podemos tener otros pesos que nos den el morado.
+Si, sobre todo porque el si no,
+simplemente con tomar un número cero más, no va a dar uno.
+Y en el caso de sea ah, menos de eh,
+está menos de cero.
+No va a dar negativo por
+el peso de la simplemente voy a copiarlo.
+Y acá qué forma tiene esto? Como hacemos?
+Pasamos este at tensor este que w vean
+tenso.
+Esto es 0.5
+us cinco y menos uno era no.
+Mm,
+Dónde estamos poner el show 32,
+a diferencia de del de arriba, porque
+tirando conceptos de la clase pasado
+también me echamos todo.
+Qué pasa si yo le saco el test?
+Está y paga claro menos que yo.
+Pongo un punto acá para a impedir ah,
+no hay inferir tu punto flot tanto.
+Así que en esta can problema, porque es que efectivamente,
+con el 0.5, ya voy a inferir que es un flow 32
+Para Multiplicar matrices.
+Hay dos formas por menos dos o no.
+Una que descubrí el muerte pasado un pasado
+cuando fue el 21.
+Ay. La típica es torch, eh
+matm, eh, mat Mull.
+Y ponemos j y wn.
+Este caso no va a dar menos uno o menos
+con cinco menos con cinco.
+Obviamente a esto es lo que le pasa falta todavía es pasando
+por la función signo y otra
+es hacer x.
+Entonces, favor, medio equivoca.
+Cómo okey.
+Así que no sé como con qué team somos o
+definir el team de semestre.
+Perfecto. Te lo dejo ahí, nom más para tenerlo.
+Los online están escuchando bien, aumento. El volumen
+No está perfecto.
+Está bien, gracias. Escuchas bien, paquín
+Perfecto. Entonces,
+ahora sí, vamos a tener como
+empaquetar toda la la función a donde tenemos que no solo
+multiplicarle sino pasarla por la función sin no que
+nosotros habíamos hecho antes, por lo cual
+tenemos nuestro input vamos a ratum que
+signo d.
+Input o tor mam
+d, qué dos cosas
+vamos a tener nuestro w.
+Si. Todo sale bien, nuestro b y estaba definido sí,
+Ya sac. Bien, ahí
+Lo los mismo son los pesos.
+Los son los los pesos.
+Sí. Yo sé después lo
+Sí, pod. Podemos hacer
+una función operador y le pasamos los pesos y
+el cosa y como, claro,
+Me ha perder que nada la cabeza
+No tenía que d menos uno menos uno,
+cuanto veces d menos uno
+menos uno a menos uno menos uno, uno.
+Y exactamente nos dio Menos uno
+menos uno menos uno.
+No. Fíjense de que
+simplemente lo que dice es a la operación anterior le pase
+la función signa como igual esto quedó menos uno,
+esto quedó menos uno, esto quedó menos uno.
+Y esto quedó uno Arlo también de otra manera.
+Este lo que hace
+es multiplicar, por ejemplo, este por por 0.5.
+Este por 0.5 en total.
+A mí me va a dar se como más cinco positivo,
+pero le voy a arrestar menos uno
+del peso me va menos uno cinco.
+Entonces me va a quedar menos uno
+una cuenta porque multiplica se con cinco con por CE
+acá paso lo mismo es cero con cinco positivo,
+pero el menos uno las pasa, me da menos menos cero con uno.
+Y en este caso, uno y uno me va a dar uno positivo,
+pero el resto uno me va a quedar cero.
+Pero el signo como el cero lo pasa.
+Obviamente estos no son valores únicos.
+O sea, yo puedo tener otros pesos de
+w que me puedan cumplir.
+Cuál podría tener
+oh, tirar ahí,
+no de incrementarlo para probar no más tres y
+7.3.
+Me daría menos menos con cinco menos con siete
+menos dos, por ende.
+Y todo acá me da mal de incrementarlo.
+Parece que no es la la dirección tales.
+Quién eh, a ti ya estabas
+Está por un poquito de lay.
+No sé quién me estaba hablando.
+Tres, siete menos
+1.3, eh?
+Siete menos uno. Bueno, no acá, exacto.
+Da un resultado. O sea,
+este queda pa quedar menos uno va quedar menos uno pa quedar
+menos uno y en uno positivo.
+Si ambos son menos siete también no va el resultado.
+Entonces estos van a dar negativo
+y pero acá también va a seguir dando el número ocho.
+O sea, no hay pesos únicos para
+resolver una misma operación.
+Okey,
+bueno, probablemente digan bueno,
+a mí no me gusta mucho que el x contenga ese uno simplemente
+auxiliar para contener
+el sesgo capaz que estaría un poco mejor,
+dejarlo un poco más separado.
+Y para entenderlo un poquito más.
+Y para eso presentamos una segunda forma donde el x solo va
+a tener los valores que efectivamente
+puede tener la tabla de valor.
+Y vamos a tener el sesgo por separado.
+Vamos, vamos a implementar exactamente lo mismo.
+Simplemente tener el sesgo por separado.
+Entonces les me dirá qué valores va a tener el wm y
+el b
+Y b no.
+Perfecto. Vamos a tener punto.
+Y este vamos de tor tenso
+y o ponerle un eh menos uno.
+Vamos a ponerle un detalle de ah, torch
+los dos.
+Bien. Y ahora como, eh, haríamos el agua,
+Hay que multiplicar el input por el w
+y y después por el menos uno por el.
+Voy a dejar el valle, no
+Perfectamente.
+Vamos a torch mall
+implica por nuestro input por nuestro w.
+Y vamos, vamos a sumar nuestro bayas.
+Vamos que queda como un poco más.
+Ah, visual, falta algo que no perfecto o
+transfusión signo.
+Y ya tenemos implementado nuestro
+Amoc Y quien sé que,
+por ejemplo, para ta también traer un tema la vez pasada es
+acá el b, por más que no tenga el mismo shape
+que la operación de m.
+Mull que tiene como resultado este cuatro uno.
+Y acá tiene este es un escalar.
+Si he podido hacer operable bajo bro casting,
+recuerda que era el broca broadcasting
+por operar dos sensores diferentes que no tienen la misma
+dimensión haciéndola todas las reglas que habíamos visto.
+La clase pasado yendo esto,
+seguimos dando dentro de el esperado menos uno menos,
+no menos uno, uno.
+Y acá donde los dejo un poito,
+ustedes donde tienen que a implementar la el
+or está que lo van a hacer de dos formas diferentes,
+como la primera en la cual el el bayas o el seco va a estar
+al principio o parte del x.
+Saben que el resultado es menos uno uno, uno, uno, no.
+Porque solo en el caso de que ambos sean falsos también
+tiene que dar negativo o falso.
+Y si alguno de ellos al menos es positivo,
+entonces también me va a dar tú el resto.
+Lo que tenemos que ver es con qué pesos yo puedo, ah,
+implementar esto, eh?
+Empieza a correr. Déjame ver un se, sí, claro.
+No, no estoy o más
+más acá.
+Ay, no puedo afrontar esto. No.
+Bien, Bueno, lo pasmos ahora.
+Ah, cinco me menos 10 minutos.
+A ver si pueden lograr implementar el or.
+Ah, con los pesos.
+En este caso, en esta forma, necesitan tres,
+porque es para los primeros dos más el seco tercero
+y después le implementan con la otra versión
+que, bueno, ya tienen los pesos.
+Exactamente lo mismo. Simplemente que lo ponen de la forma
+con el sesgo separado, no sacar el desafío es,
+pónganse a pensar primero qué peso yo necesito para que ah,
+bueno, la suma y con su multiplicación correspondiente,
+me dé ah, mayor, mayor,
+igual de cero en en todos los casos en los
+últimos tres casos.
+Y me dé negativo en el primer caso.
+Bien,
+vayan ahí en casa, haciéndolo
+y después podemos hemos puesta a punta y 35.
+Bueno, si empieza a terminar mucho la gente antes,
+eso hacemos
+muy sí.
+Empezar con
+eh tiene la fin.
+Sí, baja, lo Eh
+sea, sea difícil.
+Exacto. No te va a pasar de que ya menos las fumo
+ya.
+De las forma. No voy a hablar, pero vamos a, no
+viste x siempre es uno o CE por caso.
+Bien, porque es una, puedo dar un mis sí,
+pero nosotros definimos que va a ser siempre bueno en este
+qui siempre definimos con de y dos.
+Eso tiene algo que ver porque después se multiplica y tiene
+que ser el tipo si, si, si no.
+O sea, aunque solo sea x o que est compuesto por
+tiene que tener el mismo tipo de nuestra mismo probable,
+no?
+Sí, supongo que es porque, o sea, mira, pero
+es porque si, si no, ten tiempo
+y para hablar con una experiencia tiene con bien,
+si, si vas a la operación este
+sí, mi amor,
+o sea, prefieren claro o entonces
+a ahí
+yo tenía cabo, pero podemos cambiarla.
+Lo contrate. Puede ser este fo punto más no light.
+Algo contacto con tal así.
+Así a mí, el
+vue s.
+Ah, claro. Ahí ya lo cambió ahí. Todo nube en rosado.
+Están en blanco. Esto rosado,
+todo con él es encuestado.
+Y
+ese, ese no se la para nada.
+Es
+Muy
+ahí.
+Te llam como pero estamo no
+este o este vue.
+Otro anterior es, es, tiene un ahí
+igual escena.
+Vos ahorita más el
+está muy bien ahí de no.
+De acuerdo con su nombre. Sí.
+Ahí mejor meto en la
+sí.
+Sí, no,
+no va a hacer la idea todo el
+pero no para.
+Por
+Bien, No
+la calle porche pequeño.
+Bueno, ahí el primer caso.
+Te he dado menos una no el no te dado. Ah, claro.
+Pero sé lo positivo.
+El no va sin el signo
+antes de pasar por el signo.
+Te va a dar menos uno CE CE.
+Y fue el signo el segundo, un
+así
+un ejemplo, cuanto nada,
+qué tiene construcción?
+Sin contar los pesos le para que
+una sala de lo
+cómo tuvimos con esa
+no
+me hizo yo no por
+en de uno
+le
+te una pa de
+CE
+la de
+tan y perfectamente por
+pero si,
+como todo lo valor posible puede entre
+uno, sí, básicamente más cuanto
+no cambias simplemente das de fabricación.
+Si digo tenga a esta por uno,
+no haga efectivamente de otro lado.
+Nosotros encontramos el peso que en cuando la en
+ahora, en pero que
+el fue de persona también una como última, una
+súper ya está moviendo en
+que al final son peso, no
+antes de ahora eso quiero.
+Está bien, en encuentra si acá
+ese ví buena la proyección
+se va perd ver si.
+Bueno, a buscar que para que
+laun para diferente.
+La quería que llamo
+mismo para el
+todos sumamos a posi el caso del dolor.
+Bueno, alguna
+siempre me
+pero nosotros
+pa, en para esta claro,
+por cal.
+Uno después cuando se va dar un después menos
+o pero hay
+algo, todo esto es uno no, bro.
+Perdón. Uno uno, no. Sí, no.
+Este este acá
+es peso, peso.
+Son el claro. Pero hay
+sería cero más cero.
+Era cuando cada variable más variable uno, poner uno uno.
+Sí, eso
+menos.
+Y se puede aplicar a para, claro.
+Pero este ah no con con cinco menos uno.
+Y lleva menos yendo con ese lado para vernos.
+El se produce para ah,
+estoy mirando el con ados claro,
+ese d de persona del cuanto la otra vez de
+porque quería dice que
+que acá ya ahí.
+Acá este algo comentó mat, ti así el famoso
+no podía podía y pop
+años 70 demostraron que sí,
+los inviernos qué pasa?
+Ela eso si vos puedes dibujar en el plano.
+Sí, sí. Con ordenadas.
+Y con este un cu los puntos en uno, sí y y no to cero.
+Y básicamente has un de esos encontr la línea recta
+que puede dejar del mismo lado, los puntos mismo color
+que está el lado porque cuando vos hace básicamente do le x
+más b igual cero,
+sale pas hacer una recta cuando do le tiene doses.
+Sí. Y do, el cord do de pesos es
+la es la normal de la recta.
+Vos es si la recta es el velo que único te hace es el día,
+okey, te la mueve la rey.
+Sí. Yo te dan siempre no, claro, claro.
+Como hacer no leve x. Sí.
+Y no dimensiones por lo que tienes y sacar el día.
+El día cero, tengo una recta.
+Lo pasa por siento por nada eso
+lo único estás haciendo es la aplicación la x, la ahí
+donde igual es, es y igual x
+una constante que la consciente entre dos,
+los dos, los MXN $2.
+Dos. Estás haciendo buscando una recta como el jugador
+hierro, por qué?
+Porque a persona es sign lo único que hace
+es poner un valor.
+A lo están un lado, una recta. Sí.
+Porque y otro valor la rec quiere
+por lo estás haciendo eso diciendo eso, dame lo de x más b.
+Sí. Y si es mayor que cero y cuatro valor,
+solo un lado de la tan cero está en el medio.
+Bueno, entonces lo estás haciendo acá. Estás comp.
+Concluyendo el para line en este equipo, los
+léor lo pone el punto de léor en loés
+para la relación soy nunca podés des dejar de un modelado.
+Pero Gus poros totalmente.
+Tiene una recta en el medio que te quede
+lo los dejan cruzados.
+El lectores CE CE, no.
+Cuando uno y el otro es
+no tenéis forma de cruzar la recta es de pa.
+Porque el fa Trump,
+que es el primer algoritmo que el señor ros en
+una una recta que se separ los rojos de la
+hacen la renta que hicieron la nueva solución y no para el
+la van a dar que su recta separ
+y cualquier recta difícil le tiene un
+poquito se mu un poquito.
+Ya este dos segundo
+ahí la institución sería preferida.
+Ese para ahora igual estaría
+ver si doblando el plano se decir una solución, por ejemplo,
+que el madad es los puntos rojo.
+Le levanto mira tu un carne pasa un
+una dimensión que es ser para
+por eso decían que ponga capa mano.
+Sí, me capa más levantar bien, sería,
+podrías una forma de levantar el francés?
+Sí. Bueno, una de la forma más conocida que eh
+que vi por lo menos entre algunos alumnos.
+Hay otras soluciones de otros pesos.
+Es, por ejemplo, poner uno uno menos uno.
+Ah, eso hace de que, eh, eh?
+Cuando valgan cero, los inputs, la suma va a dar cero.
+Y el sesgo va a dar negativo por el menos uno.
+Y cuando uno de los dos nom más es positivo.
+Va uno, sí, ya va a arrestar menos uno va a quedar en cero.
+Pero el sí no lo va a levantar a eh uno.
+Y en el caso que ambos sean positivos. Esto no va a dar dos.
+Le restamos menos uno ya no va a quedar en por ende,
+uno de los pesos posibles es uno, uno o menos uno,
+pero he visto a otros también.
+Ahí vamos a
+rot, eh?
+Signo de eh, torch junto
+Mull, donde nuestro inpu y nuestro
+no, pero
+No. Y efectivamente,
+el único que nos da negativos es cuando vamos input tan
+es por
+Eso Después, para las otras formas es,
+es exactamente lo mismo,
+simplemente que separar ahí tomamos
+Acá
+peor, muy famoso por tengo chi.
+Y Lamentamos mastro sí,
+Tema.
+No sé
+La manera
+de x.
+Tenemos nuestro input simplemente con los valores que tienen
+nuestras entradas, todas las combinaciones, nuestro x.
+Tenemos nuestros eh, nuestro w.
+Tenemos nuestro bayas y la fun no simplemente
+separando, eh?
+La multiplicación matricial por eh país,
+poner por valle.
+Y entonces vino el terror.
+La época, la época pura,
+el invierno se donde el que no pueden nombrar como llamaba
+el de Harry Potter nombr el
+innombrable me apareció en la en las tierras de de la ía
+bien, sí, sí,
+no, nada.
+Tanto el de bueno viene el tema me entró. Está bien, vamos.
+No es tu chiste? Sí, sí, sí, ya sé, ya sé.
+Ya sé, esto es fácil hablado de recuperarte mi ch, eh?
+El tema de leor. Ah, la tabla de verdad de leor es solo, sí,
+uno de los dos es true.
+No puede pasar de que ninguno de ambos o ambos que ambos
+sean fos va dar fos.
+O sea, ambos dan fos con fos.
+Y si ambos dan true también dan fos parece un poco raro.
+Es o es el uno o es el otro?
+No es después de te dan un ultima o es el uno o es el otro?
+Bueno, ese es el leor, no
+el gran problema que tiene el leor y que gran parte de la
+historia bueno, lo nombraron un poco con Matías.
+La historia, eh? Bueno,
+es que vino una época oscura porque se
+demostró que no es linealmente.
+Separable. Dicho otra manera,
+es imposible que ustedes se encuentren los pesos de acá de
+tal manera que se pueda obtener este resultado.
+No? Bien, se un rato ahí pueden probar
+no, esto no me va a ganar.
+Sí. Porque eso es
+con invierno no decir el el principio en principio,
+el el casaamiento que se hizo
+nos puede hacer un caso simple.
+Sí, muy entonces no, no tiene tanta potencia.
+No va a poder re resolver caso completo, cierto?
+Era en la época donde la a alcoholismo
+unos poco primo que había el perdón, eh,
+está paga calcular esa frontera, eh?
+Se rosa que era en origin, no era software, era
+y si la fo de la está parado al tanto un pan lleno estable.
+Sí. Y después se pasó a pasó.
+Pero está la idea de que pmos parado lineal es
+el que estamos en nosotros.
+Sí, es el parado, pa.
+Vos, haces eso que tenéis la pasión de borde. Sí.
+Que lo le x más b que dos dimensiones.
+Una per los x más b igual el cero.
+Son todos los puntos que están aquí de la red. Sí. Sí.
+Entonces, cuando vas hacer el cálculo, sí, de de un vector.
+Sí. Y te da positivo.
+Sí, que sí, que el ángulo tiene ángulo. Sí.
+Que da algo positivo.
+El del coo es un autocar, es, es.
+Y te entonces que dice que este que los tres ocultan un lado
+de rey, la cámara y queda entonces dice línea.
+Entonces, si dibujo es el dibujo del exótico, cuál?
+Las 11 x ahí que son las variables lógicas? Sí.
+Y de s digo uno en un color están objet en uno
+y otros están cual entonces no pod encontrar
+una una recta pa.
+Dicho entonces, vos lanzase.
+El algoritmo te parece otro no, también no
+te pasa ajustando ajustando no,
+no decir solo funciona cuando son ya mayormente ese palabra.
+No me pongo en una algo más moderno capaz el tipo te pones
+como más en la mente de ese.
+O sea, nosotros ya estamos hablando de economía.
+Pero el tipo nosotros apostamos a una determinada tecnología
+porque especulamos que va a crecer imaginate que vin a
+alguien y diga matemáticamente es este es el límite de ser
+el ms y tipo no va a ver porque hay una demostración
+matemática que va a hacer que pensaba que va a pasar con la
+bolsa que apuesta tan a ella a bajar.
+Entonces estaba en una menor escal no parece que como que
+tipo parece no parece tan catastrófico este tipo de cosas.
+Pero si, si, esto no, pues se morgue, no, no,
+no hace algo tan simple como esto, porque haría algo más
+por decir cuando, si vos pedir el vídeo en época y cosas ya
+esto trabajaba la las madre de estados unidos
+y tanto McCarthy.
+Y Mickey no tiene un error.
+Todos decían que en menos de 10 años
+ya se con uno claro.
+Sí que iban a resolver el problema de de razonamiento humano
+noea ahí una entrevista famosa de él.
+Habla ya habla ya. Ahora que decir
+hace eso rosa la ciza y no, sí, eh, es,
+eh, eh, McCarthy eso mismo miey es lo mismo todo.
+Come un error. Es el que inventó Simon.
+Igual el el program programa de checkers de damas. Sí.
+El primero que tener el con lo mismo hay una ley y y ahora,
+a lo mejor de nombre y su humano somos muy
+okey, muy malos, eh?
+Estimando el tiempo que somos sobre lmos las tecnologías.
+El cuarto caso y la subestimamos a la largo caso.
+Sí, creo que está mala okey.
+Le más Bill Gates,
+hijo que eso sobre estimamos lo que puedo hacer en un día y
+sobre estimamos lo que podemos hacer en online.
+Claro, eso se puede llevar la teología? No.
+Entonces eso el problema, todo robado o muchas otras cosas.
+Eso es un problema real.
+Tiene a los fiadores de la intendencia artificial.
+Es decir, a vos poco que es la credencial corre.
+Nace como simbólico, no? Sí, no como conexion.
+Estaban pensando que el razonamiento se
+se se atacaba al lado de lógico.
+Okey. Poco eran un conexion. No?
+Oh, ahorita sí.
+Benítez cabrera se anfibia
+trabajar geno custodio sí renardi
+nutra los acá González
+guerra acá al aero quién dars
+in you loez sí, magnífico.
+Sí, ma, sí.
+Morón acá mucio
+sanez y sanetti
+Sanetti y por zoom.
+Ah, por y Capone por zoom también
+Capone.
+Sí, por zoom. Gracias. Gracia
+Era una época de donde la gente que invertía había muy
+poca gente inicial.
+Muy poca. Sí.
+Y lo que lo invertía más era lo era
+el gobierno de estados unidos.
+Sí. Los departamento de defensa armado. Sí. Si mucho futuro.
+No hay, no
+hay entrevista macte que mascar se padre es
+uno de los padres de oficial.
+De hecho, inventó la palabra y y luego se arrepintió.
+Sí, que decía que vale.
+El el único que recreó el única
+c ocupación que creyó de entrada en judicial fue bien, tal
+es el único que vio el potencial.
+Nosotros, de hecho, el para de te del 50 dice
+él fue contratado por ya en
+para trabajar en el negro conocido conocido cada uno.
+Y de hecho la la la la la
+es dout donde nace el la palabra de el que se junta.
+Sí, no concluyeron nada porque cada uno mismo fue lo que
+quería que lo estaba haciendo después fue
+al principio, era esto no era
+y después ese de libro perrón de de popes lo del leor el le
+le puso la cruz me pin.
+Hacemos una pequeña pausa,
+pero ya les adelanto que los primeros minutos te vamos a
+dedicar lo que es el no han
+no por la parte negativa.
+Van a tener tablas de de verdad.
+Y de la más manera de que leor tiene el problema en
+negativo, tiene lo mismo.
+Simplemente vamos a implementar esto
+acá en los primeros minutos.
+Lo vamos a hacer, eh, durante a esa segunda hora.
+Es bueno, cómo podemos automatizar esto con un red ra?
+Cómo podemos hacer el leor?
+Pero ahora con un redes neuronales. Ah.
+Así que implementamos en las tablas después ya nos olvidamos
+de inventar los pesos o hacernos la mano.
+Y empezamos a efectivamente a celular.
+El problema del leor para para introducir redes neuronales
+sencillitas con pay to vamos, hacemos una pausa.
+Son y 55 volvemos y cero cinco.
+Bueno, vamos siguiendo a todos.
+Todas las persona afectan me
+bueno,
+la
+ahora mejor no que
+bueno, lo lo que vamos hacer ahora es ahí queda
+unos minutos.
+Simplemente el no tan el not.
+Y no vamos a poder hacer pero eso quieren probar porque no
+el not no es exo.
+No, no cambiado
+el no tan tienen esta tabla de verdad acá.
+O sea, eh, solo en el caso de que, eh,
+ambos sean true pagar Falls y en todo lo contrario
+va a dar true y el
+or es solo en el caso de que ambos sean negativos,
+te va a dar positivo.
+Vamos De una sola forma.
+Tres por tres o por uno la que ustedes quiera.
+Pero haga solo una.
+Ahora ya pasamos ya de lado, como vimos kilo uno kilo dos.
+Ahora elijan uno si es con el bayas incluida dentro del x
+o el bayas incluido.
+Ah, por separado, pas.
+Hacen esas dos y después pasamos directamente a
+a percept multi cappa o red.
+No Pasó online. Atendían la cocina.
+Sí, perfecto.
+Estamos unos mintos de ahí ya va.
+Si puedo comentar estos dos dos
+Quiera
+Están
+En es elo.
+Sí, por eso sí.
+Esta ah, no está en no un pool
+También.
+Y esta la carpeta llama esto también.
+No hay un problem. Entiende.
+Raro, Raro. Sí,
+Quedó loqueado ahí
+No me quiero una combinación menor que
+funcionaba sin querer se cambié las cosas.
+Me cumplí de no que cambié el nombre de la me cambié un
+valor si pensaba y empezará no valor.
+Y cuando me dinero hay pensando maestro
+y trabaj sol.
+En qué?
+Del mismo mismo clase?
+He dicho
+eso.
+Te p abajo. Caso,
+no, este no lo toqué.
+No Menos
+curiosidad, eh?
+Y
+no,
+cuál es?
+Ah, okey, el
+ah, no,
+eso no, no.
+Pero el que este uno
+además
+pasó este acá tiene
+después lo que hice fue poner la misma
+lo no ahí.
+Si. Si, si. Los el x que tenga tres valores por siempre el
+sí.
+Entonces, qué valores pueden este
+de cosas sea cero.
+Perdón, Perdón si cualquiera no,
+No. Sí,
+pre,
+si esto da uno, esto va a hacer cuando pasa.
+Sí, problemas cuando son mira, tenemos sí,
+igual me acuerdo, te cero.
+Eso. Pero exactamente
+si cualquiera us no
+son
+habla, negativo, habla.
+Te hace los valores.
+Otro que qué? Y cambi
+sí, yo.
+Bien. Y la toque.
+Y ahora
+cuanto paso la verdad abajo
+puede
+aquí
+es muy fácil.
+No
+estamos con lo lejos.
+Algunos pesos acá, algunos otros cambio,
+pero con el no han
+pero que es el el negativo de lo que
+habíamos puesto anteriormente.
+Menos uno menos uno y uno.
+Estaríamos cumpliendo con la en la tabla de verdad?
+Mientras que en el or tenemos acá menos número menos.
+Y también obteniendo la tabla de verdad.
+Si le pones en vez de cero por le pones uno el mismo
+no,
+lo que vamos a hacer ahora es resolver el leor, pero
+no con su incremente una multiplicación de matrice sino
+técnicamente no me
+con las dudas quien no se dieron cuenta el el note exor es
+en el mismo problema que el exor no pueden encontrar pesos
+para ah, implementar el exor no,
+no me tenemos bien,
+ahora vamos a ser un preceptor multi cappa una red neuronal
+bastante pequeña para resolver el problema que
+no pudimos resolver antes.
+Um, que es el ah, el exor ah.
+Entonces en esta línea acá ponemos de vuelta a las entradas,
+eh, ya vamos a utilizar en este caso.
+Ah, sin el se, sin el bayas sea cero cero.
+Nos tendría quedar cero. Uno tendría quedar uno uno cero.
+Podría quedar uno y uno uno nos tendría que dar uno.
+No, esto lo podemos, eh? Cero.
+Perdón, sí, cero.
+No es simplemente pon poniendo la a la tabla de verdad
+con lo que son las entradas versus las salidas espers bien,
+vamos a ver, vamos a ser una una red neuronal, eh?
+Que sea bastante sensible, simplemente con dos capas.
+Y vamos a dar dos formas diferentes de poder hacer no capaz
+que hay hay uno que le gusta, eh, utilizar el secuencia no,
+sobre todo para cosas que son no muy compleja.
+Y efectivamente hace una cosa atrás de otra.
+Podríamos utilizarla.
+De hecho, para algunos módulos que vamos hacer en algunas
+clase más adelante, podríamos ah, hacer eh, secuencial.
+Pero la forma más tradicional de ser una red neuronal es
+definir su arquitectura Neil y
+definir cómo tenía pasar en el four.
+Aquellos que estuvieron en el semestre
+pasado, esto ya lo hicieron.
+Simplemente hicieron una red un poquito más compleja con ah,
+redes convoluciones.
+Pero definieron si una una red neurona para eso,
+vamos a definir un ah, self una red, eh?
+Una una grapa lineal tiene punto línea
+línea donde nosotros como entrada
+va a tener a dos elementos para lo que ya saben,
+esto lo van a a pero lo pueden relacionar
+nosotros podríamos ver, ah, cada uno de estos elementos,
+como si fuera un elemento del Bach o menos que Bach son
+cuatro casos.
+Ah. Y los valores eh disponibles es cada uno de
+ah, los valores de verdad que puede tomar nuestra entrada,
+por lo cual nuestra entrada entra con dos neuronas y lo
+podemos sacar a bueno, acá ya viene la imaginación.
+Cuántas neuronas necesitamos que tan profunda sea.
+Pero la forma más sencilla por de que tenga dos neuronas,
+vamos hacer nuestra capa de salida
+a que también va a ser lineal.
+Qué va a tomar las neuronas anteriores como input?
+Y en este caso, nos vamos a querer una sola salida.
+O sea de nuestro resultado que tenemos acá.
+O sea, de esta entrada de acá,
+vamos a grab traer un solo resultado,
+por lo cual termina en una sola línea,
+no componer esta funes sin una función de activación, eh?
+No, no terminamos, eh?
+Es como el problema que es más complejo,
+pero terminamos en el mismo lugar.
+Entonces tenemos que utilizar alguna función de activación
+para poder desdibujar la lineal calidad.
+Algunos casos son, por ejemplo, si
+o lo que podríamos utilizar también en en muchos casos,
+clases venideras es relu,
+otras funciones de activación por en en el forward.
+Lo que vamos a hacer es tomar nuestro input y
+decidir por alguna manera, ah,
+explicar o programar la forma que tiene que pasar los datos
+de nuestra entrada el x a través de la red.
+Pues vamos a tomar un x igual a to
+si, mo t ser
+input de x.
+Ah, muchas veces cuando se define el forward,
+ya se hace la función de activación y la ah, la
+y pasado por por esa, por esa capa en la misma línea.
+Pero perfectamente esto lo pueden hacer en dos líneas
+diferentes que queda como más que esto es x igual a
+ser punto input de x.
+Y pues x igual a si
+de x, sabes como que de alguna manera está pasando por menos
+por la capa ción de activación COPAA, función de activación.
+La segunda va a ser ser
+output de x de vuelta.
+Siempre necesitaba de alguna manera sobrecargando la
+variable reemplazando la variable de entrada.
+Y terminamos, por último, con un sí moi también
+mucha de las redes o por lo menos parte de las redes de una
+manera hacen cosas en forma secuencial.
+Esto a medida que nosotros vamos a ir avanzando durante la,
+oh zoom a bien, a medida que vamos avanzando en el curso,
+vamos a agarr un poco más complejas que no son simplemente
+lineales, sino de que van a tener algún tipo de vuelta.
+Van a hacer arquitecturas mucho más complejas que no definen
+una lineal tipo cascada.
+O sea, nos vemos acá.
+Es literalmente, es, lo pasa por una red, eh?
+Una una cappa lineal después de una,
+si moi después de otra red, otra una capa lineal.
+Y por una, si moi,
+cuando nosotros vemos ese estilo cascada en mes,
+Fini una arquitectura de esta manera o un módulo, ah, una
+una parte de la de la arquitectura.
+Podemos utilizar el nn secuencia, sabes, es una forma más
+simplificada de hacer lo mismo, ir a arriba.
+Ah, pipeline es un pipeline. Sí, exacto.
+Ah, dónde? Acá ponemos n línea
+también la entrado a hacer dos y lo vamos a llevar a dos.
+Después pasa por una n, simo.
+Fíjense que es ligeramente diferente,
+pero es que al final hacen lo mismo.
+Esto es aplicar efectivamente la función simo
+sobre un resultado.
+Y esto es la capa sin de idea que puedes
+aplicarle a un resultado.
+Pasamos de vuelta a otra lineal
+que va de dos a uno y termina otra sim.
+O sea, estos dos codigo en particular son equivalentes a
+hacer uno o el otro, un equivoco, no
+Acá, si quieren, ponen el leor net,
+o sea instancia lo que es la red estaba acá
+que la red al final de todo es simplemente un conjunto de,
+eh, eh, capas en el cual dentro el sub peso
+son simplemente tensores.
+Al final de alguna la manera en cada neurona que está bu en
+está operando hace una multipl, una multiplicación
+matricial de las más maneras que hacíamos antes.
+Entonces, acá pueden ponerlo tanto el modelo que queda acá o
+si quieren hacerlo la la forma la otra,
+pueden hacerlo directamente.
+Estaba acá pod a definir nuestra función de pérdida.
+A veces creo que la van a dar el
+las próximas clase y con con Matías y definimos el optimizer
+es, es exacto como va a ser entre cero y uno.
+Este fíjense de que parece un detalle capaz,
+que es un los fluo de magia que pasa yo acá no tenemos menos
+uno y uno, sino tenemos CE vivo, no.
+Después vamos a ver cómo podemos transformar efectivamente
+ese cero en no menos uno como más o menos
+se pueden ir adelantando.
+Pero eh, si tenemos de de nuestra salida que da o o uno
+es justamente una una una clasificación binaria.
+Por eso una de los una v no
+es suficiente para resolver el problema.
+Si yo pu pondría menos uno acá,
+probablemente esto va una error signific
+ah, amos, el modelo um,
+tenemos ya nuestra función de pérdida.
+Tenemos nuestro optimizador.
+Qué es lo que es la responsabilidad del optimizador?
+Exacto. O sea, nosotros lo que hicimos en la en la hora
+anterior es tomar los pesos de cada uno de las matrices y
+calculados a mal, no como esto es machine learning,
+le estamos diciendo mira,
+si yo quiero este determinado resultado y tengo estar dos de
+alguna manera, puedo delegar esa responsabilidad de
+actualizar los pesos para avisa cerca a mi, eh,
+salida esperada a un optimizador.
+Dicho otra manera es cada uno de los pesos que va a tener
+nuestra las las capas lineales
+tienen pesos que pueden ser actualizados.
+Y la responsabilidad de quién va a ser actualizado en la el
+actualizador es el optimizer.
+Podemos, vamos a ver otros tipos algoritmos de optimización
+que van a ajustando los pesos a medida que va a entrenar
+un eh untraining Lupo un
+Una pregunta y culpa una pregunta, dale?
+Ay, ay. El la función de pérdida,
+eh que está la línea tres?
+Sí, Eh, el optimizador,
+cómo se entera de que está usando esa función de des pérdida
+Por el back?
+O sea, técnicamente funciona. Funciona de esta manera.
+Igual eso, todo está explicado
+en el extra en el grad optimizador va paso a paso.
+Qué paso cuando está haciendo a los pero a te la hago corta
+y después si quiere vamos a la a la a la esta clase
+En esa etapa solamente estás declarando quién es quién,
+pero todavía no exact
+Quién? Ah, okey,
+Quien va me entrenando me
+Tema adelante, art
+No pasaron pero vos tener que verlo primero con
+un tema de responsabilidad.
+Este es va a tomar una salida de que sale mi red.
+Un resultado que al principio es totalmente aleatorio porque
+los pesos son totalmente aleatorios.
+Y iba a decir bueno, esto, digo cero con siete,
+y tendría que haber dado uno esto tendría
+que haber dado cero.
+Y me dio cero con cuatro.
+Esto me dio, eh, no sé ocho con ocho.
+Y me tendría quedar cero.
+Son total total, totalmente aleatorios a los
+cuando utilizamos el backward, eh?
+La parte de acá lo que va a utilizar es y recorriendo la red
+de de la capa de salida hasta la capa de entrada y calcular
+los vera dientes o qué culpa o cuánto tenemos que acosar
+cada uno de los pesos para poder este
+eh actualizado porque da con una magnitud
+de tal manera de que ah, te dices si vos aumentas
+tanto este peso en particular te va a afectar
+tanto en tu salida.
+Pero el optimizer,
+el que toma cada uno de esos gradientes tan de vuelta en
+cada una de las neuronas y termina actualizando los pesos
+como tienes varias partes,
+el training look que hace vamos a tomar diferentes épocas o
+dependes interacciones de todos nuestros datos.
+Y vamos a poner nuestro en modelo en modo train y toda no es
+que el 1 de enero,
+y vamos a empezar a ejercitarnos para llegar a el próximo
+bolano, sino de que ah,
+va a cambiar el comportamiento de nuestra red.
+En otro caso, no va a pasar nada acá vamos a train.
+O sea, si lo ponemos y lo acabamos para
+para entonces diferente.
+Incluso creo que lo que ah programaba en el semestre pasado
+lindo que está cambiaste está está
+pero no cambié nada.
+Qué sabe? Está hablando lindo de mi co pero bueno, tarde,
+Bueno, perdón, perdón, me me señal el arma de lajust
+usted y me vine, perdón, perdón,
+Pero no pasa nada.
+Esto lo vamos a repasar sobre todo cuando ve veamos algunas
+capas especiales como el dropout que se comportan
+ligeramente diferentes.
+Si está en buen entrenado o buen buen modo de evaluación
+en otro caso en particular,
+como tenemos simplemente capas secuencias y se modo de
+ideas, no va a hacer ningún tipo de diferencia,
+pero de alguna manera tenemos que irnos como, eh,
+acostumbrando a que nos lo estén acostumbrados a de que en
+el memento de que efectivamente van a entrenar esté en modo
+entrenamiento de la misma manera de que cuando está
+evaluando est este en modo evaluar no, pero no,
+no cambia en sí este el algoritmo de cómo están entrenando,
+sino más bien como se comportan algunas redes alguna,
+algunas capas que todavía no vimos no,
+pero ya de una manera como los training look son ese código
+voyer play que mucha gente se puede quejar de pay tos,
+que es como que así es siempre igual,
+porque no hay un método train como lo hay en en otros
+frameworks, porque esto es como tan explico y es como que
+todo el tiempo hay que hacerlo para no
+importa el tipo de entrenamiento.
+Bueno, nos vayamos acostumbrando de que cuando estamos
+entrenando, pongamos a nuestra mo modelo
+en aquí.
+Sí,
+Por adentro del look.
+Me podría ir afuera cada vez que vas a hacer
+Está bien, se podría buena pregunta o tienes
+que Está perfecto.
+La pregunta sí, es por qué lo como acá es esto en realidad,
+si hay una hay una, hay una función útil.
+Es como, a dónde va a tender nuestro ah, eh,
+nuestro look de entrenamiento,
+y te puedes ir adelantando que vamos a ir
+hacia algo de este estilo.
+No, no es para ahí lo bien ahora, pero
+la training lo a medida que vamos a ver agarrando va a ser
+siempre lo mismo, no?
+Pero va a tener, por ejemplo,
+las épocas y en cada época vamos entrenamiento esto lo vamos
+a utilizar para todos nuestros nuestros podios y a de alguna
+manera vamos a seguir incorporando pequeñas cosas dentro de
+nuestro look de entrenamiento,
+por qué se pone acá y no a arriba.
+Muy bien, dijiste, es porque es muy probable de que cada
+tanto épocas de entrenamiento vos te interese.
+Por ejemplo, hace una variación recordaste la eh,
+o vas tener la train in los por un lado, y la va la
+la validation valid ellos dos, sí, por otro.
+No es bastante importante de que una nosotros estábamos
+entrenando, ir monitoreando mientras está entrenando esas
+dos los como se han comportamos.
+Ah, por ahí famoso por ah, lo fitting.
+Es una forma sencilla de darse cuenta enfiando quedándose
+cuenta de cómo están comparando a ambas ambas dos.
+Por ende, es muy probable que
+en determinados ebox o incluso en
+cada una vos quieras evaluar frente a la luz frente a tu la
+sed de validation.
+Y cuando gusta evaluando lo pone ese punto de val.
+Ah, entonces, efectivamente por las dudas,
+lo pone ese modo training porque es muy probable que en
+estas partes abajo, cuando vaya,
+vayamos acostumbrando allá agregando más cosas en nuestro
+código en algún memento, vamos a poner la evaluación de de
+cómo es defensivo.
+Es defensivo acá y de alguna manera para que ustedes se
+vayan acostumbrar desde código y de alguna manera va
+simplemente agregando cosas y no tanto moviendo
+esta línea de acá las siete, que es lo que hacen.
+Calcula la salida que hay en mis en
+hay equipo, los pesos.
+Exacto, eh, la primera vez que va a hacer hace el seco, no?
+Cómo equipo por el peso más del semo
+en en realidad lo que te pasa en que ca en en cada capa, eh,
+están los pesos y los riesgos así.
+Luego voy cada red a neurona en la parte del lineal están
+los pesos y los ccos hacen ahí forma.
+Exacto, exacto.
+Esta cayó haya has puesto en forma eso lo que ejecutar
+igual, o sea lo lo que hace es con el model x
+acá es lo que vos defines en el favor.
+Mejor forma por qué por después,
+con lo que vamos a hacer es comparar la salida que sacó mi
+rl versus la que yo espero.
+Y de alguna manera esto va a ser de que cuando llama el back
+en cada uno de los pesos que tenga mi rld va a encontrar qué
+tanto se relaciona con la salida o más bien la luz frente.
+Ahora soy que es un montón en concepto,
+pero después todo igual el vacu básicamente pase
+atrás en cada una del de de los pesos
+que tenemos dentro de la red.
+Y dice bueno, a este le voy a poner un determinado grad d y
+te puedo poner otro ar una hora.
+D no es lo mismo costar un gradient al principio de las
+capas o capaz que hay las capas más más obra fuera son más,
+más cerca de la salida que
+en un determinado grado de terminar es cam cambiar algunos
+pesos afecta diferente,
+dependiendo de las operaciones que nosotros
+hagamos a la salida.
+Nosotros, eh, te temos como resultado.
+Okey, como este vacu va a agarrar cada una de las neuronas,
+yo va a tener calcular el grad, o sea,
+qué tanto se relaciona a a ese peso con la salida que
+terminó dando o más bien la luz va vamos a ejecutar el step,
+que básicamente es la que respectivamente ejecuta los pesos.
+Hay diferentes algoritmos y diferentes est estrategias
+para a ocultar los pesos.
+El más típico es
+el sea es que d o el descenso de ardiente
+to te podemos haber algoritmos un poquito más avanzados,
+pero tri y luo es siempre igual.
+Pues lo que vamos hacer es más bien, eh,
+agarrar un tipo de problema, definir una mejor red que se ad
+a ese tipo de problemas.
+Y después el training lu, pero en general
+va a ser más o menos el mismo.
+Incluso son problemas totalmente diferentes, no?
+Y de alguna manera para de que
+esto no corra cuatro horas y digamos ni si ya están
+entrenando, está bueno que cada tantas épocas se lo de
+cuánto es la luz, idealmente,
+qué es lo que tiene que pasar a medida de que nosotros
+vamos, entrenamos la loz va bajando hasta que bueno,
+acerca de un número relativamente chico o lo que es
+aceptable para mí, para de que digamos que la red funciona,
+no está entrenado,
+pero el break es muy grande,
+muy bajito, no?
+Bueno, sí, a qué?
+Bien, ahí va bien, eh?
+O o aumenten en las épocas o aumenten el le rate que acá
+a uno No con uno estaba dando
+que es y lo que
+debería pasar a medida que pasan en las épocas
+va disminuyendo hasta este lugar acá
+de una manera mi salida
+o los pesos ajustados a medida le van entrenando,
+se va acercando más a lo que yo estoy esperando.
+Ah, de esta manera que yo podría ahora, eh,
+más de put de acá e imprimirlo.
+Cuánto esperan que vas acá vas va a, va a imprimiendo
+pri, eh?
+Out? Y qué piensan que va salir?
+Salir ctor columna con
+perfecto valores aproximadamente qué 11 perfect.
+Pues corremos y por lo que verán es yo le dije que mi salida
+esperada yo aspiraba que se acercara a cero.
+Y eh, se acercara uno y se acercara algo
+Es muy posible de que dependiendo como yo quiera presentar
+los datos a mí no me sirva.
+Yo diga no, yo quiero de que cuando presente esto,
+de alguna manera diga uno,
+uno, lo falta.
+Es de la misma manera de que cuando una red neuronal les va
+a decir yo que sé, eh, esta foto es una 85 percent.
+Un perro probablemente no le le pueden decir
+esto es un 85 percent perro.
+O decían de que antes determinado umbral,
+esto es un perro o esto es un gran
+o lo mismo puede pasar con probabilidades cuando l, l.
+M. Elige la palabra siguiente que va a utilizar
+así para que dice con un o percent de después de un ola,
+tiene que haber un mundo y pues, ampliar la manera o sea,
+las probabilidad sirven para varias cosas.
+Por ende, vamos a poder presentar
+cómo podemos transformar esto acá?
+Por último, tenemos que hacerlo lo están cerca de
+cero sean cero.
+Y lo que están o menos uno si.
+Porque vamos prestar un menos uno.
+Y los que están cerca de uno sean
+fun por un qué?
+Un round
+sí, así como implementarlo.
+Pero yo lo hicimos, que eso es el lugar
+menor que ah, es el lugar exactamente.
+Es un eh, torch
+web es un if esto afecto, sino esto.
+Y le podemos decir que si x es menor que
+podría ser menor que entonces imprima cero
+o bien lo transforme el vector al cero, sino en uno.
+Ay, vamos Ahora ahora así
+planteamos pri.
+No sé por qué me salta nada.
+Ese bueno, eh?
+Vos tal dos, eh?
+Fíjate si un rey lo cambiaste a uno.
+Sí, sí, de uno.
+Bueno, hacer entrenado ahí.
+Pero bueno, de esto, de que pueden llegar y decir
+se pueden decir su pareja para entrenar, vale,
+se entrenaron
+ahí.
+No, no pudo borrarlo o le bajo no le baja la loz
+a mí en la otra parte.
+A mí me me reclamó la la la salida
+cuando entonces,
+gracias, eh, ya voy a los present los online.
+Cuál es la duda? No,
+no sé.
+Habló ahí en el en la en el online? No.
+Si quería preguntar algo
+No.
+Y para haberme la segundo, vive una vuelta para no,
+ya lo pagan para el
+ahora.
+Sí. Ahora sí. Sí.
+Acá no
+pasa por la primera etapa que pasaste
+la creación de activación
+física.
+Claro, estamos, sí,
+no, no poner la forma
+decir más ejemplo, alguna
+correr montaña.
+Siempre
+la pronunci eso siempre.
+Si.
+Pero no ponemos el pero
+si me tiene
+pero
+de hecho nuevas si, que en realidad vamos a tomar
+esta
+cada pero en línea la
+tener entrada para metro es, eh, cuál
+no neuro y acaba ver dos
+cada uno se con hecho lo que los es.
+Le hace que salida del
+otro dos.
+Y mucho de eso dos saca una cosa
+la diferencia que dado dentro pasado
+especiales, lo que pasa es lo que tengo una
+después porque es importante que es un chino,
+pero básicamente lo que hace es de con
+calidad que teníamos sabes, eh, ahí
+tal pero muy estable de venimos nada.
+Qué tar no? Y mucho la la suve problema.
+Ocho capas. Y con cada eh
+alturas aban y mejor terminado el problema.
+Cuántas capas, cuántas?
+Todo eso va más laia
+teve ao elso un puede terminado.
+Experiencia decir termin capas.
+Podría usar muchas neuronas y ah,
+como mis más experiencia,
+podría tener una forma más.
+Pero de alguna manera la arquitectura está un
+no imaginar, no usar el esta lomo bien,
+a si lo más otra puede decir como que quiero esto es lo mí,
+el era el primer y así dije no, no.
+Pues vamos a hablar diferentes campos y pero pues,
+eh, te pero igual
+siempre cuanto la y modelo chino,
+la modelo chino será
+no
+siempre.
+Oh, pero
+hay que seleccionar la
+cel ahí.
+Bueno, hacemos una pausa,
+pero solo le digo lo que viene en la hora siguiente, okey,
+y que vamos a
+implementar Tress al
+O sea, vamos a tener los mismos los mismo cinco se va x uno
+y dos va a hacer nuestro input.
+Pero cuando yo le ponga a cero cero a mi me tiene que decir
+CE, o sea, la salida del la salida del
+or y la salida de leor.
+Cuando diga CE, uno me tiene que salir cero, uno, uno,
+yo después que etc.
+Que entonces, como estamos implementando las empresa en
+mismo tiempo, diferencia radicales.
+Bueno, su arquitecto probablemente no les sirva.
+Qué tanto sacando una hora de neurona.
+Entonces, de una manera, a ver si podemos ir mape
+no este esta.
+Ah, esta red neuronal con este resultado,
+lo que tenemos que hacer es tomar el inpu será cero.
+Es igual, es que tenemos acá
+luego par.
+Sí.
+Y las salidas van a ser diferente. No, esto va a ser cero.
+Qué entendimos?
+Uno, uno.
+O sea, es ese es mi, estas son mis x.
+Siguen siendo los mismos uno, uno, uno, uno.
+Y estas son mis salidas como est,
+haciendo una red para resolver los tres al mismo tiempo.
+No, ese es el desafío.
+Hacemos una pequeña pausa 50, y son 57.
+Y volvemos nueve, 10 largo
+y después volvemos para este ejercicio de
+Todo y mal
+es mi proveedor de claro,
+así todo.
+Sí, puede
+gu, no con
+todo.
+A ver si se más. Muy
+claro.
+Y mentira. Ah, rápido. Sí, sí.
+Si la igual
+hay nada puede, se fue.
+Adelante. Ah, sí.
+Cuánto cuanto ahora que
+socio para los 10?
+No en tiempo a tiempo. Si
+tres, pero
+veinti entró
+eso o mucho más?
+Sí,
+hay valid x
+Saco
+sí, de vendiendo de
+no.
+Yo, claro. Te hago,
+por ejemplo, ya me tenés este por video.
+Es así.
+Te esto como,
+sí, soando
+que, cuál es la parte que un poco más
+si la presentación y que es más corta prácticamente
+que verdad?
+P y en también el audio.
+Eso todo me particular
+fun esto que
+una no.
+O sea esto sin taxis, que lo no sé si hay
+muy bien, pero que eso pero bueno,
+lo que codigo podría, claro.
+Y lo las dos p.
+Ah, porque los dos porque triste el primer parámetro es
+dos que las columnas acá,
+estas sondas consigue en o uno o una hora?
+No o no.
+Entonces este dos, cuánto bien,
+dos es lo que
+preste cuatro
+lo hace lo que
+después la cuanto año
+que otro claro, perfectamente poner
+esto y por no
+uno por podría acuerdo.
+Y la cantidad de capas el otro no
+podría haber puesto más capas.
+Podría pregunt poner 40 a lamia
+ahí es, claro,
+acaba el lo que está.
+Pero obviamente, mientras más que claro, exacto,
+complicidad tiene cantidad,
+no ellos.
+Y por para,
+claro,
+el debate
+no
+de la hasta dónde
+escrito
+lo bastante y bueno, cuando
+menos no
+tiene duda, si más si no tampoco se preocupa,
+no se el favor.
+Entonces, ahí entre tengo
+que viene cuando va pasando el tratador
+empieza a favor mandando dato que
+entra ser del x el x.
+Este incluye toda
+la para entrar.
+Liquid va pasar primero, no por la primera campaña,
+funciona la primero que se que aplica salida,
+esa misma información pasa de nuevo población así después,
+por dependiendo
+de volver esas informaciones, fue procesada
+como que como que la re básica y te la
+este, eso sería una
+esto después de una pasar usaba un favor.
+Es una no la cosa a ganarse con
+la época es haber pasado datos una vez.
+Entonces está bien, en este caso en particular, si,
+cuando nosotros hacemos el nuestra con datos,
+entonces el forward en este gasto en particular igual en la
+época, cuando nosotros digamos la en baches, datos,
+la diferencia de pero 100,
+pasar las 1000 datos es una época
+no
+haber hecho tantos four haber hecho
+gracias.
+Está mezclado. Claro.
+No se
+que me interese.
+Bueno,
+usted no.
+Uno que
+era una amiga,
+vas a llevar a ella para
+yo creo que estoy
+y acá
+in
+amos un poquito, vamos, vamos,
+provecho esta última hora, provecho a tu última hora.
+Y voy a dividir un poquito en dos.
+La clase a mí ocurre de que mucho de ustedes ya saben,
+o sea de de terrenos normales porque ya estuvieron o antes
+de la clase o en la en la clase pasada.
+Entonces preparé una notebook como para de alguna manera
+linear algunos conceptos vamos.
+Entonces, yo iría de que las personas que ya ya entienden lo
+que son los conceptos como la las las capas
+lineales entrega.
+Ah, el bcu, etcétera.
+Continúen y simplemente terminen con lo que es el per que
+acá vamos las salidas y yo mientras una una clase,
+una mini clase en paralelo a aquellas personas que quieran
+como entender algunos de los conceptos de por qué esto están
+entrenando y por qué no sabes
+las otras personas que también quieran verlo,
+repasar por qué funciona las redes normales
+también pueden colgarse y llevar e esto sin
+ningún tipo de problema.
+Pero fue un poco mi idea con esta, eh,
+era dientes optimizadores un poco como funciona.
+Entonces, tan base un poco verdadera idea a marcos
+así, muchas gracias.
+Te robó la idea y y bueno,
+vamos a ver por por qué estas estas redes
+de alguna manera aprenden cuando qué es lo que pasa cuando
+efectivamente nosotros hacemos qué es lo que realmente hay?
+Conocemos una, una capa lineal de etcétera etera no
+pueden aprobar todo el curso sin saber esto y que
+simplemente funcione perfectamente.
+No, no tienes por qué saber de por qué fondo pasa esto
+más, eh?
+Pero siempre es bueno entender que lo que está ocurriendo
+cuando aplicamos ah,
+ya y llamamos a una función en particular, no,
+esta no ya está ejecutado.
+No, no la vayan ejecutando. La la voy ejecutando.
+Yo simplemente me me van guiando.
+Tiene mucho más texto de que yo voy a estar explicando sino
+pero pero de alguna manera esto pueden recobrar
+más allá de la clase para de una manera y la siguiendo y no
+simplemente odio, no,
+pero de alguna manera quiero explicar lo que es el forward
+pas a lo que todos definimos en anterior
+acá forward acá,
+qué es lo que pasa cuando pasa con ese forward?
+Entonces te pro bien, pero bueno, me entiend
+qué es la fusión de pérdida y para qué sirve y por qué esto
+afecta a lo a los gradientes o más bien al final de todo a
+los pesos con el optimizador y que es el back pas no sa.
+Vamos a ver cómo todos esos pasitos que técnicamente están
+en todos o casi todas las
+formas de entrenar de cualquier tipo de red que se les
+ocurra de alguna manera a otro heran algún tipo de estos ah,
+a pasos o herramientas.
+Ah, seguimos con el mismo problema, el exon porque, bueno,
+no tenía mucha imaginación.
+Tenemos la misma entrada, o sea,
+cero CE tiene gar cero zero uno tiene que uno,
+uno cero nigar uno y uno uno tiene que dar cero.
+Bien, de vuelta que vamos a hacer todo.
+Un p es la misma entrada, nuestros x de acá.
+Y van a ser la misma salida, salida, exactamente lo mismo.
+No? Entonces vamos a definir acá lo dice
+ligeramente diferente.
+Ah, porque en vez de ser un dos, dos y después un dos, uno,
+hice un y uno, por qué?
+Porque capaz que nosotros vamos a ver matrices que son de
+dos por dos y van a decir s 12 porque había un dos antes,
+o es porque hay dos después.
+Entonces, de alguna manera definirse cuatro para que
+nosotros para que nosotros podamos dar más.
+Claramente eso hay que se traslada una vez que nosotros
+definimos, ah, sea, es la propósito,
+como le decía un poco de compañero es eh,
+ahí va pa cuatro va ocho van cinco capas en general,
+por lo menos en mi inexperiencia va más un poco en en lo que
+es el arte, no de de de de alquimia a me gusta llamar la
+alquimia a modelar este tipo de problemas con cuántas neuron
+yo necesito para aprender el problema.
+Cuántas capas? Pues uno pensaría de que perdón con analogía,
+esto es como el luce derecha, me más en re neuronas.
+Y mientras más capa le deemos esto va a funcionar mejor.
+Eso no necesariamente tiene que ser ser así.
+De hecho, vamos a dar problemas en algunas redes que cuando
+empiecen a hacer suficientemente profundas,
+empiezan a dar problemas totalmente.
+Lo que se trata un poco, eh?
+El incluso es de, ah,
+a esto es un problema común que pasa con las redes.
+Tenemos este truo o tenemos esta técnica o tenemos verdad,
+esta forma de mi no.
+Entonces definimos una red que, a diferencia de anterior,
+me de ser dos, dos, dos, uno, vamos hacer un dos,
+cuatro y cuatro uno a Franz lo conocen,
+gao, no, señor, profesor.
+Y el odia que hagan estos dibujos. Ah, yo, pero vino.
+Bueno, el siempre,
+el nombre que no le gusta los dibujos de las redes
+nacionales en estaco de alguna manera.
+Ah, sí.
+Y el mismo así también.
+Entonces nosotros tenemos nuestra red de de entrada que van
+a ser nuestro input, que en te caso eso va a venir el el CE,
+el número nuestra otra entrada entrada va a pasar por
+cuatro neuronas.
+O sea hacer es lo que estoy viniendo acá, la entrada el dos
+va ir a cuatro neuronas.
+Y después estas cuatro neuronas van a ir a una zona.
+Esta arquitectura puede ser tan compleja.
+Y vamos a ver, eh, tipos de capas, eh,
+ya predefinidas o a nosotros en sí,
+no tener que ocuparnos de crear
+exactamente cómo funciona una red.
+Una, una capa lineal va a dar muchas capas y todo para estar
+encontradas en ese módulo o su módulo de nn,
+que viene de network network neuro en no.
+Entonces vamos a tenernos entradas, por ejemplo, va a ser
+uno y esto debería
+darnos a cada uno.
+Ah, qué es lo que pasa acá en en medio
+video de matrices?
+Lo mismo me trata, estábamos viendo de forma más sencillo.
+Es en cada uno de estos lugares.
+Va a guardar o cada uno de estas capas va a guardar precios.
+En este caso, va a tener toda esta capa.
+Va a tener y vamos a ponerle un w
+uno, uno b, uno, dos, b.
+Creo que eso no se don no tiende
+el top está en el en el círculo de sí en este verdad?
+Sí, wow, difícil.
+No, esto sí,
+no, eso también se podría
+no baje contenido.
+Subir cámara. No.
+Y nadie ocurre
+uno, uno w uno, dos,
+w, dos b, b, los dos le b
+es uno b, tres, dos p,
+uno b.
+A
+este dos.
+He dado por la entrada y este cuatro por no tiene otras
+tenemos acá por en de nosotros.
+Podemos tomar esta estos datos y multiplicando
+especialmente por esto, sumarle vayas
+que uno,
+tres, tres, cuatro.
+Y lo va a d, terminando dando otro resultado
+que este, eh?
+Como la r, uno, dos a tres.
+Qué es lo que toma la próxima? Ne que lo toma la próxima ne
+la to próxima al final de todo son simplemente
+multiplicaciones matricial más las la activación no más
+activación revela la activación.
+Perfecto.
+Vamos de vuelta al código. Esto, esto es, está costado? No?
+Sí. Pero eh, internamente, haz un trans post.
+El Ch. Ahora lo mismo de lo es en el graph. Sí, eh?
+No podés multiplicarlo directamente este dos uno o no.
+Yo decía porque quedan cuatro la salida de esa acá.
+Pues son cuatro,
+vamos por parte.
+No, está bien, acá es,
+estamos haciendo exactamente lo mismo que vimos antes.
+O sea, pasamos por la primera red, recordar por la primera,
+este capa lineal.
+Pasamos por una función de activación. Bien aclarada.
+Ahí sacamos por la segunda. Ah, eh, por la segunda capa.
+Y terminamos con una activación, no?
+Ahora gracioso, es que si uno ve lo que es la capa de
+entrada, tiene exactamente esta arquitectura.
+O sea, los pesos que nos obtenemos acá de uno, uno, uno,
+dos, dos, uno, dos, dos, tres, uno, tres, dos.
+Esta simetría va dependiendo de cuánto es la entrada
+y cuántas capas obtenemos ese loco.
+Como que cada una de las ca de las me tiene acá y combina
+linealmente con todas las entradas son todas las
+combinaciones, pero va a tener justamente los pesos,
+o sea el w uno,
+la capa de acá tenemos se resume de esta manera ahí.
+Todo bien. Si yo quisiera o sé de
+no de
+esto, simplemente sería de
+para define de la cantidad de volvemos antes.
+Mm, qué define?
+O sea menos que la comp compliqué de la de problema es lo
+que define nueve de bro, que exacto.
+Y cuantas pasada lo mismo también es
+de depende del problema.
+Supuestamente, mientras más neuronas puede agarrar mejor
+complejidad del problemas.
+Ahora hay veces que tenes tantas que estás
+sobre mencionando el modelo y puede tener
+problemas para aprender incluso.
+Entonces, no, no es que a este problema es igual a esta
+cantidad de neuronas o esta cantidad de capas capaz que con
+personas con más experiencia te dicen no probada entre dos o
+tres capas de tanto tanta neuronas.
+E incluso nosotros vamos a correr experimentos donde
+cambiamos dinámicamente la arquitectura y algunas hacer
+mejor fit o al final de todo, tienen mejor los ah,
+una arquitectura que otros ah, pero
+esa parte de cuántas neuronas pongo y cuántas capas como
+algo más artesanal porque que
+a y vos que trabajas en esto pues como
+tra alguna regla para decir cuántas capas o neuro no,
+yo necesito para el principio
+Em en radial, Eh?
+Todavía no estoy haciendo pues
+Eh, aquí
+Bien, ya hace todo el mundo esto que copias no
+busca si alguien resolvido copias la arquitectura.
+Ah. Y después empieza a afuera
+decir lo que si tienes que tener que en cuenta de que
+deteniendo la convertir tu entrada.
+Sí, entiendo comp
+Entonces, el muy sencillo.
+No vas a meter muchas capas menos nada con dos o con tres
+con poca no tengo resolver
+porque vos lo puede hacer de capturar patronas de la
+entrada, dependiendo de la cantidad del dominio de patron.
+La entrada va son la total. Sí.
+Entonces, lo otro que ten saber es que en las redes son más
+importantes que sean pregunt juntas a que se marcha
+y muchas veces se juegan el tema de espando
+contrario pando c.
+Sí, hay por qué que tenga que ser profundo en mes de ancho.
+Ah, después, después te pasa un video. Explica.
+Es decir, ahora cuando vos hace una Regan
+ancha, no deís tantas.
+Sí, no portas tanto el problema.
+Sí, como el problem combinatorio de tener varias es
+si vos ten varias capas.
+Sí, me da más fronteras. Sí.
+Más lugar de decisión que el ancho que pasa un vídeo después
+que somos mayoría de ellos que te explica
+que es cómo se ve el plano.
+Si de la entrada cuando en eso, qué pas
+lo podemos pas en general, no lo paso.
+El paso final lo pasa, lo paso a él
+pierde paso, pasa de la misma manera.
+Vamos a cear por cada una de las neuronas de nuestra capa.
+Un vaya, no es medio similar.
+Lo estábamos haciendo elevando un poquito de la complejidad.
+Después vamos a tener para la última capa,
+estos MXN $4 por la entrada, fin,
+el ancho y una sola porque caminar una sola y un solo país
+al final de todo son pesos
+que son tensores que se pueden optimizar
+hoy en día con estos pesos en general, podamos que se eh,
+una estrategia de este final totalmente azar,
+pero se encuentran después papers que pueden decir bueno,
+para este tipo en particular de problemas,
+la inicialización de incitación de pesos se
+hace mediante otra estrategia.
+Pero piensa en como son simplemente nómicos,
+por lo cual la salida va a ser
+nómica al principio, por lo menos.
+Entonces, cómo cómo hacemos nosotros para optimizar estos
+pesos que al final es lo que termina mi salida?
+Bueno, de alguna manera, cuando yo eh, paso por mi red,
+tengo que saber qué cálculos hice o de alguna manera quien
+estuvo involucrado a media que fue pasando por la red.
+Ah, para nosotros nos par ese obvio tipo, eh, bueno,
+pasan por las capas, pero a nivel de de de salida,
+una vez que uno pasa por una red,
+termina tenido un tensor tansor el cual,
+como cualquiera lo hemos visto antes, simplemente ah,
+lo que lleva a aparte de los valores resultantes es de
+una manera un historial.
+Ah, de alguna manera sabe por dónde pasó para llegar ahí.
+Y ese es lo que es el ah, el grafo computacional.
+No, no sé si recuerdan en la en la clase anterior que
+nombré ligeramente que una vez cuando uno define como un
+tensor, una de las propiedades que puede poner
+que por efecto es fos.
+Ah, es que requiere grad esto básicamente le estás diciendo
+de que en el memento, yo voy a operar bajo estos tensores.
+Yo tengo que ir calculando ah, como,
+como fue llegado el resultado acá simplemente tengo
+escalares tres, dos, uno.
+Y voy a hacer una operación que están simple como x
+es a por c más b por b
+parte, eh, modificación de matrices divididos,
+la operación que ustedes quieran.
+Simplemente estoy haciendo tensores que requieren grad.
+Y estoy haciendo una cuenta resultante al final de todo,
+son simplemente pasar por multiplicación de matrice en cada
+una de las capas lineales.
+Por ende, cuando yo tengo este x, sí,
+Repetir otra vez por fan, qué es lo que hace?
+Lo que hace es indicar que ese ensor necesita a, eh,
+computar el grafo computacional.
+Si es eh, si es utilizado para una operación,
+si vos tenés un un un nuevo tensor porque este quizá es un
+nuevo tensor que se calcula a partir de
+ah tensor que requieren grads
+para estar pata de alguna manera calcular
+o tener guardado en sí,
+el historial de cómo fue calculado y mediante qué tenores.
+Ah, de tal manera es que a aún te puede llegar un x.
+Ah, es un tensor que va a tener un valor.
+O sea, yo voy a, voy a poner venir acá y voy a poder hacer
+ah, print de tener un
+x es verdad?
+Y te dice bueno, x vale, 13, o sea,
+yo llega a 13 como, bueno, multiplicando cinco
+por tres en a 15 más, eh b,
+cuanto perdón, eh, por c es dos, eso es 10
+más b es tres.
+O sea, es bien, más más tres 13 por uno.
+Llegué a ese resultado de x simplemente tomando
+tensor hasta ahí.
+Todo bien. Entonces el resultado me dice es
+precio para yoki.
+Hago con ese 13 ahí.
+De alguna manera hay un nuevo atributo que podemos ver acá
+que es bueno yohi acá a través de una multiplicación.
+Pero si vos empiezas a tirar acá,
+tiene un historial que llegas hasta el a hasta el b hasta el
+seis hasta el le una forma de visualizarlo esto,
+todo esto pasa automático.
+No ten que preocupar, por lo que ten que saber, eh,
+de que cuando uno ha terminado de tensor, si requiere grads,
+vas a ver historialmente cómo llevó o las operaciones que
+tuvo que hacer para llegar a ese resultado?
+Muy bien, ya el valor perfecto.
+Sí, imagino que es para con el tema. Orlando.
+Memoria, eh? Claro.
+Calcular cabe de grafos computacionales algo compacion
+códigos y aparte el lugar en memoria.
+No,
+No, vamos en en en anterior,
+el el perfe Trump nunca le pusimos
+que que la diete sea Trump.
+Sí, Pusimos
+No, no, no. Pero
+lo lo lo que pasa es que cuando vos en las redes
+neuronales, todas estas capas por efecto por atrás ya
+tienen hay en tru. Claro,
+Lo pone Exacto.
+Nosotros nos pasa por atrás, pero por efecto ya está.
+Ya ya tiene en tru exactamente a los pesos de
+cada uno para al final son pesos ya por nosotros.
+La amos. Quién?
+Pero tal si el modelo tiene ya
+Exacto. El model internamente
+tiento no lo tiene.
+El tensor, no el la entrada, no la entrada el x.
+Bueno, pero todo lo que pasa
+para hecho se lo empieza a operar.
+Sí. Entonces encontré en una forma de Sion. Estaba perfecto.
+Eh? Esto tiene una multiplicación de matrices.
+Perdones los segundos ahí.
+Este que tiene una multiplicación de matrices.
+Cómo ya ll hacia atrás con la hay una herramienta, eh?
+Se llama en tor.
+Bi no tiene que por qué instalar pero lo que te permite es,
+es da un tensor, armarte el grafo y verlo visualmente, eh?
+Quise correr en collar.
+Y ese tor be me ni go tota, no por todo un tema,
+hacer ahorrar apret atención más en en
+en qué estamos aprendiendo en correr
+así después si quieres, vamos.
+Pero probablemente si no tener tor es simplemente hacer pi
+store tor piece y ya está.
+Es un paquete simplemente para actualizar que vamos a
+usar solo para esta notebook.
+Pues eso no me interesa de que tú tengas instalado ni en tu
+máquina nia porque no lo utilizado más en el el rep
+simplemente para explicar cómo funciona esto de fondo.
+Pero lo que hace es, te voy a dar el tensor,
+este x y de vuelta fue a través de unas operaciones
+matemáticas, sumas y multiplicaciones.
+Y de alguna manera toma esas funciones y las puede mostrar
+en un gráfico, sabes? Entonces, por ejemplo,
+Disculpa una pregunta, eh?
+Los parámetros también tú tienes que conocer las variables
+que participaron en esa operación.
+No? Porque el a, a la b, la c, la d
+para en para indicas
+Pero se hace esto, simplemente no lo vas a hacer.
+No, no lo va. No lo vaya a buscar.
+O sea, no sabe o seaa quiere ponerle un nombre
+a estos parámetros nos aca o no, como o no está
+dibujado para poner un un un un
+No sabe ponerle nombre nom más,
+pero sabe que tiene un origen
+La otra. Yo,
+eh, exacto. Tiene un origen, pero sabe cómo se llama.
+No sabe que la variedad yo le ya yo le puedo poner
+pepe acá y al a le va a poner pepe es
+simplemente este tensor.
+Es una hoja de mi de mi de mi esto, s.
+Podemos ver un un árbol.
+Por lo menos no tiene ciclos este
+simplemente en la forma visualizar este de donde de donde
+vino cada el resultado del x.
+Ese está acá. La raíz que vino a través de una
+multiplicación que vino a través de un añadir que vino a
+través de una multiplicación que vino a través de él a c.
+Si vemos, por ejemplo, a seis se multiplican,
+pase, se multiplican, después se añade b,
+te ve acá se añade b.
+Y después se multiplica todo el resultado por d.
+Esto no, no, no tienen por qué
+interpretar o porque simplemente tiene que saber de que
+un un tensor que lleva a los requier,
+los los grads con requeridos, tú lleva su historial.
+Entonces, de alguna manera, para saber
+por qué esto llegó acá y vio cero como a siete, tengo saber
+cuáles de estos ah, pesos
+y cómo intercedió para llegar a ese resultado.
+Ah, entonces, de alguna manera de el historial de cómo llegó
+atrás, eso es lo que hace lo que hace pay que hace forma
+automática simplemente por, por recuerdo,
+necesitase un historial para poder utilizarlo.
+Exacto.
+Bien, sino o los al final es
+o eh imaginate que esto te da era cierto, no?
+Y te debió dar uno,
+la los más simple es simplemente arrestar ser mal balado su
+uso en entre este días ya sí lo con para vos.
+Cómo llegaste a esto?
+Prestando esto y como llegaste el cero consciente
+multiplicando por estos pesos y como lo hiciste a través de
+uno de si vos, sabes,
+todos los elementos que pasaron a través de
+y que operaciones hubo de alguna manera puedes encontrar el
+culpable o qué tanto podés ajustar cada uno de estos
+elementos para de que esto acá te creta porque es que,
+por ejemplo, la próxima vez de
+y para eso acá, ten que poner zero con ocho.
+Y para eso esto le tienes que fumar
+y es tener tener arrestar tres.
+Eso les hace de forma automática,
+pero por lo menos en entendés ah,
+qué pasa cuando yo power el resultado y la los
+de una manera, saben ah, qué operaciones hubo
+para eh, lograr ese resultado?
+No nos aplicaron la por mejor forma posible. Eh?
+No, no, no, sí.
+Bien, yo somos dos. Bastante difícil.
+No, no, no es que sea log.
+Miren que hoy la función la activación, la refugia,
+la activación, la función de activación, en realidad, eh?
+Corre después de cada en el abajo a estos resultados en ese
+re de dos, tres y r cuatro le aplicaste
+una función de activación.
+Entonces, según por ejemplo, ah,
+se en aplicas la función sin idea.
+Este resultado usted a otro. Ahora lo vamos a ver.
+Por ejemplo, la red acá
+simplemente es una multipl explicación.
+Lo vamos a ver ahora este acá. Sí.
+Quien sé de qué este x con qué es lo que
+qué es lo que tiene este x?
+Acuerdo? Modelo? Cuál?
+X x x mayúscula, lo que
+nada el trabajo los esto
+es uno uno CE uno.
+Si yo llamo al net de x,
+qué me va a dar, eh?
+Cualquier cosa porque papa fritas hoy en día los pesos son
+tan totalmente al azar.
+Y me va a dar que para el primer resultado,
+me va cero con 43 cuando me tendría que haber dado eh,
+lo que es eh, cero.
+Me dio CE 43 positivo cuando me tenía agarrado uno me dio
+cero con 46.
+Cuando me tenía haber dado uno me dio cero con 45 es cero.
+Si yo inicializo de nuevo,
+la red me va a dar otros números realmente diferentes porque
+los pesos de vuelta se se socializan de formar random, eh?
+Entonces, qué pasa si ustedes ven el resultado de haber
+pasado mi x por mi red?
+Tiene algo acá? Popa,
+este es el resultado de haber pasado mi x por toda mi red.
+Entonces yo alguna manera podría saber
+qué pasó en mi red o qué operaciones hubo en mi red para
+llegar a dicho resultado?
+Y Eso es lo que vamos a ver acá.
+Por ejemplo, ponemos el hija o el resultado de mi de mí.
+Y simplemente lo que vamos a hacer es, ah,
+ver qué operaciones sub no?
+Acá tenemos los pesos.
+Ah, es vetos acá donde ve uno, uno, dos, los uno.
+Y tenemos acá tenemos de la capa este.
+Acá tenemos los bayas. Ve uno de dos de de sí, verdad?
+Te incluso te hice los tamaños que tiene.
+Y esto es lo que deseamos antes, eh?
+Vos, no puedes multiplicar.
+Ah, pero primero has una una asunto tras vos internamente.
+Sí. Este a m es,
+es simplemente una multiplicación de matrices
+más añadir un, bailas.
+Ustedes ven la función internamente como está implementado?
+Es eso. Toma dos matrices,
+las multiplica materialmente y añade el bayas.
+Acá lo está faltando que como no requiere gradientes,
+no está imprimiendo.
+Es efectivamente el x, no. Pero acá añadía también el x.
+O sea, es el x, lo multiplica por el peso, le añade el vayas
+y obtiene este resultado.
+Dicho resultado que obtienes, lo multiplica por este peso.
+La última capa, el uno cuatro, los asuma con el bayas
+y termina tan eh pasando con la sí, de de vuelta.
+Esto no, no se lo voy a hacer o dibujen en un
+grafo computacional.
+No es,
+entiendan de que cuando pasa un tensor y requiere IRS, oh,
+saber qué es lo que ocurra de ahí en adelante.
+Y cuando nosotros lo hacemos en una red,
+eso está activado por defecto.
+Nosotros vamos a tener un tensor que tenemos hacia el final
+y vamos a saber, ah, qué tanto?
+Ah, o como se involucró a la red a llegar a ese resultado.
+Una pregunta, Vamos arriba, eh?
+Eh? Hay una diferencia de colores
+que pareciera que fuera una, una es la
+la clase o, y la otra, la operación.
+Hay una diferencia ahí? No?
+Sí, lo gris son operaciones.
+Y los celestes son los tensores
+no son hojas.
+Y la raíz es este.
+Tu resultado, ese es, elija, tiene forma cuatro. Uno, ahí
+Está el resultado. La salida salida.
+Sí, no se dije otra cosa. No, no, no, no.
+Sí, es el exacto.
+Acá tiene una explicación de cada uno que es lo que hace
+una documentación también a a a la documentación oficial
+y probablemente capaz que en en dos clases o
+en una puntual,
+probablemente utilizamos un meto de llamada a detach.
+También lo vimos la clase pasada.
+Y creo que les fueron lo utilizamos también en la casa
+anterior o utilizábamos el no grado.
+No hay veces que a mí me interesaría. Eh?
+Que el cálculo que que estoy teniendo de un tensor
+simplemente sacarlo de grafo computacional.
+Digo, mira, yo llega este resultado,
+pero no quiero que siga.
+Si yo sigo operando con ese tensor,
+no quiero que siga arrastrando
+todo el grafo de computacional.
+No quiero que se siga calculando.
+Eso es del detach vos scalo de grafo computacional.
+Ah, una vez cayó al detach,
+pierdo el historial de cómo ya llegué ahí hay veces que a mí
+me gustaría efectivamente.
+Ah, pisar el bit. Lo vamos a usar en cosas puntuales.
+Lo único que tienen que quedar es theat es
+igual a a un tensor.
+Le borro la historia. Es como cuando entrar en
+incógnito no se guarda nada.
+Es lo mismo. Yo sago la historia.
+Y cuando nosotros sabemos aquel el video que era
+sí, ahí no lo sa.
+Ahí nos le borra el ahí no.
+El Niro calcula el no de borra el nombre de eh,
+no la lo hacíamos dentro de una llama sentencia.
+No un un blo que un bloque que es
+elada no directamente
+hacía un tensor que era igual a tal resultado.
+Ese tensor es, es una operación de capaz que tensor que sí.
+Tienen una editorial. Sí, exact no lo no lo va a calcular.
+No que se lo saca este directamente como, oh,
+lo estás asignando.
+Sí. Ay, no, no, no, no lo va a calcular.
+Nosotros no se lo has tocado.
+Exact que había una estancia
+Sobre él.
+No asignaba no lo copiaba la asignación,
+pero los otros se quedaban porque la otros lo quería más.
+Sí, de hecho, eh,
+la otra forma podías hacerlo en me hacer el no du grado
+hacía sundi de ese resultados y los sumaba al operador.
+Es claro, no formaba parte de tu tensor,
+pero sólo esa parte en particular.
+Pero soy un casón con concreto de nosotros.
+Pues grafo ese grafo es su grafo inverso de
+cálculo derivadas.
+Se hacen cada vor.
+Si no es que se calcule el principio, se calcul ya en cada
+la construcción del valor se adelante.
+Eso cuando fue comentaba aquí que hay algunas operaciones
+y cambian en las fo computación cuando vamos a después
+cuál perdón, drop que dice
+es que es una forma de de organización.
+Sí, organización que de esconder nodos y decir de esta capa
+que otros nodos nos cosas.
+Sí que es algo parecido a lo que vieron de la por sí
+y como tener varias veces normal estas juntas.
+Bueno, entonces entonces se calcula sí.
+Y cuando que se calcula, se hace el no pasar,
+voy es torno grave que si es se forma, pero no,
+no me calcula vos te interesa?
+Y y acaba de decir ah, mira, por qué pasa esto,
+que cuando estás en la evaluación pasa estor gra aún no te
+interesa de que este output cuando vas evaluando el
+resultado, calcular el gra ocupacional,
+sino va estar nada respecto.
+Y es costoso después cada una de las líneas para tener en el
+sentido en este en la igualito
+para verlo de forma detallada, como, qué iba pasando, eh?
+A medida de que vamos calculando capa por capa,
+lo uno tiene pa, esto imagino que está en otro framework es
+que una,
+si bien nosotros tomamos una rea granal y la podemos ver
+como una caja negra o como que pasa un x, sale un e.
+También podemos tomar capas individuales y ver que pasa
+en cada una de las capas.
+O sea, sigue siendo una propiedad.
+Entonces, lo que vamos hacer acá es tomar un cero cero.
+Ah, el equipo, eso es una entrada en particular de todas de
+las cuatro que yo tengo las posibilidades.
+Le hago mi función favorita en pay,
+que es el an para para que no lo sepan,
+pregunta para el para ser al final, me tiene
+este y lo que hago es tomarle eh,
+y darle y darle un impuesto, vamos, o sea,
+pero solo con el cero cero.
+Para qué? Para sea más sencillo, lo ve ver, ver los cs
+entonces, vamos a ver que es qué pasa
+antes de eh cuando yo paso por la red,
+estaba a cabo o sea que es la multiplicación de matrices,
+que debería ser que ese cero CE se multipl por cada uno de
+los pesos que yo le tenía en el j
+hoy y después le asume el valle no?
+Entonces, si mal lo recuerdan,
+vamos un poquito más hacia arriba
+a mí.
+Lo que me ocurría es que la primera capa se compone de dos
+cosas ta no es de los pesos
+De las neuronas y de sub vayas.
+Si yo multiplico cero cero
+por esta matriz y después le sumo esto que piensan que le va
+a dar el va, es simplemente el bar, no?
+Si tuvieran o sea CE uno haría es un este valor
+menos este, este valor menos este, este valor
+más este qué valor?
+O sé si tuvieran uno uno sería esto
+menos esto más esto, esto más esto menos esto,
+una posición de matrices más un varias de la misma manera.
+Tu hicimos nuestra um, no nuestra program
+simplemente para que no me crean
+este valor es menos veintitrés y menos 36.
+Lo que debería pasar cuando dos pasa por el primer hidden
+es menos veintitrés y menos 36.
+Yo cambio el valor de CE uno va a diferente porque agarraría
+el primer peso, eh?
+Podría uno, dos, dos, dos, etcétera.
+Et este valor de acá, que es
+un valor que sale de cada eh, muy
+es el valor sin moi de cada uno de estos, verdad?
+Se voy a probar sin moi.
+Acá te va a hacer un y cuatro, si aplicas acá,
+te vas y uno etcétera.
+Et sí, toma acá multiplicado por los segundos por los
+segundos pesos que tenés ahí más el valas y
+vas a llegar a este resultado
+el valor esperado de cero,
+pero predijo cero con y va a pasar por todas operaciones.
+Ah, bueno, el último después un poquito
+para la cuál
+Función de perd estar usando ya me
+Acuerdo la anterior. Usamos
+BBC, eh? Y acabamos usar, eh, un msse
+entonces, okey, a mí me predijo eh, cero y tres,
+o si lo vamos en el caso del pis ran y me dio cero.
+Ah, mi inpu que me tener me haber dado uno no yo,
+de alguna manera puedo hacer una función de pérdida que
+alinee el resultado o de alguna manera cuando yo minimizo
+lalos de alguna manera perde mejor o se acerca mejor
+una de las r funciones de pérdida que que tienen es el mse,
+como también puede entrar en Mae.
+Vamos a dar otras funciones de perdida,
+pero lo ocurre si yo resto esos valores y los le veo el
+cuadrado mientras ese valor sea lo más chico posible.
+Entonces más voy a estar cerca de mi predicción.
+Entiende la lógica a menos los igual que mi predicción,
+se acercan más a ocho quiera
+y fíjense ustedes que chiste el el ah,
+cuando yo calculo el output menos el que es mi ción
+esperado, le le el cuadrado qué le va a dar?
+Tienen tensores de salida.
+Tiene un tensor de esperado de
+esperado cuando hacen una operación como estaba acá,
+que van a tener tensor un tensor y ese tensor que tiene
+una Las direct exactamente.
+Entonces, si yo digo ah, le digo los optimizadores,
+yo esto tenés que calcularme en los s de tal manera de que
+esto es a chiqui lo más posible.
+Se voy a saber una magnitud en cada uno de los lugares
+individualmente de si yo aumento tal peso de acá,
+cuánto se afecta este resultado?
+Ahora, si no tocara todos demás, si si
+to se aumentara este de acá,
+este disminuye o esto se aumento.
+Lo más cosa si disminuye o cómo afecta al tierra,
+Siempre toma optima y cada paso
+Para ultima y botr a vamos de vuelta
+En sentido de que ta vos vas viendo que medida que vos,
+eh, ese se va chica,
+Exacto.
+Nunca hay, por ejemplo, en que, por ejemplo,
+el pruebe de algo Prue a gustar MXN $1.
+Sí, claro. De repente no le dé mejor en un intento,
+digamos, puede peor.
+Y después no sé, por ejemplo,
+se di cuenta que peor descartes, no,
+El problema de arrepentirse, la de que tomó algo así.
+Ya no.
+Es decir el ahora lo que lo que trata de hacer la red es
+es oar el trabajo.
+Pero qué pasa como el entrada va cambiando? Sí.
+Si va desajustando no lo bien para esta
+entrada decir tú qui.
+Hiciste reducir sí,
+tu valor generado contra tu nuevo esperado.
+Sí. Hiciste pa, esa entrada lucir el error. Sí.
+Ahora cuando está siente entrada eso, valores no te sirve.
+Claro. Estás haciendo reduciendo el error promedio. Sí.
+En cada paso, en cada paso de todas las entradas.
+Sí, como lo ajusta de este sea ajuste, siempre es un ajuste.
+Es un ajuste que el va que
+estaba haciendo por eso así varias.
+Por eso haces que es una época
+pasar por todos los datos de entrada.
+Sí. Cuando pasa una sola vez,
+hago un ajuste promedio de una pasada
+cuando hago la segundo, la segunda época llame es boro,
+que el error promedio el medio baja.
+Por qué lo chiqué en la primera?
+Y ahora lo chico más si lo que estás haciendo vos es tratar
+dear la distribución de pero sí, este es
+entonces si vos no tenés problemas de calculo numérico.
+Sí, que es el Vanish, la en todo el explo de glad
+y otros problemas de a te edad
+están condenados a aprender.
+Sí, claro. Si las mujeres neuronales están condenadas
+oi en todos, sí, aprenden porque el algoritmo que tienen
+es lo que hace decir trata reducir las pérdidas perdida, por
+puede poder tener poder problemas de datos.
+Si no te dice que yo nada,
+llevo a b y después tiene otro a y dice lleva c,
+ya ten un problema allá de datos.
+Hay como ver elo algo que me dice que yo debería dar esto.
+Y otro dato me dice yo debería ir a otro lugar.
+Pues sería el mundo real.
+Por eso tan importante, los datos están bien
+con por ricos datos.
+Entonces ya ten un problema menos.
+Y bueno, el ms, lo eh se puede calcular simplemente como la
+salida esperada menos lo que, eh, perdón,
+la la salida que yo tengo
+que pasó de acá menos la esperada implica haber cuadrado.
+Y el me este acá, eh?
+Este acá puede tener perfectamente también
+no me equivoco exactamente el gradiente que
+si el imprimo va a ir tanto hasta peso,
+eso es que va a ver acá sea es un paso más,
+sea simplemente al el resultado que tuve y lo arresté con
+otro tensor, lo lebé el cuadrado y un promedio.
+Pero nosotros no regular la los directamente con fun con fun
+con funciones, eh, nativas, sino de que existe directamente
+ah, este mi esta misma función.
+Ah, de forma implementada entre la la el paquete en
+el o sea, este no diga exactamente la América.
+Joaquín. Sí.
+Una consulta. Si.
+A medida que le va dando más datos de entrada,
+Sí A tu red, eh,
+no me quedo claro cómo actualizando al lo que oye es,
+tenés un dato que te cambia mucho tus parámetros.
+Él tiene como todos los pasos de todas las actuaciones que
+hizo para atrás o solo de un paso,
+No solo un paso sea hace eh, en realidad.
+Pues puede puedes hacer tu club de entrenamiento en general
+es que todos tus datos tomas un conjunto ah,
+eso le llamas un Bach lo pas,
+el forward se calcula el el el grafo computacional.
+Eso lo resta con lo que te debería ocurrir,
+por lo cual tenés la luz,
+haces el backward que lo que hace es calcular en todos los
+pesos qué tanto culpables están para para,
+para o para lograr a los y después es el optimizador,
+simplemente lo que haces,
+cambiar los pesos en base de ese grad,
+lo que te termina vos cu, eh, cuánto vas a cambiar?
+Es primero el grad que se calcula no?
+O sabes, depende de las cuentas que vos hagas.
+Ah, y y bueno, a tu los
+y después el algo el algoritmo yo vos utis o sea,
+hay algoritmos un poco más, eh?
+Igual laborados como es Adam,
+que de alguna manera usa el el concepto de inercia no?
+O sea, si vos ves como un cambio rápido,
+trata de avanzar más rápido.
+Y si ve que no está no estás incrementando.
+Ah, para donde disminuyendo mucho la
+los hace cambios más chicos.
+O sea, hay como aimos un boom más inteligentes para
+hacer cambios de pesos
+Y la la el puede ahí también o no?
+La cual la l.
+Claro. Sí, exacto. El le r es simplemente una
+Eso va diciendo cuánto te puede eso ahí?
+Esto estaba diciendo en este sentido,
+pero verdad? Te defines Juan
+Exact, pero también, pero también era
+El no, No.
+O sea, de alguna manera al algoritmo lo multiplica por eso a
+una magnitud exact.
+Si le dar lo que te dice de cuánto de la sorpresa de
+que detectaste, cuánto del aprendido que es aplicar
+ahí va sobre el
+Ah, multiplica el valor que encontraste.
+Yo creí que ponía ese valor. Ahora
+No participa.
+Es como una tasa de de aprendiza rey.
+Sabe que si es muy ancha,
+buscar o acaba es efecto cadena, no?
+O sea, cambiar algo cero con uno acá no hay amigo de cambiar
+los 20 capas más adelante.
+Entonces vos probablemente acaba de hacer cambios más
+chiquitos o aquí impactan más como mi cadena
+que cambios que están más en la final.
+Sí. El de que te afecta dependiendo del tipo de utilizador
+es lo que llama la velocidad de convergencia.
+Sí. Si puedes muy chiquito en algunos utilizadores
+pass muy poquitos y la los
+no baja tanto, te pone una muy grande.
+Llegas al tema de acordaste de lo que estás haciendo. Claro.
+Sí, sí. En la idea que abajo es es que vos
+estás tratando de bajar un valle.
+Sí, hasta un mínimo local.
+Porque es, eh, las redes rurales encuentran mínimos locales.
+Sí. Entonces,
+si vos dando saltos muy grandes pods, empezar a rotar.
+Sí, bajas a tu mínimo, subo. Sí.
+Y nunca llegas al mínimo, no.
+Ahora, cuando el reg muy chiquito,
+puedes ser que estés bajando muy despacio.
+Sí. Y entonces es que también te usan valores
+paraban, eh?
+Y eran mensu de mi para, eh, ese punto
+del del problema y y del utilizador.
+Qué valores que son ya están estudiado
+e intenso, no de alguna manera, eh, después por no,
+veamos, eh, el el el el club de entrenamiento,
+simplemente tenemos que ir sabiendo qué
+es lo que está ocurriendo de fondo.
+Nada más. Es simplemente dar una explicación de por qué
+esto, eh, no es más que son simplemente matemáticas.
+Y y después como nos utilizamos los pesos para que nos dan
+los dentro dentro, queremos no tampoc después vamos a entrar
+más en la en los ven lo esto es una una
+un extra revis
+Una porque la otra vuelta te en el otro curso,
+lo hicimos la clase que tenemos que Marc ahí que puede
+una cosa parecía estos.
+Ahora hicimos sí, de la chappa del hambre.
+La verdad a mí me cerraron cosas en ese encuentro quete
+En rl.
+Lo lo que semestre pasado es que te cruzaste con bi learning
+tends que saber de learning para después de sí, eso
+Relajo igual. Está bueno
+hablar esto.
+O sea lo aunque que de el se mere que viene rl, eh,
+las de bastante pequeño.
+Lo vamos a dar al forma siguiente.
+Todo eso más intenso.
+Ah, el lenguaje de pipe.
+Puedo ser mucho más pequeño y adelante.
+Un poco la respuesta que le debía a él de por más
+más importante, profunda.
+Por ejemplo, vimos que los las neuronas y está que son
+son separes.
+Yo te digo toma una hoja de papel y hacer de ocho cortes.
+Sí. Si ocho personas sí. Cuántos cortes ahora?
+Yo te digo agarr la hace cuatro cortes.
+Y a cada corte hacer cuatro cortes más en qué?
+En en cuando hay dos casos conseguí más, más regiones
+es cuando no esa ponencia
+y esa explicación que vas a encontrar el video que por qué
+dependiendo problemas de por las no.
+La semana viene vamos a cómo
+Una pregunta Edición general.
+El es los buques que está la última? Están aulas o o no?
+Sí, está en la parte de pasa aulas
+en la parte de están los prácticos.
+Al final de todo, hay un lugares llama más extra
+ahí vas a ver esta y otras
+no te entendió?
+Ah, okay. La vi. Gracias.
+Si. Que mos un problema de regresión y í vamos
+a ver way Buys.
+Una herramienta para, para perfectamente,
+para a salir bien, chao,
+Chao, chao. Gracias.
+Gracias, joaquín talo
+Esa información nom más, más, más cosas.
+Me por teams y voy enviando
+Gracia.
+Claro. Gracias. Gracias.

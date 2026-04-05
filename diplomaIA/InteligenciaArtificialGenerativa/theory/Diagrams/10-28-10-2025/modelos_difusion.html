@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de Difusión (Diffusion Models)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .explanation {
+            background: #e8f4f8;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .explanation h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .explanation ul {
+            list-style-position: inside;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .diffusion-process {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+        }
+
+        .process-title {
+            text-align: center;
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .timeline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #f5576c 100%);
+            z-index: 0;
+        }
+
+        .time-step {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 1;
+            position: relative;
+            text-align: center;
+            min-width: 120px;
+            transition: all 0.3s ease;
+        }
+
+        .time-step:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .image-placeholder {
+            width: 80px;
+            height: 80px;
+            margin: 10px auto;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+
+        .clean-image {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .noisy-image {
+            background:
+                repeating-linear-gradient(45deg, #999, #999 2px, #ccc 2px, #ccc 4px);
+        }
+
+        .partial-noise {
+            background:
+                linear-gradient(135deg,
+                    #4facfe 0%,
+                    #4facfe 30%,
+                    #999 30%,
+                    #ccc 32%,
+                    #999 34%,
+                    #ccc 36%,
+                    #999 38%,
+                    #ccc 40%
+                );
+        }
+
+        .forward-backward {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .process-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .process-box h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .arrow-indicator {
+            text-align: center;
+            font-size: 3em;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        .formula-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #764ba2;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            text-align: center;
+            color: #333;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .variance-schedule {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+        }
+
+        .schedule-chart {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+            position: relative;
+            height: 200px;
+        }
+
+        .schedule-line {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            height: 3px;
+            background: linear-gradient(90deg,
+                rgba(102, 126, 234, 0.3) 0%,
+                rgba(102, 126, 234, 1) 100%
+            );
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .key-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .key-point strong {
+            color: #856404;
+        }
+
+        .highlight {
+            background: #d1ecf1;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #0c5460;
+            font-weight: bold;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        .step-by-step {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .step-item:hover {
+            background: #e9ecef;
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌊 Modelos de Difusión</h1>
+        <p class="subtitle">Clase 10 - 28 de Octubre 2025</p>
+
+        <div class="explanation">
+            <h3>¿Qué son los Modelos de Difusión?</h3>
+            <ul>
+                <li><strong>Modelo generativo probabilístico:</strong> Genera datos nuevos (especialmente imágenes)</li>
+                <li><strong>Idea principal:</strong> Comienza con <span class="highlight">ruido puro</span> y lo refina gradualmente hasta generar un dato</li>
+                <li><strong>Diferencia clave con VAEs y GANs:</strong> El latente tiene la <strong>misma dimensión</strong> que el dato final</li>
+                <li><strong>Proceso iterativo:</strong> En lugar de un solo paso, hace muchos pasos pequeños de refinamiento</li>
+                <li><strong>Casos de uso famosos:</strong> DALL-E 2, Stable Diffusion, Midjourney</li>
+            </ul>
+        </div>
+
+        <div class="key-point">
+            <strong>💡 Concepto Fundamental:</strong> Un modelo de difusión aprende a <span class="highlight">eliminar ruido</span> de manera iterativa.
+            Si aprende bien este proceso, puede partir de ruido aleatorio y generar imágenes realistas.
+        </div>
+
+        <div class="diffusion-process">
+            <h2 class="process-title">🔄 Los Dos Procesos</h2>
+
+            <div class="forward-backward">
+                <div class="process-box">
+                    <h3>➡️ Forward Process (Difusión Directa)</h3>
+                    <p style="text-align: center; margin: 20px 0; color: #666;">
+                        Agregamos ruido gradualmente
+                    </p>
+
+                    <div class="timeline" style="flex-direction: column; gap: 20px;">
+                        <div class="time-step">
+                            <div style="font-weight: bold; color: #667eea;">t = 0</div>
+                            <div class="image-placeholder clean-image"></div>
+                            <div style="font-size: 0.9em; color: #666;">Imagen Original</div>
+                        </div>
+
+                        <div class="arrow-indicator" style="font-size: 2em;">↓</div>
+
+                        <div class="time-step">
+                            <div style="font-weight: bold; color: #667eea;">t = 1</div>
+                            <div class="image-placeholder" style="background: linear-gradient(135deg, #4facfe 80%, #999 80%);"></div>
+                            <div style="font-size: 0.9em; color: #666;">Poco ruido</div>
+                        </div>
+
+                        <div class="arrow-indicator" style="font-size: 2em;">↓</div>
+
+                        <div class="time-step">
+                            <div style="font-weight: bold; color: #667eea;">t = T/2</div>
+                            <div class="image-placeholder partial-noise"></div>
+                            <div style="font-size: 0.9em; color: #666;">Bastante ruido</div>
+                        </div>
+
+                        <div class="arrow-indicator" style="font-size: 2em;">↓</div>
+
+                        <div class="time-step">
+                            <div style="font-weight: bold; color: #667eea;">t = T</div>
+                            <div class="image-placeholder noisy-image"></div>
+                            <div style="font-size: 0.9em; color: #666;">Ruido Puro</div>
+                        </div>
+                    </div>
+
+                    <div class="key-point" style="margin-top: 25px;">
+                        <strong>Este proceso NO se aprende:</strong> Es simplemente muestrear ruido gaussiano y agregarlo
+                    </div>
+                </div>
+
+                <div class="process-box">
+                    <h3>⬅️ Reverse Process (Difusión Inversa)</h3>
+                    <p style="text-align: center; margin: 20px 0; color: #666;">
+                        Eliminamos ruido gradualmente
+                    </p>
+
+                    <div class="timeline" style="flex-direction: column; gap: 20px;">
+                        <div class="time-step">
+                            <div style="font-weight: bold; color: #f5576c;">t = T</div>
+                            <div class="image-placeholder noisy-image"></div>
+                            <div style="font-size: 0.9em; color: #666;">Ruido Puro</div>
+                        </div>
+
+                        <div class="arrow-indicator" style="font-size: 2em; color: #f5576c;">↓</div>
+
+                        <div class="time-step">
+                            <div style="font-weight: bold; color: #f5576c;">t = T/2</div>
+                            <div class="image-placeholder partial-noise"></div>
+                            <div style="font-size: 0.9em; color: #666;">Reduciendo ruido</div>
+                        </div>
+
+                        <div class="arrow-indicator" style="font-size: 2em; color: #f5576c;">↓</div>
+
+                        <div class="time-step">
+                            <div style="font-weight: bold; color: #f5576c;">t = 1</div>
+                            <div class="image-placeholder" style="background: linear-gradient(135deg, #4facfe 80%, #999 80%);"></div>
+                            <div style="font-size: 0.9em; color: #666;">Casi limpio</div>
+                        </div>
+
+                        <div class="arrow-indicator" style="font-size: 2em; color: #f5576c;">↓</div>
+
+                        <div class="time-step">
+                            <div style="font-weight: bold; color: #f5576c;">t = 0</div>
+                            <div class="image-placeholder clean-image"></div>
+                            <div style="font-size: 0.9em; color: #666;">Imagen Generada</div>
+                        </div>
+                    </div>
+
+                    <div class="key-point" style="margin-top: 25px; border-color: #f5576c;">
+                        <strong style="color: #a02724;">ESTO es lo que aprende el modelo:</strong> Predecir cómo era el dato antes de agregarle ruido
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="formula-box">
+            <h3 style="text-align: center; color: #764ba2; margin-bottom: 20px;">Forward Process - Distribución de Transición</h3>
+            <div class="formula">
+                q(x_t | x_{t-1}) = N(x_t; √(1 - β_t) · x_{t-1}, β_t · I)
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #666;">
+                Donde <code>β_t</code> es el "variance schedule" (cuánto ruido agregamos en cada paso)
+            </p>
+            <p style="text-align: center; margin-top: 10px; color: #666;">
+                <strong>Media:</strong> Versión ligeramente reducida del paso anterior<br>
+                <strong>Varianza:</strong> Controlada por β_t
+            </p>
+        </div>
+
+        <div class="variance-schedule">
+            <h2 style="text-align: center; color: #333; margin-bottom: 25px;">📊 Variance Schedule (β_t)</h2>
+
+            <div class="explanation" style="background: white;">
+                <h3>¿Qué es el Variance Schedule?</h3>
+                <ul>
+                    <li><strong>Hiperparámetro del modelo:</strong> Define cuánto ruido agregar en cada paso t</li>
+                    <li><strong>No se aprende:</strong> Se define antes del entrenamiento</li>
+                    <li><strong>Típicamente crece:</strong> Más ruido en pasos finales</li>
+                    <li><strong>Valores comunes:</strong> β₁ = 10⁻⁴, β_T = 0.02, T = 1000 pasos</li>
+                </ul>
+            </div>
+
+            <div class="schedule-chart">
+                <div style="position: absolute; bottom: 20px; left: 20px; font-weight: bold;">β = 0</div>
+                <div style="position: absolute; bottom: 20px; right: 20px; font-weight: bold;">β = 1</div>
+                <div style="position: absolute; left: 20px; top: 20px; font-weight: bold;">t = 0</div>
+                <div style="position: absolute; right: 20px; top: 20px; font-weight: bold;">t = T</div>
+                <div class="schedule-line"></div>
+                <div style="position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); color: #667eea; font-weight: bold;">
+                    Schedule Lineal
+                </div>
+            </div>
+
+            <div class="step-by-step">
+                <h4 style="margin-bottom: 20px;">Opciones de Schedule:</h4>
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Constante:</strong> β_t = β para todo t<br>
+                        <span style="color: #666;">Simple pero no óptimo</span>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Lineal:</strong> β_t crece linealmente de β₁ a β_T<br>
+                        <span style="color: #666;">Usado en el paper original de DDPM</span>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Cuadrático:</strong> β_t crece cuadráticamente<br>
+                        <span style="color: #666;">Más agresivo al final del proceso</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="key-point">
+            <strong>🎯 Propiedad Markoviana:</strong> Cada paso solo depende del anterior, NO de toda la historia.
+            Esto permite entrenar el modelo con <span class="highlight">cualquier par de pasos consecutivos</span> como dato independiente.
+        </div>
+
+        <div class="formula-box">
+            <h3 style="text-align: center; color: #764ba2; margin-bottom: 20px;">Salto Directo a Cualquier Paso (Forma Cerrada)</h3>
+            <div class="formula">
+                q(x_t | x_0) = N(x_t; √(ᾱ_t) · x_0, (1 - ᾱ_t) · I)
+            </div>
+            <p style="text-align: center; margin-top: 15px; color: #666;">
+                Donde <code>ᾱ_t = ∏(1 - β_i)</code> para i de 1 a t
+            </p>
+            <div class="key-point" style="margin-top: 20px;">
+                <strong>Ventaja enorme:</strong> No necesitas generar todos los pasos intermedios para entrenar.
+                Puedes saltar directamente del paso 0 al paso 500, por ejemplo.
+            </div>
+        </div>
+
+        <div class="explanation">
+            <h3>🧠 ¿Qué Aprende el Modelo?</h3>
+            <ul>
+                <li><strong>Entrada:</strong> Imagen con ruido en el tiempo t (x_t) + el tiempo t mismo</li>
+                <li><strong>Salida:</strong> Parámetros de una distribución gaussiana (media μ y varianza σ)</li>
+                <li><strong>Similar a VAE:</strong> El modelo NO predice directamente x_{t-1}, sino los parámetros para muestrearlo</li>
+                <li><strong>Función de pérdida:</strong> Compara x_{t-1} predicho vs x_{t-1} real</li>
+                <li><strong>Un solo modelo:</strong> Se usa el mismo modelo para todos los pasos (condicionado por t)</li>
+            </ul>
+        </div>
+
+        <div class="step-by-step">
+            <h3 style="margin-bottom: 25px; text-align: center; color: #333;">Proceso de Entrenamiento</h3>
+
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Tomar una imagen real</strong> del dataset → esto es x₀
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Elegir un paso aleatorio</strong> t entre 1 y T
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Generar x_t</strong> agregando ruido según q(x_t | x₀) - esto es programable
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div>
+                    <strong>Pasar x_t y t al modelo</strong> → modelo predice μ_θ y σ_θ
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">5</div>
+                <div>
+                    <strong>Generar x_{t-1} predicho</strong> muestreando de N(μ_θ, σ_θ)
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">6</div>
+                <div>
+                    <strong>Calcular pérdida:</strong> ||x_{t-1} real - x_{t-1} predicho||²
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">7</div>
+                <div>
+                    <strong>Backpropagation</strong> y actualizar pesos del modelo
+                </div>
+            </div>
+        </div>
+
+        <div class="step-by-step">
+            <h3 style="margin-bottom: 25px; text-align: center; color: #333;">Proceso de Generación (Inferencia)</h3>
+
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Muestrear x_T</strong> de una normal estándar N(0, I) → ruido puro
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Para t = T, T-1, ..., 1:</strong>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Pasar x_t y t al modelo</li>
+                        <li>Obtener μ_θ(x_t, t) y σ_θ(x_t, t)</li>
+                        <li>Muestrear x_{t-1} ~ N(μ_θ, σ_θ)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Retornar x₀</strong> → imagen generada final
+                </div>
+            </div>
+
+            <div class="key-point" style="margin-top: 20px;">
+                <strong>⏱️ Por esto es lento:</strong> Si T = 1000, necesitas hacer 1000 pasadas por el modelo para generar UNA imagen
+            </div>
+        </div>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>GANs</th>
+                    <th>VAEs</th>
+                    <th>Modelos de Difusión</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Entrenamiento</strong></td>
+                    <td>Inestable (2 redes compitiendo)</td>
+                    <td>Estable</td>
+                    <td>Muy estable</td>
+                </tr>
+                <tr>
+                    <td><strong>Calidad de salida</strong></td>
+                    <td>Alta pero puede colapsar</td>
+                    <td>Moderada (borroso)</td>
+                    <td>Muy alta y diversa</td>
+                </tr>
+                <tr>
+                    <td><strong>Velocidad de generación</strong></td>
+                    <td>Muy rápida (1 paso)</td>
+                    <td>Rápida (1 paso)</td>
+                    <td>Lenta (T pasos)</td>
+                </tr>
+                <tr>
+                    <td><strong>Dimensión del latente</strong></td>
+                    <td>Menor que el dato</td>
+                    <td>Menor que el dato</td>
+                    <td>Igual al dato</td>
+                </tr>
+                <tr>
+                    <td><strong>Uso principal</strong></td>
+                    <td>Imágenes realistas</td>
+                    <td>Compresión, generación</td>
+                    <td>Generación de alta calidad</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="explanation">
+            <h3>🎨 Aplicaciones Reales</h3>
+            <ul>
+                <li><strong>DALL-E 2:</strong> Generación de imágenes desde texto</li>
+                <li><strong>Stable Diffusion:</strong> Modelo open-source muy popular</li>
+                <li><strong>Midjourney:</strong> Herramienta comercial de generación artística</li>
+                <li><strong>Imagen a imagen:</strong> Edición y modificación de fotos</li>
+                <li><strong>Inpainting:</strong> Rellenar partes faltantes de imágenes</li>
+                <li><strong>Super-resolución:</strong> Mejorar calidad de imágenes</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

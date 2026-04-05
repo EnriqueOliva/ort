@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 11 - Diagramas IA Generativa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 3em;
+        }
+
+        .date {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.3em;
+            margin-bottom: 40px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #667eea;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .card.diffusion { border-top-color: #667eea; }
+        .card.metrics { border-top-color: #f5576c; }
+
+        .card .icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .card .btn {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+
+        .card .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .topics {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .topics ul {
+            margin-left: 20px;
+            line-height: 2;
+        }
+
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Clase 11 - IA Generativa</h1>
+        <p class="date">04 de Noviembre de 2025</p>
+
+        <div class="intro">
+            <h3>📋 Temas de la Clase</h3>
+            <p style="margin-top: 10px; line-height: 1.8;">
+                Esta clase cubrió los siguientes temas principales:
+            </p>
+            <ul style="margin-left: 20px; line-height: 2; margin-top: 10px;">
+                <li><strong>Modelos de Difusión:</strong> Repaso completo del proceso forward y reverse, algoritmo de entrenamiento</li>
+                <li><strong>Métricas de Evaluación:</strong> Cómo evaluar modelos generativos (fidelidad, diversidad, métricas matemáticas y perceptuales)</li>
+            </ul>
+        </div>
+
+        <div class="cards-container">
+            <div class="card diffusion" onclick="window.location.href='modelos_difusion.html'">
+                <div class="icon">🎨</div>
+                <h2>Modelos de Difusión</h2>
+                <p>
+                    Diagrama interactivo explicando cómo funcionan los modelos de difusión:
+                    proceso forward (agregar ruido), proceso reverse (eliminar ruido),
+                    algoritmo de entrenamiento y función de pérdida simplificada.
+                </p>
+                <div class="topics">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Visualización del proceso de difusión</li>
+                        <li>Proceso de generación paso a paso</li>
+                        <li>Pseudocódigo del algoritmo</li>
+                        <li>Conceptos clave (scheduling, VLB)</li>
+                    </ul>
+                </div>
+                <a href="modelos_difusion.html" class="btn">Ver Diagrama →</a>
+            </div>
+
+            <div class="card metrics" onclick="window.location.href='metricas_evaluacion.html'">
+                <div class="icon">📊</div>
+                <h2>Métricas de Evaluación</h2>
+                <p>
+                    Guía completa de métricas para evaluar modelos generativos:
+                    KL Divergence, Jensen-Shannon, Inception Score, FID, Perplexity,
+                    BLEU, evaluación humana y más.
+                </p>
+                <div class="topics">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Los 2 ejes: Fidelidad y Diversidad</li>
+                        <li>Distancias entre distribuciones</li>
+                        <li>Métricas para imágenes y texto</li>
+                        <li>Evaluación perceptual y humana</li>
+                        <li>Tabla comparativa de modelos</li>
+                    </ul>
+                </div>
+                <a href="metricas_evaluacion.html" class="btn">Ver Diagrama →</a>
+            </div>
+        </div>
+
+        <div class="intro" style="margin-top: 40px; background: #fff3cd; border-left-color: #ffc107;">
+            <h3>💡 Nota Importante</h3>
+            <p style="margin-top: 10px; line-height: 1.8;">
+                Estos diagramas están diseñados para ser <strong>interactivos y educativos</strong>.
+                Incluyen efectos hover, visualizaciones SVG, y explicaciones paso a paso
+                para facilitar el aprendizaje de conceptos complejos de IA Generativa.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

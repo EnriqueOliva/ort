@@ -1,0 +1,24 @@
+Actualmente nos encontramos dentro de C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa, el cual es un espacio de trabajo dedicado a un curso en IA Generativa, en el cual almacenamos principalmente una transcripción de cada clase del curso.
+
+Estoy extremadamente perdido, nunca asistí a ninguna clase, no sé nada sobre ningún tema, no sé qué se dio, y vengo de otra disciplina por lo que no sé nada sobre lo que se dio.
+
+Haz un análisis megaexhaustivo de todas las trancripciones de las clases 8, 9, 10, 11 y 12, es decir:
+
+- C:\Users\Enrique\Documents\2doSemestre\ModelosDeDeepLearning\theory\8-27-10-2025\8-27-10-2025.txt
+- C:\Users\Enrique\Documents\2doSemestre\ModelosDeDeepLearning\theory\9-03-11-2025\9-03-11-2025.txt
+- C:\Users\Enrique\Documents\2doSemestre\ModelosDeDeepLearning\theory\10-10-11-2025\10-10-11-2025.txt
+- C:\Users\Enrique\Documents\2doSemestre\ModelosDeDeepLearning\theory\11-17-11-2025\11-17-11-2025.txt
+
+Analiza una por una, para tú tener un entendimiento completo y exhaustivo de todos los temas que se vieron en clase, y cómo se dieron. Luego, en base a esto, debes escribir un archivo md nuevo en el dir raíz en el que dibujes y expliques la arquitectura de todas las redes y modelos que hayamos en esas 4 clases. Necesito tener una representación visual de todas las estructuras que yo deba saber de acuerdo a esas 4 clases. Necesito poder identificar y saber qué hace cada entrada, cada capa, cada salida, cada bloque, cada activación, cada convolución, etc. etc.
+
+Crea tanto archivos md como archivos de representación visual, como html o algún otro, de ser posibles interactivos. Divide claramente cada tema o estructura o modelo.
+
+Al explicar cosas, puedes guiarte con el estilo de C:\Users\Enrique\Documents\2doSemestre\ModelosDeDeepLearning\theory\8-27-10-2025\explicaciones.md, pero debes ser breve e incluir poco texto porque el enfoque de hoy es entender visualmente las estructuras.
+
+También incluye un archivo breve con una lista de todas las estructuras.
+
+Un vez que termines, vuelve a analizar todas y cada de las transcripciones, en orden, en busca de detalles que hayas omitido leer en la primera vez. Repite el proceso 3 veces, y solo al final escribe el md.
+
+Invoca múltiples agentes para esta tarea. Que cada agente realice todo el proceso descrito anteriormente, para al final que cada uno brinde su propia versión de la propuesta. 
+
+Ultrathink. 

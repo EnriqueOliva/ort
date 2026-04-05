@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAE para Generación de Audio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #2575fc;
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            border-bottom: 4px solid #2575fc;
+            padding-bottom: 10px;
+        }
+
+        .architecture-flow {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .flow-box {
+            background: white;
+            border: 3px solid #2575fc;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 15px;
+            min-width: 200px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .flow-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 117, 252, 0.3);
+        }
+
+        .flow-box h3 {
+            color: #2575fc;
+            margin-bottom: 10px;
+        }
+
+        .arrow-flow {
+            font-size: 3em;
+            color: #2575fc;
+        }
+
+        .diagram-container {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 6px solid;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateX(10px);
+        }
+
+        .feature-card.mfcc { border-left-color: #e74c3c; }
+        .feature-card.f0 { border-left-color: #3498db; }
+        .feature-card.rms { border-left-color: #f39c12; }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .code-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background: #d4edda;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #28a745;
+            margin: 20px 0;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .architecture-flow {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 VAE para Generación de Audio</h1>
+
+        <div class="intro-box">
+            <h2>¿Qué es un VAE (Variational Autoencoder)?</h2>
+            <p style="font-size: 1.1em; line-height: 1.8; margin-top: 15px;">
+                Un VAE es un modelo generativo que aprende una <strong>representación comprimida (latente)</strong> de los datos.
+                En este caso, aprende a representar audio en un espacio de menor dimensión, permitiendo generar nuevos audios
+                e interpolar suavemente entre diferentes sonidos.
+            </p>
+        </div>
+
+        <h2 class="section-title">🏗️ Arquitectura Completa del Sistema</h2>
+
+        <div class="architecture-flow">
+            <div class="flow-box" style="background: #e8f5e9;">
+                <h3>📄 Audio Crudo</h3>
+                <p>Archivo WAV<br>4 segundos<br>44.1 kHz</p>
+            </div>
+
+            <span class="arrow-flow">→</span>
+
+            <div class="flow-box" style="background: #e3f2fd;">
+                <h3>📊 Espectrograma</h3>
+                <p>Representación<br>visual del audio<br>(imagen)</p>
+            </div>
+
+            <span class="arrow-flow">→</span>
+
+            <div class="flow-box" style="background: #f3e5f5;">
+                <h3>🔽 Encoder</h3>
+                <p>Comprime a<br>espacio latente<br>(μ, σ)</p>
+            </div>
+
+            <span class="arrow-flow">→</span>
+
+            <div class="flow-box" style="background: #fff3e0;">
+                <h3>⭐ Latente Z</h3>
+                <p>Representación<br>compacta<br>abstracta</p>
+            </div>
+
+            <span class="arrow-flow">→</span>
+
+            <div class="flow-box" style="background: #fce4ec;">
+                <h3>🔼 Decoder</h3>
+                <p>Reconstruye<br>espectrograma</p>
+            </div>
+
+            <span class="arrow-flow">→</span>
+
+            <div class="flow-box" style="background: #e0f2f1;">
+                <h3>🎵 Audio Generado</h3>
+                <p>Archivo WAV<br>reconstruido</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">🎼 Del Audio al Espectrograma</h2>
+
+        <div class="diagram-container">
+            <h3>¿Por qué convertir audio a espectrograma?</h3>
+            <p style="margin: 15px 0; line-height: 1.8;">
+                El audio crudo tiene <strong>demasiada información</strong> (cada segundo = miles de muestras).
+                El espectrograma es una representación visual que es más fácil de procesar para redes neuronales.
+            </p>
+
+            <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Onda de audio -->
+                <text x="100" y="40" font-size="20" font-weight="bold" fill="#2575fc">Audio (Onda)</text>
+                <rect x="50" y="60" width="400" height="120" fill="#f0f0f0" stroke="#2575fc" stroke-width="2" rx="5"/>
+
+                <!-- Simulación de onda sinusoidal -->
+                <path d="M 70 120 Q 120 80, 170 120 T 270 120 T 370 120 T 430 120"
+                      stroke="#e74c3c" stroke-width="3" fill="none"/>
+
+                <text x="250" y="200" text-anchor="middle" font-size="14" fill="#555">Tiempo →</text>
+
+                <!-- Flecha -->
+                <path d="M 470 120 L 520 120" stroke="#2575fc" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="495" y="110" text-anchor="middle" font-size="14" fill="#2575fc">FFT</text>
+
+                <!-- Espectrograma -->
+                <text x="700" y="40" font-size="20" font-weight="bold" fill="#2575fc">Espectrograma</text>
+                <rect x="550" y="60" width="400" height="120" fill="#f0f0f0" stroke="#2575fc" stroke-width="2" rx="5"/>
+
+                <!-- Simulación de espectrograma (bloques de colores) -->
+                <rect x="570" y="80" width="30" height="80" fill="#ff6b6b" opacity="0.8"/>
+                <rect x="610" y="90" width="30" height="70" fill="#ffd93d" opacity="0.8"/>
+                <rect x="650" y="100" width="30" height="60" fill="#6bcf7f" opacity="0.8"/>
+                <rect x="690" y="95" width="30" height="65" fill="#4ecdc4" opacity="0.8"/>
+                <rect x="730" y="85" width="30" height="75" fill="#9b59b6" opacity="0.8"/>
+                <rect x="770" y="110" width="30" height="50" fill="#3498db" opacity="0.8"/>
+                <rect x="810" y="105" width="30" height="55" fill="#e056fd" opacity="0.8"/>
+                <rect x="850" y="100" width="30" height="60" fill="#ff9ff3" opacity="0.8"/>
+                <rect x="890" y="90" width="30" height="70" fill="#feca57" opacity="0.8"/>
+
+                <text x="750" y="200" text-anchor="middle" font-size="14" fill="#555">Tiempo →</text>
+                <text x="530" y="120" text-anchor="middle" font-size="14" fill="#555" transform="rotate(-90 530 120)">Frecuencia →</text>
+
+                <!-- Leyenda -->
+                <text x="100" y="250" font-size="16" font-weight="bold" fill="#2c3e50">Ejes del Espectrograma:</text>
+                <circle cx="100" cy="280" r="8" fill="#e74c3c"/>
+                <text x="120" y="285" font-size="14" fill="#2c3e50">Eje X: Tiempo (duración del audio)</text>
+
+                <circle cx="100" cy="310" r="8" fill="#3498db"/>
+                <text x="120" y="315" font-size="14" fill="#2c3e50">Eje Y: Frecuencia (agudos arriba, graves abajo)</text>
+
+                <circle cx="100" cy="340" r="8" fill="#f39c12"/>
+                <text x="120" y="345" font-size="14" fill="#2c3e50">Color: Intensidad/Volumen (brillante = fuerte)</text>
+
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#2575fc"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+
+        <h2 class="section-title">🎯 Características Extraídas del Audio</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card mfcc">
+                <h3>🎨 MFCC</h3>
+                <p><strong>Mel-Frequency Cepstral Coefficients</strong></p>
+                <p style="margin-top: 15px; line-height: 1.8;">
+                    Representan el <strong>timbre</strong> del sonido - las características espectrales que hacen que
+                    un piano suene diferente a una guitarra, aunque toquen la misma nota.
+                </p>
+                <p style="margin-top: 10px; color: #e74c3c; font-weight: bold;">
+                    → Captura la "textura" del sonido
+                </p>
+            </div>
+
+            <div class="feature-card f0">
+                <h3>🎼 F0 (Pitch)</h3>
+                <p><strong>Frecuencia Fundamental</strong></p>
+                <p style="margin-top: 15px; line-height: 1.8;">
+                    Es el <strong>tono</strong> del sonido - indica si la nota es aguda o grave.
+                    F0 alta = sonido agudo, F0 baja = sonido grave.
+                </p>
+                <p style="margin-top: 10px; color: #3498db; font-weight: bold;">
+                    → Captura qué tan agudo o grave es
+                </p>
+            </div>
+
+            <div class="feature-card rms">
+                <h3>📢 RMS (Energy)</h3>
+                <p><strong>Root Mean Square</strong></p>
+                <p style="margin-top: 15px; line-height: 1.8;">
+                    Mide la <strong>intensidad/volumen</strong> del sonido.
+                    RMS alta = sonido fuerte, RMS baja = sonido suave.
+                </p>
+                <p style="margin-top: 10px; color: #f39c12; font-weight: bold;">
+                    → Captura qué tan fuerte suena
+                </p>
+            </div>
+        </div>
+
+        <h2 class="section-title">🔧 Algoritmo de Reconstrucción: Griffin-Lim</h2>
+
+        <div class="warning-box">
+            <h4>⚠️ Problema: Fase Perdida</h4>
+            <p style="margin-top: 10px; line-height: 1.8;">
+                El espectrograma guarda la <strong>magnitud</strong> (volumen en cada frecuencia) pero NO la <strong>fase</strong>
+                (el punto exacto de la onda en cada momento). Sin la fase, no podemos reconstruir el audio perfectamente.
+            </p>
+        </div>
+
+        <div class="success-box">
+            <h4>✅ Solución: Griffin-Lim</h4>
+            <p style="margin-top: 10px; line-height: 1.8;">
+                Es un algoritmo iterativo que <strong>estima la fase perdida</strong> usando funciones matemáticas.
+                No es perfecto (puede haber ruido metálico), pero permite convertir espectrograma → audio sin tener la fase original.
+            </p>
+        </div>
+
+        <div class="diagram-container">
+            <h3>Analogía: Olas del Mar 🌊</h3>
+            <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 15px;">
+                <p style="line-height: 2;">
+                    <strong>Magnitud</strong> = Qué tan ALTA es la ola (volumen del sonido)<br>
+                    &nbsp;&nbsp;&nbsp;→ En el espectrograma: brillo/color<br><br>
+
+                    <strong>Fase</strong> = En qué PUNTO estás en la ola (¿subiendo? ¿bajando? ¿en la cresta?)<br>
+                    &nbsp;&nbsp;&nbsp;→ Determina cuándo empieza cada vibración<br><br>
+
+                    Si varias frecuencias suenan al mismo tiempo pero las fases no están alineadas:<br>
+                    &nbsp;&nbsp;&nbsp;• Pueden <span style="color: #e74c3c;">cancelarse</span> entre sí<br>
+                    &nbsp;&nbsp;&nbsp;• O pueden <span style="color: #27ae60;">potenciarse</span> entre sí<br><br>
+
+                    <strong>Por eso la fase es importante</strong> para reconstruir correctamente el audio.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="section-title">📐 Arquitectura del VAE</h2>
+
+        <svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+            <!-- Espectrograma Input -->
+            <rect x="50" y="250" width="120" height="100" fill="#3498db" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="110" y="285" text-anchor="middle" font-size="14" fill="white" font-weight="bold">Espectrograma</text>
+            <text x="110" y="305" text-anchor="middle" font-size="12" fill="white">Input</text>
+            <text x="110" y="325" text-anchor="middle" font-size="20" fill="white">📊</text>
+
+            <!-- Flecha -->
+            <path d="M 180 300 L 230 300" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow2)"/>
+
+            <!-- Encoder -->
+            <rect x="240" y="200" width="140" height="200" fill="#9b59b6" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="310" y="230" text-anchor="middle" font-size="16" fill="white" font-weight="bold">ENCODER</text>
+            <text x="310" y="255" text-anchor="middle" font-size="12" fill="white">Capas</text>
+            <text x="310" y="275" text-anchor="middle" font-size="12" fill="white">Convolucionales</text>
+
+            <!-- Redes dentro del encoder -->
+            <rect x="260" y="290" width="100" height="20" fill="rgba(255,255,255,0.3)" rx="5"/>
+            <rect x="260" y="320" width="100" height="20" fill="rgba(255,255,255,0.3)" rx="5"/>
+            <rect x="260" y="350" width="100" height="20" fill="rgba(255,255,255,0.3)" rx="5"/>
+
+            <!-- Flecha bifurcada -->
+            <path d="M 390 300 L 440 260" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow2)"/>
+            <path d="M 390 300 L 440 340" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow2)"/>
+
+            <!-- μ (mu) -->
+            <ellipse cx="490" cy="260" rx="50" ry="35" fill="#e74c3c" stroke="#2c3e50" stroke-width="3"/>
+            <text x="490" y="270" text-anchor="middle" font-size="18" fill="white" font-weight="bold">μ (mu)</text>
+
+            <!-- σ (sigma) -->
+            <ellipse cx="490" cy="340" rx="50" ry="35" fill="#f39c12" stroke="#2c3e50" stroke-width="3"/>
+            <text x="490" y="350" text-anchor="middle" font-size="18" fill="white" font-weight="bold">σ (sigma)</text>
+
+            <!-- Flechas convergentes -->
+            <path d="M 545 260 L 595 300" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow2)"/>
+            <path d="M 545 340 L 595 300" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow2)"/>
+
+            <!-- Sampling (Z) -->
+            <rect x="605" y="260" width="100" height="80" fill="#1abc9c" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="655" y="290" text-anchor="middle" font-size="14" fill="white" font-weight="bold">Reparameterization</text>
+            <text x="655" y="310" text-anchor="middle" font-size="12" fill="white">z = μ + σ·ε</text>
+            <text x="655" y="325" text-anchor="middle" font-size="10" fill="white">(ε ~ N(0,1))</text>
+
+            <!-- Flecha -->
+            <path d="M 715 300 L 765 300" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow2)"/>
+
+            <!-- Latent Space Z -->
+            <ellipse cx="830" cy="300" rx="60" ry="40" fill="#ffd93d" stroke="#2c3e50" stroke-width="3"/>
+            <text x="830" y="305" text-anchor="middle" font-size="18" fill="#2c3e50" font-weight="bold">Z</text>
+            <text x="830" y="325" text-anchor="middle" font-size="10" fill="#2c3e50">Latente</text>
+
+            <!-- Flecha -->
+            <path d="M 895 300 L 945 300" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow2)"/>
+
+            <!-- Decoder -->
+            <rect x="955" y="200" width="140" height="200" fill="#16a085" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="1025" y="230" text-anchor="middle" font-size="16" fill="white" font-weight="bold">DECODER</text>
+            <text x="1025" y="255" text-anchor="middle" font-size="12" fill="white">Capas</text>
+            <text x="1025" y="275" text-anchor="middle" font-size="12" fill="white">Deconvolucionales</text>
+
+            <!-- Redes dentro del decoder -->
+            <rect x="975" y="290" width="100" height="20" fill="rgba(255,255,255,0.3)" rx="5"/>
+            <rect x="975" y="320" width="100" height="20" fill="rgba(255,255,255,0.3)" rx="5"/>
+            <rect x="975" y="350" width="100" height="20" fill="rgba(255,255,255,0.3)" rx="5"/>
+
+            <!-- Flecha -->
+            <path d="M 1105 300 L 1155 300" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow2)"/>
+
+            <!-- Espectrograma Output -->
+            <rect x="1165" y="250" width="120" height="100" fill="#3498db" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="1225" y="285" text-anchor="middle" font-size="14" fill="white" font-weight="bold">Espectrograma</text>
+            <text x="1225" y="305" text-anchor="middle" font-size="12" fill="white">Reconstruido</text>
+            <text x="1225" y="325" text-anchor="middle" font-size="20" fill="white">📊</text>
+
+            <!-- Etiquetas inferiores -->
+            <text x="310" y="430" text-anchor="middle" font-size="14" fill="#9b59b6" font-weight="bold">Compresión</text>
+            <text x="655" y="430" text-anchor="middle" font-size="14" fill="#1abc9c" font-weight="bold">Muestreo</text>
+            <text x="1025" y="430" text-anchor="middle" font-size="14" fill="#16a085" font-weight="bold">Reconstrucción</text>
+
+            <!-- Función de pérdida -->
+            <rect x="400" y="480" width="500" height="100" fill="#f0f0f0" stroke="#e74c3c" stroke-width="3" rx="10"/>
+            <text x="650" y="510" text-anchor="middle" font-size="16" fill="#e74c3c" font-weight="bold">FUNCIÓN DE PÉRDIDA</text>
+            <text x="650" y="535" text-anchor="middle" font-size="14" fill="#2c3e50">Loss = Reconstrucción + KL Divergence</text>
+            <text x="650" y="560" text-anchor="middle" font-size="12" fill="#555">||x - x'||² + KL(q(z|x) || p(z))</text>
+
+            <defs>
+                <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#2c3e50"/>
+                </marker>
+            </defs>
+        </svg>
+
+        <h2 class="section-title">🎓 Entrenamiento del VAE</h2>
+
+        <div class="code-box">
+<strong>Pasos del entrenamiento:</strong>
+
+1. Tomar espectrograma real del dataset
+2. Pasar por Encoder → obtener μ y σ
+3. Muestrear z del espacio latente: z = μ + σ·ε
+4. Pasar z por Decoder → reconstruir espectrograma
+5. Calcular pérdidas:
+   - Reconstrucción: ¿qué tan parecido es el output al input?
+   - KL Divergence: ¿qué tan cerca está z de N(0,1)?
+6. Actualizar pesos con backpropagation
+        </div>
+
+        <h2 class="section-title">🎯 Interpolación en Espacio Latente</h2>
+
+        <div class="diagram-container">
+            <p style="line-height: 1.8; margin-bottom: 20px;">
+                Una vez entrenado, podemos <strong>interpolar</strong> entre dos sonidos diferentes moviéndonos
+                suavemente en el espacio latente. Si el modelo aprendió bien, sonidos similares estarán cerca en este espacio.
+            </p>
+
+            <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Sonido A -->
+                <circle cx="100" cy="150" r="40" fill="#e74c3c" stroke="#2c3e50" stroke-width="3"/>
+                <text x="100" y="155" text-anchor="middle" font-size="16" fill="white" font-weight="bold">🎸</text>
+                <text x="100" y="210" text-anchor="middle" font-size="14" fill="#2c3e50">Guitarra</text>
+                <text x="100" y="230" text-anchor="middle" font-size="12" fill="#555">z_A</text>
+
+                <!-- Interpolación -->
+                <path d="M 150 150 L 650 150" stroke="#3498db" stroke-width="4" stroke-dasharray="10,5"/>
+
+                <circle cx="250" cy="150" r="20" fill="#9b59b6" opacity="0.6"/>
+                <circle cx="350" cy="150" r="20" fill="#9b59b6" opacity="0.7"/>
+                <circle cx="450" cy="150" r="20" fill="#9b59b6" opacity="0.8"/>
+                <circle cx="550" cy="150" r="20" fill="#9b59b6" opacity="0.9"/>
+
+                <text x="400" y="130" text-anchor="middle" font-size="14" fill="#3498db" font-weight="bold">
+                    z_interp = α·z_A + (1-α)·z_B
+                </text>
+
+                <!-- Sonido B -->
+                <circle cx="700" cy="150" r="40" fill="#2ecc71" stroke="#2c3e50" stroke-width="3"/>
+                <text x="700" y="160" text-anchor="middle" font-size="16" fill="white" font-weight="bold">🎹</text>
+                <text x="700" y="210" text-anchor="middle" font-size="14" fill="#2c3e50">Piano</text>
+                <text x="700" y="230" text-anchor="middle" font-size="12" fill="#555">z_B</text>
+            </svg>
+        </div>
+
+        <div class="success-box">
+            <h4>✅ Objetivo de la Interpolación</h4>
+            <p style="margin-top: 10px; line-height: 1.8;">
+                Si el modelo aprendió bien, al interpolar entre una guitarra y un piano deberíamos escuchar
+                una <strong>transición suave</strong> donde el sonido gradualmente cambia de uno al otro,
+                sin saltos bruscos o ruidos extraños.
+            </p>
+        </div>
+
+        <h2 class="section-title">📊 Dataset: NSynth</h2>
+
+        <div class="intro-box">
+            <h3>🎼 NSynth Dataset</h3>
+            <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+                <li>Creado por Google Magenta</li>
+                <li><strong>300,000 muestras</strong> de notas musicales individuales</li>
+                <li>Múltiples instrumentos diferentes</li>
+                <li>Cada audio: 4 segundos (3s sonido continuo + 1s decay)</li>
+                <li>Formato WAV, 44.1 kHz</li>
+                <li>Dividido en: Train, Validation, Test</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <h4>⚠️ Recomendación del Profesor</h4>
+            <p style="margin-top: 10px; line-height: 1.8;">
+                Empezar con <strong>pocos instrumentos</strong> (2-3) muy diferentes entre sí (por ejemplo:
+                uno metálico como campana y otro suave como flauta). Usar muchos instrumentos similares puede
+                hacer que el modelo no pueda diferenciarlos bien, especialmente con compresión de audio (librosa a 16kHz).
+            </p>
+        </div>
+    </div>
+</body>
+</html>

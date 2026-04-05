@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Models: Funcion de Perdida</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #00d4ff;
+            padding-bottom: 10px;
+        }
+        .formula-main {
+            background: linear-gradient(145deg, #2d2d44, #1a1a2e);
+            padding: 30px;
+            border-radius: 15px;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            font-size: 1.5em;
+            margin: 25px 0;
+            border: 2px solid #f39c12;
+            box-shadow: 0 0 30px rgba(243, 156, 18, 0.2);
+        }
+        .formula {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            color: #00ff88;
+            text-align: center;
+            font-size: 1.1em;
+            margin: 15px 0;
+        }
+        p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .highlight {
+            color: #00ff88;
+            font-weight: bold;
+        }
+        .note {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #ffd93d;
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+        .analogy {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid #00d4ff;
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+        ul {
+            margin-left: 25px;
+            color: #ccc;
+            line-height: 2;
+        }
+        .code-block {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 25px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .code-block pre {
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        .keyword { color: #569cd6; }
+        .function { color: #dcdcaa; }
+        .comment { color: #6a9955; }
+        .string { color: #ce9178; }
+        .number { color: #b5cea8; }
+        .pipeline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .pipeline-box {
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 120px;
+        }
+        .pipeline-arrow {
+            font-size: 1.5em;
+            color: #ffd93d;
+        }
+        .example-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            .pipeline {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Funcion de Perdida de Language Models</h1>
+        <p class="subtitle">Cross-Entropy / Negative Log-Likelihood</p>
+
+        <div class="section">
+            <h2>La Idea Central</h2>
+
+            <p>El modelo aprende a <strong>predecir la siguiente palabra</strong>. La perdida mide que tan lejos esta de acertar.</p>
+
+            <div class="formula-main">
+                <span style="color: #f39c12;">Loss = -log(p_correcta)</span>
+            </div>
+
+            <div class="analogy">
+                <p><strong>Analogia:</strong> Es como un examen de opcion multiple donde el modelo tiene que elegir la siguiente palabra correcta entre miles de opciones.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>El Pipeline: De Texto a Perdida</h2>
+
+            <div class="pipeline">
+                <div class="pipeline-box" style="background: rgba(155,89,182,0.2); border: 2px solid #9b59b6;">
+                    <strong style="color: #9b59b6;">Input</strong>
+                    <p style="font-size: 0.9em; margin: 5px 0 0 0;">"El gato come"</p>
+                </div>
+                <span class="pipeline-arrow">→</span>
+                <div class="pipeline-box" style="background: rgba(52,152,219,0.2); border: 2px solid #3498db;">
+                    <strong style="color: #3498db;">Modelo</strong>
+                    <p style="font-size: 0.9em; margin: 5px 0 0 0;">Transformer</p>
+                </div>
+                <span class="pipeline-arrow">→</span>
+                <div class="pipeline-box" style="background: rgba(231,76,60,0.2); border: 2px solid #e74c3c;">
+                    <strong style="color: #e74c3c;">Logits</strong>
+                    <p style="font-size: 0.9em; margin: 5px 0 0 0;">[2.5, -0.3, 1.8...]</p>
+                </div>
+                <span class="pipeline-arrow">→</span>
+                <div class="pipeline-box" style="background: rgba(46,204,113,0.2); border: 2px solid #2ecc71;">
+                    <strong style="color: #2ecc71;">Softmax</strong>
+                    <p style="font-size: 0.9em; margin: 5px 0 0 0;">[0.35, 0.02, 0.18...]</p>
+                </div>
+                <span class="pipeline-arrow">→</span>
+                <div class="pipeline-box" style="background: rgba(243,156,18,0.2); border: 2px solid #f39c12;">
+                    <strong style="color: #f39c12;">Loss</strong>
+                    <p style="font-size: 0.9em; margin: 5px 0 0 0;">-log(p_correcta)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Ejemplo Numerico</h2>
+
+            <div class="example-box">
+                <p><strong>Entrada:</strong> "El gato come"</p>
+                <p><strong>Palabra correcta:</strong> "pescado"</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div>
+                        <p style="color: #e74c3c;"><strong>Logits del modelo:</strong></p>
+                        <div class="formula" style="font-size: 0.9em; text-align: left;">
+                            "pescado": 2.8<br>
+                            "comida": 1.5<br>
+                            "raton": 0.3<br>
+                            ...
+                        </div>
+                    </div>
+                    <div>
+                        <p style="color: #2ecc71;"><strong>Despues de Softmax:</strong></p>
+                        <div class="formula" style="font-size: 0.9em; text-align: left;">
+                            "pescado": 0.40<br>
+                            "comida": 0.11<br>
+                            "raton": 0.03<br>
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formula" style="margin-top: 20px;">
+                    Loss = -log(0.40) = 0.92
+                </div>
+
+                <p style="text-align: center; margin-top: 15px;">Si p_pescado fuera 0.90 → Loss = -log(0.90) = 0.11 (mucho mejor!)</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>El Comportamiento del Logaritmo</h2>
+
+            <svg width="100%" height="200" viewBox="0 0 800 200">
+                <line x1="100" y1="150" x2="700" y2="150" stroke="#666" stroke-width="2"/>
+                <line x1="100" y1="150" x2="100" y2="30" stroke="#666" stroke-width="2"/>
+
+                <text x="400" y="180" fill="#ccc" text-anchor="middle" font-size="12">p_correcta</text>
+                <text x="60" y="90" fill="#ccc" text-anchor="middle" font-size="12">Loss</text>
+
+                <text x="150" y="170" fill="#888" text-anchor="middle" font-size="10">0.1</text>
+                <text x="400" y="170" fill="#888" text-anchor="middle" font-size="10">0.5</text>
+                <text x="650" y="170" fill="#888" text-anchor="middle" font-size="10">1.0</text>
+
+                <path d="M 120 30 Q 200 50 300 80 Q 400 110 500 130 Q 600 142 680 148" fill="none" stroke="#f39c12" stroke-width="3"/>
+
+                <circle cx="150" cy="42" r="6" fill="#e74c3c"/>
+                <text x="150" y="28" fill="#e74c3c" text-anchor="middle" font-size="10">p=0.1 → L=2.3</text>
+
+                <circle cx="400" cy="105" r="6" fill="#f39c12"/>
+                <text x="400" y="90" fill="#f39c12" text-anchor="middle" font-size="10">p=0.5 → L=0.69</text>
+
+                <circle cx="650" cy="148" r="6" fill="#2ecc71"/>
+                <text x="650" y="135" fill="#2ecc71" text-anchor="middle" font-size="10">p=1.0 → L=0</text>
+            </svg>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px;">
+                <div style="background: rgba(231,76,60,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                    <p style="color: #e74c3c; margin: 0;"><strong>p → 0</strong></p>
+                    <p style="margin: 5px 0 0 0;">Loss → infinito</p>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9em;">Penaliza mucho los errores</p>
+                </div>
+                <div style="background: rgba(243,156,18,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                    <p style="color: #f39c12; margin: 0;"><strong>p = 0.5</strong></p>
+                    <p style="margin: 5px 0 0 0;">Loss = 0.69</p>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9em;">Zona intermedia</p>
+                </div>
+                <div style="background: rgba(46,204,113,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                    <p style="color: #2ecc71; margin: 0;"><strong>p → 1</strong></p>
+                    <p style="margin: 5px 0 0 0;">Loss → 0</p>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9em;">Prediccion perfecta</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Logits vs Probabilidades</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                <div style="background: rgba(231,76,60,0.1); padding: 20px; border-radius: 10px; border: 2px solid #e74c3c;">
+                    <p style="color: #e74c3c; margin: 0;"><strong>LOGITS</strong></p>
+                    <p style="margin: 10px 0;">Salida cruda del modelo</p>
+                    <ul style="margin-top: 10px;">
+                        <li>Pueden ser negativos</li>
+                        <li>No suman 1</li>
+                        <li>No son probabilidades</li>
+                    </ul>
+                    <div class="formula" style="margin-top: 10px; font-size: 0.9em;">[2.5, -0.3, 1.8, 0.1]</div>
+                </div>
+                <div style="background: rgba(46,204,113,0.1); padding: 20px; border-radius: 10px; border: 2px solid #2ecc71;">
+                    <p style="color: #2ecc71; margin: 0;"><strong>PROBABILIDADES</strong></p>
+                    <p style="margin: 10px 0;">Despues de Softmax</p>
+                    <ul style="margin-top: 10px;">
+                        <li>Entre 0 y 1</li>
+                        <li>Suman 1</li>
+                        <li>Son probabilidades!</li>
+                    </ul>
+                    <div class="formula" style="margin-top: 10px; font-size: 0.9em;">[0.45, 0.03, 0.22, 0.30]</div>
+                </div>
+            </div>
+
+            <div class="note">
+                <p style="margin: 0;"><strong>Softmax:</strong> p_i = exp(logit_i) / Sum(exp(logit_j))</p>
+                <p style="margin-top: 10px;">La exponencial convierte todo a positivo, luego se divide por la suma para que todo sume 1.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Perplexity: La Metrica</h2>
+
+            <div class="formula-main">
+                Perplexity = exp(Loss_promedio)
+            </div>
+
+            <p><strong>Interpretacion:</strong> Mide que tan "confundido" esta el modelo.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px;">
+                <div style="background: rgba(46,204,113,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                    <p style="color: #2ecc71; margin: 0;"><strong>Perplexity = 1</strong></p>
+                    <p style="margin: 10px 0 0 0;">Perfecto</p>
+                    <p style="margin: 0; font-size: 0.85em;">Siempre predice bien</p>
+                </div>
+                <div style="background: rgba(243,156,18,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                    <p style="color: #f39c12; margin: 0;"><strong>Perplexity ~ 100</strong></p>
+                    <p style="margin: 10px 0 0 0;">Bastante bueno</p>
+                    <p style="margin: 0; font-size: 0.85em;">Modelo decente</p>
+                </div>
+                <div style="background: rgba(231,76,60,0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                    <p style="color: #e74c3c; margin: 0;"><strong>Perplexity = V</strong></p>
+                    <p style="margin: 10px 0 0 0;">Aleatorio</p>
+                    <p style="margin: 0; font-size: 0.85em;">V = tamano vocabulario</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Codigo en PyTorch</h2>
+
+            <div class="code-block">
+                <pre><span class="comment"># Entrenamiento</span>
+<span class="keyword">def</span> <span class="function">train_step</span>(model, batch, optimizer):
+    inputs, targets = batch
+
+    <span class="comment"># Forward: modelo produce logits</span>
+    logits = model(inputs)  <span class="comment"># [batch, seq_len, vocab_size]</span>
+
+    <span class="comment"># Perdida: Cross-Entropy</span>
+    loss = F.cross_entropy(
+        logits.view(-<span class="number">1</span>, vocab_size),  <span class="comment"># [batch*seq_len, vocab_size]</span>
+        targets.view(-<span class="number">1</span>)               <span class="comment"># [batch*seq_len]</span>
+    )
+
+    <span class="comment"># Backward</span>
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+    <span class="keyword">return</span> loss.item()
+
+<span class="comment"># Calcular Perplexity</span>
+perplexity = math.exp(avg_loss)</pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Resumen para el Parcial</h2>
+
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px;">
+                <p><strong style="color: #f39c12;">Cross-Entropy:</strong> L = -log(p_correcta) - penaliza cuando p es bajo</p>
+                <p><strong style="color: #e74c3c;">Logits:</strong> Salida cruda, no son probabilidades, pueden ser negativos</p>
+                <p><strong style="color: #2ecc71;">Softmax:</strong> Convierte logits a probabilidades: exp(x_i) / sum(exp(x_j))</p>
+                <p><strong style="color: #9b59b6;">NLL:</strong> Negative Log-Likelihood = Cross-Entropy (equivalentes)</p>
+                <p><strong style="color: #00d4ff;">Perplexity:</strong> exp(Loss_promedio) - mas baja = mejor</p>
+                <p><strong style="color: #ffd93d;">Modelo determinístico:</strong> Misma entrada = misma distribucion; aleatoriedad viene del sampling</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

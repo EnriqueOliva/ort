@@ -1,0 +1,34 @@
+class Generator(nn.Module):
+    def __init__(self, latent_dim, num_features, num_channels):
+        super(Generator, self).__init__()
+        self.latent_dim = latent_dim
+        
+        self.main = nn.Sequential(
+            nn.ConvTranspose2d(latent_dim, num_features * 4, 4, 1, 0, bias=False),
+            nn.BatchNorm2d(num_features * 4),
+            nn.ReLU(True),
+            
+            nn.ConvTranspose2d(num_features * 4, num_features * 2, 4, 2, 1, bias=False),
+            nn.BatchNorm2d(num_features * 2),
+            nn.ReLU(True),
+            
+            nn.ConvTranspose2d(num_features * 2, num_features, 4, 2, 1, bias=False),
+            nn.BatchNorm2d(num_features),
+            nn.ReLU(True),
+            
+            nn.ConvTranspose2d(num_features, num_channels, 4, 2, 1, bias=False),
+            nn.Tanh()
+        )
+        
+        for m in self.modules():
+            if isinstance(m, (nn.ConvTranspose2d, nn.BatchNorm2d)):
+                nn.init.normal_(m.weight.data, 0.0, 0.02)
+    
+    def forward(self, z):
+        return self.main(z)
+
+test_gen = Generator(LATENT_DIM, GENERATOR_FEATURES, NUM_CHANNELS).to(device)
+test_z = torch.randn(1, LATENT_DIM, 1, 1, device=device)
+test_out = test_gen(test_z)
+print(f"Generator: {LATENT_DIM} → {test_out.shape[1]}x{test_out.shape[2]}x{test_out.shape[3]}")
+del test_gen, test_z, test_out

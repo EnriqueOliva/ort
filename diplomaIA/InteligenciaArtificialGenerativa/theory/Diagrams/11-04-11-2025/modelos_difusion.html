@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de Difusión - Arquitectura y Proceso</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .description {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+        }
+
+        .diagram-section {
+            margin: 40px 0;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .process-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 10px;
+            min-width: 250px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .process-step h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .arrow {
+            font-size: 3em;
+            color: #667eea;
+            margin: 0 20px;
+        }
+
+        .formula {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #ffc107;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .algorithm {
+            background: #d4edda;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #28a745;
+        }
+
+        .algorithm h4 {
+            color: #28a745;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .algorithm ol {
+            margin-left: 20px;
+        }
+
+        .algorithm li {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        .code {
+            background: #212529;
+            color: #00ff00;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #2196F3;
+        }
+
+        .info-box h4 {
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .process-container {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Modelos de Difusión</h1>
+
+        <div class="description">
+            <h3>¿Qué son los Modelos de Difusión?</h3>
+            <p>Los modelos de difusión son modelos generativos que aprenden a crear imágenes (o datos) a través de un proceso de dos etapas:</p>
+            <ul style="margin-top: 10px; margin-left: 20px;">
+                <li><strong>Forward Process (Difusión):</strong> Añaden ruido gradualmente a una imagen real hasta convertirla en ruido puro</li>
+                <li><strong>Reverse Process (Generación):</strong> Aprenden a eliminar el ruido paso a paso para generar imágenes nuevas</li>
+            </ul>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">Proceso de Difusión (Forward Process)</h2>
+
+            <svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Imagen Original -->
+                <rect x="50" y="80" width="120" height="120" fill="#4CAF50" stroke="#2E7D32" stroke-width="3" rx="10"/>
+                <text x="110" y="110" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Imagen</text>
+                <text x="110" y="130" text-anchor="middle" font-size="14" fill="white">Original</text>
+                <text x="110" y="150" text-anchor="middle" font-size="20" fill="white">🖼️</text>
+                <text x="110" y="230" text-anchor="middle" font-size="14" fill="#2E7D32" font-weight="bold">t = 0</text>
+
+                <!-- Flecha 1 -->
+                <path d="M 190 140 L 240 140" stroke="#667eea" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+                <text x="215" y="130" text-anchor="middle" font-size="12" fill="#667eea">+ruido</text>
+
+                <!-- Paso 1 -->
+                <rect x="260" y="80" width="120" height="120" fill="#FF9800" stroke="#F57C00" stroke-width="3" rx="10"/>
+                <text x="320" y="110" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Paso 1</text>
+                <text x="320" y="130" text-anchor="middle" font-size="14" fill="white">poco ruido</text>
+                <text x="320" y="150" text-anchor="middle" font-size="20" fill="white">🔵⚪</text>
+                <text x="320" y="230" text-anchor="middle" font-size="14" fill="#F57C00" font-weight="bold">t = 1</text>
+
+                <!-- Flecha 2 -->
+                <path d="M 400 140 L 450 140" stroke="#667eea" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+                <text x="425" y="130" text-anchor="middle" font-size="12" fill="#667eea">+ruido</text>
+
+                <!-- Paso 2 -->
+                <rect x="470" y="80" width="120" height="120" fill="#FF5722" stroke="#D84315" stroke-width="3" rx="10"/>
+                <text x="530" y="110" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Paso 2</text>
+                <text x="530" y="130" text-anchor="middle" font-size="14" fill="white">más ruido</text>
+                <text x="530" y="150" text-anchor="middle" font-size="20" fill="white">⚪🔵⚪</text>
+                <text x="530" y="230" text-anchor="middle" font-size="14" fill="#D84315" font-weight="bold">t = 2</text>
+
+                <!-- Flecha 3 -->
+                <text x="625" y="140" text-anchor="middle" font-size="20" fill="#667eea">...</text>
+
+                <!-- Paso T -->
+                <rect x="680" y="80" width="120" height="120" fill="#9E9E9E" stroke="#424242" stroke-width="3" rx="10"/>
+                <text x="740" y="110" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Paso T</text>
+                <text x="740" y="130" text-anchor="middle" font-size="14" fill="white">Ruido Puro</text>
+                <text x="740" y="150" text-anchor="middle" font-size="20" fill="white">🌫️</text>
+                <text x="740" y="230" text-anchor="middle" font-size="14" fill="#424242" font-weight="bold">t = T</text>
+
+                <!-- Definición de flecha -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#667eea"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">Proceso de Generación (Reverse Process)</h2>
+
+            <svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Ruido Puro -->
+                <rect x="50" y="80" width="120" height="120" fill="#9E9E9E" stroke="#424242" stroke-width="3" rx="10"/>
+                <text x="110" y="110" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Ruido</text>
+                <text x="110" y="130" text-anchor="middle" font-size="14" fill="white">Aleatorio</text>
+                <text x="110" y="150" text-anchor="middle" font-size="20" fill="white">🌫️</text>
+                <text x="110" y="230" text-anchor="middle" font-size="14" fill="#424242" font-weight="bold">t = T</text>
+
+                <!-- Flecha 1 -->
+                <path d="M 190 140 L 240 140" stroke="#764ba2" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+                <text x="215" y="130" text-anchor="middle" font-size="12" fill="#764ba2">Red Neural</text>
+                <text x="215" y="145" text-anchor="middle" font-size="12" fill="#764ba2">-ruido</text>
+
+                <!-- Paso T-1 -->
+                <rect x="260" y="80" width="120" height="120" fill="#FF5722" stroke="#D84315" stroke-width="3" rx="10"/>
+                <text x="320" y="110" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Paso T-1</text>
+                <text x="320" y="130" text-anchor="middle" font-size="14" fill="white">menos ruido</text>
+                <text x="320" y="150" text-anchor="middle" font-size="20" fill="white">⚪🔵⚪</text>
+                <text x="320" y="230" text-anchor="middle" font-size="14" fill="#D84315" font-weight="bold">t = T-1</text>
+
+                <!-- Flecha 2 -->
+                <path d="M 400 140 L 450 140" stroke="#764ba2" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+                <text x="425" y="130" text-anchor="middle" font-size="12" fill="#764ba2">Red Neural</text>
+                <text x="425" y="145" text-anchor="middle" font-size="12" fill="#764ba2">-ruido</text>
+
+                <!-- Paso 1 -->
+                <rect x="470" y="80" width="120" height="120" fill="#FF9800" stroke="#F57C00" stroke-width="3" rx="10"/>
+                <text x="530" y="110" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Paso 1</text>
+                <text x="530" y="130" text-anchor="middle" font-size="14" fill="white">casi limpio</text>
+                <text x="530" y="150" text-anchor="middle" font-size="20" fill="white">🔵⚪</text>
+                <text x="530" y="230" text-anchor="middle" font-size="14" fill="#F57C00" font-weight="bold">t = 1</text>
+
+                <!-- Flecha 3 -->
+                <path d="M 610 140 L 660 140" stroke="#764ba2" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+                <text x="635" y="130" text-anchor="middle" font-size="12" fill="#764ba2">Red Neural</text>
+                <text x="635" y="145" text-anchor="middle" font-size="12" fill="#764ba2">-ruido</text>
+
+                <!-- Imagen Final -->
+                <rect x="680" y="80" width="120" height="120" fill="#4CAF50" stroke="#2E7D32" stroke-width="3" rx="10"/>
+                <text x="740" y="110" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Imagen</text>
+                <text x="740" y="130" text-anchor="middle" font-size="14" fill="white">Generada</text>
+                <text x="740" y="150" text-anchor="middle" font-size="20" fill="white">🎨</text>
+                <text x="740" y="230" text-anchor="middle" font-size="14" fill="#2E7D32" font-weight="bold">t = 0</text>
+
+                <!-- Definición de flecha 2 -->
+                <defs>
+                    <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#764ba2"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="algorithm">
+            <h4>📋 Algoritmo de Entrenamiento (Pseudocódigo)</h4>
+            <ol>
+                <li><strong>Repetir</strong> hasta convergencia:</li>
+                <li style="margin-left: 20px;">Tomar una imagen real <span class="code">x₀</span> del dataset</li>
+                <li style="margin-left: 20px;">Elegir un paso de tiempo aleatorio <span class="code">t</span> (entre 1 y T)</li>
+                <li style="margin-left: 20px;">Calcular <span class="code">α_t</span> (coeficiente de ruido para ese paso)</li>
+                <li style="margin-left: 20px;">Generar ruido aleatorio <span class="code">ε</span> (distribución normal)</li>
+                <li style="margin-left: 20px;">Crear imagen con ruido: <span class="code">x_t = √α_t · x₀ + √(1-α_t) · ε</span></li>
+                <li style="margin-left: 20px;">La red neural predice el ruido: <span class="code">ε_θ(x_t, t)</span></li>
+                <li style="margin-left: 20px;">Calcular pérdida: <span class="code">Loss = ||ε - ε_θ(x_t, t)||²</span></li>
+                <li style="margin-left: 20px;">Actualizar pesos con descenso de gradiente (SGD)</li>
+            </ol>
+        </div>
+
+        <div class="formula">
+            <strong>Función de Pérdida Simplificada:</strong><br><br>
+            𝔼[||ε - ε_θ(x_t, t)||²]<br><br>
+            <small>Donde ε es el ruido real y ε_θ es el ruido predicho por el modelo</small>
+        </div>
+
+        <div class="info-box">
+            <h4>🔑 Conceptos Clave</h4>
+            <p><strong>Scheduling de Ruido (β):</strong> Define cómo se añade ruido en cada paso. Al inicio se añade poco ruido, al final mucho más.</p>
+            <p><strong>Variational Lower Bound (VLB):</strong> En teoría, se minimiza esta métrica compleja, pero en la práctica se simplifica a minimizar el error cuadrático del ruido.</p>
+            <p><strong>Ventaja:</strong> Alta calidad y diversidad en las imágenes generadas, aunque son lentos en la generación.</p>
+        </div>
+
+        <div class="process-container">
+            <div class="process-step">
+                <h3>⚡ Velocidad</h3>
+                <p>Lentos en generación (muchos pasos)</p>
+            </div>
+            <div class="process-step">
+                <h3>🎯 Fidelidad</h3>
+                <p>Muy alta - imágenes realistas</p>
+            </div>
+            <div class="process-step">
+                <h3>🌈 Diversidad</h3>
+                <p>Excelente - gran variedad</p>
+            </div>
+            <div class="process-step">
+                <h3>⚖️ Balance</h3>
+                <p>Buen equilibrio fidelidad-diversidad</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

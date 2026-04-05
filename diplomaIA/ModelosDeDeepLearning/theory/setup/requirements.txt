@@ -1,0 +1,12 @@
+# Requirements for Modelos de Deep Learning course
+# Minimal dependencies for running the MLP notebooks
+
+numpy>=1.24.0
+matplotlib>=3.6.0
+jupyter>=1.0.0
+notebook>=7.0.0
+ipykernel>=6.20.0
+
+# Optional but recommended
+scipy>=1.10.0
+pandas>=2.0.0

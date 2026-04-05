@@ -1,0 +1,9 @@
+
+
+Haz un análisis megaexhaustivo de C:\Users\Enrique\Documents\2doSemestre\test\raw.md, todas y cada de las líneas del archivo (es decir, todo el contenido, sin falta), para tú tener un entendimiento completo y exhaustivo, y luego escribir un archivo md nuevo en la carpeta en el que documentas todo lo que sucedió cronológicamente y todo lo que se aprendión.
+
+Invoca múltiples agentes para esta tarea. Que cada agente repita el proceso 3 veces; al terminar una pasada, que vuelva a analizar toda la transcripción (es decir, todo el contenido, sin falta), en orden, en busca de detalles que haya omitido leer la vez anterior. Solo al final, que cada uno brinde su propia versión del archivo md.
+
+Hazlo e la misma manera en que está explicada la clase "C:\Users\Enrique\Documents\2doSemestre\ModelosDeDeepLearning\theory\10-10-11-2025\10-10-11-2025.txt" en "C:\Users\Enrique\Documents\2doSemestre\ModelosDeDeepLearning\theory\10-10-11-2025\explicaciones.md".
+
+Ultrathink. 

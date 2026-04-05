@@ -1,0 +1,65 @@
+BATCH_SIZE = 64
+IMAGE_SIZE = 32
+NUM_CHANNELS = 3
+LATENT_DIM = 128
+GENERATOR_FEATURES = 128
+NUM_EPOCHS = 400
+
+Entrenando Vanilla GAN: lr=0.01, momentum=0.9, épocas=400
+Época 400/400
+Completado: 59.76 min
+
+Entrenando WGAN: lr=5e-05, c=0.01, épocas=400
+Época 400/400
+Completado: 165.37 min
+
+Entrenando WGAN-GP: lr=0.0001, λ=10, épocas=400
+Época 400/400
+Completado: 334.07 min
+
+D(real) → 1.000, D(fake) → 0.000
+
+W-distance final: 16.1235
+
+Vanilla: rango [-1.017, 1.193]
+WGAN: rango [-0.010, 0.010]
+
+Varianza Vanilla: 92
+Varianza WGAN: 1.13e+06
+
+WGAN std: 0.0014
+WGAN-GP std: 0.0802
+
+Varianza WGAN: 1.13e+06
+Varianza WGAN-GP: 12468
+GP final: 0.0232
+
+==================================================
+RESUMEN
+==================================================
+Modelo       Tiempo     Var. Grad    Peso std  
+--------------------------------------------------
+Vanilla      59.8       92           0.0212    
+WGAN         165.4      1.13e+06     0.0014    
+WGAN-GP      334.1      12468        0.0802    
+
+📊 TIEMPOS DE ENTRENAMIENTO:
+  Vanilla GAN: 59.76 min
+  WGAN:        165.37 min (5x critic iterations)
+  WGAN-GP:     334.07 min (5x critic iterations + GP)
+
+📈 WASSERSTEIN DISTANCE FINAL (solo WGAN/WGAN-GP):
+  WGAN:    16.1235
+  WGAN-GP: 0.9134
+
+⚖️ DISTRIBUCIÓN DE PESOS (evidencia del problema de clipping):
+  Vanilla GAN: rango=[-1.0167, 1.1926], std=0.0212
+  WGAN:        rango=[-0.0100, 0.0100], std=0.0014 ← pesos en ±0.01
+  WGAN-GP:     rango=[-0.7054, 0.8969], std=0.0802
+
+📉 ESTABILIDAD DE GRADIENTES (varianza):
+  Vanilla GAN: 91.5810
+  WGAN:        1127321.3497
+  WGAN-GP:     12468.2518
+
+  

@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitecturas de Deep Learning - Visualizaciones Interactivas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #eee;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4fc3f7;
+        }
+
+        h2 {
+            color: #81d4fa;
+            margin: 20px 0 10px 0;
+            border-bottom: 2px solid #4fc3f7;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #b3e5fc;
+            margin: 15px 0 10px 0;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            background: rgba(26, 26, 46, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 100;
+        }
+
+        .nav button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #0d47a1;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .nav button:hover {
+            background: #1976d2;
+            transform: translateY(-2px);
+        }
+
+        .nav button.active {
+            background: #4fc3f7;
+            color: #1a1a2e;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .architecture-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 1px solid rgba(79, 195, 247, 0.3);
+        }
+
+        .diagram {
+            background: #0d1117;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .formula {
+            background: rgba(76, 175, 80, 0.2);
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .interactive-demo {
+            background: rgba(33, 150, 243, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .slider-container {
+            margin: 15px 0;
+        }
+
+        .slider-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #b3e5fc;
+        }
+
+        .slider-container input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #1e3a5f;
+            outline: none;
+        }
+
+        .slider-container input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4fc3f7;
+            cursor: pointer;
+        }
+
+        .output-display {
+            background: #0d1117;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .gate-visual {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .gate {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            min-width: 150px;
+            transition: all 0.3s;
+        }
+
+        .gate:hover {
+            background: rgba(79, 195, 247, 0.2);
+            transform: scale(1.05);
+        }
+
+        .gate-name {
+            font-weight: bold;
+            color: #4fc3f7;
+            margin-bottom: 10px;
+        }
+
+        .gate-bar {
+            height: 20px;
+            background: #1e3a5f;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .gate-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+            transition: width 0.3s;
+        }
+
+        .attention-matrix {
+            display: grid;
+            gap: 2px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .attention-cell {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            font-size: 12px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .attention-cell:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .layer-box {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0d47a1 100%);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .layer-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 0 20px rgba(79, 195, 247, 0.5);
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 24px;
+            color: #4fc3f7;
+            margin: 5px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(79, 195, 247, 0.3);
+        }
+
+        .comparison-table th {
+            background: rgba(79, 195, 247, 0.2);
+            color: #4fc3f7;
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .flow-item {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0d47a1 100%);
+            padding: 15px 30px;
+            border-radius: 10px;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+        }
+
+        .skip-connection {
+            position: absolute;
+            right: -60px;
+            top: 50%;
+            width: 50px;
+            height: 2px;
+            background: #4caf50;
+        }
+
+        .skip-connection::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -4px;
+            border: 5px solid transparent;
+            border-left-color: #4caf50;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+            color: #4fc3f7;
+            text-decoration: underline dotted;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: #1e3a5f;
+            color: #fff;
+            text-align: left;
+            border-radius: 8px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -125px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+            border: 1px solid #4fc3f7;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arquitecturas de Deep Learning</h1>
+    <p style="text-align: center; margin-bottom: 20px; color: #b3e5fc;">Clases 8, 9, 10, 11 - Visualizaciones Interactivas</p>
+
+    <nav class="nav">
+        <button class="active" onclick="showSection('resnet')">ResNet</button>
+        <button onclick="showSection('densenet')">DenseNet</button>
+        <button onclick="showSection('word2vec')">Word2Vec</button>
+        <button onclick="showSection('rnn')">RNN</button>
+        <button onclick="showSection('lstm')">LSTM</button>
+        <button onclick="showSection('gru')">GRU</button>
+        <button onclick="showSection('seq2seq')">Seq2Seq</button>
+        <button onclick="showSection('attention')">Attention</button>
+        <button onclick="showSection('selfattention')">Self-Attention</button>
+        <button onclick="showSection('transformer')">Transformer</button>
+    </nav>
+
+    <!-- RESNET -->
+    <div id="resnet" class="section active">
+        <div class="architecture-box">
+            <h2>ResNet (Residual Network)</h2>
+            <p><strong>Problema:</strong> Redes muy profundas sufren de vanishing gradient</p>
+            <p><strong>Solucion:</strong> Skip connections que suman la entrada directamente</p>
+
+            <h3>Bloque Residual Interactivo</h3>
+            <div class="flow-diagram" id="resnet-flow">
+                <div class="flow-item" style="background: #4caf50;">ENTRADA (x)</div>
+                <div class="arrow">|</div>
+                <div style="display: flex; gap: 100px;">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="flow-item">Conv 1x1 (256 -> 64)</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item">BatchNorm + ReLU</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item">Conv 3x3 (64 canales)</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item">BatchNorm + ReLU</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item">Conv 1x1 (64 -> 256)</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item">F(x)</div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <div style="width: 3px; height: 300px; background: #4caf50;"></div>
+                        <div style="color: #4caf50; font-weight: bold;">SKIP</div>
+                        <div style="color: #4caf50;">x</div>
+                    </div>
+                </div>
+                <div class="arrow">|</div>
+                <div class="flow-item" style="background: #ff9800;">F(x) + x (SUMA)</div>
+                <div class="arrow">|</div>
+                <div class="flow-item" style="background: #2196f3;">SALIDA H(x)</div>
+            </div>
+
+            <div class="formula">
+                <strong>Formula clave:</strong><br>
+                H(x) = F(x) + x<br><br>
+                <strong>Por que funciona:</strong><br>
+                dH/dx = dF/dx + 1<br>
+                El "+1" garantiza que el gradiente NUNCA desaparece
+            </div>
+        </div>
+    </div>
+
+    <!-- DENSENET -->
+    <div id="densenet" class="section">
+        <div class="architecture-box">
+            <h2>DenseNet</h2>
+            <p><strong>Diferencia con ResNet:</strong> Usa CONCATENACION en vez de SUMA</p>
+
+            <h3>Dense Block</h3>
+            <div class="diagram">
+                <pre>
+    Cada capa se conecta con TODAS las siguientes:
+
+    x0 ----+----+----+-----> [x0, x1, x2, x3, x4]
+           |    |    |    |
+           v    |    |    |
+         [Conv] |    |    |
+           |    |    |    |
+           v    |    |    |
+    x1 ----+----+----+----+
+                |    |    |
+                v    |    |
+              [Conv] |    |
+                |    |    |
+                v    |    |
+    x2 ---------+----+----+
+                     |    |
+                     v    |
+                   [Conv] |
+                     |    |
+                     v    |
+    x3 --------------+----+
+                          |
+                          v
+                        [Conv]
+                          |
+                          v
+    x4 -------------------+
+                </pre>
+            </div>
+
+            <table class="comparison-table">
+                <tr>
+                    <th>Aspecto</th>
+                    <th>ResNet</th>
+                    <th>DenseNet</th>
+                </tr>
+                <tr>
+                    <td>Conexion</td>
+                    <td>SUMA</td>
+                    <td>CONCATENACION</td>
+                </tr>
+                <tr>
+                    <td>Conectividad</td>
+                    <td>Bloque a bloque</td>
+                    <td>Cada capa a TODAS</td>
+                </tr>
+                <tr>
+                    <td>Parametros</td>
+                    <td>Mas</td>
+                    <td>Menos</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- WORD2VEC -->
+    <div id="word2vec" class="section">
+        <div class="architecture-box">
+            <h2>Word2Vec</h2>
+            <p>Convierte palabras en vectores densos que capturan significado semantico</p>
+
+            <h3>Arquitectura de la Red (2 capas)</h3>
+            <div class="flow-diagram">
+                <div class="flow-item" style="width: 300px;">
+                    INPUT (One-Hot)<br>
+                    <small>Dimension: Vocabulario (~10,000)</small>
+                </div>
+                <div class="arrow">|</div>
+                <div class="flow-item" style="width: 300px; background: #4caf50;">
+                    EMBEDDING LAYER<br>
+                    <small>Sin activacion - Dimension: 300</small><br>
+                    <small>W1: [10000 x 300]</small>
+                </div>
+                <div class="arrow">|</div>
+                <div class="flow-item" style="width: 300px;">
+                    OUTPUT LAYER + Softmax<br>
+                    <small>Dimension: Vocabulario</small><br>
+                    <small>W2: [300 x 10000]</small>
+                </div>
+                <div class="arrow">|</div>
+                <div class="flow-item" style="width: 300px; background: #ff9800;">
+                    PROBABILIDADES<br>
+                    <small>P(palabra)</small>
+                </div>
+            </div>
+
+            <h3>CBOW vs Skip-gram</h3>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <div class="architecture-box" style="flex: 1; min-width: 300px;">
+                    <h4 style="color: #4caf50;">CBOW</h4>
+                    <p>Contexto -> Palabra Central</p>
+                    <div class="diagram">
+["El", "gato", ___, "en", "casa"]
+           |
+           v
+      PROMEDIO
+           |
+           v
+      EMBEDDING
+           |
+           v
+       SOFTMAX
+           |
+           v
+      "duerme"
+                    </div>
+                </div>
+                <div class="architecture-box" style="flex: 1; min-width: 300px;">
+                    <h4 style="color: #2196f3;">Skip-gram</h4>
+                    <p>Palabra Central -> Contexto</p>
+                    <div class="diagram">
+       "duerme"
+           |
+           v
+      EMBEDDING
+           |
+           v
+       SOFTMAX
+           |
+     +-----+-----+
+     v     v     v
+   "El" "gato" "en"
+                    </div>
+                </div>
+            </div>
+
+            <div class="formula">
+                <strong>Propiedad magica:</strong><br>
+                king - man + woman ≈ queen
+            </div>
+        </div>
+    </div>
+
+    <!-- RNN -->
+    <div id="rnn" class="section">
+        <div class="architecture-box">
+            <h2>RNN (Recurrent Neural Network)</h2>
+            <p>Procesa secuencias manteniendo un estado oculto</p>
+
+            <h3>RNN Desplegada en el Tiempo</h3>
+            <div class="diagram" style="text-align: center;">
+                <pre>
+    H0 ----> [RNN] ----> H1 ----> [RNN] ----> H2 ----> [RNN] ----> H3
+               ^                    ^                    ^
+               |                    |                    |
+              X1                   X2                   X3
+               |                    |                    |
+               v                    v                    v
+              Y1                   Y2                   Y3
+
+    Los pesos U, V, W se COMPARTEN en todos los pasos
+                </pre>
+            </div>
+
+            <h3>Celda RNN</h3>
+            <div class="flow-diagram">
+                <div style="display: flex; gap: 50px; align-items: center;">
+                    <div class="flow-item">Xt (entrada)</div>
+                    <div class="flow-item">Ht-1 (estado previo)</div>
+                </div>
+                <div class="arrow">|          |</div>
+                <div class="flow-item" style="background: #ff9800;">
+                    tanh(U*Xt + V*Ht-1 + b)
+                </div>
+                <div class="arrow">|</div>
+                <div class="flow-item" style="background: #4caf50;">Ht (nuevo estado)</div>
+                <div class="arrow">|</div>
+                <div class="flow-item">W*Ht</div>
+                <div class="arrow">|</div>
+                <div class="flow-item" style="background: #2196f3;">Yt (salida)</div>
+            </div>
+
+            <div class="formula">
+                <strong>Formulas:</strong><br>
+                Ht = tanh(U*Xt + V*Ht-1 + b)<br>
+                Yt = W*Ht
+            </div>
+        </div>
+    </div>
+
+    <!-- LSTM -->
+    <div id="lstm" class="section">
+        <div class="architecture-box">
+            <h2>LSTM (Long Short-Term Memory)</h2>
+            <p>Resuelve el vanishing gradient con compuertas (gates)</p>
+
+            <h3>Simulador de Compuertas LSTM</h3>
+            <div class="interactive-demo">
+                <div class="slider-container">
+                    <label>Forget Gate (ft) - Que olvidar del pasado:</label>
+                    <input type="range" id="forget-gate" min="0" max="100" value="70" oninput="updateLSTM()">
+                </div>
+                <div class="slider-container">
+                    <label>Input Gate (it) - Que tan importante es lo nuevo:</label>
+                    <input type="range" id="input-gate" min="0" max="100" value="80" oninput="updateLSTM()">
+                </div>
+                <div class="slider-container">
+                    <label>Output Gate (ot) - Que mostrar:</label>
+                    <input type="range" id="output-gate" min="0" max="100" value="60" oninput="updateLSTM()">
+                </div>
+
+                <div class="gate-visual">
+                    <div class="gate">
+                        <div class="gate-name">FORGET</div>
+                        <div class="gate-bar">
+                            <div class="gate-fill" id="forget-fill" style="width: 70%;"></div>
+                        </div>
+                        <span id="forget-value">0.70</span>
+                    </div>
+                    <div class="gate">
+                        <div class="gate-name">INPUT</div>
+                        <div class="gate-bar">
+                            <div class="gate-fill" id="input-fill" style="width: 80%;"></div>
+                        </div>
+                        <span id="input-value">0.80</span>
+                    </div>
+                    <div class="gate">
+                        <div class="gate-name">OUTPUT</div>
+                        <div class="gate-bar">
+                            <div class="gate-fill" id="output-fill" style="width: 60%;"></div>
+                        </div>
+                        <span id="output-value">0.60</span>
+                    </div>
+                </div>
+
+                <div class="output-display" id="lstm-output">
+                    <strong>Interpretacion:</strong><br>
+                    - Forget=0.70: Mantiene 70% de la memoria anterior<br>
+                    - Input=0.80: La info nueva es muy relevante<br>
+                    - Output=0.60: Muestra 60% del estado actual
+                </div>
+            </div>
+
+            <div class="formula">
+                <strong>Formulas:</strong><br>
+                ft = sigmoid(Wf * [Ht-1, Xt])<br>
+                it = sigmoid(Wi * [Ht-1, Xt])<br>
+                Ct_tilde = tanh(Wc * [Ht-1, Xt])<br>
+                <strong style="color: #4caf50;">Ct = ft * Ct-1 + it * Ct_tilde</strong> (Cell State)<br>
+                ot = sigmoid(Wo * [Ht-1, Xt])<br>
+                <strong style="color: #2196f3;">Ht = ot * tanh(Ct)</strong> (Hidden State)
+            </div>
+        </div>
+    </div>
+
+    <!-- GRU -->
+    <div id="gru" class="section">
+        <div class="architecture-box">
+            <h2>GRU (Gated Recurrent Unit)</h2>
+            <p>Simplificacion de LSTM: 2 compuertas en vez de 4</p>
+
+            <h3>Simulador de Compuertas GRU</h3>
+            <div class="interactive-demo">
+                <div class="slider-container">
+                    <label>Update Gate (zt) - Balance pasado/nuevo:</label>
+                    <input type="range" id="update-gate" min="0" max="100" value="30" oninput="updateGRU()">
+                </div>
+                <div class="slider-container">
+                    <label>Reset Gate (rt) - Cuanto olvidar:</label>
+                    <input type="range" id="reset-gate" min="0" max="100" value="80" oninput="updateGRU()">
+                </div>
+
+                <div class="gate-visual">
+                    <div class="gate">
+                        <div class="gate-name">UPDATE (z)</div>
+                        <div class="gate-bar">
+                            <div class="gate-fill" id="update-fill" style="width: 30%; background: linear-gradient(90deg, #2196f3, #03a9f4);"></div>
+                        </div>
+                        <span id="update-value">0.30</span>
+                    </div>
+                    <div class="gate">
+                        <div class="gate-name">RESET (r)</div>
+                        <div class="gate-bar">
+                            <div class="gate-fill" id="reset-fill" style="width: 80%; background: linear-gradient(90deg, #ff5722, #ff9800);"></div>
+                        </div>
+                        <span id="reset-value">0.80</span>
+                    </div>
+                </div>
+
+                <div class="output-display" id="gru-output">
+                    <strong>Interpretacion:</strong><br>
+                    Ht = (1-z)*H_nuevo + z*Ht-1<br>
+                    Ht = 0.70*H_nuevo + 0.30*Ht-1<br>
+                    <br>
+                    - z=0.30 -> 70% nuevo, 30% anterior<br>
+                    - Prioriza la informacion NUEVA
+                </div>
+            </div>
+
+            <table class="comparison-table">
+                <tr>
+                    <th>Aspecto</th>
+                    <th>LSTM</th>
+                    <th>GRU</th>
+                </tr>
+                <tr>
+                    <td>Estados</td>
+                    <td>2 (C y H)</td>
+                    <td>1 (solo H)</td>
+                </tr>
+                <tr>
+                    <td>Compuertas</td>
+                    <td>4</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Parametros</td>
+                    <td>Mas</td>
+                    <td>Menos</td>
+                </tr>
+                <tr>
+                    <td>Entrenamiento</td>
+                    <td>Mas dificil</td>
+                    <td>Mas facil</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- SEQ2SEQ -->
+    <div id="seq2seq" class="section">
+        <div class="architecture-box">
+            <h2>Encoder-Decoder (Seq2Seq)</h2>
+            <p>Transforma secuencias de entrada en secuencias de salida (diferentes longitudes)</p>
+
+            <h3>Arquitectura</h3>
+            <div style="display: flex; gap: 50px; flex-wrap: wrap; justify-content: center;">
+                <div class="architecture-box" style="flex: 1; min-width: 300px;">
+                    <h4 style="color: #4caf50;">ENCODER</h4>
+                    <div class="flow-diagram">
+                        <div class="flow-item">"Je"</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item" style="background: #4caf50;">RNN -> H1</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item">"suis"</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item" style="background: #4caf50;">RNN -> H2</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item">"prof"</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item" style="background: #ff9800;">RNN -> CONTEXTO C</div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <div style="font-size: 50px; color: #4fc3f7;">===></div>
+                </div>
+                <div class="architecture-box" style="flex: 1; min-width: 300px;">
+                    <h4 style="color: #2196f3;">DECODER</h4>
+                    <div class="flow-diagram">
+                        <div class="flow-item" style="background: #ff9800;">CONTEXTO C</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item">&lt;START&gt;</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item" style="background: #2196f3;">RNN -> "I"</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item" style="background: #2196f3;">RNN -> "am"</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item" style="background: #2196f3;">RNN -> "teacher"</div>
+                        <div class="arrow">|</div>
+                        <div class="flow-item">&lt;END&gt;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ATTENTION -->
+    <div id="attention" class="section">
+        <div class="architecture-box">
+            <h2>Mecanismo de Attention (Bahdanau)</h2>
+            <p>Permite al decoder "mirar" diferentes partes del input</p>
+
+            <h3>Matriz de Attention Interactiva</h3>
+            <p style="text-align: center; color: #b3e5fc;">Ejemplo: Frances -> Ingles. Click en una celda para ver el peso.</p>
+
+            <div id="attention-grid" style="display: flex; justify-content: center; margin: 20px 0;">
+                <!-- Se genera con JavaScript -->
+            </div>
+
+            <div class="output-display" id="attention-output" style="text-align: center;">
+                Haz click en una celda para ver el peso de atencion
+            </div>
+
+            <div class="formula">
+                <strong>Formulas:</strong><br>
+                e_ij = v^T * tanh(Ws*Si-1 + Wh*Hj)<br>
+                alpha_ij = softmax(e_ij)<br>
+                <strong style="color: #4caf50;">Ci = SUM(alpha_ij * Hj)</strong> (Contexto dinamico)
+            </div>
+        </div>
+    </div>
+
+    <!-- SELF-ATTENTION -->
+    <div id="selfattention" class="section">
+        <div class="architecture-box">
+            <h2>Self-Attention</h2>
+            <p>Cada palabra "mira" a TODAS las otras palabras de la MISMA secuencia</p>
+
+            <h3>Query, Key, Value</h3>
+            <div class="flow-diagram">
+                <div class="flow-item" style="width: 400px;">
+                    Input: [X1, X2, X3]<br>
+                    (Embeddings de palabras)
+                </div>
+                <div class="arrow">|</div>
+                <div style="display: flex; gap: 20px;">
+                    <div class="flow-item" style="background: #e91e63;">Q = X * Wq<br>Queries</div>
+                    <div class="flow-item" style="background: #9c27b0;">K = X * Wk<br>Keys</div>
+                    <div class="flow-item" style="background: #673ab7;">V = X * Wv<br>Values</div>
+                </div>
+                <div class="arrow">|</div>
+                <div class="flow-item" style="width: 400px; background: #ff9800;">
+                    Scores = Q * K^T / sqrt(dk)
+                </div>
+                <div class="arrow">|</div>
+                <div class="flow-item" style="width: 400px;">
+                    Softmax (por filas)
+                </div>
+                <div class="arrow">|</div>
+                <div class="flow-item" style="width: 400px; background: #4caf50;">
+                    Output = Softmax * V<br>
+                    (Embeddings contextuales)
+                </div>
+            </div>
+
+            <div class="formula">
+                <strong>Formula:</strong><br>
+                Attention(Q,K,V) = softmax(Q*K^T / sqrt(dk)) * V
+            </div>
+        </div>
+    </div>
+
+    <!-- TRANSFORMER -->
+    <div id="transformer" class="section">
+        <div class="architecture-box">
+            <h2>Transformer</h2>
+            <p>"Attention is All You Need" (2017) - Sin recurrencia, todo paralelo</p>
+
+            <h3>Arquitectura Completa</h3>
+            <div style="display: flex; gap: 50px; flex-wrap: wrap; justify-content: center;">
+                <div class="architecture-box" style="flex: 1; min-width: 300px; max-width: 400px;">
+                    <h4 style="color: #4caf50; text-align: center;">ENCODER (x N)</h4>
+                    <div class="layer-box">Input Embedding + Positional Encoding</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box" style="background: linear-gradient(135deg, #1b5e20 0%, #4caf50 100%);">Multi-Head Self-Attention</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box">Add & Norm</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box" style="background: linear-gradient(135deg, #e65100 0%, #ff9800 100%);">Feed-Forward Network</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box">Add & Norm</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box" style="background: #2196f3;">Encoder Output</div>
+                </div>
+
+                <div class="architecture-box" style="flex: 1; min-width: 300px; max-width: 400px;">
+                    <h4 style="color: #2196f3; text-align: center;">DECODER (x N)</h4>
+                    <div class="layer-box">Output Embedding + Positional Encoding</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box" style="background: linear-gradient(135deg, #880e4f 0%, #e91e63 100%);">MASKED Multi-Head Self-Attention</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box">Add & Norm</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box" style="background: linear-gradient(135deg, #4a148c 0%, #9c27b0 100%);">Multi-Head Attention (Cross)</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box">Add & Norm</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box" style="background: linear-gradient(135deg, #e65100 0%, #ff9800 100%);">Feed-Forward Network</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box">Add & Norm</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box">Linear + Softmax</div>
+                    <div class="arrow">v</div>
+                    <div class="layer-box" style="background: #f44336;">Output Probabilities</div>
+                </div>
+            </div>
+
+            <h3>Componentes Clave</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                <div class="layer-box">
+                    <strong>Positional Encoding</strong><br>
+                    <small>PE(pos,2i) = sin(pos/10000^(2i/d))</small><br>
+                    <small>Agrega info de posicion</small>
+                </div>
+                <div class="layer-box">
+                    <strong>Multi-Head Attention</strong><br>
+                    <small>8 cabezas en paralelo</small><br>
+                    <small>Cada una aprende relaciones distintas</small>
+                </div>
+                <div class="layer-box">
+                    <strong>Mascara Causal</strong><br>
+                    <small>En decoder: no puede ver futuro</small><br>
+                    <small>Posiciones futuras = -inf</small>
+                </div>
+                <div class="layer-box">
+                    <strong>Feed-Forward</strong><br>
+                    <small>Linear(512->2048)->ReLU->Linear(2048->512)</small><br>
+                    <small>Aplicado a cada posicion</small>
+                </div>
+            </div>
+
+            <h3>Dimensiones Tipicas</h3>
+            <table class="comparison-table">
+                <tr>
+                    <th>Parametro</th>
+                    <th>Valor</th>
+                    <th>Descripcion</th>
+                </tr>
+                <tr>
+                    <td>d_model</td>
+                    <td>512</td>
+                    <td>Dimension del embedding</td>
+                </tr>
+                <tr>
+                    <td>d_ff</td>
+                    <td>2048</td>
+                    <td>Dimension feed-forward</td>
+                </tr>
+                <tr>
+                    <td>num_heads</td>
+                    <td>8</td>
+                    <td>Numero de cabezas</td>
+                </tr>
+                <tr>
+                    <td>N</td>
+                    <td>6</td>
+                    <td>Capas encoder/decoder</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function showSection(id) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+
+            // Mostrar la seccion seleccionada
+            document.getElementById(id).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function updateLSTM() {
+            const forget = document.getElementById('forget-gate').value / 100;
+            const input = document.getElementById('input-gate').value / 100;
+            const output = document.getElementById('output-gate').value / 100;
+
+            document.getElementById('forget-fill').style.width = (forget * 100) + '%';
+            document.getElementById('input-fill').style.width = (input * 100) + '%';
+            document.getElementById('output-fill').style.width = (output * 100) + '%';
+
+            document.getElementById('forget-value').textContent = forget.toFixed(2);
+            document.getElementById('input-value').textContent = input.toFixed(2);
+            document.getElementById('output-value').textContent = output.toFixed(2);
+
+            let interpretation = '<strong>Interpretacion:</strong><br>';
+
+            if (forget < 0.3) {
+                interpretation += '- Forget=' + forget.toFixed(2) + ': OLVIDA casi todo el pasado<br>';
+            } else if (forget > 0.7) {
+                interpretation += '- Forget=' + forget.toFixed(2) + ': MANTIENE la mayor parte del pasado<br>';
+            } else {
+                interpretation += '- Forget=' + forget.toFixed(2) + ': Balance entre recordar y olvidar<br>';
+            }
+
+            if (input < 0.3) {
+                interpretation += '- Input=' + input.toFixed(2) + ': Info nueva poco relevante<br>';
+            } else if (input > 0.7) {
+                interpretation += '- Input=' + input.toFixed(2) + ': Info nueva MUY relevante<br>';
+            } else {
+                interpretation += '- Input=' + input.toFixed(2) + ': Info nueva moderadamente importante<br>';
+            }
+
+            if (output < 0.3) {
+                interpretation += '- Output=' + output.toFixed(2) + ': Muestra poco del estado interno';
+            } else if (output > 0.7) {
+                interpretation += '- Output=' + output.toFixed(2) + ': Expone mucho del estado interno';
+            } else {
+                interpretation += '- Output=' + output.toFixed(2) + ': Exposicion moderada del estado';
+            }
+
+            document.getElementById('lstm-output').innerHTML = interpretation;
+        }
+
+        function updateGRU() {
+            const update = document.getElementById('update-gate').value / 100;
+            const reset = document.getElementById('reset-gate').value / 100;
+
+            document.getElementById('update-fill').style.width = (update * 100) + '%';
+            document.getElementById('reset-fill').style.width = (reset * 100) + '%';
+
+            document.getElementById('update-value').textContent = update.toFixed(2);
+            document.getElementById('reset-value').textContent = reset.toFixed(2);
+
+            const nuevo = (1 - update) * 100;
+            const anterior = update * 100;
+
+            let interpretation = '<strong>Interpretacion:</strong><br>';
+            interpretation += 'Ht = (1-z)*H_nuevo + z*Ht-1<br>';
+            interpretation += 'Ht = ' + (1-update).toFixed(2) + '*H_nuevo + ' + update.toFixed(2) + '*Ht-1<br><br>';
+
+            if (update < 0.3) {
+                interpretation += '- z=' + update.toFixed(2) + ' -> ' + nuevo.toFixed(0) + '% nuevo, ' + anterior.toFixed(0) + '% anterior<br>';
+                interpretation += '- Prioriza la informacion NUEVA';
+            } else if (update > 0.7) {
+                interpretation += '- z=' + update.toFixed(2) + ' -> ' + nuevo.toFixed(0) + '% nuevo, ' + anterior.toFixed(0) + '% anterior<br>';
+                interpretation += '- MANTIENE el estado anterior';
+            } else {
+                interpretation += '- z=' + update.toFixed(2) + ' -> ' + nuevo.toFixed(0) + '% nuevo, ' + anterior.toFixed(0) + '% anterior<br>';
+                interpretation += '- Balance entre nuevo y anterior';
+            }
+
+            document.getElementById('gru-output').innerHTML = interpretation;
+        }
+
+        // Crear matriz de attention interactiva
+        function createAttentionGrid() {
+            const french = ['Je', 'suis', 'prof'];
+            const english = ['I', 'am', 'teacher'];
+
+            // Pesos de atencion simulados
+            const weights = [
+                [0.85, 0.10, 0.05],  // I atiende a Je, suis, prof
+                [0.15, 0.75, 0.10],  // am atiende a Je, suis, prof
+                [0.05, 0.10, 0.85]   // teacher atiende a Je, suis, prof
+            ];
+
+            const container = document.getElementById('attention-grid');
+
+            // Crear tabla
+            let html = '<table style="border-collapse: collapse;">';
+
+            // Header con palabras francesas
+            html += '<tr><td></td>';
+            for (let f of french) {
+                html += '<td style="padding: 10px; text-align: center; color: #4caf50; font-weight: bold;">' + f + '</td>';
+            }
+            html += '</tr>';
+
+            // Filas con palabras inglesas y celdas
+            for (let i = 0; i < english.length; i++) {
+                html += '<tr>';
+                html += '<td style="padding: 10px; color: #2196f3; font-weight: bold;">' + english[i] + '</td>';
+                for (let j = 0; j < french.length; j++) {
+                    const weight = weights[i][j];
+                    const intensity = Math.floor(weight * 255);
+                    const color = `rgba(79, 195, 247, ${weight})`;
+                    html += `<td class="attention-cell" style="background: ${color};" onclick="showWeight('${english[i]}', '${french[j]}', ${weight})">${weight.toFixed(2)}</td>`;
+                }
+                html += '</tr>';
+            }
+
+            html += '</table>';
+            container.innerHTML = html;
+        }
+
+        function showWeight(eng, fr, weight) {
+            const percent = (weight * 100).toFixed(0);
+            let interpretation = '';
+
+            if (weight > 0.7) {
+                interpretation = 'ALTA atencion';
+            } else if (weight > 0.3) {
+                interpretation = 'Atencion moderada';
+            } else {
+                interpretation = 'Poca atencion';
+            }
+
+            document.getElementById('attention-output').innerHTML =
+                `Al generar "<strong>${eng}</strong>", el modelo presta <strong>${percent}%</strong> de atencion a "<strong>${fr}</strong>"<br>
+                 (${interpretation})`;
+        }
+
+        // Inicializar
+        createAttentionGrid();
+    </script>
+</body>
+</html>

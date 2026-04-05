@@ -1,0 +1,214 @@
+Exacto.
+No, porque más bien la otra pregunta es porísimo que el STM es al menos tres y es demoraba mucho el STM si tenía un vocabulario tan grande. Yo tratado que encaje más o menos un entrenamiento de una clase más bien por eso hace conflicto esto con conectores, con artículos con Ô Y aparte no importa si estás 10000, puedes calcular a la derecha derecha relación. Bueno, hacemos pausa y vamos con el plazo fuerte,
+el cálculo de Este común, ¿dónde vino? A ver,
+el qué
+eleding.
+Eleding vino en el X.
+En el Xura,
+ya tenés el, o sea, vos si ves el modelo,
+no. El diagrama es primero tu input, lo vas a pasar una capa de y después le sum No, o sea, eso lo vamos a hacer la semana que viene cuando veamos el Ahora estamos haciendo las pequeñas piezas, o sea, esto es una capa de medio.
+Después la semana que viene unir todas estas pequeñas piezas el ejemplo
+el principio es cómo está el tensor original son cinco palabras no importa un número random importa
+no vi que que era un valor random cualquiera no me di
+Sí,
+o sea, no es un cosa que existía para
+claro mira cómo afecta o sea si yo tuviera un embeding que esto venía más arriba perdid no vendría a ser un batch de una sola sentencia con cinco palabras de modelo y lo hacemos de tamaño seis entrada en cifrar la on camb Hay dos el de el de dividendo cuando sabes que vas a tratar con algo de Acá el dividendo está en
+el va cambiando va cambiando por el tema de la voendo. Estoy dentro de la palabra los
+o en el o las dimensiones deling tiene un millón de tokens un millón de tokens que tiene 56000 y algo. Pero el último ahora no.
+Ah, no open es pedo. Te van a decir
+es muy bueno. Está muy bien compactado el modelo. Nivel de eficiencia de token al Pero, ¿cómo arman los más tokens? Haciendo más particiones más chicas de las palabras, por eso que tiene más,
+¿no? Es un tema de los lenguajes que llama P lo miraste generación de token que dice de cuánto tiene que ser el la complejidad del del vocabulario y luego empiezan a trabajar y empiezan a generar los token necesarios va macheando token y juntando para simplificar.
+Sí. Y ahora con los modelos múlti ¿Cómo funciona eso? Porque los to tienen que representar texto y
+tenés de todo. Tenés token, tenés multimodal y tenés med
+y ahora tenés también algunos que son que se llama matri que son densiones, donde tenés un de tanto y ese de tanto también ten un más grande.
+Puedes usar varias varias varias eh no y eso eso te sirve para hacer como distintos tipos de contenido, sea texto e imagen y audio y eso que sepa manejar diferentes niveles tipo concepto con distintos tamaños defíciles. ¿Cuándo? El curso se gana obligatorio.
+Sí, los puntos y los puntos están en
+obligatorio
+eh tras bambalina están los puntos las tareasamente ir al parcial todo bien
+todo vez el tema reserva c puntos para excelencia Es el exigente.
+Yo soy de no son distintos criterios. Yo digo si no está en la letra, si vos cumplís con la letra y cumplí con el 100% de la letra. Sí,
+aprobado.
+Aprobado
+con el 100% los puntos. Ese es el tema. Los criterios tener animales que son más que excelentes. Él es más riguroso. Bueno, estilo Está bien. Siempre el dilema está en cuando estás muy cerca de de la fantas para arriba ya hay gente que le interesa contaaje o singularidad, pero el problema es la frontera que es el para subir bajar puntos que pó los tres puntos que faltaban a veces tienes que ver si participó en el año todo lo que hizo. Entonces Esta materia es bueno porque que no depende del parcial,
+porque hay gente a veces tiene mal parcial y
+yo te he preguntado entendió algo entendió nada. La gente que escribe mucho, le gusta escribir, entonces viene bien y mete algo ahí decís y metió la pata y te que deja la duda de
+si realmente entendió.
+Sí, conceptualmente entendió está Ayer me anduve peleando con con la arquitectura Black.
+Sí.
+Conseguí una tarjeta
+900.
+Una no
+900.
+Una 560 Ti. 560 Ti
+560.
+Ah, eso ya de la de la
+la línea 5000 ya es Ti. De cuánta de cuánta memoria.
+16
+16 Ch nada más.
+Es 60, boludo.
+Es 60. Dejalo. 5060.
+La memoria poco,
+pero va escalando. 70 80 se te va. Es cara,
+no caso de uso
+50 70
+toda la línea 5000 es con arquitectura.
+Y y ¿qué pasó? ¿Por qué? Porque
+porque hay un tema con las librerías porque el cambio arquitectural y librerías que todavía no
+no están estables.
+Claro. Entonces una combinación rara de librerías de Python,
+de Python y y alguna más de duda logr que ande, si no vas a correr Pyth y te dice que a comprar fue la tengo acceso para comprar,
+no sale 4000 cada comprar dos.
+De hecho, todo
+y corre y funciona, pero no sé Porque todavía están optimizadas arquitectura, entonces no sé si es tan rápida. Ya vamos a probar probé unas cosas de los de la otra tarea de la segunda.
+Funcionó y funcionó rápido. Quiero probar.
+Probé con cuando hacíamos el día más rápido. Visualmente se arreglar y cuando algunas cosas que probé en H1,
+¿no? Pero esas monstruos son H200 y por la última Yo haría lo mismo, pero vi que da igual cuando menos lo hacían como lo venían haciendo
+Blackwell. Lo que pasó es que ahora metieron Dinamo, creo. Dinamo se llama, ¿no?
+Dinamo es el motor que hay abajo que separaron el el prefetch.
+El de paralelo. mejor
+entonces y vi que ahora hace poco sacó versión sacó su versión de
+Sí,
+no es lo mismo, pero
+sí me inyección de dinero envidia también
+y de ahí también me acuerdo que tanto desalcificando con el 3 está con vida o con sus propios
+con ellos con sus TPU corren todo,
+¿no? Clave el entrenamiento para usar porque TPU sacaron la versión 7 hace poco
+es el 3 lo hizo la gente de la propia. Ahora Google es la única compañía que tiene stack completo en toda Estaba barata, eh, está barata la que la gente no cree, no cree.
+Bueno, ahora los rompieron absolutamente todos los
+el mejor equipo para el mejor equipo de mayor cantidad de recursos tocaron algo Los modelos hoy en día sacaron una grande es que el futuro esa gente entonces la atención de hecho hoy mayor parte del tráfico de del internet y dentro de los bots consumic están pillando toda la ya empezaron a cerrar la puerta de te da te da el control.
+Igual nadie tiene más datos refados que Google tiene parte tiene tipo YouTube, pero
+pasa que la mayor parte de los datos del mundo son privados, los tienen las empresas y eso es más así. Entonces los datos de público calidad casi todos ya están agotados y está usándose datos sintéticos son de calidad. datos más datos igual datos de texto no y nosotros el punto físico generar señales también permiso, permiso. Permiso. Sí, a veces es barato pagar la multa que pagó acuerdo con las editoriales de libros
+porque se habían quejado.
+Sí, bueno y millones de dónd creo que en la historia el pago más grande que se hizo un autor, ¿cuánto pagaron? Conjunto de cuánto no más era mucho. Un billón
+si es millones de dólares no es nada.
+No, no un billón.
+Ah, un billón. Sí. Y cos años a la Unión Europea porque la Unión Europea era Sí,
+eran cinco
+sí creo que hubo otro juicio nadie con estos. Eh, tuvieron que entregar los los datos. tipo ponían tipo un pedazo de texto de una noticia de ellos en particular y parecía exactamente el la noticia. Sí, memorizo. Ha,
+muy bien. Noticial
+después de los escritores también en Estados Unidos hay unos que denunciar. Hay un americano trabajando en ese tema da ruido audible que destroza los modelos. Ya ves como contrar que cuando vos tenés imágenes multidimensional te pasas la imagen un par de Pues no ofrende, ofrende patrones estadísticos cambiar determinados cambiar un poco por datos ya es otra cosa. Este loco inyecta datos que no son audibles de frecuencias que no
+cuando quier aprender los modelos ruidend
+americano estud online. Volvemos Rodrigo original.
+Es como el texto blanco de los resumes que están poniendo. Una forma linda de ver los imagen que van a ver bastante seguida es este tipo de cosas donde tenemos lo mismo, son las posiciones, las filas de 0 a 50 y en este caso tiene 128. Si ustedes agarran cualquier tira no debería arrepentirse. con lasado por cier parámetros que tanto tiene la frecuencia. Este este para mí este artículo en internet es el mejor que explicación encoding acá hace todo el camino se los dejé también limpiados para que lo vean pila de información poniendo sobre todo el posición de encoding acá. preguntas y respuestas, partes del paper, por qué es importante, frecuencias que hablamos, por qué se suman y no se concatenan. Ah, y bueno, ahí también tienen unos videos.
+Hablábamos de que, a ver, tu opinión no está muy apurada esta clase de vos excelente clase. te hubiera gustado que a este tema dedicarle más
+más tiempo,
+pues sí, estar
+4 horas más a vos encontrás ahora videos están este 20 30 minutos visuales que te explican exactamente lo mismo. Sí. Y lo entendés también con un video de YouTube, ¿no? Seguimos, seguimos. Yo creo que el conocimiento,
+si vos tenés tres libros que pican de lo mismo y vas a tener x tiempo, yo prefiero elegir uno de cada uno elegir leer tres veces el mismo. Esa es mi forma de entender. Entonces, capaz que no terminas entendiendo el todo en esta estoy bastante seguro de que pero con que te quedas con una idea, yo estoy seguro de que cuando veas o un video o un paper, otra información o apunte o cuando lo diga Matías vas a entender mejor. Estoy seguro de eso. Yo no estoy acá para él. Ojalá fuera de que Ah, sí, me iluminé y veo pos encoding como Neo, empiezan a ver unos ceros así. Bueno, no no no es así, pero vos machacándote en varios lugares creo que te da como una idea, pero si entienden esta idea de
+esa es la esencia, no importa tanto el Sí, está bueno entender por qué seno seno y las funciones relativas de todas las cosas. Hay un montón de cosas que están por detrás que hacen funcionan muy bien. En realidad, lo más importante es
+por qué otras no funcionaron. Y este, bueno, cómo mapear esas esas. Yo les voy a preguntar cuál es la onda de cuál es la ecuación de la posición en dos para le voy a preguntar hacer algo más del
+hay preguntas tipo yo les prometo de que Transformers es lo que menos se va a preguntar. Es un si es un 10% del parcial suficiente. O sea, Buscaría un dos puntos, son 20 puntos el parcial, un 10% es una pregunta. Bueno, que se quiera sacar 100 alguna cosita de encoder de transformer que voy a apuntar muy pequeña, pero funciona todo el anterior. Esta parte de la charla,
+eh
+más preocupante esta parte de la charla es que Neoero,
+eso no hay
+no Neo veía unos en un momento cuando cuando lo lo mata que la matarm Se pueden espacio deente.
+Bueno, vamos a la parte de atención.
+Perdón, Marcos.
+No hay una foto así que
+a mí me cero. con Bueno, ahora de alguna manera eh cada una de las palabras, no importa si voy a estar haciendo self attention o están haciendo tensión cruzada, vamos a tener como tres vectorias, o sea, nosotros partimos de que cada palabra tiene un embeding, se va a aprender, va a tener una posición Pero de alguna manera cada uno de estos empeos lo que yo voy a hacer es dividirlo en tres. Entonces, por ejemplo, voy a tener este acá la palabra acá. A ver, de alguna manera yo voy a dividir más bien proyectar con técnicamente este puede salir exactamente este de acá. Solo caso el sale De alguna manera esto lo que quiere hacer es una tabla donde
+disculpe, ¿puedes mostrar lo que está haciendo?
+Pues claro que sí. Es un K, es un V donde básicamente los K también siendo en D modeles donde cada uno va a representar cosas diferentes. PS donde cada uno de de las va a proyectarse en bueno, ¿cómo me pueden buscar a mí o qué características tengo yo qué aporto? O sea, qué valor tengo y es que yo lo estoy buscando. De alguna manera va a ver la similitud entre los cursos y los diferentes casos que hay. Wi lo estoy buscando, está el estudio lo estoy aportando. Entonces, mientras ha más match entre este query y por ejemplo este de acá, voy a decir, bueno, si hay un match del 90%, una cosa, yo voy a tomar el 90% de este valor que voy a terminar. La forma de calcular qué tan similares son el Q y el K, son simplemente con una matriz m una matriz mción de matriz, ¿no? Entonces, multiplicamos los Q por los K, eso básicamente nos va a dar el grado de de similitud que tiene la cuerma para K y después lo va a dividir sobre la raíz de dek. ¿Por qué está reviviendo entre las dimensiones de K? Porque básicamente cuando están multiplicando esas matrices, los números se pueden hacer bastante grandes y terminan una smart donde los los gradientes se hacen bastante pequeños. De alguna manera como para normalizarlo o hacerlo un poquito más pequeño, lo divide por esta constante que es la raíz de t. Después multiplica por el valor. De alguna manera voy a tener para cada uno de los valores, para cada una de mis kiss, voy a tener una proporción de cuánto quiero aportar para cada uno de los valores. Yo tengo tres, por ejemplo, decir, bueno, voy a repartir estas tres kiss donde, por ejemplo, si quiero el 90% de esta palabra, el 7% de esta y el 3% de esto, este 7, 0,7 con este, 90 con este de acá, 23% con este de acá para dar como un embeding termina siendo mi atención de Kimón de K
+de de K. Ahora hablamos por qué. ¿Qué pasa? Ellos no es que directamente toman este embeding y directamente lo proyectan a un Q o un K o un B, sino que básicamente lo dividen. Cada una de esas divisiones es un G. Entonces, básicamente nosotros tenemos el D model, ese espacio como común entre cada uno, el model y vamos a dividirlo. Vamos a en e en cabezal cantidad de D model es igual a TK por Had. Esto es otro preparable, o sea, la cantidad de headsotizar cuatro en arena eran ocho para bajar un poquito la la el entrenamiento, pero hoy en día estamos Estamos hablando de 100 GS más. Se se divide la tensión en diferentes ah formas de medir. Entonces es como que vos tenés que fijarte que cada head de alguna manera va a implicar o va a de alguna manera aportar una relación en diferentes aspectos. Por ejemplo, okay, esta palabra, este adjetivo, ¿cómo afecta a esta otra palabra? La otra puede ser, no sé, no un tema de adjetivo, sino de a quién estás señalando, qué objeto capaz. está diciendo, por ejemplo, ah, esta palabra está cambiando el sexo de esta otra. Entonces, cada uno de los heads está prestando atención a diferentes cosas que después se van, ¿no? Entonces, para mí esta en qué lugar vemos que cada tiene esas características distintas porque vos en realidad ahora vamos a dividirlo y vamos a tener algo que va a ser de batch, la cantidad de heads que tengas y pues otras dos dimensiones. Estas dos dimensiones son las que vas a operar. Este individualmente va head y vos tenés acá, por ejemplo, un eh L y acá tenés un ces multiplicación por matrices solo toma los últimos dos. Entonces vamos a tener diferentes KQ y V con un batch y un head. Y cada una vamos a estar haciendo individualmente. de que cuando G valga uno o valga dos, valga tres la multiplicación de llado lo mismo. Entonces los
+no porque son proyecciones de pesos diferentes, cada uno de los herzar un peso individual,
+se van a aprender.
+Exacto. Entonces de esta palabra va a aprender cómo describirse y esta palabra va a aprender cómo saber lo que tiene que buscar y esta palabra qué es lo que tiene que aportar. cos a ver esa es la semántica, ¿no? O sea, no lo vamos a ver en ningún momento, ¿no? Pero, ¿dónde están esto y que hace que el H1 o el H2 o el H3 aprenda cosas diferentes?
+Porque individualmente cada uno de los heads van a ser multiplicaciones diferentes, dice distinto.
+Exacto. O sea, este este de acá, este es K y este este K, este es Q,
+¿cómo?
+Perdón, todas las matrizonómicamente secializa.
+Ah, está listo. Así ya cuando arranca,
+es decir, El tema es el tema es que vos al más cabezales agregas más dimensiones de de aprendizaje. Si se si la manten que sea arrancando está todo bien. Este el arranque es igual siempre, ¿no?
+Inicializa
+puedes tener puedes traer que dos heads, o sea, dos matriz de head sean mediamente parecidos. Ahí capaz que su las funciones de cada uno pasan. similar funciones y ahí capaz que uno no te aporta tanta información. Eso puede basar.
+Sí, o sea, eso depende como aprende.
+Claro. O sea, idealmente aprende cosas distintas para tener una mejor respuesta final.
+Claro.
+Si la combinadas usando esto.
+En ese caso, lo peor que los dos,
+lo peor que te puede pasar es que la tensión te quede que ahí ya haya dos matrices, dos cabezas que te estén dando aportando lo mismo. Por lo tanto, la tensión final es menos rica, digamos.
+Sí, exactamente.
+Bueno, para mí la mejor forma de eh de ver este dibujo es de esta manera, está esta misma tensión va a ser el mismo cálculo que vamos a hacer acá, que va a ser acá y va a ser acá. O sea, todos van a ser la misma. Las dos primeras, estas acá son self attention. Nos podemos dar cuenta porque si vos ves e no aumenta la si vos ves este Tanto el B, el K y el Q parten del mismo embed que es justamente de el target, o sea, de que este B, este K, este Q es sobre sí mismo.
+Acá pasa lo mismo, o sea, el B, el K y el Q parten de el último del embeding más la posición posición encode. Va a ser exactamente la la llama C, solo va a estar mirando sobre sí mismo. Ahora, cuando vamos acá, el B y el K son diferentes y este es el Q. Vos imagínate de que acá va a estar buscando, bueno, del target que yo estoy viendo son mis curs, quiero ver con qué palabra me relaciono yo en mi encoding y qué valor aporto. Es ahí como cuando se cruza la tensión de un lado al otro. Entonces vamos a tener el B.
+Tu Q es, perdón, K. Q es tu target.
+Q es lo que vos estás buscando. Es una viene tu target o viene tu output
+viene depende de cada lado. O sea, esto de acá son el mismo valor, o sea, acá cuando lo hagamos es x, x y x, le pasamos el mismo valor tensor
+cambiar las cosas.
+Exacto. Va a hacer transformaciones que van a tener pesos diferentes, por lo cual lo va a transformar a cosas diferentes.
+Donde cambia es en estas líneales de acá puedes hacer eh heads por cantidad, o sea, tantas lineales como heads o puede ser una sola lineal y después simplemente la separas tiene el mismo resultado. Bueno, vamos a por ello. Entonces, lo que nos van a pasar es el demó, que es básicamente el lenguaje común o el embeding que vamos a tener durante todo el entrenamiento. Los heads y la cantidad de heads también es otro hiperparámetro y lo único que tenemos que estar seguros es que este Dmodel es divisible por heads. Entonces para eso podemos Vamos bien ahíer que de por heads igual igual a de modelo manera verifico que yo pueda dividir este model en tantos cabezales. Pueden estar tres lineales. Vamos a hacer una cell punto eh vari a n pun linear y va de model a model. Ya se pueden dar cuenta que va a ser lo mismo para las kiss y para lass. O sea, básicamente de mi input que me van a dar, yo lo voy a proyectar a cada uno de los K, cada uno de los Uy, y por último voy a necesar otro más que va a ser ah esta línea de acá. Está en el output que va a ser select punto eh output. Out es igual a n pun linear, que también va de model a D model. Esos son todo lo que necesito. La parte más difícil es justamente el foc. Cuando yo voy a hacer cada una de esas proyecciones, voy a estar haciendo todas las multiplicaciones. Voy a hacer justamente terminar haciendo este cálculo de matricial, ¿no? Esta es una forma más linda para mí de verlo. Es el Q. Vamos a hacer un matmul con el K. ¿Cuál le vamos a escalar? El dividir sobre la raíz de de K. Después le vamos a aplicar una máscara. Aplicamos una softmax y multiplicamos por el U. concatenamos y después una línea. Tenemos como un mapa más o menos. Vamos a ir moviendo en cada una parte de los dibujos a qué se corresponde. Lo primero que vamos a hacer es bueno hacer de acá vamos a sacar varias transformaciones lineales. Tenemos como como parámetros los val y ziger una transformación Bien, eh, vamos por partes. Necesitamos el back size. Lo podemos conseguir. ¿De qué manera? Me interesaría tener también estas longitudes de acá. Vamos a tener que la podemos obtener de tal manera de que val y lo mismo con los anteriores. Hacemos agarrado también exactamente
+size de uno y por último queries size un detalle que esto lo vamos a ver esto es como un chiste que el comediante y termina al final el remate, que es la longitud del value es el mismo que la XIS, o sea, siempre la cantidad de o las palabras que yo estoy viendo de las KIS y vales es el mismo, obviamente porque es una tabla, pero también lo pueden comprobar, por ejemplo, en el dibujo, el B y el K son los dos primeros y fíjense de que es siempre el mismo, tanto acá como acá, tanto acá como acá, tanto acá como acá es el único que van a compartir la longitud. Entonces, yo voy a utilizar esto en el un momento más al final termine el remate todo esto de que me sirve saber que el el length del values y el x valen lo mismo. Bueno, vamos a proyectar. Las proyecciones son nada más que tomar cada uno, ¿no? Por ejemplo, values es igual a o set values. Vale.
+Eso que dijiste porque era palabra a palabra para el diccionario que me agarra.
+Exacto. O sea, porque yo le También los lo sé que lo voy a estar pasando esos dos van a ser siempre el mismo. Veo bien
+más todavía.
+Ahí en ese caso
+vamos a kiss exactamente igual punto is values y por último vamos a dar los queries igual a ser pun queries de jueres. Esto de acá cambio mis dimensiones. El segundo no. Ah, pregunt
+Sí. A ver, isto, pero estas dimensiones no cambiaron porque van de de model a de model, ¿no? Entonces, yo ahora lo que voy a hacer es este de model de acá lo voy a partir en diferentes heads. Entonces, yo lo parto en hiperparámetro que yo tengo acá que Heads lo voy a partir en cuatro dimensiones. Va a ser B size, query, el leng, va a ser el head y después por último va a ser el. Entonces vamos a partir esto. Va a ser vales igual a torch de val y le voy a dar las dimensiones. Las dimensiones son primero el dónde lo saco el Y de dónde saco el largo de la de la secuencia acá. Y esto es s punto headz. Y por último, ¿qué es el
+dividido?
+Ya lo tenés acá, es este DK, que es el D model dividido los heads. De alguna manera de todas estas proyecciones, yo solo me quedo con el tamaño del K. Yo podría poner un -1 acá también de los resap como que calculan automáticamente esa dimensión o s punto eh pk. Esto lo mismo es ah X vamos a vamos a poner los queries. Y ahora sí cambio cada uno de los elementos. Ahora sí voy a poder empezar a hacer las multiplicaciones de cada uno de los ¿Cuál es el problema? Cuando hace la multiplicación este acá, el K y el Q, yo tengo que pasar de que eh esto eh eh hay que hacer la transpuesta, pero también me está quedando medio incómodo porque eh cuando haces cuando vos tenés n dimensiones y estás haciendo tipo la multiplicación, otras n dimensiones, solo toma las dos últimas para hacer la multiplicación matricial. Entonces tienen que coincidir las dos primeras, las cuatro y después los otros tien que coincidir el el último del primero y el primero del segundo. Así coinciden las las dimensiones. Entonces, para hacer el cálculo de K y K, vamos a hacer primero movernos este head lo vamos a mover más como el segundo parámetro. Yo lo que quiero es que sea back size, head y el resto de mis mis dimensiones. Simplemente voy a redimensionar hacia hacia acá me interese. Entonces, ¿cómo puedo hacer eso? Una cosita. Eh, no estás usando el query que generalmente son iguales, pero puede que no. Esto es peg
+la la query lane y la key lane siempre son iguales, pero la value puede
+no creo que es la key y la vale.
+Ah,
+porque la query es la que te determina la fila y la columna te determina. Vos pens que como es una tabla todos tienen que tener como la misma cantidad de cuando eso que estando los cinemas este key value y después le agregas
+cuando haces la atención
+eso siempre hay unama que siempre se usa con es dónde está eso en varias varias lineales yemos Específicamente de cada una lo es en esta cuenta de acá. Eh eh e en vez de performar una sola tensión en la eh con una dimensión de D models para los KYS values and queries eh encontramos beneficial proyectar esas esas queries, KISS y en valus HBC. Es
+cuando haces el
+no ahí ahí no ahí hay una sola G está simplificado. para,
+o sea, esto lo haces varias veces.
+Okay.
+O sea, en general las explicaciones puedes decir de cosas muy sencilla, o sea, vos puedes hacer una atención de una sola, hay que hacerle de mod por de mod por de mode, pero bueno, ellos ven beneficioso separarlo en H que de alguna manera como que prestan atención a diferentes cosas.
+Bueno, queremos sacarnos los heads para que coincidan de cada uno y para eso lo que hacemos es vales igual torch punto permut. Tremenda función, acuérdensela de que es a mí me interesaría. Ahora voy a hacer queris y yo básicamente acá lo que voy a recibir es un una tupla donde tengo que reordenar las dimensiones como yo quiero. O sea, las dimensiones está 0 1 2 y tres. Yo quiero, por ejemplo, que la tercera pase a ser la segunda. Yo dentro de esa tupla lo pas de forma segunda. Entonces, yo el head, el batch lo ponemos primero. Entonces el batch queda primero. Ahora yo quiero ahora sea el head el segundo que pongo casi dos y después hacemos de ahí ponemos uno y esto nos queda de tres. Con lo cual luego de esto, ¿veis el de cuánto nos queda? Queremos sacar este para sacar de arriba, que para cada una de las headascial eh por último caro y para que eh las sean multiplicables, ¿qué tiene que cumplir? Ah,
+claro, tiene que coincidir esta dimensión, o sea, la segunda de Q tiene que coincidir con la primera de K. Vamos a permutar manera
+exactamente que lo hace punto de cada uno de los con Vamos a dar X y esto queremos que sea 02 y bueno, está X es cero yo quiero que sea 3 y un yo quiero que sea B size por DK para que coincida y luego esto acá ahora nos va a quedar K con está diciendo y perdón y pueden ser diferentes ahí cuando te da la matriz que no es no es cuadrada porque vos quieres prestar de lo que yo estoy buscando, ¿qué tanto encuentro en cada uno de La matrices eh va a terminar siendo de queries por Bueno, ahora sí vamos a recién esta multiplicación que es este acá, ¿no? Entonces vamos a hacer un score y ya está. Vamos a calcular score que es score attention es igual a torch de con kis no kis graves dejar qué tamaño va tener el attention
+y esto de acá es es la previa o ya te está diciendo la forma que tiene la matriz es lo A ver, pues ejemplo, un self attention, eh, selfension, quiere decir de que tanto el query como el son los mismos. Hola, clase nocturno. Vamos a tener una matriz. las filas y las columnas sobre, o sea, básicamente vamos a estar calculando como números que, okay, si estoy buscando hola, ¿qué otras otras palabras se relacionan a colores? Esto de acá también haciendo una soft max también una proporción. Entonces, en las filas va a tener lo que yo estoy buscando y en la columna lo que cada una caracteriza aquí. Bueno, ya tenemos el score. Eh, tengo que escalar. ¿Recuerdan por qué dividimos
+por la raíz cuadrada de corctamente? Entonces, vamos a hacer score es igual a score dividido Este es el punto esto no cambia absolutamente shape. Para nada. Tenemos que aplicar la máscara.
+Ah, sí. A ver,
+perfecto. Ahí está la recuadrado. Tenemos que aplicar la máscara. Está la máscara. Lo que nos va a servir es que eh para dos cosas en lo que es el encoder es que ah todo lo que es padding di esto a mí no me sirve, yo no quiero no quiero prestar la atención a esto de acá, pero la parte más importante, la clase que viene es la parte del triángulo, o sea, de alguna manera para para que no cuando estás en el decoder no presta atención a las cosas que están adelante tuyo, entonces vos estás diciendo, ignorar todo lo que viene ahí adelante. Eso lo hacemos a través de la má Dependiendo de la máscara vamos a aplicarlo. Entonces má hacemos attention igual a torch mas. Le vamos a pasar el tensor que es la mas cuando es igual a cero. Entonces lo rellenamos con float. Ah, float de menos pequeño menos eh 1* -20
+20
+vale 20, pero es menos, ¿no?
+Menos
+en el menos en el -2 o en el -1,
+¿no? Perfecto.
+Y te falta el Eh, poner scorp.
+Exacto. Gracias. Attention. Primero, primero el tensor, gracias. Después la máscara y después el valor de básicamente es cuando yo diga en esta máscara que no quiero prestar la atención a esta parte de acá, idealmente no le vamos a poner un cero porque después cuando vos tenés la softmax tenés cero, posiblemente te va a dar algo que sea positivo. Por ejemplo, si tuvieras números son negativos dentro de esa matriz, ese cero en realidad tiene Después de la Softmax también teniendo un número positivo, en un número muy pequeño, la Sofmax sí lo va a atender a que sea cero. Bueno, aplicamos la SOFMX. Ahora sí, entonces attention es igual a torm y la dimensión. Yo quiero hacerlo a través de la última, o sea, quiero que lo que sea a través de toda esta de acá, con lo cual es la tres. Yo creo de que esta fila de acá uno y esta dimensión cual estoy reduciendo es cer. O sea, básicamente cada una de las filas debería terminar sumando uno, que es básicamente de la palabra hola. ¿Cuánta proporción le voy a dar a cada una de mis El tres es con ese ejemplo o no entendí.
+Sí, la verdad que vos tenés acá tenés un batch,
+tenés un head y después tenés una matriz.
+Sí.
+Entonces vos querés reducir esta parte de acá. Eso no es los valores. Entonces, vos querés que para cada palabra esto de acá te sume uno para que te diga la proporción de las que vos estás teniendo, cuánto vas a aportar.
+Ah, la dimensión tres es la posición, o sea, la posición, ¿no? Acuérdate que tenés o tenés y la matriz que estoy buscando ahí es solo este claro tendrá que buscar para cada un elemento del batch, para cada una de las heads tenés una matriz
+muy difícil de visualizar.
+Lo que se visualiza, lo que se muestra en general es solo estos últimos el qu linees esa matriz de ahí o está buscando algo y buscando, bueno, yo soy hola, ¿no? Tipo, ¿qué qué me pueden ofrecer? de acá no me pueden aportar. Vos de alguna manera vas a decir proporcionalmente cuánto me aporta cada uno. Si vos por ejemplo decir a quién le está diciendo hola. Acá generalmente hay una proporción bastante grande porque es la misma palabra, pero está diciendo hola a la clase. Acá tenés un 0,6, acá tenes un 0 35 y acá porque nocturno en realidad es más bien algo que habla de que es la clase de nocturno. ¿Entiendes? Eso es una interpretación de un head, de una tension que estamos diciendo, pero puede ser de que nocturno tenga mucha relación, por ejemplo, con acá 0,8. De alguna manera yo quiero de que cuando sacamos el patensón tenga mucho valor o me influencie bastante lo que aporta esta palabra, lo que le da el vale. Por eso multiplicas para el vale. De alguna manera este softmax es la calcula para cada una de las x el valor que va a aprender y después lo multiplica por el B.
+Técnicamente también aportan las otras las otras una menor proporción. Ya estamos, ya estamos. Ah, pa. Vamos a tension. Ahora lo que tenemos que hacer es multiplicarlo por el por el valid. Ahora pensemos en una cosa. Este es ¿Qué dimensiones tiene? Sigue conservando este acá. Exactamente.
+Y hasta este momento value que tiene
+es back size value length heads y el dk. Seguro el head lo tengo que mover al principio. Ahora, ¿con qué me quedo yo? Último multiplicando a la derecha.
+Me quiero quedar en izquierda.
+Principio exactamente valen lo mismo. Yo voy a utilizar para concatenar este último con el primero. Yo lo que quiero value es que sea tipo batch head e key perdón value y dek o values vales igual a punto le ponemos el val y esto hacemos el primero el batón no Es primero aquí head y head dónde estaba era el segundo. Ahora el value length que es el que coincide acá es el uno y por último me queda el de entonces vales cómo me queda size value len y
+dek. ¿Y por qué podemos multiplicar esto? Porque el key length y el value length es lo mismo.
+No entendí algo de
+Dale.
+A vos el head no te venía, o sea, te viene como en el a la posición dos. Sí, está bien,
+pero vos no no estás tomando posiciones de cero, o sea, no sería la uno
+es del original. ¿Dónde yo quiero que quede? O sea, es el índice del original. O sea, en el original el B size es el uno, el el value length es el, perdón, B size es el cero, value length uno, el head es el dos.
+¿Y por qué por qué mapas con cero el principio?
+Porque yo quiero que el B queden en el lugar donde esta, es estos índices de acá del permut es bajo los índices que tienen en el momento antes de permutar,
+¿en qué orden yo quiero que quede ahora? Entonces, como el B ya está en el cero,
+el que está tercero en este momento, yo creo que
+sí permuta. Exactamente.
+Y ahora vamos a hacer eh attention aten igual a 2 pun de ion y vale. que me queda la atención y bueno, ahora vamos a concatenarlo, o sea, porque esto a mí no me sirve, no me voy a sacar el head. que tengo acá, con lo cual es por fila de
+cómo
+la concatelación es por fila de vos querés reducir, queres juntar este D, este head y este de K de vuelta para que sea de D mod. Entonces vamos a hacer que es igual a torta donde me quede me quede 0 2 1 3, o sea, que me quede el batch queng head y dec. Ahora la tension acá va a tener pat size, qu head y el DK. Recuerden de que este head y el DK originalmente pasamos de un D mode y lo separamos heads por DK, o sea, la división de cada una. Y ahora lo que vamos a hacer es juntarlos. Hacemos Attention es igual a torch psappe el shape de tension. Yo quiero ahora que mi shape sea de tipo por acá. Acá podría directamente poner un -1 o que es el valor que tiene acá cuando yo uno los heads de cada uno de los de cada de el punto de mod
+sí
+porque vos tenés de size head y de vos preservas tod acá y todos estos de alguna manera lo concatenas uno o el otro ir para abajo. Ya lo hace.
+Exacto.
+Ah,
+ya tenemos los heads.
+Una pregunta, por favor.
+Vale.
+Eh, eso quiere decir que, por ejemplo, para la palabra hola eh tengo del head 1, head 2, head 3.
+Exacto. Cada trabaja en dimensiones distintas del medio.
+Por eso también la que uso hoy aprend Ha no trabajando sobre
+perdón, tengo mi hijo molestándome lamentá, perdón.
+Y por último agarramos este attention y lo pasamos por el auto. Ya está.
+¿Crees que le devuelvas la computadora entrenamiento que le devuelvas la jug Eh, atención una lineal. Entonces, vas de de model de model. Esto es lo más difícil que mover. Acá abajo montaña rusa. y hacer los cheques, porque si no tuviéramos eso, sería mucho más fácil hacer las multiplicaciones. La parte más difícil es el hecho de no estar dividiendo los heads poniéndolo en un lugar que no te moleste para las multiplicaciones individuales y después devolverlo para poder juntarlo.
+Es el tema recurrente. Bueno, recurrente nuevo se saca las Transformas, pero es un montón, pero yo quiero que el lunes que viene, por lo menos cuando Matías de funcionar el coding, haya una puerta ahí que lo vamos a este esta parte de acá creo que es un poco la más la más difícil, no tanto porque en realidad entender esta de acá, si lo ves de esta manera, eh parece sencillo. Lo más difícil de verdad son los shapes. poder calcular con ellos no es no no es que hacemos tanto, en realidad son una multiplicación matricial, otras una soft y otra multiplicación matricial. La parte difícil es dividirlo en los heads nada más. Esa es la parte más difícil, pero se quedan con que están haciendo matrices donde está dando una determinada importancia dada una quer y una aquí y se van a quedar con ese valoralmente a la importancia que se esto es más lindo cuando cuando se ve probablemente van a ver con Cuando ven, por ejemplo, interven estilo, van a ver que cada una de las queries acá, por ejemplo, está haciendo la de self attention. ¿Por qué? Porque está el query y el los kiss son exactamente los mismos. Cuando nosotros veamos e la tensión cruzada, Kis van a ser el decoder y las kiss van a ser las queries van a ser del decoder y las queries van a las kys van a ser de eling. Entonces van a haber determinados lugares donde te dan más importancia. Obviamente si estás en self attention lo más importante en general es a vos mismo. Pero después van a tener por ejemplo el two tiene, por ejemplo, bastante importancia al on a. Hay una determinada relación entre cada una de las palabras que le va a agregar al cont Esto está bueno no lo vamos a hacer, pero está bueno, por ejemplo, eh poder aplicar atención le mandan algo y ven a una frase por qué le presta atención. Un adjetivo debería estar bastante relacionado con a la palabra que está adjetivando dicho eso. Bueno, esto más que suficiente. Para la clase que viene hacemos el encoder y hacemos el decoder en realidad más que nada tomar estas distancias de cada uno de los que acabamos de hacer uniendos en un solo edificio.
+Primero la parte de división es en esta de acá. Vos originalmente value L mod y vos sabes que model lo tanto, por ejemplo, que tengo 512 y lo divido son 4 de 128 puedo tener 512 medo. Digo, bueno, toma 128 acá, 128. Entonces, de cada uno de los la atención frente a otra solación o laencia de una palabra sino que cada una de forma independiente si abortas lo debería Esto de acá 128 lo que llama cualquiera tenga preguntas. Voy a ir a cada uno pregunta para el dos. Entonces de entrega obligatorio.
+La fecha sigue siendo el tres obligatorio a última hora. Los online tien una pregunta. Atilio, te perdí. No,
+ahí estáilio. Me mató hoy día. otras palabras. palabras hacen el palabras palabras. Eso y si tengo algo como nada es pas nada. Yes. Ahora nada. Ah, de todo esto, ¿qué tiene que prestar atención? probablemente no momento la parte como más dado como funciones un montón de cosas Sí, o sea, porque es tanto, pero se me hace entendido que es una multiplicación de matrices, solo que estaqueados, o sea, de tener con, pero no lo hice con más resueltas igual después, o sea, creo que si casa transformar transformar por eso tiene cosas construyendo para ir componentizando todo si ponés creo que tipo Lo mejor es pas anterior. Solo de que no son funcionan más o menos bien, muy malo el valor. por ejemplo podir

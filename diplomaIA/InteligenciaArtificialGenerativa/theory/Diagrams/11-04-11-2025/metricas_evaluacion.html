@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métricas de Evaluación - Modelos Generativos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .intro {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 6px solid #ffc107;
+        }
+
+        .two-axes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .axis-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .axis-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .axis-card h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .metric-card.distance { border-top-color: #e74c3c; }
+        .metric-card.inception { border-top-color: #3498db; }
+        .metric-card.fid { border-top-color: #2ecc71; }
+        .metric-card.perplexity { border-top-color: #9b59b6; }
+        .metric-card.bleu { border-top-color: #f39c12; }
+        .metric-card.human { border-top-color: #1abc9c; }
+
+        .metric-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .metric-card .formula {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            overflow-x: auto;
+        }
+
+        .metric-card .pros {
+            color: #27ae60;
+            margin-top: 15px;
+        }
+
+        .metric-card .cons {
+            color: #e74c3c;
+            margin-top: 10px;
+        }
+
+        .section-title {
+            color: #f5576c;
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            border-bottom: 4px solid #f5576c;
+            padding-bottom: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.1em;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .flow-diagram {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .flow-step {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin: 10px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .flow-arrow {
+            display: inline-block;
+            font-size: 2em;
+            color: #f5576c;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .two-axes {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Métricas de Evaluación para Modelos Generativos</h1>
+
+        <div class="intro">
+            <h3>🤔 ¿Por qué es difícil evaluar modelos generativos?</h3>
+            <p>A diferencia de los modelos discriminativos (clasificación/regresión) donde comparamos predicción con etiqueta real, en modelos generativos queremos evaluar si el modelo aprendió bien toda una <strong>distribución de probabilidad</strong>.</p>
+            <br>
+            <p><strong>No hay una métrica universal</strong> que funcione para todos los casos. Por eso existen múltiples enfoques complementarios.</p>
+        </div>
+
+        <h2 class="section-title">🎯 Los Dos Ejes Principales</h2>
+
+        <div class="two-axes">
+            <div class="axis-card">
+                <h2><span class="emoji">🎨</span>Fidelidad</h2>
+                <p style="font-size: 1.2em; line-height: 1.8;">
+                    <strong>¿Qué tan realistas son las muestras?</strong><br><br>
+                    ¿Las imágenes/textos generados parecen reales?<br>
+                    ¿Tienen artefactos, ruido, errores visibles?<br><br>
+                    <em>Ejemplo:</em> Un modelo que genera UN solo número "1" perfecto tiene alta fidelidad.
+                </p>
+            </div>
+
+            <div class="axis-card">
+                <h2><span class="emoji">🌈</span>Diversidad</h2>
+                <p style="font-size: 1.2em; line-height: 1.8;">
+                    <strong>¿Qué tanto cubre la variedad del dataset?</strong><br><br>
+                    ¿Genera diferentes tipos de datos?<br>
+                    ¿Cubre todas las modas de la distribución?<br><br>
+                    <em>Ejemplo:</em> Un modelo que genera muchos números diferentes (0-9) tiene alta diversidad.
+                </p>
+            </div>
+        </div>
+
+        <div class="intro" style="background: #d4edda; border-left-color: #28a745;">
+            <h3>✅ Modelo Ideal</h3>
+            <p>Un buen modelo debe <strong>equilibrar ambos aspectos</strong>: generar datos realistas (fidelidad) Y variados (diversidad).</p>
+        </div>
+
+        <h2 class="section-title">📏 Métricas Matemáticas (Distancias entre Distribuciones)</h2>
+
+        <div class="metrics-grid">
+            <div class="metric-card distance">
+                <h3><span class="emoji">📐</span>KL Divergence</h3>
+                <p><strong>Kullback-Leibler Divergence</strong></p>
+                <div class="formula">
+                    D_KL(P || Q) = ∫ P(x) log(P(x)/Q(x)) dx
+                </div>
+                <p>Mide qué tan diferente es la distribución Q (generada) de P (real).</p>
+                <p class="cons">❌ <strong>Asimétrica:</strong> D(P||Q) ≠ D(Q||P)</p>
+                <p class="cons">❌ Penaliza fuerte cuando Q subestima P</p>
+                <p class="pros">✅ Usada en VAE y Diffusion Models</p>
+            </div>
+
+            <div class="metric-card distance">
+                <h3><span class="emoji">⚖️</span>Jensen-Shannon</h3>
+                <p><strong>Promedio simétrico de dos KL</strong></p>
+                <div class="formula">
+                    JS(P, Q) = ½·KL(P||M) + ½·KL(Q||M)<br>
+                    donde M = ½(P + Q)
+                </div>
+                <p class="pros">✅ <strong>Simétrica:</strong> JS(P,Q) = JS(Q,P)</p>
+                <p class="pros">✅ Usada implícitamente en GANs originales</p>
+            </div>
+
+            <div class="metric-card distance">
+                <h3><span class="emoji">🚚</span>Wasserstein Distance</h3>
+                <p><strong>Distancia de "transporte óptimo"</strong></p>
+                <p>Mide cuánto "trabajo" se necesita para transformar una distribución en otra.</p>
+                <p class="pros">✅ Buenas propiedades matemáticas</p>
+                <p class="pros">✅ Usada en Wasserstein GANs (WGAN)</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">🖼️ Métricas para Imágenes</h2>
+
+        <div class="metrics-grid">
+            <div class="metric-card inception">
+                <h3><span class="emoji">🎯</span>Inception Score (IS)</h3>
+                <p><strong>Usa un clasificador preentrenado (Inception)</strong></p>
+                <div class="formula">
+                    IS = exp(𝔼_x[KL(p(y|x) || p(y))])
+                </div>
+                <p><strong>¿Cómo funciona?</strong></p>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Generas imágenes con tu modelo</li>
+                    <li>Las pasas por Inception (clasificador)</li>
+                    <li>Calculas KL entre predicción condicional y marginal</li>
+                </ol>
+                <p class="pros">✅ No necesita imágenes reales</p>
+                <p class="cons">❌ Depende del dominio de Inception (ImageNet)</p>
+                <p class="cons">❌ No siempre correlaciona con percepción humana</p>
+            </div>
+
+            <div class="metric-card fid">
+                <h3><span class="emoji">📊</span>FID (Fréchet Inception Distance)</h3>
+                <p><strong>Compara embeddings de imágenes reales vs generadas</strong></p>
+                <div class="formula">
+                    FID = ||μ_real - μ_gen||² + <br>
+                    Tr(Σ_real + Σ_gen - 2√(Σ_real·Σ_gen))
+                </div>
+                <p><strong>Proceso:</strong></p>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Pasar imágenes reales por Inception → embeddings</li>
+                    <li>Pasar imágenes generadas por Inception → embeddings</li>
+                    <li>Calcular media (μ) y covarianza (Σ) de cada conjunto</li>
+                    <li>Medir distancia entre distribuciones</li>
+                </ol>
+                <p class="pros">✅ FID bajo = mejor calidad</p>
+                <p class="pros">✅ Más usado que IS actualmente</p>
+                <p class="cons">❌ También depende de Inception</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">📝 Métricas para Texto (LLMs)</h2>
+
+        <div class="metrics-grid">
+            <div class="metric-card perplexity">
+                <h3><span class="emoji">🤯</span>Perplexity</h3>
+                <p><strong>Mide qué tan "sorprendido" está el modelo</strong></p>
+                <div class="formula">
+                    Perplexity = exp(-1/N · Σ log P(w_i | w_1...w_{i-1}))
+                </div>
+                <p>Es la exponencial de la entropía cruzada promedio.</p>
+                <p><strong>Interpretación:</strong> Qué tan probable es que el modelo genere secuencias reales.</p>
+                <p class="pros">✅ Perplexity BAJO = modelo predice bien</p>
+                <p class="pros">✅ No requiere generar texto</p>
+                <p class="cons">❌ No evalúa coherencia global ni factualidad</p>
+            </div>
+
+            <div class="metric-card bleu">
+                <h3><span class="emoji">🔤</span>BLEU Score</h3>
+                <p><strong>Bilingual Evaluation Understudy</strong></p>
+                <p>Compara texto generado con referencias basándose en <strong>n-gramas</strong> (secuencias de n palabras).</p>
+                <div class="formula">
+                    BLEU = BP · exp(Σ w_n · log p_n)<br><br>
+                    p_n = precisión de n-gramas<br>
+                    BP = penalización por brevedad
+                </div>
+                <p><strong>Ejemplo:</strong></p>
+                <p style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                    Referencia: "el gato negro duerme"<br>
+                    Generado: "el gato duerme"<br>
+                    → Coinciden "el", "gato", "duerme" (uni-gramas)<br>
+                    → Coincide "el gato" (bi-grama)
+                </p>
+                <p class="pros">✅ BLEU alto = muchas coincidencias</p>
+                <p class="cons">❌ No captura sinonimia o semántica</p>
+                <p class="cons">❌ Solo matching literal</p>
+            </div>
+
+            <div class="metric-card bleu">
+                <h3><span class="emoji">📋</span>ROUGE Score</h3>
+                <p><strong>Recall-Oriented Understudy for Gisting Evaluation</strong></p>
+                <p>Similar a BLEU pero enfocado en <strong>recall</strong> (cobertura).</p>
+                <p>Mide qué porcentaje de n-gramas de referencia aparecen en el texto generado.</p>
+                <p class="pros">✅ Complementa BLEU</p>
+                <p class="cons">❌ Tampoco captura semántica</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">👤 Evaluación Humana y Perceptual</h2>
+
+        <div class="metrics-grid">
+            <div class="metric-card human">
+                <h3><span class="emoji">👥</span>Preferencia Humana</h3>
+                <p>Personas evalúan y comparan muestras generadas.</p>
+                <p><strong>Métodos:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Pairwise Comparison:</strong> ¿Cuál imagen prefieres?</li>
+                    <li><strong>Rating Scales:</strong> Puntúa del 1 al 5</li>
+                    <li><strong>Ranking:</strong> Ordena varias muestras</li>
+                    <li><strong>Turing Test:</strong> ¿Es real o generado?</li>
+                </ul>
+                <p class="pros">✅ Correlaciona directamente con percepción</p>
+                <p class="cons">❌ Costoso y no escalable</p>
+                <p class="cons">❌ Subjetivo</p>
+            </div>
+
+            <div class="metric-card human">
+                <h3><span class="emoji">🤖</span>Human Preference Models</h3>
+                <p>Entrenar un modelo para predecir preferencias humanas.</p>
+                <p><strong>Proceso:</strong></p>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Recolectar evaluaciones humanas</li>
+                    <li>Entrenar modelo para predecir esas preferencias</li>
+                    <li>Usar ese modelo para evaluar nuevas muestras</li>
+                </ol>
+                <p class="pros">✅ Escalable una vez entrenado</p>
+                <p class="pros">✅ Mejor correlación con humanos</p>
+            </div>
+
+            <div class="metric-card human">
+                <h3><span class="emoji">🎯</span>Downstream Task Performance</h3>
+                <p><strong>Evaluar en la tarea final</strong></p>
+                <p>En lugar de evaluar el modelo generativo directamente, medir su utilidad en la aplicación específica.</p>
+                <p><strong>Ejemplos:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>¿Los datos sintéticos mejoran un clasificador?</li>
+                    <li>¿El chatbot resuelve consultas efectivamente?</li>
+                    <li>¿El audio generado es entendible?</li>
+                </ul>
+                <p class="pros">✅ Mide utilidad práctica real</p>
+                <p class="pros">✅ Más tangible que métricas abstractas</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">📊 Comparación de Modelos</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Tipo de Modelo</th>
+                    <th>Fidelidad</th>
+                    <th>Diversidad</th>
+                    <th>Velocidad</th>
+                    <th>Problemas Típicos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>VAE</strong></td>
+                    <td>Media (imágenes borrosas)</td>
+                    <td>✅ Alta (buena cobertura)</td>
+                    <td>✅ Rápida</td>
+                    <td>Falta de nitidez</td>
+                </tr>
+                <tr>
+                    <td><strong>GANs</strong></td>
+                    <td>✅ Muy Alta</td>
+                    <td>❌ Baja (mode collapse)</td>
+                    <td>✅ Rápida</td>
+                    <td>Colapso de modas, difícil entrenamiento</td>
+                </tr>
+                <tr>
+                    <td><strong>Diffusion Models</strong></td>
+                    <td>✅ Muy Alta</td>
+                    <td>✅ Alta</td>
+                    <td>❌ Lenta</td>
+                    <td>Muchos pasos de generación</td>
+                </tr>
+                <tr>
+                    <td><strong>LLMs (Transformers)</strong></td>
+                    <td>✅ Alta coherencia</td>
+                    <td>✅ Alta</td>
+                    <td>Media</td>
+                    <td>Alucinaciones, falta de factualidad</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="intro" style="background: #e7f3ff; border-left-color: #2196F3;">
+            <h3>💡 Recomendaciones Prácticas</h3>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li>✅ <strong>Usa múltiples métricas</strong> complementarias</li>
+                <li>✅ Combina métricas automáticas + evaluación cualitativa humana</li>
+                <li>✅ Orienta a la tarea específica (downstream task)</li>
+                <li>✅ Ten en cuenta el dominio (imágenes vs texto vs audio)</li>
+                <li>❌ No confíes en una sola métrica</li>
+                <li>❌ Las métricas NO siempre correlacionan con calidad real</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

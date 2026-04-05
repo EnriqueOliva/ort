@@ -1,0 +1,11 @@
+Actualmente nos encontramos dentro de C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa, el cual es un espacio de trabajo dedicado a un curso en IA Generativa, en el cual almacenamos principalmente una transcripción de cada clase del curso.
+
+Estoy extremadamente perdido, nunca asistí a ninguna clase, no sé nada sobre ningún tema, no sé qué se dio, y vengo de otra disciplina por lo que no sé nada sobre lo que se dio.
+
+Haz un análisis megaexhaustivo de todas las trancripciones de todas las clases en las carpetas dentro del folder C:\Users\Enrique\Documents\2doSemestre\TallerDeDeepLearning\theory, una por una, para tú tener un entendimiento completo y exhaustivo de todos los temas que se vieron en clase, y cómo se dieron, y luego escribir un archivo md nuevo en el dir raíz en el que documentas todo.
+
+Un vez que termines, vuelve a analizar todas y cada de las transcripciones, en orden, en busca de detalles que hayas omitido leer en la primera vez. Repite el proceso 3 veces, y solo al final escribe el md.
+
+Invoca múltiples agentes para esta tarea. Que cada agente realice todo el proceso descrito anteriormente, para al final que cada uno brinde su propia versión de la propuesta. 
+
+Ultrathink. 

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones de Activación - Clase 01-09-2025</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.3em;
+        }
+        .old {
+            border-left: 4px solid #e74c3c;
+        }
+        .modern {
+            border-left: 4px solid #27ae60;
+        }
+        .info {
+            background: #ecf0f1;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        .problema {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .ventaja {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        canvas {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+        .formula {
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Funciones de Activación - Explicadas en Clase</h1>
+    <p style="text-align: center; color: #666;">Las funciones que el profesor explicó el 01-09-2025</p>
+
+    <div class="grid">
+        <!-- Signo -->
+        <div class="card old">
+            <h2>1. Función Signo (la primera)</h2>
+            <canvas id="sign"></canvas>
+            <div class="formula">
+                sign(z) = +1 si z > 0<br>
+                sign(z) = -1 si z < 0
+            </div>
+            <div class="info">
+                <strong>Época:</strong> Rosenblatt, 1950s<br>
+                <span class="problema">Problema:</span> Derivada = 0 en todos lados<br>
+                <strong>No funciona con gradient descent</strong>
+            </div>
+        </div>
+
+        <!-- Tanh -->
+        <div class="card old">
+            <h2>2. Tanh (años 90)</h2>
+            <canvas id="tanh"></canvas>
+            <div class="formula">
+                tanh(z)<br>
+                Rango: [-1, 1]
+            </div>
+            <div class="info">
+                <strong>Usada en:</strong> LeNet (1989/1998)<br>
+                <span class="problema">Problema:</span> SATURACIÓN<br>
+                Cuando z es muy grande/chico, derivada → 0
+            </div>
+        </div>
+
+        <!-- Sigmoid -->
+        <div class="card old">
+            <h2>3. Sigmoid (años 90)</h2>
+            <canvas id="sigmoid"></canvas>
+            <div class="formula">
+                sigmoid(z) = 1 / (1 + e^(-z))<br>
+                Rango: [0, 1]
+            </div>
+            <div class="info">
+                <strong>Usada para:</strong> Probabilidades<br>
+                <span class="problema">Problema:</span> SATURACIÓN<br>
+                Mismos problemas que tanh
+            </div>
+        </div>
+
+        <!-- ReLU -->
+        <div class="card modern">
+            <h2>4. ReLU (la más usada)</h2>
+            <canvas id="relu"></canvas>
+            <div class="formula">
+                ReLU(z) = max(0, z)<br>
+                Si z < 0 → 0<br>
+                Si z > 0 → z
+            </div>
+            <div class="info">
+                <span class="ventaja">Ventaja:</span> NO hay saturación<br>
+                <strong>Derivada:</strong> 1 o 0 (súper simple)<br>
+                El profesor: "mucho más fácil de entrenar"
+            </div>
+        </div>
+
+        <!-- Leaky ReLU -->
+        <div class="card modern">
+            <h2>5. Leaky ReLU</h2>
+            <canvas id="leaky"></canvas>
+            <div class="formula">
+                LeakyReLU(z) = z si z > 0<br>
+                LeakyReLU(z) = α·z si z ≤ 0<br>
+                (α = 0.01 o 0.02)
+            </div>
+            <div class="info">
+                <span class="ventaja">Ventaja:</span> No mata completamente los negativos<br>
+                Los multiplica por un número chiquito
+            </div>
+        </div>
+
+        <!-- SoftPlus -->
+        <div class="card modern">
+            <h2>6. SoftPlus (usada en clase)</h2>
+            <canvas id="softplus"></canvas>
+            <div class="formula">
+                softplus(z) = log(1 + e^z)
+            </div>
+            <div class="info">
+                <strong>El profesor repitió:</strong> "la derivada de softplus es sigmoid"<br>
+                <span class="ventaja">Ventaja:</span> ReLU pero suavizada<br>
+                No tiene el quiebre brusco de ReLU
+            </div>
+        </div>
+
+        <!-- GELU -->
+        <div class="card modern">
+            <h2>7. GELU (Transformers)</h2>
+            <canvas id="gelu"></canvas>
+            <div class="formula">
+                GELU(z) = z·Φ(z)<br>
+                (con distribución Gaussiana)
+            </div>
+            <div class="info">
+                <strong>El profesor dijo:</strong> "tiene una pancita"<br>
+                <span class="ventaja">Única:</span> NO es monótona<br>
+                Usada en Transformers modernos
+            </div>
+        </div>
+    </div>
+
+    <div class="card modern" style="margin-top: 20px; border-left: 4px solid #3498db;">
+        <h2>8. SoftMax (¡ESPECIAL! - Para clasificación)</h2>
+        <div style="background: #fff3cd; padding: 15px; border-radius: 4px; margin: 10px 0; border-left: 4px solid #ffc107;">
+            <strong>⚠️ DIFERENTE DE TODAS LAS DEMÁS:</strong><br>
+            NO trabaja elemento por elemento. Necesita TODO el vector.
+        </div>
+        <canvas id="softmax"></canvas>
+        <div class="formula">
+            softmax(z)ᵢ = e^zᵢ / Σ(e^zⱼ)<br>
+            <br>
+            Ejemplo: [2.0, 1.0, 0.1] → [0.66, 0.24, 0.10]<br>
+            (las salidas SUMAN 1.0)
+        </div>
+        <div class="info">
+            <strong>SOLO para:</strong> Última capa en clasificación múltiple<br>
+            <span class="ventaja">Ventaja:</span> Convierte números a probabilidades<br>
+            <strong>Se usa con:</strong> Categorical Cross-Entropy<br>
+            <strong>El gráfico muestra:</strong> 3 entradas diferentes → 3 probabilidades
+        </div>
+        <div style="background: #e8f4f8; padding: 10px; border-radius: 4px; margin-top: 10px;">
+            <strong>Diferencia clave:</strong><br>
+            • Todas las demás: z → número (independiente)<br>
+            • SoftMax: [z₁, z₂, z₃] → [p₁, p₂, p₃] (todos juntos)
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+        <h2>¿Cuál usar?</h2>
+        <p style="font-size: 1.1em; color: #2c3e50;">
+            El profesor dijo textual: <strong>"buscar si ya se ha usado antes, copiar eso y medio adaptarlo"</strong>
+        </p>
+        <p>No hay regla universal. Cada una apareció para resolver algún problema específico.</p>
+    </div>
+
+    <h1 style="margin-top: 60px; padding-top: 40px; border-top: 3px solid #3498db;">Funciones de Pérdida (Loss Functions)</h1>
+    <p style="text-align: center; color: #666;">Las funciones que determinan qué tan equivocada está tu red</p>
+
+    <div class="grid">
+        <!-- BCE -->
+        <div class="card" style="border-left: 4px solid #e74c3c;">
+            <h2>1. Binary Cross-Entropy (BCE)</h2>
+            <div class="formula">
+                Loss = -[y·log(ŷ) + (1-y)·log(1-ŷ)]
+            </div>
+            <div class="info">
+                <strong>Para:</strong> Clasificación BINARIA (2 clases)<br>
+                <strong>Última capa:</strong> 1 neurona + Sigmoid<br>
+                <strong>Output:</strong> [0.9] → probabilidad entre 0 y 1
+            </div>
+            <div style="background: #fff3cd; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                <strong>Ejemplo:</strong><br>
+                ¿Es spam?<br>
+                Real: y = 1 (sí es spam)<br>
+                Predicción: ŷ = 0.9<br>
+                Loss = -log(0.9) = 0.105 ✓ (error pequeño)<br>
+                <br>
+                Si predice ŷ = 0.1:<br>
+                Loss = -log(0.1) = 2.30 ✗ (error grande)
+            </div>
+            <div style="margin-top: 10px; font-size: 0.9em;">
+                <strong>Cuándo usarla:</strong> spam/no spam, perro/gato, sí/no
+            </div>
+        </div>
+
+        <!-- CCE -->
+        <div class="card" style="border-left: 4px solid #e67e22;">
+            <h2>2. Categorical Cross-Entropy (CCE)</h2>
+            <div class="formula">
+                Loss = -Σ(y_i · log(ŷ_i))
+            </div>
+            <div class="info">
+                <strong>Para:</strong> Clasificación MULTICLASE<br>
+                <strong>Última capa:</strong> N neuronas + Softmax<br>
+                <strong>Output:</strong> [0.1, 0.7, 0.2] → probabilidades que suman 1
+            </div>
+            <div style="background: #fff3cd; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                <strong>Ejemplo:</strong><br>
+                CIFAR-10: [car, bus, truck, motor, person]<br>
+                <br>
+                Real: truck → y = [0, 0, 1, 0, 0]<br>
+                Predicción: ŷ = [0.1, 0.05, 0.7, 0.1, 0.05]<br>
+                Loss = -log(0.7) = 0.357<br>
+                <br>
+                Solo importa la probabilidad de la clase correcta
+            </div>
+            <div style="margin-top: 10px; font-size: 0.9em;">
+                <strong>Cuándo usarla:</strong> CIFAR-10, ImageNet, dígitos (clases excluyentes)
+            </div>
+        </div>
+
+        <!-- MSE -->
+        <div class="card" style="border-left: 4px solid #27ae60;">
+            <h2>3. Mean Squared Error (MSE)</h2>
+            <div class="formula">
+                Loss = (1/N) · Σ(y_i - ŷ_i)²
+            </div>
+            <div class="info">
+                <strong>Para:</strong> REGRESIÓN<br>
+                <strong>Última capa:</strong> N neuronas SIN activación<br>
+                <strong>Output:</strong> [195340.5] → números reales
+            </div>
+            <div style="background: #fff3cd; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                <strong>Ejemplo:</strong><br>
+                Predecir precio de casa:<br>
+                Real: y = $200,000<br>
+                Predicción: ŷ = $195,000<br>
+                Error: (5,000)² = 25,000,000<br>
+                <br>
+                Si predice $150,000:<br>
+                Error: (50,000)² = 2,500,000,000<br>
+                ↑ Penaliza MUCHO más los errores grandes
+            </div>
+            <div style="margin-top: 10px; font-size: 0.9em;">
+                <strong>Cuándo usarla:</strong> precios, temperaturas, edades, coordenadas
+            </div>
+        </div>
+
+        <!-- MAE -->
+        <div class="card" style="border-left: 4px solid #3498db;">
+            <h2>4. Mean Absolute Error (MAE)</h2>
+            <div class="formula">
+                Loss = (1/N) · Σ|y_i - ŷ_i|
+            </div>
+            <div class="info">
+                <strong>Para:</strong> REGRESIÓN (menos sensible a outliers)<br>
+                <strong>Última capa:</strong> N neuronas SIN activación<br>
+                <strong>Output:</strong> [32.5] → números reales
+            </div>
+            <div style="background: #fff3cd; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                <strong>Diferencia con MSE:</strong><br>
+                <br>
+                Error = $10,000<br>
+                MSE: 10,000² = 100,000,000<br>
+                MAE: |10,000| = 10,000<br>
+                <br>
+                Error = $100,000<br>
+                MSE: 100,000² = 10,000,000,000 ← Desproporcionado<br>
+                MAE: |100,000| = 100,000 ← Proporcional
+            </div>
+            <div style="margin-top: 10px; font-size: 0.9em;">
+                <strong>Cuándo usarla:</strong> cuando hay outliers, penalizar linealmente
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px; border-left: 4px solid #9b59b6;">
+        <h2>Resumen: ¿Qué Loss usar?</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <thead>
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ddd;">Función</th>
+                    <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ddd;">Tipo</th>
+                    <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ddd;">Última Capa</th>
+                    <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ddd;">Output</th>
+                    <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ddd;">Cuándo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>BCE</strong></td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Clasificación binaria</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">1 + Sigmoid</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;"><code>[0.9]</code></td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">¿Es perro?</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>CCE</strong></td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Clasificación multiclase</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">N + Softmax</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;"><code>[0.1, 0.7, 0.2]</code></td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">CIFAR-10</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>MSE</strong></td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Regresión</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">N (sin activación)</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;"><code>[195340.5]</code></td>
+                    <td style="padding: 10px; border-bottom: 1px solid #ddd;">Precio</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;"><strong>MAE</strong></td>
+                    <td style="padding: 10px;">Regresión (outliers)</td>
+                    <td style="padding: 10px;">N (sin activación)</td>
+                    <td style="padding: 10px;"><code>[32.5]</code></td>
+                    <td style="padding: 10px;">Edad</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="margin-top: 15px; padding: 10px; background: #e8f4f8; border-radius: 4px;">
+            <strong>Regla práctica:</strong><br>
+            • ¿Clasificar en 2 categorías? → BCE + Sigmoid<br>
+            • ¿Clasificar en N categorías? → CCE + Softmax<br>
+            • ¿Predecir número? → MSE o MAE (según outliers)
+        </div>
+    </div>
+
+    <script>
+        // Configuración común
+        const width = 400;
+        const height = 200;
+        const padding = 30;
+        const xMin = -5;
+        const xMax = 5;
+        const yMin = -2;
+        const yMax = 2;
+
+        function setupCanvas(id) {
+            const canvas = document.getElementById(id);
+            const ctx = canvas.getContext('2d');
+            canvas.width = width;
+            canvas.height = height;
+            return ctx;
+        }
+
+        function toCanvasX(x) {
+            return padding + (x - xMin) / (xMax - xMin) * (width - 2 * padding);
+        }
+
+        function toCanvasY(y) {
+            return height - padding - (y - yMin) / (yMax - yMin) * (height - 2 * padding);
+        }
+
+        function drawAxes(ctx) {
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = 1;
+
+            // Eje X
+            ctx.beginPath();
+            ctx.moveTo(padding, toCanvasY(0));
+            ctx.lineTo(width - padding, toCanvasY(0));
+            ctx.stroke();
+
+            // Eje Y
+            ctx.beginPath();
+            ctx.moveTo(toCanvasX(0), padding);
+            ctx.lineTo(toCanvasX(0), height - padding);
+            ctx.stroke();
+        }
+
+        function drawFunction(ctx, func, color = '#3498db') {
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+
+            let firstPoint = true;
+            for (let x = xMin; x <= xMax; x += 0.05) {
+                const y = func(x);
+                if (Math.abs(y) < 100) { // Evitar infinitos
+                    if (firstPoint) {
+                        ctx.moveTo(toCanvasX(x), toCanvasY(y));
+                        firstPoint = false;
+                    } else {
+                        ctx.lineTo(toCanvasX(x), toCanvasY(y));
+                    }
+                }
+            }
+            ctx.stroke();
+        }
+
+        // Función Signo
+        const ctxSign = setupCanvas('sign');
+        drawAxes(ctxSign);
+        drawFunction(ctxSign, x => x > 0 ? 1 : (x < 0 ? -1 : 0), '#e74c3c');
+
+        // Tanh
+        const ctxTanh = setupCanvas('tanh');
+        drawAxes(ctxTanh);
+        drawFunction(ctxTanh, x => Math.tanh(x), '#e67e22');
+
+        // Sigmoid
+        const ctxSigmoid = setupCanvas('sigmoid');
+        drawAxes(ctxSigmoid);
+        drawFunction(ctxSigmoid, x => 1 / (1 + Math.exp(-x)), '#e67e22');
+
+        // ReLU
+        const ctxRelu = setupCanvas('relu');
+        drawAxes(ctxRelu);
+        drawFunction(ctxRelu, x => Math.max(0, x), '#27ae60');
+
+        // Leaky ReLU
+        const ctxLeaky = setupCanvas('leaky');
+        drawAxes(ctxLeaky);
+        drawFunction(ctxLeaky, x => x > 0 ? x : 0.1 * x, '#27ae60');
+
+        // SoftPlus
+        const ctxSoftplus = setupCanvas('softplus');
+        drawAxes(ctxSoftplus);
+        drawFunction(ctxSoftplus, x => Math.log(1 + Math.exp(x)), '#27ae60');
+
+        // GELU (aproximación)
+        const ctxGelu = setupCanvas('gelu');
+        drawAxes(ctxGelu);
+        drawFunction(ctxGelu, x => {
+            const cdf = 0.5 * (1 + Math.tanh(Math.sqrt(2/Math.PI) * (x + 0.044715 * Math.pow(x, 3))));
+            return x * cdf;
+        }, '#9b59b6');
+
+        // SoftMax (visualización especial)
+        const ctxSoftmax = setupCanvas('softmax');
+        const canvasSoftmax = document.getElementById('softmax');
+        ctxSoftmax.clearRect(0, 0, width, height);
+
+        // Dibujar ejes con escala 0 a 1
+        ctxSoftmax.strokeStyle = '#ccc';
+        ctxSoftmax.lineWidth = 1;
+        ctxSoftmax.beginPath();
+        ctxSoftmax.moveTo(padding, height - padding);
+        ctxSoftmax.lineTo(width - padding, height - padding);
+        ctxSoftmax.stroke();
+        ctxSoftmax.beginPath();
+        ctxSoftmax.moveTo(padding, padding);
+        ctxSoftmax.lineTo(padding, height - padding);
+        ctxSoftmax.stroke();
+
+        // Función para dibujar softmax de 3 elementos
+        function softmax3(z1, z2, z3) {
+            const e1 = Math.exp(z1);
+            const e2 = Math.exp(z2);
+            const e3 = Math.exp(z3);
+            const sum = e1 + e2 + e3;
+            return [e1/sum, e2/sum, e3/sum];
+        }
+
+        // Dibujar 3 curvas mostrando cómo cambian las probabilidades
+        // cuando variamos z1 y mantenemos z2=1, z3=0.1
+        const colors = ['#e74c3c', '#27ae60', '#3498db'];
+        const labels = ['p₁', 'p₂', 'p₃'];
+
+        for (let component = 0; component < 3; component++) {
+            ctxSoftmax.strokeStyle = colors[component];
+            ctxSoftmax.lineWidth = 2.5;
+            ctxSoftmax.beginPath();
+
+            let firstPoint = true;
+            for (let z = xMin; z <= xMax; z += 0.1) {
+                const probs = softmax3(z, 1, 0.1);
+                const prob = probs[component];
+
+                const canvasX = padding + (z - xMin) / (xMax - xMin) * (width - 2 * padding);
+                const canvasY = height - padding - prob * (height - 2 * padding);
+
+                if (firstPoint) {
+                    ctxSoftmax.moveTo(canvasX, canvasY);
+                    firstPoint = false;
+                } else {
+                    ctxSoftmax.lineTo(canvasX, canvasY);
+                }
+            }
+            ctxSoftmax.stroke();
+
+            // Etiqueta
+            ctxSoftmax.fillStyle = colors[component];
+            ctxSoftmax.font = '14px Arial';
+            ctxSoftmax.fillText(labels[component], width - 50, 40 + component * 20);
+        }
+
+        // Etiquetas de ejes
+        ctxSoftmax.fillStyle = '#666';
+        ctxSoftmax.font = '12px Arial';
+        ctxSoftmax.fillText('z₁ varía', width/2 - 20, height - 10);
+        ctxSoftmax.fillText('prob', 10, height/2);
+        ctxSoftmax.fillText('1.0', 10, padding + 10);
+        ctxSoftmax.fillText('0', 10, height - padding + 15);
+    </script>
+</body>
+</html>

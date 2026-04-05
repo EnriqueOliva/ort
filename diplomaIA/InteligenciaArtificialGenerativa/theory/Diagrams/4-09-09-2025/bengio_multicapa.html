@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Benjo - Red Multicapa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #f5576c;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .explanation {
+            background: #ffe7f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #f5576c;
+            font-weight: bold;
+        }
+
+        svg {
+            width: 100%;
+            height: 650px;
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            background: white;
+            margin: 20px 0;
+        }
+
+        .neuron {
+            fill: white;
+            stroke: #666;
+            stroke-width: 2;
+        }
+
+        .neuron-input {
+            fill: #ffe7f0;
+            stroke: #f5576c;
+            stroke-width: 2.5;
+        }
+
+        .neuron-hidden {
+            fill: #ffd6e7;
+            stroke: #f093fb;
+            stroke-width: 2.5;
+        }
+
+        .neuron-output {
+            fill: #f5576c;
+            stroke: #f5576c;
+            stroke-width: 2.5;
+        }
+
+        .connection {
+            stroke: #999;
+            stroke-width: 1.5;
+            opacity: 0.4;
+        }
+
+        .connection-highlight {
+            stroke: #f5576c;
+            stroke-width: 2.5;
+            opacity: 0.8;
+        }
+
+        .label {
+            font-size: 14px;
+            fill: #333;
+            font-weight: bold;
+        }
+
+        .label-white {
+            font-size: 14px;
+            fill: white;
+            font-weight: bold;
+        }
+
+        .activation-box {
+            fill: #fff;
+            stroke: #f093fb;
+            stroke-width: 2;
+            rx: 5;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border-left: 4px solid #f5576c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .formula {
+            font-size: 1.1em;
+            text-align: center;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            border: 2px solid #f5576c;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #f5576c;
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #ffe7f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Modelo de Bengio - Red Multicapa</h1>
+
+        <div class="explanation">
+            <p>Los hermanos <span class="highlight">Yoshua y Samy Bengio</span> extendieron la idea de Hinton agregando <span class="highlight">capas ocultas</span> a la red autorregresiva.</p>
+            <p style="margin-top: 10px;"><strong>Motivación:</strong> Una sola capa (perceptrón) tiene poder expresivo limitado. Agregando capas intermedias, la red puede aprender relaciones más complejas entre píxeles.</p>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula">
+                <strong>Hinton (1 capa):</strong>
+            </div>
+            <div class="formula">
+                p(xᵢ | x&lt;ᵢ) = σ(Wᵢ · x&lt;ᵢ + bᵢ)
+            </div>
+            <div class="formula" style="margin-top: 20px;">
+                <strong>Bengio (2+ capas):</strong>
+            </div>
+            <div class="formula">
+                h = activation(W⁽¹⁾ · x&lt;ᵢ + b⁽¹⁾)
+            </div>
+            <div class="formula">
+                p(xᵢ | x&lt;ᵢ) = σ(W⁽²⁾ · h + b⁽²⁾)
+            </div>
+        </div>
+
+        <svg id="bengioSvg"></svg>
+
+        <div class="explanation">
+            <p><strong>Características de la arquitectura multicapa:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><span class="highlight">Capa oculta:</span> Permite expandir la dimensionalidad intermedia (ej: pasar de 3 neuronas a 5 en la capa oculta)</li>
+                <li><span class="highlight">Funciones de activación:</span> En capas intermedias se usan ReLU, tanh, etc. En la salida siempre sigmoide para probabilidades</li>
+                <li><span class="highlight">Mayor expresividad:</span> Puede capturar patrones no lineales más complejos</li>
+                <li><span class="highlight">Más parámetros:</strong> Pero sigue creciendo polinomialmente, no exponencialmente</li>
+            </ul>
+        </div>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Hinton (1 capa)</th>
+                    <th>Bengio (multicapa)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Capas</strong></td>
+                    <td>Input → Output directamente</td>
+                    <td>Input → Hidden(s) → Output</td>
+                </tr>
+                <tr>
+                    <td><strong>Parámetros</strong></td>
+                    <td>Menos parámetros</td>
+                    <td>Más parámetros, más poder expresivo</td>
+                </tr>
+                <tr>
+                    <td><strong>Activaciones</strong></td>
+                    <td>Solo sigmoide en salida</td>
+                    <td>ReLU/tanh en ocultas, sigmoide en salida</td>
+                </tr>
+                <tr>
+                    <td><strong>Capacidad</strong></td>
+                    <td>Relaciones lineales principalmente</td>
+                    <td>Relaciones no lineales complejas</td>
+                </tr>
+                <tr>
+                    <td><strong>Entrenamiento</strong></td>
+                    <td>Más rápido</td>
+                    <td>Más lento, pero mejor calidad</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="formula-box">
+            <div class="formula">
+                <strong>Generalización: Cualquier arquitectura funciona</strong>
+            </div>
+            <div class="formula" style="margin-top: 10px;">
+                p(xᵢ | x&lt;ᵢ) = fᵢ(x&lt;ᵢ; θᵢ)
+            </div>
+            <div class="formula" style="font-size: 0.9em; margin-top: 10px;">
+                donde fᵢ es cualquier función derivable que devuelva valores en [0,1]
+            </div>
+            <div class="formula" style="font-size: 0.9em;">
+                Puede ser: perceptrón, red multicapa, CNN, transformer, etc.
+            </div>
+        </div>
+
+        <div class="explanation">
+            <p><strong>Conclusión importante:</strong></p>
+            <p style="margin-top: 10px;">El modelo autorregresivo es <span class="highlight">agnóstico a la arquitectura</span>. Lo que importa es:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Que la función sea <span class="highlight">derivable</span> (para backpropagation)</li>
+                <li>Que devuelva valores entre <span class="highlight">[0,1]</span> (probabilidades)</li>
+                <li>Que respete la <span class="highlight">dependencia autorregresiva</span> (solo depende de valores anteriores)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const svg = document.getElementById('bengioSvg');
+
+        function drawBengioNetwork() {
+            svg.innerHTML = '';
+
+            const width = 1100;
+            const height = 650;
+            const neuronRadius = 25;
+
+            const inputLayer = [
+                {x: 100, y: 200, label: 'x₁'},
+                {x: 100, y: 300, label: 'x₂'},
+                {x: 100, y: 400, label: 'x₃'}
+            ];
+
+            const hiddenLayer = [
+                {x: 400, y: 150, label: 'h₁'},
+                {x: 400, y: 250, label: 'h₂'},
+                {x: 400, y: 350, label: 'h₃'},
+                {x: 400, y: 450, label: 'h₄'},
+                {x: 400, y: 550, label: 'h₅'}
+            ];
+
+            const outputLayer = [
+                {x: 700, y: 300, label: 'x̂₄'}
+            ];
+
+            for (let i = 0; i < inputLayer.length; i++) {
+                for (let j = 0; j < hiddenLayer.length; j++) {
+                    svg.innerHTML += `<line x1="${inputLayer[i].x + neuronRadius}" y1="${inputLayer[i].y}" x2="${hiddenLayer[j].x - neuronRadius}" y2="${hiddenLayer[j].y}" class="connection"/>`;
+                }
+            }
+
+            for (let i = 0; i < hiddenLayer.length; i++) {
+                for (let j = 0; j < outputLayer.length; j++) {
+                    svg.innerHTML += `<line x1="${hiddenLayer[i].x + neuronRadius}" y1="${hiddenLayer[i].y}" x2="${outputLayer[j].x - neuronRadius}" y2="${outputLayer[j].y}" class="connection-highlight"/>`;
+                }
+            }
+
+            inputLayer.forEach(neuron => {
+                svg.innerHTML += `<circle cx="${neuron.x}" cy="${neuron.y}" r="${neuronRadius}" class="neuron-input"/>`;
+                svg.innerHTML += `<text x="${neuron.x}" y="${neuron.y + 5}" class="label" text-anchor="middle">${neuron.label}</text>`;
+            });
+
+            hiddenLayer.forEach(neuron => {
+                svg.innerHTML += `<circle cx="${neuron.x}" cy="${neuron.y}" r="${neuronRadius}" class="neuron-hidden"/>`;
+                svg.innerHTML += `<text x="${neuron.x}" y="${neuron.y + 5}" class="label" text-anchor="middle">${neuron.label}</text>`;
+            });
+
+            outputLayer.forEach(neuron => {
+                svg.innerHTML += `<circle cx="${neuron.x}" cy="${neuron.y}" r="${neuronRadius}" class="neuron-output"/>`;
+                svg.innerHTML += `<text x="${neuron.x}" y="${neuron.y + 5}" class="label-white" text-anchor="middle">${neuron.label}</text>`;
+            });
+
+            svg.innerHTML += `<text x="100" y="150" class="label" text-anchor="middle" font-size="16">Entrada</text>`;
+            svg.innerHTML += `<text x="100" y="170" class="label" text-anchor="middle" font-size="14">(píxeles previos)</text>`;
+
+            svg.innerHTML += `<text x="400" y="100" class="label" text-anchor="middle" font-size="16">Capa Oculta</text>`;
+            svg.innerHTML += `<text x="400" y="120" class="label" text-anchor="middle" font-size="14">(expansión dimensional)</text>`;
+
+            svg.innerHTML += `<text x="700" y="250" class="label" text-anchor="middle" font-size="16">Salida</text>`;
+            svg.innerHTML += `<text x="700" y="270" class="label" text-anchor="middle" font-size="14">(probabilidad)</text>`;
+
+            svg.innerHTML += `<rect x="250" y="580" width="600" height="50" class="activation-box"/>`;
+            svg.innerHTML += `<text x="550" y="600" class="label" text-anchor="middle">Capa Oculta: ReLU, tanh, o cualquier activación no lineal</text>`;
+            svg.innerHTML += `<text x="550" y="620" class="label" text-anchor="middle">Capa Salida: σ (sigmoide) para obtener p ∈ [0,1]</text>`;
+
+            svg.innerHTML += `<text x="250" y="300" class="label" font-size="13" fill="#f093fb">W⁽¹⁾, b⁽¹⁾</text>`;
+            svg.innerHTML += `<text x="550" y="300" class="label" font-size="13" fill="#f5576c">W⁽²⁾, b⁽²⁾</text>`;
+
+            svg.innerHTML += `<text x="900" y="200" class="label" font-size="14" fill="#f5576c">h = ReLU(W⁽¹⁾·x₍₃₎ + b⁽¹⁾)</text>`;
+            svg.innerHTML += `<text x="900" y="230" class="label" font-size="14" fill="#f5576c">↓</text>`;
+            svg.innerHTML += `<text x="900" y="260" class="label" font-size="14" fill="#f5576c">x̂₄ = σ(W⁽²⁾·h + b⁽²⁾)</text>`;
+            svg.innerHTML += `<text x="900" y="290" class="label" font-size="14" fill="#f5576c">↓</text>`;
+            svg.innerHTML += `<text x="900" y="320" class="label" font-size="14" fill="#f5576c">p(x₄|x₁,x₂,x₃)</text>`;
+
+            svg.innerHTML += `<text x="400" y="40" class="label" font-size="18" text-anchor="middle" fill="#f5576c">Ventaja: 3 → 5 → 1 permite más expresividad que 3 → 1</text>`;
+        }
+
+        drawBengioNetwork();
+    </script>
+</body>
+</html>

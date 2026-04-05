@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokenización en Modelos de Lenguaje</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .step-container {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .step-title {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .text-input {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            font-size: 1.3em;
+            text-align: center;
+            color: #333;
+            border: 3px dashed #f5576c;
+            margin: 20px 0;
+        }
+
+        .tokens-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .token {
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .token:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .token-id {
+            display: block;
+            font-size: 0.8em;
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        .arrow-down {
+            text-align: center;
+            font-size: 3em;
+            color: #f5576c;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(15px); }
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .tokenizer-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .tokenizer-box h3 {
+            color: #f5576c;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.3em;
+        }
+
+        .explanation {
+            background: #e8f4f8;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid #f5576c;
+        }
+
+        .explanation h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .explanation ul {
+            list-style-position: inside;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .bidirectional {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin: 30px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+        }
+
+        .direction-box {
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            text-align: center;
+            flex: 1;
+            margin: 0 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .direction-box h4 {
+            color: #f5576c;
+            margin-bottom: 15px;
+        }
+
+        .double-arrow {
+            font-size: 3em;
+            color: #f5576c;
+        }
+
+        .special-tokens {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .special-token {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 8px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            border: 2px solid #ee5a52;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        .interactive-demo {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .demo-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔤 Tokenización en Modelos de Lenguaje</h1>
+        <p class="subtitle">Clase 9 - 21 de Octubre 2025</p>
+
+        <div class="explanation">
+            <h3>¿Qué es la Tokenización?</h3>
+            <ul>
+                <li><strong>Proceso fundamental:</strong> Convierte texto (cadenas de caracteres) en números que las redes neuronales pueden procesar</li>
+                <li><strong>Tokenizer:</strong> Herramienta que define cómo se divide el texto en unidades (tokens)</li>
+                <li><strong>Bidireccional:</strong> Puede convertir texto → tokens y tokens → texto</li>
+                <li><strong>Consistencia:</strong> Cada modelo usa su propio tokenizer, y debe ser el mismo para entrada y salida</li>
+                <li><strong>Debe soportar TODO el texto posible:</strong> Cualquier palabra debe poder ser tokenizada</li>
+            </ul>
+        </div>
+
+        <div class="process-flow">
+            <div class="step-container">
+                <div class="step-title">
+                    <div class="step-number">1</div>
+                    <span>Texto Original</span>
+                </div>
+                <div class="text-input">
+                    "Hola, ¿cómo estás?"
+                </div>
+            </div>
+
+            <div class="arrow-down">↓</div>
+
+            <div class="step-container">
+                <div class="step-title">
+                    <div class="step-number">2</div>
+                    <span>Tokenización (encode)</span>
+                </div>
+                <p style="text-align: center; margin-bottom: 20px; color: #666;">
+                    El tokenizer divide el texto en unidades significativas
+                </p>
+                <div class="tokens-container">
+                    <div class="token">
+                        Hola
+                        <span class="token-id">ID: 2534</span>
+                    </div>
+                    <div class="token">
+                        ,
+                        <span class="token-id">ID: 11</span>
+                    </div>
+                    <div class="token">
+                        ¿
+                        <span class="token-id">ID: 1542</span>
+                    </div>
+                    <div class="token">
+                        cómo
+                        <span class="token-id">ID: 8934</span>
+                    </div>
+                    <div class="token">
+                        estás
+                        <span class="token-id">ID: 4521</span>
+                    </div>
+                    <div class="token">
+                        ?
+                        <span class="token-id">ID: 63</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow-down">↓</div>
+
+            <div class="step-container">
+                <div class="step-title">
+                    <div class="step-number">3</div>
+                    <span>Vectores Numéricos</span>
+                </div>
+                <div class="text-input" style="border-color: #667eea;">
+                    [2534, 11, 1542, 8934, 4521, 63]
+                </div>
+                <p style="text-align: center; margin-top: 15px; color: #666;">
+                    Estos números son los que entran al modelo
+                </p>
+            </div>
+        </div>
+
+        <div class="bidirectional">
+            <div class="direction-box">
+                <h4>📝 Encode</h4>
+                <p style="margin: 15px 0;">Texto → Tokens</p>
+                <code style="font-size: 0.9em;">encode("Hola")</code>
+                <p style="margin-top: 10px; font-weight: bold; color: #667eea;">[2534]</p>
+            </div>
+
+            <div class="double-arrow">⇄</div>
+
+            <div class="direction-box">
+                <h4>🔄 Decode</h4>
+                <p style="margin: 15px 0;">Tokens → Texto</p>
+                <code style="font-size: 0.9em;">decode([2534])</code>
+                <p style="margin-top: 10px; font-weight: bold; color: #667eea;">"Hola"</p>
+            </div>
+        </div>
+
+        <div class="comparison">
+            <div class="tokenizer-box">
+                <h3>🤖 Tokenizer GPT-2</h3>
+                <p style="margin-bottom: 15px; color: #666;">Ejemplo de tokenización:</p>
+                <div class="tokens-container" style="flex-direction: column; gap: 10px;">
+                    <div class="token" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        "Hola" → [39, 2455]
+                    </div>
+                    <div class="token" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        "¿cómo" → [8426, 4666]
+                    </div>
+                </div>
+            </div>
+
+            <div class="tokenizer-box">
+                <h3>🔷 Tokenizer BERT</h3>
+                <p style="margin-bottom: 15px; color: #666;">Mismo texto, diferentes tokens:</p>
+                <div class="tokens-container" style="flex-direction: column; gap: 10px;">
+                    <div class="token" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        "Hola" → [1523]
+                    </div>
+                    <div class="token" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        "¿cómo" → [9821, 3344]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <h3>⚠️ Importante: Consistencia del Tokenizer</h3>
+            <ul>
+                <li><strong>Un modelo = Un tokenizer:</strong> Si cambias el tokenizer, el modelo no funcionará</li>
+                <li><strong>Números diferentes = Significados diferentes:</strong> Token 35 en GPT-2 ≠ Token 35 en BERT</li>
+                <li><strong>Como el encoding de datos:</strong> Si entrenas con una codificación, debes usar la misma siempre</li>
+                <li><strong>Puede causar errores graves:</strong> Incluso tokens que no existen en el vocabulario</li>
+            </ul>
+        </div>
+
+        <div class="special-tokens">
+            <h3 style="text-align: center; margin-bottom: 20px; color: #333;">Tokens Especiales</h3>
+            <div style="text-align: center;">
+                <div class="special-token">[PAD] - Relleno</div>
+                <div class="special-token">[UNK] - Desconocido</div>
+                <div class="special-token">[CLS] - Clasificación</div>
+                <div class="special-token">[SEP] - Separador</div>
+                <div class="special-token">[EOS] - Fin de Secuencia</div>
+                <div class="special-token">[BOS] - Inicio de Secuencia</div>
+            </div>
+        </div>
+
+        <div class="interactive-demo">
+            <h3 class="demo-title">Estrategias de Tokenización</h3>
+
+            <div class="step-container" style="margin-bottom: 20px;">
+                <h4 style="color: #333; margin-bottom: 15px;">Por Palabras Completas</h4>
+                <p style="color: #666; margin-bottom: 10px;">Texto: "tokenización avanzada"</p>
+                <div class="tokens-container">
+                    <div class="token">tokenización</div>
+                    <div class="token">avanzada</div>
+                </div>
+                <p style="margin-top: 15px; color: #555;">✅ Simple pero vocabulario muy grande</p>
+            </div>
+
+            <div class="step-container" style="margin-bottom: 20px;">
+                <h4 style="color: #333; margin-bottom: 15px;">Por Caracteres</h4>
+                <p style="color: #666; margin-bottom: 10px;">Texto: "hola"</p>
+                <div class="tokens-container">
+                    <div class="token">h</div>
+                    <div class="token">o</div>
+                    <div class="token">l</div>
+                    <div class="token">a</div>
+                </div>
+                <p style="margin-top: 15px; color: #555;">✅ Vocabulario pequeño pero secuencias muy largas</p>
+            </div>
+
+            <div class="step-container">
+                <h4 style="color: #333; margin-bottom: 15px;">Byte-Pair Encoding (BPE) - Usado en GPT-2</h4>
+                <p style="color: #666; margin-bottom: 10px;">Texto: "tokenización"</p>
+                <div class="tokens-container">
+                    <div class="token">token</div>
+                    <div class="token">ización</div>
+                </div>
+                <p style="margin-top: 15px; color: #555;">✅ Balance óptimo: basado en frecuencia de uso</p>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <h3>Cómo Funciona en la Práctica (GPT-2)</h3>
+            <ul>
+                <li><strong>Paso 1:</strong> Cargar el tokenizer específico del modelo</li>
+                <li><strong>Paso 2:</strong> <code>inputs = tokenizer.encode("texto")</code> → convierte a IDs numéricos</li>
+                <li><strong>Paso 3:</strong> Pasar los IDs al modelo → <code>model(inputs)</code></li>
+                <li><strong>Paso 4:</strong> El modelo genera IDs de tokens de salida</li>
+                <li><strong>Paso 5:</strong> <code>tokenizer.decode(output_ids)</code> → convierte de vuelta a texto legible</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

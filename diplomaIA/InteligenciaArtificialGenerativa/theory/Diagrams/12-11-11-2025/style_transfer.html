@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Style Transfer con Pérdidas Perceptuales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #fa709a;
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            border-bottom: 4px solid #fa709a;
+            padding-bottom: 10px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .method-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-top: 5px solid;
+        }
+
+        .method-card.old { border-top-color: #e74c3c; }
+        .method-card.new { border-top-color: #2ecc71; }
+
+        .method-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .pros-cons {
+            margin: 20px 0;
+        }
+
+        .pros {
+            color: #27ae60;
+            margin: 10px 0;
+        }
+
+        .cons {
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+
+        .architecture-diagram {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .loss-box {
+            background: white;
+            border: 3px solid;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .loss-box.content { border-color: #3498db; }
+        .loss-box.style { border-color: #e74c3c; }
+
+        .formula {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-size: 1.1em;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background: #d4edda;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #28a745;
+            margin: 20px 0;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .flow-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .flow-item {
+            text-align: center;
+            margin: 15px;
+        }
+
+        .flow-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            min-width: 150px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .flow-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .arrow {
+            font-size: 2.5em;
+            color: #fa709a;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Neural Style Transfer con Pérdidas Perceptuales</h1>
+
+        <div class="intro-box">
+            <h2>¿Qué es Style Transfer?</h2>
+            <p style="font-size: 1.2em; line-height: 1.8; margin-top: 15px;">
+                Es una técnica que permite <strong>combinar el contenido de una imagen con el estilo de otra</strong>.
+            </p>
+            <ul style="margin-left: 20px; margin-top: 15px; line-height: 2; font-size: 1.1em;">
+                <li><strong>Contenido:</strong> Las formas, objetos, estructura de la imagen</li>
+                <li><strong>Estilo:</strong> Los colores, texturas, trazos artísticos</li>
+            </ul>
+            <p style="margin-top: 20px; font-size: 1.2em;">
+                <strong>Resultado:</strong> Una imagen que mantiene el contenido original pero con el estilo artístico aplicado.
+            </p>
+        </div>
+
+        <h2 class="section-title">📊 Evolución: Métodos Antiguos vs Nuevo Enfoque</h2>
+
+        <div class="comparison-grid">
+            <div class="method-card old">
+                <h3>❌ Métodos Tradicionales</h3>
+                <p style="font-size: 1.1em; margin: 15px 0;">
+                    <strong>Feed-forward Networks con Pérdida Píxel-a-Píxel</strong>
+                </p>
+                <div class="pros-cons">
+                    <p class="pros">✅ Rápidos (inferencia en tiempo real)</p>
+                    <p class="cons">❌ Baja calidad visual</p>
+                    <p class="cons">❌ Pérdida píxel-a-píxel no captura percepción</p>
+                    <p class="cons">❌ Penaliza movimientos de píxel aunque imagen se vea igual</p>
+                </div>
+            </div>
+
+            <div class="method-card old">
+                <h3>❌ Métodos Basados en Optimización</h3>
+                <p style="font-size: 1.1em; margin: 15px 0;">
+                    <strong>Gatys et al. - Optimización iterativa</strong>
+                </p>
+                <div class="pros-cons">
+                    <p class="pros">✅ Alta calidad visual</p>
+                    <p class="pros">✅ Resultados artísticos impresionantes</p>
+                    <p class="cons">❌ Muy lentos (minutos por imagen)</p>
+                    <p class="cons">❌ Requieren optimización para cada imagen</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="success-box">
+            <h3>✅ Método Propuesto (Johnson et al.)</h3>
+            <p style="font-size: 1.2em; line-height: 1.8; margin-top: 15px;">
+                <strong>Combinar lo mejor de ambos mundos:</strong><br><br>
+                ✅ Velocidad de feed-forward networks<br>
+                ✅ Calidad de métodos de optimización<br>
+                ✅ Usar <strong>Pérdidas Perceptuales</strong> en lugar de píxel-a-píxel
+            </p>
+        </div>
+
+        <h2 class="section-title">🏗️ Arquitectura Completa</h2>
+
+        <svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg">
+            <!-- Título -->
+            <text x="700" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">
+                Arquitectura de Style Transfer con Pérdidas Perceptuales
+            </text>
+
+            <!-- Imagen Contenido -->
+            <rect x="50" y="100" width="150" height="150" fill="#3498db" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="125" y="140" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Imagen de</text>
+            <text x="125" y="160" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Contenido</text>
+            <text x="125" y="190" text-anchor="middle" font-size="30" fill="white">🏞️</text>
+            <text x="125" y="270" text-anchor="middle" font-size="14" fill="#2c3e50" font-weight="bold">x (contenido)</text>
+
+            <!-- Flecha -->
+            <path d="M 210 175 L 270 175" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow3)"/>
+
+            <!-- Transform Network -->
+            <rect x="280" y="100" width="200" height="150" fill="#9b59b6" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="380" y="140" text-anchor="middle" font-size="18" fill="white" font-weight="bold">Image Transform</text>
+            <text x="380" y="165" text-anchor="middle" font-size="18" fill="white" font-weight="bold">Network f_W</text>
+            <text x="380" y="195" text-anchor="middle" font-size="14" fill="white">(Red Feed-Forward)</text>
+            <text x="380" y="215" text-anchor="middle" font-size="14" fill="white">Parámetros entrenables</text>
+
+            <!-- Capas convolucionales -->
+            <rect x="300" y="225" width="30" height="15" fill="rgba(255,255,255,0.4)" rx="3"/>
+            <rect x="340" y="225" width="30" height="15" fill="rgba(255,255,255,0.4)" rx="3"/>
+            <rect x="380" y="225" width="30" height="15" fill="rgba(255,255,255,0.4)" rx="3"/>
+            <rect x="420" y="225" width="30" height="15" fill="rgba(255,255,255,0.4)" rx="3"/>
+
+            <!-- Flecha -->
+            <path d="M 490 175 L 550 175" stroke="#2c3e50" stroke-width="3" marker-end="url(#arrow3)"/>
+
+            <!-- Imagen Generada -->
+            <rect x="560" y="100" width="150" height="150" fill="#2ecc71" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="635" y="140" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Imagen</text>
+            <text x="635" y="160" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Generada</text>
+            <text x="635" y="190" text-anchor="middle" font-size="30" fill="white">🎨</text>
+            <text x="635" y="270" text-anchor="middle" font-size="14" fill="#2c3e50" font-weight="bold">ŷ = f_W(x)</text>
+
+            <!-- Flecha hacia abajo -->
+            <path d="M 635 260 L 635 320" stroke="#e74c3c" stroke-width="4" marker-end="url(#arrow3)"/>
+
+            <!-- Loss Network (VGG-16) -->
+            <rect x="280" y="330" width="710" height="180" fill="#34495e" stroke="#2c3e50" stroke-width="4" rx="15"/>
+            <text x="635" y="365" text-anchor="middle" font-size="20" fill="white" font-weight="bold">
+                Loss Network φ (VGG-16 preentrenada)
+            </text>
+
+            <!-- Capas VGG -->
+            <rect x="310" y="390" width="80" height="100" fill="#e74c3c" stroke="white" stroke-width="2" rx="5"/>
+            <text x="350" y="425" text-anchor="middle" font-size="12" fill="white" font-weight="bold">Capas</text>
+            <text x="350" y="445" text-anchor="middle" font-size="12" fill="white" font-weight="bold">Tempranas</text>
+            <text x="350" y="470" text-anchor="middle" font-size="11" fill="white">(bordes,</text>
+            <text x="350" y="485" text-anchor="middle" font-size="11" fill="white">texturas)</text>
+
+            <text x="420" y="440" text-anchor="middle" font-size="20" fill="white">→</text>
+
+            <rect x="460" y="390" width="80" height="100" fill="#e67e22" stroke="white" stroke-width="2" rx="5"/>
+            <text x="500" y="425" text-anchor="middle" font-size="12" fill="white" font-weight="bold">Capas</text>
+            <text x="500" y="445" text-anchor="middle" font-size="12" fill="white" font-weight="bold">Medias</text>
+            <text x="500" y="470" text-anchor="middle" font-size="11" fill="white">(formas,</text>
+            <text x="500" y="485" text-anchor="middle" font-size="11" fill="white">patrones)</text>
+
+            <text x="570" y="440" text-anchor="middle" font-size="20" fill="white">→</text>
+
+            <rect x="610" y="390" width="80" height="100" fill="#f39c12" stroke="white" stroke-width="2" rx="5"/>
+            <text x="650" y="425" text-anchor="middle" font-size="12" fill="white" font-weight="bold">Capas</text>
+            <text x="650" y="445" text-anchor="middle" font-size="12" fill="white" font-weight="bold">Profundas</text>
+            <text x="650" y="470" text-anchor="middle" font-size="11" fill="white">(objetos,</text>
+            <text x="650" y="485" text-anchor="middle" font-size="11" fill="white">semántica)</text>
+
+            <text x="720" y="440" text-anchor="middle" font-size="20" fill="white">→</text>
+
+            <rect x="760" y="390" width="80" height="100" fill="#d35400" stroke="white" stroke-width="2" rx="5"/>
+            <text x="800" y="425" text-anchor="middle" font-size="12" fill="white" font-weight="bold">Capas</text>
+            <text x="800" y="445" text-anchor="middle" font-size="12" fill="white" font-weight="bold">Finales</text>
+            <text x="800" y="470" text-anchor="middle" font-size="11" fill="white">(alto nivel,</text>
+            <text x="800" y="485" text-anchor="middle" font-size="11" fill="white">contenido)</text>
+
+            <text x="870" y="440" text-anchor="middle" font-size="20" fill="white">→</text>
+
+            <rect x="910" y="410" width="60" height="60" fill="#c0392b" stroke="white" stroke-width="2" rx="5"/>
+            <text x="940" y="445" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Logits</text>
+
+            <!-- Inputs a la Loss Network -->
+            <!-- Imagen de contenido -->
+            <path d="M 125 260 L 125 330" stroke="#3498db" stroke-width="3" marker-end="url(#arrow3)"/>
+            <text x="60" y="300" font-size="12" fill="#3498db" font-weight="bold">Imagen</text>
+            <text x="60" y="315" font-size="12" fill="#3498db" font-weight="bold">original</text>
+
+            <!-- Imagen de estilo -->
+            <rect x="1100" y="100" width="150" height="150" fill="#e74c3c" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="1175" y="140" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Imagen de</text>
+            <text x="1175" y="160" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Estilo</text>
+            <text x="1175" y="190" text-anchor="middle" font-size="30" fill="white">🎭</text>
+            <text x="1175" y="270" text-anchor="middle" font-size="14" fill="#2c3e50" font-weight="bold">y_s (estilo)</text>
+
+            <path d="M 1175 260 L 1175 330" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrow3)"/>
+            <text x="1200" y="300" font-size="12" fill="#e74c3c" font-weight="bold">Imagen</text>
+            <text x="1200" y="315" font-size="12" fill="#e74c3c" font-weight="bold">estilo</text>
+
+            <!-- Outputs: Pérdidas -->
+            <!-- Pérdida de contenido -->
+            <rect x="200" y="550" width="250" height="120" fill="#3498db" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="325" y="580" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Content Loss</text>
+            <text x="325" y="605" text-anchor="middle" font-size="13" fill="white">Compara features de capas</text>
+            <text x="325" y="625" text-anchor="middle" font-size="13" fill="white">profundas entre imagen</text>
+            <text x="325" y="645" text-anchor="middle" font-size="13" fill="white">generada y contenido</text>
+
+            <path d="M 400 440 L 325 540" stroke="#3498db" stroke-width="3" marker-end="url(#arrow3)"/>
+
+            <!-- Pérdida de estilo -->
+            <rect x="550" y="550" width="250" height="120" fill="#e74c3c" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="675" y="580" text-anchor="middle" font-size="16" fill="white" font-weight="bold">Style Loss</text>
+            <text x="675" y="605" text-anchor="middle" font-size="13" fill="white">Compara matriz de Gram</text>
+            <text x="675" y="625" text-anchor="middle" font-size="13" fill="white">de múltiples capas entre</text>
+            <text x="675" y="645" text-anchor="middle" font-size="13" fill="white">generada y estilo</text>
+
+            <path d="M 700 440 L 675 540" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrow3)"/>
+
+            <!-- Pérdida total -->
+            <rect x="900" y="550" width="250" height="120" fill="#2ecc71" stroke="#2c3e50" stroke-width="3" rx="10"/>
+            <text x="1025" y="580" text-anchor="middle" font-size="18" fill="white" font-weight="bold">Total Loss</text>
+            <text x="1025" y="610" text-anchor="middle" font-size="14" fill="white">λ_content · L_content</text>
+            <text x="1025" y="635" text-anchor="middle" font-size="14" fill="white">+</text>
+            <text x="1025" y="660" text-anchor="middle" font-size="14" fill="white">λ_style · L_style</text>
+
+            <path d="M 455 610 L 890 610" stroke="#2ecc71" stroke-width="3" marker-end="url(#arrow3)"/>
+            <path d="M 805 610 L 890 610" stroke="#2ecc71" stroke-width="3" marker-end="url(#arrow3)"/>
+
+            <!-- Backpropagation -->
+            <path d="M 1025 550 L 1025 280 L 380 280 L 380 260" stroke="#ff6b6b" stroke-width="4" stroke-dasharray="10,5" marker-end="url(#arrow3)"/>
+            <text x="1080" y="400" font-size="14" fill="#ff6b6b" font-weight="bold">Backpropagation</text>
+            <text x="1080" y="420" font-size="12" fill="#ff6b6b">(actualiza pesos</text>
+            <text x="1080" y="435" font-size="12" fill="#ff6b6b">de Transform Net)</text>
+
+            <defs>
+                <marker id="arrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="inherit"/>
+                </marker>
+            </defs>
+        </svg>
+
+        <h2 class="section-title">🔑 Componentes Clave</h2>
+
+        <div class="loss-box content">
+            <h3>📐 Content Loss (Pérdida de Contenido)</h3>
+            <p style="margin: 15px 0; line-height: 1.8;">
+                Mide qué tan diferentes son las <strong>características de alto nivel</strong> entre la imagen
+                generada y la imagen de contenido original.
+            </p>
+            <div class="formula">
+L_content = ||φ_j(ŷ) - φ_j(y_c)||²
+
+donde:
+- ŷ = imagen generada
+- y_c = imagen de contenido (target)
+- φ_j = features de capa j de VGG
+- j = capa profunda (ej: relu4_2)
+            </div>
+            <p style="margin-top: 15px; line-height: 1.8;">
+                <strong>¿Qué captura?</strong> Las formas y objetos de la imagen (estructura semántica).
+                No compara píxel-a-píxel, sino características abstraídas por la red.
+            </p>
+        </div>
+
+        <div class="loss-box style">
+            <h3>🎨 Style Loss (Pérdida de Estilo)</h3>
+            <p style="margin: 15px 0; line-height: 1.8;">
+                Mide qué tan diferentes son las <strong>correlaciones entre features</strong> (matriz de Gram)
+                entre la imagen generada y la imagen de estilo.
+            </p>
+            <div class="formula">
+L_style = Σ_j ||G_j(ŷ) - G_j(y_s)||²
+
+donde:
+- G_j = Matriz de Gram de capa j
+- y_s = imagen de estilo
+- Se suman pérdidas de MÚLTIPLES capas
+
+Matriz de Gram:
+G[i,k] = Σ_x,y φ_j(I)[x,y,i] · φ_j(I)[x,y,k]
+            </div>
+            <p style="margin-top: 15px; line-height: 1.8;">
+                <strong>¿Qué captura?</strong> Los patrones de texturas, colores y trazos artísticos.
+                La matriz de Gram captura <strong>qué características se activan juntas</strong> (correlaciones).
+            </p>
+        </div>
+
+        <div class="highlight-box">
+            <h4>🔍 ¿Qué es la Matriz de Gram?</h4>
+            <p style="margin-top: 10px; line-height: 1.8;">
+                Es una matriz que calcula las <strong>correlaciones entre todos los canales de features</strong> de una capa.
+            </p>
+            <p style="margin-top: 10px; line-height: 1.8;">
+                <strong>Ejemplo:</strong> Si en una imagen vemos "color naranja" y "trazos circulares" activándose juntos,
+                la matriz de Gram captura esa correlación. Así el modelo aprende que "naranja + circular" es parte del estilo.
+            </p>
+        </div>
+
+        <h2 class="section-title">⚡ ¿Por qué NO usar Pérdida Píxel-a-Píxel?</h2>
+
+        <div class="comparison-grid">
+            <div class="method-card old">
+                <h3>❌ Pérdida Píxel-a-Píxel</h3>
+                <div class="formula">
+L = ||ŷ - y||² = Σ (ŷ[i,j] - y[i,j])²
+                </div>
+                <p style="margin: 15px 0; line-height: 1.8;">
+                    Compara cada píxel directamente.
+                </p>
+                <div class="pros-cons">
+                    <p class="cons">❌ Penaliza movimientos mínimos de píxeles</p>
+                    <p class="cons">❌ Penaliza cambios de brillo/color aunque imagen se vea igual</p>
+                    <p class="cons">❌ No captura percepción humana</p>
+                    <p class="cons">❌ Imágenes borrosas</p>
+                </div>
+            </div>
+
+            <div class="method-card new">
+                <h3>✅ Pérdida Perceptual</h3>
+                <div class="formula">
+L = ||φ(ŷ) - φ(y)||²
+(features de red preentrenada)
+                </div>
+                <p style="margin: 15px 0; line-height: 1.8;">
+                    Compara características de alto nivel extraídas por una red.
+                </p>
+                <div class="pros-cons">
+                    <p class="pros">✅ Invariante a pequeños cambios de píxeles</p>
+                    <p class="pros">✅ Captura estructura semántica</p>
+                    <p class="pros">✅ Mejor alineación con percepción humana</p>
+                    <p class="pros">✅ Imágenes más nítidas</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">🎯 Proceso de Entrenamiento</h2>
+
+        <div class="architecture-diagram">
+            <h3>Algoritmo:</h3>
+            <ol style="margin-left: 20px; line-height: 2.5; font-size: 1.1em;">
+                <li><strong>Preparación:</strong>
+                    <ul style="margin-left: 30px; margin-top: 10px;">
+                        <li>Cargar VGG-16 preentrenada (congelar pesos, solo extracción)</li>
+                        <li>Elegir imagen de estilo (una por modelo)</li>
+                    </ul>
+                </li>
+                <li><strong>Entrenamiento:</strong>
+                    <ul style="margin-left: 30px; margin-top: 10px;">
+                        <li>Tomar imagen de contenido del dataset</li>
+                        <li>Pasar por Transform Network → imagen generada ŷ</li>
+                        <li>Pasar ŷ, y_content, y_style por VGG → extraer features</li>
+                        <li>Calcular Content Loss (capas profundas)</li>
+                        <li>Calcular Style Loss (matriz Gram de múltiples capas)</li>
+                        <li>Loss total = λ_c·L_content + λ_s·L_style</li>
+                        <li>Backpropagation SOLO en Transform Network</li>
+                    </ul>
+                </li>
+                <li><strong>Inferencia (después de entrenar):</strong>
+                    <ul style="margin-left: 30px; margin-top: 10px;">
+                        <li>Pasar nueva imagen por Transform Network</li>
+                        <li>¡Rápido! (una sola pasada forward)</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="success-box">
+            <h3>✅ Ventajas del Enfoque</h3>
+            <ul style="margin-left: 20px; line-height: 2; margin-top: 15px; font-size: 1.1em;">
+                <li>⚡ <strong>Rápido en inferencia</strong> (feed-forward, ~real-time)</li>
+                <li>🎨 <strong>Alta calidad</strong> (pérdidas perceptuales)</li>
+                <li>🏗️ <strong>Un modelo por estilo</strong> (entrenas una vez, usas muchas veces)</li>
+                <li>👁️ <strong>Captura percepción humana</strong> mejor que píxel-a-píxel</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <h3>⚠️ Limitaciones</h3>
+            <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+                <li>Necesitas entrenar <strong>un modelo por cada estilo</strong></li>
+                <li>Depende de VGG-16 preentrenada (ImageNet domain)</li>
+                <li>La "calidad" sigue siendo subjetiva (depende de percepción humana)</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📊 Evaluación</h2>
+
+        <div class="architecture-diagram">
+            <h3>¿Cómo evaluar los resultados?</h3>
+            <p style="margin: 15px 0; line-height: 1.8;">
+                Como el estilo es subjetivo y perceptual, no hay una métrica única perfecta:
+            </p>
+            <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+                <li><strong>Evaluación Cualitativa:</strong> Observar visualmente las imágenes generadas</li>
+                <li><strong>Comparación con métodos baseline:</strong> Comparar contra métodos tradicionales o Gatys et al.</li>
+                <li><strong>Tiempo de inferencia:</strong> Medir velocidad (debe ser rápido)</li>
+                <li><strong>Human Preference:</strong> Pedir a personas que califiquen o comparen resultados</li>
+                <li><strong>User Studies:</strong> Escalas de 1-5, rankings, comparaciones pareadas</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <h4>💡 Recomendación del Profesor</h4>
+            <p style="margin-top: 10px; line-height: 1.8;">
+                "Si quieren vender esto como yendo a producción, necesitan poder <strong>comunicar</strong> el valor.
+                No solo mostrar imágenes bonitas. Cuantificar el estilo de alguna forma, hacer comparaciones,
+                y explicar por qué un resultado es mejor que otro."
+            </p>
+        </div>
+    </div>
+</body>
+</html>

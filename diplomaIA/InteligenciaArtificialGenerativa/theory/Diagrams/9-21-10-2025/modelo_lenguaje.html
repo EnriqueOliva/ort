@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Lenguaje (Language Model)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .diagram-container {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px 0;
+            gap: 20px;
+        }
+
+        .box {
+            padding: 25px 35px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-width: 180px;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .input-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .model-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            flex-grow: 1;
+        }
+
+        .output-box {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: #667eea;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .formula-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            text-align: center;
+            color: #333;
+            margin: 15px 0;
+        }
+
+        .explanation {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4facfe;
+        }
+
+        .explanation h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .explanation ul {
+            list-style-position: inside;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .probability-dist {
+            margin: 30px 0;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .token-example {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .token-example:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .probability-bar {
+            height: 40px;
+            background: linear-gradient(90deg, #667eea 0%, #4facfe 100%);
+            border-radius: 20px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .probability-bar:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .autoregressive {
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+        }
+
+        .generation-step {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Modelo de Lenguaje (Language Model)</h1>
+        <p class="subtitle">Clase 9 - 21 de Octubre 2025</p>
+
+        <div class="explanation">
+            <h3>¿Qué es un Modelo de Lenguaje?</h3>
+            <ul>
+                <li>Sistema que <strong>predice la próxima palabra</strong> en una secuencia de texto</li>
+                <li>Funciona como un <strong>clasificador</strong> que emite distribuciones de probabilidad</li>
+                <li>Es un modelo <strong>autorregresivo</strong>: usa las palabras anteriores para predecir la siguiente</li>
+                <li>Similar a cómo se predicen píxeles condicionados a los anteriores</li>
+            </ul>
+        </div>
+
+        <div class="diagram-container">
+            <h2 style="text-align: center; margin-bottom: 25px; color: #333;">📊 Arquitectura del Modelo de Lenguaje</h2>
+
+            <div class="flow-diagram">
+                <div class="box input-box">
+                    <h3>Entrada</h3>
+                    <p style="margin-top: 10px;">Secuencia de Texto</p>
+                    <div style="margin-top: 15px; font-size: 0.9em;">
+                        σ* (tokens)
+                    </div>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="box model-box">
+                    <h3>Language Model</h3>
+                    <p style="margin-top: 10px; font-size: 0.9em;">Procesa la secuencia completa</p>
+                    <div style="margin-top: 15px; font-size: 1.2em;">
+                        LM(·)
+                    </div>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="box output-box">
+                    <h3>Salida</h3>
+                    <p style="margin-top: 10px;">Distribución de Probabilidad</p>
+                    <div style="margin-top: 15px; font-size: 0.9em;">
+                        P(σ ∪ {EOS})
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="formula-box">
+            <h3 style="text-align: center; color: #667eea; margin-bottom: 20px;">Definición Formal</h3>
+            <div class="formula">
+                LM : σ* → Δ(σ ∪ {EOS})
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #666;">
+                Donde <code>σ</code> es el conjunto de tokens, <code>σ*</code> son todas las combinaciones posibles,
+                y <code>Δ</code> es el simplex de probabilidades
+            </p>
+        </div>
+
+        <div class="probability-dist">
+            <h3 style="color: #333; margin-bottom: 20px;">Ejemplo: "Hola, ¿cómo ___?"</h3>
+            <p style="margin-bottom: 15px; color: #666;">El modelo genera probabilidades para cada token posible:</p>
+
+            <div class="probability-bar" style="width: 85%;">
+                <span>estás - 0.45 (45%)</span>
+            </div>
+            <div class="probability-bar" style="width: 60%; opacity: 0.9;">
+                <span>andas - 0.20 (20%)</span>
+            </div>
+            <div class="probability-bar" style="width: 45%; opacity: 0.8;">
+                <span>te va - 0.15 (15%)</span>
+            </div>
+            <div class="probability-bar" style="width: 30%; opacity: 0.7;">
+                <span>va - 0.10 (10%)</span>
+            </div>
+            <div class="probability-bar" style="width: 25%; opacity: 0.6;">
+                <span>? (EOS) - 0.05 (5%)</span>
+            </div>
+            <div class="probability-bar" style="width: 15%; opacity: 0.5;">
+                <span>otros... - 0.05 (5%)</span>
+            </div>
+        </div>
+
+        <div class="autoregressive">
+            <h3 style="color: #333; margin-bottom: 20px; text-align: center;">🔄 Proceso Autorregresivo</h3>
+
+            <div class="generation-step">
+                <div class="step-number">1</div>
+                <div>
+                    <strong>Entrada:</strong> "Hola, ¿cómo"<br>
+                    <strong>Salida:</strong> Distribución → Samplea "estás"
+                </div>
+            </div>
+
+            <div class="generation-step">
+                <div class="step-number">2</div>
+                <div>
+                    <strong>Entrada:</strong> "Hola, ¿cómo estás"<br>
+                    <strong>Salida:</strong> Distribución → Samplea "?"
+                </div>
+            </div>
+
+            <div class="generation-step">
+                <div class="step-number">3</div>
+                <div>
+                    <strong>Entrada:</strong> "Hola, ¿cómo estás?"<br>
+                    <strong>Salida:</strong> Distribución → Samplea "EOS" (fin)
+                </div>
+            </div>
+
+            <p style="margin-top: 20px; padding: 15px; background: white; border-radius: 8px; text-align: center;">
+                <strong>Resultado final:</strong> <span class="token-example">Hola</span><span class="token-example">,</span><span class="token-example">¿cómo</span><span class="token-example">estás</span><span class="token-example">?</span>
+            </p>
+        </div>
+
+        <div class="explanation">
+            <h3>Características Importantes</h3>
+            <ul>
+                <li><strong>Determinístico en la salida:</strong> Para la misma entrada, genera la misma distribución de probabilidad</li>
+                <li><strong>Estocástico en la generación:</strong> El sampling introduce variabilidad</li>
+                <li><strong>Largo máximo del contexto:</strong> No puede procesar secuencias infinitas (limitado por la arquitectura)</li>
+                <li><strong>Token EOS:</strong> Indica el fin de secuencia, tiene su propia probabilidad</li>
+                <li><strong>Entrenamiento:</strong> Aprende con descenso de gradiente y después con reinforcement learning (RLHF)</li>
+            </ul>
+        </div>
+
+        <div class="formula-box">
+            <h3 style="text-align: center; color: #667eea; margin-bottom: 20px;">Proceso de Generación</h3>
+            <div class="formula" style="font-size: 1.1em;">
+                1. LM(tira) → distribución<br>
+                2. sample(distribución) → token<br>
+                3. concatenar(tira, token) → nueva_tira<br>
+                4. repetir hasta EOS o max_length
+            </div>
+        </div>
+    </div>
+</body>
+</html>

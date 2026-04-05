@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divergencia KL y Función de Pérdida</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #ff6b6b;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .explanation {
+            background: #fff5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border-left: 4px solid #ff6b6b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .formula {
+            font-size: 1.2em;
+            text-align: center;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .derivation-box {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 2px solid #2196f3;
+        }
+
+        .step {
+            margin: 15px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        svg {
+            width: 100%;
+            height: 400px;
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+            background: white;
+            margin: 20px 0;
+        }
+
+        .dist-p {
+            fill: rgba(76, 175, 80, 0.4);
+            stroke: #4caf50;
+            stroke-width: 3;
+        }
+
+        .dist-q {
+            fill: rgba(255, 107, 107, 0.4);
+            stroke: #ff6b6b;
+            stroke-width: 3;
+        }
+
+        .axis {
+            stroke: #333;
+            stroke-width: 2;
+        }
+
+        .label {
+            font-size: 14px;
+            fill: #333;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Divergencia KL y Función de Pérdida</h1>
+
+        <div class="explanation">
+            <p>La <span class="highlight">Divergencia de Kullback-Leibler (KL)</span> es una medida de qué tan diferente es una distribución de probabilidad de otra. En IA generativa, la usamos como <span class="highlight">función de pérdida</span> para entrenar modelos.</p>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula">
+                <strong>Definición de Divergencia KL:</strong>
+            </div>
+            <div class="formula">
+                KL(P || Q) = Σₓ P(x) · log(P(x) / Q(x))
+            </div>
+            <div class="formula" style="margin-top: 10px;">
+                = 𝔼ₓ~P [log P(x) - log Q(x)]
+            </div>
+        </div>
+
+        <svg id="klSvg"></svg>
+
+        <div class="info-box">
+            <p><strong>Propiedades importantes:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><span class="highlight">KL(P || Q) ≥ 0</span> siempre (nunca negativa)</li>
+                <li><span class="highlight">KL(P || Q) = 0</span> si y solo si P = Q (son idénticas)</li>
+                <li><span class="highlight">NO es simétrica:</span> KL(P || Q) ≠ KL(Q || P) en general</li>
+                <li>Cuando P = Q, ambas direcciones dan 0</li>
+            </ul>
+        </div>
+
+        <div class="derivation-box">
+            <h3 style="color: #2196f3; margin-bottom: 15px;">De KL a la Función de Pérdida</h3>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Definimos las distribuciones:</strong><br>
+                <span style="margin-left: 40px;">• P(x) = distribución real de los datos</span><br>
+                <span style="margin-left: 40px;">• Q(x) = P<sub>θ</sub>(x) = distribución del modelo (con parámetros θ)</span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Escribimos KL(P || P<sub>θ</sub>):</strong><br>
+                <div style="margin: 10px 40px; font-family: 'Courier New', monospace;">
+                    KL(P || P<sub>θ</sub>) = 𝔼ₓ~P [log P(x) - log P<sub>θ</sub>(x)]
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Separamos en dos términos:</strong><br>
+                <div style="margin: 10px 40px; font-family: 'Courier New', monospace;">
+                    = 𝔼ₓ~P [log P(x)] - 𝔼ₓ~P [log P<sub>θ</sub>(x)]
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>El primer término NO depende de θ:</strong><br>
+                <span style="margin-left: 40px;">𝔼ₓ~P [log P(x)] es constante (no lo controlamos)</span><br>
+                <span style="margin-left: 40px; color: #4caf50;">¡Podemos ignorarlo para la optimización!</span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">5</span>
+                <strong>Minimizar KL es equivalente a maximizar:</strong><br>
+                <div style="margin: 10px 40px; font-family: 'Courier New', monospace;">
+                    𝔼ₓ~P [log P<sub>θ</sub>(x)]
+                </div>
+                <span style="margin-left: 40px;">Esto se llama <span class="highlight">log-verosimilitud</span> (log-likelihood)</span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">6</span>
+                <strong>En la práctica (con datos):</strong><br>
+                <div style="margin: 10px 40px; font-family: 'Courier New', monospace;">
+                    J(θ) = (1/N) · Σᵢ log P<sub>θ</sub>(xⁱ)
+                </div>
+                <span style="margin-left: 40px;">donde xⁱ son los datos de entrenamiento</span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">7</span>
+                <strong>Para minimización (descenso de gradiente):</strong><br>
+                <div style="margin: 10px 40px; font-family: 'Courier New', monospace;">
+                    Loss(θ) = -(1/N) · Σᵢ log P<sub>θ</sub>(xⁱ)
+                </div>
+                <span style="margin-left: 40px;">Esto es la <span class="highlight">Negative Log-Likelihood (NLL)</span></span>
+            </div>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula">
+                <strong>Para modelos autorregresivos:</strong>
+            </div>
+            <div class="formula" style="margin-top: 10px;">
+                P<sub>θ</sub>(x) = ∏ᵢ P<sub>θ</sub>(xᵢ | x₁,...,xᵢ₋₁)
+            </div>
+            <div class="formula" style="margin-top: 10px;">
+                log P<sub>θ</sub>(x) = Σᵢ log P<sub>θ</sub>(xᵢ | x₁,...,xᵢ₋₁)
+            </div>
+            <div class="formula" style="margin-top: 15px;">
+                <strong>Loss final:</strong>
+            </div>
+            <div class="formula">
+                Loss(θ) = -(1/N) · Σ<sub>datos</sub> Σ<sub>píxeles</sub> log P<sub>θ</sub>(xᵢ | x₍ᵢ)
+            </div>
+        </div>
+
+        <div class="explanation">
+            <p><strong>Para imágenes binarias (Bernoulli):</strong></p>
+            <p style="margin-top: 10px;">Cada píxel xᵢ ∈ {0,1} y P<sub>θ</sub>(xᵢ=1|...) = σ(red neuronal). La loss se convierte en:</p>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula">
+                <strong>Entropía Cruzada Binaria (Binary Cross-Entropy):</strong>
+            </div>
+            <div class="formula" style="margin-top: 10px;">
+                BCE = -(1/N) · Σᵢ [xᵢ·log(x̂ᵢ) + (1-xᵢ)·log(1-x̂ᵢ)]
+            </div>
+            <div class="formula" style="font-size: 0.9em; margin-top: 10px;">
+                donde x̂ᵢ = σ(salida de la red) es la probabilidad estimada
+            </div>
+        </div>
+
+        <div class="explanation">
+            <p><strong>Resumen:</strong></p>
+            <ol style="margin-left: 20px; margin-top: 10px;">
+                <li>Queremos que nuestro modelo P<sub>θ</sub> sea parecido a los datos P</li>
+                <li>Usamos KL para medir la diferencia</li>
+                <li>Minimizar KL = Maximizar log-verosimilitud</li>
+                <li>En la práctica: minimizamos la negative log-likelihood (NLL)</li>
+                <li>Para Bernoulli: esto se convierte en Binary Cross-Entropy</li>
+                <li>Optimizamos θ (pesos de la red) con descenso de gradiente</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        const svg = document.getElementById('klSvg');
+
+        function drawKLVisualization() {
+            svg.innerHTML = '';
+
+            const width = 1000;
+            const height = 400;
+            const margin = {top: 40, right: 40, bottom: 60, left: 60};
+
+            function gaussian(x, mu, sigma) {
+                return (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-Math.pow(x - mu, 2) / (2 * Math.pow(sigma, 2)));
+            }
+
+            const xMin = -5;
+            const xMax = 7;
+            const scaleX = (width - margin.left - margin.right) / (xMax - xMin);
+
+            const muP = 0;
+            const sigmaP = 1;
+            const muQ = 2;
+            const sigmaQ = 1.5;
+
+            const maxY = Math.max(gaussian(muP, muP, sigmaP), gaussian(muQ, muQ, sigmaQ));
+            const scaleY = (height - margin.top - margin.bottom) * 0.7 / maxY;
+
+            svg.innerHTML += `<line x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}" class="axis"/>`;
+            svg.innerHTML += `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}" class="axis"/>`;
+
+            for (let i = Math.ceil(xMin); i <= Math.floor(xMax); i++) {
+                const x = margin.left + (i - xMin) * scaleX;
+                svg.innerHTML += `<line x1="${x}" y1="${height - margin.bottom}" x2="${x}" y2="${height - margin.bottom + 5}" class="axis"/>`;
+                svg.innerHTML += `<text x="${x}" y="${height - margin.bottom + 25}" class="label" text-anchor="middle">${i}</text>`;
+            }
+
+            svg.innerHTML += `<text x="${width/2}" y="${height - 10}" class="label" text-anchor="middle" font-weight="bold">x</text>`;
+
+            let pathP = `M ${margin.left} ${height - margin.bottom}`;
+            for (let x = xMin; x <= xMax; x += 0.05) {
+                const y = gaussian(x, muP, sigmaP);
+                const screenX = margin.left + (x - xMin) * scaleX;
+                const screenY = height - margin.bottom - y * scaleY;
+                pathP += ` L ${screenX} ${screenY}`;
+            }
+            pathP += ` L ${width - margin.right} ${height - margin.bottom} Z`;
+            svg.innerHTML += `<path d="${pathP}" class="dist-p"/>`;
+
+            let pathQ = `M ${margin.left} ${height - margin.bottom}`;
+            for (let x = xMin; x <= xMax; x += 0.05) {
+                const y = gaussian(x, muQ, sigmaQ);
+                const screenX = margin.left + (x - xMin) * scaleX;
+                const screenY = height - margin.bottom - y * scaleY;
+                pathQ += ` L ${screenX} ${screenY}`;
+            }
+            pathQ += ` L ${width - margin.right} ${height - margin.bottom} Z`;
+            svg.innerHTML += `<path d="${pathQ}" class="dist-q"/>`;
+
+            svg.innerHTML += `<text x="200" y="80" class="label" fill="#4caf50" font-size="16" font-weight="bold">P(x) - Datos Reales</text>`;
+            svg.innerHTML += `<text x="600" y="80" class="label" fill="#ff6b6b" font-size="16" font-weight="bold">P<sub>θ</sub>(x) - Modelo</text>`;
+
+            svg.innerHTML += `<text x="${width/2}" y="30" class="label" text-anchor="middle" font-size="18" font-weight="bold">KL(P || P<sub>θ</sub>) mide qué tan diferente es el modelo de los datos</text>`;
+
+            svg.innerHTML += `<text x="400" y="350" class="label" font-size="14">Minimizar KL → Hacer que P<sub>θ</sub> se parezca más a P</text>`;
+        }
+
+        drawKLVisualization();
+    </script>
+</body>
+</html>

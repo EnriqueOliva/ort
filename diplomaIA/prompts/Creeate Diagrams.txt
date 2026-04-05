@@ -1,0 +1,11 @@
+Actualmente nos encontramos dentro de C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa, el cual es un espacio de trabajo dedicado a un curso en deep learning, en el cual almacenamos principalmente una transcripción de cada clase del curso.
+
+Estoy extremadamente perdido, nunca asistí a ninguna clase, no sé nada sobre ningún tema, no sé qué se dio, y vengo de otra disciplina por lo que no sé nada sobre lo que se dio.
+
+En carpeta C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory\Diagrams, crea, dentro de cada subcarpeta, archivos .html con diagramas de todos los modelos que se hayan enseñado en cada clase, de acuerdo a las transcripciones en las subcarpetas de la carpeta C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory. Por ejemplo, la clase C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory\6-30-09-2025\6-30-09-2025.txt trató acerca de VAEs, así que en C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory\Diagrams\6-30-09-2025 crea archivos .html que contengan diagramas explicando la estructura completa de las VAEs. Si corresponde algún otro diagrama más específico para visualizar más en detalle alguna parte de la estructura completa, también créalo. Lo mismo para todas las clases.
+
+No hace falta decir que tendrás que hacer un análisis megaexhaustivo y leer todas y cada una de las transcripciones de clases en las subcarpetas en la carpeta C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory.
+
+Invoca agentes y divide la tarea si es necesario.
+
+Ultrathink

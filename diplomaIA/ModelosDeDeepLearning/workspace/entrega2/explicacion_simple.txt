@@ -1,0 +1,27 @@
+PREGUNTA 1: ¿Por qué ocurre esto?
+
+Lo que observé es que cuando agregamos 30% de ruido a las etiquetas, algunas muestras que son parecidas terminan con etiquetas diferentes. Esto hace que el modelo no pueda aprender de forma consistente porque hay contradicciones en los datos. Parecería que se genera como un límite inferior al error, si 30% de las etiquetas son aleatorias el modelo no va a poder clasificar bien esos ejemplos sin importar qué tan grande sea.
+
+Los modelos más grandes, incluso con 250 unidades ocultas, no pudieron memorizar todo cuando había 30% de ruido. El error mínimo de entrenamiento fue 0.0010 en lugar de 0.0000. Lo que parece pasar es que el modelo tiene que hacer un balance entre ajustarse a los datos correctos y los incorrectos, y termina con un error que no puede bajar más.
+
+---
+
+PREGUNTA 2: ¿Cómo influye el ruido en el fenómeno de Double Descent?
+
+Lo que más me llamó la atención fue cómo el ruido amplifica el pico en el interpolation threshold. Cuando entrené modelos con n_hidden=45 (que tiene unos 4375 parámetros, cerca de los 4000 ejemplos de entrenamiento), ese fue el punto donde el error de test fue peor. Con datos limpios el error llegó a 0.4140, pero con 10% de ruido subió a 0.5170 y con 30% de ruido llegó hasta 0.6445. Básicamente el ruido hace que ese punto crítico sea mucho peor.
+
+Lo interesante es que la forma de la curva se mantiene igual con ruido. Sigue habiendo double descent, solo que todo está desplazado hacia arriba. Los modelos muy grandes (n_hidden=250) siguen siendo mejores que los del threshold, aunque la diferencia se achica. Con datos limpios, el modelo grande reduce el error como un 27% comparado con el pico, pero con 30% de ruido la mejora es solo del 10%. Igual sigue siendo una mejora considerable.
+
+Otra cosa que noté es que los modelos muy sobreparametrizados parecen manejar el ruido mejor de lo que esperaba. Creo que tiene que ver con que tienen tantos grados de libertad que pueden encontrar soluciones que generalizan mejor, incluso cuando hay ruido. Es medio contraintuitivo pero los resultados son claros.
+
+---
+
+PREGUNTA 3: ¿Es lo mismo overfitting que sobreparametrización?
+
+No, definitivamente no son lo mismo, y los experimentos lo dejan bastante claro. El overfitting es cuando el modelo memoriza los datos de entrenamiento pero falla en generalizar, o sea bajo error de entrenamiento pero alto error de test. La sobreparametrización es simplemente tener más parámetros que datos.
+
+Lo que me pareció raro al principio es que el modelo con n_hidden=50 (cerca del interpolation threshold) tuvo error de test de 0.4140, que fue el peor de todos. Ese modelo claramente está haciendo overfitting. Pero el modelo con n_hidden=250, que tiene muchísimos más parámetros, tuvo error de test de 0.3005, que fue el mejor. Ese modelo está super sobreparametrizado pero no está haciendo overfitting.
+
+La paradoja que observé es que el peor error de test aparece justo cuando el número de parámetros es parecido al número de datos (el interpolation threshold). Ahí el modelo tiene justo la capacidad suficiente para memorizar todo, pero no tanta como para encontrar una solución que generalice bien. En cambio, cuando el modelo es mucho más grande, parece que el algoritmo de optimización encuentra soluciones más simples que funcionan mejor.
+
+Esto va en contra de lo que uno pensaría intuitivamente: más parámetros no necesariamente significa peor generalización. De hecho, en el régimen muy sobreparametrizado, agregar más parámetros mejora la generalización. El overfitting máximo está en el medio, no al final.

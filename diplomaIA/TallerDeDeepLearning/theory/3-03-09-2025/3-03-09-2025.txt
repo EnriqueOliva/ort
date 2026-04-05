@@ -1,0 +1,514 @@
+Se escucha bien ahí.
+Se escucha bien.
+Bien. Perfecto. Así que no la pantalla.
+Bueno, ¿qué vamos a estar trabajando? Vamos a estar trabajando esta pequeña notebook. Es la clase dos y vamos a estar prediciendo precios de casas.
+Esa es más o menos como la problema.
+Bueno, pero qué a aprender el día de hoy voy a ver mucho código, pero ¿qué es lo importante? Confirme. No, no estoy hablando en francés, hablando en o trato de hablar en español. Deberían quedarse Luego de esta notebook, unos conceptos nuevos probablemente es el datas, el data lo vamos a iterar un poquito en lo que ya hemos visto, hacerlo de nuevo, pero para seguir entrenándonos en eh ciclos o loops de entrenamiento y de evaluación. Y después hay como un digamos extra, esto se daba mucho al final del semestre o a mitad del semestre y la verdad que es una herramienta bastante útil, no es que la tengan que utilizar, pero una vez que saben que existe, la verdad simplifica un montón. problema que es bastante común que son la parte de experimentación. ¿Alguien tiene experiencia con Wites herramienta o bueno, con experimentos? ¿Le gustó?
+Sí,
+que sí,
+no está buena.
+Es un camino de
+es un camino de O sea, probablemente vamos explicarlo. Pasó la vida
+que para probar 10000 configuraciones distintas. Sí, tenés eso de eh eh eso igual está bueno haber pasado un semestre o al menos tipo un rato donde tienen justamente ese problema de bueno, prueba una cosa, capaz que termina corriendo 20 minutos, media hora, 3 horas, 10 horas, van prueban otra cosa, cambian una cosita, ¿no? Esa parte donde yo digo que está la artesanía o más bien este el toquetear cosas este que no están dadas de que son así. Bueno, eso simplifica mucho la parte de experimentación con W and B, pero igual esto es probablemente la tercera hora este y lo importante es que se queden con el concepto de qué hace y van a tener como un ejemplito de de hacerlo funcional funcionar esta herramienta de acá. Ya un spoiler, o sea, esta no es la única herramienta que lo utilizas a esto, es una marca, pero está bastante buena y por tienen una modalidad free no tienen que pagar nada. E pero ya les adelanto que tienen que probablemente hacerse unenciales login para poder todos lo vamos a ver en la tercera hora, ¿no? Pero de vuelta trato de al principio de la clase poner, bueno, de todo lo que se dijo, cuáles son los conceptos que yo me tengo que llevar, es qué es y para qué es un dataset, qué es y para qué es un datalader. Esto lo vamos a utilizar bastante durante lo que es el semestre, lo que es el loop de entrenamiento, evaluación. En realidad vamos vamos a empezar sencillito. como la vez pasada y después vamos a irlo creciendo y vamos a seguir agregando algunos chiches a lo que es el loop de entrenamiento y después vamos a ver este este esta tool para la parte de experimentos. Bien, entonces vamos a trabajar sobre la segunda clase. Acá se bajan este la la notu y vamos a ir trabajando como las anteriores clases y las siguientes. Okay. ¿Cómo le fue el lunes con Matías? Duro. Sí. Vamos, derivamos. Les llamé cuando descargada y ya ahí arrancamos. Los online, las instrucciones están claras.
+Sí, perfecto.
+Espero unos minutitos para que se bajen. Les recuerdo que se van bajando todas las notebooks que están programando y están haciendo, si quieren los ejercicios extras, si es que los hay o si nos quedamos medios cortos y terminan en su casa, hay una pestaña de entregas opcionales donde cada una de las clases las pueden subir. Listos. Voy a dar más salud mejor. Dice C.
+Sí, bajar,
+¿no? Eh, te lo va a bajar mismo el Creo que está en ese calí acá. Allá mismo la librería te baja eso. De hecho, ese calar no lo utilizar para nada más que son bajarte un dataset, no confundirse con ese dat que es la clase que vamos a Pero bueno, algunas cosas que vemos ya deemos estar acostumbrados. Torch la parte de capas y definición de las arquitecturas de redes neuronales, F para eh funciones, ideas o lo que necesite, optimizadores. Y lo nuevo que va a ver es lo que es el data loader, dataset y random split. Estas tres, estas tres cosas son las que vamos a estar explicando más adelante una vez que entendamos cuál es el problema y este y para qué sirve cada uno esta personalmente a mí me gusta mucho, o sea, cuando cuando tengamos y vamos a estar viendo muchas arquitecturas una forma sencilla, digamos, o de alguna manera que resume este la información de nuestra de nuestra red, nos puede dar bastante información una vez que nosotros la la definimos. La definimos una arquitectura este y podemos tener información acerca de cómo va a fluir, si es como que realmente lo lo estamos definiendo. Este de acá es simplemente aler es una es algo totalmente auxiliar. y lo vamos a utilizar simplemente para sacarle los datos que va a ser o los datos en el cual vamos a trabajar. Y bueno, algo de ploteo semillas. Sí, tenemos algo de reproducibilidad entre los determinados experimentos y vamos a algunas cosas. Primero agregué XPU, ¿viste?
+Sí, pero el back ese precio que no va.
+¿Cuál
+te dice? Torch. Backens. es lo que lo que te falta el soporte XPU.
+¿Cómo?
+Soporte XPU.
+No, pero si si sacas el A ver, mir, creo que si sacas elen después de torché con uno grande, pero Sí, tampoco. Tenés que tener instalado una extensión para lo cambio después.
+Pero la forma de preguntarlo dos maneras problema.
+Bor parte Estaba así se lo llena ahí.
+No sé si fue Atilio que me me preguntó.
+Sí, sí, ahí funciona.
+Perfecto. Bueno, esto depende mucho de cada computadora. Si están corriendo en CUDA, si lo están corriendo en en MacBook, si lo están corriendo en en un Intel, si lo están corriendo con XPU. Bueno, la aceleradora que tengan. Este, en mi caso, está usando MPS. Si ustedes están usando las notebooks de Colab o las notebook de del laboratorio, deberían tener Cuba disponible, que es probablemente la que gande más rápida a todos los están disponibles ahí.
+En colaptu le puedes cambiar la configuración arriba y puedes cambiarle cuál directamente con GPU. Acá en colab en en menú arriba en herramientas. Eh,
+cuando no estoy en colado acá en particular, pero eh
+no sí sé, pero para que sepan los compañeros.
+Exacto. Sí. Bueno, y lo otro son los no workers, ¿no? Esto va a ser especialmente útil para cuando veamos los datoader, que es uno de los parámetros. que ah se utilicen. Yo les diría de que arranquen en cero acá, o sea, que no utilicen paralelización, sobre todo si están en Windows o en MacBook, pero podrían eventualmente probar acá poner un número como un cuatro, ¿no? Esto lo que va a hacer es que cuando los dato loader estén tomando nuestros datos, de alguna manera pueden dividir el trabajo para cada uno de los este diferentes CPUs. Eso depende mucho del tema operativo también, o sea, esas cosas de que a veces and Linux a veces anda en Mac, no anda en Windows. Pueden empezar teniendo un número cuatro, pero básicamente de cantidad de CPU sí que tengan y dependiendo del sistema operativo o más bien cómo implementa Python lo que es el forqueo o lo que es tipo cómo maneja las cosas en paralelo. Si no le llega a andar con el worker que tengan algo positivo, simplemente ponen cero y ya les debería ignorar ese problema. Entonces arranquen con un número positivo si quieren y si les anda mal simplemente ponen cero. Definimos el B el B size, que el momento que estemos entrenando va a ser una de las eh parámetros que vamos a necesitar dentro de nuestro catalog. Las primeras líneas lo único que va a hacer es tomar lo que es este el Petch California que es en base a lo que es el SK Learn, ¿no? Y nos va a bajar los datos. Simplemente va a tomar eh los creo que son unos 20,000 datos. Tenemos 20,640 datos en los cuales va a tener ocho valores numéricos. De alguna manera como noar y decir esta casa, en esta casa ganan tanta plata por un tema de privacidad, lo que hacen básicamente es toman el bloque para nosotros es la cuadra y hacen el promedio de, por ejemplo, todos los que ganan en esa cuadra o la cantidad de baños que existen dentro de cada las de todas las casas que hay en en esa cuadra o la este la cantidad de de cuartos que existen de vuelta en cada una de las casas, cosa de que no es no es que hay 20,640 casas, sino hay más bien 20,640 cuadras o bloques, ¿no? Y cada uno de estos datos son simplemente el promedio de cada uno, ¿se entiende? Los ocho valores numéricos en el cual se se va desde cuánto eh cuántos años tiene la casa, cuántos habitaciones tiene, eh cuántas habitaciones tiene, cuántos cuartos tiene, cuántas eh personas hay dentro de el bloque. Sí, perdón. Y la latitud y la longitud de, no sé, imagino que dónde está el centro de ese bloque. La variable predictora es eh el precio promedio de de las casas. Están expresados en cientos de miles de dólares, con lo cual si el valor es dos, vale 200,000, ¿no? Entonces tenemos esos datos acá, ¿no? Tenemos datos de train, datos de T. Estos son los datos. Esos nos vamos a encargar justamente nosotros de dividir nuestros datos en train validación y testing. Y a partir de acá son datos que deberíamos poder manejar. Esta no lo que hace es tomar este problema y de alguna manera hacer como un camino de principio fin de lo que es un poco la investigación de de los datos, el preprocamiento y cargar los datos con nuestro dataset y nuestros datalogas. Acá podemos ver algunos ejemplos de los primeros cinco o 10 datos para que tengan una idea de cómo se ven. Ven que nuestra la variable predictora está es una linda casa, ¿vale? Promedio andan los $50,000 este y el promedio de del bloque que existe ahí es de 41 años, ¿no? Dat de las bloques. ¿Se entiende cuál es la problemática? Tenemos datos de casas y Aquí tenemos el valor de la casa en los promedios y de alguna manera vamos a querer utilizar las variables predictoras, o sea, todas el target para poder calcular o predecir dicho precio en anteos no vistos. Simplemente como un eh recorrido de los datos y les voy dejando como algunas cosas que está bueno ir chequeando las not que van a estar entregando. Estaría bueno que vayan haciendo que lo que Los que ya me conocen ya saben es que para mí la nodul tiene que ir contando una historia desde el problema que estamos planteándonos hasta las conclusiones que estamos acá, ¿no? Una de las cosas que deberíamos preguntarnos es, ¿qué pasa, por ejemplo, si hay datos vacíos? ¿Qué pasa si hay un bloque en Esos datos vamos a sacar, los vamos a concluir en base a otro? Hay varias decisiones que podemos tomar en el medio. En este caso en particular es un caso hermoso, poco probable que pase en la vida real, pero no tenemos datos eh que no existan. O sea, literalmente de esas 20,640 no hay datos que no existan, o sea, todos están completos. Okay, eso es sanitizar. Entonces,
+¿cómo sanitizar? Es lo que está diciendo, que, o sea, siempre hay que sanitizar los datos antes de empezar a hacer todo el todo el análisis.
+Se tiene que saber con qué está trabajando un No, o sea, este después puedes elegir distintas estrategias de de cómo cómo tratar tus datos, ¿no? Si hay este muchos nulos, capaz que podés llegar a borrarle la columna, pero capaz que no, porque no sé, depende cuánta correlación tenga con el target que estás mirando. Entonces, o sea, va, lo que tenés que hacer es argumentar por qué tomas las decisiones que tomas, o sea, si querés imputar con ceros un montón de nulos, ¿por qué lo hacés? Este, o con el promedio que fuese, ¿no? No, o con la media. Entonces, no es tomar una decisión consciente y no ir a ciencias, principalmente eso.
+Sí,
+una pregunta,
+dale.
+Eh, una pregunta, disculpe. Eh, acá no se considera la las opciones que también la realidad ocurren que donde uno espera números hay caracteres y tengamos un preprocesamiento que donde nos dijeron que es un número del uno al 10 nos pusieron 38. de que acá es una una categoría que no existe. Sí. O sea, lo que trata de decirse un poquito en estas primeras celdas es que estamos como un ambiente medio ideal o de que los datos están curados previamente, de que los datos están de que son feacientes y de que no tenemos datos nulos o agujeros dentro de nuestros datos. No, no tenemos que tomar una decisión en base a eso. Pero el día de mañana si ustedes con el mismo problema, lo primero yo harías antes de hacer cualquier modelo, antes de preparar los datos, es saber con qué te estás enfrentando. Si no sabes con qué te estás enfrentando o qué problemas tienen tus datos, nada, debes tomar una decisión en base a eso. Y no sé si tiene mucho sentido o no, pero empezar linealmente con ver la correlación que existe entre cada uno de los datos. Por ejemplo, eh si la parece media obvio, no tiene por decirlo así, pero es lo que ganan promedio. dentro de la casa parece estar relacionado con lo que efectivamente vale el valor de la casa. Parece que es novedad, pero de alguna manera podemos ver que existe una determinada correlación, que podría haber otras como, no sé, la la latitud y la longitud que parece no estar relacionada o por lo menos tiene un un número de de relaciones bastante bastante bajo, ejemplo, este de acá o estos datos de acá, pero ya vamos a ver que utilizándolos capaz que le podemos sacar a según a jugo a nuestra predicción.
+Ahí ahí lactitud y la longitud ves que tiene una de las correlación inversa en -0 con92. Ahí este
+ahí
+eh estas dos no es
+no. Claro, pero tenés que leer vertical con horizontal. ¿Viste que la actitud en la línea horizontal y longitud en la línea vertical? Ahí ves un -0,92.
+Eso eso es porque California tiene un un una forma angulada. Entonces, mientras más latitud, menos longitud y a la reversa, porque tipo va creciendo así como en una escalerita.
+No me animo a hacer un
+creo que es medio así, ¿no? Estos es así o por así, no sé si
+es muy raro que la actitud tenga correlación con longitud, por eso tipo este caso particular, porque como tiene esta forma inclinada entonces, o sea, si si la actitud cambia longitud no cambia, puede que tipo se caiga en el agua tipo en parte de abajo. Bueno, y creo que el único perprocesamiento que vamos a hacer en cuanto a cambiar los datos, vamos a normalizarlos, ¿no? ¿Por qué? Pues están en escalas bastante diferentes. Por ejemplo, la latitud y la longitud. Tenemos algún dato de acá, por ejemplo, están en escala de 37 122. Las poblaciones están en escalas de miles, los puertos están en escalas muy cercanas a uno, ya están muchos los datos en escalas diferentes. Una forma de acelerar o de alguna manera mejorar el entrenamiento es que todos los números estén dentro de la misma escala. Lo que vamos a hacer es a excepción de lo que es el target, vamos a hacerlo con un promedio de cero y una deviación estándar de uno. Simplemente normalizar cada uno de los datos. De esa manera, si nosotros vemos los mismos datos, ahora si vemos el promedio, ¿qué ven acá, por ejemplo,
+cercas a cer? O sea, es muy difícil matemáticamente que le clave exactamente a cero, pero todos estos las medias están tendiendo a cero y las deviaciones estándar están a uno.
+Una pregunta, normalización también para eludo.
+Sí,
+exacto. tu opinión,
+¿no? Porque como es está bien, es descriptiva, pero es numérica. Entonces, como
+yo te puedo decir e mi opinión a porque estaría buena la di me llamó la atención,
+pero pensa si nosotros nos estamos moviendo en California, ¿no? Entonces,
+eh probablemente moverte esto para acá la cambiarte un grado en la altituda, longitud son distancias muy grandes.
+Sin embargo, ¿cuánto te estás moviendo de menos 35? a, por ejemplo, -38. O sea, técnicamente la diferencia entre -37 -38 parece no significativa, pero el impacto en el cambio del precio puede ser bastante grande. Si vos normalizás o ves que los cambios están de alguna manera más exagerados o una forma mejor representado, te puede ayudar a a a predecir mejor.
+Ah, entiendo. De alguna manera solucionar.
+Claro, sobre todo las caras, o sea,
+exas convier todo el mundo capaz que sería diferente, pero como todos tus datos me imagino no van a estar se van a mover más de un grado. Esa diferencia que hay con respecto a los datos entre sí es tan poca que parece que no es significativa. Bueno, uno tendría a pensar es, okay, si está el doble de cuartos debería afectar, no al doble del precio, pero más o menos proporcionalmente. Y acá la diferencia entre lo que es capaz que sé que viene después del grado coma minutos, minutos, los cambios de minutos capaz que deberían tener un impacto más grande de lo que haría esa diferencia entre cada uno. Eso podría ser una explicación de por qué sería bueno. Igual son decisiones de que vos podrías decir normaliza los datos o algunos datos y probás antes de dar un modelo final no hacerlo. Capaz que sea mejor. Eso algo Marco.
+No, también se normaliza por por dos cosas. Uno porque los datos todos están diferentes escala. Sí. Entonces, los gradientes se ven afectados. Ese es un tema. Tenemos que hacer un cambio. Vas a culpar alguien, vas a culpar mucho a un en una dimensión. Sí. Entonces esa es una razón y la otra razón que se hace un tema de de llevar las entradas a una distribución conocida. Todas entradas y eso estabiliza La única que no normalizamos es la la parte de targets. Eso no lo movemos.
+Perrito. ¿Cómo se llama?
+Gigante.
+Grande.
+¿Cómo?
+Cucuy se llama.
+Perrita. Perrita. Y cómo le van los dataset y los datalod está interesada en la clase, parece que
+sí le gusta.
+Bueno, los dataset de alguna manera es es una clase de la misma manera de que podramos definir las las arquitecturas que nosotros tenemos como también clases de NN modules, también tenemos clases de dataset y de datalog. En general vamos a definir más los dataset que es donde va van a variar de data a datos. De alguna manera, la responsabilidad principal es almacenar, conocer cuáles son los datos y aplicar transformaciones o de alguna manera prepararlos para nuestra red. Nosotros hoy en día acá tenemos un nuestra frame de panda, o sea, eso nuestra nuestra nuestra red come tensores y saca tensores. Eso ya lo sabemos. Ahora, si nosotros tenemos un data frame, de alguna manera tenemos que tomar esos ese data frame y prepararlo de alguna manera y dárselo a nuestro este a a nuestra a nuestra a nuestra red. Muchas gracias. Este dataset también va a ser importante en próximas clases porque también acá se aplican transformaciones, muchas de lo que son técnicas que vamos a ver de data aumentation, por ejemplo, van a ser aplicadas con transform con perdón con con datas que aplican transformaciones de alguna manera, solo para adelantarnos a esa clase un poquitito. Es, imagínense que tienen una imagen y quieren crear datos sintéticos en base de esa imagen. Por ejemplo, tiene una imagen y la tuercen un poquito. Un perro, por más que tiene una foto de un perro y yo lo tuarzo un poquito, mi mi red debería decir seguir diciendo de que esa imagen es un perro. Es una manera sintética de crear datos cuando tenemos pocos. Esa responsabilidad de tomar los datos y aplicarle transformaciones va a estar dada por el dataset, ¿no? El datoader es es copiar. Copiar es que reparte reparte cartas es toma el dataset básicamente y tiene alguna estrategia para darle los datos al a la red. Dato más importante que va a tener es el patch, ¿no? Pero de alguna manera, por ejemplo, toma todo el dataset, lo chaflea, o sea, lo
+lo mezcla. Gracias. Aparte hablo mal inglés, pero digo presiones de este lo lo mezcla y termina dando un un un resultado, ¿no? Los datas van a tener eh van a tener que definir estos tres métodos. De la misma manera de que nosotros tenemos el init para eh las arquitecturas y el forward. Acá tenemos que tener tres. Son bien sencillitos. Primero va a tener un constructor que va a ser el init yo, por ejemplo, le voy a definir qué datos le voy a pasar. El length lo único que me dice es cuántos datos yo tengo. Y el get item es, yo te voy a dar un índice, por ejemplo, el 104 y me tenés que dar el dato 104 ya transformado. Si hay algún tipo de transformación ya se lo vas a aplicar, ¿no? En este caso, lo único que va a hacer es tomar valores de Python o una parte del data frame y transformarlo a un tensor. O sea, esa es su responsabilidad, tomar los datos crudos, ya sean imágenes, ya sea, no sé, partes de audio, ya sea, no sé, datos numéricos. poder tomarlo, darle un índice y poder transformarlo a un tensor para que el dataloader finalmente lo reparo.
+Te devuelve un tensor ese teu un tensor.
+Exacto.
+O un par. En general lo que vamos a hacer es un par de tensores que van a ser el X y el I.
+Vos lo tenés que hacer el tensor, digamos.
+Sí, exactamente. Entonces acá tenemos un data frame y podríamos tener un self. Eh, vamos acá. eh x igual y podríamos tomar a copiar esto de acá podríamos tomar el data frame y podríamos sacar nuestras columnas. Para una forma más fácil de trabajar, lo paso a ¿Qué estás haciendo Joaquín? Perdón, no me tenés el data frame,
+¿sí?
+Está es tus X o los datos de que vas a traer como de entrada, le vas a el target, o sea, de todos tus datos sácale el target, pero yo sigo teniendo data frame. Es mucho más sencillo trabajar con los vales y que te hagan una lista de ah de numéricos. Va sin
+Sí,
+perfecto. Cuando decis sacar es filtrarlo, o sea, removerlo.
+Lo que te Es un nuevo es un nuevo
+data frame.
+Eh, no, este valus no devuelve un data frame.
+Ese val te excluye el header. No,
+no te incluye el header.
+No te incluye
+los datos en sí.
+Ah, los datos de datos.
+Acá vamos a hacer lo mismo, simplemente que vamos a obtener el target y también vamos a tener el punto Pos. Ahora, ¿Cómo obtengo yo el largo de mis datos?
+Exacto. Un resum del len de puntox o de 6.I, que debería ser el mismo lar y ahora yo voy a pedir un índice en particular. Esto va a ser un entero y básicamente tengo que obtener de cada uno de la del estado de tuplas ese índice y transformarlo en un tensor. No va a poner algún vamos a hacerlo en partes, lo puedo poner en varias partes, pero x ig a self punto x de index y yo de esto quiero un torch tensor. Y solo por si acaso vamos a ponerle un de type torch ro 32. Asimismo vamos a tener un torch sensor punto i de index. Y también le vamos a poner el detalle. A diferencia de que como esto es una lista de acá y este es un dato en concreto y necesitamos que estén en la misma forma o podemos hacer un squiz o directamente eh cambiar la fórmula. Y acá simplemente retornamos retorn X e Y eh ¿Puedes repetir otra vez esa última parte que está con el y lo dentro de un este set de x de index te van a dar varios números? Por lo cual vos lo vas a dar como si fuera un array. Okay. Este set de i pasar en un solo número o que sea o quieres que sea una lista con un solo número. Entonces para eso forzas con con estas con el paréntesis en C. Otra forma de hacerlo que probablemente es No sé si profesional es va a hacerle un anquiz en el cero. Todo va a tener el mismo resultado.
+El squish apretaba y el an squish te genera una dimensión de tamaño uno. Para mí es mucho más fácil entender por ahora
+de esta manera,
+pero da el mismo resultado.
+Pasan lista.
+Beníteza,
+presenteilia.
+Presente. Carajalo. Fíjense que eh para si no capaz que se olvidado para algunos, no para otros, es que yo a propósito estos tensores están en memoria, no están en bram todavía y se va a encargar en pasarlo a la BRAM en su momento pasar el training loop y no el que un tensor que no esté todavía en GPU. ¿Por qué? Porque nosotros vamos a trabajar con tantos, tantos datos que no van a caber en memoria. Vamos a trabajar por Baches. Entonces, vamos a tomar una determinada cantidad de BCHE, un BCHE en particular. Eso lo mandas, lo pasas por la GPU, los volvés y solo el bache va a estar viviendo. Ahora, la forma que vos creas ese bache pasa por dos cosas. Primero, el dataset efectivamente te de los datos según los que este datoer le va a pedir y la transformación a tensores que efectivamente hace el dataset. El dataloer es quien decide cuáles son los datos que te tienen que que te tienen que dar y después cuando se lo pedís lo pasas en el training loop a a a GPU o bueno, te con el
+Gracias.
+Entonces yo antes de seguir en cualquier dataset debería hacer por lo menos dos operaciones. La primera es tenemos el dataset acá que es una instancia de nuestro de nuestra clase dataset y esto nos debería devolver cuánto
+20640 es un número que se van a acordar el día el día de hoy. Y lo otro que vamos a poder hacer es un dataset de cero. ¿Y esto qué es?
+El primero. Si yo ejecuto de vuelta, ¿qué va a haber? El mío. Esto no debería cambiarse parece una obviidad, pero después cuando veamos el Loader, nosotros chafamos los datos capaz que no va pasando bien.
+Pero si le pones en sí,
+sí. ¿Qué?
+Eh, depende si vos ejecutás, si vos pones la semilla arriba, dependiendo cuántas ejecuciones vas haciendo. Si vos pedís un un un batch y vos pedís otro, no te va a dar el mismo.
+Ni siquiera con la semilla,
+¿no? Con la semilla te va a dar cuando vos hagas todas la ejecución una sola vez, una pasada. Pero si vos hacés Si yo siempre te darían los mismos 1024 datos que vos has pedido, ¿entendés? O sea, si yo te digo, dame tantos al azar, no, pero yo tengo 20,000 datos, yo te pido, dame 1000 y siempre que te pido me das lo mismo 1000, al final nunca está recorriendo todos. En eso estamos de acuerdo. Eh, creo que la confusión fue que hablábamos de la semilla, o sea, el semestre pasado ya nos enseñaba que uno tenía que poner la semilla para hacer replicarle los random.
+Sí, de hecho lo hicimos al principio.
+Ajá. Y no y aún así con el el datalader y la semilla,
+no es de que vos la primera la primera vez que lo ejecutes, vos ejecutas la semilla, ponerle ejecutas de cero la notebook, ponés la semilla, pedís datos, eso te dan una determinada cantidad de de datos, reinicias, volvés a ejecutar la la la notebook, se ti la semilla, ped los datos, ahí van a ser iguales, pero entre ejecuciones no datos que ser diferente para recorrer todos al final. Es decir, la idea es que cuando vos pedís datos del dataset, los pedís en distinto orden, ¿sí? Van a repetir patrones que ya aprendiste. Puedes descubrir cosas nuevas. Estos son datos tabulares que no tienen ninguna relación de de secuencia, es decir, no es serie temporal. Sí, es el orden del dataset dado porque fueron requitos responderse en ese en ese otro que no implica nada. Todos los son independientes y pueden estar una herramienta que eh estaba cerca de los datas y los datoer cuando importamos. Voy a poner acá de costado. Dataloader dataset también es el random splint. Esto nos va a ser bastante utilidad donde cuando tenemos que dividir los los datos en diferentes sets por ejemplo, uno para training, uno para levalidación y otro para test. Es una herramienta ah bastante bastante útil, ¿no? Entonces, lo que hacemos es eh calculamos tres tamaños ah distintos, también funcionan con con proporciones. Tenemos el dato total, o sea, que este es el 2640, era 2640. Al training lo multiplico por un 0.8, o sea, de que de ese me voy a quedar con un 80% de los datos. de la variación me voy a quedar con un 10% y solo por las dudas acá técnicamente podría hacer algo como esto. Igual, ¿no? El problema por un tema de casteos, si esto todos quedan un 0,3 y sumados me dan un dato más,
+se me va a romper. Entonces, una forma fácil de eh evitar eso es, bueno, lo que me queda del resto de haber restado el training size, el total size menos el training size y el bals size, ¿okay? Manera, asegurarnos que los tamaños entre todos sumen el tamaño total. Ahí todo bien. Perfecto. Entonces, este random split va a tomar nuestro dataset que definimos antes, va a tomar dos, tres, cuatro, cinco valores, dependiendo de ellos va a tener la cantidad de resultados. Quiero dividirlo en cinco datas, simplemente agrego estas cinco cinco valores que entre todos tienen que sumar el total y me va a devolver los diferentes datasets, ¿no? Con ese orden, o sea, el tamaño del training va a ser el de este de acá. El tamaño del valiación va a ser este de acá. El tamaño del test va a ser este de acá. Okay. Bueno, estos terminan siendo al final otro rotacet, o sea, debería poder hacer esto tranquilamente y yo de de training sé que tengo a 16512. Asumo, me parecía algo medio raro que estos no son los mismos datos. Cer del cero, no es el mismo. De alguna manera randomiza este eh los datos una vez que toma los primeros eh 6000 datos y los pone en training, sino que también hay un random ahí también. Juan
+una pregunta, el random hace uno, reposición, ¿no?
+O sea, que train y test diferentes. La reposición te podría llegar a contaminar el dataset de entrenamiento y hacer que aprenda cosas que no debería haber y entonces validación pierde el sentido.
+Claro.
+Es la reposición, perdón.
+Es cuando vos ya images una bolsa de números y que es algo al azar, lo tomás con reposiciones, lo pones de vuelta y efectivamente puede salir de vuelta ese dato.
+No cambias la distribución de la muestra. Ese es cuando el dominio no sacar un elemento, siempre tenga la misma distribución. Bueno, y ahora vamos a lo que son los data loaders. Acá no hay que definir nada en realidad, simplemente lo que vamos a hacer es llamar a los datoers y vamos a ver los los parámetros principales. Vamos a tener data loader. Los parámetros principales que va a tener es el dataset en sí. Vamos de de definir el bat size, o sea, es, okay, eh cuando vos me pedís eh un batch, ¿de qué tamaño va a tener este B size? Shuffle es tipo si si quiero cada vez que yo pido o termino de recorrer el la segunda vez que yo recorra todos los datos, no van a ser en el mismo orden, o sea, de alguna manera los va a entreverar. Y otro que es importante que vamos a ver es el NW, o sea, de alguna manera él eh puede distribuir. Imagínense de que es importante de vuelta cuando cuando generalmente encontremos transformaciones, imagínense que nosotros tomamos un dato, pero antes de volverlo nuestro dataset lo que hace es, por ejemplo, girarlo un poquito y aplicarle, no sé, un cambio de valores, ¿no? Entonces no es lo mismo. Yo estoy pidiendo 1000 datos que a cada uno hay que aplicarlo con un CPU, todas esas transformaciones que esos 1000 datos con cuatro workers diferentes aplicarlos de alguna manera cuatriplica lo que es la carga o la transformación de datos antes de llegar. a devolverlos. Vamos a ver importante. ¿Qué hacemos? Perdón. Sí,
+eso está internamente lo maneja, pero para el entrenamiento es como él lo va devolviendo secuencialmente él lo él siempre te va a devolver el B size. Bueno, técnicamente no, porque ¿qué pasa si vos tenés, por ejemplo, imagínate que e tu back size es de 1000, y vos tenés 9800 datos? Después te va a dar 1000, te va a dar 1000, te va 1000 te último te va a dar 800. O sea, eh, pero
+no, no a lo que voy es que en el training loop siempre vas a trabajar de un lote, no vas a tener
+100% no
+estás trabajando en paralelo también en el hecho cuando
+es el datalogader el que obtiene los datos más eficientemente trabajando un paralel
+cuando le pedí los datos o el batch lo va a hacer más rápido que
+correcto
+pero no no no acá no vamos a trabajar con cosas en paralela ni nada eso todo de forma bastante interna.
+Eh, en cuando vos en qué casos sí vale la pena hacer un sh de qué caso.
+Bueno, acá mismo lo vamos a ver. En el training se hace shuffle
+y lo que es validaciones y test no te valen la pena. Podrías hacerlo, te va a dar el mismo resultado, obviamente, pero siempre hay un shuffle, hay una computación de fondo tardando ese shfle, no vale la pena.
+No es que esté asociado al tipo de problema que est queriendo resolver.
+No, no. Ya diría regla general es training se chaflea y los otros dos no te puedes quedar con esa regla.
+Podría venir Marcos diciendo, "No, este cuando tenés este tal cosa, según tal cosa, te conviene. Sí, puede existir como un caso autorregivo, capaz, capaz que tiene mucho sentido, pero si estás haciendo un estudio de imágenes, capaz que sí.
+El problema el problema es el siguiente. Puedesar mejor o pero es vos cada vez que tomas un y le aplicas la los de alguna manera es tomas todos esos datos, haces un promedio y en base a eso te vas a mover. Si vos siempre estás tomando los mismos datos de alguna manera como que estás yendo como siempre a la misma dirección en vez de que por al final te vuelta un promedio entre los que tomás la dirección que tomás. El movimiento es uno, pero es en base a la muestra que realmente se hace hacer un shfle que la dirección sea más,
+perdón, lo que pasa que cuando no haces shuffle es es que ganas demasiada confianza hacia un subset de datos, ¿no? O sea, tipo, si lo único que que ves en ponerle de esta clase, ¿no? Solo sacamos sacamos un bash de dos y agarramos a José y a mí, tipo, todos son taiwaneses, ¿entendés? Tipo, y aprende de que todos son taiwaneses, pero en realidad está orfiteando a ese subset de datos, ¿no? Y entonces cuando jafleas después, o sea, muchas veces los datos vienen ordenados de cierta manera y y tal y eso es lo que te hace que el algoritmo de de censo gradiente vaya con ese a aprender eh con mucha ímpet, ¿no? Y y tal shaflearlo evita eso.
+Disculpe, no entiendo el concepto chaflear. ¿A qué le llaman chaflear?
+Eh, capaz en mi pronunciación, pero
+entreverar.
+Claro, es entreverar, mezclar,
+desordenar de
+Okay.
+Con las cartas de lo desorden
+en realidad es como que lo dejas igual, pero imagínate que en real En realidad, vos cuando ya fleas en general los algoritmos lo que hacen es, ya no estamos yendo, pero es
+Exacto.
+Vos, por ejemplo, vos tenés eh tenés todos estos datos, ¿no? A, B, C, D. No, no te importar por qué ordenamos. Lo que vos si vos querésar esto de acá, una forma sencilla de hacerlo es tenés los índices 0 1 2 3. Efectivamente es hasta n - 1, ¿no? Y después haces permutaciones, decís, o sea, agarro n - 1 o eh que agarro un número en la sala de tercero y n -1 y los intercambio y los intercambio y los intercambio.
+Ese orden que tenés ahí de alguna manera está referenciado en ordeno hacia hacia el otro, puedes acceder directamente
+y de alguna manera da ilusión de que está
+esoado. La parte la pregunta es la parte,
+pero el dataset no es que no es que se es que técnicamente no se mueve. Pero mi pregunta iba, claro, o sea, este es
+no, no, pero mi pregunta iba más era capaz que hacer la pregunta, pero es este después el algoritmo de entrenamiento que los toma
+secuencialmente después cuando lo vamos a entrenar que lo toma secuencialmente por eso o sea toma tres 10 de 1000 es
+dame 1000 al azar lo paso por la red aplico la ti
+exacto o sea vos tenés vos tenés dos foresl tenés un for que es por época y cada época son haber recorrido todos los una sola vez y dentro de cada época tantos baches como yo necesité para haber pasado por todos los datos.
+Pero agarro de forma randomica.
+Sí, en realidad no. Una pregunta está buena. A ver si no lo agarró en forma, lo agarró secuencial. Lo que pasa que me lo hizo
+Exacto.
+El Shapel me lo hizo random.
+Claro.
+Correcto. decir, quiero quiero muestras. Claro, pero está la de arriba
+tomar de cuer lado
+y estas 1000 muestras no las us. Entonces, lo que se hace es se hace el shffel de los índices. Sí. Sí. Y entonces cuando tomo un bloque tomo los primeros 1000 de ese índice. Bueno, los índices son los es el los números del cero hasta hasta el largo -1. Genera permutación. Sí. El cero quedó en esa permutación quedó en cualquier lado. Puede quedar en el cuarto bloque, en el quinto, en el sexto. Entonces, después lo que hago con el buscar el dato y no toca el dato
+y cada vez que hago un epoc se hace eso para no repetir en cada epoc. Sí, la misma secuencia de de es como jugar a las cartas y yo las tengo todas ordenadas. Sí, es mi dataset. Sí. Y en vez de ordenar las cartas, yo digo, bueno, está acá anoto. Sí, la carta número está en lugar 25 y la que está 15 y tiene una secuencia de 48. Lo primero le vas a pasar es lo vamos a en código es tu datacet son tus datos. Cuando vos decis un shuffle y le vas a pedir los datos en una recorrida, en una en una sola, no es que en cada una de las operaciones va a decir, "Bueno, agarroos randómicos y cambio el uno por el cuatro."
+Ah, eso ya puede ser
+cu por el uno y agarro el dos con el cuatro, cuatro con el dos y el cer con el tres. 3 no. Es un algoritmo de Sí, sí, sí. No, ponle que tu batch es de dos, ¿no? Entonces va a tomar dos datos, va a pasarlos con el modelo. ¿Qué datos va a pasar? En este caso 1, dos, 3, cco. Va a tomar el m y el dos.
+Bueno,
+perdón, el m y el
+no importa, pero también haciendo lo pasa por el modelo, calcula la los dame dos datos más,
+el cuatro y el cero. O sea, el P y el B. Dame dos datos datos más. Es el uno el cinco. Vos pasaste por todos los datos una vez. Esto es una época.
+Después cuando haces la próxima otra vez.
+Perfecto. Sí, sí.
+Pero alguna manera como como que lo que tiene todo eso que hacerlo es como medio muchos códigos boiler play, mucho código que que en realidad no te interesa en realidad estar haciendo esto de acá. permutaciones, todo eso de alguna manera se encargan el dataset y el datalogad, donde el dataset lo que contiene los datos y si te doy un índice específico, te doy el dato. De hecho, el datalader no va a guardar los datos en sí, más bien va a guardar los índices que va a pedirle al dataset para poderoso y ese dataset que toma esto y capaz te devuelve a prima porque es un dato semi, por ejemplo, modificado.
+Lo importante acá es que termine. Muchas gracias. es que es que terminen entendiendo cuál es la responsabilidad, o sea, no no no un este ah el primer atributo del dataloader es el dataset, no no me interesa eso. Es cuál es la responsabilidad de el datacet, dónde yo tendría que poner lógica en el datalover, qué podría hacer con el datalover. Ahora la pregunta de los tres casos, de tres casos de datalader, ¿cuál es necesita y cuál en otro? tiene sentido.
+Terminamos estas tres líneas y vamos a aprendiendo nada que siga.
+Vamos, vamos.
+Este,
+en verdad vos usas el chaffle, además de que vos queres que aprenda, ¿no? Este con distintos sets de datos, eh, tiene que ver con que en general trabajas con mucha cantidad de datos, entonces los recursos no te Por eso también tenés que compartirlo y pasarle una cantidad más chiquita de datos. ¿Tiene que ver con eso, una de las cosas, por ejemplo, es muy probable de que nosotros tengamos tantos datos que ni siquiera entren en memoria, entonces vos de alguna manera tenés que particionar el hecho de tomo solo un bache
+para ponerle de que vos tenés tanta memoria como para que te entre tres por ahí cu. Entonces este el primer problema es de que capaz que todos tus datos no entran en RAM, es tu primer problema. Entonces, para eso vas, lo moves a memoria, RAM, por ejemplo, lo pasás, pasa al siguiente. Eso es lo primero. Y lo otro es de que yo creía acá, Marcos, ayúdame, pero es es vos decís, tengo mucha BRAM, te pongo un pate. Eso no quiere decir que sea significativamente correcto. O sea, vos decís, "Ah, tengo más BRAM, puedo poner más datos." No necesariamente es así. En general, datos. más grandes, lo que te va a pasar es de que es más estable. Si vos ves la la la gráfica de de la loss, es más estable, pero los movimientos japoneses son como más brutos, mientras que los baches chicos van a ser muy ruidosos, ¿no? Entonces, en realidad es un conjunto. O sea, de hecho, uno de los experimentos o uno de los atributos que yo haría dentro de lo que es Was es el tamaño del B. Eso es un hiperparámetro que se juega para ver qué también entren. agregar algo funciona como como regularizador. Lo que estás haciendo es calculando el promedio del error el gradiente, ¿no? Lo que es muy grande es hay una gráfica que el teórico de gradiente se aproxima al mismo y tenés cuando tenés lo que es muy grande que es muy quebrada la O tenés eh P tenés el B de un gradiente a nivel de un dato de cas continuo que es ineficiente ineficiente y cuando tenés mis batches tipo mini batch que se llama tenés una curva eh no tan quebrada pero bastante conta pero después el tamaño los es es un ejercicio que tienen que que tienen que definir. Alguna vez Shan Lecun dijo es el tamaño del gallet está Pero varía, decir varía, pero son múltiplos de potencia de dos 34, 128 y se usan muy grandes en no en estas redes. Cuando se entren modelos grandes usan
+en nuestro caso va a depender muchas son imágenes, probablemente tengamos baches medios chicos. Si esas imágenes depende del tamaño de Las imágenes no es lo mismo tener 64 imágenes de 28* 28 que tener 64 images de 1024 por 1024. Cada una de esas cosas va a determinar diría que uno de los determinantes primeros es el tamaño de memoria es
+Sí.
+Y después es jugar este dependiendo un poco cómo se comporta la los si es muy ruidos capaz que tu es muy chico. Si no está entrenando, capaz que es muy grande. Los liberos datoaders vamos a dar Training. Perfecto. Vamos a tener nuestro B size. Eh, el shuffle vamos a poner en true. Y por último, el N workers, lo que me pasen acá por parámetro. Esto es lo que yo digo que esta paralización que utiliza, hay determinados temas operativos que se la bancan, otros que no. Creo que hay un tema a partir de P 3.8 que trabajan diferentes lo que es la paralización. A veces anda, a veces no. La típica es póngale cuatro aquellas variables allá arriba. Si no les anda, póngale cero. Acá vamos a tener algo similar, simplemente que vamos a poner acá el val dataset, el shff en false. Y acá vamos a tener el test.
+Veamos acá te dice shffle diing lo que puedes hacer es tipo crearlo sin nada y pedirle un dato y si la próxima iteración que inicializas de vuelta. Bueno, que podemos eh nosotros en especial no es que vamos ser de esta manera, pero le podemos pedir un iterador. ¿Alguien sabe lo que es un iterador? de puedes ponerlo de la misma manera.
+Acá, por ejemplo, poner next enterador y qué me está dando. Hay muchos datos ahí. Te está dando un bat size BCH size. Exacto. Donde este primer dato que es
+es un X que va a tener cuántos datos
+forma. Exacto.
+24 pero en ocho columnas,
+¿no?
+Ah, perfecto. Es ocho.
+Me recordaba si era 7 o pero exacto. Son 1024 por 8, o sea, cada fila es un dato. Y acá tenemos las 1024. respuestas. Si hago next, ¿qué va a pasar acá? ¿A lo mismo o no? Lo mismo siguiente.
+Al siguiente, al siguiente. Al siguiente. Lo que no estoy seguro si se rompe al final. Tiene sentido. Se rompe al final. O sea, cuando no hay un siguiente, se terminó de iterar, se rompe. Igual eso no nos vamos a preocupar. Es simplemente una forma para mostrar acá. Lo que eh te decía es si bien Nosotros tenemos 16,000 datos. Todos los primeros eh 16 asumo son de 1024, mientras que el último batch es de 128. Nos vamos a asegurar de haber recorrido todos los datos. Acá tienen cosas ya por cuarta vez con el libero que por ejemplo le pueden poner data loader, le pueden decir plus, creo que es un atributo que es si tu último elemento no coincide con el B size descartal. No es que nunca vas a ver estos datos, justo esta iteración si un shuffle este de acá no lo vas a ver, pero capaz 128 o parte de ellos lo vas a ver en otra iteración, pero uno de los uno de los parámetros del dataset es este drop last.
+Si el shfel funciona bien, deberías verlo.
+Si vos haces suficientes épocas, sí. Ex haces una sola, ¿no?
+Pero dos sería probable que
+puedes tener la mala. La mala que es algunos datos estén en el último batch en en ambos después. Son son números, no son posibilidades.
+Bueno, si haces 1000 también podías tener la mala suerte de que no
+eh sí también más disminución que es más difícil, pero
+pero nosotros en particular no. O sea, vamos a ver capaz que hay casos concretos cuando veamos el modelo de lenguaje ahí que capaz que sí debe de debemos tener como un un bache fijo la razón y ahí podremos utilizar, pero de vuelta yo no quiero que se queden con el el es el que tipo al principio tiene un bat size y no sé cuánto, no entienden lo que son las responsabilidades y pues este probablemente si se enfrentan a ah me gustaría no sé hacer tal cosa es probablemente que alguna de estas les brinde esa herramienta cuando están midiendo o entregando los datos. Pas un poquito. Vamos a hacer una pausa. Son 809, volvemos 8:20. Gracias. el más rectángul meter más aproxima realmente el tamaño del área relación que regular y cuadrooculo cómo cálculo que trato de explicar qué concepto trató no no esto es lo que acordé de la facultad o sea no es cálculo Lo que llama cálculo, es decir, cómo calcular el área de
+bajo la curva
+bajo una curva, por ejemplo.
+Sí, sí, sí. Exacto.
+Esos el cálculo diferencial es cómo dado una función que es continua cómo poder calcular la integral que sea el aire aproximad rectángulos.
+Claro.
+Entonces el área es hipotencia la suma del límite. Sí. Cuando los los los los rectángulos se vuelven es el la base rectángulo tienda tiende a cero. Sí, la altura de el rectángulo tiende al punto de la función. Entonces, la integral es el límite de la suma cuando tí cero de la suma rectas. Sí. Eh, es es cuando vos tenés una curva, ¿sí? Lo que hacés es la aproximar con rectas. Sí. Entonces, si vos aproximas con dos rectas es muy mala aproximación. Ahora, si vos tendrés aproximarla a una recta que prácticamente es un punto, ¿sí? Prácticamente lo que haces es linealizar la la curva. Claro,
+es lo que hace el cálculo infinitesimal.
+Guarda relación con
+guarda relación con esto lo de los size o nada que ver. No, no es un es y newton para tiempo. escribió es más grandes movimientos un poquito más grandes que hayan la vez con uno solo movimiento casi por lo menos
+ah si no era al desentad final de la un método más pequeño.
+Ya.
+Todas estas decisiones afectan en mayor o menor medida cómo termina dando ese algoritmo resultado.
+Okay.
+Desde relación con o no, desde si normalizas o no, o sea, todo eso tiende a perfeccionar el tipo de técnica. Son como de alguna manera experiencias o o metodologías que en general eh optimizan o hacen lo mejor este a bajar la luz al final de todo eso. Es tipo bajar lo más posible para que aprenda a inferir lo que ustedes, ¿no? Es decir, el problema que resuelve a casi todos los métodos, el método más usado es el descenso gradiente que es un método de aprendizaje supervisor. Sí, el paz, sí, de la función, los datos de entrada y la salida. Sí. Lo que haces es mientras estás entrenando tratas de vertiar, ¿sí? El pan de que el lo que calcula caja negra, la red, sí, se aproxime lo más posible al valor real. Por eso mucha gente dice, "Bueno, ¿qu es es el learning? Es profitivo. Sí, es cuando son dos dimensiones fácil verlo que es lo que representan los datos cuando tenés miles de dimensiones, ya no sabéis lo pasó. Entonces ahí hay teorías matemáticas, teoría del manifol que dice, bueno, está esto los datos de entradas tien una cierta distribución sí y se asumen que son lineales, ¿sí? Se comportan lineales en el punto que vos tenés del datas y ahí puedo aplicar continuidad de cosas y cosas. Entonces, lo que haces vos en cierta forma es tratar de que la caja negra la distribución de los datos
+sin que se ajuste lo suficiente para que otros datos no vistas.
+Es como si una función que vos tenés, que vos sabés la forma o le das parámetros. Sí. polinomios, vas a ver que los amentos y tienes dejar cierto grado de libertad, ¿sí? Para que la curva aproxime mejor. Es lo que hace, lo que hace esto es tratar de overfitear la relación entrada. Hay gente que dijo los datos sean de una dos dimensiones o una dimensión y otro cuando vas a dar LM te van a decir que son estadísticas barras aprendido la distribución de de de entrada repite
+y repite y sí y aprendieron sobre tanto volumen que generan coherencias. ¿Qué está parece? Es un tema, es un debate que hay. Estáí en el fondo es fuerza bruta. Hay otros métodos para que las redes aprendado de todo por lejos es el desenso de la diente y asieno de la diente es la entrada y la diente. lo que pasó en el medio, eh, no tiene explicación explicación matemática, que es de calcular el llevar al mínimo. Vos lo que tenés que hacer es reducir estadísticamente la pérdida. ¿Qué es la pérdida? La diferencia entre los que la caja negra da y los datos reales. Es lo que ves la curva de bien. Así se escucha. Voy a mirar esto por acá. Cuando hoy hablabas del patch fijo en lo en NLP, era por el tamaño de la de las oraciones cuál le das para entrar el modelo, ¿no? Lo tenías que definir en un tamaño.
+Eso es otro problema, pero eh en realidad lo el problema que vamos a ver en
+recurrentes es Pero no es el tamaño del batch, es el tamaño de la versión.
+Ah, está distinto.
+Este, no recuerdo si capaz lo aluciné, pero me parece que en algún momento de algún de una notebook nos interesa dropear algo que me lo inventé.
+¿Qué?
+Pero lo que vos decís es cuando las redes recurrentes están largo fijo, pero vendría a ser como en medio 1000 por 1000 en nuestro caso este 1000 por 8 no podemos tener cada una de las secuencias tenga largos diferentes.
+Claro.
+No usamos to vacío.
+Transform el o algo de eso.
+No, el es la palabra Ah,
+sí, el era el otro. Había otro que
+eh
+no era OT, era otro, pero no era
+un to que al final rellena todo con 5000 y pico. Eh, lo hacemos. Mira. Es muy gracioso, pero lo utilizamos con este data loader. Estoy compartiendo. E lo hacemos, pero a nivel de a nivel de batch de path sequence, o sea, de que e básicamente ve el largo máximo que vos tenés de todas t de todo tu batch y lo pone todos en ese en ese en ese largo. Pero si tenés otro batch que tiene un poco más largo, un poco más chico, máximo es más ch, o sea, no entre todos los baches son iguales, pero dentro del batche sí son todos iguales. Y la forma de hacer eso es en data loader este cómo
+el el no sé cómo se pronuncia collect function que lo que hace es como aplicar ya tenés como el bache ya hecho que le quieres hacer un segundo antes de volver entonces ahí tomas todos los datos pasó tenemos todo el mismo lo Podríamos hacer a nivel de de todo el bache, pero capaz que justo tenés una sentencia que es muy muy larga que macanea todo tu todo tu datas a lo por sí, o sea, desde esta segunda notebook hasta la última que vamos a ver, hay muchas cosas que podemos hacer directamente. Estamos viendo ahora terminar después de las de las 4:30. Bueno, vamos a proseguir. Lo que vamos a ir haciendo nosotros a medida que vamos avanzando durante el semestre. Los online, ¿me escuchan bien?
+Sí, sí,
+perfecto. Lo que vamos a ir durante el semestre es ir como teniendo una cajita de herramientas que yo después voy a compartir, que es este de utiles. De alguna manera, a medida que vamos agarrando nuevas herramientas para nuestros entrenamientos, vamos a ir perfeccionando un train loop. Vamos a empezar con uno. El más sencillito que vimos de alguna manera es el que vimos la vez pasada, pero eso ni siquiera habla de no tiene épocas o no. Acá vamos a hacer eh de alguna manera un training loop. que debería servirnos para todos los problemas que nosotros vamos a enfrentarnos de acá a fin de año. No importa si es una clasificación, no importa si es un una regresión, estamos trabajando con imágenes o estamos trabajando con palabras. Este training loop de alguna manera nos va air para todo. De hecho, creo que una de las cosas que he recogido de Pyorch es que mucha gente se queja de eso, como que hay que hacer mucho código que técnicamente si es siempre igual, ¿por qué no hac un método que se llama train y ya está, ¿no? A mí en particular lo que me gusta de F es que de alguna manera te vas metiendo en esos lugares que capaz que si vos instrumento train te lo perdés. ¿Qué está pasando de fondo? De todas maneras hay frameworks frameworks arriba de Pythmiten hacer todo tipo de funciones ya implementadas y no tener que hacerlo, ¿no? Pero bueno, vamos a nuestro training loop, no, perdón, vamos a definir el modelo. Bueno, vamos a hacer un self punto input y arrancamos con una nn punto linear. Sí, me sirve.
+¿Por qué de vuelta? Porque sí, ¿no?
+Sí,
+o sea, podemos tener después vamos a ver otras arquitecturas en general expandimos y poner más profundas también es otra otro lugar. un error no un poquito el
+acáendo Perotas veces fíate si acá tienes un ratón en el item.
+Fíjate si tienes itemes el rat inción
+este de acá.
+Sí,
+sí, sí,
+sí. Acá lo único que estoy haciendo es obteniendo los loaders, obtengo el iterador y obtengo el primer esto automáticamente cuando cuando en el training hagamos un for xi in dat loader es lo que pasa automáticamente, es tipo genera un iterador y lo va lo va iterando, este next y este es simplemente demostrativo
+para que lo vean qué es lo que estaba devolviendo.
+Bueno, como hac una regresión y simplemente queremos calcular el precio, vamos desde nuestro input size, que básicamente es la cantidad de datos que yo tengo, o sea, nuestras variables predictoras y terminamos en eh un solo dato que es efectivamente el precio. ¿Te puedo hacer una pregunta?
+Sí.
+Ahí las units por qué estarían esta acá,
+sí,
+por por definir una una X no más
+podemos traer dos capas lineales
+porque yo entiendo que una regresión lineal es solo input output,
+¿no? Eh, no, una simplemente regresión es que vos estás pruciendo un valor.
+Okay. está haciendo revisión.
+Okay. Estás diciendo
+después cuando como que vamos a definirón cuando estás pareciendo un solo número o bueno, capaz que dos o tres números
+y clasificación como vamos a estar clasificando.
+Sí. Es decir, si el dominio de salida numérico,
+sí, sí.
+Si es yo pensaba que
+si es categórico es una situación.
+Bien, está perfecto.
+Eh, Bueno, y acá simplemente definimos nuestro modelo y el sumar, ¿se acuerdan de qué era? ¿Alguien dijo algo online que es el sumar?
+Tomara arquitectura rompió. Arriba, arriba de todo.
+Perfecto. Pero el el import de arriba, el torcho, es el summary, importó bien. Está más arriba de todo
+el tor el torch sumar
+tor es una librería torch info que agregar un paquete inf.
+Igual yo te debería dar error en el ino
+depende. Estás usando dónde estás.
+No, ya sé, estás en la nube, estás con estás Torch info est todo lo demás ahí, ¿no? Porque el input length contiene la variable target. Vamos a ver si hicimos.
+Sí, creo que este para que no te pide nada de sacamos el target,
+¿no?
+Para dónde está acá
+lo sacamos, pero después lo veramos de vuelta. Lo sacamos simplemente para hacerle la normalización. Ah,
+pero después la abriramos de vuelta.
+Eh, acá es eh
+DFN por normalización. Hicimos el drop, acá hicimos la normalización, pero después loamos de vuelta. Eso es lo que
+puedo hacia arriba. Los online han llegado hasta acá.
+Un segundo, un segundo. Ya imprimí el
+claro. La confusión regresión y regresión. No, no. Sí, sí, cero lí dos dimensiones. Eso lo vamos a ver más adelante, pero por ejemplo Por ejemplo, cuando usamos transfer learning, capaz que a vos te interesaría eso lógicamente los no van a ser entrenables. Entonces vas a ver por la última capa en la que queres entrenar y los train van a ser esos últimos parámetros que los train son los que vos frez transformaciones algunos eh ir viendo es la diferencia entre bars y tra van a valer lo mismo y probablemente esos números van a van a cambiar. Básicamente al inicial al iniciar todos los parámetros que nosotros tenemos sobre cada una de las capas van a ser entrenables. Y otro dato que para mí está bueno ponerlo es ah ¿Cuánto se estima a de que va a costar pasar esos datos dentro de la red? Entonces, si ustedes tienen un imágenes que son suficientemente pesadas y ustedes le ponen el batch el tamaño de las imágenes, pueden estimar cuántos megab o gigas necesitan en su ah en su VRAM para poder trabajar con ese batch en concreto. Bueno, vamos a hacer nuestro traing. loop. Vamos a hacer tenemos dos tenemos dos partes. Yaimos esto de acá y vamos a concentrar en estos dos look loop y en eleval. Eh, vuelta. Esto es es algo que va a ir evolucionando a medida que vamos este pasando por todo el este por todo el semestre y vamos a ir agregando diferentes trucos a medida que lo vayamos aprendiendo, ¿no? Este este training loop y este evaluate loop va a ser utilizado a medida que aunque pasemos modelo a modelo. Vamos a recibir nuestro modelo, el optimizador, la función de los el train loader, o sea, el data loader que tiene el train, el data loader que tiene la validación, la cantidad de épocas y yo en particular le agregué como este sabor de una log function y log everyic tanto, o sea, es simplemente eh que tanto ico el resultado que está teniendo o yo lo veo, no sé la evolución de los parámetros que cada tanto en la en el training loop logan es como un loger, ¿no? Después esto lo vamos a sacar ventaja cuando veamos este la parte de weit and bias. Las dos cosas que va a devolver son simplemente los errores que va a ir a época a época. Bueno, empieza nuestro training loop. Sobre qué vamos a iterar.
+Sobre
+sí, pero antes de eso,
+épocas. Exactamente. Vamos a tener un doble for, pero está bien. Es primero sobre épocas y después sobre el dataloader, que cada uno de esos datoaders va a traer el batch.
+Entonces, vamos a traer nuestro or Epoc in range epox y vamos a tener un for x i in train catalog. Esto es lo que les decía de que ustedes no van a definir específicamente un iterador, sino que esto ya internamente. Lo que va a darles es un batch de X y de dentro de nuestro datalog. O sea, vamos a recorrer todos los datos tantas veces como época. Una época ahí no sabe lo que es. Recorrar todos los datos una sola vez. Explicaste,
+eh,
+explicaste.
+Sí, perfecto. Bueno, buena práctica para eh empezar. es que pongamos nuestro modelo en modo entrenamiento. Exactamente. Hoy en día eh con las redes que nosotros estamos haciendo y las capas que nosotros estamos utilizando, no va a haber ninguna diferencia. Ustedes capan, sacan el el model y el eval y les va a dar el mismo resultado, pero de alguna manera estamos haciendo un training loop que nos permita para futuras redes también funcionar. Y hay determinadas capas que vamos a ver más adelante que se comportan tan diferente cuando están entrenando que cuando están evaluando. Entonces, de alguna manera ya es una buena costumbre ir poniendo de que cuando está entrenando se ponga en modo train y cuando va a evaluar que se ponga en modo eval, ¿no? Bueno, este X y este y
+sí a este de acá porque cada tantas cada una época yo también voy a evaluar, o sea, acá abajo va a haber un evaluate y ese evaluate va a poner modelo en en evaluación. Entonces, para si yo solo lo pongo arriba,
+la primera va a estar en train, pero la segunda vuelta nunca lo va a volver a poner en modo train. Bueno, este X y este Y, ¿qué forma tienen?
+Son tensores.
+B
+tiene B size por 8 en el X y
+por uno. Exactamente. ¿Dónde están esos tensores?
+En CPU. ¿Qué tenemos que hacer primero? x = a x.2 device y igual a i pun device. Bien. Eh, pregunta. Eh, eso ahí, o sea, dos líneas, sí, lo de mandarlo a a device, ahí me perdí poco.
+Bueno, eh, a vos te tiene que pasar que cuando vos estás operando sobre tensores siempre tiene estar en el mismo dispositivo. Si vos estás en una máquina donde, por ejemplo, tiene una GPU, por defecto, cuando vos estás creando un sensor, te lo va a crear en memoria, memoria RAM, memoria RAM, tu máquina. Y si tu modelo vos queres que entrene rápido, probablemente vos querés que esté en una CPU o una, perdón, una GPU,
+una CPU, la queé por página, ¿no?
+Lo que qué
+Es el que hace correo por página en vez de lineal,
+¿no?
+Por lo que hablamos la clase pasada, que la GPU en vez de ir dato por dato, la le reconocía un como una página completa, hace operaciones eh sobre Pucho más rápidos o en paralelo. Capaz es eso lo que te referís.
+Eso era patch, creo, ¿no?
+Capaz que he confundido con patch.
+Claro. Va bien.
+Claro, pero no quiero confundir, pero tipo en realidad vos tenés dentro de las operaciones lineales tenés, por ejemplo, multiplicaciones de matrices cuando estás haciendo el forward que en en esas multiplicciones de matrices son muy eficientes. es una GPU, por ejemplo, entonces puede se puede hacer esos cálculos de forma muy rápida. ¿Qué pasa? Tanto si vas a operar dos tensores como simplemente sumarlos, como directamente tomar un tensor que son mis datos y pasarlo por mi red que estar dentro del mismo dispositivo. Está nosotros arriba del todo lo primero que definimos, ¿no? Lo que dio el error del backend, lo estamos definiendo. ¿Cuál es el dispositivo que va a operar mis tensores? Lo puse una pu en mi caso es MPS en en En el caso de Marcos, escudo, ¿no? Entonces, dependiendo de la máquina estás corriendo, probablemente si estás en colado, tengas un cuda, a menos que haya seleccionado otro tipo de cosas, ¿no? De vuelta tenemos que operar todos en el mismo en el mismo device. Por defecto, no está no sabes si está en Cuba o no. Sabes que está en CPU. De hecho, quien me está trayendo este X y este i el datalogra se lo pide el dataset y el dataset nunca en ningún momento cuando creó los tores, o sea, cuando dice el get item eh me lo pasó a GPU, ¿no? Entonces, ¿qué pasa? Es un poco la discusión de, bueno, ¿por qué pasamos todas GPU y ya está terminar el problema? Bueno, para empezar tenés el problema que discutíamos hace un rato de que si te entraes tantos datos, todo tu bching tan grande que ya te entra dentro de tu dentro de tu GPU. Por eso a medida que se va corriendo un batch se pasa y es lo único que vive en memoria, pues cuando el próximo batch sustituye esa memoria por el próximo batch. Vamos, Joaquín, perdón.
+Vamos.
+Si, por ejemplo, yo no tengo GPU, estoy trabajando con CPU y hago el device CPU,
+no va a hacer nada,
+no va a hacer nada, no tiene un impacto así el teléfono.
+Si de fondo está clonando y no está haciendo nada, yo asumo de que internamente tiene si el device es igual el que estoy mandando un retombre, pero yo no impre un significativo para nada. El modelo vamos abajo creo va a estar en el device, ¿no? Perdón, modelo acá va a estar dentro del device,
+pero está definido un poquito más abajo.
+Por ahora
+por ahora sí. Bueno, y eh vamos a tener una salida output que va a ser el haber pasado modelo model o modelo model nuestro X. Vamos a tener nuestro Ethereum, que es básicamente el que decide exactamente la los que decide qué tan lejos están el resultado de nuestra los per resultado de nuestro modelo versus lo que es esperado que le voy a pasar. el el
+Sí.
+Y el y el
+Tengo una pregunta que hizo el semestre pasado es que importa el orden. Vamos a primero lo que nosotros obtenemos y segundo el que el que espera. Exactamente.
+¿Qué más deos hacer?
+Optimizar.
+Optimizar. Para eso, ¿cómo cómo lo hacemos?
+¿Cómo lo hacemos?
+E ¿A o con doble?
+A ver, gracias. Acuar antes tenes que
+vamos hay dos formas. Pedíelo directamente el modelo o un cer Okay. ¿Cuál es la responsabilidad del 0 grado? Los gradientes. Se calcula la los. Recuerden que esta los que hace pasada es qué tiene detrás que no ayuda
+el grafo computacional, o sea, básicamente es ah vio cómo impacta todos nuestros eh parámetros más bien pesos en nuestro modelo a que efectivamente hayamos terminado en ese número, ¿no? El backward actualiza los gradientes y el y
+y el optimizador punto step que efectivamente cambia nuestros pesos. Bueno, vamos a empezar como agregar un par de cositas. Para empezar vamos a tener lo que es la podemos en cero. Y este los saben qué forma tiene es un número, no son 1000 24 números que es el batch, sino que es uno solo. De hecho, en realidad toma esas diferencias de cada uno y una de las cosas que tenían los criterium, por ejemplo, MC tiene una función de reducción, generalmente es el promedio por efecto de esos 1024 loses, pero en un solo número y hay un método en especial que a mí me permite llamar ese número tensor y volverlo a Python Python es Esto no lo puedo llamar si tengo 1000 o 2000 datos. Solo lo puedo llamar cuando efectivamente tengo un solo dato. Vamos a dar más igual y le ponemos los pun items. Recuerden que este item solo se puede llamar cuando nuestro tensor es un escalar. Tenemos dos datos, un vector probablemente se vaya a romper. ¿Cuál es el problema? Es que yo acá estoy sumando una los que técnicamente es muy probable que nuestro training vaya a tener más eh baches que nuestro nuestra validación. Nosotros queremos tener dos escalas que son similares, ¿no? Yo acá por cada batch estoy sumando una los Entonces, ¿cómo de alguna manera yo lo reduzco a lo que es de una sola época? ¿Se entiende el problema? muy mal dividido no
+es exactamente es qué pasa es nosotros acá si yo este training loader tiene s eh 20 eh épocas, perdón, 20 20 porque justamente como se dividió dio 20, entonces este número va a crecer directamente proporcional a esos 20es. Entonces me va a dar, por ejemplo, no sé, 5 + 4 más 6 + 4,5 más. Cuando yo salgo acá, imprimo, eso es directamente proporcional a cada cantidad de datos que yo tengo de train. Si yo después le calculo a a con los datos de de evaluación, que es muy probable, son menos datos, o sea, en train yo usé el 80% de mis datos, sin evaluación us el 10% y yo hago lo mismo, no son los comparables, ¿se entienden?
+Es como una normalización similar.
+Eso es un promedio. Sí, hac el promedio, pero como para
+para que tengan en la misma
+est en la misma escala. Sí, exactamente. Entonces, técnicamente nuestra Apple Close va a ser igual a Se puede hacer en Python
+y vamos a L de es diferente el L del dataset del traverad me va a dar la cantidad de que yo tengo. Ah, par que esto va solo va a crecer. Bueno, eh yo voy a tener que devolver en cada uno de mis épocas estas de acá, cuál fue la los en cada uno de los pasos, tanto en el training como en la evaluación. Por lo cual a este epic training loss, Exactamente. le voy a hacer punto appen de Apple closs. Esto lo podré definir como si quieren epoc train los que vamos técnico. Vamos bien. Cuando yo termino de entrenar, yo definí que tengo que definir eh tengo que devolver eh todos los errores que hubo en training, o sea, un dato por cada época y todos los que hay en eh en en valiación por esa época, esa misma época. Eso va después me va a ayudar a cuando yo vea la gráfica depende cómo se comporte el training los y la los por ejemplo podría tener conclusiones de o no está entrenando O sea, vamos aar conclusiones de esos de es de es de esas gráficas dependiendo de cómo se comportan las tanto de mi training como de mi ah validación. Debería debería entender a que sean el mismo error. ¿Qué más nos falta? Entonces el error de ealuación y después loguear dependiendo de la época. Vamos a hacer un epoc eh y vamos a llamar al evaluate. Va a pedir el modelo, el criterium y el data loader. Modelo criterium y data loader. Modelo criterium datoader. la memoria, perdón. Model criterium y datover. ¿Qué dato?
+Exacto. Buenos estudiantes que tengo.
+Exacto. Pero lo va a hacer dentro del evaluate.
+Exactamente. Y voy a terminar a nuestra valor Vamos bien. Bueno, yo acá es muy sencillo porque pego tuqui evaluate y vamos a ver qué tenemos que modificar. Para empezar, nosotros no estamos entrenando. Por lo cual no deberíamos cambiar nuestros pesos. Optimizer afuera. Optimizer, adiós. Este train data loader ahora es nuestro dataloader y nuestra average los hacemos average loss. Average loss y data. Vamos por partes. De vuelta. Voy a calcular la los de la misma manera. que nosotros teníamos antes la dos, empezamos desde cero, recorremos todo el datalader que va a ser de validación. Eh, lo último que está haciendo ahora el AV lo está haciendo en el mismo en el mismo o está en otro pasó a otro está reemplazando. Es otro
+Pero nosotros estábamos en el, o sea, está reemplazando sobre el mismo método, ¿no? No, no, no es nosotros estamos acá, íbamos a llamar al evaluate.
+Lo que yo hice es tomar esto acá, copiarlo
+y lo pegamos en el evaluate, es de acá arriba.
+Ah, eso me Okay.
+Ahí va. Vamos a
+acáos la los que vamos a devolver en Empezamos en cero. Vamos a recorrer todo nuestro dataloader, que en nuestro caso es nuestro eh de evaluación, nuestro datalader de evaluación evaluación, perdón. Tenemos que pasar también los e los tensores a nuestro device. Lo pasamos por nuestro modelo, lo pasamos por nuestra los Esto no lo necesitamos. Adiós. Y sumamos a la co, simplemente que nos vamos quedando. Pon el número. La única es el número. Acá faltan dos cosas, pero esperar sios rápido. Pongo esto y me me entusiasmo cuando estabando para tratar de seguirte.
+Si vos me pedís, yo te paso partes. de otro de código que hicimos en clase. Yo te lo paso.
+Sí, sí,
+prim por ti, yo te lo paso.
+Dale.
+Es más importante que prestas atención a que lo copies.
+Hay dos cosas acá. Es más, si hay dos cosas que faltan modo evaluación.
+Entonces, a nuestro modelo Decimos, deja de entrenar, ahora te vas a poner a evaluar. Y lo otro
+antes de hacer el forward que no calcule.
+Exacto. Podemos hacer un with torch y poner todo esto dentro del wi. Esto es necesario, eh, no, pero anda más rápido porque directamente no va a calcular los gradientes que necesita para llegar a esta los, o sea, se acuerdan de que eh esta los tiene el grafocional que dijimos antes. Ah, vienen que acá no lo va a tener. Acá imprimen el grafo de computación de la los y no lo tienen, no lo calcular porque lo único que van a querer es saber el valor de la los no llegaron ahí. Cómo llegaron ahí preocupación del tren. tenemos el eval y esto es un poco la pregunta que me hiciste al principio, es ¿Por qué lo ponemos acá en el en esta parte y no arriba? Es porque eventualmente después este for acá lo va a poner en modo val
+entonces cuando empiece la nueva época lo va a poner 30. Fíjense que este mismo problema va a ser lo vamos a utilizar para otras regresiones, para clasificaciones, para No sé, problemas del lenguaje va a estar más o menos igual. Simplemente vamos a ir agregando más más atributos o más parámetros. Creo que el único que me faltaría es este log function, ¿no? El log function lo que hace es si aún vos me pasás una una función de de loo tantas épocas yo la voy a llamar. ¿Con qué datos? Con eh con el número de época, la traing los y la bon los ces literalmente estoy pasando una función por parámetro. Entonces vamos a poner algo como if eh ta function separad y y esto mismo. Si estoy justo en la época que me eh me conviene bajo me toca loguear, entonces llamo la función la function con época más un porque este range arranca entre y época 1. Lo que es la train los que es es esta en particular está en la línea 74 y la B loss que es lo que está en la línea 76 es solo la los que pasó en esa época en particular. Si nosotros Amos 1000 épocas, capaz que no vale la pena entrenar en cada una de de las de las épocasarlo. Capaz que me interesa hacerlo cada 10 conos. Entonces, de alguna manera, no, imagínense spam, están todo el tiempo imprimiendo cosas que no muy lindo a nivel de usabilidad. Para eso dice cada cuántas épocas efectivamente va. Bueno, ya está. Vamos a ver si funciona. Bueno, tenemos nuestro nuestra función de los que en este caso vamos a dar error. La cantidad de épocas son 10. Learning rate vamos poner 01. Y acá efectivamente vamos a implementar o es la la función que le vamos a pasar de print log es la función de cada época que le vamos a pasar. Es el log eh function de print log en específico que le pasa la época, la train los la y lo único que va a hacer es imprimirlo. Después el día de mañana nosotros tomar esto y lo puede, por ejemplo, eh dárselo a Wit and Vas para que lo suba a su a a la web que vamos a hacer un poquito más adelante. Tenemos el modelo, lo pasamos a nuestro device, tenemos el optimizador y efectivamente acá vamos a entrenar. ¿Cuántas épocas?
+60
+100. ¿Cada cuánto vamos a imprimir? cada cinco dice, ¿y qué vamos a llamar cuando eh cada cinco épocas
+que acá en este en este caso en particular que es
+el print? No, le pasamos todo modelo, ¿cómo tiene que optimizar? Acá el día de mañana le quieren poner Adams, lo pueden poner criterium la que quieren un MSE, un MAE, el training loader son el data loader que tenemos el es el que tenemos. Y la de pum. Eh, el no está definido. Si noutas este de acá el otro, el
+este acá. Arrancar por el seis y después
+sí está mal acá. No, está mal acá. Ya se lo paso. No tengo pasar acá, me parece.
+¿Dónde subiste el modelo device que me lo que me está escuendendo?
+El modelo a device acá. Acá
+sí, como dice la compañera, este más un está de más porque ya ya este más un se lo estamos pasando acá. Por eso imprime 6 11 y 16 26 y 101 y 101 101 son losmatas y no nuestras épocas así que saquemos este más un o saquemos este más un acá eso da igual que me
+sal otro error que la variable los no está A mí me salió pas Depende la arquitectura. Pero esto no compañ esto escribirlo por el link de la Pero que subió esta volvió. Física no tendría que ser así. Claro. niña. Claro, la cosa depoción depende mucho de la principio me daba mayor. Estoy peleando con
+Ah, te quedó mal la variable,
+¿no? La variable quedó mal. Si no tiene p porque quedó mal definida la lista. por que vaya bajando in época nombre después de los números randos Estos dos son listos ahíos y este y este creo que eso hay errores de cálculo exacto. Estos datos acá de alguna manera que escala tan grande que muchos acá las primeras épocas Se ve un mejor. Es simplemente
+ahí va a ver el código. Ah, empezamos quedó ahí
+vieja.
+A mí me faltaba en el en el Ah, o sea, poner por internet es primero lineal. haciendo parámetro más bien va por y acumulado y Esto fue código 02 baja. Baja más baja. CPU Parece que están dando reiniciando, dándole de los pisos dos veces. dos veces un montón de pasó por todas las y terminador después de alguna manera por eso B
+claro permite
+no
+no se
+no se guarda diferencia de unos atributosamente como un historial pasó.
+Gracias. Está adentro el primero. Puedes escuchar un poco. Este la de este mucho más movimiento. Bueno, dependiendo de si detectó de que por ese lado llegó a bajar dos un parámetro que llama momentum la próxima vez más hacia esa dirección que eso incluso Todos, todos tienen que haber nuevo eh Arriba se hac un GPU.
+Sí,
+pero igual, o sea, es la banca es peor. Usamos memoria hace algo de por ejemplo cos Pido defender favoritismo ejercicio. La prueba. la parte final usaste lora usaste Este,
+bien, pero que vos entrenaste que señales claro congelado las primeras es por lo de no es un producto, sino que investigación de poder extraer los datos en el entrenamiento. Entonces hacer un entrenamiento en donde yo sé cuáles son los datos de entrenamiento, después estarencias visto, donde podés podes eliminar eliminar el dato la circuito para corriendo
+puede mostrar un poco El evaluate me faltó una parte el evaluate lo corro y el código me faltó una parte del
+Gracias. alo Nada que solicitud No creo que se acuerde una sola.
+Sí, sí. Ah. Tengo terminar eso.
+Tengo terminar hasta las 2 de la noche. Vamos a que no corra. Está más allá de algunos que les corra o no
+está. Vamos a ver esta parte eh después al final de la clase hacemos sala si queres y yo me quedo corro son si alguien no le corrió en particular probablemente es una línea de código dos me me me golpea por teams andas me pasas esa notebook que vimos en clases yo se las paso ningún tipo problema. ¿Por qué te sub
+qué?
+¿Por qué sub?
+Porque tiendo a pensar mal.
+¿Pensar mal? ¿En qué sentido?
+Todos.
+En de que si tienen el camino fácil van a tender a utilizarlo.
+Pero digo, o sea, subirla después la clase porque es inteligente. Esto forma parte de
+Claro. Después las clases como
+o sea si fuese antes lo entiendo, pero pasando Bueno, también puedes mirar el video de vuelta.
+Déjame pensarlo. No me acab una de una hora.
+O sea, la clase que ya no fue lo presiones.
+Vabb de mi lado. Bueno, ¿qué es andan bas y para qué sirve? Esta la voy a subir, las otras no las prometo.
+Profe, una consulta eh, cortita ahí en los números.
+A mí me dieron 1 coma a algo y usted le dio 0 coma. ¿Qué puede haber sido? A mí me corrió, pero
+todos los valores con O no,
+lo primero que me fijaría es este leng de acá si lo estás dividiendo.
+Sí, lo tengo.
+Reinic el
+reinicié el kernel acá y correlo todo.
+Es el famoso resetear y correr de vuelta.
+Capaz que tenés suerte. Si no, escribime o o vemos el el caso. Así terminamos el W and Bias, así no les queda colgado. V un concepto que simplemente con el código capaz que no se dan cuenta y me gustaría por lo menos explicarlo. ¿Qué pasa? Dependiendo de la experiencia que tengan o no, probablemente ustedes les gustaría probar diferentes cosas. Por ejemplo, nosotros partimos desde la base en que ah estamos utilizando esta cantidad de neuronas o esta cantidad de capas o ese patiz, pero técnicamente no hay nada que diga de que no sé, capaz que con un par menor en vez de 500 de 1000 1024, capaz que de uno de 512 o capaz que uno más grande termina aprendiendo mejor, ¿no? Entonces, ¿qué pasa? Lo que pueden ir haciendo, imagínense que ese entrenamiento dura 10 minutos, ¿no? Vamos a ponerlo como un ejemplo. Entonces, vienen acá, van a su máquina y dice, "Bueno, yo acá en M64 voy a probar con 128. Lo corro, espero 10 minutos, veo el resultado. Me dio tanto, bueno, me dio hasta los No, me dio bien, me dio mal. Ah, no sé, me ve un poquito mejor, me ve un poquito peor. Bueno, y si en vez de Relu pongo otros una sismoide, cambia un poco la arquitectura y si en vez de usar Adam, perdón, SDG, utilizo Adam. Y en vez de usar este learning rate, ¿por qué no utilizo el otro? O sea, todos son hiperparámetros que de alguna manera van a terminar el resultado de mi entrenamiento y de alguna manera podemos tener una pista, como dijo Maras clases, es bueno, primero copiemos algo que funcione y en base aí mejoremos. Entonces tenemos como una base de decir, bueno, yo que sé, esta arquitectura, esta cantidad de neuronas, esta función de activación, este learning rate, este optimizador, etcétera, etcétera, etcétera, tenemos muchas variables en las cuales nosotros podemos jugar entrenamiento. Estaría bueno que haya una herramienta de que me permita hacer combinaciones diferentes, le vaya notando cómo le fue a cada uno y yo al final de todo elijo a cuál le fue mejor, ¿no? Entonces pongo correr, pongo diferentes configuraciones que yo quiero eh experimentar, cada uno va a correr su training, cada uno va a evaluar y yo de una manera después voy a elegir el mejor resultado. Ah, eso hace Wit and Bes. Hay otras herramientas que lo utilizan, pero lo que nos permite es hacer experimentaciones. Aquellas decisiones que capaz que con un modelo base que empezamos a jugar un poquito da más o menos bien, capaz que hay determinadas configuraciones o hiperparámetros que hacen que funcione mejor, ¿no? Todo esto tiene un coste. O sea, si cada una de estas ejecuciones como el semestre pasado demoran 5 horas en correr y bueno, ¿cuántos experimentados puedo hacer? Tres, cuatro, cinco. Capaz que estos que son eh, no sé, corridas de de de training que son de demoró 2 minutos, puedo hacer 200 experimentos dejándolo barriendo todo el día la máquina y elegir el mejor o uno de los mejores combinación de hiperparámetros que yo decido, ¿no? En vez de estar probando a mano, defino experimentos y los corro. ¿Dónde está el perdón secreto? Porque correr tiene que correr.
+¿Cómo logra esa esa ventaja?
+¿Cómo logra qué?
+Correr todo en paralelo
+no lo corre en paralelo. Corre un experimento, anota sus resultados, corre otro experimento, anota los resultados.
+¿Y cómo no demora las 5 horas? Aparte me
+No, no, no. Sí. O sea, si vos tenés de 5 horas un entrenamiento y hacéis cuatro experimentos demor 20 horas,
+o sea, es un script realmente. A ver, es un script lo que nos va lo que nos va a decir.
+No me parece lo que lo que te entendí es que te va a ir vos vas a ir logueando como la combinación de los distintos hiperparámetros asociado a la a la los y vos vas a poder decir, bueno, la menor los es la combinación de todos estos hiperparámetros.
+O sea, por cada combinación
+cl creo que te te ahorra tener que ir anotando en un Excel, por ejemplo. Bueno, ahora le pongo tanto tanto cuánto,
+pero demora lo que tiene que demorar. Pero pero y esto ya es un poquito más avanzado, ustedes pueden definir el mismo experimento en dos máquinas diferentes y vos corrés el mismo experimento y nos atamos y vos agarras un conjunto de experimentos o de parámetros, yo agarro otros y cada uno va corriendo en dos máquinas o en tres máquinas o en 10 máquinas o en un millón de máquinasquina como En realidad corre local o en la nube, pero el login lo guarda en la nube. Exactamente.
+Por eso puede hacer colaboración.
+Exactamente. Exactamente. El logos donde se va a terminar guardando es efectivamente en andas. ¿Y cómo encuentro andas? Bueno, voy a Google y pongo andas y va apareceras. Van a aparecer a este lugar. ¿Qué tienen que hacer? En media hora no lo hagan la grabación porque vamos un poquito de código. se hacen en la cuenta, ¿no? Una vez que están en la cuenta, ustedes van a encontrar acá proyectos. Entonces, imagínense que quieren un nuevo proyecto, que yo no haría un proyecto por materia, es un proyecto por experimento. Por ejemplo, esta clase. Pero también puede hacer un experimento en su obligatorio o en el obligatorio de machine learning, ¿no? Es obligatorio de lo que ustedes quieran. No, voy a crear un nuevo proyectito. Eh, no sé si les hace crear como un team por Perfecto. Ahí tengo mi team y vamos a ponerle waitas clase. Vamos a ponerle un nombre y esto es team y creo el nuevo proyecto. ¿Qué es lo importante que usted les va a pedir? Son tres datos. Primero, una API. El segundo, el team. En este caso es Viña Team, o sea, ustedes crean un team y después justamente el nombre de su proyecto. Okay, entonces voy a ir a aquí vamos a ir más abajo y lo primero, cuando yo hago este andas, probablemente diría que un 80% seguro ejecuten esta línea de código andan bias no existe.
+En su caso, o lo instalan con o lo instalan en lado o lo instalan donde sea. Es un paquete super conoccido. Lo instalan el paquete y esto de acá les va a decir, "Che, eh, voy No, eso le va a aparecer un link es vamos a poner a ver si puedo poner un un el login. Cuando aparece este login de acá les va a aparecer un
+Joaquín, creo que no estás compartiendo. No sé si ustedes los que están en line
+lo ven
+yo sí veo.
+Sí, sí lo lo de la pantalla este la estoy viendo. Sí, esto no es está
+cuando este login de acá le va a aparecer un link bueno logate acá le va a dar un código eh
+terminal no estoy logado o sea ya detecta una sesión de
+creo que inicialmente es una terminal o el colabita
+un un link
+y después un input
+o le puedes poner un ke
+Exacto. Te va a pedir un app ke a P, la pegas y ya de alguna manera tu tu ambiente queda eh conectado con ese dónde
+te va a dar un link acá abajo, te va a decir cuando el proyecto,
+cuando el proyecto te lleva una página
+que ahí proyecto no Cada uno de los proyectos tiene lo llama un swip, que es básicamente una experimentación. ¿Qué es lo que van a tener que cambiar acá? El team este caso vengo acá y pego el código y elas clases que es el proyecto. Ahora bien, esta es una de las partes más importantes, es ustedes van a elegir primero con qué cosas quieren experimentar, cómo quieren muestrear y qué es lo que quieren minimizar, o sea, cuál es su objetivo. Todo esto hay documentación en Swift, o sea, pueden leerlo cada cosa, pero vamos por partes. Es va a crear un swift con este nombre. Hay métodos de empleo que puede ser randómico, pero también puede ser Uno les puede parecer interesante que es el valleciano que lo que hace es, bueno, yo tengo pocos experimentos para hacer y veo que hay un parámetro que si yo lo bajo me da mejor los trata de bajarlo. Si no se amplea de forma randomica. ¿Qué va a ser? Por ejemplo, el learning rate quiero entre 0 con1 y 0. Le pueden poner. Entonces yo le voy a pedir, bueno, dame dame un un conjunto de parámetros. Me va a dar un número de rate entre 0 y y cer uno al optimizer es me va a dar uno de estas dos cosas que son simplemente el string, o sea, le estoy diciendo dame un string que sea o adam o sdg, después yo lo voy a implementar y el bat size es o es 32 o es 256 es 1024 o 4096. Yo solo acá estoy definiendo e cuáles son los parámetros en los cuales yo quiero experimentar y entre qué valores y qué valores o qué opciones hay de cada uno. Entonces, yo le digo, "Dame un experimento o un punto de parámetros me va a devolver, por ejemplo, 0,07, me va a volver sdg y me va a devolver mi 24. Le digo, "Dame otro experimento y me va a decir 0,001 SDG y 32. Dame otro experimento, así todos los experimentos que yo quiero. Yo voy a tener que loguear una métrica llama BAL 2 y de alguna manera él va a ir midiendo el resultado en base a esta métrica. Entonces, Si yo minimizo, entonces de alguna manera va a ponderar o me va a mostrar esos parámetros de tal manera de que van a ser mejores si minimizan esta val. Para que vean un caso concreto, eh, un proyecto que ya tenga ejecutado, que es de acá, que es este mismo esta misma notebook. Y por ejemplo, tienen cada uno de estos es un experimento diferente. Se loguea la B loss, la train dos y la época y tienen cosas muy interesantes como eh lo que ocurrió es agarró un experimento que es cada una de estas líneas, por ejemplo, este experimento de acá que tomó eh 4096 de bat size, tomó un learning ray de cercano a 0,055, tomó eh Adam y terminó en un de los de 0,44. O sea, ustedes pueden verlo, por ejemplo, seleccionándola acá. Sí, dejo. Entonces ustedes le dicen qué es la métrica que van a estar minimizando y obviamente cuáles son los experimentos que a ustedes le interesan, cuáles son los que el mejor resultado. as de acá está diciendo de que con Adam, con un land rate cercano a 0,03 y con un budget de 1024 le fue mejor con la misma arquitectura, con los mismos datos, con el mismo est resultado. Fíjense de que es, no digo que es la mitad que está acá que dio peor, pero fíjense como simplemente cuándo con los hiperparámetros nosotros podemos encontrar un conjunto de de hiperparámetros. que nos dé un mejor resultado ante los mismos datos, ante la misma arquitectura. Y con esto podemos jugar un montón, desde la forma de la arquitectura, la cantidad de neuronas que nosotros tengamos, el learning rate, etcétera, etcétera, etcétera. O sea, definen qué cosas quieren experimentar. El pago,
+no hay una versión paga, pero hay una versión gratis. Eso yo tengo que hacer algo en mi
+en el código. Código, ¿no?
+¿Para qué?
+Para ejectar esos parámetros y ejecutar con esos parámetros, ¿o no?
+Exacto. Es lo que viene el código abajo. Acá simplemente le definís eh como el muestreario, o sea, los parámetros que vos queres muestrear y qué valores, rangos va a tener y cuál es tu métrica y cómo tiene que tomar estos datos, cómo tienes que ampliar esos datos. Esto acá me va a crear un swip que es una experimentación. De hecho, ya me va a dar un link que si abro acá no hay ningún una cosa corrida van a ver que no hay ningún experimento. Una vez que yo empiezo a correr y a lo cada uno de los experimentos va a tomar que técnicamente lo único que hace es corre el el modelo y hay una función que es weas log, lo que yo quiera loguear y me va a asociar ese experimento, lo va lo va a guardar acá. Por eso, porque se guarda en la nube es que ese mismo swip viene alguien con ese ID, dice, "Dame otro conjunto de parámetros y puede correrlo en su máquina con CUDA y él con Colab y Marcos con Super tor y todo esto lo puede leer en línea, o sea, pueden haber corriendo tres al mismo tiempo y está graficando y en línea los tres experimentos.
+Sí, tal cual. Exactamente. Para eso lo que tenemos que hacer es esta función que llama run, que para ahorrarles un poco de tiempo. Ya pongo el código porque si no no nos va a dar el tiempo. Y recuerdan el print logo, yo hice, que es una función que yo quiero llamar cada tanto Bueno, exacto. En vez de printear por pantalla, le digo a Wit and Vas, logate en este momento para esta época. con esta training loss con esta bals. Este atributo es el que tiene que machear este valor de acá los que simplemente Jason tiene que machear con este valor de acá muy importantes porque si no no sabe tipo yo estoy loando esto, pero esto puede ser puedo poner papa frita los y lo va a llear como papa frita los teeron afuera del ch que desean estar en esta clase. Bueno, cuando corremos un experimento Le decimos que arrancamos, le pedimos una configuración y acá es donde efectivamente me va a dar valores concretos, me va a dar para ese run un determinado learning rate, un determinado optimizer y un determinado patch size. ¿Por qué? Porque yo definí que los experimentos que voy a utilizar son esos tres. Puedo definir los que yo quiera. Voy a obtener nuestros loaders, pero fíjense de que ahora yo no le paso el B size que hice allá arriba, sino el que recibí por pedir los experimentos. defino mi modelo y dependiendo si este string es Adam, el optimizer lo hago con Adam y si es SGD lo inicializo con SG. Le pido que entrene sin con la única diferencia es que yo acá en vez de poner el print log pongo el weight and bias log y que lo printeé cada uno, o sea, que logue
+cada uno. Exactamente. Estas dos últimas líneas es bastante interesante. Es ustedes pueden guardar otras cosas que no son simplemente los logs. Imagínense que ustedes están haciendo lo generativo, imagínense un video con L o no sé o está haciendo una gente y está jugando al Mario Bros con L. Ustedes una vez que terminan de entrenar podrán subir un video que asocia ese entrenamiento con un artefacto como una imagen o un video o una generación de texto que ustedes quieran. Yo en particular lo que puse acá es que guarda los pesos del modelo de tal manera de que yo luego puedo pedir los pesos del modelo de que le fue mejor. Así tengo que correr el experimento de vuelta. Estos estos son lospámetros que fue mejor, pero ¿qué hago con eso? No lo quiero correr de vuelta guardo los pesos, lo guardo en la nube y después lo voy a poder bajar el agent paso el ID es el que cre La función que es la que corre es estado acá y la cantidad de corridas es acá. ¿Cómo sabe en qué lugar usar cada una de las nuestros? Lo que yo definí acá no toca nada nuestro modelo, o sea, no toca la cantidad de neuronas. Por ejemplo, si yo si yo cambiara, por ejemplo, la cantidad de neuronas que hay en la segunda capa lineal, entonces podría acá un nuevo atributo que sea cantidad de neuronas que vaya de 32 a 60,080 para que tomar el número
+Exacto. Pero exacto tomamos el modelo que aparte de usar el input, utiliza por ejemplo un parámetro que es la cantidad de neuronas en la segunda capa, por ejemplo, haces tu modelo parametrizable, eso se puede hacer. Y ahí cuando inicializas el modelo, esta línea de acá, Le pasas la cantidad de neuronas, por ejemplo,
+paraar la cantidad de capa.
+Claro. Exacto.
+Todos. No,
+no. A partir de acá la imaginación está allá arriba y me damos
+ese caso.
+Pasas en el limit y
+pero en en el limite vos definís todas las capas, pero después en el for definís cuáles usas en función de la cantidad que querés o mismo en el
+Una vez que definas elit podés definir por ejemplo cómo es y pued abajo tener un algo que lea y el forward que ha una cosa o otra dependiendo un de un una variable que guardes dentro del
+no por ejemplo arquitectura A o arquitectura B. IF arquitectura A haces un forward y if arquitectura B haces otro número
+eso ahí Ahí también puede salir.
+Por ahí yo podría, por ejemplo, definir cinco capas y después en el forward decir, bueno, si es uno hago esto.
+Claro, también. Sí, sí, sí. Exacto.
+O, por ejemplo, puedes definir la cantidad de capas que tenés, por ejemplo, con un una ray no más. Va de el input a 64, 64, perdón, de input 32, 32, 64, 648, 128 a 1. Vos puedes programar para que haga tantas capas como vos quieras acá. Y después este N seential simplemente hace un forward todo seguido, ¿sabes? Puedes hacer plastilina si
+esto me hace acordar a la función randomizer search, creo que hay en ese cader.
+Sí,
+usamos hiperparámetros.
+Sí, que también definís una raí de hiperparámetro.
+Eh,
+vamos a escribir
+eso. Sí, es
+y hay una que es randomizer que que también te hace en vez de probar todas las combinaciones te prueba combinaciones y
+nosotros vemos el código ahora esta ejecución ya puso a correr, está corriendo una a la vez de un va ser entrenado, va loguear, termina de de loguear. Arranca otro conjunto de experimentos. ¿Cuántos experimentos? Dependiendo cuánto yo hice counter, ¿no? ¿Cuántos experimentos son buenos? ¿Cuántos experimentos son malos? Otra cosa que tenemos que discutir, pero se está usando tu máquina. Sao está usando mi máquina. Lo único que está haciendo varias es vos imaginas mi máquina acá está corriendo todo el código y lo único que hace en weight and bias en una base de datos yo ¿Cómo Atiliio?
+Ya estaría graficando ya, o sea, ya estaría recibiendo datos.
+Sí, exacto. Si yo voy acá, si colar de
+si bien yo esto todavía no terminó, por lo menos no sé si o sea que se puede si deja la máquina de la cuelga después de cierto tiempo.
+Si ustedes ven acá, este es cómo está corriendo mi en este momento y por ahora solo ocurrió uno solo, ¿no?
+Cuando termine las épocas, en este caso son 100, va a agarrar otro conjunto de experimentos y va a haber un segundo, un segundo, una segunda corrida, un segundo round.
+Ah, ya lo apagan la máquina
+y la prenden de vuelta, siempre y cuando ustedes tomen el ID arrancar otro experimento de vuelta. pueden corerlo tantas veces como quiera.
+Lo que es importante es que esta parte de acá, yo acá técnicamente estoy creando el S, o sea, esta línea 17, yo creo un nuevo Switch, o sea, estos no deberían poder tener que ejecutarlo. O sea, si ya está corriendo, lo único que hacen es tomar ese ID y ya está. O sea, toda esta parte no la define, la definen solo eh la primera vez que se crea. Después cuando ustedes corren, vieron que acá dice un SIP ID, este número acá se lo guardan el bolsillo o van y tienen pueden obtener ese ID y justamente cuando ustedes corren, lo primero que le pasan después es el ship ID. Entonces esto mismo solo uno de los compañeros lo corre, le dice, "Che, correte este experimento de training con este Sweep ID y dos están logando. Tu tu máquina demora 3 horas en en correr, pero la mía lo hacen 2 horas. No importa, vos haces tu experimento a tu a tu ritmo, yo lo hago al mío y alquilamos y tomamos todas las máquinas de OD para hacer experimentos tiempos, no de vuelta. Esto lo van a ver más pasito. Tienen todo bastante explicado, tiene toda la documentación. Acá no es lo importante saber eh qué es un SP ID y qué hace, ¿no? Lo importante es nosotros tenemos momentos en donde nos gustaría tratar de experimentar esa experimentación de hiperparámetros. Nos gustaría de alguna manera automatizarlo. Si yo hubiera Hecho esto de forma manual, tendría que cada vez que termina de entrenar, imagínense que muera 5 minutos, venir acá, cambiarlo, venía mi libretita, anotarlo, esperar 10 minutos, bueno, me voy a ver memes a sigo, vengo acá, lo cambio, es medio deo, ¿no? Esto lo pueden dejar corriendo 10 horas y hacen tantos experimentarios como ustedes quieran y después eligen los mejores
+y y después ajustas, como es random,
+sí.
+Eh, la realidad es que te va vas a vas a ir pivoteando entre loses grandes y chicas. Entonces, vos agarras y después ajustas los parámetros para decir, "Che, ahora entre 0,5 y 0,7 para te haga más experimentos, pero orientado para ese
+el mismo experimento,
+un nuevo un nuevo experimento.
+No podes modificar los parámetros,
+no está creado s ya tiene ahí crearías un
+igual eso lo haces solo. Eh, en vez de hacer random, eh, tiene que haber ahí una documentación, pero hay uno que llama por Valles o algo así, que lo que hace es se da cuenta de que este rey le está yendo bien, entonces trata de priorizarlo en base a uno que le fue mal, pero ¿qué pasa? Nada te dice de que capaz el resultado está en el medio. Entonces, por lo que escuché, el creador lo que dice es, si tenés pocos experimentos, tipo cinco, usal porque manera, no puede de alguna manera apuntar de forma más precisa, pero cuando vos tenés suficientes experimentos y suficientes datos, el randómico supera el vallecier dicho por el creador, no por dicho por
+Pero la idea, la idea de él, si yo no me equivoco, era solo el tiro random, a ver si me da este mejor de yo quiero probarlo, pero
+puedo ver un patrón
+sacando, por ejemplo,
+claro, vos ves de los 10 de los 10 experimentos ves que el que tiene menos los es el que tiene, no sé, hiperparámetro. tanto, tanto, tanto. Entonces vas al código de Python y definís un un nuevo experimento, pero ponerle donde vos habías dicho que el learning rate al principio iba entre 0,1 y 1. Ahora vos lo decora lo voy a hacer entre 0,5 y 1 porque se acercó. Lo vas lo vas acotando para ir acercándote a minimizar, a seguir minimizando en próximas iteraciones como paquetes de
+Sí, sí, sí.
+Automatización que,
+por ejemplo, acá viste que podría deducir datos de que si la mayoría de los que les fue mal son con baches grandes, decidís experimentar un nuevo experimento entre cer y 1024 y como
+Sí, sí, sí, está bien. Si más grand
+Exacto. Pero acá, por ejemplo, no tengo solo una corrida con SGD. Es suficiente como para decirle que le fue mal. Si a este le fue con le fue mal para le fue mal, le fue con Adam o porque va a llegar El B side es muy grande y bueno, muy bueno, funciona muy bien, es gratuito, hay mínimo formas de hacer esto diferentes. Es la única que conozco por la cual es la unidad que podamos enseñar.
+Una consulta, profe.
+Vamos a
+¿Qué recomienda entonces para final eh ir moviendo de a un parámetro o de varios para las pruebas?
+Eh, Eh, no lo sé. Una sola variable. ¿Sabes que si varios y tenes una mejor? Sé cuál cuál te hizo la diferencia.
+Exacto.
+Si tienes una peora no sabes por qué empeoró.
+Igual el problema es que hay algunos variables que mejoran si cambias si los cambias juntos. Es correcto.
+Eso es un problema. Entonces está, o sea, eh nada, es eh un poco de prueba y error también. Venimos. de no 30 minutos corríamos las cosas a mano, ¿no? O sea, ya estamos a un punto donde estamos mucho mejor que hace media hora. El
+este, pero sí, cambiar muchas cosas no te implica que vaya a cambiar más rápido, va a mejorar más rápido, ¿no? Lo que sí te va a pasar es que vas a terminar inventando teorías mientras vas viendo las gráficas vas explicando de por qué la gráfica valores.
+Claro,
+hay un tercer método que no es randomico de valleciano que capaz que te permite eso. La realidad es que eh generalmente son variables divinuas que No, bueno, nunca
+creo que hay una llama grid
+que prueba todas las las com
+ese es exhaustivo mientras vos, o sea, como si esto discretices las variables
+exponencial, ¿no?
+Exacto.
+Son muchas todas las combinaciones 5 horas que un vallano capaz que si es poquito la pena. Lo que hago más es tipo y ver lo zona donde mejor le da y tipo ya y correr otro experimento más que sea más chiquito. Tipo un
+pregunta.
+Venga,
+¿cómo funciona el el SP? O sea, los experimentos en este caso con esta herramienta. E, por ejemplo, cuando hace una, o sea, hace un experimento, una combinación con los sitios.
+Es un RAR.
+Eso es un RAR,
+¿cierto? Cuando es un rand este corre, estoy pensando tipo en en los ep en los baches,
+eh, y las los randoms, o sea, dijimos baches, por ejemplo, no sé, tomo dos, pero esos dos, ejemplo, no sé, elegimos estos dos compañeros, ¿no? Eh, con una combinación de hiperparámetros, se pasa este mismo para el segundo y para el tercer o no
+creo. No creo.
+Y eso puede llegar a cambiar si son tan tan domico, aunque vos estás usando los No, no creo que afecte tanto cómo vayas tomando los datos comparación con las las decisiones que hemos tomado en base a los hiperparámetros.
+Corre completo, ¿no?
+Sí. O sea, hace una corrida. Eso es el
+no hace varias.
+Hace todas las EPO, o sea, las 100 EPOs por cada por cada round.
+Por eso que ahí
+siempre corrintos.
+Claro. diferente orden al final porque el ordenar porque tenemos el chat
+igual nosotros probablemente vamos la parte la vamos a controlar probablemente con otras cosas por ejemplo lo vieron pero de alguna manera pueden ir detectando que está overfiteando y en el momento que overfitean ahí cortan entrenamiento. Lo que te puede pasar en we es que tengas runs que son con 30 eh mientras tenés otros concios. Gracias.
+Los online tien una duda.
+Yo subo esta no dije esta dije que terminar
+se le explotaban los dos. la función.
+Bueno, nos vemos
+nos vemos. Chao, chao, que estén bien.
+Hasta luego.
+Gracias, profe. Muchas gracias.
+Tengan buen fin. Me escriben por teams, ¿verdad?
+Dale
+para preguntarme cómo estoy. Igual
+nos vemos, Marco. Buenas noches. Muy buenas de reconocimiento.

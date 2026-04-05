@@ -1,0 +1,19 @@
+Today's task is to complete the notebook C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\practico1\Tennis.ipynb following standard practices from this course.
+
+TASKS:
+
+1. Analyze C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\PRACTICOS_GUIDE.md.
+2. Analyze C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\practico1\Tennis.ipynb.
+3. Analyze C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\practico1\tennis.csv
+4. Analyze C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory\1-19-08-2025\1-19-08-2025.txt to understand what the teachers said about this notebook.
+5. Analyze the first notebook successfully completed, in folder C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\practico1. Compare the empty notebook with its completed version, and take note of the way in which the task was performed. You will need to imitate this.
+6. Create a duplicate of C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\practico1\Tennis.ipynb in its location.
+7. Complete that notebook based on all the information you've gathered.
+
+GUIDELINES:
+
+- Do not add any comment in the code.
+- Use spanish for all the prints, logs etc. Use English for the code itself (variable names, etc.) as per industry standard.
+- When writing answers to questions, be extremely brief. Use Spanish. Imitate the natural language of students and teachers observed in the transcripts of the classes, in folder C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory. Do not give advanced explanations since we are supposed to be beginner students.
+
+Ultrathink.

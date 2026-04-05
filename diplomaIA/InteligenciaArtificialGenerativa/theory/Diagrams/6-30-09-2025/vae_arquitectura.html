@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura VAE - Clase 6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.8em;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+
+        .section-title {
+            color: #764ba2;
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .explanation {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .explanation p {
+            color: #333;
+            line-height: 1.9;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+
+        .key-concept {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 6px solid #f5576c;
+        }
+
+        .key-concept h3 {
+            color: #f5576c;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .key-concept p {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .vae-diagram {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .vae-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .vae-component {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .vae-component:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .vae-component.input {
+            border: 4px solid #667eea;
+        }
+
+        .vae-component.encoder {
+            border: 4px solid #f093fb;
+        }
+
+        .vae-component.latent {
+            border: 4px solid #f5576c;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .vae-component.decoder {
+            border: 4px solid #56ab2f;
+        }
+
+        .vae-component.output {
+            border: 4px solid #764ba2;
+        }
+
+        .vae-component h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .vae-component.input h3 { color: #667eea; }
+        .vae-component.encoder h3 { color: #f093fb; }
+        .vae-component.latent h3 { color: #f5576c; }
+        .vae-component.decoder h3 { color: #56ab2f; }
+        .vae-component.output h3 { color: #764ba2; }
+
+        .vae-component p {
+            color: #666;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .vae-component .formula {
+            font-family: 'Courier New', monospace;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        .flow-arrow {
+            font-size: 3em;
+            color: #667eea;
+            font-weight: bold;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .latent-detail {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 3px solid #f5576c;
+        }
+
+        .latent-detail h3 {
+            color: #f5576c;
+            font-size: 1.7em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .latent-params {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .param-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .param-box h4 {
+            color: #f5576c;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .param-box .math {
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            color: #333;
+            margin: 15px 0;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table h3 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .table-row.header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .autoencoder-simple {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+
+        .autoencoder-simple h3 {
+            color: #f5576c;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .simple-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .simple-box {
+            background: white;
+            padding: 25px 35px;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 4px solid #fa709a;
+        }
+
+        .highlight-box h3 {
+            color: white;
+            font-size: 1.7em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .highlight-box p {
+            color: white;
+            font-size: 1.1em;
+            line-height: 1.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .vae-flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+                margin: 20px 0;
+            }
+
+            .latent-params {
+                grid-template-columns: 1fr;
+            }
+
+            .table-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Variational Autoencoder (VAE)</h1>
+        <p class="subtitle">Arquitectura completa y conceptos fundamentales</p>
+
+        <div class="section-title">¿Qué es un Autoencoder?</div>
+
+        <div class="explanation">
+            <p><strong>Definición simple:</strong> Un autoencoder es una red neuronal que aprende a comprimir datos y luego reconstruirlos.</p>
+            <p><strong>Objetivo:</strong> Aprender una representación compacta (comprimida) de los datos de entrada.</p>
+        </div>
+
+        <div class="autoencoder-simple">
+            <h3>Autoencoder Básico (sin variacional)</h3>
+            <div class="simple-flow">
+                <div class="simple-box" style="border: 3px solid #667eea; color: #667eea;">
+                    X<br>
+                    <span style="font-size: 0.8em;">(Dato original)</span>
+                </div>
+                <span class="flow-arrow" style="font-size: 2em;">→</span>
+                <div class="simple-box" style="border: 3px solid #f093fb; color: #f093fb;">
+                    Encoder<br>
+                    <span style="font-size: 0.8em;">(Comprime)</span>
+                </div>
+                <span class="flow-arrow" style="font-size: 2em;">→</span>
+                <div class="simple-box" style="border: 3px solid #f5576c; color: #f5576c;">
+                    Z<br>
+                    <span style="font-size: 0.8em;">(Vector pequeño)</span>
+                </div>
+                <span class="flow-arrow" style="font-size: 2em;">→</span>
+                <div class="simple-box" style="border: 3px solid #56ab2f; color: #56ab2f;">
+                    Decoder<br>
+                    <span style="font-size: 0.8em;">(Reconstruye)</span>
+                </div>
+                <span class="flow-arrow" style="font-size: 2em;">→</span>
+                <div class="simple-box" style="border: 3px solid #764ba2; color: #764ba2;">
+                    X'<br>
+                    <span style="font-size: 0.8em;">(Reconstrucción)</span>
+                </div>
+            </div>
+            <div class="explanation" style="margin-top: 25px; background: white;">
+                <p><strong>Uso típico:</strong> Compresión de datos. Si entreno bien el autoencoder, puedo guardar solo Z (pequeño) en lugar de X (grande).</p>
+            </div>
+        </div>
+
+        <div class="key-concept">
+            <h3>🔑 Diferencia del VAE</h3>
+            <p>Un <strong>Variational Autoencoder</strong> no solo comprime datos, sino que aprende una <strong>distribución probabilística</strong> en el espacio latente.</p>
+            <p style="margin-top: 15px;">Esto permite <strong>generar datos nuevos</strong> muestreando de esa distribución, no solo reconstruir los existentes.</p>
+        </div>
+
+        <div class="section-title">Arquitectura Completa del VAE</div>
+
+        <div class="vae-diagram">
+            <div class="vae-flow">
+                <div class="vae-component input">
+                    <h3>X</h3>
+                    <p><strong>Dato de Entrada</strong></p>
+                    <p>Imagen, vector, cualquier dato que queramos modelar</p>
+                    <div class="formula">
+                        Ejemplo: Imagen 28×28<br>
+                        = 784 píxeles
+                    </div>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="vae-component encoder">
+                    <h3>Encoder</h3>
+                    <p><strong>Red Neuronal</strong></p>
+                    <p>Comprime el dato de entrada a parámetros de distribución</p>
+                    <div class="formula">
+                        Encoder<sub>θ</sub>(X)<br>
+                        Perceptrón multicapa
+                    </div>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="vae-component latent">
+                    <h3>μ, σ</h3>
+                    <p><strong>Parámetros</strong></p>
+                    <p>El encoder NO da Z directamente, da los parámetros de una distribución normal</p>
+                    <div class="formula">
+                        μ<sub>θ</sub>(X), σ<sub>θ</sub>(X)<br>
+                        Media y varianza
+                    </div>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="vae-component latent" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <h3>Z</h3>
+                    <p><strong>Muestreo</strong></p>
+                    <p>Muestreamos Z de una normal con los parámetros anteriores</p>
+                    <div class="formula">
+                        Z ~ N(μ<sub>θ</sub>(X), σ<sub>θ</sub>(X))
+                    </div>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="vae-component decoder">
+                    <h3>Decoder</h3>
+                    <p><strong>Red Neuronal</strong></p>
+                    <p>Reconstruye el dato original desde Z</p>
+                    <div class="formula">
+                        Decoder<sub>φ</sub>(Z)<br>
+                        Perceptrón multicapa
+                    </div>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="vae-component output">
+                    <h3>X'</h3>
+                    <p><strong>Reconstrucción</strong></p>
+                    <p>Dato reconstruido que debe parecerse a X</p>
+                    <div class="formula">
+                        X' ≈ X<br>
+                        Objetivo del training
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">Espacio Latente: El Corazón del VAE</div>
+
+        <div class="highlight-box">
+            <h3>💡 Concepto Clave: Espacio Latente</h3>
+            <p>El espacio latente Z contiene representaciones abstractas de los datos. Por ejemplo, si entrenamos con caras, Z podría capturar: edad, género, expresión, ángulo de la cara, etc.</p>
+            <p style="margin-top: 15px;"><strong>Lo especial del VAE:</strong> Aprende estas representaciones SIN que le digamos qué características buscar. Las descubre automáticamente durante el entrenamiento.</p>
+        </div>
+
+        <div class="latent-detail">
+            <h3>⚙️ Detalles del Espacio Latente</h3>
+
+            <div class="explanation" style="border-color: #f5576c;">
+                <p><strong>Diferencia crucial:</strong> En un autoencoder normal, Z es un vector fijo. En VAE, Z es una <strong>variable aleatoria</strong> que sigue una distribución normal.</p>
+            </div>
+
+            <div class="latent-params">
+                <div class="param-box">
+                    <h4>μ<sub>θ</sub>(X)</h4>
+                    <p>Vector de medias</p>
+                    <div class="math">
+                        μ ∈ ℝ<sup>d</sup>
+                    </div>
+                    <p style="margin-top: 15px; color: #666;">Si d=3, obtenemos 3 valores de media para describir el punto central en el espacio latente</p>
+                </div>
+
+                <div class="param-box">
+                    <h4>σ<sub>θ</sub>(X)</h4>
+                    <p>Matriz de varianzas</p>
+                    <div class="math">
+                        σ ∈ ℝ<sup>d×d</sup>
+                    </div>
+                    <p style="margin-top: 15px; color: #666;">Si d=3, obtenemos una matriz 3×3 que describe cómo varían las dimensiones del espacio latente</p>
+                </div>
+            </div>
+
+            <div class="explanation" style="margin-top: 25px; border-color: #f5576c;">
+                <p><strong>¿Por qué normal?</strong> Porque las distribuciones normales tienen propiedades matemáticas muy convenientes para la optimización, y permiten hacer el "reparametrization trick" (lo veremos en otro diagrama).</p>
+            </div>
+        </div>
+
+        <div class="section-title">Comparación: Autoencoder vs VAE</div>
+
+        <div class="comparison-table">
+            <h3>Diferencias Clave</h3>
+
+            <div class="table-row header">
+                <div>Autoencoder Normal</div>
+                <div>Variational Autoencoder (VAE)</div>
+            </div>
+
+            <div class="table-row">
+                <div>
+                    <strong>Espacio Latente:</strong><br>
+                    Z es un vector determinista fijo
+                </div>
+                <div>
+                    <strong>Espacio Latente:</strong><br>
+                    Z es una variable aleatoria con distribución normal
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div>
+                    <strong>Encoder produce:</strong><br>
+                    Un vector Z directamente
+                </div>
+                <div>
+                    <strong>Encoder produce:</strong><br>
+                    Parámetros μ y σ de una distribución
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div>
+                    <strong>Objetivo:</strong><br>
+                    Solo reconstrucción (minimizar ||X - X'||)
+                </div>
+                <div>
+                    <strong>Objetivo:</strong><br>
+                    Reconstrucción + regularización del espacio latente
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div>
+                    <strong>Generación:</strong><br>
+                    Difícil generar datos nuevos buenos
+                </div>
+                <div>
+                    <strong>Generación:</strong><br>
+                    Puedo muestrear Z ~ N(0,1) y generar datos nuevos
+                </div>
+            </div>
+
+            <div class="table-row">
+                <div>
+                    <strong>Uso principal:</strong><br>
+                    Compresión de datos
+                </div>
+                <div>
+                    <strong>Uso principal:</strong><br>
+                    Generación de datos nuevos
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">Variables Latentes en la Naturaleza</div>
+
+        <div class="explanation">
+            <p><strong>Concepto filosófico:</strong> Una variable latente es algo que existe y afecta lo que observamos, pero que no podemos medir directamente.</p>
+        </div>
+
+        <div class="key-concept">
+            <h3>🌸 Ejemplo: Flores Iris</h3>
+            <p><strong>Observable:</strong> Largo y ancho del pétalo, largo y ancho del sépalo (los podemos medir).</p>
+            <p style="margin-top: 10px;"><strong>Latente:</strong> La especie de la flor (setosa, versicolor, virginica). Esto NO está escrito en la flor, pero determina las medidas que observamos.</p>
+            <p style="margin-top: 10px;"><strong>En VAE:</strong> El modelo debe descubrir estas variables latentes por sí mismo, sin que le digamos cuáles son.</p>
+        </div>
+
+        <div class="key-concept">
+            <h3>🖼️ Ejemplo: Dígitos Manuscritos</h3>
+            <p><strong>Observable:</strong> Los 784 píxeles de la imagen (28×28).</p>
+            <p style="margin-top: 10px;"><strong>Latente:</strong> Qué número es (0-9), el estilo de escritura, el grosor del trazo, la inclinación. Nada de esto está explícitamente marcado en la imagen.</p>
+            <p style="margin-top: 10px;"><strong>VAE aprende:</strong> A capturar estas características abstractas en el espacio Z.</p>
+        </div>
+
+        <div class="section-title">Dimensionalidad del Espacio Latente</div>
+
+        <div class="highlight-box">
+            <h3>📐 Hiperparámetro Importante</h3>
+            <p>La dimensión d del espacio latente es algo que <strong>nosotros decidimos</strong> antes de entrenar.</p>
+            <p style="margin-top: 15px;"><strong>Ejemplo:</strong> Si d=3, estamos diciendo que nuestros datos se pueden representar con 3 números (capturando 3 características abstractas).</p>
+            <p style="margin-top: 15px;"><strong>Trade-off:</strong> d muy pequeño → no captura toda la variabilidad. d muy grande → sobreajuste y difícil de optimizar.</p>
+        </div>
+
+        <div class="explanation">
+            <p><strong>Típicamente:</strong> Para imágenes simples (MNIST) se usan d=2 o d=3 para poder visualizar. Para imágenes complejas se pueden usar d=32, d=64, d=128, etc.</p>
+        </div>
+
+        <div class="section-title">¿Para Qué Sirve el VAE?</div>
+
+        <div class="key-concept">
+            <h3>🎨 Aplicaciones Principales</h3>
+            <p><strong>1. Generación de datos:</strong> Puedo muestrear Z ~ N(0,1) aleatorio y pasarlo por el decoder para generar imágenes nuevas.</p>
+            <p style="margin-top: 10px;"><strong>2. Interpolación:</strong> Puedo tomar dos imágenes, obtener sus Z₁ y Z₂, y generar imágenes intermedias interpolando entre Z₁ y Z₂.</p>
+            <p style="margin-top: 10px;"><strong>3. Manipulación:</strong> Si Z captura características como "edad", puedo modificar esa dimensión de Z para "envejecer" una cara.</p>
+            <p style="margin-top: 10px;"><strong>4. Compresión:</strong> Como bonus, también funciona para comprimir datos (como un autoencoder normal).</p>
+        </div>
+
+        <div class="section-title">Resumen de Conceptos</div>
+
+        <div class="key-concept">
+            <h3>📚 Ideas Fundamentales</h3>
+            <p><strong>1. Autoencoder básico:</strong> Comprime y reconstruye datos.</p>
+            <p><strong>2. VAE:</strong> Autoencoder que aprende una distribución probabilística en el espacio latente.</p>
+            <p><strong>3. Encoder:</strong> NO produce Z, produce μ y σ (parámetros de una distribución normal).</p>
+            <p><strong>4. Muestreo:</strong> Z se muestrea de N(μ<sub>θ</sub>(X), σ<sub>θ</sub>(X)).</p>
+            <p><strong>5. Decoder:</strong> Reconstruye X desde Z.</p>
+            <p><strong>6. Variables latentes:</strong> Características abstractas no observables que generan los datos.</p>
+            <p><strong>7. Generación:</strong> Podemos crear datos nuevos muestreando Z ~ N(0,1) y pasándolo por el decoder.</p>
+        </div>
+    </div>
+</body>
+</html>

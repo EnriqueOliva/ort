@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GANs - Función de Pérdida</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+
+        .section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 6px solid #f5576c;
+        }
+
+        .section h2 {
+            color: #f5576c;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .formula-box {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+            border: 2px solid #e0e0e0;
+            position: relative;
+        }
+
+        .formula-box.main {
+            border-color: #f5576c;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+        }
+
+        .formula-label {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #f5576c;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .explanation-text {
+            color: #555;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .column-box {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .column-box h3 {
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f5576c;
+        }
+
+        .graph-container {
+            margin: 30px 0;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .interactive-button {
+            background: #f5576c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .interactive-button:hover {
+            background: #d44355;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .interactive-button.active {
+            background: #764ba2;
+        }
+
+        .math-symbol {
+            color: #f5576c;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .highlight {
+            background: #fff9c4;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .note-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .note-box strong {
+            color: #1976d2;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        ul li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animated {
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📐 GANs - Función de Pérdida</h1>
+        <p class="subtitle">El juego minimax entre Generador y Discriminador</p>
+
+        <!-- Función de Pérdida General -->
+        <div class="section">
+            <h2>🎯 Función de Pérdida General (Objetivo del Sistema)</h2>
+
+            <div class="formula-box main">
+                <div class="formula-label">FÓRMULA PRINCIPAL</div>
+                <div style="text-align: center; padding-top: 20px;">
+                    min<sub>G</sub> max<sub>D</sub> V(D, G) =
+                    <br><br>
+                    𝔼<sub>x~p<sub>data</sub>(x)</sub>[log D(x)] + 𝔼<sub>z~p(z)</sub>[log(1 - D(G(z)))]
+                </div>
+            </div>
+
+            <div class="explanation-text">
+                <p><strong>¿Qué significa esta expresión?</strong></p>
+                <p>Es un <span class="highlight">juego minimax</span>: el Discriminador (D) quiere <strong>maximizar</strong> esta función, mientras que el Generador (G) quiere <strong>minimizarla</strong>.</p>
+            </div>
+
+            <div class="two-column">
+                <div class="column-box">
+                    <h3>📊 Primer Término</h3>
+                    <div class="formula-box">
+                        𝔼<sub>x~p<sub>data</sub></sub>[log D(x)]
+                    </div>
+                    <p><strong>Significado:</strong> Esperanza del logaritmo de la predicción del discriminador sobre datos <strong>reales</strong>.</p>
+                    <ul>
+                        <li><strong>x</strong>: imagen real del dataset</li>
+                        <li><strong>D(x)</strong>: probabilidad que D asigna a que x sea real</li>
+                        <li><strong>log D(x)</strong>: se maximiza cuando D(x) → 1</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Objetivo:</strong> D debe dar probabilidad alta (cercana a 1) a datos reales.</p>
+                </div>
+
+                <div class="column-box">
+                    <h3>🎨 Segundo Término</h3>
+                    <div class="formula-box">
+                        𝔼<sub>z~p(z)</sub>[log(1 - D(G(z)))]
+                    </div>
+                    <p><strong>Significado:</strong> Esperanza del logaritmo de (1 - predicción) sobre datos <strong>falsos</strong>.</p>
+                    <ul>
+                        <li><strong>z</strong>: ruido aleatorio</li>
+                        <li><strong>G(z)</strong>: imagen falsa generada</li>
+                        <li><strong>D(G(z))</strong>: probabilidad que D asigna a que G(z) sea real</li>
+                        <li><strong>log(1 - D(G(z)))</strong>: se maximiza cuando D(G(z)) → 0</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Objetivo:</strong> D debe dar probabilidad baja (cercana a 0) a datos falsos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Entrenamiento del Discriminador -->
+        <div class="section">
+            <h2>🔍 Entrenamiento del Discriminador (maximizar V)</h2>
+
+            <div class="formula-box">
+                <div class="formula-label">DISCRIMINADOR</div>
+                <div style="padding-top: 20px;">
+                    max<sub>φ</sub> V(D, G) = 𝔼<sub>x~p<sub>data</sub></sub>[log D(x; φ)] + 𝔼<sub>z~p(z)</sub>[log(1 - D(G(z); φ))]
+                </div>
+            </div>
+
+            <div class="explanation-text">
+                <p><strong>¿Qué hace el discriminador?</strong> Ajusta sus parámetros <span class="math-symbol">φ</span> para:</p>
+                <ul>
+                    <li>Maximizar <strong>log D(x)</strong> para imágenes reales → quiere que D(x) ≈ 1</li>
+                    <li>Maximizar <strong>log(1 - D(G(z)))</strong> para imágenes falsas → quiere que D(G(z)) ≈ 0</li>
+                </ul>
+            </div>
+
+            <div class="note-box">
+                <strong>💡 Equivalencia con Binary Cross-Entropy:</strong> Esta función es equivalente a entrenar un clasificador binario con BCE Loss. Los datos reales tienen etiqueta 1 y los datos falsos tienen etiqueta 0.
+            </div>
+
+            <div class="formula-box">
+                <div style="padding-top: 10px;">
+                    <strong>En la práctica (BCE):</strong><br><br>
+                    Loss<sub>D</sub> = -[log D(x) + log(1 - D(G(z)))]
+                </div>
+            </div>
+        </div>
+
+        <!-- Entrenamiento del Generador -->
+        <div class="section">
+            <h2>🎨 Entrenamiento del Generador (minimizar V)</h2>
+
+            <div class="formula-box">
+                <div class="formula-label">GENERADOR - Versión Teórica</div>
+                <div style="padding-top: 20px;">
+                    min<sub>θ</sub> V = 𝔼<sub>z~p(z)</sub>[log(1 - D(G(z; θ)))]
+                </div>
+            </div>
+
+            <div class="explanation-text">
+                <p><strong>Nota importante:</strong> El primer término (datos reales) <strong>no depende de θ</strong>, por eso se elimina.</p>
+            </div>
+
+            <div class="note-box" style="background: #fff3e0; border-left-color: #ff9800;">
+                <strong>⚠️ Problema de Gradientes:</strong> Minimizar log(1 - D(G(z))) puede causar gradientes que desaparecen (vanishing gradients) al inicio del entrenamiento, cuando D es muy bueno y D(G(z)) ≈ 0.
+            </div>
+
+            <div class="formula-box" style="border-color: #4caf50; background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);">
+                <div class="formula-label" style="background: #4caf50;">GENERADOR - Versión Práctica</div>
+                <div style="padding-top: 20px;">
+                    max<sub>θ</sub> 𝔼<sub>z~p(z)</sub>[log D(G(z; θ))]
+                </div>
+            </div>
+
+            <div class="explanation-text">
+                <p><strong>Solución:</strong> En lugar de minimizar log(1 - D(G(z))), se <strong>maximiza log D(G(z))</strong>.</p>
+                <ul>
+                    <li>Matemáticamente se comportan de manera similar</li>
+                    <li>Pero los gradientes son más estables</li>
+                    <li>El generador intenta que D(G(z)) → 1 (engañar al discriminador)</li>
+                </ul>
+            </div>
+
+            <div class="formula-box">
+                <div style="padding-top: 10px;">
+                    <strong>En la práctica (BCE con labels flipeados):</strong><br><br>
+                    Loss<sub>G</sub> = -log D(G(z))
+                    <br><br>
+                    <em style="color: #666;">Se pasan las imágenes generadas con etiqueta 1 (como si fueran reales)</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualización de las funciones -->
+        <div class="section">
+            <h2>📈 Visualización de las Funciones de Pérdida</h2>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <button class="interactive-button active" onclick="showGraph('log')">log(D(x))</button>
+                <button class="interactive-button" onclick="showGraph('log1minus')">log(1 - D(x))</button>
+                <button class="interactive-button" onclick="showGraph('both')">Ambas</button>
+            </div>
+
+            <div class="graph-container">
+                <canvas id="lossGraph" width="800" height="400"></canvas>
+            </div>
+
+            <div id="graphExplanation" class="explanation-text">
+                <p><strong>Interpretación de log D(x):</strong></p>
+                <ul>
+                    <li>Cuando D(x) = 1: log(1) = 0 (máximo)</li>
+                    <li>Cuando D(x) → 0: log(0) → -∞ (penalización infinita)</li>
+                    <li>Gradientes grandes cuando D(x) es pequeño</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Algoritmo de Entrenamiento -->
+        <div class="section">
+            <h2>🔄 Algoritmo de Entrenamiento Alternado</h2>
+
+            <div class="formula-box" style="background: #f5f5f5; font-family: 'Courier New', monospace; font-size: 0.9em;">
+<pre style="margin: 0;">
+<strong>Para cada época de entrenamiento:</strong>
+
+  <span style="color: #2196f3;">// Fase 1: Entrenar Discriminador (k veces)</span>
+  Para k iteraciones:
+    1. Muestrear m ruidos: {z₁, z₂, ..., zₘ} ~ p(z)
+    2. Muestrear m imágenes reales: {x₁, x₂, ..., xₘ} ~ p_data
+    3. Calcular pérdida:
+       Loss_D = -1/m Σ[log D(xᵢ) + log(1 - D(G(zᵢ)))]
+    4. Actualizar φ con gradiente ascendente:
+       φ ← φ + α · ∇_φ Loss_D
+
+  <span style="color: #4caf50;">// Fase 2: Entrenar Generador (1 vez)</span>
+    1. Muestrear m ruidos: {z₁, z₂, ..., zₘ} ~ p(z)
+    2. Calcular pérdida (versión práctica):
+       Loss_G = -1/m Σ log D(G(zᵢ))
+    3. Actualizar θ con gradiente ascendente:
+       θ ← θ + α · ∇_θ Loss_G
+</pre>
+            </div>
+
+            <div class="note-box">
+                <strong>📌 Detalles importantes:</strong>
+                <ul>
+                    <li><strong>k</strong>: Número de veces que se entrena D por cada entrenamiento de G (típicamente k=1 o k=5)</li>
+                    <li><strong>m</strong>: Tamaño del batch (mini-lote)</li>
+                    <li><strong>α</strong>: Learning rate (puede ser diferente para D y G)</li>
+                    <li><strong>Alternancia:</strong> Se congela una red mientras se entrena la otra</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Objetivo Final -->
+        <div class="section">
+            <h2>🎯 Objetivo Final del Entrenamiento</h2>
+
+            <div class="explanation-text">
+                <p><strong>El equilibrio ideal (equilibrio de Nash):</strong></p>
+                <ul>
+                    <li>El generador aprende la distribución real: <span class="math-symbol">p_G = p_data</span></li>
+                    <li>El discriminador no puede distinguir: <span class="math-symbol">D(x) = 0.5</span> para todo x</li>
+                    <li>En este punto, ambas redes han alcanzado su mejor desempeño posible</li>
+                </ul>
+            </div>
+
+            <div class="note-box" style="background: #e8f5e9; border-left-color: #4caf50;">
+                <strong>✅ Señales de buen entrenamiento:</strong>
+                <ul>
+                    <li>Las pérdidas de D y G se mantienen relativamente estables</li>
+                    <li>Ninguna red domina completamente a la otra</li>
+                    <li>Las imágenes generadas mejoran progresivamente</li>
+                    <li>D(x_real) ≈ 0.7-0.8 y D(x_fake) ≈ 0.3-0.5</li>
+                </ul>
+            </div>
+
+            <div class="note-box" style="background: #ffebee; border-left-color: #f44336;">
+                <strong>❌ Problemas comunes:</strong>
+                <ul>
+                    <li><strong>Mode Collapse:</strong> G genera siempre el mismo tipo de imagen</li>
+                    <li><strong>D demasiado fuerte:</strong> G no recibe gradientes útiles</li>
+                    <li><strong>G demasiado fuerte:</strong> D se confunde y deja de aprender</li>
+                    <li><strong>Inestabilidad:</strong> Las pérdidas oscilan salvajemente</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('lossGraph');
+        const ctx = canvas.getContext('2d');
+        let currentGraph = 'log';
+
+        function drawGraph() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const width = canvas.width;
+            const height = canvas.height;
+            const padding = 60;
+
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(padding, padding);
+            ctx.lineTo(padding, height - padding);
+            ctx.lineTo(width - padding, height - padding);
+            ctx.stroke();
+
+            ctx.fillStyle = '#333';
+            ctx.font = '14px Arial';
+            ctx.fillText('D(x)', width - padding + 10, height - padding + 5);
+            ctx.fillText('Loss', padding - 40, padding);
+            ctx.fillText('0', padding - 10, height - padding + 20);
+            ctx.fillText('1', width - padding - 5, height - padding + 20);
+
+            const points = 200;
+            const xScale = (width - 2 * padding) / points;
+            const yScale = height - 2 * padding;
+
+            if (currentGraph === 'log' || currentGraph === 'both') {
+                ctx.strokeStyle = '#2196f3';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                for (let i = 1; i < points; i++) {
+                    const x = i / points;
+                    const y = Math.log(x);
+                    const normalizedY = Math.max(0, Math.min(1, (-y) / 5));
+
+                    const canvasX = padding + i * xScale;
+                    const canvasY = height - padding - normalizedY * yScale;
+
+                    if (i === 1) {
+                        ctx.moveTo(canvasX, canvasY);
+                    } else {
+                        ctx.lineTo(canvasX, canvasY);
+                    }
+                }
+                ctx.stroke();
+            }
+
+            if (currentGraph === 'log1minus' || currentGraph === 'both') {
+                ctx.strokeStyle = '#f44336';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                for (let i = 1; i < points; i++) {
+                    const x = i / points;
+                    const y = Math.log(1 - x);
+                    const normalizedY = Math.max(0, Math.min(1, (-y) / 5));
+
+                    const canvasX = padding + i * xScale;
+                    const canvasY = height - padding - normalizedY * yScale;
+
+                    if (i === 1) {
+                        ctx.moveTo(canvasX, canvasY);
+                    } else {
+                        ctx.lineTo(canvasX, canvasY);
+                    }
+                }
+                ctx.stroke();
+            }
+
+            if (currentGraph === 'both') {
+                ctx.fillStyle = '#2196f3';
+                ctx.font = 'bold 16px Arial';
+                ctx.fillText('log D(x)', width - 150, 100);
+
+                ctx.fillStyle = '#f44336';
+                ctx.fillText('log(1 - D(x))', 100, 100);
+            }
+        }
+
+        function showGraph(type) {
+            currentGraph = type;
+            drawGraph();
+
+            document.querySelectorAll('.interactive-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            const explanation = document.getElementById('graphExplanation');
+
+            if (type === 'log') {
+                explanation.innerHTML = `
+                    <p><strong>Interpretación de log D(x):</strong></p>
+                    <ul>
+                        <li>Cuando D(x) = 1: log(1) = 0 (máximo)</li>
+                        <li>Cuando D(x) → 0: log(0) → -∞ (penalización infinita)</li>
+                        <li>Gradientes grandes cuando D(x) es pequeño</li>
+                        <li>Se usa para datos <strong>reales</strong></li>
+                    </ul>
+                `;
+            } else if (type === 'log1minus') {
+                explanation.innerHTML = `
+                    <p><strong>Interpretación de log(1 - D(x)):</strong></p>
+                    <ul>
+                        <li>Cuando D(x) = 0: log(1) = 0 (máximo)</li>
+                        <li>Cuando D(x) → 1: log(0) → -∞ (penalización infinita)</li>
+                        <li>Gradientes pequeños cuando D(x) es pequeño (problema para G)</li>
+                        <li>Se usa para datos <strong>falsos</strong></li>
+                    </ul>
+                `;
+            } else {
+                explanation.innerHTML = `
+                    <p><strong>Comparación de ambas funciones:</strong></p>
+                    <ul>
+                        <li><span style="color: #2196f3;">Azul (log D(x))</span>: Para datos reales, queremos maximizar</li>
+                        <li><span style="color: #f44336;">Rojo (log(1-D(x)))</span>: Para datos falsos, queremos maximizar (D minimiza)</li>
+                        <li>Ambas tienen forma similar pero "reflejada"</li>
+                        <li>El problema del rojo: gradientes débiles cuando D(x) ≈ 0</li>
+                    </ul>
+                `;
+            }
+        }
+
+        drawGraph();
+    </script>
+</body>
+</html>

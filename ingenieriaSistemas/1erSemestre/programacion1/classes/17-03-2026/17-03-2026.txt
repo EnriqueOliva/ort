@@ -1,0 +1,4008 @@
+Muy bueno chicos
+La clase de hoy
+Como ya saben
+Vamos a estar acá en el grupo de programación 1
+N1ID
+Está de práctico
+Entonces
+Algunas puntualizaciones
+Para los que están en la parte de Zoom
+Por favor, si pueden prender las cámaras
+O bueno, si por temas de conexión
+Se les complica
+Al menos alguna foto de ustedes
+Pero que no quede ninguna pantalla negra
+Y que no sepamos a quién le hablamos
+Y bueno, ya saben que las clases van a estar grabadas
+Así que van a contar después con
+Con la posibilidad de revisar ese material después
+Ahí te dejo Oliver
+Para que te presentes nomás
+Bueno, como dije ahí
+Mi nombre es Sergio Cortinas
+Estoy terminando la carrera de Ingeniería de Sistemas
+La semana pasada
+Encontramos la tesis
+La primera semana de abril
+Desprendemos
+La tesis es
+El proyecto que hice ahí
+Señor Carr
+Ya tenemos una financiación del BIN
+Estamos en el centro de crecimiento de la RT
+Tenemos también unos clientes
+Con los que ya estamos trabajando
+Así que
+Estamos haciendo eso
+Aparte soy
+Producidor de servicios para ACNUR
+ACNUR
+Seguramente lo conozcan
+Por ser patrocinante de Barcelona
+Y a través de la comiseta
+Pero bueno, esta
+La comisión de refugiados de la ONU
+Por lo tanto ahora estamos en un proyecto
+Con el Ministerio de Redes Exteriores
+Todo ese tema
+Yo estoy de Project Manager
+Y después hay una empresa
+Que se ganó la licitación para hacer el desarrollo
+Así que bueno
+Estamos un poco variados ahí
+Y aparte
+Por ahora no, pero
+Adelante
+La ONU nos van a abrir
+La rango como Project Manager en SoftBees Solutions
+Así que
+Como si no fuera suficiente
+Tres trabajos
+Voy a estar en cuatro
+Dos hijos, casados
+Lo que sobra es tiempo
+Pero bueno
+Hay menos horas de sueño
+Arranqué hace ya
+Veinte años en IT
+En Tata
+Consulta de Service
+No voy a hacer opiniones
+A respecto de empresas
+Si alguien pregunta por mí en Tata
+No espero una respuesta
+Muy amigable
+Sí, es muy cariño
+Pero bueno
+Arranqué programador
+Pasé por
+Propuesta de proyecto
+Auditorio interno
+Autorización de testing
+Y bueno
+Así que bueno
+Ya
+Ya
+Ya
+Ya
+Ya
+Iba diez años
+Que estoy más en la parte de gestión de proyectos
+Como digo
+Son dos responsables distintas
+El promotor
+Y el gerente del proyecto
+Creo que uno va
+Descubriendo lo que le va gustando
+Con el tiempo
+Muchos van a decir
+Ah, el gerente no hace nada
+Estapa las reuniones
+No sé qué, no sé cuánto
+El proyecto es el que tiene toda la culpa
+Cuando la cosa está mal
+Y cuando no
+Las cosas bien son del equipo
+O sea que uno nunca se lleve
+Nunca debería llevarse las flores
+Porque en realidad
+Lo único que está haciendo
+Es que el proyecto llegue a fin
+De la manera que tiene que ser
+Pero bueno, necesito un poco
+Se puede ganar gente que tiene la corriente
+Que el PM puede ser cualquiera
+Bueno, el PM
+Si es una empresa constructora
+Tiene que ser de construcción
+A ver, ¿qué pasa?
+Ahora, un PM en una software factory
+Si la sabe IT
+Va a ser algo por todo lado
+Pero bueno
+En Google hay PMs
+Son un poco maestras
+Amas de casa
+Ex-veteranos de guerra
+Pero claro, lo que pasa es que
+Nosotros no tenemos la jerarquía
+De PM que tiene Google
+Google por cada proyecto
+A ese PM que no sabe nada de IT
+En el medio hay 5 o 6 PMs
+Que ya le disquirieron todo
+Y cuando llega la información
+Lo que menos le llega es algo técnico
+¿PM sería Proximal?
+Proximal
+Sí, sí
+Y acá, PM
+Acá PM es todo
+Acá el PM
+Es PM, Scrum Master, Product Owner
+A veces Quad
+Así que
+Es un puesto complicado
+Más porque
+A veces
+A veces
+En el mejor de los casos
+Estás creciendo un proyecto
+En el peor de los casos
+Tenés 5
+Tenés 5 clientes
+De que responderle
+Tenés que cambiar de contexto
+De uno al otro
+Porque un proyecto puede ser
+De salud
+Otra de educación
+Otra de salud
+Entonces, bueno
+Lo bueno que tiene
+Es que uno va aprendiendo
+Diferentes negocios
+Yo, por ejemplo
+Ahora en la NU
+Toda la comisión de refugiados
+He aprendido muchas cosas
+Que antes no tenía ni idea
+Bueno, seis meses
+Interesantes
+Intensivos
+Porque bueno
+Yo soy proveedor de servicios de ACNUR
+Pero estoy en Cancillería
+Respondo ante alguien de Cancillería
+Y
+Estamos en un proyecto
+Que estamos arrancando algo
+Que no hay nada
+O sea, cualquier cosa
+Es mejor de lo que hay
+Pero bueno
+La idea es que lo que dejemos
+Sea algo que realmente
+Valga la pena haber hecho
+Así que nada
+Ya esperemos que el año que viene
+Ya con el título de ingeniero
+Y
+Y bueno, el día de mañana
+Si alguno llega a hacer la tesis
+Puede elegir cualquier docente
+Me ofrezco tranquilamente
+A ver
+También
+Claro
+Las tesis son complicadas
+Las tesis son complicadas
+Nosotros de cuatro que somos
+Tres vamos a seguir con el proyecto
+Solamente
+Uno se bajó
+Pero digamos que
+Dentro de todo
+Nosotros llegamos
+Al fin de la tesis
+El proyecto
+Bastante bien en general
+Conozco otros que llegan al proyecto
+Con un ring de opciones medio
+Pero bueno
+La idea es
+Siempre llegar más o menos bien
+Aparte hoy en día
+Antes creo que no estaban
+Pero hoy en día tienen tres revisiones
+Antes de la defensa final
+O sea que
+Si vas más o menos
+En una de las revisiones
+Te van a llamar la atención
+Porque te van a decir
+No llegan
+Si siguen así no llegan
+Tenés igual
+Y tenés un año
+Pero se va volando
+Cuando querés ver
+Si no arrancaste a programar
+Decís
+Uy lo que me queda
+Y si no arrancaste a documentar de entrada
+Uy
+Tengo que estar el último mes
+Documentando como loco
+Nos pasa algo por el estilo
+Pero
+Señor Ked
+Es un programa para residenciales
+Y
+Para toda la parte de medicación
+Insumos
+Tomas inhospitales
+Etcétera
+Y
+Vamos a hablar
+Pero
+Con uso de inteligencia artificial también
+Que la parte de salud es
+Como un tema
+Y
+Tenés
+Tenés
+Tenés
+Y tenés
+Ministros de salud pública
+Pidiéndote que la información
+Tiene que ser privada
+Ah
+No
+No
+No
+No
+No
+No
+No
+No
+No
+El que ya termina
+Escocial
+Ah
+Después
+Tenés
+T modified
+Luego
+Tenés
+Grupo
+Tenés
+Sí
+Si lo querés vender para
+Afuera
+Tenés
+Normal
+Normal
+Arre
+Arre
+Arre
+Normal
+Normal
+ady
+En.
+Te
+Puedo
+asi
+decir inteligencia artificial
+esto más o menos
+igual a los residenciales
+de acá, los que nosotros
+estamos vendiendo
+y los residenciales de afuera que hemos hablado
+si está encriptada
+la información o no, les importa poco
+el tema es que después salen
+el Ministerio de Salud Pública
+salen, salen
+entonces nosotros queremos algo
+el Ministerio de Salud Pública le tenemos que dar otra cosa
+a favor, entonces
+es una negociación constante
+pero bueno
+en eso estamos
+así que la primera semana aplica para que mando a alguien
+en marzo
+en marzo
+en realidad es un proyecto que viene hace mucho más tiempo
+tuvo un
+arranco como un proyecto
+de fin de carrera de analista programador
+pero lo puse como cliente
+y fue para un cliente específico
+y tenía
+muchas cosas que no funcionaban
+o sea, funcionaban
+pero no funcionaban a la diaria
+entonces
+nosotros lo que hicimos ahora
+es convertir eso
+en una SaaS
+o sea, para que lo use cualquiera
+y
+aparte, al poner la inteligencia artificial
+tenemos un chat
+con el cual
+la gente que trabaja en residencial ingresa
+la información simplemente con mandar un mensaje
+de audio como si fuera WhatsApp
+o sea, la inteligencia artificial
+entiende el mensaje
+lo mapea con la intención
+agarra el registro
+y listo
+no tienen que andar ingresando valores a mano
+en el celular
+mensaje de audio y ya está
+más allá de que también tiene versión para el teléfono de la mano
+pero eso era lo que más
+problema nos daba
+por lo menos les facilita la vida a la gente
+bien de bien
+este
+bueno, en mi caso
+yo soy Andrés Mauricio
+Repeto Ferrero
+pero en sí todo el mundo me conoce por
+por mi segundo nombre
+ahí les dejo mi correo también
+por si en algún momento necesitan hacer alguna consulta
+además
+igual después con Oliver les compartimos
+la planilla de contacto también
+para que ustedes puedan dejar como sus contactos
+en caso de que quieran después
+armar algún grupito obligatorio
+o armar entre ustedes un grupo de WhatsApp
+lo que sea
+pero lo importante siempre es que tengo a la mano
+los mails más que nada
+la consulta
+sí, soy ingeniero de la Universidad de Oort
+allá por 2011
+estuve trabajando mucho en lo que era
+Business Intelligence
+y luego en realidad
+por allá por 2018
+sí, empecé con la parte de
+de Inteligencia Artificial
+y bueno
+ahí metí un par de posgrados
+el máster
+la tesis la definí creo que hace un par de años
+2023 si no mal recuerdo
+y bueno
+también hace ya dos años que estoy en
+en Medellín
+viviendo en Colombia
+y bueno
+cuando a ratos al fútbol
+cuando me deja la rodilla
+y metiéndole al
+al Crofit
+bien
+bueno
+de teórico
+ahí están con Gonzalo
+la modalidad va a ser la misma
+que en las clases de práctico
+clases híbridas
+o modalidad Hyflex
+como le dice la
+la universidad
+con Gonza
+tienen lunes de 20.30 a 10.30
+y los miércoles de 5.30 a 19.25
+en el salón ahí
+de 309
+y después con nosotros
+solamente los martes
+de 5.30 a 19.25
+con clases presenciales
+en lo que es el S221
+y después por suma
+aquellos que no puedan asistir
+o prefieran la modalidad online
+bueno
+el tema de formas de trabajo
+esta diapositiva nomás
+como comentar de que
+por ahí si tienen dudas
+lo que sea
+utilicen el chat
+están los foros de aulas
+lo que les comentaba
+al menos agregar una foto a su usuario
+para poder reconocerlos y demás
+después también obviamente
+un poco cuidar las formas
+a la hora de hablarnos
+de tratarnos
+de comunicarnos
+simplemente eso
+y ahora como para
+conocerlos un poquito más
+y bueno a ver
+creo que va a quedar un bien
+si ya saben programar
+si no saben y demás
+vamos a pasar ahí
+un poquito la lista
+y bueno los voy a ir nombrando
+y me van contando
+bueno por un lado
+si ya saben programar
+ya de antemano
+qué modalidad prefieren
+o cuál van a estar
+como utilizando
+y bueno a ver
+porque un poquito
+eligieron la carrera
+y que están esperando
+de la misma
+bien
+Juan Pablo
+Amilibia
+está por ahí
+online
+¿no?
+bien
+Mauricio Jesús
+Zarraga
+Sí, buenas tardes
+Mauricio es mi nombre
+Mauricio, bien
+no soy
+no soy programar
+tengo pocas naciones
+de
+de lo que es
+en sí
+la carrera
+hace años
+que ya estaba
+en el tiempo
+en este momento
+tengo la oportunidad
+en tiempo
+entre comillas
+para
+tengo 50 años
+trabajo
+y bueno
+el horario que tengo ahora
+me da la posibilidad
+de
+de
+perfecto
+tenés una idea ya
+de lo que te vas a especializar
+o
+a qué te vas a dar
+el cardio
+dentro del área
+o vas a verlo más
+pero
+ya
+el cardio
+Joaquín
+Javier Caballero
+acá
+hola
+mi nombre es Joaquín
+tengo
+30 años
+sé programar
+trabajo
+desde hace un tiempo
+elegí la
+modalidad online
+porque
+a veces trabajo hasta tarde
+tengo que estar respondiendo cosas
+haciendo guardia
+entonces me queda más cómodo
+desde casa
+y elegí la carrera
+porque
+es una pendiente que tengo
+y además que ahora
+en mi laburo estoy metiendo
+algunas cosas
+con inteligencia artificial
+y me interesa
+agarrar por ese lado
+entonces
+bueno
+estamos
+acá intentando de nuevo
+hace 10 años por ahí
+hice la audilar
+ingeniería
+pero abandoné
+no avancé mucho
+entonces
+acá estamos empezando a hacer
+sí, sí
+nada impecable
+es más
+sí
+por ejemplo
+si yo
+al menos yo
+cuando arranqué la carrera
+no sabía programar
+y bueno
+acá estoy digamos
+así que
+aquellos que todavía
+no saben programar
+justamente la idea
+es que
+en estas clases
+ustedes aprendan
+y a lo largo de la carrera
+obviamente se vayan
+profesionalizando
+¿no?
+perfecto
+Lorenzo Caldera
+¿no?
+Victoria Patricia Caroso
+no
+no, Victoria
+Victoria
+gracias
+yo nada
+en realidad estoy
+anotada en ingeniería eléctrica
+pero bueno
+tengo una empresa constructora
+y estoy rodeada
+de ingenieros
+soy economista
+pero bueno
+nada
+después de estar rodeada
+y tener una empresa de ingeniería
+me pareció
+hacer la carrera
+nada
+voy a estar cursando online
+por un tema horario
+tengo dos hijas
+una empresa
+y nada
+estoy cursando solo esta
+y una de mañana
+que va
+tuve que ser presencial
+este
+programar
+no sé nada
+pero me gusta mucho
+la lógica
+así que espero
+que ande bien
+entonces esperamos lo mismo
+así que ya está
+¿puedo decir que tengas
+una familiar
+que existe
+en
+¿cómo?
+¿puedo decir que tengas
+una familiar
+que esté
+en alguna software factory?
+sí
+mi hermana
+Valeria
+en Oxid
+nos conocemos
+mis dos hermanos
+están
+mis hermanos
+ingenieros de sistemas
+trabajan en Estados Unidos
+en mi
+la empresa
+no me sale el nombre
+y
+mi hermana
+es diseñadora
+industrial
+y está trabajando
+en Oxid
+espero que ellos
+me den la mano
+trabajamos juntos
+trabajamos juntos
+bien
+chiquito
+igual siempre
+siempre
+buenas
+muchas gracias
+Victoria Comas
+¿no?
+bien
+Joaquín Cordero
+por acá
+presente
+y sí
+hice programar
+en algunos lenguajes
+en Java
+en el
+intermedio
+intermedio
+tirando a lo básico
+porque hice
+última informática
+en C-Sharp
+bastante bien
+hice un programa
+para una empresa
+que es
+la idea
+de papá
+que es
+un cambio
+quizás
+era un programa
+con Loving
+pero aquí
+pero
+un programa
+en C-Sharp
+y
+estaba con
+cambio
+de
+divisa
+y
+pusimos
+cosas de préstamo
+y eso también
+para hacer lleno
+y
+y después
+un poco de
+partidos
+en HTML
+en CSS
+y
+SQL
+en Linux
+y
+Windows
+Angelica
+pero nada
+¿y la carrera
+elegiste por?
+y porque
+me tiré
+informática
+y
+dije bueno
+al principio
+cuando me tiró
+al curso de informática
+quería hacer
+algo relacionado
+a videojuegos
+o lo que sea
+pero después
+dije
+me tiro
+a ingeniería
+a ingeniería
+al sistema
+en realidad
+podés enviar
+a cualquier
+hermano
+que quieras
+está
+bueno
+sí
+incluso
+a videojuegos
+si quisieras
+eventualmente
+bien
+perfecto
+gracias
+Brian Alexander
+del Pino
+no
+no sigo
+Pablo Javier
+de Elisa
+un poco
+Maximiliano
+Díaz
+buenas
+¿está bien?
+hola
+soy Maximiliano
+tengo
+22 años
+vivo en Atlántida
+y
+voy a hacer
+modalidad online
+porque me queda
+más cómodo
+y programar
+tengo algo
+de javascript
+html
+sss
+y por qué elegí
+la carrera
+bueno nada
+siempre me gustó
+programar
+y las materias
+matemáticas
+desde chico
+así que
+nada
+eso
+perfecto
+muchas gracias
+sí sí
+matemática y física
+no le va a faltar
+después tengo
+Oscar Emanuel
+Faría
+hola
+¿qué tal?
+bueno
+soy Emanuel
+te aprovecho
+no sé mucho
+tengo algo de noción
+todo de
+archivos básicos
+y estudiaba
+originalmente
+ingeniería civil
+en la edad
+y
+el tema
+de trabajo
+que bueno
+desde que empecé
+siempre trabajé
+y hay
+asignaturas
+que eran
+en horario
+que no
+sabía
+nunca vi
+la chance
+de pedir
+en la época
+de la pandemia
+hice algunas
+asignaturas
+de
+cualidades
+de parte
+a la escuela
+pude hacer
+como cuatro
+pero bueno
+se eliminó
+la pandemia
+ya no había forma
+y tal
+como dije
+el horario
+se puede hacer
+en la noche
+y también
+me interesaba
+un poco
+la posibilidad
+de trabajo
+perfecto
+bien
+después tengo
+Salvador Fernández
+hola
+perdón
+yo ya estaba
+en la otra clase
+me confundí
+de sala de zoom
+dale tranqui
+contame un poco
+si sabes programar
+si
+preferís
+la modalidad presencial
+sobre la online
+por qué elegiste
+la carrera
+bien
+yo trabajo
+con linux
+en
+movilitar
+usamos
+python
+así que
+más que nada
+uso python
+para automatización
+no sé nada
+de
+cómo se usa
+no sé nada
+no sé nada
+no sé nada
+no sé nada
+no sé nada
+de orientado
+de objetos
+en realidad
+solamente para
+automatizar
+en realidad
+voy a ir presencial
+hoy justo
+porque
+me atrasé
+con el trabajo
+nomás
+y también
+tuve que quedar
+pero en general
+voy a ir presencial
+según te acercas
+a las oficinas
+así que
+este
+sí
+y
+elegí la carrera
+porque bueno
+estoy trabajando
+ahí en sistemas
+entonces
+bueno ya hacía
+la fin
+en udelar
+y ta
+y este semestre
+me cambié
+para acá
+perfecto
+ah bueno
+y ahora
+cómo está
+con temas
+el cambio
+de tío
+bien
+un montón
+de cambios
+se mergearon
+un montón
+de equipos
+este
+se fue un montón
+de gente
+también
+así que
+estamos con eso
+y estamos trabajando
+pila con el tema
+de cambio de marca
+ya en unos días
+arrancamos
+con los nuevos
+logos
+y demás
+me llegó
+el mensajito
+ahí va
+tenemos
+sí
+ahí va
+buenazo
+muchas gracias
+después tengo
+Gonzalo
+Andrés Ferrari
+hola
+bueno
+en esta carrera
+hace cuatro años
+también
+la
+carrera
+de la
+tinería
+o sea
+la tinería
+ahora
+lo recomiendo
+trabajo
+hace cuatro años
+en el
+software
+el
+bueno
+el derecho
+es
+mantener el
+título
+así que
+es una
+buena
+oportunidad
+y bueno
+con especialización
+en el futuro
+normalmente
+en el software
+la seguridad
+o sea
+las
+cosas
+que
+,
+¿hables?
+eh
+eh
+bueno
+la idea
+es un
+libro especial
+y algo
+que se le
+trabaja
+también
+el rol
+de arquitecto
+de software
+es un rol
+ingrato
+a veces
+el rol
+de arquitecto
+de software
+es un rol
+ingrato
+a veces
+si
+si
+es más fácil
+echarle la curva
+al arquitecto
+¿viste?
+eh
+el desarrollo
+de la tinería
+entonces bueno
+o sea
+ahí
+ahí no
+tenés
+la otra
+ahí
+es capatrónica
+bien
+bien
+pero
+está interesante
+o sea
+eh
+yo que
+bueno
+yo había
+en el proyecto
+he hecho de
+producto
+arquitecto
+desarrollador
+y nosotros
+nos metimos
+con
+Cloudflare
+o sea
+no fuimos
+ni con AWS
+ni con Azure
+nada
+no nos casamos
+con ninguna
+fuimos con Cloudflare
+y fue a aprender todo a cero
+ya estamos teniendo cosas
+pero
+pero
+pero está
+está lindo
+está lindo
+ciudad de seguridad
+incluso
+va a tener muchos malaburos
+va a estar muy bien pago
+por ejemplo
+las noticias
+viste que
+ya nos hackearon
+no sé cuántas veces
+en el estado
+y nos van a seguir hackeando
+porque tanto en el estado
+siempre la misma excusa es
+no
+los hackearon
+los hackearon
+bueno está
+hay que
+comprar esto
+y comprar esto
+y comprar esto
+y comprar esto
+bueno
+¿cuánta plata hay?
+ah
+no tenemos plata
+bueno
+hasta la próxima
+que nos hackeen
+perdón
+¿es Gonzalo o Andrés?
+eh
+Gonzalo
+Gonzalo
+bien
+listo
+eh
+Matías Roberto Galnares
+acá
+hola
+acá
+eh
+yo
+sí
+eh
+yo programar sé muy poco
+eh
+estuve
+viendo con mi padre
+hace
+hace
+tres años
+trabajando con mi padre
+hacer
+cosas en javascript
+html
+eh
+y un
+poco de python
+además de
+hacer un poco de scripting
+en bash
+por un proyecto personal
+nada grande
+eh
+como vivo en la floresta
+yo voy a estar más en
+online
+porque
+también queda lejos
+y prefiero
+prefiero estar
+por acá
+por zoom
+y
+la carrera la elegí
+más que nada
+porque
+a mí me gusta todo esto
+eh
+la programación
+en ese
+en ese
+en ese rubro
+digamos
+y
+me gusta
+me gusta todo esto
+yo espero
+tener una buena salida laboral
+y
+está
+porque me gusta
+más que nada
+sí sí
+no no
+está perfecto
+eh
+es
+Matías no
+sí
+sí
+pues tengo
+Ulises García
+no
+eh
+Mara Valentina
+Makeira
+hola
+eh
+normalmente me llaman Mara
+eh
+tengo 21 años
+por las dudas
+porque me llaman Valentina
+y no voy a prestar mucha atención
+por eso
+eh
+eh
+tengo 21 años
+y
+sé algo de programación
+hice jóvenes a programar
+eh
+pero la versión de testing
+hice toda la carrera de
+Coder House
+de programación backend
+y
+hice algunos proyectos
+de páginas webs
+para un aero club
+eh
+y bueno
+para varias cosas más
+además de proyectos de robótica
+y elegí esta carrera
+porque
+estaba entre varias ingenierías
+pese a haber hecho
+todos esos cursos
+eh
+y hablando con
+la gente
+que ya estaba recibida
+y que trabajaba
+de
+de las otras ingenierías
+que estaban en duda
+me decidí
+por sistemas
+por el trabajo
+y porque me veo más
+haciendo eso a futuro
+perfecto
+y bueno
+sí sí sí
+la visión no es mala
+no puedo decir
+lo contrario
+jejeje
+eh
+Facundo Andrés Martínez
+eh
+eh
+hola
+hola
+sí
+tengo 27 años
+no sé programar
+en el sentido
+de que nunca trabajé
+de eso
+sí estudié un poco
+en la Utu
+y en la Pint
+eh
+voy a estar
+online
+siempre también
+por un tema
+de trabajo
+y bueno
+elegí la carrera
+también
+porque
+siempre todo
+lo relacionaba
+con las computadoras
+y un poco
+de la matemática
+siempre me gustó
+y me llamó la atención
+perfecto
+Facundo ¿no?
+eh
+sí
+sí
+bien
+eh
+gracias
+después tengo
+Franco Javier Méndez
+¿no?
+eh
+Alan Rafael Muraña
+un poco
+Victoria Pedroiz
+un poco
+Julieta Perrota
+Perrota perdón
+Facundo Tabaré Portillo
+ahí va
+contanos ahí
+un poquito
+eh
+hice
+un curso
+tecnológico
+en impulso
+y
+tengo
+3 años
+haciendo proyectos
+con
+ahí en la UFUMIMA
+un año de PM
+2 años de programador
+de TAC
+y
+ta
+sé un poco
+de HTML
+de Java
+de PHP
+de PHP
+de Adobe
+de GIF
+y
+esas cosas
+perfecto
+¿te gusta el tema Facundo Tabaré?
+eh
+igual yo también
+ah
+muy bueno
+bueno
+dejo a los dos
+entonces
+bien
+eh
+Guillermo Javier Rivero
+eh
+no
+después
+¿está bien esto?
+Agustina Agustina
+¿Rodríguez?
+otra vez
+eh
+Luan Benjamín
+si
+¿Luan Benjamín Rodríguez?
+yo
+eh
+acostumbro
+además
+llamarme Benjamín
+por las dudas
+porque Luan
+casi siempre
+es un nombre raro
+este
+pero bueno
+acepto a cualquiera
+de los dos
+no pasa nada
+¿o de Rivera o por ahí?
+no
+si
+de Brasil
+de
+claro
+de más para allá
+este
+bueno
+eh
+tengo 23
+eh
+me gusta bastante la informática
+soy chico
+siempre me interesó bastante
+eh
+vengo de Tacuarembó
+eh
+hice un toallá
+y
+bueno
+lo que sé de informática
+es básicamente
+eh
+gracias a eso
+a lo que estaba en Tacuarembó
+no tenía muchos profesores de programación
+entonces
+lo poco que tenía
+eh
+ta
+me ayudó bastante a poder
+eh
+adaptar la habilidad de aprender solo
+eh
+estudié bastante
+Java
+JavaScript obviamente
+HTML CSS
+eh
+me metí un poco
+en el tema de frameworks
+eh frameworks
+eh React
+y un poco de Facebook
+eh
+no soy tanto de desarrollo web
+no me gusta tanto
+eh
+me tiré más
+por el tema de ciberseguridad
+me encanta esa parte
+eh
+y también más o menos
+elegí la carrera
+por eso
+no obviamente
+también por el sueño
+de tener
+un título de
+de ingeniería
+en sistemas
+pero
+yo creo que
+si no me meto
+en el tema de
+ciberseguridad
+creo que
+en mi carrera
+sería básicamente eso
+y prefiero
+presencial
+vivo a cinco cuadras
+acá de la
+de la universidad
+pero
+ta
+si tengo algún percance
+este
+percance
+me voy a
+avisar
+si hago
+mucho trabajo aún
+sé que soy
+el más candidato
+en la universidad
+no vamos a haber seguido
+si incluso
+ah
+no sé
+no sé
+vamos a seguir
+en el tema
+de ciberseguridad
+yo creo
+que
+el de
+ciberseguridad
+también estaba en eso
+sí
+sí
+menciona
+que yo estaba
+o estaba
+o lo estamos acá
+me gozo
+me llama
+apunte para
+esta ciberseguridad
+voy a aprender
+por la mente
+ahí va
+pero
+porque quiero
+ya que ya que estamos
+porque
+de la poca
+cosa
+que me queda
+en la altura
+Hola, buenas, ¿me escuchás?
+Hola, buenas, ¿sí, se escucha?
+Buenas, bueno, soy Leonardo, tengo 27 años
+Vengo después de descubrir que no me gustaba el humanístico
+Hice la autoinformática
+Y en mi tercer año entré a TCS, a TATA
+De ahí me moví a IBM, trabajaba en el proyecto Santander
+Y bueno, siempre, sí, sé programar
+Pero siempre desde lenguajes muy poco abstractos
+Desde el mainframe, call, rutina sharp
+Y bueno, después me moví como soporte a una empresa en Estados Unidos
+También de informática
+Y bueno, seguir profesionalizándome en el rubro este
+Que es lo que quiero seguir haciendo
+Así que me anoté a la carrera
+Con mucho miedo a la matemática, pero bueno
+La nota perfecta, vamos arriba que se puede
+Bien, Caterina Scudetti
+Hola, ¿sí?
+Sí
+¿Se me escucha, no? ¿Sí?
+Sí, sí
+Bien
+De programarse porque
+Nada, estaba haciendo una carrera humanística
+No me gustó
+Me pasé a jóvenes a programar para probar algo que me gustara
+Nada, me gustó al final
+Y terminé haciendo U2 en el ESI
+La auto de buceo
+Y nada, y después de eso
+Comencé acá directo
+Más que nada
+Voy a estar remoto por tema de trabajo
+Pero nada, si algún día se me da la oportunidad
+Por ejemplo, ayer fui presencial
+Pero está, voy viendo
+Elegí esta carrera porque
+No sé si, no es que me interese tanto programar
+Sino más que nada el tema
+De más ciberseguridad
+En este momento estoy trabajando de eso
+Y es como que
+Vi que tienen la posibilidad de
+Como que especialización
+Entre las varias cosas como que tenía eso
+Entonces me decanté
+Más para
+Para eso, más que nada por eso
+Es que elegí esta carrera
+Sí, sí, perfecto
+Sí, obviamente como ustedes empiezan ya las últimas
+O sea, perdón, los últimos semestres de la carrera
+Tienen la base de lectivas
+Digamos
+Ustedes tienen que recibir con un determinado perfil
+Entonces en base a ese perfil que ustedes quieren tener
+Eligen ciertas lectivas
+Y sí, creo que está bien
+Ciberseguridad también
+Así que sí, perfecto
+O el pequeño
+Ciberseguridad
+Sí, sí, o sea
+Algo programa
+Pero es más que nada
+O por ejemplo, cosas como
+Búsquedas SQL
+Base de datos, cosas de esas
+No es tanto programar en sí como página
+O más que nada, ¿no?
+Pero se llama programar
+Sí
+No vamos a moñar a nadie
+Es como más chiquito
+No sé, es como que
+Siento que no programo tanto
+Como un programador, entonces es como que
+No me quiero ya dar el nombre
+De que estoy programando, digamos
+Sí, en teoría
+No sé si escribís código o sabés programar
+Claro
+Pero sí
+Bien, después tengo
+Ángela
+Ángela Severo
+Yo
+Hola
+Ah, estás bien
+Tengo 22
+Programado
+Tiene 3 años de arquitectura
+La le voy a hablar
+Prefiero modalidad
+Especial porque trabajo en mi casa
+Me toca venir dos días
+A Aguada, que queda cerca
+Y la superior especial
+Elegí la carrera
+Porque tengo amigos
+Que hicieron ingeniería en sistemas
+Siempre estuve ahí a la parra
+Con mis proyectos
+Y bueno, me aburrió la arquitectura
+Tengo gran parte de la familia
+También por la arquitectura
+Es complicado
+Bien, último
+Pero no es importante
+Santiago Ricardo Souto
+Hola, soy Santiago
+Tengo 29 años
+Y en un momento
+Hace años
+Estaba como viendo que estudiar
+Y me tiré para
+Programador en BIOS
+Primer acercamiento que tuve
+Y me copó un poco
+La carrera, la lógica
+Intentar resolver
+Los problemas y todo eso
+Y después de un año
+Tuve que abandonar la carrera por laburo
+Y ahora estoy intentando
+Volver con más ganas y energía
+Ahí va
+Perfecto, muchísimas gracias
+Bien, entonces ahí más o menos
+Una vez ya llegué a la tarde
+Que no pasó
+Ese fue mi caso
+Ese fue mi caso
+Lorenzo
+Lorenzo Caldera
+Sí, yo y Victoria
+También estaba hablando
+Que también llegó media tarde
+Bueno
+Yo soy Lorenzo, tengo 20 años
+Sé programar
+Estoy trabajando en una empresa de CMS
+Hace un año y pico más o menos
+Trabajo principalmente
+Con Java
+¿Por qué?
+Porque esta empresa tiene mil años
+Perdón a todos los que usan Pascal
+Javascript, HTML, CSS
+Por la parte del front
+Y elegí
+Bueno, la presencialidad va a ser
+Principalmente online
+Pero estoy teniendo problemas
+Para coordinar con mi supervisor
+Las reuniones de salida de trabajo
+Por eso hoy no pude asistir
+Y elegí esta carrera porque
+Espero mejorar esta parte
+Profesional mía
+Y también como dijeron algunos por ahí
+Me gusta mucho la matemática
+Yo soy de Argentina
+Y en Argentina participaba de las Olimpiadas
+Matemáticas
+También me encanta la física
+Así que nada
+Creo que va a ser una buena oportunidad
+Para avanzar en ese sentido
+Especializarme en mi trabajo
+Y nada
+Una linda oportunidad
+Y una experiencia, sobre todo
+Sin dudas
+Y...
+Ahí va
+Gracias
+Y después tengo, creo, Victoria
+¿Era?
+¿Cómo es?
+Hola, sí
+Soy Victoria
+Bueno, yo tengo 39 años
+Esta es mi segunda carrera
+Y después tengo, creo, Victoria
+¿Era?
+¿Cómo es?
+Hola, sí, soy Victoria
+Bueno, yo tengo 39 años
+Hice toda una carrera
+En realidad hice toda una carrera
+Bastante larga
+En ciencias
+En...
+Perfil biotecnología
+Y...
+Bueno, en realidad
+No es que no me guste esa área
+Pero...
+Es un poco complejo
+Diferentes cosas
+Y me...
+Empecé como en mi doctorado
+A ver cosas de datos
+De...
+Más que nada
+De cosas biológicas
+Y bueno
+Ahí me fue como gustando más
+La parte de programación
+Eh...
+Obviamente con los lenguajes R
+No...
+Con los lenguajes que vemos acá
+Eh...
+Después para mí
+Me gustó mucho
+La parte de programación
+Eh...
+Para meterme a esta área
+En realidad hice como
+Una especialización
+Más que de datos
+De análisis de datos
+De...
+Más de empresas
+Y ahora estoy trabajando
+En DCI
+Ahí en Labort
+Este...
+Mi idea es
+Hacer algunas clases
+Este...
+No sé si te estaban preguntando
+Específicamente
+Por este taller
+Por este laboratorio
+Sino que algunas...
+Eh...
+Algunas...
+Sí, sí
+Porque capaz había que elegir
+O sea, viste
+No sé cómo es el...
+No, no, no, no
+Acá...
+Acá tienen toda la libertad
+Que quieran
+Hoy como capaz me quedé
+O sea, me voy a quedar hasta álgebra
+Se me iba a hacer muy largo
+Estar todo el día
+Allá en Labort
+Entonces me vine rapidito
+Y bueno
+En realidad
+Este...
+En el trabajo
+Lo que hago
+Es más que nada
+Con SQL
+Y con Qlik Sense
+Aplicaciones de análisis de datos
+Son programación de script
+También como decía
+La otra compañera
+Y...
+Hay algunas cláusulas
+Como if
+Y cosas así
+Obviamente
+Pero más que nada
+Eh...
+No sé programar
+En otras cosas
+Hice un bootcamp
+De...
+Con Python
+Para hacer análisis de datos
+O sea que no...
+Nada que tenga que ver
+Con software
+Y...
+La...
+La carrera la elegí
+Porque...
+Nada
+Me estoy...
+Estoy entrando
+En todo este mundo
+De la tecnología
+Me parece re buena base
+Tener esta carrera
+Y además
+Nada
+Me encanta
+Como desde la ciencia
+También me pasaba
+Como entender
+Todas las cosas
+Y resolver problemas
+Entonces
+Me parece que
+Bueno
+Después decidiré
+Qué especialización haré
+Pero bueno
+Sí, sí
+Gracias
+Eh...
+¿Alguno más?
+Que haya quedado ahí
+Por ahí colgado
+Claro
+¿No?
+Eh...
+Mi nombre es Pablo
+Eh...
+Yo no soy clínica
+Y...
+Me gustó
+La...
+Me quedé en el sistema
+Pero una vez
+Con esto
+Eh...
+Estudié algo
+Aproximadamente dicho
+Y bueno
+Me animé
+También con las madres
+Que quiero educar
+Y más de hecho
+Venía a formar
+Y bueno
+Me interesa la...
+Cómo se relaciona
+Toda la parte
+De eso
+Entonces
+Estaba aquí
+Como participado
+Y...
+Bueno eso
+Ya
+Está bien
+Está bien
+Bueno
+Pablo dice, ¿no?
+Sí
+Sí, claro
+Es una cosa
+Que no conté
+Pero que
+Para que vean
+Que esto
+Para esto
+No hay tiempos
+Ni nada
+Yo lo he hecho en realidad
+De chiquito
+De chiquillo
+Desde la época
+Que te mandaban
+A guitarra
+Inglés
+Computación
+En un momento
+No tenía nada más
+Para enseñarme
+Empezaba a enseñar
+Programación
+Logo
+Pascada
+El fogo
+Y todas esas cosas
+O sea
+No llegué
+A las tarjetas
+Aforadas
+Pero
+Fui a guisar
+Eh...
+Arranqué
+En el 96
+Era la fin
+Hice hasta tercero
+O sea
+La mitad de la carrera
+Y...
+Cuando estaba
+Laburando en Tata
+Se me dio
+Porque quería
+Estar generando
+El proyecto
+Era el chubuco
+De vano
+Me contaste
+Que la gente
+De la URT
+Estaba más preparada
+Para eso
+Obviamente
+Averigüé
+Tablas
+Podías especializarte
+En gestión de proyectos
+Y todo eso
+Pero también
+Tenía la gana
+De irme de la fin
+Antes de golpear
+A algún docente
+Porque el amor
+Era
+Entonces dije
+No
+Vamos a irnos en paz
+Vamos a irnos en paz
+Eh...
+Me cambié
+En 2006
+O sea
+10 años
+Por eso
+Sí
+¿En 2006?
+Sí
+¿En 2006?
+En el 96
+Ah
+En 2006
+Y en 2006
+Me cambié para acá
+Fui haciendo
+Dos o tres materias
+Por semestre
+Dos hijos
+De por medio
+Laburo
+De todo tipo
+Y color
+Bueno
+Lo hice año que no
+Y bueno
+Hice
+Dos o tres años
+Retomé
+Las materias
+Que me quedaban
+No porque
+Quise dar título
+Eso es en serio
+Sino porque
+No le quiero dar
+Pero bueno, en realidad también estaban un poco las ganas
+De que este proyecto
+Final
+Viera un poco a luz
+Ahora lo podía presentar como empresa
+Como hice la primera vez
+Pero bueno, no era lo mismo, lo quería hacer yo
+Así que está
+Nada
+Y hoy con 48 añitos
+Estamos
+Las ganas ya
+Ya aparecen
+Ya las ganas me adelantan
+Pero bueno, después de todo eso
+Y aún así después me quedan ganas
+De hacer un proyecto de artificial
+Así que
+Directo
+Continuamente están aprendiendo
+Todas las empresas
+Hay empresas que se casan con un framework
+Hay empresas que se casan con un lenguaje
+Hay empresas que se casan con una infraestructura
+Hay empresas que no
+Entonces continuamente tenés que andar
+Estudiando cosas nuevas
+Yo tuve una vez un cliente
+Que dijo
+¿Qué es lo que te gusta más?
+Yo quiero hacer esta página web
+En Aurelia
+¿Alguien sabe qué es Aurelia?
+Ni idea, yo tampoco
+Tuvimos que aprender
+Tuvimos que aprender
+De Aurelia, de una página
+Que te vendían cursos
+Porque no sabíamos ni qué era
+Y el cliente quería hacerlo en eso
+O sea que
+Esto es una sorpresa todos los días
+¿De dónde sacó la idea
+Pasar una Aurelia?
+No, no sé
+No sé
+Vio alguna propaganda ahí
+Sí, sí
+Y después de haber comentarios
+Aparte de que tiene miedo
+De la inteligencia artificial
+A sacar laburo
+Yo creo que estamos pasando el boom ya
+Voy a pasar la lista primero
+¿Estás listo?
+¿Estás listo?
+¿Estás listo?
+Sí
+Bien
+Bien
+Cordero
+Delfino
+Derisa
+Faría
+Ferrari
+Gauna
+Méndez
+Uraña
+Oliva
+Pedro
+Vix
+La Rota
+Rillo
+Rivero
+Rodríguez
+Agustina
+Rodríguez
+Juan
+Rodríguez
+Juan
+Severo
+Tongo
+Y Silveira
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+Gracias
+you
+Thank you
+Thank you
+la inteligencia artificial
+se escucharon gente por
+sí, porque pensaban
+que la inteligencia artificial
+tengo un seño, la inteligencia artificial
+es lo mismo que 20
+personas
+en el
+ámbito que tenía el sistema
+no te va a quitar el trabajo, pero capaz para el
+programador de estudio o medio
+intermedio, sí puede rayar
+o no, si vos sabés usarla
+te automatiza la banda del juego
+sí, pero
+está menos mano de obra
+mirá que yo la uso
+y yo te pago todas
+te ayuda una banda
+en la que se habla más rápido y todo, pero vos
+si no sabés lo que estás haciendo
+estás en el horror
+claro, sí, obvio
+por eso se están dando cuenta ahora de que
+no es un tipo que manda 20 subagentes a que haga las cosas
+no fue tan así
+no le fue bien
+y hoy en día están reculados
+hay empresas de acá que todavía lo siguen usando como excusa
+cuando en realidad
+si reducen gente
+es porque
+estimaron mal crecimiento
+y bueno, está
+tenemos más gastos de lo que nos ingresa
+y eso siempre pasó
+y hoy en día muchas se escudan atrás de la inteligencia artificial
+pero en realidad
+el día a día de laburo no les cambia nada
+no les fue tanto
+la inteligencia artificial
+pero está
+yo lo que les digo es
+más allá del título
+y de todo lo que aprendan
+quédense tranquilos
+mientras uno aprende
+sepa lo que está haciendo
+laburo va a tener
+además en todo caso
+para la inteligencia artificial
+necesitas gente que va
+a la sala
+porque de acá
+no se suele
+alguien tiene que diseñar
+para que
+se pueda hacer
+que el empresario la use
+para poder
+si yo te muestro
+si yo te muestro
+los programas que mando yo
+para hacer una cosa
+una cosa así
+porque si vos no sabés pedirle bien
+lo que querés que haga
+y lo que no querés que haga
+por eso
+no, no, pero es que
+también me ha pasado
+me ha pasado
+con todos
+con todas las herramientas
+y con todos los modelos
+que en cierto punto
+llega a problemas
+no tan complejos
+que empieza a caer
+recursivamente en lo mismo
+viste, en un momento
+si vos no te diste cuenta
+te gastó todo el token
+cayendo sobre el mismo problema
+ah no, pero esto
+no, no, pero vuelva
+ahí viene, ahí viene
+no, por ahora
+y yo creo que por un largo tiempo
+no va a pasar
+tanto que afecte
+el laburo de un junior
+ni
+para mí
+va a dar más laburo
+para mí igual
+el junior
+en los que estaban
+pero estadísticamente
+hay más errores
+estadísticamente
+hay más errores
+y no
+y hay más cosas
+que querían hacer
+porque en realidad
+nosotros
+somos
+creadores
+cada vez más cosas
+para consumir
+y nos aburrimos rápido
+entonces
+si te dedicás
+a temas
+de la vida
+social
+tenés un duelo
+que te va a pasar
+y el tema
+laboral
+es lo mismo
+este año
+si hubiera querido
+hubiera presentado
+tres proyectos más
+para fin de carrera
+con mi empresa
+pero dije
+no, no me quiero complicar
+te tengo bastante
+claro
+por eso
+quiero dormir un rato
+lo viste
+quiero dormir un rato
+sí, principalmente
+eso
+estas últimas
+semanas
+lo que menos hice
+fue dormir
+escribiendo la tesis
+la tesis
+sí
+trescientas noventa páginas
+no, no, ya no te digo
+trescientas noventa páginas
+cuando me dijeron
+trescientos cincuenta
+es el límite
+dije
+no, no me hagas eso
+no me hagas eso
+empezamos a revisar
+no, trescientos cincuenta
+era solo
+sin los anexos
+porque los anexos
+normalmente vos
+pones toda la evidencia
+entonces dije
+basta
+no me compliques
+el día de la entrega
+pero bueno
+no, no, no, no
+bueno
+¿cómo estamos ahora?
+estamos ahí
+si quieren
+hacemos un
+bueno, hacemos un cortecito
+de cinco minutos
+capaz
+seguimos un ratito más
+con la presentación
+ahí les mostramos
+también un poco
+las plataformas
+que vamos a estar usando
+ya sea aulas
+gestión
+y la parte
+bibliotecas
+les contamos también
+un poco
+las herramientas
+ahí que
+después
+las pueden descargar
+mismo desde
+la parte de aulas
+ahí donde está
+el curso de P1
+hablamos un poco
+de la
+bueno, el tema
+de las calificaciones
+que seguramente Gonzalo
+ya se los comentó
+pero bueno
+para repasar un poquito eso
+y arrancaríamos
+con un práctico
+ahí medio pequeñito
+de pensamiento computacional
+este que está ahora
+en un ratito
+ya lo vemos
+si les parece
+entonces chicos
+vamos a hacer entonces
+ese cortecito
+que voy a
+pausar esto
+y continuamos
+ahí un poco
+con la presentación
+chicos
+lo que vamos a estar
+con
+con
+con
+, perdón
+la relación
+que vamos a llevar
+un poquito
+con el teórico
+si es que siempre
+primero van a dar
+los conceptos
+en la parte teórica
+y después las ideas
+que vengan y apliquen
+las cosas
+en lo que es práctico
+si
+obviamente van a notar
+como ese pasaje
+pero simplemente
+es hecho a propósito
+para que ustedes
+por un lado también
+dijeran un poco
+los conceptos
+y después puedan venir
+a hacer los ejercicios
+acá de
+del tema en cuestión
+¿está?
+no vamos a inventar
+nada con Oliver
+o sea tipo
+es una clase práctica
+o sea vienen
+a hacer
+ejercicios
+y a practicar
+¿está?
+durante todo el semestre
+vamos a estar trabajando
+con el pizarrón
+este virtual
+Minoque
+hace un ratito
+se lo
+les pego un pantallazo
+la idea es que
+sobre ese
+pizarrón virtual
+estemos trabajando
+y bueno allí
+vayamos colgando
+como los ejercicios
+también les ponemos
+siempre algún material
+o algo si
+si corresponde
+y bueno
+y eso le queda
+durante todo el semestre
+y bueno
+siempre que quieran consultar
+lo tienen siempre a mano
+para
+para ver
+¿está?
+después
+tema de
+aprobación
+de la materia
+perdón
+tenemos
+para
+lo que es
+aprobar el curso
+¿sí?
+o sea ganarse
+el derecho a examen
+son 70 puntos
+y después
+si ustedes
+llegan a
+sacar 86
+o más
+ahí lo exonera
+si directamente
+no pasan por
+por el examen
+¿está?
+y obviamente
+aquellos menores
+a 70
+pierden la materia
+y bueno
+les va a tocar
+recursar
+pero estamos seguros
+que no va a pasar eso
+¿está?
+en cuanto a puntajes
+bueno vamos a tener
+en un principio
+dos parciales
+¿sí?
+el primero que cae
+a mitad del semestre
+y ese es de
+15 puntos
+va a ser sin material
+y después
+un parcial
+de 40 puntos
+que ese sí va a contar
+con un mínimo
+es decir
+ustedes tienen que llegar
+por lo menos a ese mínimo
+para
+para
+para aprobar ese parcial
+¿sí?
+de lo contrario
+sí
+ahí perderían el curso
+¿está?
+que también es
+sin material
+después tenemos
+la parte de los obligatorios
+¿sí?
+tenemos un obligatorio
+uno de 10 puntos
+que va a ser básicamente
+la parte del
+del maquetado
+de una página
+y después
+el obligatorio 2
+de 35 puntos
+también con un mínimo 18
+que va a ser una solución
+más
+más robusta
+digamos
+y este
+en este caso
+va a contar
+con una defensa obligatoria
+así que ahora también
+explicamos un poquito
+de lo que es esto
+pero básicamente
+es un mecanismo
+que tenemos nosotros
+en lo que es la cátedra
+para que ustedes puedan
+demostrar la autoría
+de su trabajo
+¿está?
+y bueno
+en el caso de que también
+les toque
+dar el examen
+si el examen
+también es
+es sin material
+y aprueban con
+con 70
+¿está?
+bien
+obligatorio 1
+¿sí?
+básicamente de vuelta
+va a ser
+algo bien sencillito
+¿sí?
+ustedes van a tener que
+armar una página
+donde van a tener que
+trabajar con lo que es
+HTML y CSS
+¿está?
+las entregas son siempre
+en forma
+en formato electrónico
+¿sí?
+eso se suben
+a gestión
+que ahora les mostramos
+también un ratito
+la plataforma
+y lo que ustedes hacen
+básicamente es
+cipear ese contenido
+¿sí?
+y lo suben ahí
+a gestión
+y ya
+este
+lo dejan ahí
+para que lo califiquemos
+nuevo nosotros
+¿está?
+después el obligatorio 2
+como les decía
+ya es una
+solución
+propiamente dicha
+¿no?
+porque ahí ya combina
+lo que hicieron
+de la página HTML y CSS
+con Javascript
+¿sí?
+le empiezan a dar
+como dinamismo
+y vida a la página
+¿está?
+por las dudas aclaro
+¿sí?
+o sea
+ustedes no van a salir
+desarrolladores web
+de este curso
+¿no?
+es simplemente que
+aplicamos
+la programación
+orientada a objetos
+utilizando
+como lenguaje
+justamente
+la parte HTML
+CSS y JS
+¿está?
+pero de vuelta
+es una anécdota
+¿no?
+lo que usamos
+para aprender a programar
+¿está?
+de vuelta
+la antelación electrónica
+¿sí?
+y después
+con respecto a la defensa
+de vuelta
+la idea es que ustedes
+vengan un día
+¿sí?
+generalmente creo que
+caen en teórico
+puede caer también
+en práctico
+¿está?
+vienen al laboratorio
+y se les va a dar
+a pedir que ustedes
+le hagan
+alguna modificación
+al código
+¿sí?
+es decir
+no sé
+si la página
+tiene algo
+agreguen un botoncito
+y que este botoncito
+haga tal cosa
+cuando yo lo clique
+¿está?
+pero cosas sencillas
+o cuando yo haga clic
+que cambie el color
+a tal cosa
+no sé
+¿sí?
+y a su vez
+también obviamente
+preguntas del obligatorio
+bueno ¿por qué
+quisieron hacer esto?
+¿por qué no lo hicieron
+a SA?
+¿por qué hicieron esto así?
+y bueno
+cosas del estilo
+¿está?
+entonces de vuelta
+es importante
+que ustedes trabajen
+sobre ese obligatorio
+y lo conozcan bien
+¿está?
+las defensas son más o menos
+de 30 minutos
+¿sí?
+porque de vuelta
+como el cambio es sencillo
+no extendemos demasiado
+el tiempo para
+para trabajar
+y obviamente
+si no asisten
+¿está?
+eso implica también
+la pérdida del curso
+¿está?
+así que es importante
+que si ustedes más o menos
+teniendo ya las fechas
+de la defensa
+ven que no pueden asistir
+nos avisan con tiempo
+cosa de que podamos
+como reprogramar
+y que ustedes puedan
+en definitiva
+poder tomar la defensa
+¿está?
+siempre no
+siempre que avisen
+con tiempo
+se puede
+para que la
+se pueda hacer
+para que la tomen
+con otro grupo
+o lo que sea
+¿está?
+pero no dejen de avisar
+después
+en cuanto a materiales
+bueno
+de vuelta
+vamos a estar usando
+el Miro
+para trabajar ahí
+durante todo el semestre
+tienen el libro
+ahí en aulas
+que en un ratito
+se los mostramos
+también está
+la bibliografía
+sugerida por
+por la cátedra
+y obviamente
+busquen en Google
+si tienen quizás
+ya algún libro
+de preferencia
+también
+pueden utilizarlo
+¿está?
+cualquier cosa
+es válida
+bueno un poco
+las áreas
+en las que se pueden
+desenvolver
+¿sí?
+ya obviamente
+creo que la que ganó
+fue ciberseguridad
+pero obviamente
+está la parte
+de inteligencia artificial
+gestión del software
+testing
+¿sí?
+comunicaciones
+juegos incluso
+o sea
+de verdad que
+hay bastante
+¿está?
+un poco
+los objetivos
+de la carrera
+¿sí?
+y lo que
+vamos a tratar
+de enseñarles
+como en cada materia
+es que
+ustedes terminen
+aprendiendo
+a aprender
+¿sí?
+porque más allá
+de lo que es
+el concepto
+o la teoría puntual
+que se está enseñando
+siempre se busca
+que ustedes
+vayan un paso más
+y que obviamente
+no sepan
+aprender
+este problema
+en particular
+sino que ustedes
+puedan también
+de alguna manera
+transferir ese conocimiento
+que sacaron
+al resolver eso
+a otras cosas
+¿está?
+un poco
+el obligatorio
+la idea
+es que lo hagan
+de a dos
+la idea
+siempre el obligatorio
+porque de a dos
+justamente
+para empezar
+a trabajar
+el equipo
+¿no?
+o sea
+a ver
+pero el que esto
+lo sea
+solo
+no sé bien
+no sé cuánto
+a bárbaro
+pero
+la práctica
+de explicarle
+a alguien más
+para que entienda
+es fundamental
+dicho sea
+de paso
+como dice ahí
+aprender
+aprender
+si van a trabajar
+de a dos
+y algo que nosotros
+no lo vamos a ver
+en el curso
+a ver
+muchas cosas
+no vamos a ver
+ustedes van a tener
+que
+que
+ingeniárselas
+averiguar
+investigar
+practicar
+yo les recomendaría
+que usen GitHub
+GitHub es un repositorio
+de código
+básicamente
+que dan
+para
+dar un código
+compartido
+con su compañero
+y que cada uno
+vaya trabajando
+en lo suyo
+y después vayan subiendo
+el código ahí
+esta es mi recomendación
+después si quieren
+pasárselo por sí
+por lo que sea
+es de otra manera
+eh
+voy a hablar
+de la otra parte
+acá
+eh
+para que
+si
+después
+de
+que
+tenés
+el
+visual
+si
+si
+no
+aparte
+tenés
+el GitHub Desktop
+también
+que
+también
+es más
+más visual
+bueno
+si
+tenés
+muchas
+luchas
+eh
+eh
+después
+lo otro
+que es importante
+para el obligatorio
+es
+eh
+lean bien la letra
+porque
+me ha pasado
+tener que sacar puntos
+por cosas muy
+idiotas como decís
+venía bien hasta que
+le tuve que sacar puntos por cosas
+que en realidad
+uno no las toma en cuenta a veces
+pero si leen bien la letra
+no les pasa, principalmente porque nosotros
+también les vamos a dar un checklist
+o sea, hay gente que ni siquiera
+revisa el checklist
+a ese nivel
+hay gente que decís
+esta gente sabía esto
+y sin embargo le tenés que sacar puntos
+porque no revisó el checklist
+ahí apelamos a su comprensión lectora
+hagan uso
+de esa capacidad, por favor
+sí, por favor
+no quiero sacar puntos
+por cosas que son demasiado
+obvias
+bueno, después algunos casos
+de éxito que han salido
+de lo que son
+tesis, acá ya podemos poner
+la de Oliver acá
+para la próxima presentación
+ahí va
+pero obviamente la más conocida
+es Piollá, Kisanaro que obviamente
+ya ahora no es tan conocida
+pero en su momento fue la que usaba el macho Tabárez
+para sacar estadísticas y demás
+de los jugadores de la selección
+y bueno, algunos proyectos de videojuego
+pero obviamente sepan que
+esa tesis
+y que a ustedes les va a tocar después
+puede ser algo bastante interesante
+para desarrollar algún producto
+o alguna idea que ustedes tengan
+obviamente no tienen que esperar la tesis
+para
+no, no, me mata el tema este
+del cosito del Zoom
+obviamente no tienen que esperar la tesis
+para desarrollar una idea
+como decía Oliver está lo que es el centro
+de innovación y emprendimiento de la ORT
+y le dejamos el link
+por si de vuelta ustedes tienen alguna idea
+obviamente necesitan como apoyo
+pero ahí no saben cómo desarrollarla o demás
+bueno, ustedes pueden ir ahí
+buscar como asesoramiento
+y obviamente los van a estar ayudando con eso
+así que no
+pierdan la oportunidad tampoco
+sí, sí, el año pasado
+si no recuerdo mal
+se empezó a hacer incluso
+un evento
+de tipo gente
+que tiene una idea
+y buscando gente
+quien se cope
+y que le guste la idea
+y quiera sumarse
+no, no, no, que se suma la idea
+que se sume la idea
+no me acuerdo cómo fue que se llamó
+encuentro de founder o algo así
+no me acuerdo
+pero está bueno también
+a veces uno no tiene una idea
+pero bueno, va y le interesa una idea
+y se suma
+yo ese ejemplo
+no tan yéndonos para atrás
+tenemos Viatic
+tenemos Avanza
+tenemos esto un poco
+hoy el CIE
+si entra en la página del CIE
+no sé
+debe haber como 40
+emprendimientos
+preincubados
+otros 20
+que ya están graduados
+como quien diría
+así que
+es una de las tantas opciones
+que tienen para
+terminar la carrera
+poder tener un emprendimiento propio
+también podrían hacer
+un proyecto de una empresa
+porque bueno hay una feria de proyectos
+que presentan las empresas
+cosas que necesitan
+o la facultad misma
+a veces está como un cliente
+un proyecto
+no está mal tampoco
+porque incluso a veces
+esas empresas pueden generar
+un contacto
+y bueno y después seguir trabajando con ellos
+y todo
+yo la verdad que
+desde que entré sabía que
+el proyecto final iba a ser
+un emprendimiento
+es más
+es el segundo proyecto
+el primero
+el primero iba a ser un emprendimiento
+y al final mis compañeros decidieron
+cambiar a un proyecto
+con una empresa
+porque era conocido de una
+y fue un fiasco terrible
+me terminé bajando
+porque la verdad que
+no me gustó ni
+para donde iba ni nada
+no sé si le voy a dar un like
+si le cayó bien o mal a la empresa
+que yo me bajara
+pero bueno
+poco mentiras
+pero yo creo que uno
+para esa altura ya sabe lo que quiere
+entonces
+y hay muchas posibilidades
+así que
+tiene toda la carrera pensando
+que lo que viene a ser
+bien
+bueno después obviamente la carrera está enfocada
+en varias cosas justamente
+como dice Oliver
+pueden hacer lo que se les caiga
+pueden hacer lo que se les caiga
+si ustedes encuentran algo que les guste
+vayan por ese camino
+pero obviamente
+justamente esas posibilidades
+también vienen a un costo
+y es justamente el hecho de que la carrera
+los va a preparar
+para varios temas
+por un lado obviamente
+las materias de programación
+a saber programar
+y pensar como un programador
+esas materias más lógicas
+y más de matemática
+físicas
+después tiene la parte más
+por ahí más ética
+que también los forman un poquito ahí
+por el lado más humano digamos
+después la parte de gestión
+yo la odio
+pero hay gente como Oliver que le gusta
+y
+pero bueno está
+de vuelta hay para todos los gustos
+después también hay más
+de parte de finanzas
+y bueno administrativa
+también les va a tocar
+alguna que otra de esas
+pero sepan que cada una
+tiene como su objetivo
+y su uso digamos
+después algunos tips
+el primero y el principal
+es el tema de la continuidad
+con lo que es el teórico del práctico
+seguramente estemos casi a razón
+de un práctico por semana
+y obviamente ustedes
+se van quedando para atrás
+obviamente van a empezar a acumular deuda
+de duda
+de cosas que no entienden
+y obviamente uno va construyendo
+sobre lo anterior
+entonces va a llegar un punto
+que no les va a dar
+entonces si por ahí falta
+perdemos
+por algún feriado o algo
+después tenemos que ir así
+y a su vez digo
+está el tema de que
+cuenta con el material
+porque ya le miró ahí
+para ver lo que se hizo en la clase
+nosotros igual después le pasamos
+unos apuntesitos
+para que sepan más o menos
+los temas que se dieron
+tienen el video también de la clase
+para ver
+entonces digo
+tienen como las chances
+para que no les pase eso justamente
+entonces pilas
+pilas con eso
+bueno después
+también vean ustedes
+a ver dónde les conviene estudiar
+cuentan con la facultad
+que pueden ir a algunas salas
+o mismo la biblioteca
+también es un lugar lindo
+para reunirse
+estudiar por ahí
+después el tema de lo que es apoyo
+si tienen mucho apoyo de gente
+tienen lo que son los asistentes de laboratorio
+van a tener también los ayudantes de cátedra
+que son personas que están específicamente
+para ustedes
+y que van a estar
+en algunos momentos
+presenciales en los laboratorios
+pero también tienen la posibilidad
+de contactarse online
+creo que ahora en abril
+queda publicada las ayudantías
+y bueno ahí ya la vamos a comentar también
+y obviamente tienen tres docentes
+para preguntar
+entonces obviamente
+aprovechen eso
+para consultar
+y sacarse las dudas
+cualquiera sea
+y bueno
+en el foro
+en whatsapp
+¿cuándo van a ser el grupo de teams?
+ya está
+no, grupo de teams
+no hacemos
+está
+en los contactos
+no se puede contactar por team
+no hay problema
+si quieren hacer un grupo de team
+lo pueden hacer
+no hay problema
+si no quieren agregar
+no sabrían también
+tampoco hay problema
+igual no hacen
+no saben
+claro
+hay gente que ha hecho
+hay sus discos
+hay sus discos de la materia
+para todos les gusta
+por falta de comunicación
+no va a haber problema
+seguro
+y bueno
+y obviamente bienvenidos
+a la vida universitaria
+todo va a depender
+básicamente de ustedes
+no sé si ahí tienen dudas
+chicos
+que quieren preguntar
+ahí que nos haya quedado
+muy claro
+y
+y que no se nos haya quedado
+y quieran consultar
+yo
+también tengo una duda
+sobre la lista
+no se pasó
+para
+los que estamos por Zoom
+o
+ah no
+sí
+se conectan
+se conectan
+de
+de
+de guía
+se conectan de Zoom
+y se fijan los nombres
+y lo que está conectado
+no pasa la lista
+dale genial
+¿está?
+sí, sí
+igual de vuelta a la lista
+más que nada
+para llevar control
+por parte de la
+de la universidad
+en sí
+nosotros hoy pasamos la lista
+nomás para tener una idea
+del grupo
+de cómo estaba conformado
+y demás
+pero no
+no es que vamos a estar pasando
+la lista nosotros
+por
+para llevar control
+digamos
+¿sí?
+ok, gracias
+que digan
+a los que puedo
+para saber
+con quiénes estoy tratando
+así sé
+a quién tengo que estar
+más arriba que no
+y obviamente
+después
+me pueden poner
+como referencia
+a medio pueblo
+que me conoce
+así que
+por lo bueno
+por lo malo
+pero
+me conoce
+bien chicos
+bueno
+continuando
+tenemos
+ahí las plataformas
+de la universidad
+¿sí?
+vamos a estar usando
+aulas, gestión y biblioteca
+¿sí?
+las tres se
+se loguean
+con el mismo usuario
+y contraseña
+¿está?
+por lo tanto
+si lo cambian
+por ejemplo
+la contraseña en gestión
+sí, también se va a cambiar
+para los otros sistemas
+¿está?
+tengan presente eso
+que están sincronizados
+¿está?
+bien
+en aulas
+¿sí?
+van a encontrar
+todo lo que es
+la parte
+de
+bueno
+material de la carrera
+y a su vez
+en lo que es
+el material del curso
+si va a estar
+por ejemplo
+publicados
+las ayudantías
+y los horarios
+van a encontrar
+el tema de los prácticos
+y bueno
+todo el material teórico
+donde descargar
+las diferentes herramientas
+o
+bueno
+lo que vayamos
+utilizando en el curso
+sepan que
+lo que tenemos
+en el Miro
+en realidad
+es
+o sea
+los mismos prácticos
+que van a encontrar
+en aulas
+son los mismos
+que nosotros agarramos
+y pusimos en el Miro
+¿está?
+simplemente para que tengan presente
+tienen también
+el material
+de exámenes
+de parciales
+con sus soluciones
+y demás
+por si después
+quieren también estudiar
+por ahí
+¿está?
+y
+importante de aulas
+¿sí?
+siempre
+descargarse el calendario
+de eventos del semestre
+que ahora les muestro
+un poquito
+y una cosa ahí
+es que
+hay en aulas
+o sea
+tienen el teórico
+tienen el práctico
+tienen las soluciones
+tienen los exámenes
+tienen todo
+o sea
+nosotros acá
+lo que vamos a hacer
+es ayudarlos a pensar
+a tratar de resolver
+un problema
+a ver por dónde empezar
+y a dónde quiero llegar
+y darle tips
+ayudarlos de lo que sea
+pero el laburo
+es de un
+porque
+como dije
+siempre la solución
+está en el aula
+el tema
+es saber
+cómo llegar
+a esa solución
+exacto
+bueno
+en aulas van a ver
+que van a tener
+todos los cursos
+a los cuales
+están registrados
+en particular
+para lo que es
+el calendario de eventos
+del semestre
+si ustedes tienen que ir
+a la parte de
+ingeniería
+de la escuela de ingeniería
+¿sí?
+en este caso
+nosotros somos
+ingeniería
+en sistemas
+¿está?
+y ahí van a tener
+los horarios
+de marzo 2026
+¿no?
+donde tienen
+básicamente
+la misma información
+que nosotros les pusimos
+¿está?
+en lo que es su grupo
+y les dice
+bueno
+a qué se van a tener que ir
+en qué día
+y en qué hora
+¿está?
+para las materias
+y después
+muy importante
+el tema de calendario
+de eventos del semestre
+esto ya
+por si les aconsejo
+que ya se lo vayan descargando
+¿está?
+ustedes son
+en el semestre 1
+donde básicamente
+les muestra
+todos los eventos
+del semestre
+justamente
+¿está?
+este
+el tema de
+bueno
+en qué momento
+se lee la letra
+del oratorio
+del programa
+de formación 1
+cuando es el parcial
+este
+los feriados
+¿sí?
+cuando van a ser
+la segunda tanda
+de parciales
+¿está?
+etcétera
+etcétera
+¿está?
+entonces ahí
+después con
+con tiempo
+lo agarran
+lo descargan
+y lo bichan
+¿está?
+y a su vez
+también tienen
+información de las materias
+¿está?
+les va contando
+como
+este
+la aprobación
+los parciales
+bueno
+el tipo de aprobaciones
+que tiene
+si tiene mínimo
+si no tiene mínimo
+y demás
+¿está?
+y después también
+tener en cuenta
+esta fechita
+de acá
+¿sí?
+que es la
+la caducidad
+de crédito parcial
+¿está?
+que esto es
+en caso que ustedes
+lleguen a exonerar
+la materia
+perdón
+a ganarse
+el derecho a examen
+de la materia
+¿sí?
+y ustedes
+no rinden ese examen
+y lo aprueban
+antes de esta fecha
+¿sí?
+se les da la materia
+por perdida
+entonces después
+les va a tocar
+recursar
+¿está?
+entonces
+vayan bichando
+como esa fecha
+tenganla presente
+por si de vuelta
+se ganan el derecho a examen
+y
+este
+dejan
+el examen
+para atrás
+¿está?
+justamente esto se puso
+porque
+claro
+lleva gente
+quizás a
+bueno
+a rendir la tesis
+y demás
+y resulta que
+veían
+materias del primer semestre
+o del segundo semestre
+entonces
+como para evitar
+un poco eso
+y de esforzarlos
+a ustedes
+también
+a que
+den
+los exámenes
+en el periodo
+correspondiente
+se puso esto
+¿está?
+así que tenganlo presente
+no sé
+ahí Oliver
+si vos querés decir algo
+no
+no no
+tengan en cuenta
+bien las fechas
+principalmente
+las fechas parciales
+de esta entrega
+entregar los parciales
+cuando entren a gestión
+van a ver
+que en realidad
+después que
+después que se inscriben
+a
+a la entrega
+del obligatorio
+ya
+como que les deja entregar
+eso quiere decir
+que pueden hacer
+tantas entregas
+como
+sean necesarias
+mi recomendación
+es
+no esperen
+al último día
+para entregar
+entreguen algo parcial
+unos días antes
+cosa que
+haya algo arriba
+porque si el día
+de la entrega
+tiene algún problema
+no
+no
+no hay otro día
+porque aparte
+creo que
+quiero estar
+la noche
+a las nueve de la noche
+carnal
+para solucionarlo
+por eso
+no esperen
+ni al último día
+ni al último momento
+si
+vas a dar en cuenta
+que así como ustedes
+están
+80 personas más
+entregando cosas
+¿no?
+si
+podes hablar de otras materias
+también
+pero todavía
+pero
+y lo otro es
+los parciales
+son
+hoja y papel
+digo en hoja
+y lápiz
+digo
+el que quiera hacerlo
+con la lapicera
+no hay problema
+el problema
+que va a tener que tachar
+a veces
+a mí lo veo
+pero
+yo les digo
+que
+no es lo mismo
+hacerlo en hoja
+que hacerlo en la computadora
+practiquen
+para el día del parcial
+hacerlo directamente
+no
+porque después
+van a ir
+para el día del parcial
+y me dicen
+¿qué es
+esto va a ir así?
+y no sé qué
+¿de cuánto?
+y mi respuesta
+al día del parcial es
+después que pasé la puerta
+me olvidé de todo
+¿qué caso de día
+nos pasó lo mismo?
+bien
+bueno después
+en lo que es
+programación 1
+van a encontrar
+de vuelta
+todo lo que es
+el material
+para la
+si estoy estudiando
+van a encontrar
+todo el material
+de lo que es
+la clase
+¿está?
+por ejemplo
+para
+las herramientas
+¿sí?
+lo que vamos a estar utilizando
+básicamente va a ser
+las Chrome DevTools
+el Visual Studio Code
+¿sí?
+también tienen
+un asistente
+de
+ChatGPT
+por si quieren hacer consultas
+para programación 1
+¿está?
+en la parte de temas
+está lo que es
+el libro teórico
+y
+bueno obviamente
+las pautas
+para el uso
+de
+inteligencia artificial
+y
+el práctico PDF
+que de vuelta
+no le vamos a dar
+mucha bola
+a este PDF
+en sí
+porque de vuelta
+todos los prácticos
+estos mismos
+están en el Miro
+¿está?
+tema de foros
+¿sí?
+acá
+pueden
+no sé
+consultar alguna cosita
+obviamente nunca
+pongan código acá
+si es simplemente
+para sacar dudas
+si en algún punto
+necesitan
+hacer alguna consulta
+y tienen el link
+ahí al pizarrón digital
+¿sí?
+que es justamente
+el Miro
+se va a copiar
+ahí nomás
+en el
+chat
+pero
+a ver
+a ver
+a ver
+a ver
+vamos a usar
+principalmente
+para que
+los que vamos
+haciéndolo en clase
+cada uno
+suba
+su solución ahí
+y podamos
+analizarlo
+entre todos
+digo porque
+uno lo puede hacer
+en su máquina
+y equivocarse
+y
+papá que aprendí
+el error
+pero en realidad
+mejor que todo
+veamos los errores
+de todos
+para que todos
+aprendamos
+y no cometer
+ese error
+después
+la pasión es
+prueba y error
+¿sí?
+y qué día
+que hizo bien la cosa
+la primera también
+yo tengo
+báquet
+estoy tres horas probando
+y no sé por qué
+no estás sol
+no estás solucionado
+vete
+pero es que
+estaba
+como en el proceso
+de lunes
+sí
+y a veces
+me quedaba
+al genio
+que daba
+que daba
+peor
+lo peor
+no pero
+o sea
+yo llegué a un punto
+de
+tener la solución
+en un sueño
+tenemos que a veces
+igual no es
+no no no
+estaba mal
+me desperté y fui corriendo
+a la máquina
+igual también a veces
+por ejemplo, yo lo empecé
+todo lo que me pasaba
+no me confundía con cosas de código
+sino con cosas de plan
+lo mezclás
+y te daban las cosas que me quedaban
+por eso
+hay que salir un rato
+tomar el aire
+mirar los pajaritos y volver
+y además otro tema con la programación
+es que hay mil formas de hacer las cosas
+entonces también en eso de demostrar
+cada uno su solución
+uno también aprende cosas diferentes
+o cómo podría haber atacado ese problema
+de otra forma
+más que nada por eso digo que
+vamos por ese approach
+bien, después la parte de evaluaciones
+acá van a entrar todo el tema
+de parciales, obligatorios pasados
+los obligatorios obviamente tienen solución
+pero lo que son parciales y exámenes
+sí
+ustedes pueden entrar ahí
+y echar las soluciones de esas cosas
+acá va a estar publicada después también
+la letra del obligatorio
+vamos a publicar también
+bien la fecha de las defensas
+cuando llegue el momento
+y bueno después ya tienen
+la parte del acceso a la sala de Zoom
+y las grabaciones
+entonces de vuelta
+la parte de aulas es más que nada
+para el tema de materiales
+después
+tenemos la parte de gestión
+y acá básicamente es donde ustedes pueden hacer
+todos los trámites de la carrera
+no sé anotarse alguna
+bueno mismo la carrera
+anotarse alguna materia
+este
+anotarse lo que son las
+las evaluaciones
+parciales
+sí, parciales, exámenes
+exacto
+etcétera
+sí, reserva laboratorio
+no sé si hay alguien que reserva laboratorios hoy en día
+pero bueno lo pueden hacer desde ahí
+y gestión lo tengo por acá
+sí
+este
+yo obviamente no tengo nada acá
+porque no me anota nada
+este
+pueden acá anotarse por ejemplo
+en la parte de datos personales
+subir el CV y demás
+para después
+que lo tengan en cuenta en la
+en la
+esto se me venció la concesión
+un cachito
+bueno acá lo que les decía
+es siempre el número de estudiante
+y la contraseña
+que es la misma para los tres sistemas
+entonces lo que les decía
+acá en datos personales
+ustedes pueden echar sus datos
+les va a pedir más o menos
+historia laboral y demás
+y algunas cosas más
+que otra cosita
+y este
+en eso básicamente
+se pueden quizás hasta anotar en la bolsa de trabajo de la
+de labor
+y bueno que le lleguen mails o correos cuando
+cuando sea necesario
+después el tema de
+descripciones sí
+a carreras
+está
+este
+después los cursos activos
+donde a ustedes les va a aparecer todas las materias en las que están anotados
+créditos académicos
+acá básicamente son las
+las notas que se sacaron
+este
+en las materias que están anotadas
+en las materias
+si pueden ser créditos totales
+que simplemente
+sin
+sin
+este
+las notas
+en el medio
+o créditos parciales
+que también les dicen las notas que sacaron ahí en las
+en las evaluaciones intermedias
+está
+después en la parte de evaluaciones ustedes acá se van a estar anotando si ya sea para
+el parcial
+o
+este
+para los obligatorios
+está
+en el caso de que sean un grupo de obligatorio
+si
+uno de los dos compañeros
+de justamente el obligatorio va a estar anotado aquí
+y va a subir el obligatorio por los dos
+igual de cualquier forma los dos tienen que estar anotados para poder hacer eso
+después exámenes exactamente lo mismo
+si les van a aparecer los exámenes a los cuales tienen derecho a anotarse y ustedes se van a poder anotar ahí
+aunque sea con algo vacío
+también le va a salir para darse cuenta si crearon bien el grupo porque le llega el mail a los dos
+exacto
+después si por alguna razón o se tienen que sacar una escolaridad para presentar en algún lado
+o sea que no se les va a dar el mail a los dos
+si
+también tienen como la posibilidad de hacerlo ahí
+este
+incluso
+de gestión
+está la
+hay una aplicación de ORT
+si se la pueden descargar al celular también desde ahí
+este
+después el tema de la encuesta estudiantil si a final del semestre
+antes de dar la segunda tanda de parciales
+ustedes tienen la obligación
+si es llenar esa encuesta estudiantil
+de lo contrario no lo va a dejar anotarse a ninguna otra cosa
+va a ser llenar la cuenta estudiantil y los habilita a anotarse a los segundos fondos
+ok
+de los fondos parciales
+ya
+es importante que utilicen como esta encuesta
+porque realmente se les da bola
+en lo que es la universidad
+y este
+dejen como su feedback
+si ya sea bueno o malo lo que sea
+pero dejen comentarios como para mejorar
+entonces aprovechen como estas instancias que ya les digo
+este
+son para bueno son encuestas anónimas obviamente
+y este pueden hacer sus descargos
+y este ayudar a seguir mejorando toda la
+la dinámica
+está
+el estado de cuenta
+yo creo que estoy pelado
+si cero
+obviamente si van depositando plata para hacer algunos pagos lo que sea
+bueno lo va a figurar ahí
+tema de trámites de títulos
+para solicitar algún título
+si necesitan solicitar algún diploma o algo
+ahí lo pueden hacer
+previas
+les muestra como las previas para cada materia
+ustedes seleccionan la materia y les dicen
+esta materia tiene tales previas
+laboratorios que es para la parte de reservas
+yo no tengo ninguno obviamente
+y después contancias
+si por ejemplo no se tienen que sacar boleto
+este
+y presentar una constancia de alumno activo lo que sea
+lo pueden hacer desde acá también
+está
+eh
+y bueno acá tienen un link para
+ir a la biblioteca que es la siguiente plataforma
+está
+que básicamente es para consultar el tema de libros
+disponibilidad
+este si tienen alguna reserva activa o no
+o demás
+está
+este bueno acá pueden ya ya digo buscar
+este material de libros
+este
+sigan las búsquedas que hicieron
+los libros que pidieron
+está ahí pueden como ir bichando esas cositas
+este
+y bueno básicamente son como las plataformas que tiene la
+la universidad para
+para trabajar
+está
+eh pues entornos de trabajo si vamos a estar
+utilizando por un lado lo que decíamos Chrome DevTools
+eh obviamente si no tienen Chrome o
+utilizan Mozilla o Opera o cualquier
+navegador si todas tienen DevTools así que
+por eso no se preocupen
+eh simplemente desde la cátedra vamos a estar como
+con esto haciendo uso de esto está
+y este después para programar si vamos a estar
+usando el Visual Studio Code está
+de vuelta eh pueden usar lo que a ustedes más les guste pero
+este es lo que vamos a estar mostrando nosotros en la
+en la cátedra está
+y obviamente Javascript como lenguaje de programación si
+este obviamente en lo que es este entorno va a estar
+como le decíamos la parte de inteligencia artificial
+ahí ya les mostré en aulas que está el link al
+al chat GPT para
+para que puedan consultar y bueno este
+eh probarlo si quieren obviamente si encuentran
+algún detallecito por favor nos hacen saber
+cualquier cosa que haya que corregir
+y obviamente desde la cátedra vamos a promover el uso de
+inteligencia artificial porque no desconocemos este
+las implicancias que tiene y cómo les puede ayudar
+pero obviamente este le pedimos uso y no abuso de este
+entonces básicamente que eh lo utilicen para aprender
+y no básicamente copiar y pegar lo que les escupe
+está tiene que saber que esas cosas alucinan este
+incluso después tirar cosas que en sí que hacer en el curso
+está entonces lo interesante es que cuando vean un código
+si no lo pueden entender sigan buscando para
+a ver si pueden este hacerlo eh más sencillos
+o si no lo pueden entender sigan buscando para
+eh más sencillos que que ustedes lo puedan comprender
+también porque de vuelta está la defensa vamos a hacer
+preguntas sobre eso y si o sea si ni siquiera ustedes saben
+explicar lo que le dio la inteligencia artificial este
+vamos por por mal camino ah
+eh a ver eh porque porque hay un GPT propio
+se entrenó con el con lo que se ve en el curso
+o sea que debería responder con cosas que se ven en el curso
+y no con cosas que no se ven en el curso
+o sea si yo después voy bien en el obligatorio
+o algo que no vimos en el curso obviamente va a ser
+candidato a presentar eh lo cual es que no no quiere
+decir que esté mal porque podés saber mucho y decir
+ah ya te lo otro porque lo conozco y si lo puedo defender
+en la defensa perfecto ahora si no lo conozco
+y le voy a copiar y pegar en el GPT es un problema
+porque después lo van a tener que defender eso la defensa
+eh la idea justamente es el GPT que no le responda cosas
+que no vemos en el curso puede fallar puede fallar
+puede haber alguna cosa que no pero bueno justamente la idea
+es igual después nosotros vamos a dar cosas que le vamos
+a decir esto prohibido hay cosas que están prohibidas
+a hacer eh sencillamente pues son malas prácticas
+entonces un poco la idea de de eso es tratar de evitar
+que pasen esas cosas exacto si la idea es que ustedes
+ah de vuelta la aprovechen pero también comparten
+con con conciencia y y responsabilidad ah este y bueno
+eso sería todo en cuanto a presentación no sé si este
+también tienen una preguntita sobre el uso de inteligencia
+artificial algo que le esté haciendo ruido de lo que
+hayamos comentado estamos bien bueno entonces para
+arrancar el día de hoy suave nomás este vamos a estar
+de vuelta trabajando con con el tema de miro si eh
+dejamos algunas cositas colgadas no por ejemplo esta
+el tema del espacio links si si entran ahí este les
+va a mostrar la página de ahora donde explica un poquito
+el tema del espacio si básicamente es un lugar que lo
+que busca es como generar como un poco de networking en
+en los primeros semestres de la carrera ¿Verdad? Y bueno
+hacen actividades y demás este ahí también le dejamos el
+el video de YouTube después por si quieren como bicharlo
+está interesante aprovechen estas cosas ¿No? Digo en mi
+época no no estaba en la en la facultad y la verdad que
+me hubiera recopado que hubiera estado algo así por por
+esas épocas este le dejamos el link también a la planilla
+de contacto ¿Sí? Es esta misma planillita que fuimos este
+recorriendo hoy al al comienzo de de la clase este la idea
+es que bueno vayan dejando su celular su mail ¿Sí? Si tienen
+compañero obligatorio o no si están buscando ¿Está? Le
+dejamos también nuestros contactos ahí por si precisan
+de gonzá de vuelta acá y este y nada este después si ustedes
+quieren cerrar un poquito de WhatsApp ahí con con esos
+contactos este
+ahí hay libre alberrío eh y bueno el link aulas también
+este por si quieren ir a aulas desde acá ¿Está? Recomendación
+como esto lo vamos a estar usando siempre pónganse esto en
+en en las para que ya les quede ahí colgadito ¿Está? Y bueno
+la idea de hoy es arrancar con este pensamiento computacional
+¿Sí? Más o menos saber cómo cómo estamos de de de de
+cabecita para para resolver un par de de rompecabezas para
+resolver un par de problemas ¿Verdad? Y eh la idea va a ser
+en Zoom ¿Sí? Yo voy a armar como grupitos de de breakout
+rooms y este ahí básicamente uno de los que esté ahí comparte
+pantalla ¿Sí? Y se anota justamente a este quiz ¿Está?
+Los que están ahí en el salón se juntan por máquina ¿Sí? Y lo
+mismo ¿Está? Pónganse ahí un nombre un nombre ahí al grupo y
+demás y la idea es arrancar con ese quiz y empezar a ir
+resolviendo los los este problemas ¿Está? Porque si
+por ejemplo el primero dice eh dada esta secuencia ¿Sí?
+Partiendo acá de la nave bueno ¿Cuántas veces tendría que
+repetir esa secuencia para que este la nave llegue al planeta
+¿Está? Después les habla de una secuencia de números y les
+pregunta cuál podría ser el próximo ¿Está? Después les hace
+este creo que este es una seguir con unas unas este
+instrucciones y bueno ver qué pasa cuando uno sigue todas
+esas instrucciones y bueno así con todo ¿Está? La idea es más o
+menos ver hasta hasta dónde podemos llegar y este con esto
+de o sea terminaríamos como el este práctico que simplemente
+es como para un repasito de de pensamiento computacional ¿Está?
+Yo voy a ir creando los grupos acá bueno chicos llegamos al
+final de la clase obviamente ¿Está? Nos quedamos un poquito
+cortos de tiempo para el jueguito pero este igual va a
+quedar ahí colgado ¿Está? Va a quedar este creo que por dos
+semanas lo vamos a dejar ahí en la en la vuelta si después
+quieren tranquilamente pueden seguir participando ¿Está?
+Semana que viene ya empezamos con el práctico tres de variables
+así que este vengan ahí nomás con con ganas de de seguir
+programando ¿Está? Y obviamente cualquier duda nos consulta
+así que eso es todo por hoy chicos nos vemos si os quiere
+gracias
+como es tu

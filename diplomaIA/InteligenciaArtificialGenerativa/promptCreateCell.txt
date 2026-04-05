@@ -1,0 +1,29 @@
+Read c:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\obligatorio\NOTEBOOK_TOOL_LIMITATIONS.md. For those reasons I created
+  c:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\obligatorio\mainEmpty.ipynb, with 80 empty cells so you can edit them instead of having to add cells. Do not add new cells. What you will do now is you will refactor c:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\obligatorio\main.ipynb by reacreating it from zero in
+  c:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\obligatorio\mainEmpty.ipynb. You will recreate it implementing the new approach we just discussed. I want the new notebook to have this (WITHOUT the indexing of course):\
+  1. Title as it is now.\
+  2. Intro as it is now.\
+  3. Configuración general.\
+  4. Hiperparámetros.\
+  5. Carga y análisis del dataset
+  6. Implementación de los modelos
+  7. Entrenamiento de los modelos
+  8. Evaluación de los modelos
+  9. Métricas finales de los modelos\
+  10. Conclusiones (a completar)\
+
+I want only one code for all 3 models for all sections of the notebook, except for the things that need to be different.
+- Give me one dedicated cell of code for the optimizer of each model (don't care if adam is repeated)
+- Give me one dedicated cell of code for the discriminator of each model
+- Give me one dedicated cell of code for the loss function of each model
+All these (optimizer, loss, discriminator) must be subtitles within section "Implementación de los modelos"
+- Give me one dedicated cell of code for the training of each model (this goes in  7. Entrenamiento de los modelos)-
+In "Métricas de los modelos", we must be able to compare them clearly. One graph must contain one thing being evaluated of all 3 models so we can see how they behave. Design the rest as you deem fit.
+In wandb, we must only log and keep track of essential metrics that interest us, get rid of extra garbage.
+
+Keep it extremely simple and sober. Follow the principle "less is more". Minimalistic.
+
+Invoca múltiples agentes para esta tarea. Que cada agente repita el proceso 3 de leer la notebook veces; al terminar una pasada, que vuelva a analizar toda la notebook (es decir, todo el contenido, sin falta), en orden, en busca de detalles que haya omitido leer la vez anterior. Solo al final, que cada uno brinde su propia versión de la nueva notebook, y tú bríndame una sola versión final. Ultrathink
+   
+
+

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribución Uniforme Continua</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .formula {
+            font-size: 1.3em;
+            text-align: center;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .diagram {
+            margin: 40px 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #667eea;
+        }
+
+        input[type="range"] {
+            width: 150px;
+        }
+
+        .value-display {
+            margin-top: 5px;
+            font-size: 1.2em;
+            color: #764ba2;
+        }
+
+        .explanation {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        svg {
+            width: 100%;
+            height: 400px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .axis {
+            stroke: #333;
+            stroke-width: 2;
+        }
+
+        .uniform-rect {
+            fill: rgba(102, 126, 234, 0.6);
+            stroke: #667eea;
+            stroke-width: 2;
+            transition: all 0.3s;
+        }
+
+        .uniform-rect:hover {
+            fill: rgba(102, 126, 234, 0.9);
+        }
+
+        .label-text {
+            font-size: 14px;
+            fill: #333;
+        }
+
+        .grid-line {
+            stroke: #ddd;
+            stroke-width: 1;
+            stroke-dasharray: 5,5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Distribución Uniforme Continua</h1>
+
+        <div class="explanation">
+            <p>La <span class="highlight">distribución uniforme continua</span> es la más simple de las distribuciones continuas. Todos los valores dentro del intervalo <span class="highlight">[a, b]</span> tienen la misma probabilidad.</p>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula">
+                X ~ U(a, b)
+            </div>
+            <div class="formula">
+                p(x) = 1/(b-a) · I{a ≤ x ≤ b}
+            </div>
+            <div class="formula">
+                Área bajo la curva = 1
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="paramA">Parámetro a:</label>
+                <input type="range" id="paramA" min="0" max="5" value="2" step="0.5">
+                <div class="value-display" id="valueA">2.0</div>
+            </div>
+            <div class="control-group">
+                <label for="paramB">Parámetro b:</label>
+                <input type="range" id="paramB" min="6" max="10" value="8" step="0.5">
+                <div class="value-display" id="valueB">8.0</div>
+            </div>
+        </div>
+
+        <div class="diagram">
+            <svg id="uniformSvg">
+                <defs>
+                    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <path d="M 50 0 L 0 0 0 50" fill="none" class="grid-line"/>
+                    </pattern>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="explanation">
+            <p><strong>Características:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Antes de <span class="highlight">a</span>: p(x) = 0</li>
+                <li>Entre <span class="highlight">a</span> y <span class="highlight">b</span>: p(x) = 1/(b-a) (constante)</li>
+                <li>Después de <span class="highlight">b</span>: p(x) = 0</li>
+                <li>La altura del rectángulo es <span class="highlight">1/(b-a)</span></li>
+                <li>El área total siempre es <span class="highlight">1</span> (altura × ancho = 1/(b-a) × (b-a) = 1)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const svg = document.getElementById('uniformSvg');
+        const paramAInput = document.getElementById('paramA');
+        const paramBInput = document.getElementById('paramB');
+        const valueADisplay = document.getElementById('valueA');
+        const valueBDisplay = document.getElementById('valueB');
+
+        const margin = {top: 40, right: 40, bottom: 60, left: 60};
+        const width = 800;
+        const height = 400;
+
+        function drawUniform() {
+            const a = parseFloat(paramAInput.value);
+            const b = parseFloat(paramBInput.value);
+
+            valueADisplay.textContent = a.toFixed(1);
+            valueBDisplay.textContent = b.toFixed(1);
+
+            svg.innerHTML = '';
+
+            const scaleX = (width - margin.left - margin.right) / 12;
+            const scaleY = (height - margin.top - margin.bottom);
+
+            const probHeight = 1 / (b - a);
+            const rectHeight = probHeight * scaleY * 3;
+
+            svg.innerHTML += `<rect fill="url(#grid)" width="${width}" height="${height}"/>`;
+
+            svg.innerHTML += `<line x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}" class="axis"/>`;
+            svg.innerHTML += `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}" class="axis"/>`;
+
+            for (let i = 0; i <= 12; i++) {
+                const x = margin.left + i * scaleX;
+                svg.innerHTML += `<line x1="${x}" y1="${height - margin.bottom}" x2="${x}" y2="${height - margin.bottom + 5}" class="axis"/>`;
+                svg.innerHTML += `<text x="${x}" y="${height - margin.bottom + 25}" class="label-text" text-anchor="middle">${i}</text>`;
+            }
+
+            svg.innerHTML += `<text x="${width/2}" y="${height - 10}" class="label-text" text-anchor="middle" font-weight="bold">x</text>`;
+            svg.innerHTML += `<text x="20" y="${height/2}" class="label-text" text-anchor="middle" font-weight="bold" transform="rotate(-90 20 ${height/2})">p(x)</text>`;
+
+            const rectX = margin.left + a * scaleX;
+            const rectWidth = (b - a) * scaleX;
+            const rectY = height - margin.bottom - rectHeight;
+
+            svg.innerHTML += `
+                <rect x="${rectX}" y="${rectY}" width="${rectWidth}" height="${rectHeight}" class="uniform-rect">
+                    <title>p(x) = ${probHeight.toFixed(3)}</title>
+                </rect>
+            `;
+
+            svg.innerHTML += `<text x="${rectX + rectWidth/2}" y="${rectY - 10}" class="label-text" text-anchor="middle" fill="#667eea" font-weight="bold">1/(b-a) = ${probHeight.toFixed(3)}</text>`;
+
+            svg.innerHTML += `<text x="${rectX}" y="${height - margin.bottom + 40}" class="label-text" text-anchor="middle" fill="#667eea" font-weight="bold">a = ${a}</text>`;
+            svg.innerHTML += `<text x="${rectX + rectWidth}" y="${height - margin.bottom + 40}" class="label-text" text-anchor="middle" fill="#667eea" font-weight="bold">b = ${b}</text>`;
+        }
+
+        paramAInput.addEventListener('input', drawUniform);
+        paramBInput.addEventListener('input', drawUniform);
+
+        drawUniform();
+    </script>
+</body>
+</html>

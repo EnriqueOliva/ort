@@ -1,0 +1,100 @@
+tenía como tiempo, así que
+buenas 91.
+¿Cómo le va, Tilo, en la tercera?
+Bien, aquí estamos. Una consulta.
+E la notebook, ¿cómo la entregamos? ¿Hay un lugar donde se sube o cómo es? No me entrega. Yo recomendaría para quien no tenga experiencia en gestión haga una entrega ahora para que quede por lo menos retengan más que no tenga ni conclusión importa.
+A dónde se entrega, perdón,
+en gestión gestión.org.edu.
+Ahí es donde que se entrega.
+Sí. O sea, las no los laboratorios los laboratorios eh por aulas y el obligatorio por gestión. Si vos no No entregas ese día, automáticamente hay un cero y yo no puedo cambiarlo, no hay chance porque se da cuenta que no entre no entregaron ustedes les pone un cero cuando vos lo haces con con un par de personas, ¿verdad?
+Sí, con un grupo. Sí, sí, en un grupo.
+Uno solo va a entrar, crea el grupo, o sea, vas a poner tus compañeros y uno solo va a entregar. Okay. ¿Cómo uno solo entrega?
+Sí, en en la not en la notebook. Le pusimos eh de y los alumnos salen arriba.
+Ya, Matilio, pero es bien importante esto. Es si ustedes no crean el equipo en gestión y alguien lo entrega, automáticamente quien no estuvo en ese grupo, quien no entregó les pone un cero. No, no, no tengo no tengo potestad de cambiar esa nota
+más que adentro tenga
+normalmente perfecta importa nombre de si en gestión no creaste el grupo
+pone cero la pone como no entregado y perde la materia.
+Okay. Yo te recomiendo es vos puedes entregar bien, puedes entregar tantas veces como vos quieras. Entonces hacer una muestra de prueba, por más que no tengas todo hecho, serías tranquilo y ya después entregabas más el último día, o el penúltimo día, ustedes quieran. La notebook se puede entregar hasta el 3 me imagino que no van a salir no sé, o sea, para lograr el parcial ya lo van a haber entregado porque creo no pueden entregarlo después de las 9 o algo así. Tendrán Máximo hasta el mediodía del tres, el miércoles que viene, ¿no?
+Hay parcial, hay defensa,
+hay entrega,
+muchas cosas, ¿no? Para, por ejemplo, sacar el parcial,
+no va, no. 20 puntos así regalado.
+Sí, sabemos las caras, sabemos.
+Yo sé, quiero presentar ante las autoridades la demostración de que ustedes saben.
+Pero eso presentades
+Bueno,
+está siendo grabado, por eso
+después hablamos
+eh bieno me escucha bien. Tenemos solo esta clase, solo esta clase. Fíjense todo lo que hemos evolucionado en Python desde la primera clase que estuvimos sumando haciendo broadcasting, no sé, rifen broadcasting. Ah. Y eh fuimos evolucionando, estuvimos viendo un poco CNNs, estuvimos viendo regulación, viendo NLPs, un montón de cosas y terminamos acá en Transformer, en esta notebook de alguna manera reducida para que nos entren dos clases. La idea de hoy es ojalá,
+profe, eh disculpe, la clase anterior al anterior había dicho que que pusiéramos atención y no copiáramos porque usted iba a mandar la notebook y creo que no la mandó.
+Que eh en realidad fue la anterior, no la anterior anterior, creo.
+Sí,
+sí,
+ya está subida para sacarme un poco de presión a mí.
+Ah, ya. Okay. Okay.
+Por si sale algo mal.
+Lo subiste con todo.
+Ya, ya está todo. Está la solución que yo ya hice en casa, está probada. Por si en caso yo me llevo a equivocar el día de hoy, hay un tensor que anda mal, ya tien la solución hecha, corrida y todo ahí. O sea, en la misma notebook van a ver, de hecho, subí la nueva versión de la letra como más información aún que la la vez pasada y yo lo que hice ahora es tomar la solución hasta donde nosotros hicimos y vamos a continuar de acá para abajo. Yo creo que lo vamos a poder hacer dentro de 2 horas, dos horas seguidas. Med un speedon vamos a meter bastante
+y después v a hablar un poquitoal
+después en la última hora. Me imagino no tienen muchas dudas de obligatorio, pero les muestro dónde hay. preguntas tipo dentro del parcial, pero ya les adelanto, si no no llega a dar el tiempo, lo que sea. En aulas, la parte de evaluaciones, creo, hay un lugar que dice preguntas tipo, preguntas preparación parcial, lo que sea, van a ser 10 preguntas barra ejercicios, dos puntos cada uno y yo les garantizo de que al menos una de esas está dentro de la preguntta de preparación, o sea, que si hacen las preguntas de preparación tienen dos puntos asegurados más como negociar. Y les prometo que como máximo hay una pregunta de transformer. Puede haber ninguna, puede haber una. Para si el tema más fresco y más complejo, enfóquense más en lo que vimos un poquito antes, ¿no? Ustedes de acá ya llegan al tres habiendo ganado el curso, tienen obligatorio hecho, muy bien trabajado con la no los laboratorios uno y dos entregados. Ahí no van a buscar salvar, ahí van a buscar la
+excelencia.
+Excelencia.
+¿Cuánto vale el parcial este?
+20 puntitos nada más. Puedes literalmente vas a poner tu nombre que probablemente sabes. No quiero que hagas eso.
+Si lo pongo bien, pongo bien. Pones bien. Claro,
+pero no sé si tiene un mínimo de un punto o de cero. Tratar de influir. No pudiste mucho.
+Una lista de temas. Te olvidas temas.
+Sí, ya está la lista. Son todos. La lista de estos cinco temas sí va una pregunta. Entonces cinco temas que
+pero no importa ya está bien un 10%.
+Se te nota, se te nota que querés
+yo soy soy
+aflojo. Soy bueno, pero creo que tiene yo creo que que está lo hice ya está.
+No, no creo que no no no no creo que haya no no creo que es para yo creo que alguien que que estuvo en clase y no estudiar, saca la mitad del, creo yo, sin estudiar, ¿no? Así de fácil. Son cosas que vemos muy seguidas. O sea, si vos no tendés ni idea de lo que estamos poniendo, pero no te a nivel de, ah, calculame la tensión, eso no va a ir. Yo te diga es bueno, no sé, hay preguntas tipo que te dicen, bueno, ¿por qué estos dos tensores pueden operar?
+Calculame la tensión en el teórico.
+Bueno, ahí pense con Matías, no conmigo, pero Si si no saben, no sé lo que es broadcasting, bueno, está parte de todo el semestre, me parece.
+Bueno, dicho lo cual, aparte estoy muy ansioso de conocer a Til en persona.
+Que venirás en Uruguay.
+Estoy en Uruguay. que venir a la no sé qué hora es, imagin la misma hora de los hora.
+Como verán acá en el temario,
+son 2 horas y les doy 15 minutos de gracia para la defensa del parcial obligatoria. ¿Cuántas preguntas de defensa son?
+Son dos preguntas.
+Ah, acá van a ver en Transformers está para que después se lo bajen. Está la letra mejorada 2.0. No es la misma que la anterior, es muy parecida. Comparte el 95%. Le puse como algunas partes más del paper, alguna parte más comentada o alguna cosita más. Y después está la solución acá que ponen play, corren y la tienen entrenado. La solución tiene como unos hiperparámetros más menos grandes. O sea, yo con la 3080 Ti demora como unos 10, 20 minutos entrenar. Acá vamos a bajarlo un poco. Muy probablemente ni la corra acá, o sea, una vez que la terminemos subimos en colado y lo hacemos correr en alguna más o menos.
+Bueno, ¿cómo le fue el lunes? No, vi la clase muy salteada difícil. conectaron cosas, ¿no? Hablaron de posaron de los heados básicamente haciendo una disección de todo. Perfecto.
+No, nosotros por hacer acuerdo seguimos en el en la de traducción y lo que implementamos fueron dos partes, lo que es el position encoding, esta parte de acá y lo que es el multi tension. Lo que vamos a hacer ahora es primero la última modulito o submodulito que nos queda es este Field Power, que nada más son dos capas lineales muy sencillitas y después lo que vamos a hacer el resto de la clase es armar todo eh cada uno del encoder, el decoder, el transformer y ya ahí lo ponemos a a a entrenar. Yo que recorté la clase que lo hice el año pasado, bueno, el año pasado la que hacíamos hacíamos las máscaras, eso ya está el código, pero lo vamos a explicar y el training también acá ya está hecho, nosotros lo hacíamos hacer dos clases. Yo recorté, puse las partes principales que tenemos que es básicamente armar la arquitectura, toda la parte de entrenamiento y eso podemos Okay, pero bueno, recuerdo estamos dataset, estamos armando como cada una de las partes y después simplemente lo que vamos a hacer es componer la parte más difícil yo creo que ya la hicimos simplemente es como unir las piezas, hicimos el multig tension que lo vamos a utilizar tanto acá, va a ser un self attention, vamos a acá otro self attention pero enmascarado. Pues explicamos cómo se forma esa máscara y después el cross attention que básicamente el decoder va a prestar atención como vos preguntaste la última salida del vos queunaste si prestaba atención a la última salida de capa encoder preguntado y es sí sobre la última capa Marcos. Vamos arriba. Fui agregando sobre todo en la letra que van a ver diferencia muchos summary para que veamos como módulo a módulo también está formando. Recuerden que tienen con la solución, capaz que no es exactamente la misma, pero en esencia va a ser la misma dentro de aulas.
+Y habíamos hecho el último que hab Lo que vamos a hacer ahora es esta fi forward, ¿no? Que lo único que es es dos capas lineales, o sea, este X que nosotros tenemos lo multiplicamos por una capa lineal, va a estar va a ir de D model a un hiperparámetro que en este caso va de 512 a 2048 y después de 2048 vuelve a 512. En el medio tiene una relu, ¿no? Este max de cer y lo que da la primera lineal tiene un arrero y después lo multiplica lo pasa por otra líneal. Siempre de alguna manera, no importa por los submódulos o capas o layers que va a tener, siempre de alguna manera va a seguir teniendo el mismo shape. Vamos a tener el batch con la con el lengua común que vamos a tener durante todo nuestro ah nuestro transformer. Este F forward lo único que hace son dos capas dos capas lineales. ¿Qué vamos a hacer? Vamos a hacer la Primero sao el pilot self punto linear linear uno es igual a nn pun línear y a diferencia de tener como esta tamaño intermedio, hay un una un factor de expansión. En este caso va 512 a 2048 el factor de expansiones de Entonces vamos de de model.
+Esa esa puede ser launta,
+¿no? Me parece demasiado específica. O si la pregunta parcial es 2048 de 512 chance
+de model por factor yamos una cell pun relu igual a nn nn pun relu. La ponemos in place. Y por último Tenemos una segunda lineal que va desde ese 2048 nosotros expandido a de vuelta a nuestra moneda común. Entonces copiamos, pegamos y simplemente esto lo cambiamos de posición. Tickit tick. Acá pasamos por las tres capas. Tenemos un ratón eh linear linear. dos, disculpen. Linear 2 de S. Relu DJ pun linear un Perdón que hoy estoy voy a ser un poco aborrista de líneas de código, pero no es nada más que ir aplicando primero la línea uno, una relu, una lineal, o sea, literalmente estamos eh tomando esta definición. Ya con esto ya tenemos todas las cajitas o cajitas que componen nuestro modelo. Viendo acá abajo nuestro modelo, vamos a ver partes donde lo que es naranja son atenciones, eso ya lo tenemos diagramado. Tenemos el position encoding, eso lo tenemos diagramado. Tenemos el field forward, que es lo que acabamos de hacer. Esos field van a estar aplicados acá y van a estar aplicados acá. Y después simplemente vamos a empezar a componer. Ahora bien, una cosa es el el encoder y otra cosa es el encoder layer. O sea, vamos a hacer primero un encoder layer y vamos a hacer todo el encode. De la misma manera que nosotros tenemos como capas en las RN, acá también vamos a tener capas. Este N por vamos a hacer el encoder layer, que básicamente la salida de uno va a ir a la entrada de otro, a la entrada de otro, a la entrada de otro es otro hiperparámetro. En el caso del paper creo que el n es seis, si mal no recuerdo, seis o es seis. Ah, y va a ser un hiperparámetro que vamos a tener, que son las capas que tengamos. Entonces, en realidad para el encoder Lo primero que hacemos es hacer el encoder layer, que lo vamos a repetir tantas veces y después hacemos sí todo el encoder que va a tener primero una capa de embeding, el posición encoding y tantos ler como yo les diamos. Acá y vamos enver No, como verán este por lo que vamos a hacer ahora es simplemente esta parte que está detallada desde acá hasta acá. Va a ser lo que llamamos nosotros el encode.
+Exacto. Es un pod es tantas veces como nosotrosamos en general es una de la junto al al número de dimensiones, la cantidad está es una de las cosas que determina más el poder o el escalamiento que tienen. En realidad el embeding y el encoding solo lo vas a hacer una sola vez. No importa el n que vos tengas la parte del encoding solo una sola vez. ¿Cómo es último
+que todo el encoder está? O sea, que también tiene e esta parte de acá, o sea, el input, input eding encoding, eso lo haces solo una vez. La capa del embeding la vas a aplicar la salida bien arriba va a volver a entrar.
+Es Esta esta de acá se conecta con la entrada esta de acá.
+Exacto. Tantas veces como
+Exacto.
+recurrencia son varias capas.
+Exactamente. De hecho, en realidad bloque que vos estás entrando recurrentemente, sino que es vos tenés tres capas y la salida de una capa va a entrar a ser la entrada de la siguiente.
+Pero volviendo a las redes recurrentes, esto es secuencial, ¿no? O sea, tenía que terminar una capa para hacer Otra para lua, si dice el término recurrencia como que la salida la usas como entrada pero en el propio bloque de hecho uno de tus superparámetros que haces que haga que demore más va a ser el hola Benítez
+presente.
+Carajalino
+presente. Nutra
+Mauricio, me fallaste el último día. Cross González
+cómo
+Guerrero gripeo que
+Méndezón
+Pereiraetria, gracias por todas las todas las matrices que estén ahí adentro son de cada capa, ¿no? No hay
+Exacto. Cada peso van a ser individuales.
+Ahí va. Capaz que eso dice más que o deja más claro que no es recurrencia.
+Eh,
+porque si yo voy a una capa diferente,
+no estoy metiendo la entrada.
+No, no, no. Son vent conjunto de matriz y ya voy cambiando.
+Seis conjuntos de matriz.
+Siempre procesas toda la secuencia en cada a tener tantas instancias, de hecho ahora cuandoamos todo el encover vas a ver tantas instancias como namos va a tener for de instancias y cada una va a tener su preso individualmente. E la cantidad de bloques de encoder de definas es lo con lo que por ejemplo otra arquitectura basada de Transformers usan o lo que define por ejemplo Verde que por ejemplo tiene tres capas de encoder más o menos así o juega con eso más capas para
+o sea creo que GT 3 anda en 96. Nosotros vamos a dar 3 cu. Claro.
+Vos vos podés verlo esto como una unidad muy simple y que de alguna manera es una red más profunda. Yo digo, tómenlo una opinión personal, lamentablemente o afortunadamente esto crece fuerza bruta. Vamos a agregar más más capas capas.
+Ha haciendo crecer la arquitectura, no tanto.
+Sí, o sea, se han afinado porque al final se terminan peleando por el No, yo tengo 89, yo tengo 90. terminan siendo optimizaciones que no se arquitectura, ¿no?
+No dice que hizo eso
+viste que hay como una pelea entre optimizar o simplemente fuerza bruta. La hora de si eso fuerza bruta de alguna manera termina escapando seres humanos y llevamos los mortales, ¿no? A menos que consigas ese tipo de acceso hace que sea prohibito. esas redes se llaman redensos algunos ejecutan siempre yendo algunos son a veces principio que tienillon de parómetros quizás y se activan la ejecución de memoria se activan solo el porcentaje 30 millones Otro cambio que decía él es el que optimizó la parte de
+para rápido esto se caa la K y la B se callea a nivel de del izquierro. Entonces optimizaciones para que ese calleó una nueva variación que se llama attention pero sí es hay varias que son formas de que el n por ahí siempre son matrices impulsamos el input con el input o el input o el output con el input. Imagínase que cuando dice que un millón de token, ¿qué es un millón de token acadan trucos? Sí, para que los memoria y reducir la presión de memoria que tiene el me gusta de alguna manera ir e en algunos lugares incluso lo repito, pero trato de poner todo lo que está en texto en inglés son copiado y pegado del paper para que de alguna manera haya un mapeo casi de uno a uno de lo que estamos haciendo versus lo que dice el paper. Acá dice el encoder está compuesto por eh N6 parámetro de capas idénticas. Vamos est hablando del encoder layer, está de acá para arriba y cada una tiene dos subcapas, ¿no? Los móvulitos que nosotros estuvimos haciendo. La primera es una multigeda attention la mult attention nosotrosimos y la segunda es una field F. lo que acamos hacer, ¿no? E hace residual connection, o sea, básicamente nosotros vamos a tomar un X y la salida que hay acá la vamos a guardar y vamos a sumarla. Es igual que la la Resnet con la diferencia de que vamos a hacer una capa de normalización a que no se vayan a reducir los gradientes y eh de tal manera cada subler hay una layer normalization de X más la supplier, o sea, es Esta parte de acá va a ser el x, lo que viene acá, más la salida que sale cada subcapa normalizada. Y acá vamos a hacer exactamente lo mismo. Vamos a tener un x que va a pasar por acá y ese resultado lo vamos a sumar al x original y luego normalizarlo. Eso va a ser una capa, va a ser bastante sencilla. Ah, y después dice que usan el demó de 512 y ya le dio nosotros vamos a reducir bastante y que teníamos que irnos 128 o 256. mucho. Lo otro es que e usaron Dropout, estamos en la parte del entrenamiento, pero eh en cada sublayer, antes de ser añadido a al input y normalizado, se aplica una un dropout que va a ser de 0 con1 y también se aplica a el embeding una vez que pasa por el posición en o sea de que va a haber un X que, por ejemplo, pasa por una subcapa, imagínense esta de acá, y antes de ser añadida pasa por un dropout, ahí se se añade, ahí se normaliza. Es un mecanismo que lo están haciendo durante toda la la tanto el encer como el, ¿no? De alguna manera vamos a ver si podemos mapear cada uno de sus conceptos. Ahora a nivel de coding vamos a hacer el encoder layer, o sea, vamos a dar esta parte de acá, después vamos a multiplicarlo en todo el encer. ¿Qué va a necesitar un encer entonces?
+Un multigension, un free forward, normalización.
+Normalización Hidro. Exacto. Vamos a tener un eh self punto self attention. No me acuerdo los multi attention. ¿Y qué va a necesitar? El D model fácil y que necesita el herz también me lo va a pasar. Bien, tenemos el multi attention. Necesitamos una capa de normalización. Sell pun nor 1 ig a nn. Y tenemos que ponerle qué es lo que normalizamos, que son los últimos elementos de modelo residual.

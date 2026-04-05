@@ -1,0 +1,11 @@
+Actualmente nos encontramos dentro de C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa, el cual es un espacio de trabajo dedicado a un curso en IA Generativa, en el cual almacenamos principalmente una transcripción de cada clase del curso.
+
+Estoy extremadamente perdido, nunca asistí a ninguna clase, no sé nada sobre ningún tema, no sé qué se dio, y vengo de otra disciplina por lo que no sé nada sobre lo que se dio.
+
+Haz un análisis megaexhaustivo de todas las trancripciones de todas las clases, una por una, para tú tener un entendimiento completo y exhaustivo de todos los temas que se vieron en clase, y cómo se dieron.
+
+Invoca múltiples agentes para esta tarea. Que cada agente repita el proceso 3 veces, al terminar una pasada, que vuelva a analizar todas y cada de las transcripciones, en orden, en busca de detalles que haya omitido leer la vez anterior. Solo al final, compara toda la información recopilada por los agentes con el archivo C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\RESUMEN-COMPLETO-CURSO.md.
+
+Luego, en base a toodo este conocimiento, LLeva a cabo la implementación completa del obligatorio, trabajando exclusivamente dentro de C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\obligatorio. Cada cosa que yo deba instalar, que se instale dentro de esa carpeta. 
+
+Ultrathink. 

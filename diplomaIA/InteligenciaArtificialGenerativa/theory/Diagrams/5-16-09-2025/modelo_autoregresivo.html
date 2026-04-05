@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo Autorregresivo - Clase 5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .diagram-section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .explanation {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .explanation p {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .formula-box {
+            background: #fff;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.3em;
+            font-family: 'Courier New', monospace;
+            color: #333;
+        }
+
+        .diagram-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .pixel-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin: 10px;
+            min-width: 80px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .pixel-box:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .pixel-label {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .pixel-description {
+            font-size: 0.9em;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: #667eea;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        .conditional-chain {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .perceptron-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px 35px;
+            border-radius: 15px;
+            margin: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .perceptron-box:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+        }
+
+        .key-point {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #f5576c;
+        }
+
+        .key-point h3 {
+            color: #f5576c;
+            margin-bottom: 10px;
+        }
+
+        .key-point p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .product-notation {
+            font-size: 2em;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .math-symbol {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .conditional-chain {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Modelo Autorregresivo</h1>
+        <p class="subtitle">Estimación de probabilidades mediante condicionales sucesivas</p>
+
+        <div class="diagram-section">
+            <h2 class="section-title">¿Qué es un Modelo Autorregresivo?</h2>
+            <div class="explanation">
+                <p><strong>Definición básica:</strong> Un modelo autorregresivo estima la probabilidad de un elemento complejo (como una imagen) dividiéndolo en partes más pequeñas, donde cada parte depende de las anteriores.</p>
+                <p><strong>Ejemplo con imágenes:</strong> Si una imagen tiene píxeles x₁, x₂, x₃, ..., xₙ, el modelo predice cada píxel basándose en todos los píxeles anteriores.</p>
+            </div>
+
+            <div class="key-point">
+                <h3>🎯 Idea Central</h3>
+                <p>En lugar de estimar P(x) directamente (muy difícil), lo descomponemos en multiplicaciones de probabilidades más simples usando la regla de la cadena.</p>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">Descomposición con la Regla de la Cadena</h2>
+
+            <div class="formula-box">
+                P(x) = P(x₁, x₂, x₃, ..., xₙ)
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <div class="arrow">↓</div>
+                <p style="color: #667eea; font-weight: bold; font-size: 1.2em;">Aplicamos la Regla de la Cadena</p>
+                <div class="arrow">↓</div>
+            </div>
+
+            <div class="formula-box">
+                <span class="product-notation">∏</span> P<sub>θᵢ</sub>(xᵢ | x₁, x₂, ..., xᵢ₋₁)
+                <div style="font-size: 0.6em; margin-top: 10px; color: #666;">
+                    i = 1 hasta n
+                </div>
+            </div>
+
+            <div class="explanation">
+                <p><strong>Esto significa:</strong> Multiplicamos las probabilidades de cada píxel, donde cada uno depende de todos los anteriores.</p>
+                <p><span class="math-symbol">θᵢ</span> representa los parámetros del modelo (los pesos de la red neuronal) que aprenderemos mediante optimización.</p>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">Flujo de Predicción Paso a Paso</h2>
+
+            <div class="diagram-container">
+                <div class="conditional-chain">
+                    <div class="pixel-box">
+                        <div class="pixel-label">x₁</div>
+                        <div class="pixel-description">Primer píxel</div>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                    <div class="perceptron-box">
+                        <strong>Perceptrón</strong>
+                        <div style="font-size: 0.9em; margin-top: 5px;">P(x₂ | x₁)</div>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                    <div class="pixel-box">
+                        <div class="pixel-label">x₂</div>
+                        <div class="pixel-description">Segundo píxel</div>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                    <div class="perceptron-box">
+                        <strong>Perceptrón</strong>
+                        <div style="font-size: 0.9em; margin-top: 5px;">P(x₃ | x₁, x₂)</div>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                    <div class="pixel-box">
+                        <div class="pixel-label">x₃</div>
+                        <div class="pixel-description">Tercer píxel</div>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                    <div style="font-size: 1.5em; color: #667eea;">...</div>
+
+                    <span class="arrow">→</span>
+
+                    <div class="pixel-box">
+                        <div class="pixel-label">xₙ</div>
+                        <div class="pixel-description">Último píxel</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="explanation">
+                <p><strong>Proceso:</strong></p>
+                <p>1. Comenzamos con el primer píxel (x₁)</p>
+                <p>2. Un perceptrón predice x₂ basándose en x₁</p>
+                <p>3. Otro perceptrón predice x₃ basándose en x₁ y x₂</p>
+                <p>4. Este proceso continúa hasta predecir todos los píxeles</p>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">Optimización del Modelo</h2>
+
+            <div class="key-point">
+                <h3>🎓 Función de Pérdida (Loss)</h3>
+                <p>Queremos que nuestro modelo P<sub>θ</sub>(x) se parezca mucho a la distribución real P<sub>data</sub>(x)</p>
+            </div>
+
+            <div class="formula-box">
+                θ* = argmin<sub>θ</sub> KL(P<sub>data</sub> || P<sub>θ</sub>)
+            </div>
+
+            <div class="explanation">
+                <p><strong>KL Divergence (Divergencia de Kullback-Leibler):</strong> Mide qué tan diferentes son dos distribuciones de probabilidad. Si son idénticas, KL = 0.</p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <div class="arrow">↓</div>
+                <p style="color: #667eea; font-weight: bold; font-size: 1.2em;">Se simplifica a:</p>
+                <div class="arrow">↓</div>
+            </div>
+
+            <div class="formula-box">
+                J = 𝔼<sub>x~P<sub>data</sub></sub>[-log P<sub>θ</sub>(x)]
+            </div>
+
+            <div class="explanation">
+                <p><strong>En la práctica:</strong> Minimizamos el promedio del logaritmo negativo de las probabilidades sobre nuestros datos de entrenamiento.</p>
+            </div>
+
+            <div class="formula-box">
+                θ* = argmin<sub>θ</sub> (1/|D<sub>train</sub>|) Σ [-log P<sub>θ</sub>(x)]
+                <div style="font-size: 0.7em; margin-top: 10px; color: #666;">
+                    x ∈ D<sub>train</sub>
+                </div>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">Truco Numérico Importante</h2>
+
+            <div class="key-point">
+                <h3>⚠️ ¿Por qué usamos logaritmos?</h3>
+                <p>Las computadoras tienen problemas con multiplicaciones de números muy pequeños (entre 0 y 1). Los errores se acumulan y perdemos precisión.</p>
+            </div>
+
+            <div class="explanation">
+                <p><strong>Solución:</strong> Convertimos la multiplicación de probabilidades en suma de logaritmos:</p>
+            </div>
+
+            <div class="formula-box">
+                log(∏ P<sub>θᵢ</sub>(xᵢ | x<sub>&lt;i</sub>)) = Σ log(P<sub>θᵢ</sub>(xᵢ | x<sub>&lt;i</sub>))
+            </div>
+
+            <div class="explanation">
+                <p><strong>Ventaja:</strong> Las sumas son más estables numéricamente que las multiplicaciones cuando trabajamos con muchos números pequeños.</p>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2 class="section-title">Resumen de Conceptos Clave</h2>
+
+            <div class="key-point">
+                <h3>📌 Puntos Importantes</h3>
+                <p><strong>1. Modelo paramétrico:</strong> Usamos redes neuronales con parámetros θ que se aprenden mediante descenso de gradiente.</p>
+                <p><strong>2. Descomposición condicional:</strong> Dividimos un problema difícil (estimar P(x)) en muchos problemas más simples (estimar P(xᵢ | x<sub>&lt;i</sub>)).</p>
+                <p><strong>3. Optimización:</strong> Ajustamos θ para minimizar la diferencia entre nuestro modelo y los datos reales.</p>
+                <p><strong>4. Estabilidad numérica:</strong> Usamos logaritmos para evitar problemas de precisión en computadoras.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

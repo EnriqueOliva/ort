@@ -1,0 +1,3 @@
+- Crece muy lento pasadas las 150 épocas pero crece el mean val dice
+- Data augmentation hace la gran diferencia
+- Learning Rate no hace la diferencia

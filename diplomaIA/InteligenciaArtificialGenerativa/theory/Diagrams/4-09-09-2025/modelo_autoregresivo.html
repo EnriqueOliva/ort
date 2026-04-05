@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo Autorregresivo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .explanation {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .formula {
+            font-size: 1.2em;
+            text-align: center;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        svg {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            background: white;
+            margin: 20px 0;
+        }
+
+        .pixel {
+            fill: #e0e0e0;
+            stroke: #333;
+            stroke-width: 2;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .pixel:hover {
+            fill: #667eea;
+        }
+
+        .pixel.active {
+            fill: #764ba2;
+        }
+
+        .arrow {
+            stroke: #667eea;
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+
+        .perceptron {
+            fill: #fff;
+            stroke: #667eea;
+            stroke-width: 3;
+        }
+
+        .label {
+            font-size: 14px;
+            fill: #333;
+            font-weight: bold;
+        }
+
+        .prob-label {
+            font-size: 12px;
+            fill: #667eea;
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .step {
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .step:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .step.active {
+            background: #764ba2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Modelo Autorregresivo</h1>
+
+        <div class="explanation">
+            <p>Un <span class="highlight">modelo autorregresivo</span> genera datos de manera secuencial, donde cada valor depende de los valores anteriores.</p>
+            <p style="margin-top: 10px;"><strong>Idea clave:</strong> En lugar de estimar directamente la distribución conjunta p(x₁, x₂, ..., xₙ), usamos la <span class="highlight">regla de la cadena</span>:</p>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula">
+                p(x₁, x₂, ..., xₙ) = p(x₁) · p(x₂|x₁) · p(x₃|x₁,x₂) · ... · p(xₙ|x₁,...,xₙ₋₁)
+            </div>
+            <div class="formula" style="margin-top: 15px;">
+                = ∏ᵢ₌₁ⁿ p(xᵢ | x₁, ..., xᵢ₋₁)
+            </div>
+        </div>
+
+        <div class="explanation">
+            <p><strong>Para imágenes binarias (blanco y negro):</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Cada píxel xᵢ puede ser 0 (apagado) o 1 (prendido)</li>
+                <li>Modelamos cada píxel como una <span class="highlight">Bernoulli</span> con parámetro αᵢ</li>
+                <li>El parámetro αᵢ depende de los píxeles anteriores</li>
+                <li>Usamos un <span class="highlight">perceptrón</span> para estimar αᵢ</li>
+            </ul>
+        </div>
+
+        <div class="step-indicator" id="stepIndicator"></div>
+
+        <svg id="autoregSvg">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#667eea" />
+                </marker>
+            </defs>
+        </svg>
+
+        <div class="formula-box">
+            <div class="formula" style="font-size: 1em;">
+                <strong>Estimación con perceptrón:</strong>
+            </div>
+            <div class="formula">
+                p(xᵢ = 1 | x₁,...,xᵢ₋₁) = σ(Wᵢ · [x₁,...,xᵢ₋₁] + bᵢ)
+            </div>
+            <div class="formula" style="font-size: 0.9em; margin-top: 10px;">
+                donde σ es la función sigmoide: σ(z) = 1/(1 + e⁻ᶻ)
+            </div>
+        </div>
+
+        <div class="explanation">
+            <p><strong>Proceso de generación (muestreo):</strong></p>
+            <ol style="margin-left: 20px; margin-top: 10px;">
+                <li>Empezamos con el primer píxel: muestreamos de p(x₁)</li>
+                <li>Para el segundo: usamos x₁ para calcular p(x₂|x₁) y muestreamos</li>
+                <li>Para el tercero: usamos x₁, x₂ para calcular p(x₃|x₁,x₂) y muestreamos</li>
+                <li>Repetimos hasta completar todos los píxeles</li>
+            </ol>
+            <p style="margin-top: 10px;"><strong>Importante:</strong> El proceso es <span class="highlight">secuencial</span>, no podemos generar todos los píxeles en paralelo porque cada uno depende de los anteriores.</p>
+        </div>
+    </div>
+
+    <script>
+        const svg = document.getElementById('autoregSvg');
+        const stepIndicator = document.getElementById('stepIndicator');
+
+        const imageSize = 4;
+        let currentStep = 0;
+
+        for (let i = 0; i <= imageSize; i++) {
+            const step = document.createElement('div');
+            step.className = 'step';
+            step.textContent = i === 0 ? 'Inicio' : `Paso ${i}`;
+            step.onclick = () => drawStep(i);
+            stepIndicator.appendChild(step);
+        }
+
+        function drawStep(step) {
+            currentStep = step;
+            svg.innerHTML = '<defs><marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#667eea" /></marker></defs>';
+
+            document.querySelectorAll('.step').forEach((el, idx) => {
+                el.classList.toggle('active', idx === step);
+            });
+
+            const pixelSize = 60;
+            const startX = 100;
+            const startY = 50;
+            const spacing = 80;
+
+            svg.innerHTML += `<text x="600" y="30" class="label" text-anchor="middle" font-size="18">Imagen 2×2 (4 píxeles)</text>`;
+
+            for (let i = 0; i < imageSize; i++) {
+                const row = Math.floor(i / 2);
+                const col = i % 2;
+                const x = startX + col * spacing;
+                const y = startY + row * spacing + 50;
+
+                const active = i < step;
+                svg.innerHTML += `<rect x="${x}" y="${y}" width="${pixelSize}" height="${pixelSize}" class="pixel ${active ? 'active' : ''}" rx="5"/>`;
+                svg.innerHTML += `<text x="${x + pixelSize/2}" y="${y + pixelSize/2 + 5}" class="label" text-anchor="middle">x${i+1}</text>`;
+            }
+
+            if (step > 0) {
+                const perceptronX = 500;
+                const perceptronY = 150;
+
+                svg.innerHTML += `<circle cx="${perceptronX}" cy="${perceptronY}" r="50" class="perceptron"/>`;
+                svg.innerHTML += `<text x="${perceptronX}" y="${perceptronY - 10}" class="label" text-anchor="middle">Perceptrón</text>`;
+                svg.innerHTML += `<text x="${perceptronX}" y="${perceptronY + 10}" class="prob-label" text-anchor="middle">p(x${step}|x<${step})</text>`;
+
+                for (let i = 0; i < step - 1; i++) {
+                    const row = Math.floor(i / 2);
+                    const col = i % 2;
+                    const pixelX = startX + col * spacing + pixelSize;
+                    const pixelY = startY + row * spacing + 50 + pixelSize/2;
+
+                    svg.innerHTML += `<path d="M ${pixelX} ${pixelY} Q ${(pixelX + perceptronX)/2} ${pixelY - 50} ${perceptronX - 50} ${perceptronY}" class="arrow"/>`;
+                }
+
+                const targetRow = Math.floor((step-1) / 2);
+                const targetCol = (step-1) % 2;
+                const targetX = startX + targetCol * spacing + pixelSize/2;
+                const targetY = startY + targetRow * spacing + 50;
+
+                svg.innerHTML += `<path d="M ${perceptronX} ${perceptronY + 50} Q ${(perceptronX + targetX)/2} ${(perceptronY + targetY)/2} ${targetX} ${targetY}" class="arrow" stroke-width="3"/>`;
+
+                svg.innerHTML += `<text x="${perceptronX + 100}" y="${perceptronY}" class="prob-label" text-anchor="start">α${step} = σ(W·x + b)</text>`;
+                svg.innerHTML += `<text x="${perceptronX + 100}" y="${perceptronY + 20}" class="prob-label" text-anchor="start">Muestrear x${step} ~ Bernoulli(α${step})</text>`;
+            }
+
+            let formulaY = 400;
+            svg.innerHTML += `<text x="20" y="${formulaY}" class="label" font-size="16">Fórmulas para paso ${step}:</text>`;
+
+            if (step === 0) {
+                svg.innerHTML += `<text x="20" y="${formulaY + 30}" class="prob-label" font-size="14">No hay píxeles generados todavía</text>`;
+            } else if (step === 1) {
+                svg.innerHTML += `<text x="20" y="${formulaY + 30}" class="prob-label" font-size="14">p(x₁) = Bernoulli(b₁)  →  x₁ ~ Bernoulli(σ(b₁))</text>`;
+            } else if (step === 2) {
+                svg.innerHTML += `<text x="20" y="${formulaY + 30}" class="prob-label" font-size="14">p(x₂|x₁) = Bernoulli(σ(w₂₁·x₁ + b₂))</text>`;
+            } else if (step === 3) {
+                svg.innerHTML += `<text x="20" y="${formulaY + 30}" class="prob-label" font-size="14">p(x₃|x₁,x₂) = Bernoulli(σ(w₃₁·x₁ + w₃₂·x₂ + b₃))</text>`;
+            } else if (step === 4) {
+                svg.innerHTML += `<text x="20" y="${formulaY + 30}" class="prob-label" font-size="14">p(x₄|x₁,x₂,x₃) = Bernoulli(σ(w₄₁·x₁ + w₄₂·x₂ + w₄₃·x₃ + b₄))</text>`;
+            }
+
+            svg.innerHTML += `<text x="20" y="${formulaY + 60}" class="label" font-size="14">Conjunta completa:</text>`;
+            svg.innerHTML += `<text x="20" y="${formulaY + 85}" class="prob-label" font-size="14">p(x₁,x₂,x₃,x₄) = p(x₁) · p(x₂|x₁) · p(x₃|x₁,x₂) · p(x₄|x₁,x₂,x₃)</text>`;
+        }
+
+        drawStep(0);
+    </script>
+</body>
+</html>

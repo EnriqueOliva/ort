@@ -1,0 +1,19 @@
+Actualmente nos encontramos dentro de C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa, el cual es un espacio de trabajo dedicado a un curso en IA Generativa, en el cual almacenamos principalmente una transcripción de cada clase del curso.
+
+Estoy extremadamente perdido, nunca asistí a ninguna clase, no sé nada sobre ningún tema, no sé qué se dio, y vengo de otra disciplina por lo que no sé nada sobre lo que se dio. A su vez, estoy muy corto de tiempo. Mi objetivo es llevar a cabo mi obligatorio (trabajo final de curso).
+
+Haz un análisis megaexhaustivo de todas las trancripciones de todas las clases, una por una, para obtener un entendimiento completo y absoluto sobre cómo implementar el obligatorio, siendo el tema elegido, como sabes, es Sparse Autoencoders (K-Sparse). 
+
+Una vez tengas un entendimiento completo y absoluto, debes crear la mayor cantidad posible de progreso en mi obligatorio.
+
+El archivo que debes crear y no puede faltar bajo ningún concepto es un archivo markdown que sirva de guía completa para todo lo que tenemos que hacer y cómo hacerlo.
+
+Un vez que termines tu primer análisis, vuelve a analizar todas y cada de las transcripciones, en orden, en busca de detalles que hayas omitido leer en la primera vez. Repite el proceso 3 veces, y solo al final comienza a crear y editar archivos.
+
+Utiliza también la información en C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory\obligatorio sobre el obligatorio.
+
+Todos los archivos que crees, créalos en C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\obligatorio. De ser posible, crea (y pídeme a mí crear) entornos virtuales dentro de C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\obligatorio exclusivamente. Evitemos instalaciones globales siempre que sea práctico y coherente. De lo contrario hagamos las instalaciones que sean más mainstream y convencionales.
+
+Invoca múltiples agentes para esta tarea. Que cada agente realice todo el proceso descrito anteriormente, para al final que cada uno brinde su propia versión de la propuesta. 
+
+Ultrathink. 

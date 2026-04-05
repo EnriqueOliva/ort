@@ -1,0 +1,138 @@
+class Critic(nn.Module):
+    def __init__(self, num_channels, num_features):
+        super(Critic, self).__init__()
+        
+        self.main = nn.Sequential(
+            nn.Conv2d(num_channels, num_features, 4, 2, 1, bias=False),
+            nn.LeakyReLU(0.2, inplace=True),
+            
+            nn.Conv2d(num_features, num_features * 2, 4, 2, 1, bias=False),
+            nn.LeakyReLU(0.2, inplace=True),
+            
+            nn.Conv2d(num_features * 2, num_features * 4, 4, 2, 1, bias=False),
+            nn.LeakyReLU(0.2, inplace=True),
+            
+            nn.Conv2d(num_features * 4, 1, 4, 1, 0, bias=False)
+        )
+        
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.normal_(m.weight.data, 0.0, 0.02)
+    
+    def forward(self, x):
+        return self.main(x).view(-1)
+
+test_critic = Critic(NUM_CHANNELS, CRITIC_FEATURES).to(device)
+test_img = torch.randn(1, NUM_CHANNELS, IMAGE_SIZE, IMAGE_SIZE, device=device)
+test_out = test_critic(test_img)
+print(f"Critic: → escalar sin bounds")
+del test_critic, test_img, test_out
+
+def get_wgangp_optimizers(generator, critic):
+    optimizer_G = optim.Adam(generator.parameters(), lr=WGANGP_LR, betas=WGANGP_BETAS)
+    optimizer_C = optim.Adam(critic.parameters(), lr=WGANGP_LR, betas=WGANGP_BETAS)
+    return optimizer_G, optimizer_C
+
+def compute_gradient_penalty(critic, real_samples, fake_samples, device):
+    batch_size = real_samples.size(0)
+    
+    alpha = torch.rand(batch_size, 1, 1, 1, device=device)
+    alpha = alpha.expand_as(real_samples)
+    
+    interpolated = alpha * real_samples + (1 - alpha) * fake_samples
+    interpolated.requires_grad_(True)
+    
+    critic_interpolated = critic(interpolated)
+    
+    gradients = autograd.grad(
+        outputs=critic_interpolated,
+        inputs=interpolated,
+        grad_outputs=torch.ones_like(critic_interpolated),
+        create_graph=True,
+        retain_graph=True
+    )[0]
+    
+    gradients = gradients.view(batch_size, -1)
+    gradient_norm = gradients.norm(2, dim=1)
+    gradient_penalty = ((gradient_norm - 1) ** 2).mean()
+    
+    return gradient_penalty
+
+def wgangp_critic_loss(critic_real, critic_fake, gp):
+    return -(critic_real - critic_fake) + WGANGP_LAMBDA * gp
+
+def wgangp_generator_loss(critic_fake):
+    return -critic_fake
+
+def train_wgangp(dataloader, num_epochs, log_interval=100):
+    if USE_WANDB:
+        wandb.init(project=WANDB_PROJECT, entity=WANDB_ENTITY, group=WANDB_GROUP,
+                   name=f"WGAN-GP (λ={WGANGP_LAMBDA})", config={"modelo": "WGAN-GP", "lr": WGANGP_LR, "lambda": WGANGP_LAMBDA})
+    
+    print(f"Entrenando WGAN-GP: lr={WGANGP_LR}, λ={WGANGP_LAMBDA}, épocas={num_epochs}")
+    
+    generator = Generator(LATENT_DIM, GENERATOR_FEATURES, NUM_CHANNELS).to(device)
+    critic = Critic(NUM_CHANNELS, CRITIC_FEATURES).to(device)
+    optimizer_G, optimizer_C = get_wgangp_optimizers(generator, critic)
+    
+    metrics = TrainingMetrics()
+    fixed_noise = torch.randn(64, LATENT_DIM, 1, 1, device=device)
+    start_time = time.time()
+    iteration = 0
+    
+    for epoch in range(num_epochs):
+        for real_images, _ in dataloader:
+            real_images = real_images.to(device)
+            batch_size = real_images.size(0)
+            
+            for _ in range(CRITIC_ITERATIONS):
+                optimizer_C.zero_grad()
+                
+                z = torch.randn(batch_size, LATENT_DIM, 1, 1, device=device)
+                fake_images = generator(z)
+                
+                critic_real = critic(real_images).mean()
+                critic_fake = critic(fake_images).mean()
+                gp = compute_gradient_penalty(critic, real_images, fake_images, device)
+                
+                c_loss = wgangp_critic_loss(critic_real, critic_fake, gp)
+                c_loss.backward()
+                optimizer_C.step()
+            
+            optimizer_G.zero_grad()
+            z = torch.randn(batch_size, LATENT_DIM, 1, 1, device=device)
+            fake_images = generator(z)
+            g_loss = wgangp_generator_loss(critic(fake_images).mean())
+            g_loss.backward()
+            optimizer_G.step()
+            
+            if iteration % log_interval == 0:
+                w_dist = critic_real.item() - critic_fake.item()
+                metrics.log(iteration, c_loss.item(), g_loss.item(), w_dist)
+                metrics.log_gradients(get_gradient_norms(critic))
+                
+                if USE_WANDB:
+                    wandb.log({"loss_C": c_loss.item(), "loss_G": g_loss.item(), "W-dist": w_dist, "GP": gp.item()})
+            
+            iteration += 1
+        
+        with torch.no_grad():
+            fake_samples = generator(fixed_noise)
+            metrics.save_samples(fake_samples)
+            if USE_WANDB:
+                wandb.log({"samples": wandb.Image(vutils.make_grid(fake_samples[:16], normalize=True))})
+        
+        if epoch == num_epochs - 1:
+            metrics.log_weights(get_weight_stats(critic))
+        
+        print(f"\rÉpoca {epoch+1}/{num_epochs}", end='', flush=True)
+    
+    print()
+    metrics.training_time = time.time() - start_time
+    if USE_WANDB:
+        wandb.finish()
+    
+    print(f"Completado: {metrics.training_time/60:.2f} min")
+    return generator, critic, metrics
+
+wgangp_gen, wgangp_critic, wgangp_metrics = train_wgangp(dataloader, NUM_EPOCHS)

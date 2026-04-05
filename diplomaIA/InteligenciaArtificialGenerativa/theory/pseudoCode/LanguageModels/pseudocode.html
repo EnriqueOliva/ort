@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Models: Pseudocodigo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        .subtitle {
+            text-align: center;
+            color: #ffd93d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #00d4ff;
+            padding-bottom: 8px;
+            font-size: 1.4em;
+        }
+        .code-block {
+            background: #0d1117;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            overflow-x: auto;
+            border-left: 4px solid #00d4ff;
+        }
+        .code-block .comment { color: #6a9955; }
+        .code-block .keyword { color: #569cd6; }
+        .code-block .function { color: #dcdcaa; }
+        .code-block .variable { color: #9cdcfe; }
+        .code-block .string { color: #ce9178; }
+        .highlight-box {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .highlight-box h3 { color: #00d4ff; margin-bottom: 10px; }
+        .key-point {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #ffd93d;
+            padding: 15px;
+            border-radius: 0 10px 10px 0;
+            margin: 15px 0;
+        }
+        .key-point strong { color: #ffd93d; }
+        .step-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .step-box h4 { color: #00ff88; margin-bottom: 8px; }
+        .exam-box {
+            background: linear-gradient(145deg, #2d1f1f, #1a1a2e);
+            border: 3px solid #ff6b6b;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .exam-box h3 { color: #ff6b6b; margin-bottom: 15px; }
+        .summary-box {
+            background: linear-gradient(145deg, #1e3a5f, #0d1b2a);
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        .summary-box h3 { color: #00ff88; margin-bottom: 15px; }
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        .flow-step {
+            background: rgba(0, 212, 255, 0.2);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            min-width: 120px;
+        }
+        .flow-arrow {
+            font-size: 1.5em;
+            color: #ffd93d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pseudocodigo Language Models</h1>
+        <p class="subtitle">Pregunta tipica del parcial</p>
+
+        <div class="exam-box">
+            <h3>PREGUNTA DEL PARCIAL</h3>
+            <p style="font-style: italic; margin-bottom: 15px;">"Implementa en pseudocodigo el proceso de generacion de secuencias de un LM"</p>
+            <div class="code-block" style="border-left-color: #ff6b6b;">
+<span class="variable">secuencia</span> = <span class="variable">prompt_inicial</span>
+
+<span class="keyword">REPETIR</span>:
+    <span class="variable">logits</span> = <span class="function">LM</span>(<span class="variable">secuencia</span>)
+    <span class="variable">probs</span> = <span class="function">softmax</span>(<span class="variable">logits</span>)
+    <span class="variable">token</span> = <span class="function">muestrear</span>(<span class="variable">probs</span>)
+    <span class="keyword">SI</span> <span class="variable">token</span> == <span class="keyword">END</span>: <span class="keyword">SALIR</span>
+    <span class="variable">secuencia</span> = <span class="variable">secuencia</span> + <span class="variable">token</span>
+
+<span class="keyword">RETORNAR</span> <span class="variable">secuencia</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>1. GENERACION AUTORREGRESIVA (Completo)</h2>
+            <div class="code-block">
+<span class="keyword">FUNCION</span> <span class="function">generar_secuencia</span>(<span class="variable">prompt</span>, <span class="variable">max_tokens</span>):
+
+    <span class="variable">secuencia</span> = <span class="function">tokenizar</span>(<span class="variable">prompt</span>)
+
+    <span class="keyword">MIENTRAS</span> len(<span class="variable">secuencia</span>) < <span class="variable">max_tokens</span>:
+
+        <span class="comment"># 1. Pasar secuencia al modelo</span>
+        <span class="variable">logits</span> = <span class="function">LM</span>(<span class="variable">secuencia</span>)
+
+        <span class="comment"># 2. Convertir logits a probabilidades</span>
+        <span class="variable">probabilidades</span> = <span class="function">softmax</span>(<span class="variable">logits</span>)
+
+        <span class="comment"># 3. Muestrear siguiente token</span>
+        <span class="variable">siguiente_token</span> = <span class="function">muestrear</span>(<span class="variable">probabilidades</span>)
+
+        <span class="comment"># 4. Verificar fin de secuencia</span>
+        <span class="keyword">SI</span> <span class="variable">siguiente_token</span> == <span class="keyword">END_OF_SEQUENCE</span>:
+            <span class="keyword">BREAK</span>
+
+        <span class="comment"># 5. Concatenar y repetir</span>
+        <span class="variable">secuencia</span> = <span class="variable">secuencia</span> + [<span class="variable">siguiente_token</span>]
+
+    <span class="keyword">RETORNAR</span> <span class="function">detokenizar</span>(<span class="variable">secuencia</span>)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. FLUJO VISUAL</h2>
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <strong>Secuencia</strong><br>
+                    <small>"Hola, como"</small>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-step">
+                    <strong>LM</strong><br>
+                    <small>logits</small>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-step">
+                    <strong>Softmax</strong><br>
+                    <small>probs</small>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-step">
+                    <strong>Muestrear</strong><br>
+                    <small>"estas"</small>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-step">
+                    <strong>Concatenar</strong><br>
+                    <small>↺ repetir</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. PUNTO CLAVE: Deterministico vs Estocastico</h2>
+            <div class="key-point">
+                <strong>El LM es DETERMINISTICO</strong><br>
+                Misma entrada → Misma distribucion de probabilidad (siempre)
+            </div>
+            <div class="key-point">
+                <strong>La GENERACION es ESTOCASTICA</strong><br>
+                Porque muestreamos de esa distribucion → puede dar resultados diferentes
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. EJEMPLO PASO A PASO</h2>
+
+            <div class="step-box">
+                <h4>Paso 1</h4>
+                <code>LM("Hola, como") → {"estas": 0.35, "andas": 0.15, ...}</code><br>
+                <code>Muestrear → "estas"</code><br>
+                <code>Secuencia: "Hola, como estas"</code>
+            </div>
+
+            <div class="step-box">
+                <h4>Paso 2</h4>
+                <code>LM("Hola, como estas") → {"?": 0.40, "hoy": 0.20, ...}</code><br>
+                <code>Muestrear → "?"</code><br>
+                <code>Secuencia: "Hola, como estas?"</code>
+            </div>
+
+            <div class="step-box">
+                <h4>Paso 3</h4>
+                <code>LM("Hola, como estas?") → {END: 0.60, "Yo": 0.15, ...}</code><br>
+                <code>Muestrear → END</code><br>
+                <code style="color: #00ff88;">FIN</code>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <h3>RESUMEN ULTRA-CORTO</h3>
+            <div class="code-block">
+<span class="keyword">MIENTRAS</span> no termine:
+    probs = <span class="function">softmax</span>(<span class="function">LM</span>(secuencia))
+    token = <span class="function">muestrear</span>(probs)
+    <span class="keyword">SI</span> token == END: terminar
+    secuencia = secuencia + token
+            </div>
+        </div>
+    </div>
+</body>
+</html>

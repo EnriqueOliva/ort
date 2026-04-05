@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixtura de Gaussianas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #f5576c;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border-left: 4px solid #f5576c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .formula {
+            font-size: 1.2em;
+            text-align: center;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .explanation {
+            background: #ffe7f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #f5576c;
+            font-weight: bold;
+        }
+
+        svg {
+            width: 100%;
+            height: 500px;
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .axis {
+            stroke: #333;
+            stroke-width: 2;
+        }
+
+        .gaussian1 {
+            fill: rgba(255, 99, 132, 0.3);
+            stroke: #ff6384;
+            stroke-width: 2;
+        }
+
+        .gaussian2 {
+            fill: rgba(54, 162, 235, 0.3);
+            stroke: #36a2eb;
+            stroke-width: 2;
+        }
+
+        .gaussian3 {
+            fill: rgba(75, 192, 192, 0.3);
+            stroke: #4bc0c0;
+            stroke-width: 2;
+        }
+
+        .mixture {
+            fill: rgba(245, 87, 108, 0.5);
+            stroke: #f5576c;
+            stroke-width: 3;
+        }
+
+        .label-text {
+            font-size: 14px;
+            fill: #333;
+        }
+
+        .legend {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+
+        .legend-color {
+            width: 40px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 3px;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mixtura de Gaussianas</h1>
+
+        <div class="explanation">
+            <p>Una <span class="highlight">mixtura de gaussianas</span> es una combinación ponderada de varias distribuciones gaussianas. Es útil cuando los datos tienen múltiples grupos o categorías.</p>
+            <p style="margin-top: 10px;"><strong>Ejemplo del gato:</strong> El peso de los gatos depende del sexo. Los gatos machos tienen una distribución de peso diferente a las hembras, entonces la distribución total del peso es una mixtura de dos gaussianas.</p>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula">
+                Y ~ Bernoulli(θ) o Categórica(θ₁, θ₂, ..., θₖ)
+            </div>
+            <div class="formula">
+                X | Y=y ~ N(μᵧ, σᵧ²)
+            </div>
+            <div class="formula" style="margin-top: 15px; font-size: 1.1em;">
+                p(x) = Σ p(y) · p(x|y) = Σ θᵧ · N(x; μᵧ, σᵧ²)
+            </div>
+        </div>
+
+        <div class="legend">
+            <h3 style="color: #f5576c; margin-bottom: 10px;">Leyenda</h3>
+            <div class="legend-item">
+                <div class="legend-color" style="background: rgba(255, 99, 132, 0.5);"></div>
+                <span>Gaussiana 1 (ej: gatos machos) - μ₁ = -2, σ₁ = 0.8</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: rgba(54, 162, 235, 0.5);"></div>
+                <span>Gaussiana 2 (ej: gatos hembras) - μ₂ = 0, σ₂ = 0.6</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: rgba(75, 192, 192, 0.5);"></div>
+                <span>Gaussiana 3 (ej: otra categoría) - μ₃ = 2.5, σ₃ = 0.7</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: rgba(245, 87, 108, 0.6);"></div>
+                <span><strong>Mixtura resultante</strong> (combinación ponderada)</span>
+            </div>
+        </div>
+
+        <div class="diagram">
+            <svg id="mixtureSvg"></svg>
+        </div>
+
+        <div class="explanation">
+            <p><strong>Interpretación:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Cada gaussiana individual representa una categoría o clase (ej: macho, hembra, indeterminado)</li>
+                <li>Los <span class="highlight">pesos θ</span> determinan qué tan común es cada categoría</li>
+                <li>La curva roja gruesa es la <span class="highlight">distribución total</span> que observamos</li>
+                <li>Puede tener múltiples "picos" si las medias están separadas</li>
+                <li>En el ejemplo del gato: si tenemos 50% machos y 50% hembras, θ₁ = θ₂ = 0.5</li>
+                <li>Para clasificación: dado un valor x (peso), podemos calcular p(y|x) usando el teorema de Bayes</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const svg = document.getElementById('mixtureSvg');
+
+        const margin = {top: 40, right: 40, bottom: 60, left: 60};
+        const width = 900;
+        const height = 500;
+
+        function gaussian(x, mu, sigma) {
+            const coefficient = 1 / (sigma * Math.sqrt(2 * Math.PI));
+            const exponent = -Math.pow(x - mu, 2) / (2 * Math.pow(sigma, 2));
+            return coefficient * Math.exp(exponent);
+        }
+
+        function drawMixture() {
+            svg.innerHTML = '';
+
+            const gaussians = [
+                {mu: -2, sigma: 0.8, weight: 0.3, color: 'gaussian1', name: 'Macho'},
+                {mu: 0, sigma: 0.6, weight: 0.5, color: 'gaussian2', name: 'Hembra'},
+                {mu: 2.5, sigma: 0.7, weight: 0.2, color: 'gaussian3', name: 'Otro'}
+            ];
+
+            const xMin = -6;
+            const xMax = 6;
+            const scaleX = (width - margin.left - margin.right) / (xMax - xMin);
+
+            let maxY = 0;
+            for (let x = xMin; x <= xMax; x += 0.1) {
+                let mixtureValue = 0;
+                for (const g of gaussians) {
+                    mixtureValue += g.weight * gaussian(x, g.mu, g.sigma);
+                }
+                maxY = Math.max(maxY, mixtureValue);
+            }
+
+            const scaleY = (height - margin.top - margin.bottom) * 0.8 / maxY;
+
+            svg.innerHTML += `<line x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}" class="axis"/>`;
+            svg.innerHTML += `<line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}" class="axis"/>`;
+
+            for (let i = xMin; i <= xMax; i++) {
+                const x = margin.left + (i - xMin) * scaleX;
+                svg.innerHTML += `<line x1="${x}" y1="${height - margin.bottom}" x2="${x}" y2="${height - margin.bottom + 5}" class="axis"/>`;
+                svg.innerHTML += `<text x="${x}" y="${height - margin.bottom + 25}" class="label-text" text-anchor="middle">${i}</text>`;
+            }
+
+            svg.innerHTML += `<text x="${width/2}" y="${height - 10}" class="label-text" text-anchor="middle" font-weight="bold">x (ej: peso del gato en kg)</text>`;
+            svg.innerHTML += `<text x="20" y="${height/2}" class="label-text" text-anchor="middle" font-weight="bold" transform="rotate(-90 20 ${height/2})">p(x)</text>`;
+
+            for (const g of gaussians) {
+                let pathData = `M ${margin.left} ${height - margin.bottom}`;
+                for (let x = xMin; x <= xMax; x += 0.05) {
+                    const y = g.weight * gaussian(x, g.mu, g.sigma);
+                    const screenX = margin.left + (x - xMin) * scaleX;
+                    const screenY = height - margin.bottom - y * scaleY;
+                    pathData += ` L ${screenX} ${screenY}`;
+                }
+                pathData += ` L ${width - margin.right} ${height - margin.bottom} Z`;
+
+                svg.innerHTML += `<path d="${pathData}" class="${g.color}"/>`;
+            }
+
+            let mixturePath = `M ${margin.left} ${height - margin.bottom}`;
+            for (let x = xMin; x <= xMax; x += 0.05) {
+                let y = 0;
+                for (const g of gaussians) {
+                    y += g.weight * gaussian(x, g.mu, g.sigma);
+                }
+                const screenX = margin.left + (x - xMin) * scaleX;
+                const screenY = height - margin.bottom - y * scaleY;
+                mixturePath += ` L ${screenX} ${screenY}`;
+            }
+            mixturePath += ` L ${width - margin.right} ${height - margin.bottom} Z`;
+
+            svg.innerHTML += `<path d="${mixturePath}" class="mixture"/>`;
+
+            svg.innerHTML += `<text x="${width/2}" y="25" class="label-text" text-anchor="middle" font-size="16" font-weight="bold" fill="#f5576c">p(x) = 0.3·N(x;-2,0.8²) + 0.5·N(x;0,0.6²) + 0.2·N(x;2.5,0.7²)</text>`;
+        }
+
+        drawMixture();
+    </script>
+</body>
+</html>

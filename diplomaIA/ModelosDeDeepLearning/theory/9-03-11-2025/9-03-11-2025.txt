@@ -1,0 +1,446 @@
+lo que tiene que hacer que valor valor seguir pasando valor 128.
+Buenas tardes. ¿Cómo anda?
+Buenas.
+Es el problema.
+Ah, de todos los datos, no solo la trama.
+Pero eso te pasa con la trama.
+Ah, en realidad lo único que hago es agregar que lo cortes en el saca todos los ceros de lo largo que te dije, sí, pero ahora como que me de vuelta con lo que venía pensando antes.
+Eso hacen tod lo voy El tema de estas estas redes como que tienen memoria de configuración.
+Sí, sí. Al principio sí para ver todo cero empezar a
+se va a empezar a olvidar de no
+se olvida de
+y se va quedando con los últimos valores.
+Es mi interpretación,
+pero por digamos por por estudio.
+Bueno, pasó por
+está está complicada la tareador, ¿no? estar aquí. Bueno, buen día a todos, buenas tardes, buenas noches, buenes. Eh, antes de que Mati la clase, eh, le voy a presentar eh una notebook que tienen como entreo para el eh dos semanas, profesor no es no es mucha cosa, no se como la pelea dos
+para para cuándo hayas dos y dos vi todas las caras de todo. No se preocupen no trabajo.
+Bien, la idea es este observar un fenómeno que llama double descent. Uno lo conoce. Bien, básicamente el double descento que pasa en realidad pasa en en machine learning también puede llegar a pasar en algunos casos, pero es más típico de deep learning que este se acuerdan de de la gráfica que solíamos a hacer de overfeitting con el machine learning que agarrábamos cualquier modelo y se los árboles a medida que aumentaba la profundidad la curva de test hacía como un y eso tendía a subir siempre.
+Sí, más o menos siempre lo lasones nuevas volví a bajar y después volía subir. Ah,
+eso es el licencia.
+Ah,
+entonces la, o sea, lo que es lo que no es esperable es que una vez que sube en algún punto vuela otra vez. El modelo pasa a ser tan complejo que el error en test vuelve a bajar. Eso se observa sobre todo en redescil en redes. está porque son este modelos mucho más complejos que podemos conterle muchísimos parámetros y lo que suele pasar es que una vez que este la cantidad de parámetros de mi modelo supera este la cantidad de datos que tenemos y y la cantidad de features, entonces ahí empieza a aparecer fenómeno de empieza a aparecer otra vez. La idea de la notebook es visualizar eso con la red. Eh, tienen que probarla un poquito las partecitas. Está el dataset que se usa es un datis. Ah, por las dudas la est no está hablando todavía cuando termine la subja.
+Disculpa, ¿para cuándo hay que entregar esta not?
+Siempre hay alguna flexibilidad. Es esto. ¿Conocen el docente menis? Querido.
+Bueno, básicamente lo que hicieron fue destruirlo muy fuerte que creo que acá abajo hay algunas cosas mejores. Bueno, esto básicamente es eh esto es un un gráfico de las clases agrupadas en el clásico. Estas son las clases agrupadas enemis de es un problema más compleo, ¿no? Más difícil de aprender. Y lo que quería mostrarles es esto. Básicamente en vez de tener imágenes 2D, lo que hacen es generar los números como líneas, como líneas en una dimensión. Entonces, esto rita es el cer, esta rayita es el un, est el dos, el trí y después lo destruyen. de esta forma. Dale, son todas esas transformaciones y quedan así. Ah, eso se supone que sigue siendo el número y eso es lo que tiene que aprender este concepto más complicado, más complejo. Entonces, vamos a instalar mucho Bien, ya tiene algunas cosas ya definidas y esta función lo único que hace es generar el dataset y lo que vamos a hacer además para hacer lo más complejo todavía, es agregarle ruido a las etiquetas. Bien, entonces este ya tiene una función que lo hace simplemente este con una probabilidad random que es el rate que le pasamos acá va a aumentar este va a cambiar las las etiquetas de los de los datos. Eh, básicamente son este 4000 imágenes de bueno, en realidad no son imágenes, son como si fueran series básicamente. Eso son en una dimensión y 4000 datos con
+sí con 40 fichos cada uno. Después acá hay una funcioncita para plotearlos que simplemente es para mostrar que cada uno de esos números los desafío a encontrar efectivamente corre que fuéramos un mlp eh sentido.
+Acá, por ejemplo, esto es un seis por la un
+por el Hay un siete. Esto es un siete. Pueden decir que esto no es un siete.
+Lo importante es que tienen un
+No vamos a hacer nosotros esto, sino que lo van a hacer las Acá empieza la parte que tengan que hacer ustedes. Es muy sencillo el modelo. Si tienen ganas de experimentar pueden probar con otros modelos, pero con este es el que funciona y se ve. Así que está se le el deó para que ustedes lo completen, pero básicamente est acá lo que tiene que hacer es una capa con es una R red lineal con tres capas y eh una relu entre cada capa. Y después lo lo que le vamos a pasar es eh bueno, la las dimensiones de entrada, que ya sabemos que son 40 y las dimensiones de salida que van a ser las 10 clases, son las mismas 10 que enemis. Tal lo que vamos a lo que precisamos es definir una función para pasarle la cantidad de hidens que va a tener nuestro modelo en la capa intermedia, porque eso es lo que vamos a variar después, a cambiar la complejidad del modelo, o sea, la cantidad de parámetros lo vamos a aumentar a partir de variar este ese ese valor se bien. Entonces, la idea es que una vez que tengan ese modelo es entrenarlo. Durante más o menos unas 1000 épocas es cuando se empieza a ver fenómeno. Eh, creo que se puede ser un poquito menos, pero yo lo probé con 1000 Apple, así funciona.
+¿Cuánto demoras?
+Demora cada época.
+Te demu un poquito. O sea, corro todo. Puede ser que un poquito el la tarea entera, 30 minutos.
+No, no, o sea, no tiene que estar 4 horas
+30 minutos.
+No, no. Si lo corren, da ni para hacer un café,
+no te da ni para ir.
+Si lo corro en conc eh, no sé, de nuevo, la red es muy chiquita, o sea, no es tan grande. Lo que sí importante es que lo que van a hacer es entrenar el modelo 1000 épocas y se van a guardar el error final de test y de tradin. O sea, no es, no queremos, no nos interesa la curva entera, sino que interesa el final, el error final. Y eso lo vamos a hacer para cada uno de estos valores, que estos valores son los que le vamos a pasar en el NG, o sea, el queñamos antes, te quedas con las curvas, ¿cómo vas a ver entonces?
+Por justamente porque ese es el ese es el chiste, que este fenómeno no se ve durante el entrenamiento, no es un fenómeno que ocurra en el entrenamiento de una red, sino que ocurre a medida que cambiamos los par la red, o sea, agarramos un modelo cada vez más complejo, lo entrenamos entero y lo que vemos es que los, o sea, la gráfica de esos modelos que van siendo cada vez más complejos es la misma que eh la que veíamos en árboles de decisión o o regresiones lineales o cosas así de machine learning.
+Cuando vas aumentando, o sea, te acordas de los gráficos con el modelo,
+pero yo entendí que quédate con lo último, yo necesito ver que la gráfica se va deformando. Claro, pero te quedas con lo último de cada modelo, o sea, cada modelo vuelve a entrenar, no sé, 1000 Epos. Te quedas con ese último rol de las 1000 EPOs,
+o sea, te quedas con el de dos, te quedas con el de 10, el de 26, el de 45, etcétera, etcétera.
+Gráficar con esos con gráficas con esos contra el para cada valor del hidden ver ese ese error y ahí vamos a ver el fenómeno que sube y baja.
+Exacto. No se ve en las épocas
+en las épocas no se ve ese ese dicen se ve La complejidad es como, imagínense que están buscando el hiperparámetro que mejor, ¿no?, eh, o sea, cuál es la dimensión del hidden que mejor funciona para este problema. Eso es lo que están buscando.
+Vamos a ir viendo que crece, crece, crece y pero si nos quedamos ahí, si seguimos va a empezar a bajar.
+Claro,
+claro. Como las curvitas de U que veíamos antes, solo que ahora en una empieza a bajar de nuevo.
+Eh, Josefina,
+sí. Mi duda es ahí donde el segundo punto donde dice registra los errores finales de entrenamiento y prueba para cada modelo hace referencia con el mejor error, digamos. No,
+no, el final, o sea, lo entrenan 1000 épocas,
+el 1000, el del época 1000
+o dentro de esas 1000 o dentro de esas 1000 épocas me quedo con el mejor,
+no, no, no, no el mejor, el último,
+o sea, de la época 1000.
+Claro. Sí, sí. Y y eso de cada uno, o sea, Vas a entrenar un modelo con con ngid en 2 mil épocas y eso te va a dar un error. Te lo guardas. Después agarras de 10.
+Sí, dos. Después agarras el de 10, lo entrenan otra vez 1 épocas y así van guardando cada uno. Y eso lo grafican la pérdida en función de el parámetro este Eh, a los valores estos no es más, son valores que debería servirles para ver funcionan. Después hay una cosa más que es el interpolation thres, que es el punto en el que en el que el pico del error de en test ocurre, o sea, en la curva con ahí es el interpolation 3 que además más o menos eh coincide con el punto en el que la red tiene la misma cantidad de parámetros. que la cantidad de ejemplos de entrenamiento es aproximado porque depende de un montón de cosas. Fácil repetir.
+Sí, o sea, hay una está el interpolation threshold que es el punto en el que es el pico del error y ese punto además coincide donde la cantidad de parámetros que tiene el modelo. Acuérdense que, o sea, nosotros vamos a graficarlo en función de de este NG, pero lo que estamos haciendo es cambiar la cantidad de parámetros del modelo. Más grande el ngiden, más grande es la capa oculta. más parámetros tiene el modelo. Eh, a medida que que vamos subiendo eso, eh, crece la la cantidad de de parámetros y cuando la cantidad de parámetros coincide con la cantidad de datos de entrenamiento que tenemos ahí, o sea, el interpolation threshold también coincide con eso, o sea, todo coincide punto, digo, digo, básicamente un modelo que que tiene la misma cantidad de parámetros que datos. Eh, en teoría es un es un modelo que puede pasar por cada dato o la misma cantidad más un, ¿no? Si vos pensas, por ejemplo, tengo pensá eh en dimensión uno, ¿no? Tenés este tenés dos puntos, ¿no? Con dos puntos este una recta pasa. Si tenés tres puntos, una parábola pasa por eso. Si tenés cuatro, hay un polinomio grado tres que pasa por ellos y así. Entonces vos con uno menos la cantidad de de datos que tenés, si tenés uno menos la cantidad de parámetros, ¿no? Parámetros igual a uno menos cantidad de datos e eh con polinomios pasas por cada punto. Por eso se llama el interpolation treshold, porque es como que interpolas todos tus datos de entrenamiento. Eh, siempre en estadística clásica siempre se pensó que nunca tenía sentido eh hacer modelos que tuvieran la misma cantidad de parámetros que los datos. Es como que siempre en estadística clásica es poquitos parámetros, una revisión lineal, digo, poquitos parámetros para s 1000 datos. Eh, acá eh van a ver el fenómeno de qué pasa cuando te te lo que se llama overpametization, que es cuando te pasas de eso.
+A ver si si, pero en eso no tenés error, digamos. No hay no hay
+no hay no hay Error en TR
+no hay cero. Claro.
+O sea, vas a llegar al error cero.
+La cuestión es ver qué pasa. Me da exactamente
+te va a dar. Exacto. Claro. La cuestión es ver qué pasa con con
+eso generaliza bien tener más
+y bueno, ese es el fenómeno.
+Ahí, o sea, se ocurre eso. Se aprendió todo y pero funciona bien para ese conjunto,
+pero si seguís sobreparametrizándolo empieza a mejorarización va mejorando.
+El que logre una explicación avise como que ten es como que tenés más, o sea, más dimensiones dedicadas a explicar un un eh un dato, ¿no? Es decir, con la misma analogía, ¿no? Que vos hacías, profe, que que Matías hacía, o sea, si vos tenés más de una dimensión para explicar un dato, por decirlo así, más dimensión. No,
+claro. Exacto. Es Sí, sí, exacto, exacto. Y empezas a como a a a pasarte, a pasarte, a pasarte, a pasarte y empieza a funcionar mejor de forma misteriosa.
+Entiendo.
+Bueno, está, ese es el interpelation 3. Está bueno que que lo grafiquen también para que vean. Y la forma más fácil de graficarlo es eh viendo en vez de mirar el pico del error, eh hacerlo con simplemente mirar dónde aproximadamente la cantidad de parámetros es la misma que la cantidad de datos, que saben que tenemos este 4000 datos, así que simplemente eso.
+Ahí en delante espera que empiece a mejorar.
+Claro. O sea, lo que lo que van a ver es que la curva es así y en el pico como la U clásica de Learning, ahí está la interpele. Si si loas muchas veces y promediaras, te va a dar el cambio grupo o es algo gradual que se va
+o depende no vamos a spoilear nada. No vamos a spoilear nada.
+No sé si estaba en tu entrada 30 minutos para
+puedo mostrar cuántas veces vamos a cor
+ahí va. Después les mostramos un ejemplo de a qué tipo de curmita tienen que llegar.
+Eh, bueno,
+la está la Nota de nuevo, no demora, no es que va a demorar 6 horas entrenando, pero está capaz que 10, 15 minutos, 80 y eso no es todo. Tiendo parte de visitas. Está bueno. Acá tiene su código, no es más que entrenar todas y graficar las cosas, o sea, creo que ya deberían estar acostumbrados a a pelearse con eso. Así que ahora tiene que ser una cosa más, que es agregarle ruido a las etiquetas. O sea, En principio trabajamos con el cómo viene, con todas las etiquetas. Bien, vamos a hacer exactamente el mismo experimento, o sea, entregar los modelos de de 2, 10, 26 que así, pero con dos niveles de ruido. Primero con 10% de ruido y después con 30% de ruido de las etiquetas y hacer lo mismo. error le pongo al lado aleatori aleatoria sea distinta de lo que
+Ah, okay. Eh, simplemente hace un random punto random y si el número es menor que el del no elige un valor un número random entre un y simplemente le tiras un si te pone tr a un cu le pone un nu rompe todo. Eh, no sé, es el el simplemente la funcioncita con el no como parámetro, pero ya lo tienen. Buena gente, son los mismos 4000 datos, pero ahora con ruido. Ahí tienen unas preguntas finales de los resultados, que es este, bueno, cómo afecta el rollo de la etiqueta, cómo influye el ruido en el fenómeno dado y este bueno, acabamos un poquito de lo mismo el overfeitting en el entrenamiento que la sobreparametrización del modelo llevarles demasiado tiempo. Por eso, ¿qué dijiste el ruido? A ver, una pregunta, ¿no? Yo le pongo mi 10% de ruido.
+De alguna manera también estoy limitando a que no tenga más del 90% acierto o no. No necesariamente.
+No, no, no. Una red neuronal, este, hay experimentos que red red redes con con muchos parámetros este aprenden a San
+no. O sea, no. Digo, sí, sí, le estás agregando este un error irreducible. Claro, porque exactamente exactamente. No tienen que explorar mucho tampoco, o sea, todo bastante sigan las instrucciones. Si alguno quiere ponerse a jugar y probar cosas más que bienvenido, pero
+sí, por ejemplo,
+si siguen más o menos
+si quieren aumentar el número de o hacer otra arquitectura de modelo. o otra arquitectura o o si quieren hacer otro con más o menos ruido, probar otros valores de ruido, eso lo pueden hacer los valores y marcas ahí que tengo que hacer las entrenamientos hienso se puede jugar también.
+Exacto.
+O sea, en realidad
+esos valores son ahí,
+o sea, originalmente eran muchos más y demoraba como media hora en correr y yo dije tanto y saqué muchos valores y con esto igual se ve. Si le agregan, si le agregan más valores en el medio por acá, que es donde spoiler va a pasar o pasar, eh si le ponemos más valores, van a ver una curva un poco más eh suave y más clara. Eh,
+pero sí, pero pueden agregar,
+si le ponen más valores para adelante, este, van a ver un poco otras cosas, cosas que pasan.
+Originalmente como 400,
+có 400, sí, pero entrenar ya con 300, 400 empezado a demorar en qué pereza. Pero pueden probarlo. Si están con ganas, pueden probarlo. No sé si creo que acá. Esto es más o menos la gráfica de disent.
+La la primera y la segunda.
+Sí, esta tercera es con redes convolucionales. No sé, ahí no llegué yo, así que no sé qué pasa, no sé si es cierto, pero bueno. Ven acá el azul, ¿no? Es el error en test que hace así y después baja. Y más o menos el el acá no está graficado, pero el interpolation está más o menos por acá. Debería coincidir cuando er más o menos lo que deberían ver más o menos. Y esto cuando sucede se debería buscar que generalice ya sin que suba o hay veces que no lo puedes evitar,
+o sea, cuando observas que que sube y después baja
+ahí eso es algo que uno después tiene que evitar, ¿no? O sea, lo que vos tenés con esa es que sabes cuál modelo te va a dar menos el error. O sea, si queres evitar es estar acá arriba, ¿no? Te lo generaliza.
+Claro. Ahí digo, debería buscar otra configuración que en verdad bajes ya de una sin subir.
+No, es que esto no, esto no lo vas a ver en entrenamiento. Esto esto solo lo ves si vos este esto es este selección de hiperparámetros.
+Una pregunta ahí, una pregunta es este un segundo. Que 300 es mejor que todo lo que tenías antes. Es decir, yo entrené un modelo con, bueno, cero no, pero con 10 de de tamaño de mi Hiden. Otro modelo con 100, otro modelo con 200, otro modelo con 300. Eso es una gráfica de entrenamiento que es la que todos están acostumbrados a ver cuando entrar un modelo. Esa la ignoran y lo que hacen es quedarse con el final. Si yo grafico el error final después de entrenar 1000 épocas de cada uno de esos modelos, es es una graficación. Me confundí con
+Sí, sí, sí. Es lo Sí, sí, sí.
+A mí también me costó un poco, es lo más confuso porque aparte no estamos acostumbrados a verlo. Siempre estamos acostumbrados a ver la curva de épocas y errores in épocas. Esto no es esto es error por cantidad de parámetros después de es como si estuvieras variando el gradoio o el o la profundidad un árbol,
+que es lo mismo. Se acuerdan que el árbol hacíamos punto fit, veíamos el error y y nos bamos quedando el error de cada uno después el punto fit. Esto como si hiciéramos lo mismo para que pasan en medio no nos importa. Tenés que ir guardando el error de cada por cada.
+Sí, obvio. Sí, guardando gráficos todo.
+Claro, te lo guardas, pero te guardan solo el final. No tenés que guardarte toda la la error por época que el más chico que se produjo en todo el entrenamiento en vez de quedarnos con el último decir,
+¿no? Porque ahí este fenómeno tal lo observ si, o sea, me parece genial que lo pruebe eh de repente eso pase que este fenómeno no se ve. Es un fenómeno que pasa, pero es, o sea, no queremosar la la razón por la cual este claro, no es tan fácil que pase este y en las últimas preguntas que puso Martín, ustedes tienen que como tratar de indagar un poquito eh cómo está relacionado con el estionado bien. Este entonces No sé si vos e de cierta forma tratar el sobrejuste, eh, vas a hacer que no se vea. Este fenómeno surge de agarrar y decir, bueno, está le empiezo a meter parámetros como loco a uno. Y me doy cuenta que que le va mejor que recontra sobre parametrizado. Le va mejor que
+med que agrego parámetros. mayor overfeing debería observar.
+Deberías,
+claro, pero no pas
+llega un momento que el overfeiting empieza a desaparecer, digamos,
+lo que es contrainttuitivo del normalmente nosotros machine learning cuando veíamos veíamos la y lo que veamos que esto sea subiendo y acá no pasa quedado Eh, pensando en la en la curva, si yo quisieries eh me me ver el el menor error de la clasificación, pero priorizar el la mayor cantidad de capa oculta, me quedó con el error, el menor error, pero con mayor capa oculta, aprovechando la curva esa de que sube y baja, ¿no?
+Eh,
+¿cómo sube y baja? Puedo esperar. la otra bajada. Si tú voy a tener la mismo error de clasificación y busco el menor error, pero mayor capa.
+Ah, bueno, sí. O sea, si después quisieras quedarte con un modelo, sí, probablemente en este caso, por ejemplo, te quedarías con el de 300 porqueun medio. Claro, mirando de abajo, no te quedas con la primera que es mucho más chico, más manejable, menos memoria.
+Ah, bueno, sí, si fueran iguales, sí, el más chico,
+pero viste que tiene una tiene una tendencia a seguir bajando.
+Eso está bastante más abajo ya, aunque acá no no se nota, pero más abajo
+y además pareciera que sigue bajando. Había que habría que ver qué pasa más adelante. Correr un rato más. Claro.
+Sí, si tenés un modelo que en validación llega a 40. ¿Por qué te quedarías cono? No,
+no, no. Si si baja.
+Claro.
+Y claro que baja. No me doy cuenta ahí tengo sí la sensación, pero no no me es claro, pero si si baja por supuesto van a pasar.
+Buenas chño. Sí.
+González.
+Acá
+Lópezico. Acá
+sí
+sí
+acá
+acá
+bien gracias Este pueden investigar porque es un fenómeno muy investigado hoy por hoy. Si ustedes ponen double design en Google y eso es que lo mismo debe haber una página de Wikipedia sobre
+y también eso es un fenómeno que también se se puede visualizar en modelos como regresón y cosas así de hecho hay muchos ejemplos que que usan regresiones para mostrarlo. Sí, pero poder ver la gráfica y ver qué pasa cuando te sobreparametrizas. Ahí dice sin ruido a las etiquetas y con ruido a las etiquetas. Ruido parece darse más notorio y sin ruido pareciera que no es tan claro.
+Sí, eso es algo que
+no no me quiero romper la cabeza de por qué. c*****, no me da en toda la primera parte y eso resulta que a vos tampoco te daba la primera.
+Ah, yo le digo, corran todo y vea.
+Sí, sí. No se tranquen, corran todo. Sí, sí, corran todo y ven que pasa una todo y
+eh. Eso es todo. No me odien. Veo todos con cara de est con otras cosas. A, no, no debería tomarle demasiado tiempo armar nada de esto y correrlo. No sé, no sé. Yo hice tantas pruebas que ya no me acuerdo, pero creo que vos gate capaz que está una hora con máximo máximo correr todo entero y debería ser tiempo de dejar corriendo. Así que eso es todo. Grupo
+eh Sí, sí, como les entregas siempre. Sí, sí,
+para disculpa para hacerte consulta, eh, te contactamos por team, ¿no?
+Sí, sí, a mí también.
+Ah, okay. Muchas gracias.
+A los dos. Escriban a los dos. Si pueden escribir uno de los dos
+y de nuevo no está subida en todavía. Ahora en el transcurso de la clase ya la dejo subida de pronto y la fecha es 17. Más o menos con flexibilidad.
+Queda otra entrega más, ¿no?
+Sí,
+sí hay un Sí, pero te vas a contar eh
+No, pero es es un cuestionario sobre conicionales. que ya estudiaron. Eh, debería ser sencillito.
+Esto está igual 17 fechas con flexibilidad también. Entonces nadie se desespere porque no sé, llegó el 17 y no
+lo que no queremos es que quede muy sobre porque el parcial es el primero,
+que no quede sobre el parcial porque el parcial vano para centrarse 28 termina la última clase nosotros clases hoy más tres
+el lunes lunes
+perdón cuándo el parcial
+el primero.
+El primero del próximo
+hacemos la clase.
+Sí, hacemos ejercicio.
+Ah. Eh, es un es cortito el cuestionario, o sea, tienen 16 minutos para hacerlo y probablemente ley menos que eso. Los temas son este cruentoparización y redes convencionales antes de hacerlo.
+Se supone que no, pero ilimit.
+Ah, iba a preguntar eso.
+Sí.
+O sea, la idea es
+por fuerza bruta. Lo puedo sacar profundo. Bueno, nombre si no Igual que la que la tiene tiempo hasta el 17 de noviembre. No hace falta que hasta el 17 de noviembre. Tardes están aburridos. O sea, la idea que lleguen a 10. Obviamente no debería suponer a cargo y las prutas son muy sencillas.
+¿Cuál sería una respuesta? Ejemplo, la pregunta tres.
+Opción C. Ya está. No tengo más cosas para No me
+ya está en aulas. Sí, pero ese es una defensa, ¿no? No es una defensa. Defensa yunas preguntas 20 puntos parcial 20 puntos y y después él dijo que tenía 15 minutos parte para para la parte que el
+no es important.
+Eh, bueno, la idea sería, ¿se acuerdan que la clase pasada vimos este una intro? Y bueno, una de las herramientas que usado y sigue sigue siendo usada en algunos problemas, porque uno no siempre quiere hacer un chat GPT, ¿no? De cero. Este son las redes este neuronales recurrentes que vinieron antes que los Transformers, ¿sí? E tienen este una esa recurrencia las hace más comprensibles como máquinas. Sí. Este una máquina este yo no. A ver, Si alguien sabe que es una No, no, no. Eh, ¿qué es una máquina del punto de vista de la ciencia y la computación?
+¿Qué va qué es una máquina matemático.
+Ah, es un modelo matemático. ¿Que qué qué tiene? Digamos
+tiene estados. Exacto.
+Es una máquina de estados que cuando recibe una instrucción, ¿no?
+Hace algo y, o sea, hace algo y transiciona hacia otro estado, ¿no? Este, entonces el las si bien los Transformers y los modelos de lenguaje en general se pueden ver como estado también eh son en definitiva, en realidad son e desde un punto de vista matemático son este se llaman lo que son Hit Marcos of Models, este son eh modelos de marcovianos con estados ocultos, ¿sí? Que son los estados de la máquina. Este eh uno requiere como una especie de construcción, o sea, es menos obvia cuando uno mira un transformer. Este es una red fit forward, o sea, algo que es fit forward es mucho más difícil. Yo hago como una máquina. Sí. En cambio, algo que se vuelve a llamar a sí mismo es como que se actualiza el estado, ¿no? Este, y dice, "Bueno, okay, pasaste a este estado, ahora leete el siguiente input, ¿no? Algo que se retroalimenta es de por sí mucho más eh similar a una máquina que una cosa que es fit forward, ¿no? O sea, algo que es fit forward es una función. Sí. Lo que pasa que este eh y en realidad los Transformers son más este para estudiarlos como arquitectura son más este estudiados como este circuitos, ¿no? Con puertas lógicas este que van hacia adelante, pero en realidad hay este resultados matemáticos super interesantes de eh uno puede imitar o simular una máquina de Touring con una función real el intervalo 01 el intervalo 01, ¿no? O sea, que es decir, las funciones también tienen escondidas máquinas, este, pero eh es más oscuro, digamos, llegar a eso, ¿no? O sea, las redes recurrentes es como más natural, o sea, y y es por eso surgieron antes, porque es la forma natural de de, o sea, las máquinas procesan secuencias, ¿no?, de cosas, secuencias de instrucciones, secuencias de símbolos, este Entonces, las redes neuronales recurrentes procesan secuencias y este y es la forma natural más natural de eh decir, bueno, voy a tener que procese secuencias. Este entonces están diseñadas para datos secuenciales que pueden ser eh texto, se usó mucho para texto, eh dieron origen al mecanismo de attention en en los problemas de de traducción, ¿sí? O sea, que los el El mecanismo de attention realidad surge dentro del contexto de las redes recurrentes. Eh, voz, eh, por ejemplo, para pasar este de voz a texto o de texto a voz, este porque son eh datos secuenciales, este y series temporales de muchos tipos, ¿sí? Eh, no sé, este, el producto bruto interno de un país, este, eh, esas cosas que dibujó Martín, esos datos de que eran son como series temporales, digamos, que se podría llegar a estudiar conentes, o sea, series temporales de las que ustedes se les ocurran, que es este recolectar este números a lo largo del tiempo, sí se pueden estudiar con este redes recurrentes. Obviamente lo que la diferencia de los Fit forward es que tienen recurrencias, ¿sí? O sea, tienen conexiones eh que van para atrás este y la salida, este, o sea, digamos como que eh en realidad acá está un poco vago lo que quiere decir una salida, pero lo que se retroalimenta es esa especie de estado oculto que tiene, o sea, emite una salida y emite un estado, digamos, básicamente, y ese estado es el que se retroalimenta. Ahora igual vamos a a mirar este encontré, o sea, y eso permite de cierta forma, o sea, la idea es capturar eh dependencias temporal entre las cosas, ¿sí? O sea, que lo que yo voy viendo a lo largo de la secuencia me vaya llevando a estados distintos que capturen eh la secuencia entera. Sí, o sea, una cierta secuencia me lleva a un cierto estado, otra secuencia me lleva a otro. Sí. Y bueno, entonces este, pero después les voy a mostrar experimentos este que son un poco negativos, por lo menos para las para las vanillas, digamos, para las redes recurrentes. Entonces tienen una unidad recurrente, o sea, que es la la componente fundamental. Este y esa unidad mantiene un estado oculto que es como una especie de forma de memoria, ¿no? El estado siempre es como una especie de memoria porque es hasta dónde me llegó la secuencia. ¿Sí? Entonces, en cierta forma es como es como una especie de memoria del proceso moral que que ocurrió. Este y la actualización siempre depende del estado en el que estoy. y este y de y de la entrada que yo tenga en ese momento, igual que que una máquina, ¿sí? O sea, una máquina está en cierto tiempo, ¿sí? Si si la máquina de café está esperando que vos le digas este capuchino o café largo, eh digamos su o sea está en ese estado, ¿sí? Y y su salida va a depender de la entrada que le demos cuando está en ese estado.
+Hace lo que quiere y no te
+Sí. este y bueno, est un poco eh la idea que que puse este esa retroalimentación este para aprender de las entradas pasadas y y este y procesar el esa entrada que viene ahora ahí matemáticamente, ¿cómo es? Es es digo es sencillo. Es como decir Es una función, ¿sí?, este, parametrizada por algún vector de parámetros tinta que van a ser pesos en la red, ¿sí? Un tensor de parámetros y que este tiene eh es decir el H es lo generalmente se usa H porque es hidden state, porque es un estado oculto, el cual si bien tenemos acceso en principio es oculto para para alguien externo, digamos, que no conozca el modelo, ¿no? Este,
+no lo mismo. No, h sub t+ 1.
+¿Cómo? Perdón.
+El par de la derecha
+no vale lo mismo. Sí, no es no es el mismo valor.
+Sí, sub t no es igual a h sub 1. Hamb
+cambia cambia de estado. No,
+no, no. En principio, en principio digo, o sea, esto es como una versión general. Sí, es una función está en un cierto estado HT. Sí. Sí. O sea, dado el estado son las dos salidas
+se le da, claro. Se le da este input
+en ese estado y va a devolver una salida, ¿sí? Que la podemos usar o no. O sea, y en algunas arquitecturas salida no está, sí, porque solo nos interesa el estado oculto y actualiza el estado oculto, o sea, pasa un cierto estado, pero esto sería como, no sé, por ejemplo, en una máquina de es tipo borra escribe algo, es lo que produce. Dado que recibe dado que recibe esta instrucción en este estado, produce esto, ¿sí? Y se mueve a este estado.
+Sí se entiende.
+No es que no es que más o menos se la entrada de otra cosa. De hecho, hizo usted
+después esto sigue, ¿no? Hizo usted salía para arriba y volvía a entrar en
+No, es la entrada, ¿sí? No,
+ht + 1 es con el XT + 1.
+Exactamente.
+Pero está bien. La duda de él es
+lo que veíamos es que Y para nosotros a ver si es lo que estamos haciendo, sub y hemos suprano lo mismo, la salida de la de esta h me parece que es más conceptual.
+Pasa que depende la implementación de capaz que
+sí
+no necesariamente.
+Sí, sí. O sea, vos podés hacer una que no que no
+que no haga nada.
+Claro, vos puedes hacer una que no que no devuelva un que simplemente cambia estado.
+Sí,
+claro. Y después usa ese mismo estado para la siguiente.
+Pero si querés hacer, por ejemplo, traducción. Sí. Eh, entonces acá entra una palabra, la palabra hola y queres que salga la palabra hello y cambia de estado la máquina. Sí. Entonces, XT siempre son siempre es el vector de entrada en el estado en el tiempo T. HT siempre es el el vector oculto o el estado oculto. Y T es el vector de salida, que a veces en los dibujitos que voy a poner está como Ya estaban es el output y Tita es eh el tensor de par la red y acá lo dice con palabra simplemente, o sea, transforma la entrada XT en una salida IT. Sí, piensen en una traducción, este utilizando un vector oculto HT como este una especie de forma de memoria. Sí,
+la definición del paso atómico o es una definición de todo
+es la definición del paso atómico, digamos. Sí. O O sea, como red lo que hace es eso, digamos, como función. Si, si quieres, si lo pensaras como función lo que hace es eso. Este lo importante anotar es que en cada paso que yo hago, eh, se actualiza el estado, o sea, se actualiza la memoria, el estado oculto. ¿Sí? ¿Por qué memoria? Porque va a depender de la sucesión de X que yo le dé. Sí. ¿Cuán bueno sea logrando capturar esa esa sucesión de X? Bueno, está va a depender un poco de la capac sea de la red. Sí, pero en principio el estado oculto en el que está la máquina es como una memoria de a dónde la llevé. Sí, es como una memoria acumulada, digamos, y entonces esto sería, esto es muy común en redes recurrentes. E es la forma eh abreviada, digamos, de escribirla ya como la más correcta, ¿no? Es que recibe una entrada X Esto sería verlo así como función, ¿no? O sea, recibe la entrada X, ¿sí? Este, un H que se actualiza en la salida, ¿sí? Y y devuelve como salida también un output. Entonces, si eso lo miran, eh eso es lo que llama el unfolding de una es como el despliegue de una red recurrente. Eh, ¿vieron? O sea, en el tiempo T recibe XT, recibe el el HT -1 transforma el HT y nos devuelve un 1 t. Sí, la U. En este caso significa algo,
+no no significa nada. Es lo único que importa es que son siempre las mismas matrices. Sí, eso sí es es super importante. Es una especie de way shading que eh o sea, siempre es Ahora, ahora les muestro la formulita, pero siempre es multiplico el la entrada por u, ¿sí? La combino con el hidden anterior por b, aplico una activación y eso me da el nuevo hidden y eh la salida es eh multiplicar el nuevo hidden por un W y una activación más ejos, más variasado. O sea, si si miro las las formulitas No, el nuevo HT es el U de X, eh, o sea, agarro, multiplico por el el, o sea, la entrada esa, ¿no? La la multiplico por u. Eh, el hiden anterior lo multiplico por b. Le agrego un vas que que es un pH porque es un vaso al hiden. Sí. Y le aplico una función de activación, está la que más me guste. Y después acá e para las para la salida, que esto es lo que la red puede no tener. Digo, o sea, esa parte de la función puede no conectar. Este, agarro el hiden que tengo, lo multiplico por una rapid, o sea, eso es simplemente una capa lineal con una activación, ¿sí? Que puede ser distinta de la de la anterior, ¿no? Por ejemplo, este puede ser una sofa, pue ser, por ejemplo, si yo estoy un problema de clasificación, quiero una tira de ver a qué clase pertenece, ese y sub no me sirve para Nada,
+solo te quedas con el estado. Con el último estado. Exactamente.
+Exactamente.
+No te sirve o te sirve, no sé.
+Sí, sí.
+Este
+va a estar ahí.
+Podrías ahí. Sí, también podrías usarlo como información de repente. No sé. E si tenés con qué compararlo. O sea, el tema es en un está bien en un problema de de clasificación, la salida, si vos no tenés un ítem verdadero que compararlo, entonces sí no lo vas a usar, ¿entiendes?
+Claro, porque yo en ese instante de tiempo yo no sé,
+no sé lo que
+si está bien o está mal, verdadero o falso,
+hasta no ver toda la tira me voy a llegar.
+En realidad lo que me interesa, por ejemplo, la tarea dos,
+tenemos que clasificar electroscardiograma, detectar a qué clase pertenece un
+Claro, en ese caso, eh este IT no te aportaría,
+no aporta el problema, digamos, no es que no me sirva Para nadaorta porque yo tengo que ver si tien
+Sí, porque no tenés ningún porque no tenés ningún que sea ground truth.
+Sí. Entonces, solo te quedas con el o te quedas solo con el último IT, pero lo más razonable es quedarte con el último hidden state
+o una agregación de los hidden states. Eso sí. U es la matriz de pesos entre la entrada y el estado oculto. Es la matriz de pesos de la recurr Sí. Eh, y W es la matriz de peso de la salida. Ah, y los B son los vallas, o sea, que el tita sería esto que está acá y la función es esta, ¿no? Antes creo que estaba un antes. Ahora está. Sí, tengo tres matrices.
+Claro, hay tres matrices y dos varas. Esta es la RN vanila, digamos.
+Bueno, ventajas. Este posibilidad de procesar entradas de cualquier longitud. Eso es algo superinesante. Cuando se hace batch, hay que agrupar esto. Creo que el data loader lo debe hacer de forma automática. Me corregirán porque están con eso.
+Que si uno quiere pasar un batch de datos, las secuencias del batch, todas tienen que tener la misma longitud. Puede ser arbitraria su longitud, pero todas tienen que tener la misma longitud. Este, o hac, pero
+el para llevar a todas secencias.
+Claro.
+Una de las cosas que vimos y ponerlo al final, ponerlo al principio, que es lo que conviene más en este caso
+elader. El dato loader, ¿no? No agrupa los baches automáticamente de acuerdo a suitud.
+Ah, no, eso lo que pasa
+porque el país siempre introduce ruido, ¿no?
+Lo que pasa que la red el input de la red ese que tiene que ser el Vos lo que decís es que que valí el largo de la secuencia.
+Sí, sí, el largo. Yo estoy hablando el largo de la secuencia, no no de la dimensión del X. Eso. Pero me parece que no no a lo largo de la secuencia lo tratamos siempre fijo. Claro. Sí, cuando vimos uno de los libros de texto ahí sí era variable. Claro.
+Pero para
+en los casos que la secuencia tiene largo variable, lo que hacemos por lo menos es llevarlas a todas al mismo largo agregando un carácter de
+lo que habría que es Eh, o sea, si si no si no lo pueden hacer sin agregar P si el porque mientras vos pas hacés B size igual un ojo, no pasa nada. Una recurrente no tiene problema, no necesita que que obtive la secuencia sea todos igual. Claro. Trabajamos con patch
+n
+Claro,
+largo de secuencia y tamaño de la entrada, digamos.
+Claro, si usas un tamaño de B, no sé, Eh, precisas que el batch tenga el mismo la misma longitud. Sí. Eh, no sé si el datalader ya te agrupa el batch de esa forma. Yo también. E algo importante es que el tamaño del modelo no aumenta con el tamaño de la entrada. Siguen siendo esas tres matrices. Sí. Y lo único que importa es la dimensión de X y la dimensión de H. Sí. E el cómputo tiene cuenta la información histórica y este los pesos se comparten a lo largo del tiempo. Las desventajas es el cómputo es lento porque hay que hacerlo secuencialmente paso a paso. Sí. Si bien hay técnicas hoy por hoy de tratar de paralelizar las recurrentes limitantes que anterior.
+Claro. Exacto. Ten esa limitante que sí
+eh
+todo secuencial.
+Es todo secuencial. Sí. Es como la como la las computador secuencial, eh, pero así digamos, digo, hay formas de intentarizar e hay dificultad para acceder a información de pasos muy anteriores, eso es algo que se observa mostrar, o sea, que esa memoria se va perdiendo. Sí. Este, y bueno, obviamente no puede considerar entradas futuras, ¿no? Así no más como está hecha, este, no puede mirar el futuro. Sí. Eh, hay hay formas de de están las redes bidireccionales que va una en una dirección, otra en otra. Entonces, medio que yo veces, por ejemplo, en algunos idiomas la última palabra implica algo, ¿no? Entonces, este es bueno eh saber el futuro, digamos, para hacer una buena traducción. En una serie temporal sería como tramposo si es el tiempo es es medio tramposo. atrás adelante recorrente
+en la en la en la generalidad esta. Ya ya vamos a la pausa. En la generalidad esta, este en cada paso T, digamos, piensen en un problema realmente de traducción. Este, entonces tenemos nuestra reduce una predicción de lo que sería la palabra en el T y hay una palabra eh graar y ahí tenemos una función de pérdida. Eh, y lo que hacemos es sumar a lo largo de toda la secuencia las funciones de P. Eso es lo más general. Si no, si fuera solo una salida al final es esa última salida. Eh, entonces cada término mide la la diferencia de la salida real en el instante t y esa suma refleja la pérdida a lo largo de toda la secuencia. ¿Quieres que este que la pérdida sea lo mismo posible a lo largo de toda la secuencia? ¿Sí? Y bueno, y eso sí lo vamos a dejar para después. ¿Cómo se entrena esto, esta recurrencia? Eh, implica eh modo de entrenamiento que se llama back propagation free time. Sí, este que obviamente Python lo hace automático, pero este Después de la pausa un poquito elenamiento. Hagamos una pausa. Bueno, la cuestión es qué pasa con estas recurrencias, ¿no? Y propagation, sí. Acá está la secuencia está vertical. Sí, para que entre bien, ¿no? Pero básicamente acá es otra anotación porque esto lo saqué del libro que usa que usa este nosotros le llamamos este B y W. de la salida. Ah, pero bueno, esto sería este lo que HX es el que vincula eh el hiden con el X. WH HH es el que vincula hiden con hiden, digamos, queiza hiden. Y el wh es el que hace el auto.
+Ahí está. Exacto. La cuestión es que digamos entra el input, se multiplica por la matriz adecuada, se le suas activación Este se produce un hiden, ¿no? Bueno, digamos, perdón, entra un hidden este cero, ¿no? Inicial, se produce un nuevo hiden, este, después se multiplica por la matriz correspondiente, activación y se produce un auto, ¿no? Y este hidden es el que pasa para acá, ¿no? Y acá le entra el X2 y el proceso es el mismo, ¿no? Vieron que acá tengo este caminito de flechas diagonales que son los hidens que van alimentando. siguientes etapas, ¿no? Este, pero eh, ¿qué ocurre? Esta matriz correspondiente por la cual se multiplica x2 y la matriz correspondiente por la cual se multiplica el H1 es la misma. Sí, es la misma siempre. Este, y acá también en el output, ¿no? La matriz que multiplica el output es la misma siempre. Sí. Después eso se mira la secuencia de outputs. Para nosotros era el Idito este se eh evalúa con alguna secuencia verdadera, ¿sí? A través de se suma todo. Entonces, la cuestión es, bueno, eh el hecho de, o sea, el W aparece en varias eh es decir, eh en varias etapas de tiempo aparece estas matrices aparecen muchas veces. ¿Sí? Entonces este en el back propagation se van a se van a sumar todas estas contribuciones que tiene en cada uno de los instantes de tiempo.
+Pero, Matías, ¿cuándo eso, cuándo vas a hacer el el back propagation? Después que hayas pensado que uno quedó tres.
+No, no, después que, o sea, el
+después de cada uno,
+¿no? No, vos el back propagation haces, vas a mirar la los, o sea, es lo mismo. Sí,
+el cálculo de la lo hacés después que tenés o uno, o dos y o tres.
+Claro. Sí, sí, sí. Exacto, exacto.
+Se tiene que tener profesor. latina latina después pagar.
+Exacto.
+Entonces y acá está como como la idea general para que vean que no es no es complicado. Este es que en realidad lo que se hace en back propagation through time es desplegar la red, ¿sí? A lo largo de varios pasos temporales que puede ser todos o una ventana. Sí. Este se crea ando como copias, ¿no? Que es un poquito esto, digamos, lo que estaba acá, ¿no? Acá hay como varias. Esto está desplegado hacia arriba, ¿no? Está desplegada la red. Recurrente que está desplegada hacia arriba. Entonces, se crean varias copias de la misma función que es esta función que multiplica el x1 por por la matriz que corresponde, el h0 por la matriz que corresponde para producir el h1, el h1 se multiplica por la matriz que corresponde para producir un, ¿sí?, etcétera. Esto se despliega. Sí. Y este y básicamente se aplica back propagation clásico a ese despliegue. ¿Sí? O sea, back propagation frontal es aplicar el back propagation clásico a la red desplegada, ¿no? Que el grafo de cómputo en este caso que es son solo tres, ¿no? Es una secuenciaud tres. El grafo de conjunto es y se aplica back propagation time en este gráfico. Si la secuencia fuera más larga, eh este grafo queda más largo, se aplica por eso que depende del largo, ¿no? A la hora de actualizar el gradiente depende del largo este de la tira, ¿no? Salvo que se una ventana fijación de peso se hace para las tres
+La actualización de peso se hace para las tres matrices. Pero bueno, como aparecen en muchos lados, ¿no? Y multiplicando, eh, va a ser un problema. Este, en definitiva, digamos, lo que se termina haciendo es que la contribución de cada matriz es como eh la contribución en cada instante de tiempo, ¿sí? Se acumulan las contribuciones en un resultante de tiempo para la función y por lo tanto para quedar bien. Acá está el algoritmo. Ah, no, perdón, esto sobre el horizonte temporal, ¿sí? Que es como un parámetro que uno puede elegir para propagation, este que determina eh porque si bien la longitud de una tira puede ser muy larga, eh de repente uno puede decir, bueno, en una longitud muy larga tengo riesgos de eh justamente eh vanish ingredient o ingredient. Entonces eh voy a usar una una ventana de tiempo más pequeña, ¿sí? Para calcular los gradientes, que me va a dar algo aproximado, no va a ser el gradiente exacto correspondiente a esa pila. ¿Sí? Entonces es un parámetro que uno puede definir, que es este, ¿cuál es? Es decir, la la tira tiene longitud 100, pero voy a desplegar una ventana de tamaño 10. Deso simplemente una ventana de tamaño 10 de del cliente crean cuando decente esto es legal.
+Ay, cómo
+porque o sea en realidad es esto, ¿no? O sea, la red, la red recurrente es esto. Desplegarla es como ver su iteración a Y vos actualizá los pesos de cada una de esas matrices,
+pero son las mismas matrizes.
+Siempre es la misma matriz. Entonces contribuyen distintos lugares. Sí.
+Y si la tiras muy larga, empiezan a multiplicarse derivadas. Este,
+claro, pero a lo que voy es no es el el mismo gradient design porque porque en realidad
+sí la red desplegada porque en realidad
+eso es lo que digo,
+lo que va a agregar acá es el grafo computacional va a ser más más complejo, digamos. Porque pasa,
+sí,
+vas a estar pasando varias veces por el mismo lugar, digamos.
+Exo, claro. O sea, acá vos lo tenés desplegado hacia arriba, ¿no? Este, y lo que haces es aplicar este back propagation estándar sobre este sobre este grafo que representa el despliegue de la red.
+Lo que pasa que depende de un
+m
+si hubieras hecho de A un no era lo mismo.
+De A1, ¿a qué te refieres? para x1 y hacia otro para
+no podes por el cálculo de la
+no porque la los depende de todo.
+Claro,
+claro. El grafo computacional entero.
+Partiste la tira esa que tenía 100, usaste solo 10, calculaste a los primero.
+Sí, es una aproximación
+y tiraste toda la tiraste.
+Sí, exacto. Sí, sí, sí.
+Y vamos a la próxima tira, no es que siga Exacto. Y vamos a la próxima tira. Exacto.
+Sí, pero es para evitar que pase algo, ¿no? O sea, cada vez que aparece una B acá, por ejemplo, ¿no? Este, en el gradiente va a multiplicar esa B varias veces, este, pero si yo la multiplico 100 veces, si la si era mayor que uno, se me va a ir al diablo. Si era menor que uno, se me va a cero, ¿no? Entonces le fijo
+una pregunta.
+Sí,
+en el caso que están explicando ahí No, era mover la ventana en vez de descartar la y pasar la siguiente tirada. Estamos en el caso de los 100, pero tenemos una ventana de 10.
+Sí,
+tomamos, calculamos para los 10.
+Sí, sí, tenes razón.
+Movemos la ventana.
+Sí, perdón, ten razón. Es una ventana móvil de tamaño K. Exactamente. Para qué cambiarse cambi la jugada y siempre usamos la misma.
+Vayamos al alcódigo, ¿eh?
+Y siempre usamos la misma etiqueta. Si vamos a procesar esa ventana y nos vamos moviendo en esa ventana,
+¿sí? Acumular y después acumular los gradientes correspondientes.
+Lo miro los 10, uso el gradiente con la etiqueta, me muevo, vuelvo a usar esos 10. Recalculo con la misma etiqueta, vuelvo a moverculo.
+Sí. Y si vas acumulando.
+Ah, no. ¿Cómo acumulando? Yo hago las 10 y actualizo los gradientes. Vuelvo a moverme 10 y vuelvo a actualizar. ¿Cómo?
+Bueno, es lo mismo. Es lo mismo. Da lo mismo.
+Sí, ya exactamente lo mismo. Pero sí, este acá como está hecho en el código. actualizás en cada paso. Sí, sí. Lo que lo que estás diciendo vos está es
+Pero en el práctico no no hicimos eso, ¿no?
+Práctico.
+¿Qué práctico?
+La vez que tuvimos que cuando agarramos la la secuencia estoy entregándome con lo que hicimos en doctor la sensación de que hicimos algo con esto. Pegamos con un pedazo y Igual tenía razón con la ventana móvil atí.
+Sí. O sea, el el código es es refácil de entender. XT son las entradas y T son las salidas. Sí se despliega la la red para un tamaño K, ¿no? En realidad esto lo que lo que está definiendo acá es este es el el hiperparámetro K básicamente. Y lo que se hace es eh desde H ser igual cero o alguna otra inicialización. Hay otras inicializaciones que son este que facilitan o este disminuyen el riesgo lo que haces es para t = 0 hasta n - k, ¿no? N es es la longitud de la secuencia completa. Es vas a mirar el hidden correspondiente con con las entradas, ¿sí? O sea, vas a arrancar en T, ¿no? Dice, vas a hacer el del power pass. Sí. Después ret propagas hacia atrás. Acá podría decir este hacés este propagation estándar para esa secuencia, ¿sí? Este actualizar los gradientes en esas instancias sí actualizas los pesos, ¿sí? Como decías vos dentro del foro, digamos. Eh, lo que digo es que como es acumulativo, la actualización de gradiente la puedes hacer al final, o sea, puedes acumular los gradientes y hacerla al final. Sí, está sumando. Sí, en el for, ¿no? Eh, cuando vos tenés el XT + 1, este con respecto al estado anterior al XT,
+sí, que tenés un XT y un H,
+sí, esto te da una salida.
+Exacto.
+Eh, en el for internamente se hace la suma aritmética, o sea,
+eh, haces la multiplicación y después la suma de las matrices y de los vectores de multiplicas por una matriz eh creo la habíamos llamado Ux.
+Sí. Eso da un vector multiplicas al H, eso te da un vector sumas
+y sumas y tienen que tener la misma dimenición. Es es la suma de vectores. O sea, u y b tienen que estar diseñadas para tener salida de misma dimensión. Exacto. La entrada puede ser distinta, o sea, el state puede tener una dimensión y el X otra, eso no hay problema, pero la salida del U y el B son eh tienen que ser iguales. Eso cuando ustedes lo implementan en Python ni aparece porque está tiene que ser así. Exacto.
+Ah, no sé si les deja toquetear, le deja toquetear este no los parámetros de la de la
+eh no, perdón, están dadas están dadas, perdón, están dadas por uno produce el nuevo hiden, o sea, que la salida de de de ¿Cuál es el que produce el nuevo hiden acá? El que produce el nuevo Hidden es este, el U y el B, ¿ya? Entonces, la salida del U y el B, o sea, la cantidad de de filas si querés, o de columnas un producto, en este caso, ¿cómo está implementado? Es así, ¿no? Es este la cantidad de columnas, la cantidad de columnas de U y de B tiene que ser este tiene que machar la suma, tiene que ser la misma dimensión,
+tiene que tener la misma dimensión que que de que que el giren, ¿sí?, o sea, la salida tiene que tener la dimensión Así es. Y el y el W tiene que tener la misma dimisión del output que vos estés considerando. Eh, perdón, en el pseudo código se entendía mejor este, pero se entendió esto, digamos. O sea, este se cóódigo más o menos. Sí, se va haciendo, como bien dijo atilio ventana a ventana. Sí, se vanizando este hasta que se cumple algún criterio de parada que es este, bueno, no sé, los pesos se actualizan menos de un cierto tres o hay una cantidad de épocas dadas, una cantidad de interacciones dadas práctico. Estamos con los las reseñas esas de IMDB.
+Okay.
+Eh, cuando agarramos una reseña decimos que el en lo largo de la secuencia lo fijamos en 200 corrimientos nada y la reprocesamos en secuencia,
+¿no? Pero lo que pasa es que el optimizador, bueno, ya está implementado, eso es lo que hace el RNN cuando vos haces
+Claro.
+S. RNN adentro ahí adentro de eso hace
+queo
+no no porque sería como implementar back O sea, que si yo le of hacer la mano, ventanita,
+paso el x1 dos 3 hago todas las cuentitas.
+Exacto. Sí, fíjate, desde cero propagation y
+desde cer podés actualizar en cada etapa del for porque es una suma o este o al final, o sea, vas acumulando los gradientes y lo sumas al final. Es lo Y qué estas
+este K sería como un hiperparámetro,
+¿no? Exacto. Lo tenés que dar tú si quisieras eh eh o sea, claro. Entonces, si voy a a la diapo anterior es back completo, es hacerlo con K = N, o sea, toda la secuencia tiene el gradiente exacto, porque hay una sola ventana, ¿no? O lo haces con un K menor que N y vas a tener este eh una especie de aproximación, pero puede evitar ese eh vanish ingredient o explode. Entonces, este eh me queda la duda si está si el optimizador te deja ir. La verdad que no es una buena pregunta también,
+o sea, no sé si en Fortado para que Eh, cos los vayas vos tienes un vallas para
+Sí, los vallas igual eh sí estoy riendo todo el tiempo. Todo el tiempo se los valles cuando
+eh pero es lo mismo, digo, o sea, son parámetros si hacés las derivadas, este, hacés el el power pass y el y el back pass igo y las derivadas que tú vayas en ventana en la razón que acá no puse no puse los
+acá no puse los van los tal cual documentación de python no size
+no había que ver el optimizador digamos si recibe una si ve que hay una capa este corrente. Eh, si si se tiene una opción o digamos quien calcula el gradiente, ¿no? El backw. Bueno, entonces, ¿cuál es cuál es el gran problema de las redes recurrentes y es eso eh quedar como más rezagadas respecto a los formas? Eh, además de la de la anualidad, lo principal es este la escalabilidad de las formas en comparación a las redes recurrentes. Sí, reformas son mucho más parables, mucho más escalables y este se hubiera sido casi imposible hacer con recurrente. Eh, si bien hay papers que muestran que en algunas tareas concretas lo de la performance de una recurrente bien entrenada puede ser mejor forma, este no es jalable, no existe. que va al sino que es para cosas se usan para cosas más puntuales. Este y lo digamos un problema que tienen es que son difíciles de entrenar. No sé si ustedes están viendo esos problemas en las tareas porque tienen este estos estos dos problemas que es que el cloud radi y el banishing los crezcanos porque se empiezan a muy bicador a uno o al revés. El primero no no olvidar siempre como
+Sí, el primero se resuelve bastante bien con cre
+en general siempre.
+Exacto.
+No vas a tener ese problema exactamente.
+El segundo es más difícil de reservar este y las digamos en general lo que ocurre este sobre todo del vanishing gradient eh hace que las RNL van escribir recién eh no logren tener una memoria clase de o sea, lo que pasa al principio de la frecuencia se olvidó y y un experimento. Yo acá les puse un ejemplo concreto que es este el coping task se llama, o sea, una tarea de de copiado que se utilizaba micro para las redes recurrentes, que es este que demuestra empíricamente cómo las redes estas eh van eh tienen dificultades para mantener la memoria largo plazo. Sí, los que estén interesados. Bueno, cuando termine esto les muestro un PayPal eh que nunca eh lo pude leer bien, pero que que me interesa pero que se implementó antes en Transformas este eh que se llama la New Engine, que es como una este máquina de turismo con redesinales, es de los años 2014 que no tuvo mucho éxito, aparentemente también son difíciles de esperar y este y se decía por ahí que no se tanto mal, pero pero les voy a mostrar lo que lo que ellos dicen que que ocurre con este tareas de copiado. un grandísimo que son muchos e ya es un experimento que está diseñado para eh es como si nosotros vieron el jueguito ese de ir tocando los eh el otro día le regalaron unas tarjetas que estuve jugando en la que v vas sacando este animalitos y tenés que ir este eh diciendo el ruido del animalito en el orden que que va saliendo,
+¿no? Que es memoria pura, ¿no? O sea, esto es así. es memoria pura es hay que eh una secuencia tal cual eh se pasó básicamente, pero no es pero tiene eh tiene ciertas dificultades porque eh este hay dos parámetros, son IT, o sea, la red, o sea, va va a tener una secuencia de ese símbolo, que son los que tiene que copiar, pero tiene una especie de este retardo eh que se le impone para ver si esos primeros ese símbolos se los logra acordar y ese es un parámetro de Sí. O sea, no es enseguida, digamos, sí, sino que después de que le pasé eh algo de usted bastante grande, ¿ya? Y se mide, lo que se mide en este experimento es la entropía cruzada, ¿sí? Este, la salida eh con respecto a la entrada para ver si eh para digamos eh la función de los y si fue una una especie de adivinanza aleatoria. Llega un momento que no nos acordamos, empezamos a a vivir. Hay un valor de la opa cruzada que nos sirve de referencia para saber si una red está cometiendo algo es el máximo alar. O sea, entonces más en concreto, ¿cómo es el experimento? Es las secuencias de entrada van a tener una longitud total de t + 2s. Sí, este hay un alfabeto es a Azucat, que estos son los símbolos que se usan como verdaderos símbolos para mirar la secuencia de latitud S que hay que minimizar. Y hay un símbolo en blanco y un símbolo delimitador. Es el símbolo que le va a indicar la red, lo va a aprender, pero a partir de ahora es que tenés que reproducirle la frecuencia esta base, ¿sí? Este y la estructura de la entrada. Entonces, es es una secuencia a recordar de ese paso. Son los primeros símbolos. que son que son sacados de acá, o sea, los primeros es símbolos que se me pasan son sacados de mis símbolos de uno hasta acá. Después hay t- menos un pasos del símbolo en blanco, azul K eh+ un Tenos uno de esos. Después está el delimitador y después este hay eses símbolos más finales en blan. Y lo que tiene que hacer debe mantener este la salida, o sea, lo que se le pide es este que la salida sea este en los primeros temas pasos este plan y después del delimitador, o sea, la la queremos entrenar, ¿sí? Con ese ground through es como una especie de proceso de traducción, hay una salida en cada tiempo y lo que se le pide es que los primeros temas San y que los últimos San la secuencia que estaba al principio y que coincide exactamente. O sea, que en cada paso va a haber un y t, ¿sí? ¿Entiend? O sea, lo que se lo que entra en la red tiene es la secuencia es el principio que quiero recordar. Después tiene blan blan blanc, blan blan el delimitador y después eh blank ese pedacitos de blan y lo que se le pide que saque, ¿no? Para la hora de entrenarse, lo que se le da como tr es todo blan s y la última de la cuenta. primero. Entonces es como que la la red tiene que escupir plan, plan, plan, plan, plan, plan, plan y al final la secuencia se le dio al principio. ¿Sí? Y lo típicamente los parámetros son eh un alfabeto de ocho a 10 símbolos en estos experimentos. Yo después les puse el verdad que está redifícil de entender. Es solo para que vean n más la dificultad que tienen. Eh, la longitud es más o menos de 10 pasos, o sea, de 10 símbolos y este el el el retardo es como hay variantes entre 500. Si la red tirara reembocar la cross entropy tendría que ser más o menos el orden del logaritmo de k + 2. Ah, si tirar en vocal porque tengo k + dos símbolos. Sí. Y la entropía que usaba más grande posible en ese caso es más grande. que si estuviera tirando en bocar, yo debería de ver que la los después de iniciar de tiempo se estabiliza en ese valor. Ah, para acá igual 8, por ejemplo, es 2 3. Eso no sé ni por qué digo estas cosas con los logaritmos, no. Lo que hay que tener cuidado con los logaritmo es que 2 con tro con uno mira y dice, "Ah, una diferencia ya ten cuidado que hay son logaritmos." Entonces cuando un logaritmo cambia en una unidad es un montón que se dividió en si es logaritmo en base 10 o en base e acá en base f se dividió entre esta este y si la los que vemos se parece a ese los aleatorio, quiere decir que el Hate perdió toda la información, o sea, ya no tiene memoria de lo que pasaba antes. Y y los resultados del experimento son, no sé si los ven ahí, es para la RDN vanila estándar e da un alto error, ¿sí? O sea, falla este básicamente después de un rato empieza a alinear. Y sin embargo, hay dos redes que en esa época fueron muy importantes, que es la LSPM, no sé si la vieron, me escucha, y la DU que logran tener un error. Sí, para esta para este experimento.
+Y acá tien que estar determinante y estudiarm o R.
+Acá tien el paper. Si quieren tienen el paper este y lo que cambia su como perdón.
+Sí, no me perdí como buenos resultados.
+Ah, no, porque no las vimos esta acá ni las vamos a ver ahora. Sí, sí, pero lo que digo es hay dos redes. Esta esta se llama long short term justamente eh este intenta hacer un balanceo entre la memoria a largo plazo y a corto plazo. Sí. Y la DRU se llama Gated Record Unit, que Es una versión simplificada de la LSTM. Es mucho más fácil de entender la gru que la STM, ¿sí? Pero la que surgió primero fue la LSM y después seó con la GR y después ahora hay otras más. Estas son las más clásicas. Eh, la cuestión no más es que bueno, efectivamente con mejoras de eh del tema de la memoria que logra hacer que la red este de cosas. O sea, acá lo que los hechos con Tal, digo, puede parecer difícil, ¿no?, acordarse una secuencia de tamaño 10 que estaba a 1000 pasos hacia atrás, ¿no? Estoy pidiendo que la devuelva, pero eh digo, es es un hecho, o sea, esta RN va después de 1000 pasos se olvidó de lo que había pasado. Sí. Y no así la LSTM la Sí. Este Entonces, le voy a mostrar no más el paper de qué es es del año. 14 también. Eh, es no tuvo mucho éxito, pero a mí me llama mucho la atención. Mira, perdón, miren lo que dice el after. El after dice eh extendemos las este capacidades de las redes de redes neutronales acoplándolas con una memoria externa, ¿sí? Este, que puede interactuar con un mecanismo de atención. Vieron, estamos hablando del año del 2014, ¿no? El el el paper de Bagana es del 2014, o sea, que esto de los mecanismos de atención este ya había surgido. Este el sistema combinado es análogo a una máquina de luring o una máquina de unactura de condenciable en tu se acuerdan de eso que yo les hice hincapié diferenciable que se llamaba diferencia de program que lo hace como máquinas que se origen eh con eh permitiendo eh que se que sean entrenadas de forma eficiente con descenso de gradiente. Los resultados preliminares demuestran que la nebel machine puede inferir algoritmos simples como copiado, sorting y este associative rec. Eh de de eh ejemplos que son de estilo input, ¿sí? Eh después no sé qu pasó con Esto sé que después se publicó en Nation, pero no sé, no sé qué pasó con machine. Sé por qué nos parece espectacular tenemos una red y una memoria, o sea, obviamente los Transformers se combinan todo, ¿no? Todo lo que vino después del 2017 de Transformers tampoco, pero este bueno está este como objeto de estudio me parece si tenés una máquina, ¿no? El estado no sé qué y que puede acceder a un Sí, además está implementado con RD. y y la encuentro más en el en el paper. La tarea de copiado. Acá acá está el mecanismo de attention. E la tarea de copiado, o sea, copy ejemplito. Esto es el la LCTM, ¿sí? O sea, se le pide que copie estas cosas. Sí. Y la LCTM derran bastante y si y supuestamente la su la máquina de ellos derapa mucho menos. Ya. Obviamente no son tareas fáciles, ¿no? Este, pero son tareas que si uno las programa, o sea, uno las puede programar de forma sencilla, decir, "Cópiame esto, ¿no?" O sea, se intenta como reproducir algoritmos simples eh a través de esto eh programación diferencial.
+O sea, que bueno, las LCTML y las Group también tienen su utilización sean eh una maravilla. Bueno, entonces después de la ah perdón, les voy a hablar de dos cositas y después sí vamos a la pausa y después vamos a ver. el STM y la E algo que se se suele hacer mucho es este hacer este RNS se llama, ¿sí? Que es este hacer una pila de distintas RN, ¿sí? Entonces este eh el input esto, sería una RN eh desplegada, ¿no? En dos pasos, ¿sí? Eh como con la que vimos, pero eh la salida de esa RN no se usa como entr para la siguiente capa. ¿Okay? Entonces, por ejemplo, eh en realidad vos podrías en tu problema de especificación hacer una B en la cual tu las capas intermedias sí tengan salida. Sí. O sea, si vos hacés una RN que tiene una sola capa, es como un un MP sencillo, digamos, dejas iniciar las cabas. Sí. Este y otra cosa que se pue No sé si está permitido ustedes es las bidireccionales. Entonces hay una una red que la lee en el nuevo forward como antes produce este eh states. Acá sí no hay no hay salid, o sea, se produce en K states. Sí. Y después hay otra que es la que lo lee al revés, ¿sí? Y produce otros, o sea, lo lee en modo reverso, produce otros states y este y bueno, uno puede quedarse con secuencia se así como viene en pares o este promediarlos ejemparlo promediaros rojos para tener un se promediado o o mantener un rojo unenado.
+Ahí son son matrices las que van para un lado y las que van para el otro.
+Ah, muy bien.
+Nosotros tenemos tres. En el caso normal, digamos, tenemos la la U, la V y la W.
+Sí.
+Acá cuando son para los dos lados y Es una buena pregunta también va para cuando tengo capas. Es una buena pregunta. Si tengo capas.
+No, no, no. Si tenés capas son son distintas. Eso seguro.
+Ahí sí son distintas.
+Tengo una w para la capa, una w para otra. Exacto. Sí. Sí. Ahí son distintas. Exacto.
+Sí. Sí.
+Y son casos.
+Acá me dejaste.
+Y las multicapas se pueden también procesar en vestidos o eso?
+No, no también. Sí, porque pon varias capas y al final lo que tenía saliendo Pero es el gel del las redes usando la entrada. O sea, primero pasa el primero y pasa el último.
+Claro.
+Sí.
+Pasa el segundo y después pasa el tercero.
+Exacto. El penúltimo.
+Sí. Si quisieras hacerlo como en ese en orden, pero puedes en realidad dar como que una hace un power y otra hace un backward. Se pueden correr en paralelo y cada una produce sus o correr para un lado y para el otro.
+Sí. En paralelo y Cada una pues o sea, no tenemos por qué hacerlo en secuencia. Matemáticamente es lo mismo. Digo, pero institucionalmente es más importante correr esta esta y esta en paralel porque esta lo único que hace es correrla en el siguiente es como si le diera vuelta la
+Sí, sí. Es como si le diera vuelta la tira y a la otra se la da bien y a esta se la das mal. La da vuelta. decir, no sabemos si es la misma matriz,
+no sé si la matriz si compacta la misma matriz, sería lógico que compartieran y es una capa, ¿no? Ya, bien, si una capa direccional, ejemplo, no sé cuá cuando se implementa, no sé si se implemente una capa bidireccional o si implementa una red de bi direcci
+compartir para la capa.
+Claro, que que esta tenga las mismas eh matrices que Pero después de primar no cambiaría.
+Sí, sí cambia. Los tienen seis van a cambiar, van a ser distintos, pero este entrenamiento eh digo, o sea, tenés menos parámetros si es este si comparten digo, cualquiera de las dos fusiles es válidas. No sé bien que implementa si lo piensa como una capa bidireccional o si lo piensa como que son dos capas, una vi revés y no podemos ver el Sumary y de de P la red, la cantidad de parámetros.
+Sí.
+Haciendo la dirección y haciendo la bidcional.
+Sí. A ver, exacto. A ver si es lo mismo. Ahí va. Hay que chequear eso. Tal cual después de
+Bueno, vayamos a la pausa y entramos con esto que va a ser interesante. Vale. 와. Bueno, entonces vamos con la longory este e historia deo de egos y cosas este atrás de esta de esta red.
+Sí, sí. Si buscan por ahían eh sí algo pasó, o sea, tengo el recuerdo de haber leído de que los verdaderos, los que enfrentaron de verdad dicen que no recibieron el verdadero reconocimiento. Una cosa que me dijo Joh es que se Y la bidireccional tiene matri distintas para que es algo.
+Y lo otro es que me dijo Santi es que acá en el paíso hay un errorico acá obviamente es menos desde gradiento. Eh, entonces ¿Cuál es la idea? La idea es que eh
+es usar, entre comillas con puertas lógicas que controlen un poco la relación que hay. Esto es todo, esto es medio la blan porque después son matrices que se multiplican y andas a ver qué hacen. Pero este es la idea es quienes diseñaron esto es tener como compuertas biológicas que control un poco cuánto se usa actual y cuánto se usa el por eso un short es jugar un poquito con la memoria a largo plazo y la memoria corto a través de ciertas compuernas una es la update game y que controla cómo y cuánto actualizar la memoria, o sea, el es el input game que determina qué tan importante es la entrada. tan importante es la entrada actualí y el forget gate que decide cuánta información puede dar y el output gate que controla cuánta información es relevante para la salida. Esa es la idea. Después, como les digo, van a ver la fórmula, son todos productos y ahí que uno diga a* está Hay gir los papers.
+Se aprenden.
+Sí, todas son aprendidos. Tiene tiene un montón de parámetros. Tien tiene más parámetros, bastante más parámetros que la que la y una diferencia es que usa dos, es como que usa dos estados, una cosa que llama el cell state y otra cosa que se llama el ste state que sería como state clase. Acá está el tonto que lo que hace Es es bueno, es un poco complicado, pero sí viene, ¿no? O sea, va a recibir el sell state en el tiempo t- 1, el h combinar de diversas formas con el XT para producir un forget, un input, o sea, este es el forget gate, un input gate y el Sí. Y el y el H que sale eh va a tener que ver con este el H y el C que salen, ¿no? El C + 1. Ah, esto debería ser un CD, ¿no? C.
+Ah,
+no, no, no, no. El CT lo que está
+Ah, bueno, acá le llamaron CT, pero esto es un es una anotación que esos oa esto tiene un setil como se entiende, o sea, yo yo acá acá tengo XT 7. Sí. Acá yo tendría que tener 1 y 7 ¿Cómo abarlo?
+El CP es lo que estaría dentro de ese bloque que vos estás viendo
+Ah, bien, bien, bien. Okay, okay.
+De hecho,
+sale un CT, sale un CT y sale un HT y se va a producir en esta nueva, en este costo que es esto, este, se va va a salir un CT+ un
+porque el cuadradito es más un en realidad representa todo ese cuadradito. es el e
+acá lo que se hace es se, o sea, ¿qué representa cada flecha de esto? Es agarra xt se lo multiplica por una matriz, se agarra ht - 1, se lo multiplica por una matriz, se lo se lo pasa por una activación que creo que se y eso es el F. Está FT se va a multiplicar elemento al elemento, o sea, tiene que tener las mismas dimensiones que el ct -1, ¿no? Se va a multiplicar elemento a elemento con el ct - 1. Eso es lo que va a salir de acá. Después, esto para los que les gustabanitos. Después el XT se multiplica por otra matriz, el ht -1 se multiplica por otra matriz. Pasan por la sismoidea. Eso me da el input gate como salida se va a multiplicar elemento elemento con, o sea, ¿por qué llamarle input y por qué? No sé, digo, ah, no sé, hay que profundizar un poquito, digo, en en quienes introdujeron esto en el habrán mostrado que efectivamente esto se comporta como y eso se comporta como un y acá se pasa, va ¿Por qué? Por una tangente hiperbólica sismoide, ¿ya? O sea, se hace lo mismo, se multiplica por x por matriz, el xt se multiplica el ht - 1 por matriz, se pasa por la tangente hiperbólica y ahí tiene que tener la misma dimensión de salida que xt y se hace un producto en el mismo elemento y eso se le suma a lo que venía del foro. Ah, entonces básicamente el cell state tiene una ponderación de acuerdo al forget. y una ponderación de acuerdo a Lu. Sí, que básicamente me dice, "Bueno, tu tu nuevo ser state es una un promedio ponderado entre forget y eso es lo que sale ahí. Y después de nuevo se multiplica esto por una matriz. Se multiplica esto por una matriz. se pasa por la sigmia. Esto me da el Sí, que esto va a salir, está, o sea, es la salida y eso tiene que tener las mismas dimensiones. Perdón, luego va a ser el CT, ¿no? El CT quiere tener las mismas dimensiones que el CT. El CT se lo pasa por una tangente hiperbótica. Y eh se multiplica punto a punto para producir el nuevo HT. Sí. Y ahora miramos las ecuaciones. Me queda duda de si la salida no es el propio HT. Queda la duda. Ahora, ahora, ahora miramos las ecuaciones. O sea, que está clarito, ¿no?
+Esto a ver 15 minutos. Vamos a tratar de entenderla. lógica un poco. La gru es un poquito más sencilla. E el forget, ¿vieron? Es como le dije, se agarra la X, se multiplica por una matriz de pesos, se agarra el hielen, se multiplica por una matriz de pesos. Eso es el foret. Si yo voy acá, es exactamente eso, se lo pasa por la activación sigma y me da eso. Esto es el por el IT también no tiene mucho misterio, se hace lo mismo. Sí. Eh, el C til que es sale de acá es el esible x el set se va a multiplicar con el punto a punto. Okay. El ctible es este, o sea, el set es lo que sale de acá que no está que no está puesto. Sí, lo que sale de acá. Entonces, se hace este una multiplicación de la x, del cos, del h se se le hace la tanga hiperbólica y eso es el séptimo. Llamo una especie de safe state, ¿está? Es esto que está acá, se lo multiplica punto a punto con el, esto se lo multiplica punto a punto con el anterior y el nuevo estado, el nuevo Cave es la combinación de esas. La idea es que si el org es al bajo O sea, da da valores bajos, se va aar de un cell state anterior y le va a dar más importancia al nuevo cell state y viceversa. Este eh el OT está, perdón, ¿vieron? Ahí va. El el OT es simplemente hacer sigma W0, o sea, perdón, W, o sea, AC hace multiplica esto por una matriz, esto por una matriz, lo pasa por sigma y es lo t. Es lo que se Acá no sé la fórmula está. Sí. Eh, pero el hidden es eh lo que pasa que el hidden se multiplica, el OT se multiplica por la tangente hiperbólica de eh del C. Punto. ¿Por qué se hacen estas cuentas? No tengo la soy completamente sincero. No tiene la otras matrices. Ahí tenemos W. Tres.
+Sí, una dos tres 4 ws.
+4
+4U cuatro vas
+F + Así.
+Sí, pero esos son productos de ya están calculados, ¿no? Este, lo multiplicaste por cuatro lados y por algo.
+¿Cómo? Perdón.
+Puedes controlar el tema de
+No, no. El el tema de queso. Dar de queso al
+No, no, no, no. Prende solo y decir, "No, no, no lo controlaste, ¿no?" Lo que sí va a depender, o sea, va a ser una matriz que va a prender el que va a decir, "Bueno, este, en base a lo que sea el H y a lo que sea el X, eh, o sea, imagínate una señal que viene medio
+entonces si si viene medio parejita, este, eso va va a venir dando un que este en forget de repente va a aprender a que a que eso no es relevante y cuando hay fuerte de la más importancia. Eso se supone que es lo que debería de aprender. ¿Por qué estas situaciones concretas? No, no, no sabría decir. Capaz que hay algún nombre, pero la gr la gr lo que hace es este simplificar la la LCTM es mucho más este Entonces, eh en realidad este es como que tiene compuertas, pero pero simplifica, o sea, cambia las compuertas. Eso simplifica la matemática, facilita el entrenamiento, o sea, es más fácil entrenarm y este y obviamente reduce el número de parámetros. Este el input gate lo va a reemplazar por una cosa Se llama reset gate, este que controla cuánta importancia tiene la entrada actual y el update update gate controla eh cuánto el estado previo se mantiene. Sí, en algunos experimentos en los que estudian eh estas estudiaban estas este tipo de redes en en algoritmos este por ejemplo eh vieron este la los lenguajes formales, ¿no? Puede ser son como lenguajes reconocidos por ciertas máquinas. Eso son secuencias de símbolos, ¿no? Seres humanos que este al pasarlos por una especie de por ejemplo por una máquina deing este la máquina dice si acepta o no acepta ese prim de horario. ¿no? Eh, por ejemplo, uno puede eh intentar en una máquina de Turing ver si una secuencia binaria es este eh representa un window par o un par. Entonces este haí la máquina y este es el lenguaje aceptado, o sea, el lenguaje formal aceptado de esa máquina es eh las secuencias que dan números parejos. Ah, entonces hay distintas jerarquías lenguajes formales que son simplemente eh conjuntos de tiras y chívolos. Este, de acuerdo a qué tipo de máquinas los eh los acepan. Sí, lenguajes más simples son aceptados por los autómatas, dicen que tienen memorias. Básicamente es el tipo de máquina más simple que hay. Sí. Este y después hay toda una jerarquía, ¿no? Entonces podemos tener automail que es como y refresca la
+Entonces, por ejemplo, esteas texto, no va como aumentando la especiad formales en las máquinas que se conocen. Y por ejemplo las lenguaje de cierre de paréntesis, o sea, saber si una secuencia, o sea, imagínense que tiene cer y uno, pero además hay paréntesis para que cierran y abren, ¿sí? Y quiere saber si va a aceptar una secuencia, si si tiene los paréntesis este cerrados, digamos, no tiene un paréntesis sin cerrar, ¿no? Eh, eso es lo que se llama una big grama. Sí. Este, entonces hay estudios, lo queía decir que hay estudios que intentan Eso lo pueden, o sea, pueden agarrar intentarse una digram y el algoritmo de saber si están cerrados los parentes o no es es trivial. Entonces, tengo el target eh y está cerrado, no está cerrado. Intento de entrenar una red recurrente que aprenda ese lenguaje. Sí. Este, entonces con las RN usuales no se logra cosas. Sí, cuesta mucho, pero las grí eh que llevan una especie de conectador, llevan una especie de que son como es como una es como un salto en la expresividad de lo que es una RMMN común, que en teoría todas tienen la misma especiado, a veces las arquitecturas facilitan eso, que que eso se produzca. Em, ¿qué ocurre? ¿Cómo es la es un poquito más Pero, ¿qué es?
+Por lo menos tiene un solo
+tiene un solo
+Entonces de nuevo lo que entra acá no es entra el stage y entra el XT. Eh, es un poquito más integrado. A ver, leer acá. A ver, eh, el reset se multiplica esto por una matriz, se multiplica esto por otra matriz, se se suman, se pasa por la sigmoidea y eso se llama el set. Sí, es un vector que resulta multiplic por la matriz, tú me dijiste que multiplicaba por una matriz.
+XT lo multiplica por una matriz.
+Ah, eso no está representado.
+No está representado de va. Y el ht -1 lo multiplica por otra matriz y se suman, pasan por una sigmoidea y este eso da el reset y el reset multiplica elemento a elemento, o sea, que tiene que dar las mismas dimensiones que el pi de se multiplica elemento a elemento el pi se. Sí, ese reset viene y se combina con otra matriz que multiplica el x acá para luego, obviamente aplicarse una tangente hipervuelta y este hacer uno menos lo que venía de acá, eh, ya, o sea, A ver, vamos con el Z. Vamos con el Z. Vamos con el Z. XT se multiplica por una matriz. El HT sigue de largo, se multiplica por una matriz. Esto pasa por una sismoidea y eso me da el Z. Se tiene que tener las mismas dimensiones que el que el fake para multiplicarse elemento elemento, ¿ya está? Pero también se hace 1 - z y se multiplica elemento a elemento con lo que ía del reset y el X9. Básicamente el reset lo que hace es decirme si tengo que olvidarme algo un poco del state, que es lo que va a venir acá. Listo. Y el Z de nuevo va a combinar un poco de lo que viene del stale con lo que venía del. Sí, yo uno y el uno menos es porque En realidad, esto viene por multiplicas por z y acá multiplicas por 1 - z. O sea, el z numerito entre 0 y uno. También es un vector, pero posición entre cer y uno que te dicen cuánto ponderar, ¿no? O sea, suman uno, digamos, la la la ponderación que hace. Al final eso se suma y produce el hidden y la salida. Entonces, en las fórmulas es un poquito más fácil de entender. Es en ZT está el ZT. Eh, digo, ese es fácil porque es, vieron, el Z es se multiplica esto por una matriz, es está la X acá, esta es la que viene para el Z, ¿sí? Que pasa por una por una simboidea. Eso eso va el Z, ¿sí? Y eso es lo que se le llama el T. El RT es parecido, o sea, se calcula parecido, es lo que se llama, o sea, se calculan en base a al piel. y una especie de hiel intermedio que es el que es complicado, que es usa el reset este en el gen anterior, ¿sí? Usa el input, le hace la tangente hiperbólica, ¿sí? Y eso es lo que se pondera, digamos, eh, se, o sea, ese nuevo, o sea, esto como que res, a ver, a ver si podemos interpretar esta esta, el el gior, el reset lo que va a hacer es como decirnos cuán olvidar del pie de la y eso se va a combinar con esta ponderación Z que se aprende, digamos, en base a esa matriz que entre, ¿sí? Va a decir, bueno, el el nuevo Hidden es una ponderación Hiden anterior y ese hidel resiliado, digamos que en principio tiene solo información nuevo, o sea, si el RT muy chiquito, ¿no? Básicamente el hidden tinte es solo función de Sí. Entonces, esto es como una combinación de la información actual y la información del pasado. Grande pone mucho peso al
+Exactamente.
+Sí. Acá hay hay una idea por la que trato de más o menos darles una idea. Este, o sea, la GR simplifica la la LSM manteniendo solo dos compu son el Z y el R. Sí. El reset gate decide cuánta información del pasado debe ignorarse al generar el nuevo estado candidato. Y eso es lo que está acá. Claro. Al generarse el nuevo estado candidato, este me dice cuánto me tengo que olvidar de de lo que venía pasando. E y el daygate controla el balance entre mantener la memoria previa y agregar nueva información. Es más o menos Uno ve acá es bueno. Esto se supone que es la nueva información, esta es la información de memoria y es un balance funcional.
+Sí, esa función hay quearla de Entonces el flujo es un poquito así. Es este si RT es pequeño, el modelo resetea la memoria. Cierra si para un H dado este chiquitito, está diciendo en es en este momento para este input que tienes, olvídate de lo que está pasando, de lo que pasó antes. Es como que, o sea, si bien es una matriz que se aprende, tiene esa capacidad de porque es una función, o sea, de acuerdo al y al input que se le que aparecen, le va a decir, bueno, para este hiden y para este input, olvídate o no olvidate de lo que pasó. Sí. Y y el un Z grande quiere decir que este el modelo actualiza fuertemente el estado oculto cuando hay información. Miren la ecuación, o sea, si C está muy cercano a uno, sí lo va a actualizar al HT, básicamente con nueva nueva información. Sí. Este se da también en base a bueno, ¿cuál es el cuál es el inut y cuál es el Puede decir que las cosas que son aprendidas y son independientes de tiempo son estas son las matrices, pues con esas matrices que se calan y en este caso sería el Wzr
+Exacto.
+Exacto.
+Y bueno, y al revés un Z pequeño, ¿no? Un Z pequeño es eh mantener la memoria que tenías su O sea, si bien cuando uno entrena esto, estas matrices e van a ser quieran, ¿no? Está la forma en la que está diseñada, por lo menos la luz para mí es un más claro de que lo que se intenta es, ¿no?, de que en cada instante de tiempo de acuerdo al estado, de acuerdo al state, de acuerdo al input que está entrando, es decidir que el modelo decida si va a usar información, o sea, si va a actualizar el de acuerdo a información, esa nueva información que está entrando o si la va a mantener parecida a la que tenía y nuevo, digamos, en el tercer reglón nueva.
+Claro, exactamente, exactamente.
+Y por y bueno, está es como una digamos experimentos como este, como el que vimos como este, digo, muestra que que logran controlar ese esa esa compensación entre eh pa me tengo que acordar de de algo que estaba antes o no. Sí,
+cada vez, perdón, un segundito, cada vez que ve el símbolo blanc, ¿no? Cada vez que ve el símbolo blanco le dice, "No, no, quédate con el skillen que tenías antes. Quédate con el No, no es el que el último que salió de la frecuencia que te tenés quear. Eso lo aprendió y aprendió a hacer eso. Cada vez que ves el N, no no va un poco la la explicación de por qué funcionan bien en este tipo de experimentos decías.
+Eh, en el caso de la gru la la salida del paso es igual al al
+la salida el gi altura de todo. Digo, acá está bastante como que le salía pero no cuesta nada intentar acá multiplicar aplicarle y aplicale no sé qué y aplicale tangente igual no importa tanto que la las cuentas que se hagan lo que sí creo que está bueno saber es eso, es es este resumen, ¿no? O sea, es este resumen el que está bueno. Eh, hay este, o sea, hay que entender como de forma resumida esta arquitectura porqueé por qué estas cuentas, por qué la arurbó, por qué el output es hacer esto o qué a ese nivel de detalle, la verdad. Supongo que habrán estado años experimentando y resultó que eso andaba bien. Este, lo que sí es importante es eso. Para mí el ejemplo ese de memorización es que porque en el caso de la de la es mucho más sencillo porque es solo el es de acuerdo al input que recibí y el que tenías no es este eh el el modelo va a aprender a si tienes que actualizar ese actualizar información si se mantiene con el skill que Entonces es como en resumen y eso quiere son una capacidad eh potente, digamos, a Sí. Y bueno, entonces por último, eh yo no quisiera usar esto en enfitación, que es seguramente es el tipo de tienes. E uno lo que puede hacer es obviamente Acá no sé ni qué está, pero imagínense que queremos saber el sentimiento de esta frase positivo, negativo, como hablamos la clase pasada, esto yo no puedo pasar esto a no puedoar matriz no matriz lo tengo queizar esto ya está comoizado en palabras Entonces ahí hay una etapa de Word menu, ¿no? Que puede ser clásicas B y cosas o este o en realidad lo que falta ser tipo que hacen que son palabra palabra pasando. Sí. Eh, ¿se acuerdan? A veces, a veces la implementaciones este puede que haya una etapa de que se lo tiene que poner ustedes en el taller la
+Ahí vaamos en el taller
+ahí sal también pueden poner eh etapas de embeding que son que van a ser eh específicas para la área que ustedes, o sea, van a van a aprender una representación que va a ser específica para la pero pu probar, por ejemplo, no lo han probado, o sea, pueden probar porque son en si está permitido, si está permitido sale unionado, lo pueden esos edadings tienen este eh buenas propiedades de representación de la semántica de de se pasa por la NCM y acá está cual lo que no te hace el Acá hay una especie de STM representation, que esto puede ser o el último o un promedio de todos los kidens, ¿sí? O sea, hay una religio, si es muy larga, un promedio de los últimos casos, no sé. Sí, ahí pueden inventar ustedes qué es lo que se le pasa a, por ejemplo, DLP acá que que DMLP, ¿verdad? Después hace una especie de SOS y este y le dice una clase. Sí. Entonces acá le pueden pasar este último que se supone que ya tiene información suficiente o alar especie de agregado o con patenación de creo que lo último va eso. Esto en resumen, digamos, usar una recurrente para clasificación no requiere un email, o sea, que las las palabras estén eh Izada, lación de la palabra de Pot, la celda MCTM que hace esto lo hace. Entonces, trae con un texto la representación que puede ser el último hiden o una agregación de todos o de algunos. Este, cuando veamos el mecanismo de attention, por ejemplo, vamos a ver qué se puede pasar. Se le puede pasar eh una especie de convención Sí, es el también. Y eh esto se lo pasa por una por una, por ejemplo, esto sería una sola neurona, ¿no? Un de una tapa. Pero acá ustedes pueden poner una este y hacer una soft. En realidad siamos los es lo mismo a la hora dear Este y cosas que pueden cambiar acá es pueden poner más en CM, es decir, poner varias capas. Sí. Eh,
+¿qué problema tienen que especificar? Puede ser
+electrocardiogramas.
+Bueno, en un electrocardiograma sí sería es tramposo, ¿no? Tramposo porque el médico ver el electrocardiograma entero. Esto está resto por eso pueden probar con una bidireccional. todo, sino que es este
+una digamos
+un qué
+un latido.
+Sí, un latido.
+Okay.
+Es la está procesado con ahí va
+la pueden probar con una bidireccional, o sea, no es tramposo, no es que están pregendo el PBI, digo, y usan el futuro para no este porque el médico todo
+pueden usar una guía direccional.
+Yo probaría con la GR porque la GR me parece de es la que mejor A mí la gru que es la mejor y y realmente probar con dos capas, tres capas de GR
+la mejor en todo aspecto, digamos, y la más tiene menos parámetros que es más fácil de entrenar, es bastante más fácil de entrenar, profe,
+hay la anterior donde está la fórmula más
+ahí justamente Entonces, la última línea, si yo la miro bien, por ejemplo,
+si Z
+si Z tiende a un
+si Z tiende a uno, tiende a uno, ¿qué es lo que va a pasar? Que voy a olvidar el anterior. Me voy a quedar con en el actual
+y lo vas a actualizar con la información actual.
+Actual.
+Exacto.
+La fórmula me está dando la la lo que va a pasar
+ahora. Si y si es al revés,
+si tiende a cero
+la la última el último componente la última con el Z se me hace cero como se me va a tender a cero. y me voy a quedar quedarme con el hidden anterior, o sea, voy a recordar,
+claro,
+voy a recordar, o sea, esa fórmula ya me está diciendo el comportamiento de del GRU.
+Sí, sí, sí, sí, tal cual, tal cual, tal cual. Un bolazo.
+Sí, eso me hace acordar a la vaina de Croocentro.
+A la vaina Crocentrum tiene algo así. Falta que la Sí, sí,
+bueno, no les digo nada más. Pueden bichar esto. Muchas figuras las saqué de Wikipedia, entonces lo pongo acá. Eh, en el libro de Alis hay capítulo muy chiquito sobre recurrentes y la verdad que no está muy detallado, es como que asume que ya no siento nada más este, pero para mí no es cierto. Eh, y lo vemos en las defensas proyectos y cosas que cuando tienen que trabajar cultural y así las redes restaurantes andan bien. Este y eh pero acá sí una hay un link a a a un curso de de HF que hay un recurrente que estaba bastante bueno. Bueno, si no hay consultas Muchas gracias.

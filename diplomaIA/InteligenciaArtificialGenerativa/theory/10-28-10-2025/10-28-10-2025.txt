@@ -1,0 +1,7269 @@
+WEBVTT
+
+1
+00:01:07.170 --> 00:01:07.870
+Buenas noches.
+
+2
+00:01:07.870 --> 00:01:09.430
+Cómo están los online? Escuchan?
+
+3
+00:01:13.120 --> 00:01:17.290
+Sí, perfecto, buenísimo. Vamos.
+
+4
+00:01:17.290 --> 00:01:19.570
+Se fueron para minutos a ver si se suma más gente
+
+5
+00:01:20.090 --> 00:01:21.410
+y ya ya arrancamos
+
+6
+00:01:29.120 --> 00:01:30.180
+la noche también.
+
+7
+00:02:15.110 --> 00:02:15.490
+Muy bien,
+
+8
+00:02:22.130 --> 00:02:23.040
+Bueno, arrancamos
+
+9
+00:02:28.090 --> 00:02:31.510
+bien la clase.
+
+10
+00:02:31.750 --> 00:02:34.070
+Íbamos a ver una familia todo pregunta,
+
+11
+00:02:34.960 --> 00:02:39.160
+Vamos, Eh?
+
+12
+00:02:39.380 --> 00:02:42.960
+Si miramos, si repasamos la PT de la de la primer clase,
+
+13
+00:02:43.180 --> 00:02:45.000
+la introducción, vemos que
+
+14
+00:02:45.940 --> 00:02:48.600
+que a la fecha hemos estamo qui varias de estas preguntas.
+
+15
+00:02:48.620 --> 00:02:51.000
+Ya hay algunas van a caer por fuera del curso.
+
+16
+00:02:51.610 --> 00:02:56.060
+Pero eh, vimos varios yo no en covers,
+
+17
+00:02:56.060 --> 00:02:57.140
+que es la columna celeste.
+
+18
+00:02:57.620 --> 00:02:58.780
+Vimos redes vegetativas,
+
+19
+00:02:58.780 --> 00:03:02.840
+que sería la familia de las lunas naranjas.
+
+20
+00:03:03.720 --> 00:03:06.600
+Vimos modelos autore regresivos en varios contextos.
+
+21
+00:03:06.790 --> 00:03:08.800
+Transforman que va a quedar para la clase de
+
+22
+00:03:10.450 --> 00:03:11.630
+de para el curso del brand,
+
+23
+00:03:11.660 --> 00:03:14.790
+pero seguro del plane ya vieron o en taller algo de redes
+
+24
+00:03:14.790 --> 00:03:17.630
+recurrentes como modelos este autore regresivos o un
+
+25
+00:03:18.770 --> 00:03:23.280
+en ese en ese orden no vimos ni vamos a ver normal flows
+
+26
+00:03:24.120 --> 00:03:27.860
+ni en el models si los modelos de difusión que son el tema,
+
+27
+00:03:28.160 --> 00:03:29.300
+el tema de hoy, sí,
+
+28
+00:03:30.940 --> 00:03:33.040
+la propuesta de modelos de difusión o entrenar redes
+
+29
+00:03:33.040 --> 00:03:36.920
+neuronales con con este tipo de eh de modelos aparece se me
+
+30
+00:03:36.920 --> 00:03:39.720
+que con en en un p de termodinámica
+
+31
+00:03:40.310 --> 00:03:42.920
+este porque la a la gente de física le
+
+32
+00:03:42.920 --> 00:03:44.240
+interesa los modelos periodísticos.
+
+33
+00:03:44.240 --> 00:03:48.280
+No entiendo bien por qué este tiene un poquito de de o sea,
+
+34
+00:03:48.280 --> 00:03:49.960
+hay un su área de la física que
+
+35
+00:03:50.580 --> 00:03:52.880
+que propone varios de estos modelos y muchos modelos
+
+36
+00:03:53.070 --> 00:03:56.160
+generativos toman ideas o son derivaciones de estas de
+
+37
+00:03:56.160 --> 00:03:57.680
+estas de días de este campo.
+
+38
+00:03:59.130 --> 00:04:00.210
+Y bueno, así es como surgen.
+
+39
+00:04:00.610 --> 00:04:03.770
+Entiendo, yo este los los modelos de difusión.
+
+40
+00:04:04.240 --> 00:04:06.890
+Okey, vamos a hacer un poco las las base de estos modelos,
+
+41
+00:04:06.890 --> 00:04:09.690
+discutir un poco las ideas para su entrenamiento y después
+
+42
+00:04:09.690 --> 00:04:12.410
+al final de clase, un práctico, el práctico siete.
+
+43
+00:04:12.630 --> 00:04:15.890
+Sí. Bien, entonces, en fusión de eso,
+
+44
+00:04:16.050 --> 00:04:18.810
+tenemos ya disponibles las ptes en aulas.
+
+45
+00:04:19.110 --> 00:04:23.960
+Sí. Y bueno, vamos
+
+46
+00:04:25.970 --> 00:04:27.730
+a ver si ven ahí.
+
+47
+00:04:28.600 --> 00:04:32.110
+Bien. Los modelos de difusión son una clase de modelo
+
+48
+00:04:32.110 --> 00:04:33.190
+generativos periodísticos.
+
+49
+00:04:33.190 --> 00:04:35.750
+Bien, eso es bueno porque significa que es modelo pertinente
+
+50
+00:04:35.750 --> 00:04:38.870
+de curso en el que estamos porque este cursos de modelo
+
+51
+00:04:38.870 --> 00:04:40.430
+creativo periodísticos este
+
+52
+00:04:41.530 --> 00:04:43.910
+la idea princip es comenzar con ruido y refinarlo
+
+53
+00:04:43.910 --> 00:04:46.110
+gradualmente para generar datos como imágenes,
+
+54
+00:04:47.810 --> 00:04:50.450
+comenzar con ruido, lo que hacemos con los fa con las gasas
+
+55
+00:04:50.450 --> 00:04:53.810
+con todo lo que no la parte de refinar gradualmente
+
+56
+00:04:54.670 --> 00:04:58.010
+es un poco una idea nueva en qué sentido en que nosotros no
+
+57
+00:04:58.010 --> 00:05:00.330
+vamos a pasar de un latente de una dimensión dada
+
+58
+00:05:00.930 --> 00:05:02.490
+a un dato de otra dimensión?
+
+59
+00:05:02.790 --> 00:05:06.450
+No recuerdan las esa hija la de como de de embudo que se
+
+60
+00:05:06.450 --> 00:05:08.410
+agranda donde tiene una dimensión del latente y otra
+
+61
+00:05:08.410 --> 00:05:11.490
+dimensión de los datos, sino que el dato tiene la misma
+
+62
+00:05:11.490 --> 00:05:14.650
+estructura que el latente y está muy pensado para imágenes
+
+63
+00:05:14.740 --> 00:05:16.490
+donde yo arranc una i imagen que es ruido.
+
+64
+00:05:17.130 --> 00:05:19.490
+Y le voy pasando varias iteraciones de
+
+65
+00:05:20.200 --> 00:05:22.330
+dino donde voy eliminando el ruido.
+
+66
+00:05:22.410 --> 00:05:24.890
+Y esa eliminación del ruido implica generar un dato
+
+67
+00:05:25.820 --> 00:05:27.840
+en algún memento paro de sacar ruido.
+
+68
+00:05:27.960 --> 00:05:30.000
+Y con lo que me quedo es lo que yo entiendo que es un dato
+
+69
+00:05:30.000 --> 00:05:32.960
+de la distribución que estoy tratando de aproximar.
+
+70
+00:05:33.780 --> 00:05:34.960
+Eso va a pasar si el modo está bien
+
+71
+00:05:34.960 --> 00:05:36.680
+entrenado, si no, no sabe más que pasa.
+
+72
+00:05:36.680 --> 00:05:37.800
+Pero si model está bien entrenado,
+
+73
+00:05:37.800 --> 00:05:41.240
+yo tengo una imagen con ruido y le voy haciendo n capas n
+
+74
+00:05:41.240 --> 00:05:44.360
+paso de d hasta llegará una imagen o un
+
+75
+00:05:44.360 --> 00:05:45.640
+elemento de la instrucción original.
+
+76
+00:05:45.780 --> 00:05:50.250
+Sí. Bien, bien, eh?
+
+77
+00:05:50.630 --> 00:05:52.930
+Sí, cómo general después, después eso,
+
+78
+00:05:53.270 --> 00:05:54.330
+ese es el proceso de generación.
+
+79
+00:05:55.280 --> 00:05:58.810
+Arranco con ruido y le saco ruido.
+
+80
+00:05:59.030 --> 00:06:01.810
+De modo lo voy sacando ruido hasta llegaron a un
+
+81
+00:06:03.950 --> 00:06:05.410
+No, no, cómo generas?
+
+82
+00:06:05.940 --> 00:06:06.940
+Claro,
+
+83
+00:06:08.250 --> 00:06:10.230
+Vos que para entrenar, vas a tener que tener el dato,
+
+84
+00:06:10.230 --> 00:06:11.390
+si yo te digo barr, arranco con ruido.
+
+85
+00:06:12.310 --> 00:06:13.610
+Es porque estoy en proceso de generación.
+
+86
+00:06:13.650 --> 00:06:15.650
+O sea, siempre yo aleo de un latente.
+
+87
+00:06:15.700 --> 00:06:19.180
+Estoy generando el otro proceso, la difusión,
+
+88
+00:06:19.770 --> 00:06:20.940
+Este no poder.
+
+89
+00:06:21.680 --> 00:06:22.900
+Yo creo que hacía el día.
+
+90
+00:06:23.060 --> 00:06:27.260
+Nosotros generábamos pasamos a un latente y después,
+
+91
+00:06:28.050 --> 00:06:29.220
+digamos el codificador,
+
+92
+00:06:29.240 --> 00:06:32.060
+no le damos un dato de ese un dato de
+
+93
+00:06:32.060 --> 00:06:33.140
+esa distribución latente.
+
+94
+00:06:33.160 --> 00:06:34.900
+Si vos meaba zoom, me,
+
+95
+00:06:34.900 --> 00:06:38.260
+si que generas y pass a un latente no vos partís de la nada.
+
+96
+00:06:38.760 --> 00:06:43.430
+Tenés un latente que lo most. Y a partir de, ay, ten el dar
+
+97
+00:06:45.550 --> 00:06:46.610
+El de Eras eso.
+
+98
+00:06:46.610 --> 00:06:47.930
+Vos, le das un latente y te da un dato.
+
+99
+00:06:48.950 --> 00:06:51.090
+Ah, claro, sí, te
+
+100
+00:06:51.090 --> 00:06:52.090
+Sacar lo mismo aca. Tenés
+
+101
+00:06:52.090 --> 00:06:54.930
+un latente, lo que les estoy contando datos de colores
+
+102
+00:06:54.930 --> 00:06:56.290
+que el latente tiene la misma estructura
+
+103
+00:06:56.470 --> 00:06:57.570
+que la que el dato de salir.
+
+104
+00:06:58.230 --> 00:06:59.290
+Eso es un poco que pasar
+
+105
+00:06:59.310 --> 00:07:01.490
+En una claro,
+
+106
+00:07:01.490 --> 00:07:03.970
+Claramente cómo vamos a poder aprender ese proceso de
+
+107
+00:07:03.970 --> 00:07:05.210
+eliminación de ruido o bueno,
+
+108
+00:07:05.870 --> 00:07:07.580
+ahora ahora vamos, vamos a aclarar.
+
+109
+00:07:07.580 --> 00:07:08.900
+Perdón. No, no, no, por favor,
+
+110
+00:07:10.320 --> 00:07:11.320
+Eh?
+
+111
+00:07:12.010 --> 00:07:14.480
+Bueno, en les esos recientes son la generación de imágenes
+
+112
+00:07:14.720 --> 00:07:19.080
+siendo de ruido y siis vídeo donde para mí empezaron como a
+
+113
+00:07:19.090 --> 00:07:21.120
+pegar o fueron como un elemento clavo.
+
+114
+00:07:21.120 --> 00:07:23.520
+Y los nueve de difusión no se recuerdan cuando salió.
+
+115
+00:07:23.580 --> 00:07:26.730
+Da da dos da le no fue tan,
+
+116
+00:07:26.730 --> 00:07:28.690
+tan explosivo daido fue un poco más un un pe.
+
+117
+00:07:29.280 --> 00:07:31.210
+Este como producto de pen, idea,
+
+118
+00:07:31.240 --> 00:07:34.570
+recuerdan que le pasaban texto y el modelo generado de
+
+119
+00:07:34.570 --> 00:07:35.970
+imágenes bastante interesantes data
+
+120
+00:07:35.970 --> 00:07:37.210
+condicionadas por el texto.
+
+121
+00:07:37.540 --> 00:07:40.010
+Bueno, la parte de pasar el texto no era tan
+
+122
+00:07:40.920 --> 00:07:42.090
+como la la más loca.
+
+123
+00:07:42.210 --> 00:07:44.850
+O sea, en realidad la parte. Pues el texto lo más loco es
+
+124
+00:07:44.850 --> 00:07:47.250
+dado ese el texto que que el modelo hubiera generar cosas,
+
+125
+00:07:48.070 --> 00:07:52.970
+eh fotor realistas o que tuvieran no un un un gran asidero
+
+126
+00:07:52.970 --> 00:07:55.010
+con lo que le con lo que el texto pedía no?
+
+127
+00:07:55.210 --> 00:07:56.370
+O sea, queda eran dos cosas.
+
+128
+00:07:56.370 --> 00:07:59.810
+Era capacidad a la vez que esa capacidad yo estaba vinculada
+
+129
+00:07:59.810 --> 00:08:02.210
+una, una expresión con caption, el lenguaje al sí,
+
+130
+00:08:03.080 --> 00:08:05.570
+este y una de las de los bloques es claves
+
+131
+00:08:05.570 --> 00:08:06.730
+de esa capacidad de generación.
+
+132
+00:08:06.830 --> 00:08:09.050
+Era el uso de modelos de difusión.
+
+133
+00:08:09.110 --> 00:08:12.380
+Sí, no es la versión más vainilla que vamos ver hoy.
+
+134
+00:08:12.630 --> 00:08:14.420
+Obviamente, dar dos implica otra
+
+135
+00:08:14.580 --> 00:08:15.660
+cantidad de cosas en el en el camino.
+
+136
+00:08:16.170 --> 00:08:18.500
+Pero esto es la base para esa familia de novio. Sí.
+
+137
+00:08:20.120 --> 00:08:23.100
+No sé por la duda De dos el otro día, eh?
+
+138
+00:08:23.100 --> 00:08:24.540
+Bueno, con este lo lo nombraron.
+
+139
+00:08:25.950 --> 00:08:30.060
+Creo que fue En una charla de de lui sponsor,
+
+140
+00:08:31.200 --> 00:08:35.100
+Una sa sol, sol, sol.
+
+141
+00:08:35.650 --> 00:08:40.000
+Qué muchacho? Porque sí, eh,
+
+142
+00:08:42.510 --> 00:08:43.710
+a ver, la principal
+
+143
+00:08:48.460 --> 00:08:53.040
+dijo la, esto fue lo que lo que empezó a a lo que
+
+144
+00:08:53.040 --> 00:08:56.400
+Sea la gente no pasarle este texto y que efectivamente
+
+145
+00:08:56.400 --> 00:08:57.920
+crea hoy parece algo natural.
+
+146
+00:08:58.430 --> 00:09:00.920
+Pero ese tres, cuatro años, esto era,
+
+147
+00:09:01.580 --> 00:09:02.600
+es realmente una locura.
+
+148
+00:09:02.810 --> 00:09:05.760
+Imaginarse que que que una día podía hacer algo de
+
+149
+00:09:05.760 --> 00:09:06.960
+esto, okey?
+
+150
+00:09:07.350 --> 00:09:11.240
+Bien, entonces, en el tra fondo, obviamente tiene este
+
+151
+00:09:11.980 --> 00:09:13.040
+el enve de texto,
+
+152
+00:09:13.230 --> 00:09:16.280
+modelos que hacen de texto imagen como clip adentro.
+
+153
+00:09:16.470 --> 00:09:20.080
+Pero finalmente ese condicional termina siendo
+
+154
+00:09:20.670 --> 00:09:21.720
+conectado un proceso de
+
+155
+00:09:21.720 --> 00:09:22.920
+difusión, que es lo que es en la imagen.
+
+156
+00:09:23.320 --> 00:09:25.560
+Y ahora vamos a discutir sobre los este modelo de
+
+157
+00:09:25.560 --> 00:09:28.440
+difusión, eh?
+
+158
+00:09:28.740 --> 00:09:32.080
+Es una al alternativa poderosa a las gans y la variation
+
+159
+00:09:32.110 --> 00:09:36.200
+auto en code para generar datos de alta calidad, eh?
+
+160
+00:09:38.260 --> 00:09:40.640
+Por qué? Porque son más eficientes en el entrenamiento,
+
+161
+00:09:40.640 --> 00:09:43.520
+tiene un entrenamiento más estable y producen salidas
+
+162
+00:09:44.190 --> 00:09:45.360
+más diversas y realistas.
+
+163
+00:09:45.360 --> 00:09:47.000
+Es un tema más bien empírico.
+
+164
+00:09:47.590 --> 00:09:51.800
+Pero bueno, el campo ha visto que el campo del allá o o de
+
+165
+00:09:51.800 --> 00:09:54.160
+la de la parte generativa ha visto que estos modelos
+
+166
+00:09:54.160 --> 00:09:55.360
+funcionan muy bien en ese contexto.
+
+167
+00:09:55.360 --> 00:09:57.200
+Sí. Si miramos las danzas,
+
+168
+00:09:57.210 --> 00:10:00.160
+usted se tardarán con el práctico que encontrar un régimen
+
+169
+00:10:00.160 --> 00:10:02.280
+entrenamiento sano para las danzas es bastante
+
+170
+00:10:02.280 --> 00:10:04.240
+complejo para los bases.
+
+171
+00:10:04.240 --> 00:10:07.800
+No es tan así, pero igual este, o sea,
+
+172
+00:10:07.800 --> 00:10:09.760
+se ha visto que los modelos de fusión son más eficientes.
+
+173
+00:10:09.820 --> 00:10:14.640
+Sí, de vuelta,
+
+174
+00:10:14.640 --> 00:10:16.320
+como siempre en la fa, en el mundo de los models,
+
+175
+00:10:16.320 --> 00:10:17.360
+no hay un mejor modelo.
+
+176
+00:10:17.590 --> 00:10:18.880
+Pero para algunos contextos,
+
+177
+00:10:19.300 --> 00:10:21.480
+hay familias que tienen dan mejores resultados.
+
+178
+00:10:23.230 --> 00:10:26.160
+Esto es un poquito lo que le estaba discutiendo contando
+
+179
+00:10:26.380 --> 00:10:30.440
+estaba planteando es de cara a los modelos que venimos,
+
+180
+00:10:30.540 --> 00:10:31.720
+eh, estudiando en el curso.
+
+181
+00:10:32.820 --> 00:10:35.490
+Bueno, para que sea una especie de mapa mental de lo que de
+
+182
+00:10:35.490 --> 00:10:38.090
+lo que venimos hacer arriba de todos, tenemos las vans,
+
+183
+00:10:38.090 --> 00:10:40.610
+que es lo último que hemos hecho que tenemos buen aún
+
+184
+00:10:41.360 --> 00:10:44.220
+un discriminador que da dos datos los a,
+
+185
+00:10:44.220 --> 00:10:48.260
+el x prima sería como datos, eh, generados y x, eh?
+
+186
+00:10:48.260 --> 00:10:51.500
+Datos, eh reales sabe discriminados.
+
+187
+00:10:51.980 --> 00:10:54.620
+Y un generador que dado latentes sabe generar estos x prima
+
+188
+00:10:54.680 --> 00:10:56.420
+no que al final después del entrenamiento,
+
+189
+00:10:56.420 --> 00:10:59.350
+nos quedamos solo con el generado en el caso de los por eso
+
+190
+00:10:59.350 --> 00:11:00.990
+le not en coders nosotros tenemos
+
+191
+00:11:01.890 --> 00:11:04.510
+un este uno en coder que pasa los datos
+
+192
+00:11:05.190 --> 00:11:07.310
+a un latente y obviamente después se el de coder que
+
+193
+00:11:07.310 --> 00:11:08.550
+los que genera un dato.
+
+194
+00:11:09.600 --> 00:11:11.160
+Nosotros finalmente nos vamos a quedar con la porción
+
+195
+00:11:11.160 --> 00:11:15.720
+derecha y el caso los modelo difusión no está, no está,
+
+196
+00:11:16.300 --> 00:11:17.760
+no es muy Leno gráfico, pero la idea es,
+
+197
+00:11:18.160 --> 00:11:19.680
+nosotros vamos a pasar a partir de datos,
+
+198
+00:11:20.180 --> 00:11:23.520
+nos vamos a ir toqueteando hasta llegar a los lantes sí,
+
+199
+00:11:23.520 --> 00:11:26.440
+este es en el Fort worth diffusion después en la difusión
+
+200
+00:11:26.440 --> 00:11:28.760
+hacia atrás que ese proceso realmente generativo,
+
+201
+00:11:29.340 --> 00:11:32.920
+lo que hacemos es de latentes lograr llegar a datos.
+
+202
+00:11:32.920 --> 00:11:35.040
+Obviamente no vamos a llegar al dato original,
+
+203
+00:11:35.040 --> 00:11:36.280
+sino que vamos a llegar a un x.
+
+204
+00:11:36.940 --> 00:11:38.400
+Si acá capaz que tu dibujito es medio
+
+205
+00:11:39.310 --> 00:11:41.520
+este poco representativo de lo que le estoy explicando.
+
+206
+00:11:41.520 --> 00:11:43.920
+Pero la idea es que yo, cuando parto del zeta,
+
+207
+00:11:43.920 --> 00:11:45.600
+no llevo a esto, sino que llevo algo
+
+208
+00:11:46.440 --> 00:11:47.880
+x prima algo generado no
+
+209
+00:11:51.890 --> 00:11:56.260
+se entiende y vieron que z está buscando más grandecito
+
+210
+00:11:56.260 --> 00:11:59.340
+porque porque el z en el caso de la es modelo de difusión.
+
+211
+00:11:59.920 --> 00:12:01.700
+Si estoy por ejemplo, generando una imagen de 10 por
+
+212
+00:12:01.700 --> 00:12:03.300
+10, z tiene 10 por 10.
+
+213
+00:12:04.070 --> 00:12:06.050
+Sí. Porque tengo que me que la difusión se hace
+
+214
+00:12:06.890 --> 00:12:10.080
+datos a datos de cierto modo de idea que para cada eh, p.
+
+215
+00:12:10.080 --> 00:12:11.280
+Excel de mi imagen, por ejemplo,
+
+216
+00:12:11.740 --> 00:12:14.160
+yo dije yo voy acompañando al completo de difusión
+
+217
+00:12:14.770 --> 00:12:16.000
+hasta este la salida salida.
+
+218
+00:12:16.060 --> 00:12:16.280
+Sí,
+
+219
+00:12:18.780 --> 00:12:21.390
+okey, eh?
+
+220
+00:12:21.670 --> 00:12:24.150
+Y lo que sí, no está dibujado acá porque acá el
+
+221
+00:12:24.150 --> 00:12:26.310
+discriminador, el generador son, eh,
+
+222
+00:12:26.340 --> 00:12:28.630
+estructuras que tienen pesos que son entrenados el
+
+223
+00:12:28.630 --> 00:12:29.710
+mismo que con el en code de co.
+
+224
+00:12:30.180 --> 00:12:32.310
+Acá no es mu de difusión. No está dibujado.
+
+225
+00:12:33.340 --> 00:12:35.960
+No están dibujada de los los modelos que van
+
+226
+00:12:35.960 --> 00:12:38.040
+dándonos estos pasitos.
+
+227
+00:12:38.180 --> 00:12:41.320
+Sí. Bien.
+
+228
+00:12:43.970 --> 00:12:46.100
+Pero pe, podemos pensar que es algo muy similar.
+
+229
+00:12:46.100 --> 00:12:50.710
+Conceptualmente al decoder son como mini de govers sí, digo,
+
+230
+00:12:50.710 --> 00:12:54.270
+es un mini decoder en cada pasito, sabe sacar ruido
+
+231
+00:12:55.260 --> 00:12:56.390
+sale sacar un poquito de ruido.
+
+232
+00:12:56.390 --> 00:13:00.590
+Cada paso lado es que para un para un lado no, no, no,
+
+233
+00:13:00.590 --> 00:13:01.630
+no es una predicción.
+
+234
+00:13:01.630 --> 00:13:04.310
+Es un mostre, no más hacia la derecha, volaría ruido.
+
+235
+00:13:04.630 --> 00:13:06.830
+Y hacia a la izquierda le sacar ruido para la derecha.
+
+236
+00:13:07.090 --> 00:13:09.390
+El esa agreg ruido es Mostar.
+
+237
+00:13:09.390 --> 00:13:11.950
+De acuerdo, algún régimen de mosto para la izquierda.
+
+238
+00:13:11.950 --> 00:13:13.150
+Así tienes que tener algún modelo.
+
+239
+00:13:13.190 --> 00:13:16.830
+Y lo que vamos a entrenar en el en el práctico. Sí.
+
+240
+00:13:18.580 --> 00:13:20.010
+Hasta acá dudas. Resultas
+
+241
+00:13:25.980 --> 00:13:26.910
+bien, bien,
+
+242
+00:13:31.840 --> 00:13:32.130
+bien.
+
+243
+00:13:34.980 --> 00:13:38.800
+El for que es el agregado de ruido. Sí.
+
+244
+00:13:39.560 --> 00:13:42.060
+Porque tengo que entender que que el modelo de difusión para
+
+245
+00:13:42.170 --> 00:13:44.020
+generar datos de entrenamiento,
+
+246
+00:13:44.680 --> 00:13:46.340
+lo que hace es partir de imágenes
+
+247
+00:13:46.990 --> 00:13:50.020
+sanas y les va paso a paso ordenando ruido hasta
+
+248
+00:13:50.020 --> 00:13:51.300
+llegar a ruido blanco.
+
+249
+00:13:53.100 --> 00:13:55.500
+Entonces nosotros tenemos eso lo podemos hacer, digamos,
+
+250
+00:13:55.800 --> 00:13:58.100
+con un país, es programable.
+
+251
+00:13:58.340 --> 00:14:00.940
+Después, lo que necesitamos es modelo que da el ruido en un
+
+252
+00:14:00.940 --> 00:14:02.960
+tiempo más tardío.
+
+253
+00:14:03.060 --> 00:14:04.840
+Me prediga cómo se veía mi dato
+
+254
+00:14:05.620 --> 00:14:07.680
+un tiempo más temprano antes de agregarle tanto ruido
+
+255
+00:14:08.340 --> 00:14:10.680
+yo los datos para eso lo tengo y entrenar modelos.
+
+256
+00:14:10.680 --> 00:14:12.960
+Puedo con eso. Entonces tengo que primero definirme el
+
+257
+00:14:12.960 --> 00:14:14.480
+régimen de agregado de ruido para después
+
+258
+00:14:15.190 --> 00:14:17.920
+definirme los modelos y con esos datos del régimen de
+
+259
+00:14:17.920 --> 00:14:19.960
+agregado de ruido, si esos paso a paso podrían entrando los
+
+260
+00:14:19.960 --> 00:14:21.720
+modelos que me su a sacar vivir.
+
+261
+00:14:21.820 --> 00:14:24.560
+Sí. Entonces el el Fort worth fusion,
+
+262
+00:14:25.170 --> 00:14:27.640
+puedo pensar que estamos mostrando una, eh,
+
+263
+00:14:28.200 --> 00:14:31.040
+tenemos datos primero que parte de una distribución, y
+
+264
+00:14:31.590 --> 00:14:34.190
+le vamos a agregar ruido gaussian en te pasos.
+
+265
+00:14:35.470 --> 00:14:38.470
+Entonces, un dato en nuestro modelo de en nuestro proceso de
+
+266
+00:14:38.590 --> 00:14:41.190
+fusión es una tira
+
+267
+00:14:42.730 --> 00:14:44.030
+de versiones de ese dato.
+
+268
+00:14:45.120 --> 00:14:47.870
+Puedo pensar que el qui cero es el primer dato.
+
+269
+00:14:48.220 --> 00:14:50.430
+Como vienen, encontré una imagen en mi da set.
+
+270
+00:14:50.450 --> 00:14:53.790
+Ese es el equi, el x uno es el dato con un poquito
+
+271
+00:14:53.850 --> 00:14:54.950
+de ruido en cada posición.
+
+272
+00:14:55.550 --> 00:14:57.910
+Y así esta aquí, usted donde es un dato que es una cosa
+
+273
+00:14:57.910 --> 00:14:59.620
+todos dos, sí.
+
+274
+00:15:01.890 --> 00:15:04.470
+El programa de varianza es un
+
+275
+00:15:06.750 --> 00:15:10.150
+conjunto de hiper parámetros del algoritmo que nos dicen
+
+276
+00:15:10.150 --> 00:15:11.990
+cuánto ruido voy a agregar en cada paso.
+
+277
+00:15:12.410 --> 00:15:14.910
+Podía ser siempre el mismo, pero se ha visto que
+
+278
+00:15:15.590 --> 00:15:17.390
+conviene hacia el final de la difusión,
+
+279
+00:15:17.410 --> 00:15:18.430
+ir agregando más ruido.
+
+280
+00:15:19.600 --> 00:15:21.680
+Y la distribución de transición es lo que me dice
+
+281
+00:15:21.680 --> 00:15:24.480
+efectivamente como muestreo el equité
+
+282
+00:15:24.480 --> 00:15:25.680
+condicionado con el anterior.
+
+283
+00:15:28.170 --> 00:15:32.430
+En esta material tenemos la norma d.
+
+284
+00:15:32.630 --> 00:15:34.750
+O sea, es perdón, la verdad, material equ
+
+285
+00:15:35.690 --> 00:15:38.710
+se distribuye como una normal de media primer
+
+286
+00:15:38.720 --> 00:15:40.150
+parámetro, coma.
+
+287
+00:15:40.380 --> 00:15:44.770
+Segundo par ya varianza con varianza. Segundo parámetro.
+
+288
+00:15:45.390 --> 00:15:46.890
+El primer parámetro es un número
+
+289
+00:15:47.910 --> 00:15:50.780
+entre cero y uno que multiplica al valor
+
+290
+00:15:50.960 --> 00:15:51.980
+del tiempo anterior.
+
+291
+00:15:53.200 --> 00:15:55.720
+Y el segundo es el mismo número uno que me
+
+292
+00:15:55.720 --> 00:15:57.040
+multiplica la matriz identidad.
+
+293
+00:15:57.870 --> 00:16:00.120
+Qué significa esto que veta?
+
+294
+00:16:00.120 --> 00:16:03.990
+Cuanto más grande se hace más, más grande hasta uno
+
+295
+00:16:04.500 --> 00:16:06.710
+más se parece esto aquí
+
+296
+00:16:09.300 --> 00:16:11.480
+normal de de día cero.
+
+297
+00:16:11.560 --> 00:16:16.040
+Y exactamente cuanto más grande veta, más se parece
+
+298
+00:16:16.600 --> 00:16:18.680
+a mostrar de una normal de media cero.
+
+299
+00:16:19.190 --> 00:16:20.920
+Este decía yo. Entonces,
+
+300
+00:16:20.940 --> 00:16:22.640
+si yo agarr arranc un veta chiquito y voy
+
+301
+00:16:22.640 --> 00:16:23.760
+cada vez más arreando el veta.
+
+302
+00:16:23.980 --> 00:16:26.920
+Lo que estoy haciendo es cada vez compartiendo mi datos en
+
+303
+00:16:26.920 --> 00:16:29.320
+algo que más se parece a una a una normal cero,
+
+304
+00:16:30.020 --> 00:16:31.760
+por qué yo hago eso por nosotros?
+
+305
+00:16:31.760 --> 00:16:34.320
+Siempre queremos llevar el dato a un latente para después
+
+306
+00:16:34.320 --> 00:16:35.960
+cuando yo estoy en el latente, buscar algo cero
+
+307
+00:16:35.960 --> 00:16:37.040
+uno y volver hacia atrás.
+
+308
+00:16:37.040 --> 00:16:39.640
+Siempre queremos llevar nuestro dato de algún modo a una
+
+309
+00:16:39.800 --> 00:16:41.800
+distribución conocida, fácil de mostrar.
+
+310
+00:16:41.960 --> 00:16:44.840
+Y después con algún modelo hacia atrás,
+
+311
+00:16:45.510 --> 00:16:48.440
+regeneramos el dato para tener algo que se parezca.
+
+312
+00:16:48.440 --> 00:16:51.200
+Esa distribución es lo mismo que pasamos en en reg que nos
+
+313
+00:16:51.200 --> 00:16:54.400
+va con las va los precio no en cous.
+
+314
+00:16:54.970 --> 00:16:56.800
+Hacen eso, codifican el dato.
+
+315
+00:16:56.800 --> 00:16:58.640
+Están con el objetivo llegar una no
+
+316
+00:16:59.430 --> 00:17:03.360
+más multi variada de media cero y desde llega están abundo y
+
+317
+00:17:03.360 --> 00:17:05.160
+desde allí reconstruir acá es un poquito.
+
+318
+00:17:05.420 --> 00:17:08.320
+Eso solo lo que lo vamos a ir haciendo paso a paso. Sí.
+
+319
+00:17:10.340 --> 00:17:13.460
+Y finalmente la la la distribución de
+
+320
+00:17:15.040 --> 00:17:19.940
+de cómo es de toda la traza termina siendo
+
+321
+00:17:19.940 --> 00:17:21.500
+la productora del to calculs.
+
+322
+00:17:22.260 --> 00:17:27.250
+Sí, pero lo más importante
+
+323
+00:17:27.250 --> 00:17:29.490
+real es esto es entender cómo se genera un dato a partir del
+
+324
+00:17:29.490 --> 00:17:33.410
+paso anterior, pero más un mojito y un e campito.
+
+325
+00:17:33.680 --> 00:17:38.460
+Okey, entonces el el dibujito de esto es
+
+326
+00:17:38.480 --> 00:17:39.820
+yo arranco con gato qui cero,
+
+327
+00:17:39.820 --> 00:17:41.580
+que es este muchacho que estamos mostrando acá.
+
+328
+00:17:42.260 --> 00:17:44.620
+Y a través de este de este muestreo de ruido,
+
+329
+00:17:44.730 --> 00:17:47.700
+termino teniendo el ruido isotópico.
+
+330
+00:17:47.700 --> 00:17:52.320
+Se llama cada ruido vaiana sí, cada puntito de estos
+
+331
+00:17:53.780 --> 00:17:55.920
+es un valor entre cero y dos, 55.
+
+332
+00:17:55.920 --> 00:17:59.280
+En realidad, acá la normal cero no es cero.
+
+333
+00:17:59.280 --> 00:18:02.480
+Termina siendo la media y que ver como,
+
+334
+00:18:02.480 --> 00:18:03.760
+como se termina mostrando esto,
+
+335
+00:18:03.760 --> 00:18:06.440
+pero si lo pensamos en blanco y negro o en el cale grises,
+
+336
+00:18:07.110 --> 00:18:09.040
+este es una uno normalizado.
+
+337
+00:18:10.300 --> 00:18:15.180
+Sí, la idea es que el
+
+338
+00:18:15.210 --> 00:18:17.420
+dato pierde sus características a medida
+
+339
+00:18:17.420 --> 00:18:18.460
+que coa el tiempo, obviamente.
+
+340
+00:18:18.460 --> 00:18:20.700
+Y cuando el tiempo es infinito, té es muy grande.
+
+341
+00:18:21.120 --> 00:18:25.300
+La idea es que tenemos una deena isotropic sí,
+
+342
+00:18:30.280 --> 00:18:31.250
+bien, solo para
+
+343
+00:18:33.270 --> 00:18:34.930
+Sí, me perdido poco.
+
+344
+00:18:35.160 --> 00:18:39.130
+Bien, proceso. Permití llegada al ruido.
+
+345
+00:18:40.430 --> 00:18:43.210
+Ese eso es lo que vos o de ahí tiene que sacar
+
+346
+00:18:43.210 --> 00:18:44.650
+aprendizaje para hacer de
+
+347
+00:18:45.220 --> 00:18:49.240
+Claro esto, lo único que me hace es me genera datos,
+
+348
+00:18:50.910 --> 00:18:52.640
+pero me genera datos de entrenamiento.
+
+349
+00:18:53.030 --> 00:18:55.480
+Esto me da dato de entrenamiento, una secuencia,
+
+350
+00:18:55.660 --> 00:18:56.660
+Eh? Y más qué?
+
+351
+00:18:56.660 --> 00:19:00.320
+Por una más Mexican termina de
+
+352
+00:19:01.210 --> 00:19:04.360
+Claro, Ese eso lo a a entrenar con
+
+353
+00:19:04.570 --> 00:19:05.570
+Claro. Vos
+
+354
+00:19:05.570 --> 00:19:07.440
+tener que pensar, mira, vamos a
+
+355
+00:19:10.350 --> 00:19:12.970
+Lo vas a entre perd así.
+
+356
+00:19:13.730 --> 00:19:15.010
+O sea una, una manera
+
+357
+00:19:15.530 --> 00:19:19.460
+bastante interesante de pensar esto es, yo tengo miedo.
+
+358
+00:19:19.560 --> 00:19:21.380
+No? Entonces, lo que sería el tiempo
+
+359
+00:19:22.830 --> 00:19:24.650
+de igual, eh, cero.
+
+360
+00:19:24.650 --> 00:19:26.750
+No, mi dto vale un valor.
+
+361
+00:19:26.850 --> 00:19:29.280
+No sé menos cinco
+
+362
+00:19:30.270 --> 00:19:32.450
+si estoy en en un en reales, no,
+
+363
+00:19:33.470 --> 00:19:35.650
+yo lo que hago es en tiempo uno
+
+364
+00:19:38.780 --> 00:19:41.200
+lo mostré con una normal que es
+
+365
+00:19:42.310 --> 00:19:43.960
+ahí de uno menos veta por este valor.
+
+366
+00:19:44.060 --> 00:19:45.680
+Lo que significa es que es muy probable que el valor,
+
+367
+00:19:46.300 --> 00:19:49.360
+si vete de cero chiquito raíz de algo muy chiquito,
+
+368
+00:19:49.820 --> 00:19:52.080
+me mantenga esta media se entiende.
+
+369
+00:19:53.320 --> 00:19:55.680
+Entonces yo lo que digo es algo así es el qui cero
+
+370
+00:19:56.380 --> 00:20:00.750
+es si igual sí, te qui uno, adelante, es igual.
+
+371
+00:20:01.180 --> 00:20:02.990
+Todo bien, buena noches.
+
+372
+00:20:03.100 --> 00:20:04.790
+Tres aita, dale
+
+373
+00:20:07.490 --> 00:20:08.600
+dutra FR.
+
+374
+00:20:10.150 --> 00:20:14.100
+Prof. González guerrero a aquí.
+
+375
+00:20:15.200 --> 00:20:17.990
+Lares López. Jim, magnífico.
+
+376
+00:20:18.960 --> 00:20:23.340
+Mende mucio oliva. Paz acá.
+
+377
+00:20:25.370 --> 00:20:27.620
+Repo pria Rodríguez
+
+378
+00:20:29.460 --> 00:20:31.730
+tamco sanetti a gracias.
+
+379
+00:20:32.150 --> 00:20:36.950
+Le asumiendo que mi dato
+
+380
+00:20:36.950 --> 00:20:38.430
+es un único dato.
+
+381
+00:20:39.030 --> 00:20:40.910
+O sea mi mi, mi imagen tiene un solo pixel.
+
+382
+00:20:41.250 --> 00:20:43.950
+Yo digo, che, eres que CEO es el valor cinco.
+
+383
+00:20:44.200 --> 00:20:45.590
+Está pensando en pi en pixel.
+
+384
+00:20:45.590 --> 00:20:48.640
+Es este que los estamos mandando un espacio reales de
+
+385
+00:20:48.640 --> 00:20:52.720
+negativo posi ah, para no entrar en que es el fixel vale, de
+
+386
+00:20:53.360 --> 00:20:54.680
+y donde les pongo la media
+
+387
+00:20:55.430 --> 00:20:57.640
+para no caer en eso y discutir con fan reales
+
+388
+00:20:58.180 --> 00:21:00.240
+en un dato quiero, quiero hacer el proceso
+
+389
+00:21:00.260 --> 00:21:01.440
+de Fort worth de future de un real.
+
+390
+00:21:01.860 --> 00:21:03.360
+Sí, mi imagen, mi imagen,
+
+391
+00:21:03.380 --> 00:21:06.120
+mi dato que estoy haciendo el forward worth diffusion es un
+
+392
+00:21:06.120 --> 00:21:07.720
+real, es inspector de un único real.
+
+393
+00:21:08.380 --> 00:21:10.520
+En mi caso es menos cinco. El primer elemento número cinco.
+
+394
+00:21:10.580 --> 00:21:12.560
+El siguiente elemento, lo mostré de acuerdo.
+
+395
+00:21:12.560 --> 00:21:15.330
+En normal con eh media
+
+396
+00:21:18.930 --> 00:21:22.080
+Menos cinco multiplicado por algo que lo escala sí,
+
+397
+00:21:22.260 --> 00:21:24.320
+que esto es lo que está buscando achicarlo depende de cuánto
+
+398
+00:21:24.330 --> 00:21:25.560
+valga beta que está chiquita.
+
+399
+00:21:25.600 --> 00:21:30.350
+Me acá la media esta y de misión estándar veta uno
+
+400
+00:21:31.210 --> 00:21:33.150
+que cuanto más chiquito beta, menos cambia.
+
+401
+00:21:33.270 --> 00:21:34.670
+Entonces, probablemente lo que me haga esto
+
+402
+00:21:35.210 --> 00:21:38.160
+es, me lo mueva para acá.
+
+403
+00:21:39.410 --> 00:21:41.870
+Sí. Porque yo meré me da menos cuatro,
+
+404
+00:21:42.000 --> 00:21:43.350
+cinco más que me lo aprendí.
+
+405
+00:21:43.370 --> 00:21:48.290
+Por qué que quise pero del menos por menos sin.
+
+406
+00:21:48.870 --> 00:21:51.130
+Ah, tal gracias. El el cinco.
+
+407
+00:21:51.670 --> 00:21:55.490
+El siguiente paso x uno, qué va a hacer, hermano?
+
+408
+00:21:56.310 --> 00:21:57.930
+Lo cual nada más decir el x dos,
+
+409
+00:21:57.930 --> 00:22:00.370
+cómo se va a mostrar de acuerdo a una normal
+
+410
+00:22:01.550 --> 00:22:04.170
+de hecho raí de uno menos vetados
+
+411
+00:22:06.710 --> 00:22:07.730
+por menos, eh?
+
+412
+00:22:08.060 --> 00:22:12.250
+Menos como más veta dos.
+
+413
+00:22:12.350 --> 00:22:14.730
+Yo asumo que estos valores veta uno vados, etcétera.
+
+414
+00:22:15.070 --> 00:22:17.450
+Tan prefinidos son fijos, no son entrenados, okey.
+
+415
+00:22:17.920 --> 00:22:20.530
+Existen propuestas donde esos se entrenan, etcétera.
+
+416
+00:22:20.790 --> 00:22:22.930
+Lo que vamos a asumir acá es que están dados eso.
+
+417
+00:22:23.470 --> 00:22:24.770
+Eso es que de aprend un prepar.
+
+418
+00:22:25.030 --> 00:22:28.730
+Con qué pasa mure, por ejemplo, eso me da te de dos.
+
+419
+00:22:30.710 --> 00:22:35.660
+No sé, me lo corre para acá. Menos 0.6.
+
+420
+00:22:36.200 --> 00:22:38.980
+Sí. Cuál es de idea de idea que esto,
+
+421
+00:22:43.370 --> 00:22:48.230
+Eh, t igual est esté muy cerca de
+
+422
+00:22:48.770 --> 00:22:51.750
+sí, lo vamos ser del valor cero.
+
+423
+00:22:53.340 --> 00:22:56.080
+Sí, te la idea es que yo voy a tener muchos datos
+
+424
+00:22:57.080 --> 00:23:00.940
+que lo que van a ir haciendo es ir acercándose al cero.
+
+425
+00:23:01.660 --> 00:23:04.010
+Y yo después voy a entrenar un modelo
+
+426
+00:23:04.960 --> 00:23:09.220
+que he dado estos datos y estos pasos aprenda a predecir,
+
+427
+00:23:09.570 --> 00:23:13.020
+dado ruido, se ha dado un valor mostrado de por acá,
+
+428
+00:23:13.440 --> 00:23:16.740
+de por acá cerca, mostrado con una gaussa por acá cerca.
+
+429
+00:23:17.570 --> 00:23:22.170
+Aprenda a deshacer estos caminos a caer por ahí,
+
+430
+00:23:22.710 --> 00:23:24.250
+sea si aprende bien a deshacer estos
+
+431
+00:23:24.250 --> 00:23:25.970
+caminos para cada pixel.
+
+432
+00:23:26.010 --> 00:23:29.530
+Y digamos lo que termino es tener decir proceso de dirección
+
+433
+00:23:29.600 --> 00:23:33.970
+reversa y se entiende que esos datos van a estar este en la
+
+434
+00:23:34.130 --> 00:23:35.770
+distribución original de pea.
+
+435
+00:23:36.290 --> 00:23:39.610
+O sea, debería que yo voy a tener un pepita, un modelo, no
+
+436
+00:23:40.190 --> 00:23:44.250
+una destrucción para métrica que aproxime muy bien.
+
+437
+00:23:44.770 --> 00:23:47.660
+P data. Sí.
+
+438
+00:23:48.380 --> 00:23:51.340
+Y lo hago a través de elevar ped data a un latente
+
+439
+00:23:52.300 --> 00:23:54.100
+a través de la generación de ruido y
+
+440
+00:23:54.100 --> 00:23:55.380
+aprender a sacar ese ruido.
+
+441
+00:23:56.370 --> 00:23:57.700
+Pero si quiera estar muy
+
+442
+00:23:58.230 --> 00:24:02.140
+mujer sólo de latente
+
+443
+00:24:02.730 --> 00:24:03.730
+Pega. Sí, eso
+
+444
+00:24:03.730 --> 00:24:05.820
+de decir por 10, lo voy a claro.
+
+445
+00:24:06.480 --> 00:24:09.980
+Unctor de 10 por líder cuando p va a hacer valores,
+
+446
+00:24:11.000 --> 00:24:14.070
+el cero de normal cero según uno.
+
+447
+00:24:14.290 --> 00:24:17.350
+Sí, para todos los ples y ahí se lo paso
+
+448
+00:24:17.370 --> 00:24:18.950
+al modelo generador. Y ahí me
+
+449
+00:24:18.950 --> 00:24:20.110
+Va gener y le voy siendo pasos.
+
+450
+00:24:20.370 --> 00:24:22.270
+Yo decir, che, das un paso porque le de
+
+451
+00:24:22.270 --> 00:24:23.310
+el modelo voy aprender esto.
+
+452
+00:24:23.530 --> 00:24:26.510
+Te mulo en realidad de aprender la probabilidad de
+
+453
+00:24:27.260 --> 00:24:29.150
+llam unle x t
+
+454
+00:24:30.240 --> 00:24:32.910
+menos uno condicionado con xt,
+
+455
+00:24:34.440 --> 00:24:35.650
+dado algo ruidoso.
+
+456
+00:24:36.000 --> 00:24:38.610
+Aprende a generar el pasito anterior del ruido.
+
+457
+00:24:40.160 --> 00:24:42.560
+Entonces yo paso de, yo empiezo,
+
+458
+00:24:42.560 --> 00:24:45.120
+le genero el xt, generó el ruido de ruido.
+
+459
+00:24:45.500 --> 00:24:46.520
+Se lo doy con un par.
+
+460
+00:24:46.920 --> 00:24:49.860
+Y el modelo me genera algo un poquito menos ruido,
+
+461
+00:24:50.090 --> 00:24:51.500
+algo un menos ruido decir.
+
+462
+00:24:51.500 --> 00:24:53.700
+Le doy por eso también demoran los
+
+463
+00:24:53.700 --> 00:24:55.020
+muchos de estos modelos en general.
+
+464
+00:24:56.660 --> 00:24:58.300
+O sea que voy a entregar futur un único modelo.
+
+465
+00:24:58.800 --> 00:25:02.280
+Sí, sí, sí. Y sea.
+
+466
+00:25:03.800 --> 00:25:05.920
+Y lo que también se da hecho estos modelo, qué?
+
+467
+00:25:05.920 --> 00:25:07.600
+Qué es lo que se les da? O sea,
+
+468
+00:25:07.860 --> 00:25:09.720
+pepita de esto también se le da,
+
+469
+00:25:10.180 --> 00:25:12.200
+se le dicen en qué tiempo estoy así.
+
+470
+00:25:12.200 --> 00:25:14.880
+No tengo que tener un modelo para cada par de tiempos,
+
+471
+00:25:15.960 --> 00:25:18.380
+porque si no, por tu un modelo para el tiempo y para el
+
+472
+00:25:18.380 --> 00:25:20.740
+tiempo, me explico lo que hago es decirle che,
+
+473
+00:25:21.930 --> 00:25:24.620
+este es el tiempo, ten, este es el tiempo anterior
+
+474
+00:25:25.700 --> 00:25:27.420
+y este es el té.
+
+475
+00:25:27.940 --> 00:25:31.920
+También se le da, si me vos, tendrías que tener para
+
+476
+00:25:32.430 --> 00:25:34.040
+para cada uno de estos pasitos
+
+477
+00:25:34.040 --> 00:25:35.240
+de predicción, uno de distinto.
+
+478
+00:25:35.820 --> 00:25:37.120
+Ah, eso claro,
+
+479
+00:25:37.460 --> 00:25:38.460
+Por apart de cada uno. Estos pasitos
+
+480
+00:25:38.460 --> 00:25:39.880
+de predicción en realidad en el ruido
+
+481
+00:25:40.160 --> 00:25:41.960
+distinto, porque sabemos que tenemos un qué interrumpido
+
+482
+00:25:42.120 --> 00:25:43.680
+distinto porque cada veta cambia con tiempo.
+
+483
+00:25:44.840 --> 00:25:47.200
+Entonces, en vez de tener distintos modelos para cada paso,
+
+484
+00:25:47.380 --> 00:25:48.760
+una cosa que se hace muy comune es
+
+485
+00:25:49.180 --> 00:25:50.280
+se le dan en qué tiempo está?
+
+486
+00:25:51.450 --> 00:25:54.350
+Es como condicionar el modelo para los que ya se animaron
+
+487
+00:25:54.350 --> 00:25:57.510
+una mejor condición a gas en vez de tener una gana para los
+
+488
+00:25:57.520 --> 00:26:00.270
+celos, una gan para los uno, una gang para los dos para
+
+489
+00:26:01.010 --> 00:26:03.990
+lo con que la gana nos da no puede tener recintos números,
+
+490
+00:26:03.990 --> 00:26:06.390
+por ejemplo, las condiciones a proponen d,
+
+491
+00:26:06.610 --> 00:26:09.430
+una información extra que es la clase que quiero devolver.
+
+492
+00:26:09.430 --> 00:26:12.270
+Bueno, acá podemos pasar que la la condición estaba de aport
+
+493
+00:26:12.810 --> 00:26:16.750
+el time step que yo quiero este claro, estimando por ahora.
+
+494
+00:26:16.750 --> 00:26:18.030
+Ahora vamos a avanzar un poquito más.
+
+495
+00:26:18.030 --> 00:26:19.070
+Y esto también, pa, quedar más claro.
+
+496
+00:26:19.810 --> 00:26:21.140
+Pero la idea generales a
+
+497
+00:26:21.920 --> 00:26:24.620
+mi mo mis datos de entrenamiento pasan a hacer no solo mis
+
+498
+00:26:24.620 --> 00:26:27.060
+datos, sino mis datos y el ruido.
+
+499
+00:26:27.660 --> 00:26:30.620
+Entonces, mis datos de entrenamiento para pasan a ser fares
+
+500
+00:26:31.240 --> 00:26:34.580
+yo puedo generar o sea, en mi vida, yo tengo un dato
+
+501
+00:26:35.280 --> 00:26:39.420
+yo tengo un xo y yo puedo con ruido, sea gracias a nunca.
+
+502
+00:26:39.540 --> 00:26:40.820
+Y puedo Gerar x uno.
+
+503
+00:26:41.460 --> 00:26:44.200
+Entonces después agarro y entre en un modelo que dado que es
+
+504
+00:26:44.200 --> 00:26:48.640
+uno me predice qui ser O sea,
+
+505
+00:26:48.640 --> 00:26:50.280
+yo tengo un un modelo que me da un
+
+506
+00:26:50.900 --> 00:26:53.280
+qui cero techo y yo lo comparo con 15
+
+507
+00:26:57.390 --> 00:27:00.460
+hacer cada pasito claro e qui cero techo
+
+508
+00:27:01.200 --> 00:27:06.060
+es igual en realidad a eh, ampliar
+
+509
+00:27:07.240 --> 00:27:09.660
+sí es si igual una una función
+
+510
+00:27:10.360 --> 00:27:14.260
+que es amplia de mi pepita, yo puedo, o sea,
+
+511
+00:27:14.260 --> 00:27:15.900
+tengo una distribución aprendida,
+
+512
+00:27:16.480 --> 00:27:17.900
+eso me mejora un dato y yo lo puedo
+
+513
+00:27:17.900 --> 00:27:19.260
+comparar contra la realidad.
+
+514
+00:27:28.550 --> 00:27:29.610
+Haz tengo decir
+
+515
+00:27:35.980 --> 00:27:36.850
+dudas, consultas
+
+516
+00:27:56.340 --> 00:27:59.150
+Esto, esto que con yo digo cero y no me refiero los tiempos
+
+517
+00:27:59.150 --> 00:28:01.430
+no a este es el dato en el tiempo cero.
+
+518
+00:28:01.430 --> 00:28:03.870
+Y es el dato en el tiempo, el mismo dato, pero con más cu
+
+519
+00:28:05.080 --> 00:28:07.140
+lo nuestro problema de aprendizaje no pasa no,
+
+520
+00:28:07.140 --> 00:28:09.180
+no pasa por generar un dato, sino por
+
+521
+00:28:10.930 --> 00:28:13.090
+predecir cómo era el dato de que se le ha agreg la ruido.
+
+522
+00:28:15.090 --> 00:28:17.660
+Pero después como no, nuestra hipó sin generación que el
+
+523
+00:28:17.660 --> 00:28:20.820
+latente es el dato pero con mucho ruido, yo voy
+
+524
+00:28:21.990 --> 00:28:24.210
+en distintas etapas pasando por mi monito el
+
+525
+00:28:24.210 --> 00:28:25.530
+modelo lo que me vas haciendo, sacando ruido.
+
+526
+00:28:25.660 --> 00:28:27.810
+Ellos están esto que que era el dato sí,
+
+527
+00:28:27.940 --> 00:28:29.970
+favor buscar algún be online tiene que haber
+
+528
+00:28:29.970 --> 00:28:31.130
+algún gift que nos muestra ese proceso.
+
+529
+00:28:31.590 --> 00:28:35.270
+Quizá ayudes a ver,
+
+530
+00:28:57.140 --> 00:28:58.530
+miren, acá hay un dibujito con más
+
+531
+00:28:59.350 --> 00:29:00.650
+con un baito capaz que ayuda
+
+532
+00:29:01.430 --> 00:29:03.410
+es el forward process pasa de cero.
+
+533
+00:29:04.510 --> 00:29:08.570
+Bueno, de que esté no importa aquí, est este mayúscula,
+
+534
+00:29:10.350 --> 00:29:11.400
+acá es cuando hay mucho ruido.
+
+535
+00:29:11.560 --> 00:29:13.160
+Y pues hace atrás, claro.
+
+536
+00:29:16.780 --> 00:29:19.110
+Acá están más con la notación que tenemos, eh?
+
+537
+00:29:19.290 --> 00:29:23.680
+Qui, cero, ruido, ruido. Hasta aquí está mayúscula.
+
+538
+00:29:24.400 --> 00:29:26.410
+Y vimos vimos que miren cool.
+
+539
+00:29:26.410 --> 00:29:29.250
+Le llamamos a agregar ruido, no un país fácil.
+
+540
+00:29:29.910 --> 00:29:31.810
+Pepita al que predice como estaba
+
+541
+00:29:32.430 --> 00:29:34.290
+el elemento antes de el ruido.
+
+542
+00:29:35.250 --> 00:29:38.190
+Sí. Cuando está yo,
+
+543
+00:29:38.360 --> 00:29:40.790
+cómo no se crearía pero dos ruidos
+
+544
+00:29:40.890 --> 00:29:44.480
+No ruido que los ruido tiene
+
+545
+00:29:45.190 --> 00:29:46.360
+este hecho es el techo
+
+546
+00:29:46.630 --> 00:29:48.720
+Como cómo no, para como que des parecido
+
+547
+00:29:50.070 --> 00:29:54.470
+No esa posición, digamos, o sea para o para un lado,
+
+548
+00:29:55.390 --> 00:29:58.750
+o sea, o tres o ten un ruido acá, no?
+
+549
+00:29:58.870 --> 00:30:03.850
+O sea, ya sí, papá gener ruido vez. Sí.
+
+550
+00:30:04.280 --> 00:30:09.210
+Pues, o sea para el memento que vos, digamos CE,
+
+551
+00:30:09.210 --> 00:30:10.250
+lo hecho, lo tenés ahí.
+
+552
+00:30:11.270 --> 00:30:13.360
+Para qué? No? Acá hay techos ojo muy ejemplo,
+
+553
+00:30:13.360 --> 00:30:14.560
+no, acá hay techos acá.
+
+554
+00:30:14.560 --> 00:30:17.920
+En realidad no se está sa. Ah, sí,
+
+555
+00:30:19.560 --> 00:30:20.560
+Ese cero. El techo
+
+556
+00:30:20.560 --> 00:30:24.990
+para, para pasa la más que con ruido.
+
+557
+00:30:28.930 --> 00:30:31.870
+No, no cuides error. En realidad. Lo que a tener claro,
+
+558
+00:30:32.320 --> 00:30:33.430
+Claro, quiera que
+
+559
+00:30:33.810 --> 00:30:35.910
+Lo que cree es minimizar o sea, poco, o sea,
+
+560
+00:30:35.910 --> 00:30:40.570
+tu objetivo es que cuando yo hago el mostre hace atrás
+
+561
+00:30:41.200 --> 00:30:44.050
+este dato final, en realidad a decir idéntico,
+
+562
+00:30:44.150 --> 00:30:46.770
+si vive idéntico justamente como vos,
+
+563
+00:30:46.790 --> 00:30:48.930
+no vas a poder hacerlo porque te es una cierta pérdida.
+
+564
+00:30:48.930 --> 00:30:51.290
+Ahí es donde empieza como tratarse ale autoridad
+
+565
+00:30:51.710 --> 00:30:52.810
+vos nos most
+
+566
+00:30:53.640 --> 00:30:58.410
+Pasa en el paso intermedio qui no pasa a intermedio.
+
+567
+00:30:59.310 --> 00:31:02.570
+El vas a, sí, tiene cu,
+
+568
+00:31:02.720 --> 00:31:04.850
+Siempre tiene o sea, vos todo en todo lo paso que
+
+569
+00:31:05.870 --> 00:31:07.450
+que vos paso a paso le va sacando
+
+570
+00:31:07.890 --> 00:31:09.360
+totalmente. Llegas a mi imagen
+
+571
+00:31:09.770 --> 00:31:11.400
+Tener en un punto, tenemos que utilizar
+
+572
+00:31:11.400 --> 00:31:12.400
+Esto. Sí.
+
+573
+00:31:12.400 --> 00:31:15.120
+O porque justamente estos puntos de atrás es lo que
+
+574
+00:31:15.120 --> 00:31:17.920
+entren pa y compar y vos vivo lo que tu tu grado,
+
+575
+00:31:17.920 --> 00:31:21.190
+tu no va hacer el dato antes bien,
+
+576
+00:31:21.770 --> 00:31:22.910
+con es ruido en ese
+
+577
+00:31:22.910 --> 00:31:26.780
+error para el programa.
+
+578
+00:31:27.950 --> 00:31:29.940
+Claro. Y ese aprendizaje de sacar el
+
+579
+00:31:29.940 --> 00:31:31.100
+ruido es tiene un error.
+
+580
+00:31:31.350 --> 00:31:33.660
+Claro. Porque lo compara contra la imagen real
+
+581
+00:31:33.660 --> 00:31:34.740
+porque lo comparas imagen, imagen en real.
+
+582
+00:31:34.740 --> 00:31:35.740
+Exactamente
+
+583
+00:31:36.950 --> 00:31:39.300
+Cómo tu función
+
+584
+00:31:39.300 --> 00:31:42.940
+De perdida fue por claro, claro, claro, claro. O sea,
+
+585
+00:31:43.480 --> 00:31:44.860
+Tu los tu los
+
+586
+00:31:46.800 --> 00:31:48.860
+Va a estar entre el qui cero, de hecho.
+
+587
+00:31:49.140 --> 00:31:50.980
+Y el qui cero real y el qui real, claro,
+
+588
+00:31:51.730 --> 00:31:54.180
+pasa el de qui cero real es el equi de hecho,
+
+589
+00:31:54.180 --> 00:31:59.080
+por es una función que depende de obviamente de x,
+
+590
+00:32:00.060 --> 00:32:05.050
+eh, uno y de un o, o sea,
+
+591
+00:32:05.050 --> 00:32:06.290
+y del tiempo en realidad, o sea,
+
+592
+00:32:06.290 --> 00:32:09.220
+el tipo puedo hacer uno caso y de obviamente
+
+593
+00:32:09.530 --> 00:32:10.700
+tita para otros entrenados.
+
+594
+00:32:11.360 --> 00:32:13.820
+Sí. Pero esto lo vamos a por deriva.
+
+595
+00:32:14.280 --> 00:32:15.620
+La idea va a ser que nos vamos a tener
+
+596
+00:32:17.630 --> 00:32:19.710
+a entrar muchos pasos a la vez.
+
+597
+00:32:20.010 --> 00:32:21.030
+Porque qué pasa ahí?
+
+598
+00:32:21.030 --> 00:32:24.670
+Una cosa super interesante y que esto se su marco viano yo,
+
+599
+00:32:24.670 --> 00:32:27.310
+cuando agrego ruido, el ruido sólo depende
+
+600
+00:32:28.540 --> 00:32:30.640
+de lo que valía mi datos el tiempo anterior.
+
+601
+00:32:32.290 --> 00:32:36.530
+Entonces, yo puedo pensar que entrenar la predicción de
+
+602
+00:32:36.850 --> 00:32:39.720
+predecir hacia atrás este pasito y la preción
+
+603
+00:32:40.420 --> 00:32:41.440
+si atrás este pasito.
+
+604
+00:32:41.440 --> 00:32:42.800
+No, no, no están relacionadas.
+
+605
+00:32:44.290 --> 00:32:46.450
+Entonces, cualquiera dos puntos del camino
+
+606
+00:32:47.470 --> 00:32:49.210
+me sirven como dato para entrenamiento.
+
+607
+00:32:50.310 --> 00:32:53.890
+Son independientes, es que vienen también de eficiencia de
+
+608
+00:32:53.890 --> 00:32:55.970
+la otra porquería toda claro.
+
+609
+00:32:56.100 --> 00:32:58.930
+Claro. Porque no que ningún proceso de difusión y me
+
+610
+00:32:58.930 --> 00:33:02.330
+interesa tipo, eh, ir sacándole ya a lo que le saqué no, no,
+
+611
+00:33:02.330 --> 00:33:06.810
+no es, eh, cómo se dice digo, Juan shot, o sea,
+
+612
+00:33:08.950 --> 00:33:11.290
+ya es una unidad de de análisis y de entrenamiento.
+
+613
+00:33:11.910 --> 00:33:16.850
+Wow, okey, unido es unidades. Claro, claro.
+
+614
+00:33:17.010 --> 00:33:19.170
+Entonces es una que generaste la tira que generaste ga ti lo
+
+615
+00:33:19.170 --> 00:33:22.810
+llenaste de ruido todo par de de pasos contiguos
+
+616
+00:33:23.590 --> 00:33:25.330
+son este elementos entrenados.
+
+617
+00:33:26.010 --> 00:33:27.730
+Y después hasta llegue otras propiedades interesantes
+
+618
+00:33:27.730 --> 00:33:30.650
+también, como por ejemplo, que vos podés también, eh,
+
+619
+00:33:31.710 --> 00:33:34.930
+llegar del del dato a cualquier tipo
+
+620
+00:33:34.960 --> 00:33:36.450
+mostrar del ruido en n pasos.
+
+621
+00:33:36.670 --> 00:33:38.810
+Porque esta, eh,
+
+622
+00:33:38.810 --> 00:33:40.850
+la composición de normales es una normal también.
+
+623
+00:33:41.610 --> 00:33:43.130
+Entonces, vos, por ejemplo, decir ta tengo
+
+624
+00:33:43.860 --> 00:33:45.410
+menos cuánto vale?
+
+625
+00:33:46.570 --> 00:33:50.330
+Y hay una función que depende de 30 y depende de el valor
+
+626
+00:33:50.440 --> 00:33:54.310
+inicial y de tu régimen de y de tus
+
+627
+00:33:54.330 --> 00:33:57.190
+to veta todo vos es como también en un paso general ruido.
+
+628
+00:33:57.630 --> 00:34:00.590
+Y eso también se aprovecha en muchos trabajos donde yo no
+
+629
+00:34:00.590 --> 00:34:01.990
+quiero capaz que todo lo pas todo ruido,
+
+630
+00:34:01.990 --> 00:34:04.270
+sino no quiero directamente el ruido del paso 30
+
+631
+00:34:04.980 --> 00:34:06.710
+para el para el fútbol y flu no
+
+632
+00:34:09.900 --> 00:34:10.990
+similar también.
+
+633
+00:34:11.140 --> 00:34:12.790
+Pero ahí no tenés que tu un modelo
+
+634
+00:34:13.610 --> 00:34:16.590
+una tap si texto un modelo que tengo ninguna,
+
+635
+00:34:16.590 --> 00:34:19.980
+esas dos variables por no, no entremos.
+
+636
+00:34:20.170 --> 00:34:21.220
+Qué modo con esta hora?
+
+637
+00:34:21.220 --> 00:34:22.540
+Creo que que logramos bastante entendimiento.
+
+638
+00:34:23.730 --> 00:34:27.900
+Día puada modelo claro. El niño punto se muero exactamente.
+
+639
+00:34:29.020 --> 00:34:32.960
+Dos hacer siempre de x cero, por que techo que uno si.
+
+640
+00:34:32.980 --> 00:34:37.520
+Sí, la los la loses es una suma de cades en en cada pasito.
+
+641
+00:34:37.690 --> 00:34:39.640
+Ahora entramos en la los vamos a ir a fondo.
+
+642
+00:34:39.700 --> 00:34:41.880
+La dos es un día la derivación.
+
+643
+00:34:42.140 --> 00:34:46.720
+Les voy a referir los papers nos accede a la clase y y no
+
+644
+00:34:46.950 --> 00:34:48.760
+vent uno, dos.
+
+645
+00:34:50.240 --> 00:34:52.030
+Estos son son valores, o sea,
+
+646
+00:34:52.070 --> 00:34:54.510
+y nosotros tuvo que pensar que este dónde salen eso
+
+647
+00:34:55.570 --> 00:34:57.510
+son experimentales, son hiper parámetros.
+
+648
+00:34:57.510 --> 00:34:59.310
+Ahora vamos a salir de paper. Pero algunos paper
+
+649
+00:34:59.690 --> 00:35:00.910
+che prob vamos a seguir cambiando.
+
+650
+00:35:00.910 --> 00:35:02.830
+Loco, cuadrática. Probamos ir tal cosa.
+
+651
+00:35:02.830 --> 00:35:05.270
+Hay otro paper que te dice che, los entrenamos,
+
+652
+00:35:05.820 --> 00:35:07.550
+pero después el día vos puede pensar que de arrancas
+
+653
+00:35:07.550 --> 00:35:08.750
+no sé meta.
+
+654
+00:35:08.750 --> 00:35:13.350
+Cero venado veta uno bastante veta, eh?
+
+655
+00:35:14.790 --> 00:35:17.250
+Ten uno. No que no necesit necesitas el el último, no,
+
+656
+00:35:18.460 --> 00:35:20.670
+este y esto te viene he dado pero podrías pensar que es
+
+657
+00:35:20.670 --> 00:35:21.750
+una función te arranca.
+
+658
+00:35:21.750 --> 00:35:26.390
+No sé, arranca en cero y le va sumando o no sé, eh,
+
+659
+00:35:27.170 --> 00:35:32.100
+uno sobre ten y eso es el lineal uno es que lineal.
+
+660
+00:35:32.570 --> 00:35:35.590
+Pues no es que cuadrático usted no?
+
+661
+00:35:35.750 --> 00:35:37.880
+O sea, eso es como vos te definas.
+
+662
+00:35:37.880 --> 00:35:39.400
+Puedo decir mirar a pipeta, arranca.
+
+663
+00:35:41.030 --> 00:35:43.380
+Tengo cero, tengo,
+
+664
+00:35:43.920 --> 00:35:46.190
+eh, uno.
+
+665
+00:35:46.910 --> 00:35:49.510
+Y tengo té pasos, no?
+
+666
+00:35:50.120 --> 00:35:52.590
+Cómo vos quieras llegar acá si querés hacer así,
+
+667
+00:35:52.970 --> 00:35:57.890
+si querés hacer así, si querés hacer así ahí
+
+668
+00:35:58.510 --> 00:36:02.600
+tenés este experimentación para hacer
+
+669
+00:36:03.570 --> 00:36:07.890
+cómo ques ir haciendo tú este tu ve
+
+670
+00:36:11.690 --> 00:36:13.230
+De hecho eso hay gente que dice ah,
+
+671
+00:36:13.230 --> 00:36:15.670
+podemos entrenarlo como todo, otro modelo y bueno,
+
+672
+00:36:16.170 --> 00:36:17.790
+de vuelta, te vieron cómo es esta área que es muy
+
+673
+00:36:17.790 --> 00:36:20.870
+experimental y que todo numerito loco es gente que se le
+
+674
+00:36:20.870 --> 00:36:21.990
+ocurre entrenarlo y ajustado.
+
+675
+00:36:22.070 --> 00:36:24.470
+Y a veces si hago los resultados, sí,
+
+676
+00:36:24.860 --> 00:36:26.670
+qué es lo que les digo que demos lo con que le de
+
+677
+00:36:26.670 --> 00:36:27.910
+inicial no, no lo tocaba.
+
+678
+00:36:28.490 --> 00:36:31.510
+Nos proponía si, digamos a usar no sé, t igual a 1000.
+
+679
+00:36:31.640 --> 00:36:33.510
+Bueno, una una aproximación lineal
+
+680
+00:36:34.070 --> 00:36:38.710
+y cada o sea una una pro una que en cada beta es un
+
+681
+00:36:40.350 --> 00:36:41.450
+del tta el pan anterior.
+
+682
+00:36:44.640 --> 00:36:47.580
+Miren a ver, eh,
+
+683
+00:36:47.920 --> 00:36:49.740
+de cuántos pasos estamos hablando aquí?
+
+684
+00:36:49.920 --> 00:36:51.980
+Hay poder de, depende del caso.
+
+685
+00:36:52.150 --> 00:36:55.300
+Miren, vamos a con estos
+
+686
+00:36:58.240 --> 00:37:00.180
+por se, depende también el el el el,
+
+687
+00:37:00.180 --> 00:37:02.760
+la naturaleza o los datos, eh?
+
+688
+00:37:02.850 --> 00:37:06.360
+Bueno, este es el va no va de té grande a celos.
+
+689
+00:37:06.360 --> 00:37:09.520
+Pasa de ruido a el
+
+690
+00:37:09.520 --> 00:37:11.400
+fi, eh?
+
+691
+00:37:12.690 --> 00:37:13.040
+Está.
+
+692
+00:37:23.950 --> 00:37:27.050
+Sí, por eso está diverti
+
+693
+00:37:32.180 --> 00:37:32.470
+mira
+
+694
+00:37:38.290 --> 00:37:40.500
+acá en este paper que es uno de los de referencia
+
+695
+00:37:40.680 --> 00:37:41.820
+se propone en t 1000.
+
+696
+00:37:43.120 --> 00:37:47.650
+Eligen el schedule de constante linear y cuadrático.
+
+697
+00:37:48.410 --> 00:37:52.050
+O sea, veta podrían ni siquiera llegar a uno.
+
+698
+00:37:52.130 --> 00:37:54.410
+O sea, ni siquiera podría cambiar podría ser dejado fijo
+
+699
+00:37:54.610 --> 00:37:55.650
+a largo, todo el entrenamiento.
+
+700
+00:37:56.510 --> 00:38:00.450
+Le des que obviamente el el último, si se acerca a cero,
+
+701
+00:38:01.540 --> 00:38:06.460
+o sea la la la la, como es la media de del
+
+702
+00:38:07.240 --> 00:38:11.420
+la norma de la oceana de de tiempo t tenga este media cero,
+
+703
+00:38:12.050 --> 00:38:15.820
+pero se proponen linear constante y cuadrático
+
+704
+00:38:17.470 --> 00:38:22.430
+y eligieron linear Con bta uno 10 al menos
+
+705
+00:38:22.430 --> 00:38:24.190
+cuatro y terminar en cero.
+
+706
+00:38:24.370 --> 00:38:24.590
+Dos.
+
+707
+00:38:33.270 --> 00:38:37.430
+Por qué experimentación
+
+708
+00:38:38.660 --> 00:38:41.750
+qué ya lo han visto en otros trabajos acá hay un tema muy
+
+709
+00:38:41.750 --> 00:38:43.870
+muy que te pareció fáctico que este po che.
+
+710
+00:38:43.870 --> 00:38:46.110
+Probamos estas opciones y esta fuera que no mejor nos
+
+711
+00:38:46.110 --> 00:38:48.490
+dio, eh, este
+
+712
+00:38:48.620 --> 00:38:52.970
+Lleva la si.
+
+713
+00:38:53.610 --> 00:38:55.130
+Y sí, por pensa que el veta ese que
+
+714
+00:38:55.130 --> 00:38:57.490
+multiplicando la norma de un valor.
+
+715
+00:38:57.810 --> 00:39:01.210
+Entonces, vos vas cada vez multiplicando un número chico por
+
+716
+00:39:01.240 --> 00:39:03.210
+algo que tiende a cero,
+
+717
+00:39:03.590 --> 00:39:04.590
+Eh? Es muy parecido.
+
+718
+00:39:04.590 --> 00:39:07.290
+Es una ahí nombre.
+
+719
+00:39:07.910 --> 00:39:11.540
+Sí, muy, muy chiquito.
+
+720
+00:39:12.480 --> 00:39:14.220
+Es muy chiquito al final, pero en 1000 pasos,
+
+721
+00:39:14.940 --> 00:39:18.180
+O sea, el el último incluso es una dos.
+
+722
+00:39:18.220 --> 00:39:19.980
+O sea ser país de ser ao.
+
+723
+00:39:20.900 --> 00:39:22.180
+Y cuánto te reaccionado? De hecho,
+
+724
+00:39:23.520 --> 00:39:26.540
+El ser se Por el anterior.
+
+725
+00:39:27.990 --> 00:39:30.210
+Sí. Y eso modificado por el
+
+726
+00:39:31.930 --> 00:39:33.510
+Por el por el dato en sí.
+
+727
+00:39:34.690 --> 00:39:36.960
+Ellos dicen que que la que la media de cero
+
+728
+00:39:38.040 --> 00:39:40.630
+capaz que tiene que dar no sé, confiamos en que sí
+
+729
+00:39:41.550 --> 00:39:43.430
+a verificar a abrigar entiendo que sí.
+
+730
+00:39:44.220 --> 00:39:47.390
+Este el trabajo se llama the no pro models.
+
+731
+00:39:49.100 --> 00:39:51.180
+Y es como, bueno, uno es que reí un poco
+
+732
+00:39:52.620 --> 00:39:54.880
+el tema de de discusión y lo presenta bastante bien.
+
+733
+00:39:55.140 --> 00:39:57.470
+Sí, de no es el original.
+
+734
+00:39:57.550 --> 00:39:59.430
+O sea, no es el el paper como más
+
+735
+00:40:00.050 --> 00:40:02.670
+que propone el el tema el de entrenamiento de esto es uno
+
+736
+00:40:04.280 --> 00:40:08.310
+está refrenado todo acá en el en el el material.
+
+737
+00:40:10.570 --> 00:40:13.560
+Ya no dicen les digo
+
+738
+00:40:15.250 --> 00:40:20.240
+anal biografía, si no, ese es este no este el de weis
+
+739
+00:40:28.070 --> 00:40:28.930
+que son físicos?
+
+740
+00:40:28.930 --> 00:40:29.050
+No?
+
+741
+00:40:35.090 --> 00:40:36.090
+Cómo
+
+742
+00:40:36.460 --> 00:40:37.520
+Uno menos cero.
+
+743
+00:40:38.830 --> 00:40:40.580
+Dicho que reciente la red
+
+744
+00:40:40.580 --> 00:40:43.420
+Cuadrada está eso es lo que se multiplica por la norma por
+
+745
+00:40:43.440 --> 00:40:44.940
+la media por la anterior.
+
+746
+00:40:45.820 --> 00:40:48.780
+Entonces el tema es probar que la secuencia de esos
+
+747
+00:40:48.780 --> 00:40:51.970
+productos terminando cero o un número muy
+
+748
+00:40:51.970 --> 00:40:54.360
+chico cero.
+
+749
+00:40:54.500 --> 00:40:55.500
+Uno existe
+
+750
+00:40:56.360 --> 00:40:57.660
+Se nueve noche.
+
+751
+00:40:58.400 --> 00:41:00.380
+El CE sería el último está diano
+
+752
+00:41:00.750 --> 00:41:02.580
+Claro, son todos números muy chicos.
+
+753
+00:41:02.580 --> 00:41:04.020
+Porque son todos productos
+
+754
+00:41:05.070 --> 00:41:06.900
+Poder recibir no?
+
+755
+00:41:13.940 --> 00:41:16.320
+Ah, no hice cualquier cosa para
+
+756
+00:41:21.120 --> 00:41:21.410
+Bien,
+
+757
+00:41:28.850 --> 00:41:29.540
+pero hasta acá
+
+758
+00:41:35.430 --> 00:41:35.900
+hasta acá.
+
+759
+00:41:35.900 --> 00:41:40.080
+La idea. Sí, sí.
+
+760
+00:41:40.550 --> 00:41:44.090
+Bien, bien. Una propiedad notable.
+
+761
+00:41:44.090 --> 00:41:46.250
+El proceso hacia adelante es que permite mostrar que est
+
+762
+00:41:46.250 --> 00:41:48.210
+está en un paso de tiempo arbitrario de forma cerrada.
+
+763
+00:41:48.280 --> 00:41:52.330
+Esto ya se los conté este que la idea es, yo puedo
+
+764
+00:41:53.420 --> 00:41:58.090
+decir che no mure o el el paso siguiente como un,
+
+765
+00:41:58.090 --> 00:42:00.690
+como una función del anterior, sino que mostró el paso
+
+766
+00:42:01.630 --> 00:42:04.190
+el que yo quiera este
+
+767
+00:42:06.880 --> 00:42:11.600
+usando eh, una cadena de de
+
+768
+00:42:11.600 --> 00:42:15.320
+elementos se entiende a ver esto es,
+
+769
+00:42:15.420 --> 00:42:17.800
+yo puedo defini mi alate como uno menos los ve aate
+
+770
+00:42:18.500 --> 00:42:21.480
+es el elemento que me multiplica la la la
+
+771
+00:42:23.750 --> 00:42:27.330
+que me multiplica el dato es el elemento que me multiplica
+
+772
+00:42:27.330 --> 00:42:30.570
+el valor del dato para darme la media de la distribución
+
+773
+00:42:30.570 --> 00:42:32.450
+sobre la que mostre respecto al lo anterior.
+
+774
+00:42:33.070 --> 00:42:35.530
+Si yo vas a productora desde el tiempo,
+
+775
+00:42:35.590 --> 00:42:39.230
+uno hasta tiempo que yo quiera, tengo el el parámetro
+
+776
+00:42:39.890 --> 00:42:43.320
+de la normal en el paso para adelante.
+
+777
+00:42:45.800 --> 00:42:49.840
+Y lo mismo con este con la desviación. Sí,
+
+778
+00:42:57.980 --> 00:43:02.000
+te tiene eso por la propiedad lineal de las de las auas
+
+779
+00:43:02.670 --> 00:43:05.640
+mure a la océana es una otra que están nada es lo mismo que
+
+780
+00:43:07.050 --> 00:43:11.860
+este modificar la media de la de de paso se el el última.
+
+781
+00:43:11.930 --> 00:43:14.220
+Qué ay que quiera esto está chiquita.
+
+782
+00:43:14.220 --> 00:43:17.260
+Es al paso que yo quiera puede ser tres pasos para adelante.
+
+783
+00:43:17.260 --> 00:43:21.880
+Puede se pasos para adelante. No me cambia. Sí.
+
+784
+00:43:28.050 --> 00:43:30.170
+Entonces hay que pil que está esto.
+
+785
+00:43:33.550 --> 00:43:34.880
+Esto es lo que yo ya les adelantaba.
+
+786
+00:43:35.220 --> 00:43:38.810
+Si yo puedo hacer estas líneas rojas, sí.
+
+787
+00:43:39.150 --> 00:43:41.650
+Si yo puedo tener un modelo que me estima esto,
+
+788
+00:43:42.310 --> 00:43:43.610
+yo puedo empezar desde ruido
+
+789
+00:43:44.170 --> 00:43:46.250
+y hacer muchas veces usar este modelto
+
+790
+00:43:48.040 --> 00:43:49.560
+y llegar a a alguna imagen.
+
+791
+00:43:51.720 --> 00:43:56.010
+Sí, eh?
+
+792
+00:43:56.470 --> 00:44:00.330
+La idea es que si el el beta es es chiquito,
+
+793
+00:44:00.790 --> 00:44:05.440
+yo puedo asumir que el ruido
+
+794
+00:44:05.740 --> 00:44:07.480
+es este Luciano también.
+
+795
+00:44:11.470 --> 00:44:13.110
+Entonces, la idea es, eh,
+
+796
+00:44:16.360 --> 00:44:17.810
+estimar esto, eh?
+
+797
+00:44:17.850 --> 00:44:22.600
+O sea, efectivamente, hacer una estimación del de ese ruido
+
+798
+00:44:23.420 --> 00:44:25.640
+es lo que no no hacemos en vez de estimarlo.
+
+799
+00:44:26.070 --> 00:44:28.120
+Hacemos un aprendizaje, conversación, estimación otra vez,
+
+800
+00:44:28.120 --> 00:44:29.680
+un aprendizaje para métrico, o sea,
+
+801
+00:44:29.680 --> 00:44:32.560
+de modelos para métricos de para poder llegar a a la
+
+802
+00:44:33.760 --> 00:44:35.840
+a la al a esa estimación.
+
+803
+00:44:36.480 --> 00:44:39.910
+O sea, no es una estimación de eh, por por como esto,
+
+804
+00:44:41.930 --> 00:44:43.390
+ay, no me sal cuantitativa.
+
+805
+00:44:43.510 --> 00:44:45.750
+O sea, no es que estamos haciendo un estimé suport poquito.
+
+806
+00:44:45.750 --> 00:44:48.910
+Monte Carlo de las condicionales como hemos hecho a para las
+
+807
+00:44:48.910 --> 00:44:50.870
+casos tabulares, sino que ya vamos de una de
+
+808
+00:44:51.570 --> 00:44:53.910
+por el camino de estimar modelos parametrics si.
+
+809
+00:44:53.910 --> 00:44:55.990
+Donde tenemos modelos que nos entramos consenso,
+
+810
+00:44:56.110 --> 00:44:58.430
+grad y llegamos a este poder hacer
+
+811
+00:44:58.430 --> 00:44:59.590
+unos tres o tres veces a ellos.
+
+812
+00:44:59.690 --> 00:45:01.970
+Sí. Entonces,
+
+813
+00:45:05.280 --> 00:45:06.810
+para ejemplo, con imágenes,
+
+814
+00:45:08.010 --> 00:45:09.750
+hay que leerlo porque en realidad parecía eso lo mismo.
+
+815
+00:45:09.750 --> 00:45:11.270
+Pero día imagínese que tenemos datos que
+
+816
+00:45:11.270 --> 00:45:12.350
+se distribuyen a corte espiral.
+
+817
+00:45:13.510 --> 00:45:15.610
+Sí, en t.
+
+818
+00:45:15.610 --> 00:45:18.370
+CE, lo arrancan en este espiral en t te menos dos,
+
+819
+00:45:18.630 --> 00:45:19.930
+ya está el espiral de todo con ruido.
+
+820
+00:45:20.090 --> 00:45:22.850
+Y en t igual a t. Vemos que tenemos toda una nueve juntos.
+
+821
+00:45:23.430 --> 00:45:27.570
+Si nosotros tuviéramos bien aprendido la difusión reversa y
+
+822
+00:45:27.570 --> 00:45:31.690
+damos y partiéramos demuestre datos en este espacio de
+
+823
+00:45:32.680 --> 00:45:35.580
+el ruido, digamos, deberíamos llegar a
+
+824
+00:45:36.370 --> 00:45:37.500
+algo parecido al espiral.
+
+825
+00:45:37.500 --> 00:45:40.640
+Obviamente hay ruido porque la estimación no es
+
+826
+00:45:40.640 --> 00:45:42.520
+perfectamente la estimo, no es perfecto, pero
+
+827
+00:45:43.390 --> 00:45:45.280
+este nada, la idea sería Dess.
+
+828
+00:45:45.280 --> 00:45:47.600
+Tener unito que a partir de ruido nos da datos de la
+
+829
+00:45:47.680 --> 00:45:50.730
+distribución original con el menor error posible.
+
+830
+00:45:50.730 --> 00:45:55.140
+Sí. Sí,
+
+831
+00:45:56.970 --> 00:45:58.180
+estamos convencidos acá.
+
+832
+00:46:00.890 --> 00:46:01.840
+Dudas los online.
+
+833
+00:46:11.480 --> 00:46:11.680
+Entonces,
+
+834
+00:46:12.510 --> 00:46:13.640
+Qué forma tiene f?
+
+835
+00:46:14.950 --> 00:46:18.280
+Qué forma tiene f? Como que lo que nos queda en
+
+836
+00:46:18.860 --> 00:46:23.500
+Sí, sí, sí, sí, sí, eh? Sí, modelo.
+
+837
+00:46:23.960 --> 00:46:26.820
+Sí, sí. Con qué me baja Exactamente? Cómo
+
+838
+00:46:26.820 --> 00:46:27.980
+Vas a modelar una vez qué
+
+839
+00:46:28.810 --> 00:46:32.660
+Primero vamos a tener este como un un primer,
+
+840
+00:46:33.090 --> 00:46:36.620
+este eh modelo que no es modelo.
+
+841
+00:46:36.620 --> 00:46:39.740
+Pues no tiene parámetros que es mostrar una normal sí,
+
+842
+00:46:40.480 --> 00:46:42.740
+de este media cero y desviación estándar
+
+843
+00:46:42.760 --> 00:46:44.260
+uno del tamaño de mi d.
+
+844
+00:46:46.030 --> 00:46:47.410
+Si yo tengo un pay, me lo dan.
+
+845
+00:46:49.010 --> 00:46:50.590
+Ah, Cómo paga
+
+846
+00:46:52.520 --> 00:46:55.540
+Es que la Por qué
+
+847
+00:46:56.360 --> 00:46:57.740
+Es de tu punto de partida es tu
+
+848
+00:46:57.740 --> 00:46:59.940
+Punto de partida ta No, no lo vas a poner a de
+
+849
+00:47:00.780 --> 00:47:02.020
+O sea, de vos,
+
+850
+00:47:02.060 --> 00:47:03.780
+tener que pensar que vos tener que pensar que
+
+851
+00:47:03.780 --> 00:47:04.900
+esto está todo muy lindo,
+
+852
+00:47:05.170 --> 00:47:08.100
+Pero pero Era unto, es equ.
+
+853
+00:47:08.700 --> 00:47:11.700
+Y el que ese este te tiene que entrar por la tar,
+
+854
+00:47:11.700 --> 00:47:13.980
+No poder no Ta ta.
+
+855
+00:47:14.000 --> 00:47:18.420
+El primer modelo es, es, eso es un nu, es el latente
+
+856
+00:47:19.540 --> 00:47:22.430
+Bien, yo, como te pregunté por el modelo,
+
+857
+00:47:22.430 --> 00:47:25.190
+pensé que para definir la red baja campo,
+
+858
+00:47:26.130 --> 00:47:29.520
+No justamente algo, Eh? O
+
+859
+00:47:29.540 --> 00:47:31.920
+Sea, está ahí está el tema de nosotros.
+
+860
+00:47:31.920 --> 00:47:35.940
+Lo que hicimos es el modelo que me estima la traza
+
+861
+00:47:36.000 --> 00:47:37.220
+de ese hotel en red.
+
+862
+00:47:37.220 --> 00:47:41.540
+Este hacia atrás es, depende de muestre obviamente el
+
+863
+00:47:42.240 --> 00:47:46.140
+el latente y luego ir muestreando paso a paso
+
+864
+00:47:47.580 --> 00:47:51.040
+el dato entero en el tiempo te menos uno dado el tiempo
+
+865
+00:47:51.690 --> 00:47:52.040
+mayor
+
+866
+00:47:55.570 --> 00:47:56.740
+todo el tiempo mayor.
+
+867
+00:47:56.740 --> 00:47:59.060
+Digo, me es la más curioso d,
+
+868
+00:47:59.060 --> 00:48:00.820
+el dato más ruidoso que te tiene que entrar
+
+869
+00:48:02.500 --> 00:48:05.080
+un dato más ruidoso y le tiene que salir
+
+870
+00:48:05.080 --> 00:48:06.280
+un dato menos ruidoso.
+
+871
+00:48:06.450 --> 00:48:09.120
+Ahora salir un dato me la que la salida es un
+
+872
+00:48:09.120 --> 00:48:10.160
+dato menos ruidoso.
+
+873
+00:48:10.510 --> 00:48:14.000
+Podemos asumir como de tumos que el el el river
+
+874
+00:48:14.240 --> 00:48:15.520
+también va a ser cuci.
+
+875
+00:48:16.030 --> 00:48:17.160
+Implica que en nuestro modelo,
+
+876
+00:48:17.160 --> 00:48:19.800
+lo que nos tiene que dar en realidad es una media
+
+877
+00:48:22.700 --> 00:48:23.780
+y una desviación.
+
+878
+00:48:25.090 --> 00:48:26.730
+Entonces, puedo pensar que que esos modelos
+
+879
+00:48:28.560 --> 00:48:29.620
+son como los de las bases.
+
+880
+00:48:29.620 --> 00:48:32.900
+Recuerda las bases que nos daban para los latentes,
+
+881
+00:48:33.640 --> 00:48:37.140
+la producción de una media y la producción de una de una
+
+882
+00:48:37.760 --> 00:48:39.740
+de definición mental y la salía de mol.
+
+883
+00:48:39.960 --> 00:48:41.860
+Eso con eso es lo que vamos a dar nosotros,
+
+884
+00:48:42.340 --> 00:48:44.660
+nosotros vamos a están como dos salidas, dos imágenes,
+
+885
+00:48:44.760 --> 00:48:47.460
+una de medias y tra desviaciones para cada pixel.
+
+886
+00:48:49.090 --> 00:48:52.710
+Ese billet de te salía. Estamos implementando así no.
+
+887
+00:48:53.930 --> 00:48:58.780
+Bien, no estamos está la
+
+888
+00:48:58.780 --> 00:49:00.340
+propuesta original de hacer propone eso,
+
+889
+00:49:00.340 --> 00:49:01.700
+que es tener dos modelos.
+
+890
+00:49:01.840 --> 00:49:02.060
+Sí,
+
+891
+00:49:06.260 --> 00:49:07.160
+sí, no.
+
+892
+00:49:07.190 --> 00:49:09.960
+Bien, sí, no. Bien, okey, más o menos. Bien.
+
+893
+00:49:10.440 --> 00:49:13.720
+Y lo que les decía los modelos no son reciben el dato en un
+
+894
+00:49:13.720 --> 00:49:16.200
+tiempo dado el dato con ruido, digamos,
+
+895
+00:49:16.200 --> 00:49:17.720
+sino que reciben en qué tiempo estamos?
+
+896
+00:49:18.500 --> 00:49:20.720
+Por qué nos interesa? Porque el tiempo nos va acondicionar
+
+897
+00:49:20.720 --> 00:49:23.960
+en realidad, cuánto ruido tenemos que predecir?
+
+898
+00:49:26.800 --> 00:49:28.260
+Porque por las dudas,
+
+899
+00:49:28.260 --> 00:49:30.340
+yo a veces sabe intercambiable entre predecir ruido y
+
+900
+00:49:30.340 --> 00:49:35.300
+predecir el dato y es más o el mismo, o sea, si yo
+
+901
+00:49:36.430 --> 00:49:39.170
+decir equ te hecho puede ser
+
+902
+00:49:39.690 --> 00:49:42.690
+predecir mi dato directamente para que poner pisaron.
+
+903
+00:49:43.270 --> 00:49:43.490
+No
+
+904
+00:49:51.060 --> 00:49:54.500
+puedo pensar que x uno es igual a
+
+905
+00:49:57.320 --> 00:50:01.820
+Eliseo, más un ruido.
+
+906
+00:50:03.820 --> 00:50:07.940
+Entonces predecide qui cero, sí.
+
+907
+00:50:08.580 --> 00:50:12.160
+O sea, el qui cero techo también puede ser
+
+908
+00:50:13.440 --> 00:50:16.380
+hacer eh, en xo
+
+909
+00:50:19.050 --> 00:50:22.310
+más o menos menos una opción.
+
+910
+00:50:22.310 --> 00:50:23.590
+De hecho, sí.
+
+911
+00:50:23.950 --> 00:50:26.950
+Entonces, en vez de que mi modelo me prediga el deo techo
+
+912
+00:50:27.220 --> 00:50:29.200
+pop, pele que mi poder, mi modelo me pedía el ruido.
+
+913
+00:50:29.500 --> 00:50:31.160
+Yo puruse a veces digo que predecimos ruido.
+
+914
+00:50:31.220 --> 00:50:32.880
+Lo hicimos el dato del tiempo anterior
+
+915
+00:50:33.980 --> 00:50:36.520
+en la práctica de se una pre no más el ruido que lo yo.
+
+916
+00:50:36.520 --> 00:50:39.080
+Quiero saber que cuáles fue el ruido que se agreg que qué
+
+917
+00:50:39.080 --> 00:50:40.240
+fue lo que cambió de mi dato?
+
+918
+00:50:40.840 --> 00:50:42.360
+Y muchas veces numéricamente más estable,
+
+919
+00:50:42.360 --> 00:50:43.600
+estimar al ruido es más,
+
+920
+00:50:44.030 --> 00:50:46.200
+pero la práctica siempre lo que nos interesa es
+
+921
+00:50:46.810 --> 00:50:50.280
+poder partir de un dato más ruidoso y que mi modelo me
+
+922
+00:50:50.280 --> 00:50:53.000
+permita demostrar o elegir un dato menos ruidoso.
+
+923
+00:50:53.180 --> 00:50:57.390
+Sí, consigo mostrar porque el restar al ruido, en realidad,
+
+924
+00:50:57.390 --> 00:50:58.870
+como el ruido, yo no lo tengo exactamente.
+
+925
+00:50:58.970 --> 00:51:00.550
+Es con mostrar sí.
+
+926
+00:51:01.990 --> 00:51:06.190
+Entonces vamos por las dudas al material.
+
+927
+00:51:08.380 --> 00:51:11.550
+Pero tal cual, de acuerdo al teórico de las de las bades,
+
+928
+00:51:11.550 --> 00:51:13.590
+que es donde yo asumo que mi modelo no me predice
+
+929
+00:51:13.590 --> 00:51:15.630
+exactamente el valor, sino que me da
+
+930
+00:51:16.100 --> 00:51:17.670
+parámetros para hacer un muestreo.
+
+931
+00:51:17.730 --> 00:51:18.730
+Sí,
+
+932
+00:51:22.290 --> 00:51:25.340
+Ahí estoy yendo de del Ruido hacia el real.
+
+933
+00:51:25.350 --> 00:51:28.780
+Claro. Vos está diciendo yo tengo ruido, este ruido.
+
+934
+00:51:29.160 --> 00:51:31.180
+Yo asumo que fue este
+
+935
+00:51:32.240 --> 00:51:34.940
+es cuci yo tengo que sacarlo.
+
+936
+00:51:35.020 --> 00:51:37.020
+Entonces, yo lo puedo mostrar hacia a otro hacia atrás,
+
+937
+00:51:37.040 --> 00:51:38.220
+con lo que el modelo me dice
+
+938
+00:51:40.200 --> 00:51:44.140
+Eso tener la estaba chica, Claro, el
+
+939
+00:51:44.480 --> 00:51:46.660
+Ero Pensé que crece al cero.
+
+940
+00:51:46.660 --> 00:51:47.820
+El cero son el cero.
+
+941
+00:51:47.840 --> 00:51:51.630
+El tiempo cero son imágenes, son imágenes buenas de yo.
+
+942
+00:51:51.630 --> 00:51:53.190
+Yo, bueno, me voy acercando al cero
+
+943
+00:51:54.070 --> 00:51:55.630
+haciendo un proceso de muestreo también.
+
+944
+00:52:02.930 --> 00:52:03.930
+Bien, entonces
+
+945
+00:52:05.480 --> 00:52:07.940
+Lo que me caí o siempre intentas sacar todo el
+
+946
+00:52:07.940 --> 00:52:09.140
+frío en cada paso para
+
+947
+00:52:09.140 --> 00:52:13.340
+Atrás, no el o sea un paso de ruido, un paso, o sea,
+
+948
+00:52:13.340 --> 00:52:15.180
+nuestro tru mulo siempre se va a intentar
+
+949
+00:52:15.880 --> 00:52:18.020
+es restar un pasito de ruido.
+
+950
+00:52:18.030 --> 00:52:21.640
+Claro. A travé de un muestre sí, eh?
+
+951
+00:52:22.680 --> 00:52:23.720
+Y como lo vamos a hacer, bueno,
+
+952
+00:52:23.730 --> 00:52:26.320
+vamos a ser un estimado y vamos a hacer un modo un un un
+
+953
+00:52:26.320 --> 00:52:27.880
+gran tru porque nosotros tenemos los
+
+954
+00:52:27.880 --> 00:52:29.720
+dos, las dos diferencias.
+
+955
+00:52:29.780 --> 00:52:34.470
+Sí, lo
+
+956
+00:52:34.470 --> 00:52:35.750
+hacemos como estre porque aparte,
+
+957
+00:52:35.750 --> 00:52:37.710
+si nosotros hubiéramos directamente el on trust,
+
+958
+00:52:38.250 --> 00:52:39.910
+no tenemos la capacidad de generar después.
+
+959
+00:52:40.610 --> 00:52:41.910
+Por eso queremos los parámetros.
+
+960
+00:52:42.150 --> 00:52:43.750
+Queremos que este modelo sea parmettre
+
+961
+00:52:44.910 --> 00:52:47.230
+y esto es lo que también nos diif nos difie nos diferencia
+
+962
+00:52:47.250 --> 00:52:49.910
+un auto, un coder de un variation en auto code.
+
+963
+00:52:50.290 --> 00:52:53.190
+Si no, si nosotros solo pre decimos sin la capacidad de de
+
+964
+00:52:53.190 --> 00:52:55.070
+mostrar hacia atrás lo que nos va a pasar.
+
+965
+00:52:55.210 --> 00:52:56.750
+Si el modelo está bien entrenado,
+
+966
+00:52:58.390 --> 00:52:59.800
+hace va aprender a seguir el camino.
+
+967
+00:52:59.920 --> 00:53:01.560
+Y voy a temblar el dato no?
+
+968
+00:53:01.580 --> 00:53:03.840
+Si tiene el dato, yo no quiero que modelo el dato.
+
+969
+00:53:04.140 --> 00:53:06.480
+Yo creo que el modelo hacia atrás me dé algo que se parez
+
+970
+00:53:06.480 --> 00:53:08.480
+esta al camino del dato, pero que tenga cierta
+
+971
+00:53:08.480 --> 00:53:10.560
+variabilidad gener sí.
+
+972
+00:53:10.820 --> 00:53:13.600
+Si no que no genera sino para cierta seas.
+
+973
+00:53:13.860 --> 00:53:15.640
+Si ya vio un así algo muy parecido,
+
+974
+00:53:15.980 --> 00:53:17.840
+va a tener reconstruyendo el dato exactamente.
+
+975
+00:53:18.490 --> 00:53:19.540
+Okey, qué es? Lo es también,
+
+976
+00:53:19.680 --> 00:53:22.380
+por lo que también haríamos un mudo del latente
+
+977
+00:53:22.900 --> 00:53:24.820
+a la a la vaa ver co.
+
+978
+00:53:25.920 --> 00:53:27.520
+Recuerda que el ver nace el forward,
+
+979
+00:53:27.790 --> 00:53:29.840
+pero después de que hacer for se mostre.
+
+980
+00:53:29.960 --> 00:53:33.070
+Y pues sí, acá es igual. Bien,
+
+981
+00:53:34.190 --> 00:53:34.410
+No
+
+982
+00:53:37.300 --> 00:53:42.250
+trick, eh?
+
+983
+00:53:43.470 --> 00:53:44.680
+Acá le
+
+984
+00:53:45.500 --> 00:53:47.560
+No, no lo vamos a tener a ver.
+
+985
+00:53:55.710 --> 00:53:57.900
+Vamos a a, sí, sí, sí.
+
+986
+00:54:03.230 --> 00:54:05.130
+Hay que revisar probablemente, eh,
+
+987
+00:54:05.630 --> 00:54:08.170
+lo salamos hay que revisar la implementación del model,
+
+988
+00:54:09.510 --> 00:54:13.450
+pero probablemente probablemente se haga el problem.
+
+989
+00:54:16.400 --> 00:54:20.320
+O sea seguro para poder, eh,
+
+990
+00:54:21.740 --> 00:54:24.050
+hacer utilización, eh,
+
+991
+00:54:24.300 --> 00:54:26.650
+sobre los parámetros vos no podés tener
+
+992
+00:54:26.650 --> 00:54:27.690
+dependencia del mostr creo.
+
+993
+00:54:27.950 --> 00:54:30.050
+El mostr del pará es, es posible
+
+994
+00:54:30.950 --> 00:54:32.210
+que tengas que hacer algo acá.
+
+995
+00:54:32.280 --> 00:54:36.080
+Pero igual, o sea, haces una predicción de mu
+
+996
+00:54:36.600 --> 00:54:38.680
+y de sima y fue lo que hace.
+
+997
+00:54:38.700 --> 00:54:40.360
+Es lo mismo que hicimos.
+
+998
+00:54:40.620 --> 00:54:43.240
+Has incluido y ya, o sea así,
+
+999
+00:54:43.420 --> 00:54:45.280
+si quieres hacer acá por el sí, no,
+
+1000
+00:54:45.280 --> 00:54:46.840
+no te puesto seguro que hay que hacer reproduit
+
+1001
+00:54:47.990 --> 00:54:49.960
+para que para poder hacer la dirección.
+
+1002
+00:54:49.980 --> 00:54:54.020
+Sí. Sí, sí.
+
+1003
+00:54:54.020 --> 00:54:56.580
+Porque se decía la misma matemática. Bien, eh?
+
+1004
+00:54:57.970 --> 00:54:59.060
+Estamos son las ocho.
+
+1005
+00:54:59.220 --> 00:55:01.460
+Cortamos un rotito, nos despejamos y volvemos.
+
+1006
+00:55:01.460 --> 00:55:02.820
+Les parece hablar un poquito de la luz?
+
+1007
+00:55:03.040 --> 00:55:05.300
+No vamos a entrar en mucho detalle a la los pasa una
+
+1008
+00:55:05.300 --> 00:55:06.380
+cha rápida y después emp.
+
+1009
+00:55:06.380 --> 00:55:10.120
+Pasamos mal práctico. Okey, él sí. Yeah, buenísimo. Gracias
+
+1010
+01:08:49.490 --> 01:08:50.810
+A mí mientras las cosas salen bien.
+
+1011
+01:09:09.610 --> 01:09:10.610
+Bueno,
+
+1012
+01:09:11.210 --> 01:09:14.520
+Seguimos lo último que les quería que les quería
+
+1013
+01:09:14.520 --> 01:09:16.970
+contar, eh?
+
+1014
+01:09:17.550 --> 01:09:19.570
+El que esto es entren. Sí.
+
+1015
+01:09:19.630 --> 01:09:20.930
+No se usted ya me tiene creer,
+
+1016
+01:09:20.930 --> 01:09:23.170
+sino para qué estamos hablando de todos modelos acá,
+
+1017
+01:09:23.170 --> 01:09:24.900
+pero que esto es entren
+
+1018
+01:09:26.930 --> 01:09:31.740
+Y, Eh, la idea es
+
+1019
+01:09:31.820 --> 01:09:36.310
+que siempre nosotros entregamos minimizando la lo
+
+1020
+01:09:36.410 --> 01:09:37.510
+lo like, verdad?
+
+1021
+01:09:38.010 --> 01:09:40.350
+Eso es lo que lo que vieron en en de plan y lo vieron
+
+1022
+01:09:40.350 --> 01:09:42.230
+conmigo de algún modo u otro.
+
+1023
+01:09:42.230 --> 01:09:44.670
+Pero ref, fijamos minimizando la y lo bla cuando
+
+1024
+01:09:44.670 --> 01:09:46.030
+minimizamos la calle de diversión.
+
+1025
+01:09:46.030 --> 01:09:48.790
+Sí. Entre la distribución este de los datos y la
+
+1026
+01:09:48.910 --> 01:09:51.510
+distribución paramé existe un poco,
+
+1027
+01:09:52.370 --> 01:09:53.950
+existe teoría que nos dice
+
+1028
+01:09:54.490 --> 01:09:58.150
+que que la negra telo le si no pods de una chicara
+
+1029
+01:09:58.890 --> 01:10:00.950
+es deseable que lo que hagas es este
+
+1030
+01:10:01.660 --> 01:10:06.150
+achicar otras otras cotas y lo que se hace eso, sí.
+
+1031
+01:10:06.210 --> 01:10:08.830
+Si hay una, una un término que i llama llama variation al
+
+1032
+01:10:08.830 --> 01:10:13.630
+lower bound, que es un radio entre la distribución de la eh
+
+1033
+01:10:15.780 --> 01:10:18.410
+traza y la este
+
+1034
+01:10:19.250 --> 01:10:21.450
+distribución del del ruido agregado efectivamente.
+
+1035
+01:10:21.470 --> 01:10:25.650
+Sí. Entonces la idea
+
+1036
+01:10:26.780 --> 01:10:30.480
+es usar estos términos de usar la la ca de realidad
+
+1037
+01:10:31.060 --> 01:10:34.160
+en el paso a paso, que es lo que ya les adelante para a
+
+1038
+01:10:34.160 --> 01:10:35.760
+minimizar este téo llama operational lower.
+
+1039
+01:10:36.220 --> 01:10:39.280
+Sí, pero este hogar de pepita
+
+1040
+01:10:39.980 --> 01:10:44.480
+de esta traza y de bu de esta otra traza en realidad es
+
+1041
+01:10:44.780 --> 01:10:48.040
+una se puede escribir como una sumatoria lo ritmo.
+
+1042
+01:10:48.040 --> 01:10:49.080
+Estos son dos productoras,
+
+1043
+01:10:49.080 --> 01:10:52.960
+pero el e cociente dos products es una es una producto de
+
+1044
+01:10:52.960 --> 01:10:55.680
+cocientes y el lomo, el productor es puede escribir como
+
+1045
+01:10:56.260 --> 01:10:57.560
+la suma de los logos.
+
+1046
+01:10:57.580 --> 01:11:01.160
+Sí. Entonces, allá el día, a través de varias derivaciones,
+
+1047
+01:11:01.160 --> 01:11:04.120
+lo que se llega es que la variation lower bound es una
+
+1048
+01:11:04.120 --> 01:11:08.200
+sumatoria de términos que se puede nombrar de el como lt el
+
+1049
+01:11:08.320 --> 01:11:12.940
+determino hasta l, donde El
+
+1050
+01:11:13.860 --> 01:11:17.960
+lt es, eh, la k l
+
+1051
+01:11:18.610 --> 01:11:19.840
+entre estos dos términos.
+
+1052
+01:11:21.020 --> 01:11:25.860
+Sí. Pero pepita de kte ya dijimos qué? Cómo se muestra kte
+
+1053
+01:11:31.160 --> 01:11:33.380
+ya el cero es una opción de uno.
+
+1054
+01:11:33.540 --> 01:11:36.700
+Entonces, este primer término medio que desaparece, sí.
+
+1055
+01:11:37.800 --> 01:11:40.800
+Y lo que nos importa son estos términos, los lt y l. Cero.
+
+1056
+01:11:40.820 --> 01:11:43.440
+Sí, que en realidad son una serie de cs.
+
+1057
+01:11:44.310 --> 01:11:49.040
+Okay, entonces, eh, pregunta de parcial.
+
+1058
+01:11:49.780 --> 01:11:54.760
+Ah, pregunta este si en rota ya estás, eh,
+
+1059
+01:11:54.940 --> 01:11:57.720
+eh, qué es optimizar un proceso,
+
+1060
+01:11:57.720 --> 01:12:00.160
+difusión y en realidad la o sea, cuál es la luz de proceso?
+
+1061
+01:12:00.160 --> 01:12:01.600
+Difusión, la luz de proceso,
+
+1062
+01:12:01.600 --> 01:12:03.840
+difusión es una sumatoria de c diversas.
+
+1063
+01:12:04.540 --> 01:12:07.960
+Sí, de de c de de divergencias c,
+
+1064
+01:12:33.060 --> 01:12:35.410
+todas estas de irritaciones están en los de referencia.
+
+1065
+01:12:35.800 --> 01:12:38.530
+Pero la idea no entrar en esto, ya hemos tenido
+
+1066
+01:12:39.130 --> 01:12:41.650
+bastante matemática en este curso y en el de como para
+
+1067
+01:12:41.650 --> 01:12:45.170
+encima seguir sumándole el práctico de hoy para que joven un
+
+1068
+01:12:45.170 --> 01:12:47.810
+poco con unos mu de discusión y que se queden corta general
+
+1069
+01:12:47.870 --> 01:12:50.690
+de que el proceso de difusión es un proceso de generación
+
+1070
+01:12:51.440 --> 01:12:54.610
+educativo que implica la predicción de ruido
+
+1071
+01:12:55.370 --> 01:12:59.010
+e ir quitando ese ruido de este es la gente hasta llegar a
+
+1072
+01:12:59.010 --> 01:13:00.490
+una imagen en el dominio original.
+
+1073
+01:13:01.110 --> 01:13:03.140
+Sí, si se quedan con esa idea,
+
+1074
+01:13:03.140 --> 01:13:05.620
+ya van a tener una una buena idea de lo que es difusión y
+
+1075
+01:13:05.740 --> 01:13:09.100
+entender que es una étnica base para muchas de las este
+
+1076
+01:13:09.100 --> 01:13:10.620
+técnicas estado del arte de coro.
+
+1077
+01:13:10.710 --> 01:13:12.860
+Obviamente, las técnicas estado del arte de por hoy
+
+1078
+01:13:13.610 --> 01:13:17.780
+mezclan difusión conditioning attention,
+
+1079
+01:13:18.680 --> 01:13:20.660
+no sé, ya vieron una atención en con joaquín.
+
+1080
+01:13:20.710 --> 01:13:22.580
+Bueno, van a ver atención.
+
+1081
+01:13:22.580 --> 01:13:25.690
+Es una capa en realidad de en las redes de una manera de ti
+
+1082
+01:13:26.360 --> 01:13:27.960
+procesar datos en redes neuronales,
+
+1083
+01:13:29.270 --> 01:13:31.640
+pero todo esas sumatoria es lo que nos da los modelos y
+
+1084
+01:13:31.680 --> 01:13:33.000
+estos eso y muchos datos,
+
+1085
+01:13:33.570 --> 01:13:36.480
+mucho dinero del procesamiento es lo que nos datos super
+
+1086
+01:13:36.500 --> 01:13:38.200
+modelo tenían tremendas imagen.
+
+1087
+01:13:38.710 --> 01:13:40.410
+Sí, pero bueno,
+
+1088
+01:13:40.480 --> 01:13:44.550
+este le que un poco estos fundamento acá, eh?
+
+1089
+01:13:46.890 --> 01:13:51.330
+Cada término comparado distribuciones gauna se puede
+
+1090
+01:13:51.460 --> 01:13:52.770
+calcularse forma cerrada,
+
+1091
+01:13:52.870 --> 01:13:55.330
+lo que les contaba lt constante y puede ignorar durante
+
+1092
+01:13:55.330 --> 01:13:57.570
+entrenamiento, ya que no tiene parámetros aprends
+
+1093
+01:13:58.190 --> 01:14:00.450
+equ está el ruido, oceano ya lo charlamos.
+
+1094
+01:14:01.190 --> 01:14:03.730
+Los términos intermedios miden la discrepancia en cada paso
+
+1095
+01:14:03.750 --> 01:14:04.890
+de la aproximación de cup
+
+1096
+01:14:04.890 --> 01:14:08.130
+or pepita sea básicamente miren este error que nosotros ya
+
+1097
+01:14:08.230 --> 01:14:10.570
+ya adelantamos que estábamos observando.
+
+1098
+01:14:11.590 --> 01:14:14.630
+Y eh, bueno, esto nos nos da un entre momento deficiente.
+
+1099
+01:14:14.630 --> 01:14:19.380
+Estos modelos, la biografía ya le fui muy charlando.
+
+1100
+01:14:19.440 --> 01:14:21.300
+Me impidió bastante en un post de line línea we
+
+1101
+01:14:22.000 --> 01:14:26.340
+en el paper de no diffusion prob malls y en el de deep
+
+1102
+01:14:27.150 --> 01:14:31.500
+using libro intermodel si se quieren meter más a fondo con
+
+1103
+01:14:31.500 --> 01:14:35.060
+estos temas, es ir ahí uno de los uno de los caminos que les
+
+1104
+01:14:35.060 --> 01:14:37.300
+propongo que me parece que es el más que más se a aliña con
+
+1105
+01:14:37.400 --> 01:14:39.220
+con con lo que mayor dinámicas.
+
+1106
+01:14:41.520 --> 01:14:44.260
+Sí, mi mi entendimiento es que es que de equipos difícil que
+
+1107
+01:14:44.260 --> 01:14:46.980
+estudian en los fenómeno fenómenos de de este tipo
+
+1108
+01:14:47.590 --> 01:14:50.100
+surge en estos modelos periodísticos o la la idea de
+
+1109
+01:14:50.140 --> 01:14:53.540
+entrenar estos models periodísticos este que después, bueno,
+
+1110
+01:14:53.540 --> 01:14:56.940
+gente sea pame sea para la gente de RPA para proponer, eh,
+
+1111
+01:14:56.940 --> 01:14:59.950
+para hacer caras famosos, no, verdad?
+
+1112
+01:15:00.590 --> 01:15:04.260
+Porque vuelta la estimación de vues periodísticos
+
+1113
+01:15:05.230 --> 01:15:06.610
+es el problema de nuestro curso.
+
+1114
+01:15:06.610 --> 01:15:09.330
+Después usamos para generar y por eso son superamos una gen
+
+1115
+01:15:09.330 --> 01:15:12.170
+vert en realidad un balístico que estamos i constantemente
+
+1116
+01:15:12.880 --> 01:15:16.860
+que como mostremos arriba de ellos es ser ese Mont hoy es el
+
+1117
+01:15:16.860 --> 01:15:18.700
+proceso de generación en realidad
+
+1118
+01:15:19.930 --> 01:15:22.430
+no en el fondo es estimación de model s.
+
+1119
+01:15:23.010 --> 01:15:27.320
+Sí. Entonces, lo que les decía respecto a
+
+1120
+01:15:28.180 --> 01:15:31.710
+eh, edificio models más modernos,
+
+1121
+01:15:36.650 --> 01:15:40.930
+así el post de one no vamos a entrar en todo esto.
+
+1122
+01:15:41.510 --> 01:15:45.610
+Ven lo que les decía esto es lo que no quise.
+
+1123
+01:15:45.960 --> 01:15:48.210
+Esto es solo para que sepan pa que que era Frank,
+
+1124
+01:15:48.210 --> 01:15:51.310
+que no entramos en esto en estas clase, todo esto,
+
+1125
+01:15:51.310 --> 01:15:53.550
+lo que podíamos haber hecho si el próximo fuera mala persona
+
+1126
+01:15:53.630 --> 01:15:54.990
+por como producción, no la persona.
+
+1127
+01:15:55.450 --> 01:15:58.390
+Ah, sí, sí, sí, sí, claro.
+
+1128
+01:15:59.810 --> 01:16:01.980
+Qué es lo que nos importa en realidad? Lo que nos importa.
+
+1129
+01:16:04.830 --> 01:16:07.820
+Bueno, entonces para ir ajustando el veta
+
+1130
+01:16:10.270 --> 01:16:12.010
+No, yo lo lo único, quiero mostrarle de esto
+
+1131
+01:16:13.790 --> 01:16:17.890
+además de ganar su, su aprecio es,
+
+1132
+01:16:18.900 --> 01:16:22.930
+está esto?
+
+1133
+01:16:24.960 --> 01:16:28.430
+O sea estructuralmente, eh?
+
+1134
+01:16:28.490 --> 01:16:31.990
+Los modelos modernos tienen cositas más divertis
+
+1135
+01:16:31.990 --> 01:16:33.150
+adentro, como, por ejemplo, tocó acá.
+
+1136
+01:16:33.150 --> 01:16:37.400
+Si es cuca b, esto es atención, atención. Sí.
+
+1137
+01:16:37.790 --> 01:16:39.520
+Pero por qué te interesa todo este tipo de cosas?
+
+1138
+01:16:39.520 --> 01:16:40.680
+Porque muchas veces vos,
+
+1139
+01:16:41.820 --> 01:16:43.230
+además de tener un proceso de difusión,
+
+1140
+01:16:44.490 --> 01:16:48.230
+le metes de costado otras cosas de tu modelo como lo son
+
+1141
+01:16:48.230 --> 01:16:51.150
+condicionadas es texto en bing de texto.
+
+1142
+01:16:51.420 --> 01:16:53.830
+Pero lo que tiene ese mag y te guía en la generación para
+
+1143
+01:16:53.830 --> 01:16:56.830
+que yo pueda generar la imagen y decirle quiero un gatito,
+
+1144
+01:16:57.210 --> 01:16:59.150
+él quiere un gatito, es yo paso texto,
+
+1145
+01:16:59.730 --> 01:17:02.790
+lo paso a un espacio en beds y lo pongo,
+
+1146
+01:17:02.970 --> 01:17:05.150
+lo lo lo engancho en el proceso de difusión.
+
+1147
+01:17:05.410 --> 01:17:09.580
+Sí, no,
+
+1148
+01:17:09.580 --> 01:17:11.380
+lo que quiero decir es que se puede poner más complejo
+
+1149
+01:17:11.960 --> 01:17:13.480
+y que no vamos a entrar en eso, pa acá.
+
+1150
+01:17:14.310 --> 01:17:18.160
+Bien, eh? Ta hasta acá. Hasta acá. El teórico de hoy.
+
+1151
+01:17:18.740 --> 01:17:22.800
+El resto es, es logo con Juan. Alguna duda?
+
+1152
+01:17:22.830 --> 01:17:27.500
+Algo quiera ver de vuelta,
+
+1153
+01:17:27.930 --> 01:17:32.110
+repasando el pod de de line línea en one hay ah,
+
+1154
+01:17:32.170 --> 01:17:34.710
+si quieren meter está todo ahí disponible.
+
+1155
+01:17:35.350 --> 01:17:37.110
+Y es en red. El pos del día one es
+
+1156
+01:17:37.110 --> 01:17:38.190
+un deest de los otros dos.
+
+1157
+01:17:38.190 --> 01:17:39.110
+Porque la referencia
+
+1158
+01:17:43.320 --> 01:17:45.580
+bueno, listo.
+
+1159
+01:17:45.740 --> 01:17:46.740
+Entonces ba Juan,
+
+1160
+01:18:02.550 --> 01:18:02.840
+Bien,
+
+1161
+01:18:31.390 --> 01:18:31.610
+te
+
+1162
+01:18:38.090 --> 01:18:39.630
+ya decía tra práctico.
+
+1163
+01:18:42.660 --> 01:18:43.760
+No sé qué hecho, creo cada
+
+1164
+01:18:43.970 --> 01:18:48.150
+horas, eh?
+
+1165
+01:18:51.300 --> 01:18:54.000
+Ya verían ver práctico a radio aulas, eh?
+
+1166
+01:18:54.030 --> 01:18:57.240
+Esto hace el último práctico muy loco, eh?
+
+1167
+01:18:59.330 --> 01:19:02.530
+Reminder el t equipo cinco, 20 mañana.
+
+1168
+01:19:02.750 --> 01:19:06.370
+El eh no se no de
+
+1169
+01:19:07.060 --> 01:19:11.450
+entre de no Andre y el seis,
+
+1170
+01:19:11.880 --> 01:19:13.810
+como no habíamos puesto gran entregas,
+
+1171
+01:19:13.910 --> 01:19:17.650
+la pusimos y son dos semanas adelante
+
+1172
+01:19:18.240 --> 01:19:20.000
+como 12, no por ahí.
+
+1173
+01:19:20.920 --> 01:19:25.840
+Y que que se el y para este también, como te más,
+
+1174
+01:19:26.110 --> 01:19:27.840
+tampoco me estre a mucho.
+
+1175
+01:19:29.590 --> 01:19:33.080
+Bien, un poco la idea que práctico, eh es,
+
+1176
+01:19:33.980 --> 01:19:36.760
+va a ser como más similar al práctico anterior al
+
+1177
+01:19:36.760 --> 01:19:38.040
+práctico de models.
+
+1178
+01:19:38.580 --> 01:19:40.120
+No va a ser como lo que teníamos,
+
+1179
+01:19:40.120 --> 01:19:44.160
+sino antes de entrenar un modelo para generar sino que
+
+1180
+01:19:44.160 --> 01:19:46.600
+directamente usar que ya está entrenado
+
+1181
+01:19:47.120 --> 01:19:49.840
+y jugar con eso para entender el proceso general.
+
+1182
+01:19:50.620 --> 01:19:52.680
+Sí. Entender que está pasando eh,
+
+1183
+01:19:53.600 --> 01:19:55.600
+y como que en realidad de estas preguntas que hay
+
+1184
+01:19:55.600 --> 01:19:56.800
+son más teóricas que otra cosa.
+
+1185
+01:19:56.820 --> 01:19:58.240
+Hay un poco de completar el código,
+
+1186
+01:19:58.240 --> 01:20:00.840
+pero hagan que completar el código operativamente sencillo.
+
+1187
+01:20:01.480 --> 01:20:03.730
+Y ahí hace un poco eso. Jugar, eh,
+
+1188
+01:20:03.750 --> 01:20:06.650
+con este modelo ya ya ha entrenado, eh?
+
+1189
+01:20:06.760 --> 01:20:10.300
+Para poder hacer cosas, eh? Un poco divers días, eh?
+
+1190
+01:20:12.120 --> 01:20:15.720
+Por qué? Bueno, tal porque prest este sencillo, eh?
+
+1191
+01:20:15.780 --> 01:20:18.400
+El entrenamiento ya ya nos vamos a requerir
+
+1192
+01:20:19.290 --> 01:20:22.870
+de un poco de de una buena p c.
+
+1193
+01:20:22.870 --> 01:20:27.270
+Para para poder entrenar estas cosas y tiempos, eh.
+
+1194
+01:20:27.430 --> 01:20:30.790
+Entonces ya esto como que quedaría más como si fuese para
+
+1195
+01:20:30.790 --> 01:20:33.110
+una obligatorio más que en práctico o algo así.
+
+1196
+01:20:33.690 --> 01:20:36.230
+Ya hasta le digo que si van a hacer algo grande con i
+
+1197
+01:20:36.230 --> 01:20:38.030
+imagenes grandes para una obligatorio,
+
+1198
+01:20:38.030 --> 01:20:40.300
+está capaz que se quieran medio corta.
+
+1199
+01:20:40.370 --> 01:20:45.080
+Así que, eh, ya no quiere agarrar una imágenes chicas,
+
+1200
+01:20:45.080 --> 01:20:47.200
+vuestro humor com fuese se ve.
+
+1201
+01:20:48.000 --> 01:20:50.960
+Entonces la 10 pero un poquito de arriba por algo ya a
+
+1202
+01:20:52.140 --> 01:20:56.040
+eh que es van a ver que le vas a haber conocido en modelo,
+
+1203
+01:20:58.440 --> 01:21:02.460
+digamos más bien, eh,
+
+1204
+01:21:02.460 --> 01:21:03.700
+vamos a dejar las imágenes si.
+
+1205
+01:21:03.700 --> 01:21:08.400
+Far 10. Sí, eh que son, no sé si ya las vimos,
+
+1206
+01:21:08.400 --> 01:21:09.920
+pero en ningún lugar sobre las vieron.
+
+1207
+01:21:10.420 --> 01:21:13.080
+Son de imágenes de 10 clases distintas. Sí.
+
+1208
+01:21:13.120 --> 01:21:17.970
+A color tendría por dos, no mucho más perro.
+
+1209
+01:21:18.100 --> 01:21:19.970
+Todos los de autos de aviones, etcétera.
+
+1210
+01:21:20.150 --> 01:21:23.650
+Sí, eh, vamos a usar también en face para para los modelo.
+
+1211
+01:21:23.890 --> 01:21:26.450
+Y vamos a face y seguir usando
+
+1212
+01:21:26.510 --> 01:21:29.760
+su eh nada.
+
+1213
+01:21:30.220 --> 01:21:33.370
+Las cosas que nos prob modelos que los probleman eh,
+
+1214
+01:21:33.430 --> 01:21:34.930
+si quieren prob otro modelo estar
+
+1215
+01:21:35.040 --> 01:21:36.530
+completamente libre de algo.
+
+1216
+01:21:36.530 --> 01:21:39.930
+Obviamente fue entrar, iba que le guste, eh, nosotros
+
+1217
+01:21:40.730 --> 01:21:42.920
+y que vamos a estar usando d.
+
+1218
+01:21:43.180 --> 01:21:44.720
+Dpm de no hay sin,
+
+1219
+01:21:46.460 --> 01:21:51.400
+no sé si se suena a ninguno.
+
+1220
+01:21:51.450 --> 01:21:53.930
+Suena no este
+
+1221
+01:21:53.930 --> 01:21:56.610
+modelo de no.
+
+1222
+01:22:00.820 --> 01:22:05.690
+Bueno, no sé ese que tal en la biografía de la PPD así
+
+1223
+01:22:06.750 --> 01:22:09.250
+ese el mismo que que acabamos en el paper eh,
+
+1224
+01:22:09.390 --> 01:22:10.450
+que trabajaba sobre ese par.
+
+1225
+01:22:11.030 --> 01:22:14.290
+Sí, vamos a echar tu modelo que nos y
+
+1226
+01:22:14.290 --> 01:22:15.330
+lo tuvieron a high pace.
+
+1227
+01:22:16.230 --> 01:22:18.250
+Ah, así que bien, y acá tenemos el Nico hy face
+
+1228
+01:22:18.250 --> 01:22:19.290
+para poder esperar un poquito.
+
+1229
+01:22:20.820 --> 01:22:23.020
+Entonces ellos ya nos proben un pipeline en el que chat en
+
+1230
+01:22:23.020 --> 01:22:24.660
+todo directamente, eh?
+
+1231
+01:22:24.700 --> 01:22:28.700
+Y nos vamos a aprovechar ese p y algo y después metamos un
+
+1232
+01:22:28.700 --> 01:22:30.620
+poquito más adentro y usar un poco de sus partes.
+
+1233
+01:22:31.000 --> 01:22:34.740
+Sí, eh, para poder intentar no solo cómo funciona a nivel,
+
+1234
+01:22:34.740 --> 01:22:37.140
+sino que inventamos un poquito y adentro lo que pasa.
+
+1235
+01:22:37.760 --> 01:22:39.460
+Sí. Cuánto te suena?
+
+1236
+01:22:40.800 --> 01:22:45.300
+Eh que cuando vas el igual, quise que no puede,
+
+1237
+01:22:49.370 --> 01:22:54.330
+yo se lo y que uses hacer
+
+1238
+01:22:54.330 --> 01:22:56.570
+el date que recomiendo un ir y está
+
+1239
+01:22:56.670 --> 01:22:57.850
+ese date que no hace nada.
+
+1240
+01:22:58.170 --> 01:23:02.410
+O sea, me están usando so eso muy eso.
+
+1241
+01:23:03.350 --> 01:23:06.120
+Eso puede un problema con con las mujeres grandes.
+
+1242
+01:23:06.460 --> 01:23:08.840
+Ay, vamos a ahora lo vemos.
+
+1243
+01:23:09.990 --> 01:23:14.790
+Pues eh, más o menos local
+
+1244
+01:23:16.080 --> 01:23:19.160
+o ya que hacer mi casa, ese tal ya ya lo vemos.
+
+1245
+01:23:19.390 --> 01:23:23.640
+Pues ahí hemos el capaz que sistema de está un
+
+1246
+01:23:23.900 --> 01:23:25.240
+que qué?
+
+1247
+01:23:25.460 --> 01:23:29.640
+Eh? Pues el tema que estás son número FP, eh, en fijo.
+
+1248
+01:23:29.640 --> 01:23:33.280
+Ahora ahora lo vemos y te analizamos debería no la más si
+
+1249
+01:23:33.280 --> 01:23:35.330
+han and dado bien la cámara, eh?
+
+1250
+01:23:35.720 --> 01:23:37.690
+Pero si muchas de estas cosas igual, eh,
+
+1251
+01:23:37.690 --> 01:23:40.690
+también lo que puede pasar esta banca ya con conflictos,
+
+1252
+01:23:40.790 --> 01:23:43.970
+si venimos usando la misma, eh, la misma hacer que,
+
+1253
+01:23:44.830 --> 01:23:46.290
+por ejemplo, están haciendo con los mismo
+
+1254
+01:23:46.870 --> 01:23:49.530
+en que venía estando antes y están en cosas arriba,
+
+1255
+01:23:49.820 --> 01:23:52.970
+puede ser que se pisen y se se rompan las dependencias
+
+1256
+01:23:52.970 --> 01:23:54.210
+porque uno hacen todos los
+
+1257
+01:23:55.160 --> 01:23:57.810
+otra versión y que nos están compatibles, eh?
+
+1258
+01:23:57.970 --> 01:23:59.970
+Entonces, muchas de las cosas que nos conviene directamente
+
+1259
+01:24:00.550 --> 01:24:04.870
+lo agarramos que amos de desolado y esa fund opción,
+
+1260
+01:24:04.970 --> 01:24:07.470
+si ven que que no tiene forma arreglarlo siempre igual,
+
+1261
+01:24:07.770 --> 01:24:09.470
+si tienen la máquina para correr, lo está bueno,
+
+1262
+01:24:09.470 --> 01:24:11.070
+unos máquina, eh?
+
+1263
+01:24:11.070 --> 01:24:12.550
+Pero nada eso como son de cada uno.
+
+1264
+01:24:12.550 --> 01:24:15.430
+Pero sepan que ya ir acordado. Si. Si.
+
+1265
+01:24:15.590 --> 01:24:17.710
+Y tienen problema de dependencia es la es la ción fue
+
+1266
+01:24:17.710 --> 01:24:18.830
+así, eh?
+
+1267
+01:24:20.140 --> 01:24:24.070
+Pero ya igual tramos con el caso. Si vamos a arreglar ahí.
+
+1268
+01:24:24.130 --> 01:24:27.310
+Ya tenemos. Sí, entonces, bien,
+
+1269
+01:24:28.120 --> 01:24:29.470
+vamos anos el pipeline.
+
+1270
+01:24:29.550 --> 01:24:33.870
+Y eso que vamos usar de vpm ese me dije si tarries
+
+1271
+01:24:35.050 --> 01:24:39.070
+eh, y un poco nada está como bastante de verboso tetrao que
+
+1272
+01:24:39.070 --> 01:24:42.870
+va como que explicando cada parte de estamos haciendo y va
+
+1273
+01:24:43.030 --> 01:24:45.190
+haciendo en preguntas por ahí y allá que vayan respondiendo
+
+1274
+01:24:45.190 --> 01:24:48.350
+las preguntas y con perdón el poco podido pedir comentar.
+
+1275
+01:24:49.560 --> 01:24:53.380
+Sí. Entonces todo esto es básicamente también lo que
+
+1276
+01:24:53.620 --> 01:24:55.940
+Federico qui estamos teniendo un proceso de no.
+
+1277
+01:24:56.560 --> 01:24:58.330
+Sí, eh?
+
+1278
+01:24:58.330 --> 01:25:01.730
+Estamos poniendo de tenemos alguna generación en algún tipo
+
+1279
+01:25:01.750 --> 01:25:05.410
+de time steps así esos tiempos venimos algo.
+
+1280
+01:25:05.410 --> 01:25:10.200
+Tengo tan tiempo, eh? Los pasos intermedios. Sí.
+
+1281
+01:25:10.200 --> 01:25:13.440
+Eliminarlo los ruido progresivamente. Todo eso.
+
+1282
+01:25:13.440 --> 01:25:16.930
+Lo que venimos hablar entonces
+
+1283
+01:25:17.400 --> 01:25:18.530
+nada pregunt en general.
+
+1284
+01:25:18.600 --> 01:25:21.610
+Qué? Eso con los ster en el consejo generación
+
+1285
+01:25:21.610 --> 01:25:23.330
+imágenes y por función.
+
+1286
+01:25:24.130 --> 01:25:27.330
+Y eh, por qué comenzamos con una imagen que completamente
+
+1287
+01:25:27.330 --> 01:25:30.490
+ruido, qué papel puede haber ruido en esta generación de
+
+1288
+01:25:30.490 --> 01:25:31.850
+imágenes, etcétera.
+
+1289
+01:25:33.200 --> 01:25:36.180
+Fun y nada. Vamos, entiendo funciones para ahí.
+
+1290
+01:25:36.360 --> 01:25:38.420
+Que simplemente esto no tiene algo con
+
+1291
+01:25:39.290 --> 01:25:43.840
+pero acá tenemos un par pasar un par de imágenes y
+
+1292
+01:25:44.780 --> 01:25:46.120
+eh, más
+
+1293
+01:25:49.730 --> 01:25:54.650
+bien, entonces el esta
+
+1294
+01:25:54.990 --> 01:25:56.130
+se encarga de todo, eh?
+
+1295
+01:25:56.130 --> 01:25:58.630
+Para no tenemos que pasarle nada.
+
+1296
+01:25:58.850 --> 01:26:02.350
+Si que podido y una que pas es lo que tienes.
+
+1297
+01:26:02.530 --> 01:26:04.920
+No tengo que nada directamente. Decimos que no tenía imagen.
+
+1298
+01:26:04.920 --> 01:26:09.490
+No tenía aquí perdón al part que nos genera todo.
+
+1299
+01:26:09.490 --> 01:26:13.970
+Porque como, cómo usamos to la difusión batimos de ruido?
+
+1300
+01:26:14.710 --> 01:26:16.410
+Sí, del mismo, mi imagen.
+
+1301
+01:26:17.280 --> 01:26:21.090
+Y vamos a poco y relativamente sacando en el ruido
+
+1302
+01:26:22.950 --> 01:26:25.370
+con ese modelo o que nosotros tenemos que sabemos que prece
+
+1303
+01:26:25.370 --> 01:26:28.930
+el ruido o en su defecto, predice la imagen sin ruido.
+
+1304
+01:26:29.680 --> 01:26:31.250
+Cual tiene las operaciones lo mismo
+
+1305
+01:26:32.010 --> 01:26:33.400
+y les vamos a sacar mente.
+
+1306
+01:26:33.760 --> 01:26:35.000
+Entonces, me encarga dar todo eso.
+
+1307
+01:26:35.160 --> 01:26:37.440
+Nosotros simplemente le pedimos que es y no mucho más.
+
+1308
+01:26:38.360 --> 01:26:39.960
+Sí, ya.
+
+1309
+01:26:39.960 --> 01:26:42.320
+Pero lo que nos vamos hacer es meterlos un poquito adentro y
+
+1310
+01:26:42.450 --> 01:26:46.520
+jugar un poco por esta cosas generarlo nosotros o cambiar
+
+1311
+01:26:46.520 --> 01:26:48.400
+cosas nosotros ir haciendo el paso apart.
+
+1312
+01:26:50.090 --> 01:26:51.730
+Entonces, bien, este parámetro no?
+
+1313
+01:26:52.750 --> 01:26:55.970
+Sí, que son los times un super. Venimos. Cuántos eh vas?
+
+1314
+01:26:56.250 --> 01:27:00.400
+Tenemos set, eh?
+
+1315
+01:27:02.150 --> 01:27:04.640
+Bien, se imaginas cs
+
+1316
+01:27:05.180 --> 01:27:08.410
+pas diferencia como buen el codigo.
+
+1317
+01:27:11.180 --> 01:27:13.990
+Pero la idea es no solo el Coen enodio,
+
+1318
+01:27:13.990 --> 01:27:16.230
+sino que entienden que está pasando y que
+
+1319
+01:27:16.720 --> 01:27:17.870
+salen funcion por eso.
+
+1320
+01:27:17.970 --> 01:27:21.150
+Eso es lo que importa que, como digo siempre el práctico
+
+1321
+01:27:21.150 --> 01:27:23.150
+acompaña el teórico y le tendrá que se entienda el
+
+1322
+01:27:23.150 --> 01:27:26.460
+te, eh?
+
+1323
+01:27:27.730 --> 01:27:30.100
+Bien, manito, no más un al ruido, eh?
+
+1324
+01:27:30.120 --> 01:27:33.220
+Le digas un poco como les dije, tal un video oratorio.
+
+1325
+01:27:33.510 --> 01:27:37.980
+Bueno, pod. Jugar un poco en esta cd. Sí, nosotros al p. Si.
+
+1326
+01:27:37.980 --> 01:27:39.460
+Bien, nosotros no, no le pasamos nada.
+
+1327
+01:27:39.460 --> 01:27:42.850
+Simplemente le pasamos lo lo pasa que nosotros
+
+1328
+01:27:42.850 --> 01:27:44.010
+que hacer el ríos venía.
+
+1329
+01:27:44.010 --> 01:27:46.810
+Sol. Qué podemos para nosotros? Bueno, qué pasa?
+
+1330
+01:27:46.840 --> 01:27:49.050
+Así le pasamos, nací u otra?
+
+1331
+01:27:49.360 --> 01:27:52.010
+Qué debe pasar si hacemos dos generaciones para lo mismo
+
+1332
+01:27:52.010 --> 01:27:53.210
+así, qué debería pasar?
+
+1333
+01:27:53.680 --> 01:27:56.260
+Qué, eh?
+
+1334
+01:27:56.440 --> 01:27:59.940
+Es un poco lo que fins esta sección.
+
+1335
+01:28:00.240 --> 01:28:02.620
+Sí, perdón na, asi y servir el inicial,
+
+1336
+01:28:03.160 --> 01:28:06.660
+no la si es la semilla y cuál lo que se genera
+
+1337
+01:28:07.120 --> 01:28:09.100
+se para cuidado.
+
+1338
+01:28:09.120 --> 01:28:11.820
+No se va ser diferente para civil para
+
+1339
+01:28:11.820 --> 01:28:15.440
+tener el cd.
+
+1340
+01:28:15.460 --> 01:28:17.720
+La cito que haces, arranca la generación.
+
+1341
+01:28:17.880 --> 01:28:19.440
+Entonces, si vos arrancáis de cero
+
+1342
+01:28:20.340 --> 01:28:21.980
+a generar con la misma sid,
+
+1343
+01:28:22.040 --> 01:28:23.860
+una misma distribución siempre te va por mí.
+
+1344
+01:28:25.350 --> 01:28:28.720
+Pero si vos generas dos veces secuencialmente con la misma
+
+1345
+01:28:28.860 --> 01:28:30.880
+sid, misma distribución te da distinto.
+
+1346
+01:28:31.600 --> 01:28:34.080
+Y pero si vos restauraría de arranc acá de nuevo,
+
+1347
+01:28:35.140 --> 01:28:36.480
+la misma primero, sí.
+
+1348
+01:28:36.480 --> 01:28:38.440
+Pues la así es como que te da una grima
+
+1349
+01:28:39.180 --> 01:28:41.740
+de qué número van a dar?
+
+1350
+01:28:42.440 --> 01:28:44.460
+No es que te lo diga, pero siempre tener el mismo
+
+1351
+01:28:44.460 --> 01:28:45.660
+resultado de últimos empleos.
+
+1352
+01:28:46.820 --> 01:28:48.760
+Si te da como un determinismo
+
+1353
+01:28:50.480 --> 01:28:52.020
+de alguna forma en ese caso.
+
+1354
+01:28:52.890 --> 01:28:54.330
+Y entonces para una misma cd,
+
+1355
+01:28:54.510 --> 01:28:56.490
+se arrancamos de CE o siempre nos diría lo mismo.
+
+1356
+01:28:56.880 --> 01:29:00.480
+Pero a la ahora que vamos planeando muchas ya no, no a,
+
+1357
+01:29:02.440 --> 01:29:05.220
+sí, es un claro.
+
+1358
+01:29:05.220 --> 01:29:07.860
+Así no, no es que te dice cuál va otro resultados, sino que
+
+1359
+01:29:09.840 --> 01:29:11.780
+te te GUI resultado.
+
+1360
+01:29:11.930 --> 01:29:13.620
+Qué? Y cuál la última
+
+1361
+01:29:16.540 --> 01:29:21.290
+está no hacer la sí.
+
+1362
+01:29:21.950 --> 01:29:24.810
+Sí, le vale. Sí, eh, eso directamente lo que vamos a pasar.
+
+1363
+01:29:26.350 --> 01:29:29.570
+Sí, le pasamos esto al al pipeline.
+
+1364
+01:29:29.650 --> 01:29:30.930
+Y ya con eso vamos a estar caminando.
+
+1365
+01:29:31.870 --> 01:29:35.860
+Sí, después un poco jugar lo que seguía generación en Bach.
+
+1366
+01:29:35.880 --> 01:29:38.020
+Sí, que tanto nos afecta porque la ponse
+
+1367
+01:29:38.770 --> 01:29:41.110
+lo que el les digo siempre la venta hasta que tenemos con
+
+1368
+01:29:41.110 --> 01:29:42.470
+estos modelos es que podemos plane en el par.
+
+1369
+01:29:43.360 --> 01:29:46.320
+Entonces, generar una imagen, generar 10 al mismo tiempo.
+
+1370
+01:29:46.780 --> 01:29:49.240
+No nos vas a tan di en un tiempo de costo, no?
+
+1371
+01:29:49.480 --> 01:29:52.360
+Entonces podemos aprovechar eso y ver, por ejemplo,
+
+1372
+01:29:52.390 --> 01:29:56.300
+cuánto nos qué diferencia hay y y cuánto tiempo
+
+1373
+01:29:57.200 --> 01:30:00.140
+nos tard generar 10 imágenes secuencialmente
+
+1374
+01:30:01.060 --> 01:30:04.380
+o 10 imágenes tirando estos en un ba y que es una ventaja
+
+1375
+01:30:04.380 --> 01:30:06.860
+que tenemos siempre que estamos viendo estos modelos, eh,
+
+1376
+01:30:06.890 --> 01:30:09.580
+para cog gente por generación, no sea ba, ya sea acá,
+
+1377
+01:30:09.640 --> 01:30:12.220
+ya sea huge, sea language, lo que sea.
+
+1378
+01:30:12.700 --> 01:30:15.100
+Y sabemos que tenemos esa posibilidad siempre pasar para
+
+1379
+01:30:15.920 --> 01:30:20.630
+igual con entonces, bien, bueno, eh, far,
+
+1380
+01:30:21.460 --> 01:30:23.110
+creo que sería la creación paralelo.
+
+1381
+01:30:23.350 --> 01:30:27.790
+Y tal eh, tor ya nos probó una una función para poder, eh,
+
+1382
+01:30:28.120 --> 01:30:30.710
+visualizar en naa la gente sí.
+
+1383
+01:30:32.250 --> 01:30:37.080
+Eh? Bien, vamos en un mucho código visitar y ya le voy todo
+
+1384
+01:30:37.860 --> 01:30:40.640
+la creación, como les digo, del código es lo que tienen que
+
+1385
+01:30:41.220 --> 01:30:43.260
+esa sí.
+
+1386
+01:30:45.090 --> 01:30:47.980
+Bien, yo lo que está echa es un de parte más interesantes y
+
+1387
+01:30:47.980 --> 01:30:51.140
+la participe de la conexión, eh, paso a paso con escrito.
+
+1388
+01:30:51.680 --> 01:30:54.140
+Sí, es, creo que lo que decía esperamos y como vamos ir
+
+1389
+01:30:54.140 --> 01:30:57.020
+cambiando y aita no nos vamos a meter
+
+1390
+01:30:57.620 --> 01:31:02.470
+nosotros en lo que sería agarrar su más, agarrar el ruido,
+
+1391
+01:31:02.550 --> 01:31:05.310
+predecir el ruido, estar en mi caso, que sea no,
+
+1392
+01:31:05.530 --> 01:31:08.070
+ya has encargar eh, intenso.
+
+1393
+01:31:08.290 --> 01:31:11.110
+Lo que vamos a meternos un poquito más adentro del payal y
+
+1394
+01:31:11.110 --> 01:31:13.030
+vamos a batir nosotros del ruido.
+
+1395
+01:31:13.910 --> 01:31:18.380
+Y vamos a ir con es que duda prediciendo la s i imagen
+
+1396
+01:31:19.400 --> 01:31:21.860
+en ser ruido que sí.
+
+1397
+01:31:22.060 --> 01:31:23.180
+Y eso va a hacer un poco de ellos.
+
+1398
+01:31:24.310 --> 01:31:28.870
+Y tenían un cédula, tienen un modelo y tenían un ruido.
+
+1399
+01:31:28.960 --> 01:31:31.390
+Vamos a seguir pre diciendo la siguiente imagen que
+
+1400
+01:31:31.390 --> 01:31:32.630
+sería de algunos times.
+
+1401
+01:31:32.890 --> 01:31:34.070
+Le sacamos un poco de aquí,
+
+1402
+01:31:38.370 --> 01:31:39.740
+todo lo que veníamos hablando en te
+
+1403
+01:31:41.630 --> 01:31:44.070
+Y Eso es lo que tenían casa con un poco con el set
+
+1404
+01:31:44.070 --> 01:31:45.230
+size y el no muy fácil.
+
+1405
+01:31:47.460 --> 01:31:51.330
+Sí dijiste, para que sirven interesante.
+
+1406
+01:31:53.980 --> 01:31:54.760
+Si ven no tiene que,
+
+1407
+01:31:59.540 --> 01:31:59.760
+Eh.
+
+1408
+01:32:01.180 --> 01:32:04.020
+Y bien, es bueno un poco con eso y entender el co volar
+
+1409
+01:32:04.020 --> 01:32:05.780
+el sí.
+
+1410
+01:32:08.160 --> 01:32:10.560
+Y después de otra que que es una cosa que que hablamos
+
+1411
+01:32:10.560 --> 01:32:14.250
+también con las ba es, eh, esperar un poquito espacio la sí,
+
+1412
+01:32:14.670 --> 01:32:17.490
+eh, puede program un poco de espacio atente en este
+
+1413
+01:32:17.490 --> 01:32:18.850
+caso, entre dos imágenes.
+
+1414
+01:32:19.250 --> 01:32:20.690
+Y vamos a agarrar dos imágenes.
+
+1415
+01:32:20.930 --> 01:32:24.740
+Nosotros tenemos, vamos a como que intentar de entrar,
+
+1416
+01:32:25.410 --> 01:32:29.340
+ponerla y esperar un poco el espacio de intenta entre esas
+
+1417
+01:32:29.340 --> 01:32:31.670
+dos imágenes y como darnos un poquito
+
+1418
+01:32:32.510 --> 01:32:34.150
+y proyectar ese más que nos va
+
+1419
+01:32:35.740 --> 01:32:39.720
+se va a hacer un poco de idea este fa, no ese una parecido.
+
+1420
+01:32:39.760 --> 01:32:41.120
+Lo que hay algo que hacíamos es
+
+1421
+01:32:41.820 --> 01:32:44.760
+si se acuerdan en las Bay que hicimos una la que
+
+1422
+01:32:44.760 --> 01:32:46.000
+exploramos un poco mente.
+
+1423
+01:32:46.000 --> 01:32:49.200
+Bueno, esto es algo similar, es en lair
+
+1424
+01:32:49.760 --> 01:32:51.960
+y ahora en nuestro espacio atente qué dimensión tiene
+
+1425
+01:32:53.630 --> 01:32:54.890
+la la misma que más
+
+1426
+01:32:56.010 --> 01:32:58.250
+y eso es lo que vamos a explorar un poco.
+
+1427
+01:32:58.350 --> 01:33:02.790
+Ese ese espacio la tiene pastora,
+
+1428
+01:33:03.980 --> 01:33:06.470
+como les digo, completar todos los sencillos no tiene yo,
+
+1429
+01:33:12.740 --> 01:33:14.520
+ah, y es donde que estar muy digo que cre un
+
+1430
+01:33:16.390 --> 01:33:18.760
+partiendo un poco, partimos una imagen que llama para otra.
+
+1431
+01:33:18.880 --> 01:33:23.280
+Y terminamos que en en cómo eso está ahí, verdad?
+
+1432
+01:33:24.940 --> 01:33:26.940
+Y es más, por último, de idea, es, eh,
+
+1433
+01:33:27.370 --> 01:33:29.900
+como que ver un poco dormir como se en entrenamiento decir
+
+1434
+01:33:30.240 --> 01:33:32.700
+ta, tenemos una imagen en sin nada.
+
+1435
+01:33:32.870 --> 01:33:37.740
+Vamos a una imagen sifa vies que hacemos de algún ruido,
+
+1436
+01:33:38.680 --> 01:33:41.060
+la cierta cantidad de ruido y después que vamos hacer es
+
+1437
+01:33:41.170 --> 01:33:44.660
+pasarle a nuestro modelo para sacarle ese mismo ruido.
+
+1438
+01:33:44.860 --> 01:33:47.260
+A ver si nos va ha a parecido no a la imagen de la que Pat
+
+1439
+01:33:48.740 --> 01:33:49.920
+eh, y es un poco
+
+1440
+01:33:50.860 --> 01:33:53.960
+eso básicamente lo que que hacer partiendo la imagen,
+
+1441
+01:33:53.960 --> 01:33:56.760
+le agregamos ruido después le sac mostrando el modelo y
+
+1442
+01:33:56.760 --> 01:33:57.800
+ahora puede ser resultado.
+
+1443
+01:33:58.140 --> 01:34:01.720
+Sí. Y también por un poco, los eh en sí,
+
+1444
+01:34:02.150 --> 01:34:05.360
+cuánto ruido le agregamos y cuánto ruido le sacamos si le
+
+1445
+01:34:05.360 --> 01:34:08.480
+sacamos y le agregamos más alto ruido, diga algo similar.
+
+1446
+01:34:08.740 --> 01:34:12.880
+Le sacamos más de que le agregamos posible agregamos más de
+
+1447
+01:34:12.880 --> 01:34:17.320
+que le sacamos bueno, hay almos sí, eh?
+
+1448
+01:34:17.440 --> 01:34:20.220
+Y eso puede tener que esto y la con
+
+1449
+01:34:22.650 --> 01:34:26.860
+con vamos siempre y todo ya está bastante hecho.
+
+1450
+01:34:27.320 --> 01:34:31.540
+La idea que vayan respondiendo las preguntas, eh,
+
+1451
+01:34:33.690 --> 01:34:35.300
+bien, acá cumplir
+
+1452
+01:34:36.940 --> 01:34:39.130
+pobre un poco la idea de este práctico va ser, eh,
+
+1453
+01:34:39.130 --> 01:34:43.210
+es programo básicamente los models y lo que yo quiero que se
+
+1454
+01:34:43.210 --> 01:34:46.720
+termina a andar si como funcionan, eh?
+
+1455
+01:34:46.800 --> 01:34:51.340
+Y que seguí un poco por por el trao como les dije, la idea,
+
+1456
+01:34:51.340 --> 01:34:52.820
+no vas entregar un model, no?
+
+1457
+01:34:53.000 --> 01:34:55.100
+Si. Que eso ya más complejo requiere más cómputo
+
+1458
+01:34:55.680 --> 01:34:59.080
+no vamos a hacer ahora si hay quiere hacerlo bienveido ya,
+
+1459
+01:34:59.290 --> 01:35:01.530
+obviamente, em,
+
+1460
+01:35:04.370 --> 01:35:06.320
+tengo mucho más esa idea.
+
+1461
+01:35:06.500 --> 01:35:08.640
+Sí. Que vayan y y exploren.
+
+1462
+01:35:09.280 --> 01:35:11.360
+Y cualquier cosa que se que le ocurre, por favor,
+
+1463
+01:35:11.410 --> 01:35:12.520
+cómo poder con eso.
+
+1464
+01:35:12.740 --> 01:35:15.560
+Eso es lo que creo que estaría interesante.
+
+1465
+01:35:15.600 --> 01:35:18.800
+Y lo que lo que también mucho no por juego con cualquier
+
+1466
+01:35:18.800 --> 01:35:21.710
+cosa que que les par interesante, eh?
+
+1467
+01:35:21.730 --> 01:35:23.990
+Voy a visitar los parámetros cuerpo en otros, eh,
+
+1468
+01:35:23.990 --> 01:35:27.670
+cercos raras, eh, que les dar resultados raros
+
+1469
+01:35:28.430 --> 01:35:30.270
+intentar porque qué era eso?
+
+1470
+01:35:30.930 --> 01:35:32.430
+Eso es lo que termina requi más.
+
+1471
+01:35:33.180 --> 01:35:36.230
+Así que nos invito a eso, eh?
+
+1472
+01:35:37.060 --> 01:35:39.630
+Como dije, como tres semanas tienes para arte pico.
+
+1473
+01:35:39.940 --> 01:35:42.800
+Así que el tiempo hay que es el último
+
+1474
+01:35:42.800 --> 01:35:44.720
+práctico y no mucho más.
+
+1475
+01:35:46.720 --> 01:35:51.250
+Sí, sí. Alguna duda? Mía general.
+
+1476
+01:35:57.660 --> 01:35:59.630
+Bien, eh,
+
+1477
+01:35:59.630 --> 01:36:03.910
+recuerden que mañana ven de ganas y nada más.
+
+1478
+01:36:05.520 --> 01:36:07.220
+Si no dudas, no venimos alas.
+
+1479
+01:36:07.460 --> 01:36:09.860
+Y ya vamos a ver de manera este.
+
+1480
+01:36:09.860 --> 01:36:10.420
+Pregunto qué
+
+1481
+01:36:13.830 --> 01:36:15.040
+más tema podría, verdad?
+
+1482
+01:36:17.310 --> 01:36:22.120
+Digo aquí qué?
+
+1483
+01:36:22.940 --> 01:36:24.850
+Y no,
+
+1484
+01:36:27.350 --> 01:36:31.080
+no le ellos no.
+
+1485
+01:36:31.080 --> 01:36:35.480
+Ellos es importantes el ciclo que no ahora,
+
+1486
+01:36:36.070 --> 01:36:40.630
+digamos no.
+
+1487
+01:36:50.820 --> 01:36:53.990
+Bien, la clase mas pelaste de que la clase del
+
+1488
+01:36:54.910 --> 01:36:59.160
+y la clase del era embarazar, como presentar los avances.
+
+1489
+01:36:59.180 --> 01:37:02.480
+Sí, de o sea, y te queda una clase sola en el médico,
+
+1490
+01:37:02.500 --> 01:37:05.680
+la la clase viene el cuadro y después ya será un
+
+1491
+01:37:06.480 --> 01:37:08.240
+O sea, nos queda bien, eh?
+
+1492
+01:37:08.820 --> 01:37:11.640
+La hacer en igual hay que ver
+
+1493
+01:37:11.700 --> 01:37:15.610
+que sale
+
+1494
+01:37:18.780 --> 01:37:23.650
+Vamos divid equipos, una fecha y sirve a lo mejor
+
+1495
+01:37:24.840 --> 01:37:27.330
+Último, pero está así.
+
+1496
+01:37:27.950 --> 01:37:28.950
+Pas
+
+1497
+01:37:33.190 --> 01:37:34.190
+Ya tiene hecho.
+
+1498
+01:37:34.590 --> 01:37:38.300
+Vamos. Sí, no fue, no es que tienen que presentar algo
+
+1499
+01:37:39.360 --> 01:37:42.180
+eso exactamente que presente mi mamá.
+
+1500
+01:37:42.720 --> 01:37:45.420
+Los problemas van encontrando si quiere, no gusta, pero
+
+1501
+01:37:46.240 --> 01:37:48.380
+no necesariamente tienen que enseñ sus trabajo.
+
+1502
+01:37:49.310 --> 01:37:51.900
+Somos, si no tienen importa contar algún
+
+1503
+01:37:51.900 --> 01:37:53.060
+van y contar su problema.
+
+1504
+01:37:53.600 --> 01:37:56.640
+Yo creo lo más importante. Eso. Contar que van a atacar. Sí.
+
+1505
+01:37:56.640 --> 01:38:00.040
+Si no sé, vamos a hacer gun condicionada para este problema.
+
+1506
+01:38:00.340 --> 01:38:01.960
+Sí, esperamos entrenar esto.
+
+1507
+01:38:01.960 --> 01:38:04.080
+Esperamos que a esto eh,
+
+1508
+01:38:05.500 --> 01:38:08.630
+esto si hicimos algo bueno, esto hicimos esto.
+
+1509
+01:38:08.730 --> 01:38:10.710
+Nos encontramos el problema, eh?
+
+1510
+01:38:10.710 --> 01:38:12.070
+Pudimos generar estos resultados.
+
+1511
+01:38:12.470 --> 01:38:16.870
+Vimos que no sé si cambiamos acular
+
+1512
+01:38:17.500 --> 01:38:20.950
+bien, soy no a mucho la gracia que viene para que para
+
+1513
+01:38:21.190 --> 01:38:24.310
+trabajar entre las sí, eh?
+
+1514
+01:38:24.310 --> 01:38:26.150
+Porque entrar las situaciones
+
+1515
+01:38:27.000 --> 01:38:31.860
+vamos dar dos clase de investigaciones y consulto reci
+
+1516
+01:38:32.980 --> 01:38:35.110
+tema que como ver qué amigo?
+
+1517
+01:38:35.700 --> 01:38:40.030
+Pues el ases pero tema aquí en es general negativ
+
+1518
+01:38:40.970 --> 01:38:44.830
+lo más difícil que es valor la calidad de los s.
+
+1519
+01:38:45.050 --> 01:38:49.710
+Por qué? Por que influ no tenéis
+
+1520
+01:38:49.850 --> 01:38:53.830
+un o sea, como en en la parte trayt donde vos tenes la qui
+
+1521
+01:38:53.900 --> 01:38:57.310
+así pues, si está no el malísimo porque he aquí si Dios
+
+1522
+01:38:57.450 --> 01:39:00.550
+queque, no acá ten y puede decir y y
+
+1523
+01:39:01.390 --> 01:39:03.630
+desahogo por la calidad y la vi.
+
+1524
+01:39:03.630 --> 01:39:07.190
+Por qué la variabilidad entonces, ay bien para eso.
+
+1525
+01:39:07.380 --> 01:39:12.070
+Pero son muy delio nada.
+
+1526
+01:39:12.470 --> 01:39:15.790
+O sea, podemos ver una necesidad eso echar un poco los mé
+
+1527
+01:39:16.050 --> 01:39:19.550
+que se hacen en algunos oios tan bueno.
+
+1528
+01:39:19.770 --> 01:39:24.150
+Sí que se enfoquen en alguna en la una té de evaluación
+
+1529
+01:39:24.610 --> 01:39:29.030
+en su entre o seaga no puede dejar deidad de evaluación.
+
+1530
+01:39:30.360 --> 01:39:32.420
+Su problema. Vas tener que diciendo está bueno,
+
+1531
+01:39:32.420 --> 01:39:34.740
+es nada que nos conar un su prototipo.
+
+1532
+01:39:35.370 --> 01:39:37.660
+Este evaluado la calidad de la salida. Sí.
+
+1533
+01:39:38.730 --> 01:39:42.980
+Para eso cada cada dominio tiene su eh, eh, su buen
+
+1534
+01:39:43.680 --> 01:39:48.360
+su por sí micor leo, eh?
+
+1535
+01:39:48.360 --> 01:39:50.160
+Di di concepto.
+
+1536
+01:39:52.340 --> 01:39:56.810
+No a cada día.
+
+1537
+01:39:56.810 --> 01:40:01.490
+Tienes que un vue de la calidad de la generación.
+
+1538
+01:40:02.110 --> 01:40:05.170
+Eh? Qué? Eso como el creo no podemos
+
+1539
+01:40:07.670 --> 01:40:09.750
+o otra no vuelves que viene o más, más?
+
+1540
+01:40:10.170 --> 01:40:14.100
+No. Pues más la present de eso, eh?
+
+1541
+01:40:15.110 --> 01:40:17.160
+Pero si familias de bonito no de todos
+
+1542
+01:40:19.810 --> 01:40:21.690
+y ya los van demasiado, eh?
+
+1543
+01:40:21.950 --> 01:40:23.370
+Los otros que quedan se han demasiado.
+
+1544
+01:40:23.630 --> 01:40:28.130
+Parece que por acá nosotros.
+
+1545
+01:40:29.110 --> 01:40:33.470
+No, no hacia
+
+1546
+01:40:33.970 --> 01:40:35.390
+es, eh, du?
+
+1547
+01:40:35.540 --> 01:40:38.670
+Pues eso okey, sí.
+
+1548
+01:40:38.780 --> 01:40:41.950
+Pues sea algo este tema con de
+
+1549
+01:40:45.520 --> 01:40:50.140
+un encima es es una bombera de un sea mucha.
+
+1550
+01:40:53.000 --> 01:40:56.920
+Queremos ver más a fondo y le con desde
+
+1551
+01:40:59.080 --> 01:41:03.480
+y pues, a vivir como más sal.
+
+1552
+01:41:03.590 --> 01:41:06.040
+Dice un laboratorio de trabajo corría sus ideas a
+
+1553
+01:41:06.860 --> 01:41:09.350
+de esos bonitos ya vas a
+
+1554
+01:41:09.880 --> 01:41:11.870
+pagar un de intern internado baja.
+
+1555
+01:41:11.870 --> 01:41:13.550
+Tener un trip que se de
+
+1556
+01:41:15.270 --> 01:41:17.350
+y todo la algunas se termina haciendo alrededor de cómo
+
+1557
+01:41:17.350 --> 01:41:19.790
+comprar ese direct creible es subir,
+
+1558
+01:41:21.470 --> 01:41:23.570
+no dando en en el agua más.
+
+1559
+01:41:25.200 --> 01:41:28.330
+Pues esta proción para incluso lo de
+
+1560
+01:41:29.750 --> 01:41:32.510
+y nada pedir de de quería opción.
+
+1561
+01:41:34.570 --> 01:41:36.630
+Le lucha con alguna que su clase
+
+1562
+01:41:43.750 --> 01:41:44.040
+qué?
+
+1563
+01:41:46.120 --> 01:41:48.910
+Luego van a ver no van a explorar en litera.
+
+1564
+01:41:54.750 --> 01:41:57.730
+Sí, no sé hablar. Digo
+
+1565
+01:42:02.920 --> 01:42:05.810
+aquí es un
+
+1566
+01:42:05.960 --> 01:42:08.490
+tend y de pasa datos.
+
+1567
+01:42:09.910 --> 01:42:14.390
+O sea, con más datos para por trabajo. No vin.
+
+1568
+01:42:14.570 --> 01:42:19.140
+Sí, í después hay muchos
+
+1569
+01:42:19.440 --> 01:42:19.660
+no
+
+1570
+01:42:26.680 --> 01:42:28.370
+negocio eso.
+
+1571
+01:42:34.420 --> 01:42:37.240
+Um, sí,
+
+1572
+01:42:38.270 --> 01:42:41.040
+Mira, eh, a sala, eh?
+
+1573
+01:42:42.400 --> 01:42:44.650
+Y buena cosa. Nos ah,
+
+1574
+01:42:45.270 --> 01:42:47.540
+llaman ah.
+
+1575
+01:42:48.550 --> 01:42:50.460
+Puedo ver de curiosidad más.
+
+1576
+01:42:51.200 --> 01:42:54.150
+Cómo sería el entrenamiento de el a algoritmo de
+
+1577
+01:42:54.150 --> 01:42:55.630
+entrenamiento de de este
+
+1578
+01:42:55.630 --> 01:42:59.470
+que de fusión?
+
+1579
+01:42:59.690 --> 01:43:02.950
+Sí. No tiene que las imágen por ruido. Sí.
+
+1580
+01:43:04.290 --> 01:43:05.490
+Y igual cuál esos?
+
+1581
+01:43:05.670 --> 01:43:09.850
+La parte fácil, la de la inicial, la pasa por el modelo.
+
+1582
+01:43:10.140 --> 01:43:14.610
+Hacer algo contra la primera Que cumples a pasar la segunda
+
+1583
+01:43:15.270 --> 01:43:18.210
+no tiene por bien, o sea, lo haciendo es
+
+1584
+01:43:22.120 --> 01:43:24.860
+estaba la imagen en un tiempo dado
+
+1585
+01:43:25.800 --> 01:43:27.500
+vos tenéis para el par
+
+1586
+01:43:28.520 --> 01:43:32.880
+que tu te lo te quité te y dos.
+
+1587
+01:43:33.600 --> 01:43:37.880
+Entonces, o par son son son bi de mayor ruido.
+
+1588
+01:43:38.260 --> 01:43:40.840
+Sí, lavi no fue un libro que que puede ser que poner es
+
+1589
+01:43:40.840 --> 01:43:42.480
+referido para su país.
+
+1590
+01:43:43.180 --> 01:43:46.760
+Se inducirte iluc le he tengo un
+
+1591
+01:43:48.050 --> 01:43:52.880
+y lo que decir, qu uno y uno me para
+
+1592
+01:43:53.560 --> 01:43:57.320
+o tiempo sería sería en el pa agarro la imagen de de,
+
+1593
+01:43:58.150 --> 01:44:00.600
+digamos, un agarro imagen que este género ruido.
+
+1594
+01:44:01.140 --> 01:44:06.100
+Sí. Pues arranc de la primera la paso por el modelo
+
+1595
+01:44:06.680 --> 01:44:08.220
+me comparó el qui.
+
+1596
+01:44:08.220 --> 01:44:12.090
+Tercero 40 no el paper, el paper,
+
+1597
+01:44:12.590 --> 01:44:13.650
+el de te proceso de
+
+1598
+01:44:15.230 --> 01:44:16.230
+Vos. Muy
+
+1599
+01:44:16.230 --> 01:44:19.790
+Vamos al paper ahí
+
+1600
+01:44:21.480 --> 01:44:23.420
+de de berley son estos? No?
+
+1601
+01:44:23.680 --> 01:44:23.900
+Sí.
+
+1602
+01:44:29.550 --> 01:44:32.420
+Background fusion. Process training
+
+1603
+01:44:35.450 --> 01:44:38.200
+repet qui cero es mostrar un dato
+
+1604
+01:44:39.500 --> 01:44:42.420
+t elegía algún valor entre uno y tema mayúscula.
+
+1605
+01:44:43.900 --> 01:44:45.620
+Epsilon es la normal. Uno.
+
+1606
+01:44:47.090 --> 01:44:51.160
+Hacer grad de epsilon menos epsilon,
+
+1607
+01:44:51.580 --> 01:44:53.760
+que es que es el el error predicho
+
+1608
+01:44:54.940 --> 01:44:57.690
+por un alate.
+
+1609
+01:44:58.450 --> 01:45:02.090
+O sea, acá hasta la la me mostró la normal con el heavy
+
+1610
+01:45:03.700 --> 01:45:05.610
+hasta converger qué es lo que estás prediciendo tu mano?
+
+1611
+01:45:05.610 --> 01:45:07.290
+Qué es lo que pre el que predice el error?
+
+1612
+01:45:09.300 --> 01:45:12.960
+Yo fue lo que que que tu modelo aproxime
+
+1613
+01:45:14.070 --> 01:45:16.580
+al error sea,
+
+1614
+01:45:16.600 --> 01:45:19.500
+es la red la diferencia cuadrática entre el error y el error
+
+1615
+01:45:19.500 --> 01:45:22.180
+dado no es exactamente cómo lo planteamos por eso,
+
+1616
+01:45:22.180 --> 01:45:23.540
+pero estaría bueno para eso.
+
+1617
+01:45:23.540 --> 01:45:24.980
+Hay que leer un poco la derogación en pay
+
+1618
+01:45:41.160 --> 01:45:43.660
+se va un poco la discusión, pero tal al final día, eh?
+
+1619
+01:45:44.040 --> 01:45:47.210
+Lo que nos puede que llegar es que de toda esta teoría que
+
+1620
+01:45:47.210 --> 01:45:50.210
+mismo hoy se puede llevar un algoritmo de sensor oriente que
+
+1621
+01:45:50.210 --> 01:45:52.570
+implica ir este mostrando
+
+1622
+01:45:53.800 --> 01:45:56.860
+de acuerdo del four diffusion y el
+
+1623
+01:45:56.860 --> 01:45:59.140
+modelo sí,
+
+1624
+01:46:00.390 --> 01:46:01.850
+El modelo el y la pita,
+
+1625
+01:46:02.150 --> 01:46:05.970
+El modelo ionita sí, que me da el error, de acuerdo,
+
+1626
+01:46:06.310 --> 01:46:09.850
+me predice el error para el
+
+1627
+01:46:11.030 --> 01:46:12.790
+el diffusion es el fusion.
+
+1628
+01:46:13.480 --> 01:46:15.640
+Entonces, el bueno, no te prees exactamente entre dos pasos,
+
+1629
+01:46:15.640 --> 01:46:18.440
+sino lo que te predices el error para un tiempo dado.
+
+1630
+01:46:19.740 --> 01:46:21.540
+Entonces, lo que haces es agarrás de imagen original.
+
+1631
+01:46:22.080 --> 01:46:26.200
+Le agregas ruido y le decís
+
+1632
+01:46:26.900 --> 01:46:29.520
+che modelo, esta es mi imagen con ruido en este tiempo
+
+1633
+01:46:30.010 --> 01:46:32.000
+predecirme cuánto ruido de verdad tuve?
+
+1634
+01:46:33.980 --> 01:46:34.480
+Se entiende
+
+1635
+01:46:41.980 --> 01:46:42.440
+el forward?
+
+1636
+01:46:42.700 --> 01:46:45.360
+Es esto que te acá todo esto?
+
+1637
+01:46:48.040 --> 01:46:50.640
+La La la comparación de ese forma
+
+1638
+01:46:51.220 --> 01:46:52.760
+La izquierda, la palacio.
+
+1639
+01:46:53.550 --> 01:46:53.770
+Sí.
+
+1640
+01:47:01.570 --> 01:47:04.710
+Ah, por qué? Claro, la está dentro del par que sí.
+
+1641
+01:47:04.800 --> 01:47:07.750
+Raíz de gaa hecho, eh, el el qui.
+
+1642
+01:47:09.490 --> 01:47:13.910
+Eso es lo que me da la la imagen en el tiempo t por el por
+
+1643
+01:47:13.910 --> 01:47:15.670
+el mío con el más,
+
+1644
+01:47:15.670 --> 01:47:16.790
+El ruido, más el ruido de esos.
+
+1645
+01:47:16.790 --> 01:47:18.670
+Qué paso? Eso es lo que le decía que la de la
+
+1646
+01:47:18.670 --> 01:47:20.230
+propiedad del que se mostré. Claro.
+
+1647
+01:47:20.590 --> 01:47:22.590
+Entonces necesito generar la la i
+
+1648
+01:47:23.250 --> 01:47:24.870
+yo siempre en parto de la igen original.
+
+1649
+01:47:25.210 --> 01:47:28.190
+Le agrego ruido, leé el ruido y después la paso el modelo.
+
+1650
+01:47:28.190 --> 01:47:30.550
+Le digo cuánto ruido tiene acá y tratas de
+
+1651
+01:47:30.550 --> 01:47:31.710
+deshacer eso. Claro.
+
+1652
+01:47:31.790 --> 01:47:34.760
+Y el el ruido la
+
+1653
+01:47:34.940 --> 01:47:37.560
+la que vendría hacer. He estado
+
+1654
+01:47:37.560 --> 01:47:41.040
+Por esto, No el el lil no?
+
+1655
+01:47:42.490 --> 01:47:46.510
+Sí, El emita el la la la imagen,
+
+1656
+01:47:46.740 --> 01:47:51.350
+digamos el error, el ruido se de la que me predigo el modelo
+
+1657
+01:47:51.850 --> 01:47:53.590
+El ebionita lo que parece el modelo.
+
+1658
+01:47:53.590 --> 01:47:55.670
+Y acá, de hecho que estamos viendo acá, eh,
+
+1659
+01:47:55.670 --> 01:47:57.310
+ya estamos en el repar trick.
+
+1660
+01:47:57.770 --> 01:47:59.670
+Porque el lio es normal uno.
+
+1661
+01:48:00.990 --> 01:48:02.990
+Entonces, yo no estoy muestreando de acá. El ruido.
+
+1662
+01:48:03.010 --> 01:48:05.630
+Lo que estoy haciendo que está haciendo es el ligón
+
+1663
+01:48:05.910 --> 01:48:10.030
+multiplicado por la varianza y la media queda dada.
+
+1664
+01:48:10.030 --> 01:48:13.310
+Queda fija, se
+
+1665
+01:48:13.430 --> 01:48:16.830
+entiende, está perdón. Yo sé que todo
+
+1666
+01:48:16.940 --> 01:48:17.940
+Mentira. Nada
+
+1667
+01:48:17.940 --> 01:48:19.110
+que lo que le dije es mentira.
+
+1668
+01:48:19.130 --> 01:48:20.670
+Eso es lo que acá está todo condensado.
+
+1669
+01:48:21.020 --> 01:48:22.670
+Este súper centralizado.
+
+1670
+01:48:23.320 --> 01:48:27.720
+Perdemos el prepar y yo de una en la generación del ruido.
+
+1671
+01:48:28.780 --> 01:48:29.920
+Nos estoy mostrándose atrás.
+
+1672
+01:48:30.440 --> 01:48:31.720
+Y mi modelo lo que hace es no,
+
+1673
+01:48:31.720 --> 01:48:33.200
+no tiene most, creo, en realidad,
+
+1674
+01:48:34.410 --> 01:48:38.400
+Claro, en realidad yo siempre he mu contra el ruido océano
+
+1675
+01:48:38.400 --> 01:48:40.920
+de de media cero y vari un
+
+1676
+01:48:41.680 --> 01:48:42.760
+Y es lo que uso para para,
+
+1677
+01:48:42.760 --> 01:48:46.040
+para aar el ruido en el fútbol fusion.
+
+1678
+01:48:46.430 --> 01:48:48.280
+Pero pero o después para hacer,
+
+1679
+01:48:48.310 --> 01:48:51.960
+para hallar la pérdida o para contra ese mismo está el mismo
+
+1680
+01:48:51.960 --> 01:48:54.080
+éxito que usante para mostrar el ruido.
+
+1681
+01:48:54.940 --> 01:48:56.640
+Sí. Ahora está única
+
+1682
+01:48:58.740 --> 01:49:02.400
+Ay adentro de en en de LAE
+
+1683
+01:49:04.260 --> 01:49:08.140
+y que dice emilo menos é, éxito noita y la filó
+
+1684
+01:49:08.930 --> 01:49:09.930
+Sí.
+
+1685
+01:49:12.840 --> 01:49:15.400
+O sea, y yo, yo quiero que el ruido predicho en ese paso
+
+1686
+01:49:15.540 --> 01:49:18.520
+sea ruido dentro de una
+
+1687
+01:49:20.030 --> 01:49:24.560
+noro y sí, porque eso por eso una resta con el epi que pues
+
+1688
+01:49:24.740 --> 01:49:29.540
+he hecho mal porque en cada
+
+1689
+01:49:29.540 --> 01:49:33.240
+paso en el ruido, yo quiero que sea, haga que se a ese
+
+1690
+01:49:33.420 --> 01:49:34.420
+Que se parezca eso. Sí.
+
+1691
+01:49:34.420 --> 01:49:39.190
+Después a después de es la parte del sampling
+
+1692
+01:49:41.230 --> 01:49:43.690
+que lo que hace decir, hablando ruido a corta a hasta
+
+1693
+01:49:44.490 --> 01:49:47.680
+a esta forma es un poquito distinto de lo que vimos.
+
+1694
+01:49:50.590 --> 01:49:53.960
+Pero arranca el de una uno, perdón.
+
+1695
+01:49:54.240 --> 01:49:55.400
+Y después lo que hace es
+
+1696
+01:49:56.310 --> 01:49:58.970
+va manteniendo el elemento del tiempo anterior.
+
+1697
+01:50:00.010 --> 01:50:01.090
+Y lo que va haciendo es
+
+1698
+01:50:01.540 --> 01:50:05.700
+Está Restándole ahora,
+
+1699
+01:50:05.700 --> 01:50:10.130
+como se hace esta derivación en esta acá en la ecuación 11.
+
+1700
+01:50:14.780 --> 01:50:18.520
+Ya ya tengo el si, eh, si.
+
+1701
+01:50:18.520 --> 01:50:19.960
+Ya tengo el poder entrenado. No
+
+1702
+01:50:20.670 --> 01:50:21.670
+Acá. Exacto.
+
+1703
+01:50:21.670 --> 01:50:22.480
+Sí, sí, sí, sí,
+
+1704
+01:50:24.700 --> 01:50:28.000
+Sí, Santi general.
+
+1705
+01:50:29.140 --> 01:50:31.000
+Sí. Pero como sí.
+
+1706
+01:50:31.080 --> 01:50:33.920
+Pero como vos lo asumiste, que este chinita
+
+1707
+01:50:35.260 --> 01:50:36.320
+es ruido de normal.
+
+1708
+01:50:36.380 --> 01:50:40.460
+El uno tenes que igual tenes que que el alpa
+
+1709
+01:50:43.810 --> 01:50:46.770
+o sea necesitás des no,
+
+1710
+01:50:47.590 --> 01:50:51.610
+Sí, no, no me digo es por Entrar. Deshaciendo
+
+1711
+01:50:51.800 --> 01:50:53.250
+Qué vas de ruido aquí?
+
+1712
+01:50:53.830 --> 01:50:55.370
+Sí. Con el Modelo entrenado.
+
+1713
+01:50:55.830 --> 01:50:58.850
+Sí. O Es mi generación,
+
+1714
+01:50:59.470 --> 01:51:02.730
+Eh, después a ahora, ese es el paper más viejo.
+
+1715
+01:51:05.030 --> 01:51:08.050
+Quiero lo falta el training para ver si se parece más a la
+
+1716
+01:51:08.050 --> 01:51:08.890
+anotación que vimos
+
+1717
+01:51:14.260 --> 01:51:18.020
+a alón presenté esta de
+
+1718
+01:51:18.020 --> 01:51:19.820
+esta fórmula.
+
+1719
+01:51:19.820 --> 01:51:22.180
+Quiero ver el el descenso LAE
+
+1720
+01:51:24.280 --> 01:51:28.640
+no me lo presenta bien.
+
+1721
+01:51:29.500 --> 01:51:31.440
+Ah. Quedense con que el alcoholismo por menos está escrito
+
+1722
+01:51:31.470 --> 01:51:34.960
+acá y de vuelta que hay muchas maneras de hablo de hacerlo.
+
+1723
+01:51:35.480 --> 01:51:36.960
+Y los p, pero van variando la explicación,
+
+1724
+01:51:37.000 --> 01:51:39.520
+pero creo que el le de general que tiene quedara
+
+1725
+01:51:39.520 --> 01:51:41.480
+es más allá de todo.
+
+1726
+01:51:41.740 --> 01:51:43.120
+Hay alguna manera? O sea,
+
+1727
+01:51:43.120 --> 01:51:44.160
+la propuesta termina siendo
+
+1728
+01:51:44.160 --> 01:51:45.760
+iterativamente en predecir el error.
+
+1729
+01:51:46.400 --> 01:51:48.680
+Y te antiguamente también ir sacándoselo
+
+1730
+01:51:50.470 --> 01:51:51.480
+Ahí el qué?
+
+1731
+01:51:51.480 --> 01:51:56.080
+Qué función de la la la función de los esta diferencia a l.
+
+1732
+01:51:56.460 --> 01:51:57.460
+La
+
+1733
+01:51:57.910 --> 01:51:59.520
+Acá está la normal cuadrado.
+
+1734
+01:52:00.580 --> 01:52:02.520
+La duda acá hasta la normal al cuadrado. Sí.
+
+1735
+01:52:02.520 --> 01:52:06.840
+No es la acá l, pero la que la que presenta el paper de
+
+1736
+01:52:08.700 --> 01:52:11.880
+eh, deep, su equilibrio no es esa vieron,
+
+1737
+01:52:14.240 --> 01:52:18.310
+es esta la
+
+1738
+01:52:19.130 --> 01:52:23.300
+la lo al es product ciencia.
+
+1739
+01:52:24.650 --> 01:52:28.400
+Qué es esta que hablamos qué p. Por p.
+
+1740
+01:52:28.470 --> 01:52:31.120
+Mire por la productora que yo no se las planteé con una
+
+1741
+01:52:31.120 --> 01:52:35.400
+productora, sino que se la planteé menos lo ritmo de esta de
+
+1742
+01:52:35.400 --> 01:52:40.080
+esta fracción que petiza de la tres victorias, una producto,
+
+1743
+01:52:40.080 --> 01:52:42.240
+pero después se la dividida en en su mandos.
+
+1744
+01:52:43.500 --> 01:52:46.360
+Eso puede ser que use la normal porque en realidad
+
+1745
+01:52:46.610 --> 01:52:47.920
+está haciendo en función del ruido.
+
+1746
+01:52:47.970 --> 01:52:49.000
+Está prediciendo el ruido.
+
+1747
+01:52:49.480 --> 01:52:50.720
+O sea, y no la probabilidad pre
+
+1748
+01:52:50.900 --> 01:52:53.000
+Una distribución, sino que una diferencia ya
+
+1749
+01:52:53.100 --> 01:52:54.100
+Sí, fue vuelta.
+
+1750
+01:52:54.820 --> 01:52:57.560
+Yo pasa capaz que les hice les hice una condensación muy
+
+1751
+01:52:57.560 --> 01:52:58.920
+grande de todo lo que hay la vuelta.
+
+1752
+01:52:59.960 --> 01:53:02.500
+Yo hay, no, No, pero está bien, es válido, es válido.
+
+1753
+01:53:02.520 --> 01:53:06.060
+Hay muchas variantes, las técnicas y a veces son pasitos que
+
+1754
+01:53:06.380 --> 01:53:09.460
+nosotros para tener el tema no nos cambie dando pero en la
+
+1755
+01:53:09.460 --> 01:53:12.860
+práctica, ganas horas ganas.
+
+1756
+01:53:13.480 --> 01:53:18.370
+Me explico porque son una utilización, eh? Sí,
+
+1757
+01:53:19.300 --> 01:53:21.170
+Está haciendo funcionar el ruido.
+
+1758
+01:53:21.550 --> 01:53:23.570
+Sí, acá está directamente concluí
+
+1759
+01:53:24.550 --> 01:53:28.010
+por eso es una kl y usa directamente un meo,
+
+1760
+01:53:36.570 --> 01:53:37.570
+Por favor.
+
+1761
+01:53:40.450 --> 01:53:44.580
+Qué la estás? Sí.
+
+1762
+01:53:44.780 --> 01:53:47.140
+Teniendo tal usted también sabe conversando
+
+1763
+01:53:57.930 --> 01:54:00.070
+tal y modelo me dice tu me tiene que decir que
+
+1764
+01:54:00.070 --> 01:54:04.630
+definitivamente le en este tiempo por para
+
+1765
+01:54:06.370 --> 01:54:07.710
+en sa la forma
+
+1766
+01:54:08.500 --> 01:54:11.640
+se así siempre de que que que ahí aprende ellos.
+
+1767
+01:54:15.770 --> 01:54:18.340
+Acá hay bastante discusión de cómo se va llegando a estas
+
+1768
+01:54:18.540 --> 01:54:18.940
+distintas
+
+1769
+01:54:35.930 --> 01:54:36.150
+sa
+
+1770
+01:54:45.440 --> 01:54:45.660
+mos.
+
+1771
+01:54:45.780 --> 01:54:46.780
+Nosotros es dpm
+
+1772
+01:54:47.820 --> 01:54:48.820
+D.
+
+1773
+01:54:49.900 --> 01:54:53.040
+Dpm que que vimos hoy, que no es la propuesta original.
+
+1774
+01:54:53.150 --> 01:54:55.360
+Esto es una pregunta bastante avanzada pero original,
+
+1775
+01:54:57.160 --> 01:55:01.830
+Eh, tío, que sería no que
+
+1776
+01:55:01.920 --> 01:55:05.790
+llega la no cuadrado puede hacer no.
+
+1777
+01:55:08.560 --> 01:55:11.150
+Cómo Que está pensando en la ca también?
+
+1778
+01:55:11.810 --> 01:55:15.310
+Sí, porque el el vari lower band es la derivación que
+
+1779
+01:55:15.430 --> 01:55:19.510
+vimos en el curso lo después co de todo de digan otra cosa
+
+1780
+01:55:20.410 --> 01:55:22.870
+se sale y van por el elio por el error le y lo han podado
+
+1781
+01:55:22.870 --> 01:55:25.630
+que lo que recién entonces nada.
+
+1782
+01:55:25.810 --> 01:55:30.770
+Yo no entraré en esos En esos pormenores.
+
+1783
+01:55:30.870 --> 01:55:33.730
+Me parece Excel bastante mucho. Debería gusta.
+
+1784
+01:55:33.760 --> 01:55:35.770
+Tres, tres clases para toda esto, no?
+
+1785
+01:55:35.950 --> 01:55:40.530
+Sí, este y me quedaría con con la ideas general,
+
+1786
+01:55:41.590 --> 01:55:42.770
+si les interesa nada,
+
+1787
+01:55:43.660 --> 01:55:45.680
+nos ponemos a revisar tu paper y los vemos,
+
+1788
+01:55:46.190 --> 01:55:48.920
+pero ya entra en lo que sería parte de obligatorio.
+
+1789
+01:55:49.700 --> 01:55:52.440
+Ese chef brand me interesa hacer todo esto en supuesto.
+
+1790
+01:55:52.440 --> 01:55:56.250
+Vamos, tenemos unas velas y y
+
+1791
+01:55:57.720 --> 01:56:01.800
+ah, no creo que que
+
+1792
+01:56:03.350 --> 01:56:04.480
+esta cosas para mí,
+
+1793
+01:56:04.680 --> 01:56:07.120
+o sea realmente quiénes se meten a hacer todas estas cosas,
+
+1794
+01:56:07.780 --> 01:56:10.600
+los equipos que están peleando la junta en generación
+
+1795
+01:56:11.540 --> 01:56:14.040
+en su laboratorio es gente que está contrata ocho horas
+
+1796
+01:56:15.110 --> 01:56:17.520
+para hacer esto es, es serio, sea de gente.
+
+1797
+01:56:17.520 --> 01:56:19.360
+Claro que está ocho horas de todo día para hacer esto,
+
+1798
+01:56:19.960 --> 01:56:21.050
+para quedar una clase por semana.
+
+1799
+01:56:21.350 --> 01:56:25.010
+El tiempo está armando otro models entrenando,
+
+1800
+01:56:25.010 --> 01:56:27.610
+probando el estudio, viendo cómo hacerlo
+
+1801
+01:56:28.430 --> 01:56:30.130
+el la persona más rápido o me puedo
+
+1802
+01:56:32.470 --> 01:56:34.290
+da si es es tu contexto y bueno,
+
+1803
+01:56:34.430 --> 01:56:36.290
+si vale la pena que le digo rompa la
+
+1804
+01:56:36.290 --> 01:56:37.450
+cabeza por entrenar esto.
+
+1805
+01:56:38.270 --> 01:56:41.250
+Si no, si ya va por un contexto más, no
+
+1806
+01:56:42.300 --> 01:56:44.190
+como que nos qui quisieramos poner hacer un micro chico.
+
+1807
+01:56:44.530 --> 01:56:48.470
+No, no. O sea, no, no de comprar una compra, o sea, o sea,
+
+1808
+01:56:48.470 --> 01:56:50.990
+depende de de él el que el que estés trabajando a donde sí.
+
+1809
+01:56:50.990 --> 01:56:54.470
+Ahora trabajar en envidia ha sié micro y bueno, sí,
+
+1810
+01:56:54.470 --> 01:56:56.810
+tener que me matarte, barr,
+
+1811
+01:56:59.150 --> 01:57:02.290
+te voy otra no es el curso, pero bueno,
+
+1812
+01:57:02.310 --> 01:57:04.370
+si podemos aproximarnos algo más más con él y des si
+
+1813
+01:57:04.370 --> 01:57:07.370
+intereso yo podemos tratar por con tarea y
+
+1814
+01:57:20.190 --> 01:57:23.320
+y so consulta
+
+1815
+01:57:25.540 --> 01:57:25.760
+un
+
+1816
+01:57:36.070 --> 01:57:38.500
+bueno, finalizo la la reunión acá.
+
+1817
+01:57:38.620 --> 01:57:40.920
+Entonces. Muy bien,

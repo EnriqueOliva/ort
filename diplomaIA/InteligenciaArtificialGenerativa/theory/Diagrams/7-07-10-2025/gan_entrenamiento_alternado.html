@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GANs - Entrenamiento Alternado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+
+        .animation-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .phase-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 40px 0;
+            min-height: 300px;
+        }
+
+        .network-box {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .network-box.training {
+            transform: scale(1.1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            animation: pulse 1s infinite;
+        }
+
+        .network-box.frozen {
+            opacity: 0.4;
+            filter: grayscale(100%);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1.1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .generator {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+        }
+
+        .discriminator {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+        }
+
+        .network-icon {
+            font-size: 4em;
+            margin-bottom: 10px;
+        }
+
+        .network-label {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .training-badge {
+            background: #4caf50;
+            color: white;
+        }
+
+        .frozen-badge {
+            background: #9e9e9e;
+            color: white;
+        }
+
+        .arrow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .arrow {
+            font-size: 3em;
+            color: #333;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        .data-flow {
+            font-size: 1em;
+            color: #666;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .phase-info {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .phase-info h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .phase-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .phase-info li {
+            padding: 10px;
+            margin: 8px 0;
+            background: #f5f5f5;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .iteration-counter {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #e0e0e0;
+            z-index: 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            background: #e0e0e0;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-dot.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: scale(1.2);
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-comment {
+            color: #6a9955;
+        }
+
+        .code-keyword {
+            color: #569cd6;
+        }
+
+        .code-function {
+            color: #dcdcaa;
+        }
+
+        .code-variable {
+            color: #9cdcfe;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 GANs - Entrenamiento Alternado</h1>
+        <p class="subtitle">Visualización del proceso de entrenamiento paso a paso</p>
+
+        <!-- Contador de iteraciones -->
+        <div class="iteration-counter" id="iterationCounter">
+            Iteración: 0
+        </div>
+
+        <!-- Barra de progreso -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar" style="width: 0%;">0%</div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot" id="dot1">1</div>
+                <div>Entrenar D</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot" id="dot2">2</div>
+                <div>Entrenar G</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot" id="dot3">3</div>
+                <div>Evaluar</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot" id="dot4">4</div>
+                <div>Repetir</div>
+            </div>
+        </div>
+
+        <!-- Contenedor de animación -->
+        <div class="animation-container">
+            <div class="phase-container" id="phaseContainer">
+                <!-- Generador -->
+                <div class="network-box generator" id="generator">
+                    <div class="network-icon">🎨</div>
+                    <div class="network-label">Generador (G)</div>
+                    <div class="status-badge frozen-badge" id="genStatus">Congelado ❄️</div>
+                </div>
+
+                <!-- Flujo de datos -->
+                <div class="arrow-container">
+                    <div class="arrow">→</div>
+                    <div class="data-flow" id="dataFlow">Generando...</div>
+                </div>
+
+                <!-- Discriminador -->
+                <div class="network-box discriminator" id="discriminator">
+                    <div class="network-icon">🔍</div>
+                    <div class="network-label">Discriminador (D)</div>
+                    <div class="status-badge training-badge" id="discStatus">Entrenando 🔥</div>
+                </div>
+            </div>
+
+            <!-- Información de la fase -->
+            <div class="phase-info" id="phaseInfo">
+                <h3>Fase 1: Entrenamiento del Discriminador</h3>
+                <ul>
+                    <li>✅ El generador está <strong>congelado</strong> (no actualiza sus pesos)</li>
+                    <li>✅ El discriminador recibe imágenes <strong>reales</strong> y <strong>falsas</strong></li>
+                    <li>✅ D aprende a distinguir entre reales (etiqueta 1) y falsas (etiqueta 0)</li>
+                    <li>✅ Se actualiza solo el parámetro <strong>φ</strong> del discriminador</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Controles -->
+        <div class="controls">
+            <button class="btn btn-primary" onclick="startAnimation()">▶️ Iniciar Animación</button>
+            <button class="btn btn-secondary" onclick="pauseAnimation()">⏸️ Pausar</button>
+            <button class="btn btn-secondary" onclick="resetAnimation()">🔄 Reiniciar</button>
+        </div>
+
+        <!-- Explicación del código -->
+        <div class="phase-info">
+            <h3>💻 Implementación en PyTorch</h3>
+
+            <h4 style="margin-top: 20px;">Fase 1: Entrenar Discriminador</h4>
+            <div class="code-block">
+<pre><span class="code-comment"># Congelar generador, entrenar discriminador</span>
+<span class="code-keyword">for</span> param <span class="code-keyword">in</span> <span class="code-variable">generator</span>.<span class="code-function">parameters</span>():
+    param.<span class="code-variable">requires_grad</span> = <span class="code-keyword">False</span>
+
+<span class="code-comment"># Generar imágenes falsas</span>
+<span class="code-variable">z</span> = torch.<span class="code-function">randn</span>(batch_size, latent_dim)
+<span class="code-variable">fake_images</span> = <span class="code-function">generator</span>(z).<span class="code-function">detach</span>()  <span class="code-comment"># detach() evita backprop a G</span>
+
+<span class="code-comment"># Obtener imágenes reales</span>
+<span class="code-variable">real_images</span> = <span class="code-function">get_real_batch</span>()
+
+<span class="code-comment"># Predicciones del discriminador</span>
+<span class="code-variable">pred_real</span> = <span class="code-function">discriminator</span>(real_images)
+<span class="code-variable">pred_fake</span> = <span class="code-function">discriminator</span>(fake_images)
+
+<span class="code-comment"># Calcular pérdida (BCE Loss)</span>
+<span class="code-variable">loss_real</span> = <span class="code-function">criterion</span>(pred_real, torch.<span class="code-function">ones_like</span>(pred_real))
+<span class="code-variable">loss_fake</span> = <span class="code-function">criterion</span>(pred_fake, torch.<span class="code-function">zeros_like</span>(pred_fake))
+<span class="code-variable">loss_D</span> = loss_real + loss_fake
+
+<span class="code-comment"># Backpropagation y actualización</span>
+<span class="code-variable">optimizer_D</span>.<span class="code-function">zero_grad</span>()
+loss_D.<span class="code-function">backward</span>()
+<span class="code-variable">optimizer_D</span>.<span class="code-function">step</span>()
+</pre>
+            </div>
+
+            <h4 style="margin-top: 20px;">Fase 2: Entrenar Generador</h4>
+            <div class="code-block">
+<pre><span class="code-comment"># Descongelar generador, congelar discriminador</span>
+<span class="code-keyword">for</span> param <span class="code-keyword">in</span> <span class="code-variable">generator</span>.<span class="code-function">parameters</span>():
+    param.<span class="code-variable">requires_grad</span> = <span class="code-keyword">True</span>
+
+<span class="code-keyword">for</span> param <span class="code-keyword">in</span> <span class="code-variable">discriminator</span>.<span class="code-function">parameters</span>():
+    param.<span class="code-variable">requires_grad</span> = <span class="code-keyword">False</span>
+
+<span class="code-comment"># Generar nuevas imágenes falsas</span>
+<span class="code-variable">z</span> = torch.<span class="code-function">randn</span>(batch_size, latent_dim)
+<span class="code-variable">fake_images</span> = <span class="code-function">generator</span>(z)
+
+<span class="code-comment"># El discriminador evalúa (sin actualizar sus pesos)</span>
+<span class="code-variable">pred_fake</span> = <span class="code-function">discriminator</span>(fake_images)
+
+<span class="code-comment"># Calcular pérdida (queremos engañar a D, por eso usamos ones)</span>
+<span class="code-variable">loss_G</span> = <span class="code-function">criterion</span>(pred_fake, torch.<span class="code-function">ones_like</span>(pred_fake))
+
+<span class="code-comment"># Backpropagation y actualización</span>
+<span class="code-variable">optimizer_G</span>.<span class="code-function">zero_grad</span>()
+loss_G.<span class="code-function">backward</span>()
+<span class="code-variable">optimizer_G</span>.<span class="code-function">step</span>()
+</pre>
+            </div>
+        </div>
+
+        <!-- Puntos clave -->
+        <div class="phase-info">
+            <h3>🔑 Puntos Clave del Entrenamiento Alternado</h3>
+            <ul>
+                <li><strong>Alternancia:</strong> Se entrena una red a la vez, manteniendo la otra congelada</li>
+                <li><strong>Ratio k:1:</strong> Típicamente se entrena D más veces que G (ej: k=5 veces D, 1 vez G)</li>
+                <li><strong>Learning rates diferentes:</strong> Generalmente lr_D < lr_G para evitar que D se haga demasiado fuerte</li>
+                <li><strong>detach():</strong> Al entrenar D, se usa .detach() en las imágenes generadas para no calcular gradientes hacia G</li>
+                <li><strong>Labels flipeados en G:</strong> Se usan etiquetas "1" (real) para imágenes falsas al entrenar G</li>
+                <li><strong>Balance crítico:</strong> Ninguna red debe dominar completamente a la otra</li>
+            </ul>
+        </div>
+
+        <!-- Problemas comunes -->
+        <div class="phase-info" style="border-left-color: #f44336;">
+            <h3 style="color: #f44336;">⚠️ Problemas Comunes en el Entrenamiento</h3>
+            <ul style="border-left-color: #f44336;">
+                <li><strong>Mode Collapse:</strong> G genera siempre el mismo output porque encontró una "trampa" que engaña a D</li>
+                <li><strong>Vanishing Gradients:</strong> Si D es perfecto, G no recibe gradientes útiles para mejorar</li>
+                <li><strong>Oscilaciones:</strong> Las pérdidas oscilan sin converger debido a la naturaleza adversaria</li>
+                <li><strong>Inestabilidad:</strong> Cambios pequeños en hiperparámetros causan fallos completos</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let iteration = 0;
+        let animationInterval;
+        let isRunning = false;
+        let phase = 0;
+
+        const phases = [
+            {
+                title: "Fase 1: Entrenamiento del Discriminador",
+                gTraining: false,
+                dTraining: true,
+                dataFlow: "Imágenes reales y falsas →",
+                steps: [
+                    "✅ El generador está <strong>congelado</strong> (no actualiza sus pesos)",
+                    "✅ El discriminador recibe imágenes <strong>reales</strong> y <strong>falsas</strong>",
+                    "✅ D aprende a distinguir entre reales (etiqueta 1) y falsas (etiqueta 0)",
+                    "✅ Se actualiza solo el parámetro <strong>φ</strong> del discriminador"
+                ],
+                dot: 'dot1'
+            },
+            {
+                title: "Fase 2: Entrenamiento del Generador",
+                gTraining: true,
+                dTraining: false,
+                dataFlow: "Ruido Z → Imágenes falsas →",
+                steps: [
+                    "✅ El discriminador está <strong>congelado</strong> (no actualiza sus pesos)",
+                    "✅ El generador crea imágenes para intentar engañar a D",
+                    "✅ G recibe feedback de D sobre qué tan convincentes son sus imágenes",
+                    "✅ Se actualiza solo el parámetro <strong>θ</strong> del generador"
+                ],
+                dot: 'dot2'
+            }
+        ];
+
+        function updatePhase() {
+            const currentPhase = phases[phase];
+
+            const generator = document.getElementById('generator');
+            const discriminator = document.getElementById('discriminator');
+            const genStatus = document.getElementById('genStatus');
+            const discStatus = document.getElementById('discStatus');
+            const dataFlow = document.getElementById('dataFlow');
+            const phaseInfo = document.getElementById('phaseInfo');
+
+            generator.classList.toggle('training', currentPhase.gTraining);
+            generator.classList.toggle('frozen', !currentPhase.gTraining);
+            discriminator.classList.toggle('training', currentPhase.dTraining);
+            discriminator.classList.toggle('frozen', !currentPhase.dTraining);
+
+            genStatus.textContent = currentPhase.gTraining ? 'Entrenando 🔥' : 'Congelado ❄️';
+            genStatus.className = currentPhase.gTraining ? 'status-badge training-badge' : 'status-badge frozen-badge';
+
+            discStatus.textContent = currentPhase.dTraining ? 'Entrenando 🔥' : 'Congelado ❄️';
+            discStatus.className = currentPhase.dTraining ? 'status-badge training-badge' : 'status-badge frozen-badge';
+
+            dataFlow.textContent = currentPhase.dataFlow;
+
+            phaseInfo.innerHTML = `
+                <h3>${currentPhase.title}</h3>
+                <ul>
+                    ${currentPhase.steps.map(step => `<li>${step}</li>`).join('')}
+                </ul>
+            `;
+
+            document.querySelectorAll('.timeline-dot').forEach(dot => {
+                dot.classList.remove('active');
+            });
+            document.getElementById(currentPhase.dot).classList.add('active');
+
+            phase = (phase + 1) % phases.length;
+        }
+
+        function startAnimation() {
+            if (isRunning) return;
+            isRunning = true;
+
+            animationInterval = setInterval(() => {
+                iteration++;
+                document.getElementById('iterationCounter').textContent = `Iteración: ${iteration}`;
+
+                const progress = Math.min(100, (iteration / 20) * 100);
+                document.getElementById('progressBar').style.width = progress + '%';
+                document.getElementById('progressBar').textContent = Math.floor(progress) + '%';
+
+                updatePhase();
+
+                if (iteration >= 20) {
+                    pauseAnimation();
+                    document.getElementById('dot3').classList.add('active');
+                    setTimeout(() => {
+                        document.getElementById('dot4').classList.add('active');
+                    }, 500);
+                }
+            }, 2000);
+        }
+
+        function pauseAnimation() {
+            clearInterval(animationInterval);
+            isRunning = false;
+        }
+
+        function resetAnimation() {
+            pauseAnimation();
+            iteration = 0;
+            phase = 0;
+            document.getElementById('iterationCounter').textContent = 'Iteración: 0';
+            document.getElementById('progressBar').style.width = '0%';
+            document.getElementById('progressBar').textContent = '0%';
+
+            document.querySelectorAll('.timeline-dot').forEach(dot => {
+                dot.classList.remove('active');
+            });
+
+            updatePhase();
+        }
+
+        updatePhase();
+    </script>
+</body>
+</html>

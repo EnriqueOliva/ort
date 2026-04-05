@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mapa Mental - IA Generativa</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',sans-serif;background:#0d1117;color:#c9d1d9;overflow:hidden;user-select:none}
+canvas{display:block;position:absolute;top:0;left:0}
+#title-bar{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:10;background:#161b22ee;border:1px solid #30363d;border-radius:8px;padding:8px 24px;font-size:15px;font-weight:bold;text-align:center;pointer-events:none;white-space:nowrap}
+#controls{position:fixed;top:12px;left:12px;z-index:10;display:flex;gap:6px}
+#controls button{background:#21262d;color:#c9d1d9;border:1px solid #30363d;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px;transition:background .15s}
+#controls button:hover{background:#30363d}
+#legend{position:fixed;bottom:12px;left:12px;z-index:10;background:#161b22ee;border:1px solid #30363d;border-radius:8px;padding:10px 14px;font-size:11px;line-height:2.1}
+.lr{display:flex;align-items:center;gap:8px}
+.ld{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
+#tooltip{position:fixed;z-index:20;background:#161b22;border:1px solid #58a6ff;border-radius:8px;padding:10px 14px;font-size:12px;max-width:380px;pointer-events:none;display:none;line-height:1.5}
+#tooltip .ttype{color:#8b949e;font-size:10px;text-transform:uppercase;letter-spacing:1px}
+#tooltip .tlabel{color:#58a6ff;font-weight:bold;font-size:13px;margin:3px 0}
+#tooltip .treason{color:#c9d1d9}
+#hint{position:fixed;bottom:12px;right:12px;z-index:10;background:#161b22ee;border:1px solid #30363d;border-radius:8px;padding:8px 14px;font-size:11px;opacity:0.7;line-height:1.6}
+#node-info{position:fixed;top:12px;right:12px;z-index:10;background:#161b22ee;border:1px solid #30363d;border-radius:8px;padding:12px 16px;font-size:12px;max-width:300px;max-height:80vh;overflow-y:auto;display:none;line-height:1.6}
+#node-info .ni-title{color:#58a6ff;font-weight:bold;font-size:14px;margin-bottom:4px}
+#node-info .ni-desc{color:#c9d1d9;margin-bottom:8px}
+#node-info .ni-conn{color:#8b949e;font-size:11px}
+#node-info .ni-conn span{color:#f0883e}
+</style>
+</head>
+<body>
+<div id="title-bar">Flujo del Curso - IA Generativa (ORT 2025)</div>
+<div id="controls">
+<button onclick="fitView()">Encajar</button>
+</div>
+<div id="legend">
+<div class="lr"><span class="ld" style="background:#f0883e"></span> Pregunta central</div>
+<div class="lr"><span class="ld" style="background:#58a6ff"></span> Fundamento matematico</div>
+<div class="lr"><span class="ld" style="background:#7ee787"></span> Modelo generativo</div>
+<div class="lr"><span class="ld" style="background:#d2a8ff"></span> Entrenamiento / Loss</div>
+<div class="lr"><span class="ld" style="background:#ff7b72"></span> Evaluacion</div>
+<div style="margin-top:6px;border-top:1px solid #30363d;padding-top:6px">
+<div class="lr"><span style="width:24px;height:0;border-top:2px solid #555;display:inline-block"></span> Flujo principal</div>
+<div class="lr"><span style="width:24px;height:0;border-top:2px dashed #f0883e;display:inline-block"></span> Conexion cruzada</div>
+</div>
+</div>
+<div id="tooltip"><div class="ttype"></div><div class="tlabel"></div><div class="treason"></div></div>
+<div id="node-info"><div class="ni-title"></div><div class="ni-desc"></div><div class="ni-conn"></div></div>
+<div id="hint">Scroll = zoom | Arrastrar fondo = mover<br>Hover = ver info | Click nodo = resaltar</div>
+<canvas id="c"></canvas>
+<script>
+var COL = {root:"#f0883e",fund:"#58a6ff",model:"#7ee787",train:"#d2a8ff",eval:"#ff7b72"};
+var canvas = document.getElementById("c");
+var ctx = canvas.getContext("2d");
+var W, H, dpr;
+var camX = 0, camY = 0, camZ = 1;
+var isPanning = false, panStartX = 0, panStartY = 0, panCamX = 0, panCamY = 0;
+var hoverNode = null, hoverLink = null, selectedNode = null;
+var mx = 0, my = 0;
+var animFrame = 0;
+
+function resize() {
+    dpr = window.devicePixelRatio || 1;
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
+}
+resize();
+window.addEventListener("resize", function() { resize(); draw(); });
+
+var COL_X = [120, 420, 780, 1200, 1680, 2160, 2640, 3060];
+var VERT_GAP = 68;
+
+var nodes = [];
+var nodeMap = {};
+
+function addNode(id, label, desc, color, col, row, indent) {
+    var nd = {
+        id: id,
+        label: label,
+        desc: desc,
+        color: color,
+        col: col,
+        row: row,
+        indent: indent || 0,
+        x: 0,
+        y: 0,
+        w: 0,
+        h: 0
+    };
+    nodes.push(nd);
+    nodeMap[id] = nd;
+    return nd;
+}
+
+addNode("question", "Como puede una\nmaquina CREAR?", "La pregunta central del curso: como hacer que una maquina genere datos nuevos que parezcan reales?", COL.root, 0, 0);
+
+addNode("prob", "Probabilidad", "Todo modelo generativo se basa en distribuciones de probabilidad. Generar = muestrear de una distribucion.", COL.fund, 1, 0);
+addNode("gauss", "Gaussiana N(mu,sigma)", "La campana (centro mu, ancho sigma). LA distribucion del curso: aparece en VAE, GAN y Difusion.", COL.fund, 1, 1);
+addNode("prod_rule", "Regla del producto", "P(A,B) = P(A) x P(B|A). Descomponer cosas complejas en pasos simples - base de autorregresivos.", COL.fund, 1, 2);
+addNode("percep", "Insight del perceptron", "La salida 0.7 del perceptron NO es solo un numero, es P(resultado=1)=70%. Las redes estiman probabilidades.", COL.fund, 1, 3);
+addNode("bayes", "Redes Bayesianas", "Grafos con flechas que muestran que variables dependen de cuales. Cadena de Markov: solo depende del anterior.", COL.fund, 1, 4);
+
+addNode("autoreg", "Autorregresivo\n(Hinton)", "Generar pixel a pixel. Cada uno depende de los anteriores. Usa la regla del producto. Primer modelo del curso.", COL.model, 2, 0);
+addNode("triang", "Matriz triangular", "Ceros fijos garantizan que cada pixel solo vea los anteriores. Reduce de exponencial a lineal.", COL.model, 2, 1);
+addNode("seq", "Generacion secuencial\n(limitacion)", "Limitacion: hay que generar de a uno porque cada paso depende del anterior. Lento.", COL.model, 2, 2);
+addNode("kl", "KL Divergence", "Mide que tan diferentes son dos distribuciones. 0 = iguales. Aparece en autorregresivos Y en VAE.", COL.train, 2, 3);
+addNode("nll", "NLL", "Que el modelo asigne alta probabilidad a datos reales. Minimizar NLL = minimizar KL.", COL.train, 2, 4);
+addNode("bce", "BCE", "Binary Cross-Entropy. Funcion de error para valores 0/1. Usada en Hinton Y en el Discriminador GAN.", COL.train, 2, 5);
+
+addNode("vae", "VAE\n(genera en 1 paso)", "Variational Autoencoder. Comprimir a espacio latente, muestrear, descomprimir. Genera en 1 paso.", COL.model, 3, 0);
+addNode("latent", "Variable latente", "Algo que influye en los datos pero no se ve. Ej: variedad de flor afecta medidas pero no la ves.", COL.fund, 3, 1, 1);
+addNode("enc", "Encoder -> mu, sigma", "Comprime imagen a centro (mu) y ancho (sigma) de una campana en el espacio latente.", COL.model, 3, 2, 1);
+addNode("dec", "Decoder", "Recibe un punto del espacio latente y reconstruye/genera la imagen.", COL.model, 3, 3, 1);
+addNode("reparam", "Reparametrization\nTrick", "z = mu + sigma x epsilon. Separa la aleatoriedad de los parametros para poder derivar.", COL.train, 3, 4, 1);
+addNode("elbo", "Loss: ELBO\n(Reconstruccion + KL)", "Reconstruccion + KL. Dos fuerzas en tension: reconstruir bien vs ordenar el espacio latente.", COL.train, 3, 5, 1);
+addNode("beta_vae", "beta-VAE", "beta > 1: espacio mas ordenado pero mas borroso. beta < 1: mejor reconstruccion pero peor generacion.", COL.model, 3, 6, 1);
+addNode("blurry", "Problema:\nimagenes borrosas", "Debilidad del VAE: al promediar sobre la campana latente, los detalles se pierden.", COL.eval, 3, 7);
+
+addNode("gan", "GAN\n(imagenes nitidas)", "Generative Adversarial Network. Dos redes compitiendo: falsificador (G) vs policia (D).", COL.model, 4, 0);
+addNode("gen_g", "Generador", "Recibe ruido aleatorio z y produce imagenes falsas. Quiere enganar al discriminador.", COL.model, 4, 1, 1);
+addNode("disc_d", "Discriminador", "Recibe imagen y dice real (1) o falsa (0). Quiere detectar las falsificaciones.", COL.model, 4, 2, 1);
+addNode("alt_train", "Entrenamiento\nalternado", "Turno 1: entrenar D con reales+falsos. Turno 2: entrenar G para enganar a D.", COL.train, 4, 3, 1);
+addNode("flip", ".detach() +\nLabel flip", ".detach() al entrenar D (corta gradientes a G). Labels flipeados al entrenar G.", COL.train, 4, 4, 1);
+addNode("dcgan", "DCGAN", "Version con capas convolucionales. ConvTranspose2d en G, Conv2d en D, BatchNorm.", COL.model, 4, 5, 1);
+addNode("cgan", "Conditional GAN", "Le pasas info extra (ej: genera un 7) para controlar que genera.", COL.model, 4, 6, 1);
+addNode("mode_col", "Problema:\nmode collapse", "G colapsa a generar solo unos pocos tipos. Nada en el modelo incentiva variedad.", COL.eval, 4, 7);
+addNode("instability", "Problema:\ninestabilidad", "Muy dificil mantener G y D equilibrados. A veces hay que reiniciar de cero.", COL.eval, 4, 8);
+
+addNode("lm", "Language Models", "Modelo autorregresivo aplicado a texto. Predice la siguiente palabra/token.", COL.model, 5, 0);
+addNode("token", "Tokenizacion", "Texto -> numeros. BPE/WordPiece cortan en sub-palabras. Un tokenizer va con un modelo.", COL.fund, 5, 1, 1);
+addNode("sampling", "Estrategias\nde sampling", "Greedy, Top-K, Top-P, Temperatura. El modelo es deterministico, la aleatoriedad viene del muestreo.", COL.model, 5, 2, 1);
+addNode("transf", "Transformers", "La arquitectura detras de GPT. Self-Attention + Causal Masking + Multi-Head.", COL.model, 5, 3, 1);
+addNode("attn", "Self-Attention\n(Q, K, V)", "Cada palabra decide cuales otras son relevantes. Query/Key/Value.", COL.model, 5, 4, 2);
+addNode("causal", "Causal Masking", "Cada token solo ve los anteriores. Impide ver el futuro al generar.", COL.model, 5, 5, 2);
+addNode("multihead", "Multi-Head\nAttention", "Varios 'ojos' de atencion en paralelo. Cada uno captura un aspecto distinto.", COL.model, 5, 6, 2);
+addNode("ce", "Loss:\nCross-Entropy", "-log(prob de la palabra correcta). Penaliza cuando el modelo asigna baja probabilidad.", COL.train, 5, 7);
+
+addNode("diff", "Difusion", "Agregar ruido gradualmente, aprender a quitarlo. El enfoque mas reciente y de mayor calidad.", COL.model, 6, 0);
+addNode("fwd", "Forward (+ruido)", "Imagen limpia -> 1000 pasos de ruido gaussiano -> pura estatica.", COL.model, 6, 1, 1);
+addNode("rev", "Reverse (-ruido)", "La red predice CUANTO RUIDO hay (no la imagen). Mas estable que predecir la imagen.", COL.model, 6, 2, 1);
+addNode("unet", "U-Net", "Arquitectura encoder-decoder con skip connections. Recibe el timestep t como input.", COL.model, 6, 3, 1);
+addNode("mse_loss", "Loss: MSE", "Loss: (ruido real - predicho) al cuadrado. El loss mas simple de todos los modelos del curso.", COL.train, 6, 4, 1);
+addNode("latdiff", "Latent Diffusion\n(usa VAE!)", "Stable Diffusion: comprimir con VAE, difundir en espacio chico (64x64 vs 512x512).", COL.model, 6, 5, 1);
+addNode("txt2img", "Texto -> Imagen\n(CLIP)", "CLIP convierte texto a numeros. Guidance scale controla fidelidad al prompt.", COL.model, 6, 6, 1);
+
+addNode("eval_node", "Evaluacion", "Como medir si un modelo generativo es bueno? Fidelidad vs Diversidad.", COL.eval, 7, 0);
+addNode("fid", "FID", "Frechet Inception Distance. Compara features reales vs generadas. Bajo = mejor.", COL.eval, 7, 1, 1);
+addNode("is_score", "Inception Score", "Inception Score. Alta confianza + variedad de categorias = alto score.", COL.eval, 7, 2, 1);
+addNode("perplex", "Perplexity", "Que tan sorprendido se queda el modelo ante texto real. Baja = mejor.", COL.eval, 7, 3, 1);
+addNode("bleu", "BLEU / ROUGE", "BLEU: precision de n-gramas. ROUGE: cobertura. Para comparar texto generado vs referencia.", COL.eval, 7, 4, 1);
+addNode("bertscore", "BERTScore", "Usa BERT para comparar significado, no palabras exactas. 'contento' ≈ 'feliz'.", COL.eval, 7, 5, 1);
+
+function layoutNodes() {
+    var colGroups = {};
+    for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        if (!colGroups[n.col]) colGroups[n.col] = [];
+        colGroups[n.col].push(n);
+    }
+    for (var c in colGroups) {
+        var group = colGroups[c];
+        group.sort(function(a, b) { return a.row - b.row; });
+        var totalH = group.length * VERT_GAP;
+        var startY = -totalH / 2 + VERT_GAP / 2;
+        for (var i = 0; i < group.length; i++) {
+            var n = group[i];
+            n.x = COL_X[n.col] + n.indent * 30;
+            n.y = startY + i * VERT_GAP;
+        }
+    }
+}
+
+function measureNodes() {
+    ctx.save();
+    ctx.font = "bold 12px 'Segoe UI',sans-serif";
+    for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        var lines = n.label.split("\n");
+        var maxW = 0;
+        for (var j = 0; j < lines.length; j++) {
+            var m = ctx.measureText(lines[j]).width;
+            if (m > maxW) maxW = m;
+        }
+        n.w = Math.max(maxW + 28, 80);
+        n.h = Math.max(lines.length * 18 + 16, 36);
+        n.lines = lines;
+    }
+    ctx.restore();
+}
+
+layoutNodes();
+measureNodes();
+
+var flowLinks = [
+    {s:"question",t:"prob",reason:"Para crear, primero hay que entender como se distribuyen los datos reales"},
+    {s:"prob",t:"gauss",reason:"La Gaussiana (campana) es la distribucion que aparece en todos los modelos"},
+    {s:"prob",t:"prod_rule",reason:"Descomponer probabilidades complejas en pasos simples"},
+    {s:"prob",t:"percep",reason:"Las redes neuronales estiman probabilidades"},
+    {s:"prob",t:"bayes",reason:"Representar que variables dependen de cuales"},
+    {s:"question",t:"autoreg",reason:"Descomponer P(imagen) en pasos"},
+    {s:"prod_rule",t:"autoreg",reason:"La regla del producto permite P(img) = P(px1) x P(px2|px1)..."},
+    {s:"autoreg",t:"triang",reason:"Ceros en la matriz garantizan dependencia solo de anteriores"},
+    {s:"autoreg",t:"seq",reason:"Limitacion: generar es secuencial"},
+    {s:"autoreg",t:"kl",reason:"Medir distancia entre modelo y realidad"},
+    {s:"kl",t:"nll",reason:"Minimizar KL = maximizar probabilidad"},
+    {s:"nll",t:"bce",reason:"Para pixeles 0/1, NLL se convierte en BCE"},
+    {s:"seq",t:"vae",reason:"Genera de a 1 pixel... muy lento - generar todo de golpe?"},
+    {s:"vae",t:"latent",reason:"Introduce variables latentes: espacio comprimido"},
+    {s:"vae",t:"enc",reason:"Comprime imagen a parametros de campana"},
+    {s:"vae",t:"dec",reason:"Reconstruye imagen desde espacio latente"},
+    {s:"vae",t:"reparam",reason:"Separar aleatoriedad de parametros"},
+    {s:"vae",t:"elbo",reason:"Loss = reconstruccion + regularizacion"},
+    {s:"vae",t:"beta_vae",reason:"Controlar balance con el coeficiente beta"},
+    {s:"vae",t:"blurry",reason:"Al promediar, los detalles se pierden"},
+    {s:"blurry",t:"gan",reason:"Imagenes borrosas - como lograr nitidez?"},
+    {s:"gan",t:"gen_g",reason:"El falsificador: ruido -> imagen"},
+    {s:"gan",t:"disc_d",reason:"El policia: real o falso?"},
+    {s:"gan",t:"alt_train",reason:"Entrenar por turnos"},
+    {s:"alt_train",t:"flip",reason:"Trucos: .detach() y label flip"},
+    {s:"gan",t:"dcgan",reason:"Version con convoluciones"},
+    {s:"gan",t:"cgan",reason:"Controlar que genera"},
+    {s:"gan",t:"mode_col",reason:"G puede colapsar a pocos tipos"},
+    {s:"gan",t:"instability",reason:"Dificil mantener equilibrio G vs D"},
+    {s:"autoreg",t:"lm",reason:"Misma idea pero aplicada a texto"},
+    {s:"lm",t:"token",reason:"Texto a numeros"},
+    {s:"lm",t:"sampling",reason:"Elegir que token tomar"},
+    {s:"lm",t:"transf",reason:"La arquitectura que hace escalar LMs"},
+    {s:"transf",t:"attn",reason:"Cada palabra decide cuales importan"},
+    {s:"transf",t:"causal",reason:"No ver el futuro"},
+    {s:"transf",t:"multihead",reason:"Varios ojos de atencion"},
+    {s:"lm",t:"ce",reason:"Penalizar baja probabilidad a palabra correcta"},
+    {s:"instability",t:"diff",reason:"Inestable + mode collapse - algo mas estable?"},
+    {s:"diff",t:"fwd",reason:"Agregar ruido paso a paso"},
+    {s:"diff",t:"rev",reason:"Aprender a quitar ruido"},
+    {s:"rev",t:"unet",reason:"Arquitectura con skip connections"},
+    {s:"diff",t:"mse_loss",reason:"El loss mas simple"},
+    {s:"diff",t:"latdiff",reason:"Difundir en espacio comprimido"},
+    {s:"latdiff",t:"txt2img",reason:"CLIP traduce texto a numeros"},
+    {s:"vae",t:"eval_node",reason:"Cual es mejor? Como medimos?"},
+    {s:"gan",t:"eval_node",reason:"Cual es mejor? Como medimos?"},
+    {s:"lm",t:"eval_node",reason:"Cual es mejor? Como medimos?"},
+    {s:"diff",t:"eval_node",reason:"Cual es mejor? Como medimos?"},
+    {s:"eval_node",t:"fid",reason:"Metrica para imagenes"},
+    {s:"eval_node",t:"is_score",reason:"Confianza + variedad"},
+    {s:"eval_node",t:"perplex",reason:"Metrica para texto"},
+    {s:"eval_node",t:"bleu",reason:"Comparar texto generado vs referencia"},
+    {s:"eval_node",t:"bertscore",reason:"Comparar por significado"}
+];
+
+var crossLinks = [
+    {s:"gauss",t:"vae",reason:"N(0,1) fuerza el espacio latente del VAE a ser Gaussiano",type:"misma Gaussiana"},
+    {s:"gauss",t:"gen_g",reason:"El ruido z que recibe el Generador se muestrea de N(0,1)",type:"misma Gaussiana"},
+    {s:"gauss",t:"fwd",reason:"En cada paso de difusion se agrega ruido Gaussiano N(0,1)",type:"misma Gaussiana"},
+    {s:"bce",t:"disc_d",reason:"El Discriminador GAN usa la MISMA BCE que Hinton",type:"misma funcion de loss"},
+    {s:"kl",t:"elbo",reason:"La KL del VAE reutiliza KL Divergence pero para regularizar el espacio latente",type:"misma metrica, otro proposito"},
+    {s:"seq",t:"lm",reason:"Los LMs tienen la MISMA limitacion: generan token por token",type:"misma limitacion"},
+    {s:"prod_rule",t:"lm",reason:"LMs factorizan P(texto) IGUAL: P(w1) x P(w2|w1) x P(w3|w1,w2)...",type:"misma formula"},
+    {s:"causal",t:"triang",reason:"Causal Masking = mismo rol que la matriz triangular: no ver el futuro",type:"misma idea"},
+    {s:"enc",t:"latdiff",reason:"Latent Diffusion reutiliza el encoder VAE para comprimir (512->64)",type:"se reutiliza en"},
+    {s:"dec",t:"latdiff",reason:"Latent Diffusion reutiliza el decoder VAE para descomprimir",type:"se reutiliza en"},
+    {s:"ce",t:"nll",reason:"Cross-Entropy y NLL son la misma idea: penalizar baja prob al dato correcto",type:"mismo concepto"},
+    {s:"perplex",t:"nll",reason:"Perplexity = exp(NLL promedio). Misma metrica expresada distinto",type:"se deriva de"}
+];
+
+var transitionLabels = [
+    {fromCol:1, toCol:2, label:"Descomponer\nP(imagen) en pasos", y:0},
+    {fromCol:2, toCol:3, label:"Genera de a 1 pixel...\nmuy lento\n-> generar todo\nde golpe?", y:0},
+    {fromCol:3, toCol:4, label:"Imagenes borrosas\n-> como lograr\nnitidez?", y:0},
+    {fromCol:2, toCol:5, label:"Misma idea\npero aplicada\na texto", y:1},
+    {fromCol:4, toCol:6, label:"Inestable +\nmode collapse\n-> algo mas\nestable?", y:0},
+    {fromCol:3, toCol:7, label:"Cual es mejor?\nComo medimos?", y:2}
+];
+
+var allLinks = [];
+for (var i = 0; i < flowLinks.length; i++) {
+    var l = flowLinks[i];
+    allLinks.push({source: nodeMap[l.s], target: nodeMap[l.t], reason: l.reason, kind: "flow"});
+}
+for (var i = 0; i < crossLinks.length; i++) {
+    var l = crossLinks[i];
+    allLinks.push({source: nodeMap[l.s], target: nodeMap[l.t], reason: l.reason, kind: "cross", type: l.type});
+}
+
+function screenToWorld(sx, sy) {
+    return {
+        x: (sx - W / 2) / camZ + W / 2 - camX,
+        y: (sy - H / 2) / camZ + H / 2 - camY
+    };
+}
+
+function worldToScreen(wx, wy) {
+    return {
+        x: (wx - W / 2 + camX) * camZ + W / 2,
+        y: (wy - H / 2 + camY) * camZ + H / 2
+    };
+}
+
+function hitTestNode(wx, wy) {
+    for (var i = nodes.length - 1; i >= 0; i--) {
+        var n = nodes[i];
+        if (wx >= n.x - n.w / 2 && wx <= n.x + n.w / 2 && wy >= n.y - n.h / 2 && wy <= n.y + n.h / 2) {
+            return n;
+        }
+    }
+    return null;
+}
+
+function distToSegment(px, py, ax, ay, bx, by) {
+    var dx = bx - ax, dy = by - ay;
+    var lenSq = dx * dx + dy * dy;
+    if (lenSq === 0) return Math.sqrt((px - ax) * (px - ax) + (py - ay) * (py - ay));
+    var t = ((px - ax) * dx + (py - ay) * dy) / lenSq;
+    t = Math.max(0, Math.min(1, t));
+    var cx = ax + t * dx, cy = ay + t * dy;
+    return Math.sqrt((px - cx) * (px - cx) + (py - cy) * (py - cy));
+}
+
+function hitTestLink(wx, wy) {
+    var best = null, bestD = 12 / camZ;
+    for (var i = 0; i < allLinks.length; i++) {
+        var l = allLinks[i];
+        var sx = l.source.x + l.source.w / 2;
+        var sy = l.source.y;
+        var tx = l.target.x - l.target.w / 2;
+        var ty = l.target.y;
+        if (l.source.col === l.target.col) {
+            sx = l.source.x;
+            sy = l.source.y + l.source.h / 2;
+            tx = l.target.x;
+            ty = l.target.y - l.target.h / 2;
+        }
+        var d = distToSegment(wx, wy, sx, sy, tx, ty);
+        if (d < bestD) { bestD = d; best = l; }
+    }
+    return best;
+}
+
+function hexToRgba(hex, a) {
+    var r = parseInt(hex.slice(1, 3), 16);
+    var g = parseInt(hex.slice(3, 5), 16);
+    var b = parseInt(hex.slice(5, 7), 16);
+    return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+}
+
+function drawRoundedRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+}
+
+function drawArrowhead(x, y, angle, size) {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x - size * Math.cos(angle - 0.35), y - size * Math.sin(angle - 0.35));
+    ctx.lineTo(x - size * Math.cos(angle + 0.35), y - size * Math.sin(angle + 0.35));
+    ctx.closePath();
+    ctx.fill();
+}
+
+function draw() {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    ctx.save();
+    ctx.translate(W / 2, H / 2);
+    ctx.scale(camZ, camZ);
+    ctx.translate(-W / 2 + camX, -H / 2 + camY);
+
+    var connectedSet = {};
+    if (selectedNode) {
+        connectedSet[selectedNode.id] = true;
+        for (var i = 0; i < allLinks.length; i++) {
+            var l = allLinks[i];
+            if (l.source === selectedNode) connectedSet[l.target.id] = true;
+            if (l.target === selectedNode) connectedSet[l.source.id] = true;
+        }
+    }
+
+    drawTransitionLabels();
+
+    for (var i = 0; i < allLinks.length; i++) {
+        var l = allLinks[i];
+        if (l.kind === "cross") continue;
+        drawLink(l, connectedSet);
+    }
+
+    for (var i = 0; i < allLinks.length; i++) {
+        var l = allLinks[i];
+        if (l.kind !== "cross") continue;
+        drawLink(l, connectedSet);
+    }
+
+    for (var i = 0; i < nodes.length; i++) {
+        drawNode(nodes[i], connectedSet);
+    }
+
+    ctx.restore();
+}
+
+function drawTransitionLabels() {
+    ctx.save();
+    ctx.font = "italic 10px 'Segoe UI',sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    for (var i = 0; i < transitionLabels.length; i++) {
+        var tl = transitionLabels[i];
+        var x1 = COL_X[tl.fromCol];
+        var x2 = COL_X[tl.toCol];
+        var midX = (x1 + x2) / 2;
+
+        var fromGroup = [];
+        var toGroup = [];
+        for (var j = 0; j < nodes.length; j++) {
+            if (nodes[j].col === tl.fromCol) fromGroup.push(nodes[j]);
+            if (nodes[j].col === tl.toCol) toGroup.push(nodes[j]);
+        }
+
+        var midY;
+        if (tl.y === 0) {
+            midY = (fromGroup.length > 0 ? fromGroup[0].y : 0);
+        } else if (tl.y === 1) {
+            var fromBottom = fromGroup.length > 0 ? fromGroup[fromGroup.length - 1].y : 0;
+            var toTop = toGroup.length > 0 ? toGroup[0].y : 0;
+            midY = (fromBottom + toTop) / 2;
+        } else {
+            var fromBottom = fromGroup.length > 0 ? fromGroup[fromGroup.length - 1].y : 0;
+            midY = fromBottom + 40;
+        }
+
+        var lines = tl.label.split("\n");
+        var bgW = 0;
+        for (var k = 0; k < lines.length; k++) {
+            var meas = ctx.measureText(lines[k]).width;
+            if (meas > bgW) bgW = meas;
+        }
+        bgW += 16;
+        var bgH = lines.length * 13 + 10;
+
+        ctx.globalAlpha = 0.6;
+        drawRoundedRect(midX - bgW / 2, midY - bgH / 2, bgW, bgH, 4);
+        ctx.fillStyle = "#161b22";
+        ctx.fill();
+        ctx.strokeStyle = "#30363d";
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+
+        ctx.globalAlpha = 0.7;
+        ctx.fillStyle = "#8b949e";
+        for (var k = 0; k < lines.length; k++) {
+            ctx.fillText(lines[k], midX, midY + (k - (lines.length - 1) / 2) * 13);
+        }
+    }
+
+    ctx.globalAlpha = 1;
+    ctx.restore();
+}
+
+function drawLink(l, connectedSet) {
+    var isHighlight = l === hoverLink || (selectedNode && (l.source === selectedNode || l.target === selectedNode));
+    var dimmed = selectedNode && !connectedSet[l.source.id] && !connectedSet[l.target.id];
+    var op = isHighlight ? 0.95 : (dimmed ? 0.06 : (l.kind === "flow" ? 0.4 : 0.35));
+
+    ctx.globalAlpha = op;
+
+    var sameCol = l.source.col === l.target.col;
+    var sx, sy, tx, ty;
+
+    if (sameCol) {
+        sx = l.source.x;
+        sy = l.source.y + l.source.h / 2;
+        tx = l.target.x;
+        ty = l.target.y - l.target.h / 2;
+    } else if (l.source.col < l.target.col) {
+        sx = l.source.x + l.source.w / 2;
+        sy = l.source.y;
+        tx = l.target.x - l.target.w / 2;
+        ty = l.target.y;
+    } else {
+        sx = l.source.x - l.source.w / 2;
+        sy = l.source.y;
+        tx = l.target.x + l.target.w / 2;
+        ty = l.target.y;
+    }
+
+    ctx.beginPath();
+
+    if (l.kind === "cross") {
+        var dx = tx - sx;
+        var dy = ty - sy;
+        var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        var cpOff = Math.min(dist * 0.3, 120);
+        var cp1x, cp1y, cp2x, cp2y;
+
+        if (sameCol) {
+            cp1x = sx + cpOff;
+            cp1y = sy;
+            cp2x = tx + cpOff;
+            cp2y = ty;
+        } else {
+            cp1x = sx + Math.abs(dx) * 0.3;
+            cp1y = sy + dy * 0.1;
+            cp2x = tx - Math.abs(dx) * 0.3;
+            cp2y = ty - dy * 0.1;
+        }
+
+        ctx.moveTo(sx, sy);
+        ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, tx, ty);
+        ctx.strokeStyle = isHighlight ? "#f0883e" : "#f0883e";
+        ctx.lineWidth = isHighlight ? 2.5 : 1.2;
+        ctx.setLineDash([6, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        var t = 0.95;
+        var t2 = 0.9;
+        var ex = Math.pow(1-t,3)*sx + 3*Math.pow(1-t,2)*t*cp1x + 3*(1-t)*t*t*cp2x + t*t*t*tx;
+        var ey = Math.pow(1-t,3)*sy + 3*Math.pow(1-t,2)*t*cp1y + 3*(1-t)*t*t*cp2y + t*t*t*ty;
+        var ex2 = Math.pow(1-t2,3)*sx + 3*Math.pow(1-t2,2)*t2*cp1x + 3*(1-t2)*t2*t2*cp2x + t2*t2*t2*tx;
+        var ey2 = Math.pow(1-t2,3)*sy + 3*Math.pow(1-t2,2)*t2*cp1y + 3*(1-t2)*t2*t2*cp2y + t2*t2*t2*ty;
+        var angle = Math.atan2(ey - ey2, ex - ex2);
+        ctx.fillStyle = "#f0883e";
+        drawArrowhead(tx, ty, angle, isHighlight ? 9 : 6);
+    } else {
+        if (sameCol) {
+            ctx.moveTo(sx, sy);
+            ctx.lineTo(tx, ty);
+        } else {
+            var midX = (sx + tx) / 2;
+            ctx.moveTo(sx, sy);
+            ctx.bezierCurveTo(midX, sy, midX, ty, tx, ty);
+        }
+        ctx.strokeStyle = isHighlight ? "#8b949e" : "#30363d";
+        ctx.lineWidth = isHighlight ? 2.5 : 1.2;
+        ctx.setLineDash([]);
+        ctx.stroke();
+
+        var angle;
+        if (sameCol) {
+            angle = Math.atan2(ty - sy, tx - sx);
+        } else {
+            angle = Math.atan2(ty - (sy + ty) / 2, tx - (sx + tx) / 2);
+        }
+        ctx.fillStyle = isHighlight ? "#8b949e" : "#30363d";
+        drawArrowhead(tx, ty, angle, isHighlight ? 9 : 6);
+    }
+
+    ctx.globalAlpha = 1;
+}
+
+function drawNode(n, connectedSet) {
+    var isHov = n === hoverNode;
+    var isSel = n === selectedNode;
+    var dimmed = selectedNode && !connectedSet[n.id];
+    var op = dimmed ? 0.1 : 1;
+    ctx.globalAlpha = op;
+
+    var nx = n.x - n.w / 2;
+    var ny = n.y - n.h / 2;
+
+    drawRoundedRect(nx, ny, n.w, n.h, 6);
+    ctx.fillStyle = hexToRgba(n.color, 0.1);
+    ctx.fill();
+    ctx.strokeStyle = (isHov || isSel) ? "#ffffff" : n.color;
+    ctx.lineWidth = (isHov || isSel) ? 2.5 : 1.5;
+    ctx.stroke();
+
+    if (isHov || isSel) {
+        ctx.shadowColor = n.color;
+        ctx.shadowBlur = 12;
+        drawRoundedRect(nx, ny, n.w, n.h, 6);
+        ctx.strokeStyle = n.color;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+    }
+
+    var isRoot = n.id === "question";
+    var fs = isRoot ? 13 : 11;
+    ctx.font = (isRoot ? "bold " : "") + fs + "px 'Segoe UI',sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "#c9d1d9";
+
+    for (var j = 0; j < n.lines.length; j++) {
+        var ly = n.y + (j - (n.lines.length - 1) / 2) * (fs + 4);
+        ctx.fillText(n.lines[j], n.x, ly);
+    }
+
+    ctx.globalAlpha = 1;
+}
+
+function showTooltip(item, sx, sy, isLink) {
+    var tt = document.getElementById("tooltip");
+    if (isLink) {
+        var typeStr = item.kind === "flow" ? "FLUJO DEL CURSO" : "CONEXION CRUZADA" + (item.type ? " — " + item.type : "");
+        tt.querySelector(".ttype").textContent = typeStr;
+        tt.querySelector(".tlabel").textContent = item.source.label.replace(/\n/g, " ") + "  ->  " + item.target.label.replace(/\n/g, " ");
+        tt.querySelector(".treason").textContent = item.reason;
+    } else {
+        tt.querySelector(".ttype").textContent = "NODO";
+        tt.querySelector(".tlabel").textContent = item.label.replace(/\n/g, " ");
+        tt.querySelector(".treason").textContent = item.desc;
+    }
+    tt.style.display = "block";
+    var ttW = 380;
+    var left = Math.min(sx + 14, W - ttW - 10);
+    var top = Math.min(sy - 12, H - 120);
+    if (top < 10) top = 10;
+    tt.style.left = left + "px";
+    tt.style.top = top + "px";
+}
+
+function hideTooltip() {
+    document.getElementById("tooltip").style.display = "none";
+}
+
+function showNodeInfo(n) {
+    var ni = document.getElementById("node-info");
+    ni.querySelector(".ni-title").textContent = n.label.replace(/\n/g, " ");
+    ni.querySelector(".ni-desc").textContent = n.desc;
+    var conns = [];
+    for (var i = 0; i < allLinks.length; i++) {
+        var l = allLinks[i];
+        if (l.source === n) conns.push("-> " + l.target.label.replace(/\n/g, " ") + ": " + l.reason);
+        if (l.target === n) conns.push("<- " + l.source.label.replace(/\n/g, " ") + ": " + l.reason);
+    }
+    if (conns.length > 0) {
+        ni.querySelector(".ni-conn").innerHTML = "<br><span>Conexiones:</span><br>" + conns.map(function(c) { return "* " + c; }).join("<br>");
+    } else {
+        ni.querySelector(".ni-conn").innerHTML = "";
+    }
+    ni.style.display = "block";
+}
+
+function hideNodeInfo() {
+    document.getElementById("node-info").style.display = "none";
+}
+
+function fitView() {
+    if (nodes.length === 0) return;
+    var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        var l = n.x - n.w / 2 - 40;
+        var r = n.x + n.w / 2 + 40;
+        var t = n.y - n.h / 2 - 40;
+        var b = n.y + n.h / 2 + 40;
+        if (l < minX) minX = l;
+        if (r > maxX) maxX = r;
+        if (t < minY) minY = t;
+        if (b > maxY) maxY = b;
+    }
+    var cw = maxX - minX;
+    var ch = maxY - minY;
+    var scaleX = (W - 40) / cw;
+    var scaleY = (H - 80) / ch;
+    camZ = Math.min(scaleX, scaleY, 1.5);
+    camX = W / 2 - (minX + maxX) / 2;
+    camY = H / 2 - (minY + maxY) / 2;
+    draw();
+}
+
+canvas.addEventListener("wheel", function(e) {
+    e.preventDefault();
+    var factor = e.deltaY > 0 ? 0.92 : 1.08;
+    var newZ = camZ * factor;
+    if (newZ < 0.05 || newZ > 5) return;
+    var wp = screenToWorld(e.offsetX, e.offsetY);
+    camZ = newZ;
+    var wp2 = screenToWorld(e.offsetX, e.offsetY);
+    camX += wp2.x - wp.x;
+    camY += wp2.y - wp.y;
+    draw();
+}, {passive: false});
+
+canvas.addEventListener("mousedown", function(e) {
+    isPanning = true;
+    panStartX = e.offsetX;
+    panStartY = e.offsetY;
+    panCamX = camX;
+    panCamY = camY;
+    canvas.style.cursor = "grabbing";
+});
+
+canvas.addEventListener("mousemove", function(e) {
+    mx = e.offsetX;
+    my = e.offsetY;
+    if (isPanning) {
+        camX = panCamX + (mx - panStartX) / camZ;
+        camY = panCamY + (my - panStartY) / camZ;
+        draw();
+        return;
+    }
+    var wp = screenToWorld(mx, my);
+    var prevHoverNode = hoverNode;
+    var prevHoverLink = hoverLink;
+    hoverNode = hitTestNode(wp.x, wp.y);
+    if (hoverNode) {
+        hoverLink = null;
+        canvas.style.cursor = "pointer";
+        showTooltip(hoverNode, mx, my, false);
+    } else {
+        hoverLink = hitTestLink(wp.x, wp.y);
+        if (hoverLink) {
+            canvas.style.cursor = "pointer";
+            showTooltip(hoverLink, mx, my, true);
+        } else {
+            canvas.style.cursor = "default";
+            hideTooltip();
+        }
+    }
+    if (hoverNode !== prevHoverNode || hoverLink !== prevHoverLink) {
+        draw();
+    }
+});
+
+canvas.addEventListener("mouseup", function(e) {
+    var wasPanning = isPanning;
+    var moved = Math.abs(mx - panStartX) + Math.abs(my - panStartY);
+    isPanning = false;
+    canvas.style.cursor = "default";
+
+    if (wasPanning && moved > 5) return;
+
+    var wp = screenToWorld(e.offsetX, e.offsetY);
+    var n = hitTestNode(wp.x, wp.y);
+    if (n) {
+        if (selectedNode === n) {
+            selectedNode = null;
+            hideNodeInfo();
+        } else {
+            selectedNode = n;
+            showNodeInfo(n);
+        }
+        draw();
+    } else if (wasPanning && moved <= 5) {
+        selectedNode = null;
+        hideNodeInfo();
+        draw();
+    }
+});
+
+canvas.addEventListener("mouseleave", function() {
+    hoverNode = null;
+    hoverLink = null;
+    hideTooltip();
+    draw();
+});
+
+fitView();
+draw();
+</script>
+</body>
+</html>

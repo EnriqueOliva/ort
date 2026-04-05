@@ -1,0 +1,136 @@
+Análisis de balance de clases en 200 muestras aleatorias
+
+Estadísticas de balance de clases:
+  tasa foreground promedio: 0.3840
+  tasa foreground mediano: 0.3663
+  tasa foreground min: 0.0104
+  tasa foreground max: 0.9371
+
+
+  La mayoría de imágenes tienen ~38.4% de píxeles de persona
+
+  Parámetros por módulo:
+  encoder1.maxpool_conv.1.double_conv.3.weight      :      147,456
+  encoder2.maxpool_conv.1.double_conv.0.weight      :      294,912
+  encoder2.maxpool_conv.1.double_conv.3.weight      :      589,824
+  encoder3.maxpool_conv.1.double_conv.0.weight      :    1,179,648
+  encoder3.maxpool_conv.1.double_conv.3.weight      :    2,359,296
+  encoder4.maxpool_conv.1.double_conv.0.weight      :    4,718,592
+  encoder4.maxpool_conv.1.double_conv.3.weight      :    9,437,184
+  decoder1.up.weight                                :    2,097,152
+  decoder1.conv.double_conv.0.weight                :    4,718,592
+  decoder1.conv.double_conv.3.weight                :    2,359,296
+  decoder2.up.weight                                :      524,288
+  decoder2.conv.double_conv.0.weight                :    1,179,648
+  decoder2.conv.double_conv.3.weight                :      589,824
+  decoder3.up.weight                                :      131,072
+  decoder3.conv.double_conv.0.weight                :      294,912
+  decoder3.conv.double_conv.3.weight                :      147,456
+
+Total                                             :   31,025,857
+
+Split del dataset:
+  Total: 2133 imágenes
+  Train: 1707 (80%)
+  Val: 426 (20%)
+
+  Entrenamiento completado
+Resumen del entrenamiento:
+  Duración total: 15h 15m 22s
+  Épocas completadas: 600
+  Mejor Train Dice: 0.9859
+  Mejor Val Dice: 0.9526
+  Train Loss final: 0.0158
+  Val Loss final: 0.0655
+
+  Modelo cargado desde results\bestModel\best_model.pth
+  Época: 492
+  Train Loss: 0.0177
+  Val Loss: 0.0652
+  Train Dice: 0.9841
+  Val Dice: 0.9526
+
+  TTA (HorizontalFlip): Activado
+Probando thresholds de 0.30 a 0.75
+  Batch 54/54
+Threshold óptimo: 0.50 con Dice = 0.9549
+
+Evaluando con threshold óptimo: 0.50
+
+Estadísticas de Dice en validación:
+  Media: 0.9549
+  Mediana: 0.9811
+  Std: 0.0716
+  Min: 0.3851
+  Max: 0.9970
+
+  Mejores predicciones (Top 5):
+  1. Índice 354: Dice = 0.9970
+  2. Índice 274: Dice = 0.9967
+  3. Índice 264: Dice = 0.9967
+  4. Índice 52: Dice = 0.9967
+  5. Índice 180: Dice = 0.9964
+
+Peores predicciones (Bottom 10):
+  1. Índice 198: Dice = 0.3851
+  2. Índice 7: Dice = 0.4253
+  3. Índice 161: Dice = 0.4789
+  4. Índice 282: Dice = 0.5454
+  5. Índice 201: Dice = 0.6862
+  6. Índice 392: Dice = 0.6883
+  7. Índice 48: Dice = 0.6975
+  8. Índice 250: Dice = 0.7038
+  9. Índice 265: Dice = 0.7080
+  10. Índice 93: Dice = 0.7099
+
+  RESUMEN DE EVALUACIÓN
+Threshold óptimo: 0.50
+Dice medio: 0.9549
+Dice mínimo: 0.3851
+Dice máximo: 0.9970
+Imágenes evaluadas: 426
+
+Archivo: results\kaggleSubmission\submission.csv
+Imágenes: 534
+Threshold usado: 0.50
+Val Dice obtenido: 0.9549
+
+RESUMEN FINAL DEL MODELO
+
+ARQUITECTURA:
+  Modelo: U-Net (4 niveles encoder/decoder)
+  Canales: 64 -> 128 -> 256 -> 512 -> 1024
+  Parámetros totales: 31,025,857
+  Dropout: 0.1 (en bottleneck)
+  Input/Output: 384x384
+
+CONFIGURACION:
+  Batch size: 8
+  Learning rate: 0.0001
+  Epocas maximas: 600
+  Val split: 20%
+  Loss: BCEDiceLoss (BCE=0.3, Dice=0.7)
+  Optimizer: Adam
+  Scheduler: CosineAnnealingLR
+
+ENTRENAMIENTO:
+  Epocas completadas: 600
+  Mejor Train Dice: 0.9859
+  Mejor Val Dice: 0.9526
+  Train Loss final: 0.0158
+  Val Loss final: 0.0655
+  Duracion total: 15h 15m
+
+EVALUACION (Validacion):
+  Threshold optimo: 0.50
+  Dice medio: 0.9549
+  Dice std: 0.0716
+  Dice minimo: 0.3851
+  Dice maximo: 0.9970
+  Imagenes evaluadas: 426
+
+PREDICCIONES TEST:
+  Total imagenes: 534
+  Con foreground: 534
+  Vacias (sin persona): 0
+  Tamano mascaras: 800x800

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 12 - Diagramas IA Generativa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 3em;
+        }
+
+        .date {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.3em;
+            margin-bottom: 40px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #4facfe;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .card.audio { border-top-color: #6a11cb; }
+        .card.style { border-top-color: #fa709a; }
+        .card.denoise { border-top-color: #4facfe; }
+        .card.cvae { border-top-color: #764ba2; }
+
+        .card .icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+            margin-bottom: 20px;
+        }
+
+        .card .btn {
+            display: block;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+
+        .card .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+
+        .topics {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        .topics ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Clase 12 - IA Generativa</h1>
+        <p class="date">11 de Noviembre de 2025</p>
+
+        <div class="intro">
+            <h3>📋 Temas de la Clase</h3>
+            <p style="margin-top: 10px; line-height: 1.8;">
+                Esta clase consistió en <strong>presentaciones de proyectos de estudiantes</strong>.
+                Se presentaron 4 proyectos diferentes usando modelos generativos aplicados a distintos dominios:
+            </p>
+            <ul style="margin-left: 20px; line-height: 2; margin-top: 10px;">
+                <li><strong>VAE para Audio:</strong> Generación e interpolación de sonidos de instrumentos musicales</li>
+                <li><strong>Neural Style Transfer:</strong> Transferencia de estilo artístico con pérdidas perceptuales</li>
+                <li><strong>VAE Denoising:</strong> Eliminación de ruido en imágenes usando VAE</li>
+                <li><strong>CVAE Storyteller:</strong> Generación de audio con emociones usando Conditional VAE</li>
+            </ul>
+        </div>
+
+        <div class="cards-container">
+            <div class="card audio" onclick="window.location.href='vae_audio.html'">
+                <div class="icon">🎵</div>
+                <h2>VAE para Audio</h2>
+                <p>
+                    Arquitectura completa de un VAE aplicado a generación de audio musical.
+                    Explica la conversión de audio a espectrogramas, el algoritmo Griffin-Lim,
+                    y cómo interpolar entre diferentes sonidos.
+                </p>
+                <div class="topics">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Pipeline: Audio → Espectrograma → VAE</li>
+                        <li>Features: MFCC, F0, RMS</li>
+                        <li>Griffin-Lim (reconstrucción de audio)</li>
+                        <li>Interpolación en espacio latente</li>
+                        <li>Dataset NSynth de Google Magenta</li>
+                    </ul>
+                </div>
+                <a href="vae_audio.html" class="btn">Ver Diagrama →</a>
+            </div>
+
+            <div class="card style" onclick="window.location.href='style_transfer.html'">
+                <div class="icon">🎨</div>
+                <h2>Neural Style Transfer</h2>
+                <p>
+                    Método de Johnson et al. que combina velocidad de redes feed-forward
+                    con calidad de métodos de optimización usando pérdidas perceptuales
+                    basadas en VGG-16.
+                </p>
+                <div class="topics">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Arquitectura dual: Transform Net + Loss Net</li>
+                        <li>Content Loss (pérdida de contenido)</li>
+                        <li>Style Loss (matriz de Gram)</li>
+                        <li>¿Por qué NO píxel-a-píxel?</li>
+                        <li>Comparación con métodos tradicionales</li>
+                    </ul>
+                </div>
+                <a href="style_transfer.html" class="btn">Ver Diagrama →</a>
+            </div>
+
+            <div class="card denoise" onclick="window.location.href='vae_denoising.html'">
+                <div class="icon">🧹</div>
+                <h2>VAE Denoising</h2>
+                <p>
+                    VAE especializado en eliminar ruido de imágenes. Aprende una representación
+                    latente que captura la esencia de la imagen ignorando el ruido gaussiano
+                    o salt-and-pepper.
+                </p>
+                <div class="topics">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Tipos de ruido (Gaussiano, Salt-Pepper)</li>
+                        <li>Arquitectura Encoder-Latente-Decoder</li>
+                        <li>Función de pérdida compleja</li>
+                        <li>Métricas: PSNR, SSIM</li>
+                        <li>Debate: ¿Es realmente no supervisado?</li>
+                    </ul>
+                </div>
+                <a href="vae_denoising.html" class="btn">Ver Diagrama →</a>
+            </div>
+
+            <div class="card cvae" onclick="window.location.href='cvae_storyteller.html'">
+                <div class="icon">🎭</div>
+                <h2>CVAE - Storyteller</h2>
+                <p>
+                    Conditional VAE que genera audio narrado con emociones específicas.
+                    Convierte texto a audio neutral y luego aplica tonalidad emocional
+                    (calmada, entusiasta, triste, misteriosa).
+                </p>
+                <div class="topics">
+                    <strong>Incluye:</strong>
+                    <ul>
+                        <li>Pipeline completo: Texto → TTS → CVAE → Audio emocional</li>
+                        <li>4 emociones: Calmada, Entusiasta, Triste, Misteriosa</li>
+                        <li>Condicionamiento con one-hot vectors</li>
+                        <li>Features acústicas: MFCC, F0, RMS</li>
+                        <li>Aplicaciones: educación, videojuegos, asistentes</li>
+                    </ul>
+                </div>
+                <a href="cvae_storyteller.html" class="btn">Ver Diagrama →</a>
+            </div>
+        </div>
+
+        <div class="intro" style="margin-top: 40px; background: #fff3cd; border-left-color: #ffc107;">
+            <h3>💡 Nota sobre los Proyectos</h3>
+            <p style="margin-top: 10px; line-height: 1.8;">
+                Estos proyectos fueron presentados por estudiantes del curso. Los diagramas incluyen
+                tanto las propuestas originales como las <strong>recomendaciones del profesor</strong>
+                sobre cómo acotar el alcance, elegir métricas apropiadas, y validar los resultados.
+            </p>
+        </div>
+
+        <div class="intro" style="margin-top: 20px; background: #d4edda; border-left-color: #28a745;">
+            <h3>✅ Conceptos Comunes en los Proyectos</h3>
+            <ul style="margin-left: 20px; line-height: 2; margin-top: 10px;">
+                <li><strong>VAE (Variational Autoencoder):</strong> Modelo base usado en 3 de 4 proyectos</li>
+                <li><strong>Espacio Latente:</strong> Representación comprimida y abstracta de los datos</li>
+                <li><strong>Pérdidas Perceptuales:</strong> Métricas basadas en redes preentrenadas en lugar de píxel-a-píxel</li>
+                <li><strong>Condicional (CVAE):</strong> Control sobre qué se genera mediante etiquetas/condiciones</li>
+                <li><strong>Evaluación Multimodal:</strong> Combinar métricas automáticas + evaluación humana</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

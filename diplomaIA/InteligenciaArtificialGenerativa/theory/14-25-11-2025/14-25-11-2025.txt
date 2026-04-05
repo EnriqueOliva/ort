@@ -1,0 +1,770 @@
+serie más tiene como se 20 pico preguntas eh de cada tema este y eh después lo agarramos y hacemos alguna cosita de ahí e que pero creo que la verdad es este como eh bien como una guía, digamos, o sea, para ir estudiando eh cada tema. O sea, como que de ahí va a salir el parcial, todo lo que está ahí va a salir para emerjar. Este también miren e la guía de ejercicios del año pasado no está mal, bastante parecida. Lo único que no vimos es este transfer learning, la parte de zero shot, eh hay una parte de clip que es un modelo, eso no lo vimos nosotros, tuvimos dos clases menos, no nos acordar de eso lo que se venía ahora y e y en el y el parcial también Lo pueden mirar sin problema. Creo que hay un ejercicio sobre eso que no lo van a poder hacer, ¿no? Pero mírenlo sin problema. El último lochamos alguna cosita. Ah, eh, tienen otro estilo. Este, yo tengo un estilo distinto, pero los ejercicio sirve. Bueno, entonces, ¿se acuerdan? Eh, acá les les dejé el link a ese a ese blog. Ah, que que que hace toda esta parte operacional, la hace con dibujitos y ahí pueden pueden usarlo para estudiar, para entender un poquito algunas partes que capaz quede en fórmula o en código no queden todo claro. Sí, con dibujitos eh pueden quedar un poco más claras, pero se acuerdan que el transformer
+cómo
+este este de acá es un blog no más, pero está bastante bien hecho. Eh, y entonces, ¿se acuerdan que la arquitectura era eh también una arquitectura encoder encoder? Sí. E acá a la izquierda está la parte del encoder, acá a la derecha la parte del decoder, cada uno de ellos se pueden son bloques, llaman bloque encoder y bloque decoder que se puede aplicar n veces. Sí, lo estándar es que la arquitectura del transformer cada vez que es como si fueran capas distintas para cada bloque, o sea, no es una recurrencia, a ver si, o sea, no es no es una recurrencia de n veces, sino que son n capas de eh decoder o de de encoder o de decoder. Ah, entonces cada una lo estándar es que cada una tenga sus propios pesos, sus propios parámetros, ¿se entiende? Distintos de lo del anterior, o sea, no es una recurrencia, no es que se vuelve a llamar así, no son n capas.
+Esto sería equivalente a la la concional cada capita de encoder, cada va aprendiendo algo. Sí,
+exacto. En cierta forma es como una especie de lo que el encoder aprende es una representación eficiente, comprime la información o la codifica de alguna forma, eh encuentra una representación latente que se la va a pasar al decoder y el decoder aprende a decodificar esa información. Sí. O sea, que cier sentido, sí, como que moralmente se parece en ese sentido. E después operacionalmente es muy distinto, pero sí es un poco eso.
+Exacto. E son representaciones cada vez más abstractas a medida que uno va, si hay muchas capas de encoder, lo que la tension va haciendo es mirando vectores cada vez más abstractos, ¿no? Pasan por capas y capas y capas y capas. está mirando vectores, cada vez más abstractos y es difícil saber un poco y lo busque que respetar eso, ¿no? Pero pero es eso, sí,
+pero digamos que aplicas varias capas de encoder, pero después el decoder lo alimentas con la salida de la última capa o o vas no con la salida de la última.
+La última capa para decoder y lo mismo.
+Exacto. Podrías hacer lo mismo con con las RNN.
+Eh,
+claro, en realidad con las RN podría ser lo mismo. Una R RN, un stack RNL, ¿no? Sea un varias, tenés un encoder que tiene varias capas y y lo que inventas el decoder es los hiders de la última, o sea, en realidad tampoco sea tan misterioso, pero viste que vos en una RN, cuando ponés una RN arriba de la otra, los pesos de las distintas capas son independientes. ¿Sí? O sea, cada capa tiene sus parámetros. Acá pasa igual, ¿no? Este, y lo mismo con el incode, ¿no? Eh, el Encoder es más sencillo. Este tiene un multihead, se tenía que llamar multihead self attention. Sí, se hace un especie de self attention con la entrada. Acuérdense, piensen en esto como en un traductor que siempre es lo más fácil de tener en la cabeza. Puede ser un modelo de lenguaje también, pero piénsenlo como un traductor. Este, entonces este un sec to sec, ¿no? Y entonces el input va a ser una una frase en un idioma y el output es en otro idioma. Sí. Y este y lo y lo lo que hace a la entrada, digamos, lo pasa por un embeding, ¿no? Position el encoding posterior, y después hace un lo de multihead es simplemente, ¿qué es? Varias veces hacer attention, ¿sí? Con la esperanza de que cada una de ellas capture distintas relaciones semánticas, de sintaxis, eh en distintas relaciones temporales. Sí. Este, eso es un poquito la esperanza. La verdad que no. No sé, no me fijé cuántas heads tiene el paper original,
+pero no deben ser un disparate, o sea, serán alrededor de 5 Hz, me imagino. No creo que es una locura este estoyendo un golazo este, pero pasa por este, o sea, esencialmente desde un punto de vista conceptual, si usted no quiere entenderlo lectura de estos da igual que sean multihead o que sea un solo self attention, ¿sí? O sea, conceptualmente. Este, pero bueno, básicamente se hace attenstion varias veces este después eso se le suma la entrada es una especie de skip connection, ¿sí? O sea, que en realidad la salida va a tener la misma dimensión que la entrada. Se suma, suma elemento a elemento de los tensores que entran y se le hace un layer normalization, que acuérdense que el layer normalization tiene parámetros entrenables y va palabra a palabra, ¿sí? O sea, normaliza cada vectorcito de cada palabra que salió por ahí, eh, lo estandariza y este lo rescala con esos parámetros entrenables. Después eso va a una capa fit forward que es muy en el paper original es una capa bien sencilla de dos layers, o sea, solo tiene tiene el input este y el output layer, o sea, que es unudito. Eh, o sea, que solo hay que definir cuál es la dimensión del medio. Sí, eso pasa por el por el fit forward y después de nuevo hay un skip connection y un este se le suma, ¿no? Se que la salida es de la misma dimensión y se le suma este y se normaliza y eso se hace n veces y de ahí sale una matriz que va a entrar acá va entrar una tapa como en el medio del decoder En entrenamiento va a consumir eh el target que conocemos, ¿no? Una frase, no sé, en español, una frase en inglés. Va a consumir la frase en inglés, la va a pasar por el por un edading propio. También positional encoding ahí sí probablemente sea lo mismo, o sea, el mismo estilo de position y después va a pasar por un mul self attention, pero que es enmascarado. Sí. ¿Para por por qué es enmascarado? ¿Por qué se enmascara? Es decir, ¿qué quiere decir que que es enmascarado? Porque acuérdense que la clave del transformer es que el transformer reemplaza por completo la recurrencia, o sea, no hay recurrencia, no hay ningún tipo de recurrencia. Primero, ¿por qué voy? O sea, ¿por qué se precisa un position en COVID? Eso se lo digo. ¿Recuerdan? Claro. No mirar el futuro de la secuencia porque hice una pregunta mezclé dos preguntas tenía mucho que para establecer el orden de la secuencia porque ser recurrentes y como el había algo de que era invariante
+daba lo mismo. Entonces se necesitaba establecer
+el self attention es invariante bajo permutación así tal cual lo definimos. Entonces si yo entrevero las palabras Si yo entrevero las palabras de, o sea, dicho con mal pronto, si uno entreevera las palabras, la matriz entrevera, pero me da los mismos valores. ¿Sí? Entonces, eh necesito marcar la posición temporal porque acá no hay ningún tipo de recurrencia, se le pasa la frase entera, eh no hay orden, principio. Entonces este eh se le necesita marcar en qué posición está cada palabra y eso lo hace el posicional en para que pierda esa invariancia. Van a pasar.
+Buenas, Cabrera
+presente.
+Carvajal acá. Chirina
+acá.
+Custodio.
+Acá el dictado de la materia. No,
+no, no,
+no,
+no, no lo tengo. Dale, tranquila, dale, tranquila. Este,
+sí, sí, creo que fue a buscar.
+El resto no están habilitados,
+son magníficos. Entonces, esa primera pregunta, ¿qué pasa en el lo que respondió es se hace un un self attention, pero el self attention se hace eh con una man. ¿Qué quiere decir eso? Quiere decir que eh en cada instante de tiempo sí no le vamos a permitir que mire la atención de las palabras que están hacia el futuro. Sí. Este, ¿y eso por qué hacemos eso? ¿Qué pasaría si no hiciéramos eso dónde sale el futuro? No, la secuencia está, o sea, la noción temporal existe en el dato.
+Pero vos le vas pasando de token, digamos, vos le pasás la secuencia.
+Vos le pasás la secuencia entera de palabras.
+¿Por qué precisas
+tokenizada si querés? Pero, o sea, vectorizada, ¿no?
+O sea, hay un vector uno, un vector dos, un vector tres.
+Los vectores originalmente están ordenados de una forma natural, que es la forma en la que en el lenguaje
+que esos son los en medi de las palabras más coding del tiempo. más el encoding del tiempo. Exacto.
+Yo se lo paso al multiself attention.
+Vos se lo pasas al self attention. O sea, que hay una noción de futuro porque la propia palabra tiene su noción de futuro. Sí. Pasa que cuando yo lo pasaba por el attention antes sin hacer el positional encoding, eso se
+Sí.
+Sin hacer posing. ¿Qué cosa?
+La la noción temporal se perdía.
+Ah, sí.
+Esa máscara, ¿qué es lo que pretende ser máscara? digamos, para que no se tome en cuenta hacia el
+cl es que ahí va es que el el decoder va a recibir toda la secuencia. Entonces, en principio esto esto es lo que se llama es uno trata de evitar eh data leakage temporal, ¿sí? ¿Qué es? ¿Qué pasa? Él recibe toda información. Entonces, vos de alguna manera cuando él va cuando él tiene que aprender a hacer la predicción de la palabra que va a venir en el tiempo t sin poder mirar la palabra que está en tiempo T, digamos, ¿no?
+Ah, pero o sea, acá no hay recurrencia, pero sí va a haber un loop en el cual voy a ir.
+En realidad no es un loop, no. En realidad no es un loop. Este, elmascaras con una matriz diagonal, este, inferior
+y lo sigue viendo toda la vez.
+Que le tapa.
+Claro. O sea,
+cómo
+generativa cuando vos digamosías, pero en realidad Sí, es eso. Como que no voy a decir futuro, tu término.
+Ya está.
+O sea, eh multiplicas por una matriz, o sea, porque eso entra, ¿no? Es una eh o sea, es una matriz que tiene este cada palabrita y su vector, ¿no? Entonces, vos vas a vas a vas a en la etapa T, digamos, este, le vas a multiplicar por una máscara que todo lo que está después no lo vea. El self attention es todos contra todos. Claro, porque estoy como que estoy viendo todos esos pasos a la vez. Ahora sí van a pasar
+Gonzálezo. López,
+sí.
+Magnífico,
+acá
+Méndez acá.
+Morón,
+acá
+gracias.
+Gracias. E acuérdense ¿Cómo es la cosa? El self attention es todos contra todos. Self attention. Vos armas una matriz que tenés todas las palabras de la frase y todas las palabras de las frases. Pues un self attention. Si miras todos contra todos, cada fila, ¿no? Te dice este cuando vas a predecir esta palabra, ¿a qué a qué cosas le presta atención? Cuando vos mires la fila que está en el tiempo tres, ¿sí? Vos no crees que la tension que pueda mirar las palabras que están en el tiempo cuatro en adelante, perdón, del tiempo tres en adelante es a la hora de predecir la palabra tres, porque, ¿qué pasaría si lo dejaras hacer eso? ¿A qué a qué le va a prestar más atención si su objetivo es predecir la palabra que va augar tres? Y vos le permitís mirar toda la la la
+Ya la palabra tres.
+Elegir la palabra tres, o sea, el attention te va a dar un uno gigante en la palabra tres. Este, o sea, te va a dar identidad es O sea, eso lo cancé. Pero y las cuatro,
+¿cómo?
+Y porque
+bueno,
+pero esa era mi duda, o sea, si capaz que solo la de él no tendría que haber, pero las otras podría ser una.
+Y bueno, lo que pasa que es es un intento de eh
+replicar la secuencia.
+Replicar la secuencia,
+claro. Vas a la hora de inferencia, corregim un golazo.
+Vos no, no está bien.
+Vas a tener, vos vas a salir de la palabra, armando la palabra. No tenés las palabras, respuesta,
+o sea, reproducís la realidad, digamos. Exacto, esa es la respuesta. Exactamente.
+Terminó siendo parecido a lo que hacíamos. ¿Cómo se llama la matriz? Es
+termina siendo parecido lo que hacemos con la matriz.
+Y si la máscara sería como lo que hacía RN con el teacher.
+Hay una relación, hay hay como algo ahí entre la máscara y teacher forcing, pero no, o sea,
+no es no es del todo igual. Eh, en realidad lo que vos hacés con la máscara es tratar de imitar el comportamiento secuencial, porque a la hora de hacer inferencia, cuando tú no tengas el verdadero target, eh va a tener que predecir mirando la atención solo de los anteriores. O sea, no, si él aprende a mirar para adelante, no va a tener nada para adelante, va a hacer cualquier cosa. Este y eso es lo que se llama el mask multihead attention, ¿sí? Y después viene un multihead attention con lo que salió del encode. O sea, igual igualito que lo que pasaba en SE to SEC. ¿Se acuerdan que se toc se hacía lo que salía del encoder? Eran todos los hidens y se miraba el hidden del decoder y se le hacía un self attention con todos los del decoder con con perdón. Salían todos los hiden del encoder y se miraba en el tiempo t el attention de ese hidden con los del encode. Sí. Entonces acá se hace se hace un self attention. de lo que sale del encoder con lo que eh tiene el decode. Sí, es un self attention de esas cosas. Ahora vemos quiénes son los keyos vales, o sea, los y los vales va a ser lo que lo que sale del encoder y la query va a ser lo que sale del decoder, igual que antes. La quyoder Y lo que hacíamos era como preguntarnos, bueno, este loco, ¿a qué a qué palabra del encoder le tiene que prestar más atención? Sí, eso es lo que va a hacer este multigado. Sí, va a a como ya en la etapa como más de traducción, digamos, decir, bueno, ahora bueno, ya sé, digamos, en esta etapa es internamente, ya sé quién se relaciona con quién, básicamente, pero ahora lo que quiero ver es cómo esta palabra se relaciona con la eh original. Sí. Y ahí no hay problema de mirar toda la Sí. Y después al final hay una también una fit forward de dos capas y después este está hay skip connections por todos lados y hay este una capa lineal y una soft. Entonces si uno va como a la parte antes que avance
+Sí.
+Recién dijiste después cuando vaya a Okay. un paso ahora estás hablando de train estás hablando de todo lo que describiste en realidad es entrenamiento. Después que llegues allá vas a echar para atrás, vas a acomodar pesos, n cosas muchas veces.
+Ahora, cuando vayas a inferir, creo que esto te lo pregunté, ¿no? Ser que no lo vas a solamente meter cosas en la de la derecha, vas a meter
+No, no, vos no sé, tenés una frase tipo en español.
+Sí.
+Y lo que queres es que te genere una frase
+en inglés.
+En inglés.
+Lo que no le vas a hacer sono. El grado.
+Vos no sabés la frase en inglés, pero sí sabés la frase, o sea, al revés. O sea, vos lo que le das la frase en español,
+pero la estructura es la misma. Solamente que hacemos el no grad, digamos, como
+Sí, sí. No grad. Claro. Ahí a la hora de hacer diferencia.
+¿Qué va a entrar a la derecha? En ese caso, si estás infiriendo
+siempre el principio tiene que entrar, acuérdate, en cualquier encoder recoder siempre es necesario que entre un begin sequence sequence
+esto ponle que
+no, pero es es importante, o sea, no eh no es este
+sin eso no podes arrancar.
+Entiendo que metes el
+es como que no tuvieras ruedas en el O sea, entra entra eso
+y recién con eso sacas la primer palabra. Esa primer palabra después la vuelves a poner acá. La vo
+acá como entrada.
+Claro. Yo creo lo que pasa el la salida del encoder es como que es como entra a la mitad. Es como que ya ya comenzó el decoder a trabajar.
+El decoder ya hizo todo.
+Entonces no no recibió igual que el igual que el SEC el RNS
+pasábamos por el encoder y el encoder hacía todos los gas. Ya hizo todo.
+Yo estoy un poquito más Jo, me parece de entender. Yo tengo la frase, ya entrené, tengo esto, ya entrenado. Ahora tengo una frase de tres palabras.
+Sí, en español.
+En español. Acabar en inglés la frase, ¿dónde la meto?
+En el encoder.
+Igual que igual que en la RBN, o sea, eso no cambia.
+En el encoder la meto.
+Sí.
+Y en el
+Y en el encoder
+meto algo, meto el begin status. Se exacto.
+Solo el begin.
+Sí. Si no tuvieras el estatus. No, no arranca diamante.
+A la diferencia sí vas a tener el loop en el cual vas a ir.
+Claro, eso es lo que digo. Vas haciendo un loop porque el encoder, perdón, si el la derecha la derecha te da la probabilidad de la próxima palabra, ¿no?
+Claro. Si o sea,
+sí,
+lo que pasa es que en la salida del encoder en vez de conectar ahí conecta abajo. Entonces uno solamente le da el input y espera el output. Cuando uno hace inferencia, uno conecta la salida del encoder con el decoder abajo.
+Es ahí. Eso es eso es entrenamiento. El dibujo, ese es entrenamiento, pero en inferencia se conecta más abajo. Eh, porque, o sea, ¿qué quiere decir? Se conecta más abajo.
+Claro, la salida la salida del del eh
+Claro. Entra directamente
+al decoder. Eso no eso no tendría sentido. Eso no tendría sentido. Fue entrenado con
+con elis
+de la las palabras en en el otro idioma de las palabras en inglés. Sí. Y estos son vectores que no que no tienen que no tienen relación alguna con lo que entró. O sea, si si lo pensas ponerle des vista más de de distribución, o sea, la distribución de lo que aquí sale no tiene nada que ver con la distribución de lo que aquí entra cuando estoy entrenando.
+Pero me refiero entonces que eh en el Yo e yo no tengo que inyectarle nada en el output del encoder, ¿no? Porque yo solamente cuando hago una cuando hago inferencia, yo le le doy el input y él me da el output arriba. Él traduce no más.
+Te lo traduce.
+Yo no le yo no le entrego un
+target. No, no,
+esa variable no se la entrega. No, solo le das un start of sequence.
+Claro, es como la señal. Tenés que empezar a
+a decodificar. Ahora esa señal
+sube, pero va a tomar la mitad. Ahí toma la mitad del a la mitad del bloque toma la salida del encod y ahí es como que empieza a trabajar.
+Ahí empieza a trabajar. Exacto. Hace una primera predicción y la agrega. Va agregando
+y cuando yo haga el el mod de de de X, ¿no?
+Eh, la X es mi frase. Yo no tengo que hacer el la entrada del Bing of Sequent, no no se la hago.
+¿Qué es el model?
+Sé el forward. Cuando voy a hacer el forward, el model para mí es el
+Okay.
+DX
+es llamada de for.
+Okay.
+O por lo menos como hacemos, como lo he dicho yo, que vos vas a tener dos modos. Uno del encoder y otro del decoder.
+Al decoder te vas a tener dos entradas, lo que sale del encoder y lo que estás diciendo. ¿Queres decir?
+Vas a tener dos modelos, uno con el encoder y otro con el decoder.
+El parámetro del encoder es solamente la tira que vos querés traducir. Es igual que las que de una palabra lo voy a meter o no voy a meter la X que va a tener las tres palabras encodero. es igual que las RNLN. Lo único que cambia es que la RNLN se cambia por es igual. O sea, ¿cómo cómo hacías en el en el RN? Pasabas tu frase en español, ¿no? Eh, eso te hacía los hidens, le dabas el status sequence, ¿no? Miraba el attention del statoso y decía, no sé, voy a tener que predecir, no sé, hola. Dice, "Hola, sí." Y eso otra vez lo pasas, le dice la siguiente. Sí, o sea, es es igualito en realidad. O sea, lo de adentro es una diferencia de funcionamiento, pero lo veo a un nivel, mirándolos como cajas negras, es exactamente igual.
+Otra duda, perdón que empezado
+como en el entrenamiento. pasás el la frase target y la el la frase en inglés, yo quiero traducir al español y del otro lado la frase en español.
+Claro.
+Para entrenar, ¿no? Todas las dos frases completas.
+Exacto.
+Y va a salir una probabilidad.
+Probabilidad de que
+el entrenamiento.
+En entrenamiento te sale la de todas.
+Sí, porque vos tenés este la longitud de alta.
+Sí. Que sale la de todas. Sí. A los la voy a comparar contra la entrada.
+Contra la entrada,
+o sea, para cada palabra,
+o sea, siempre lo que sale tiene la misma longitud de lo que entra.
+Sí. Por eso es independiente de la longitud. Mientras no est mientras no estemos trabajando en batch, lo que sale tiene la misma longitud que lo que entra. Y claro, y va haciendo esa generación hasta que eh sale el dos. Sí. E en en entrenamiento, ahora ahora lo vamos a ver, está más adelante. Es un look.
+Claro.
+En inferencia,
+inferencia. Inferencia entrenamiento, ¿no?
+Pero es palabra, lo voy metiendo cada palabra y doy vuelta
+diferencia.
+En diferencia. Diferencia.
+En diferencia. Meto una palabra,
+llego arriba y la soft me dice de todo el vocabulario, la que tiene más probabilidad es esta.
+Sí, esa.
+Yo tomo la decisión de usar esta.
+Sí. La meto, vuelvo, la siguiente palabra tiene más probabilidad, la agarro, la meto y así traduzco todo.
+Sí, puede ser random
+de una o de una.
+De una, sí,
+pero en la entrada acá esta es la frascia completa.
+Sí, en el encode. Sí.
+O sea, ahí no hay loop.
+Ahí no hay loop.
+Hay loop solo en el decoder.
+En el decoder. Exacto.
+Pero en el momento que vos vas a traducir elegir la primer palabra de salida, ya eh ya recibiste toda la frase completa, perdón, frase completa.
+Eh eh Entrada, sí, en ponerí. Sí, esa está
+frase completa y ahí cuando determina la primer palabra después sequence. Claro,
+la primera el loco ya está viendo toda.
+Exacto. Claro. Sí, sí. Siempre ve, o sea, eh el el input lo conoce siempre.
+Claro. Y entero,
+enterito. Sí,
+claro. Lo que pasa es que en la en el segundo loop él ya tiene una palabra.
+Claro.
+Y con la entrada del otro saben los pesos cuál es la que viene. Ya.
+Claro. Y ahí se fija ahora esta cómo se relaciona a los anteriores, o sea, este ahora Ahora ya tenés dos, ¿no? O sea, pueden pasar dos. Ya tenés el start of Systems y la primera. Bien, me perdí un poquito porque cuando haces traducciones, me perdí bastante. Me perdí. Cuando haces traducciones, eh, por ejemplo, del inglés al francés, una en inglés una frase de cinco palabras, por ejemplo, podría traducirse en francés algo de ocho palabras. Sí, tal cual.
+Entonces, eso que decías que la entrada y la salía solo cambió. Lo que no cambió la entrada la salía ser En el decoder, digo,
+en el decoder.
+En el decoder, claro. O sea, si vos eh acá le pasás algo que tiene longitud L, sale algo con longitud L.
+Ahí aplica eso.
+Sí, exacto, exacto. Y acá también, si acá le pasas longitud N, sale longitud N.
+En el, perdón, acá en en el encoder, o sea, en cada uno por separado.
+En cada en cada una por separado, lo que entra tiene la misma longitud que lo que sale. cada uno por separado.
+Ah, no, pero a mí me mataste, pero en el encoding no sale, ¿qué significa que sale?
+Sale una compresión, una representación vectorial comprimida
+de cada palabra.
+A eso es lo que te referís con que tire nota
+claro. Y es como que vieron cuando podemos hacer una operación por batch, porque como todos son todos matrices, este, podemos hacer una operación por batch, no importa lo largo de la secuencia que vos le pases, esa operación la puede hacer Pero la cosa es que lo que te sale tiene la misma cantidad de filas que lo que entró. Es como que la secuencia fuera un baño. La secuencia de la frase fuera un baño. Cada palabrita se pone una arriba la otra y eso se le pasa como matriz. Sí. Y entonces lo que sale tiene la misma cantidad de filas que lo que entró. La cantidad de filas es el largo de la secuencia.
+Ahora, ahora me compliqué porque ahora no sé cómo lo concatenó en la entrar porque
+Ah, no, pero después en el otro es todos contra todos. Acordate que los los self attention son todos contra todos,
+¿no? Pero ves no importa si tienen dimensiones.
+Yo entré en en el encoder acá con eh tamaño tres, así que tiene que allá sale
+acá me va a salir tres también, o sea, sale un coso con tres
+y en la entrada acá este cuando me conecto con el
+puede tener 18 igual, o sea, este acá a este le pueden entrar 18. Sí,
+pero y la entrada así que yo qué le mando cuando entro el
+acá y va a ser attention de esos 18 con estos tres. ¿Cómo sé que 18
+va a tener una matriz?
+La frase es 18. Las frases son 18. Dijiste que una frase de tr
+no en el encoder.
+Pero viste que del otro lado te en los idiomas te cambian. Claro.
+Estás entrenando, por eso tiene estás entrenando.
+Estás entrenando.
+Sí. Pues acá lo que en el grupo es lo que haces es que vas guardando como la historia, ¿no? Entonces, vos le vas pasando todo, vas agrandando lo que va
+hasta que encontraste,
+hasta que sí, hasta que encontraste el endocí.
+Acá está la parte operacional que va a explicar un poquito más. O sea, supóng que tienen una frase de entrada que ya no es son esas palabras, tienen T sub, por eso es T sub X. Ah, t sub x palabra. Eso lo pasan por un embeding, ¿sí? Que tiene dimensión de model. Generalmente se se le llama D model a la dimensión del enedio y generalmente es la misma en el encoder que en el decoder, aunque estas cosas podrían variar, pero son igual y a eso se le agrega un positional encoding que tiene que tener la misma dimensión para poder sumar, ¿ya? Entonces, cada palabra, o sea, cada palabra se va a codificar en un vectorcito Z y se va a poner todo esto, se va a armar una matriz en el cual cada fila va a representar una palabra y entonces voy a tener cuántas filas tengo. Bueno, en largo de la frase y el D model me da la dimensión del en eso es lo que le va a entrar al encoder. Se le entra el encoder y acá digamos está escrito con con recurrencia, pero cada vez va a salir algo con el mismo shape, o sea, cada vez que pasa por el encoder sale algo que tiene la misma cantidad de filas y de model. Sí, o sea, lo que entra tiene es igual a lo que sale. Sí. Y entonces va a pasar por el multi attention, que va a ser multiad attention de eh kiss eh perdón, queries, keys and values. Todos todos son lo mismo. Ahora después si quieren la formulita, pero es este hace un multi attention con lo que le entra, ¿sí? Mira todos contra todos, saber quién está relacionado con quién. Piénsenlo en la primera etapa, en la primera iteración, pero cuando estamos en la iteración 15 Ya son vectores rarísimos. En en la primer en la primer iteración es los pasé por un embeding, los los puse en una fila, ¿sí? Y ahora, o sea, cada palabra es una fila y ahora estoy haciendo eh multigeda attention de eso que es todos contra todos. O sea, me va a decir cada una de las palabras de la frase que yo le pasé con quiénes están relacionadas. Por lo menos dice que tiene que salir lo que sale el mismo tamaño que lo que Sí, si no no se podría repetir.
+Okay. Eh, estamos hablando de tokens, ¿no? Por lo menos viéndolo como si fuese un traductor.
+Sí, como si fuera un traductor. Sí.
+O sea, eh, entiendo por lo menos la parte en la que de repente una frase la salida es un poquito más chica que la entrada, el resto se rellena con padding.
+No, no, eso eso solo el padding solo aparece cuando haces batch. Ah, pero vos conceptualmente batch es una cuestión computacional. Satch es una cuestión computacional. Eh, esto es lo en el mundo platónico, este mundo teórico, eh, estocastic gradient descent o lo que sea, funciona de a un dato a la vez. Sí. Entonces, no hay padding, no hay nada. El padding viene cuando vuelvo implementas porque querés pasarle un batch entero de datos para que sea menos ruidoso, para Ah, pero teóricamente es lo mismo pasarle 15 datos que pasarle uno. En la teoría es igual, la práctica no, pero en la teoría es lo mismo. Es el el el padding solo aparece cuando vos vas a hacer un entrenamiento por BCH. Entonces, vos le vas a pasar frases de distinta longitud y vas a hacer padding para que todas tengan la misma longitud para que puedas hacer justamente todo ese pas todas esas multiplicaciones y matrices hacerlas simplemente
+eso es en el batch y ahora estamos uno por uno.
+Ahora el batch sería de tamaño uno. Es es el bache es un solo es un una sola frase a la vez que yo le paso porque conceptualmente es lo mismo pasarle dos, pasarle tres, es lo mismo que pasarle una. Si entendés lo que pasa cuando pasa una frase, ¿sí? Eh, vas a entender cuando le paso 15, si agrego para
+Pero teóricamente conceptualmente eh tenéis que entender lo que pasa cuando le paso una frase. Me pasó una frase, o sea, estoy diciendo el verdadero estocastic, que es ir de un dato a la vez. ¿Se acuerdan que yo les hablé al principio que era un dato a la vez? Y después que después podíamos hacer mini batch, no sé qué, pero originalmente es un dato a la vez, cos pasa que es hiper ruidoso, demora mucho más, ¿no? Entonces no hace minch, pero hacer un batch T32 o hacer, o sea, detalle simplemente que querés hacer 32 pasos a la vez en vez de hacer este, o sea, querés aprovechar la eficiencia computacional del producto matricial para hacer 32 pasos a la vez y no hacer un paso a la vez, pero teóricamente como el tiempo es eh teóricamente es uno. Sí, o sea, para entender las cosas, teóricamente el B size es uno. Entonces ahí nos sale este multigadion que es una esto, ¿qué es? Es una matriz, ¿sí? Que nos dice quién le presta atención a Bien, en toda esta frase está y eso se pasa, se le suma, o sea, tiene que tener las mismas dimensiones que que la que la el original este. Sí. Y se le y se le va a sumar este ahora vemos bien en un ejemplito, se le suma este se hace skip con y después hac Y después eso se lo pasa por la fit forward que agarra esta salida, este se lo pasa por el fit forward, eso me da otra salida más y eso se le suma a lo que se hace otra skip connection y se le suma, se le hacation y esa es la salida de ese bloque en y eso se vuelve a meter en la siguiente. Entonces, ¿cómo es el el mult? Es, imagínense que tienen mies, o sea, en realidad m va a ser igual a n más que, o sea, m va a ser igual a n, pero en general uno puede escribirlo, ¿no? Como si tuviera m queris, sí, que va en un diccionario de nx con n vales, ¿no? Y todos ellos tienen dimensión de model, ¿sí? Entonces, y hay muchas si quieren piensen en una sola head, que es lo mismo. Sí. Entonces, lo que lo que va a pasar acá es que se proyectan, a veces se le puede sumar un bias Sí, o sea, puede ser esto más unas, perdón, eh, si no es simplemente esto, se genera una matriz que es este multiplicar es la query por una matriz de pesos W, ¿sí? Multiplicarla por una matriz de pesos W y multiplicar la B por una matriz de pesos W. ¿Sí? Entonces, ¿qué dimensiones me quedan? O sea, ¿qué dimensiones tienen? Vieron que acá me dice las dimensiones de estas dos, ¿cuáles son? y me dice las dimensiones de esta, ¿cuál es? Entonces, ¿cómo cómo me quedan? ¿De qué dimensiones me quedan esos productos? ¿Cómo son los shapes de esos del QI? ¿No? O sea, yo tengo ahí dice W tiene shape eh de model de model. Sí. El W tiene shade model BK también. Estos tienen que ser comparables porque vamos a hacer entre ellos. Por eso son dos. Y este podría ser distinto. En la práctica no es distinto, es igual. W. R. Sí. Y lo que se hace es entonces, ¿qué pasa cuando yo hago esta esto? No, hago Qi es Q, ¿sí? Mi matriz de Qis multiplicada por W. ¿Qué shape estoy multiplicando? Esto tiene shimos. Eh, ah, no puse acá sh estos están ahí, ¿no? Es se Tengo m queries de dimensión d model. ¿Por qué tengo m quereris de dimensión d model? Porque los eding son de dimensión de model, ¿no? Y es como si tuviera este m palabras, digamos, que entraron ahí. Cada palabra es una QL. Acá, o sea, que esta esta es la Q. La K tiene N de model y la B tiene N de mod. Sí. Por acá cuando yo hago esto, esto tiene shape m de model. Esta tiene shape de model coma de K. O sea, que esto va a tener un shape que sería ¿qué cosa? M y así.
+¿Puede mostrar la pizarra, por favor?
+Un segundito. León, ya la muestro. ¿Por qué tengo que mirar el resto? El KI es eh K W y me va a quedar con shape n de K. Sí. Y el el me va a quedar con shad por W y me va a quedar con SH N. que decía Tirio son estos estos estos son los shapes de los calcul e entonces self attention Q k y B serían iguales, ¿no?
+Claro. Exacto. Ado, ¿cómo queda el self attention, no? O sea, Entonces, lo que lo que va a hacer esto es, o sea, lo que va a salir, que es el head I, ¿no? Ya vuelvo sobre sobre la pizarra. El el head I va a ser la soft, ¿se acuerdan de esta formulita? Es el QI con el K traspuesto, ¿sí? Eh, dividido raíz de K. Eso es mi término normalizador. Multiplicado por B, ¿no? Entonces, esto tiene eh, ¿qué shap tiene esto? Cerra. Eh, ¿qué shape tiene esto? Esto dijimos tiene shape m dk. Esto tiene shape, si es transpuesto, queda dk coma e
+n. Gracias. O sea, que todo esto de acá me queda n m n. No, vieron que si yo le paso las mismas palabras como q Me queda n por n, digamos. Sí, en realidad tendría que poner el n la cumpliré con el M, pero o sea, pero el ahora, o sea, si si estas tres son iguales, ¿qué es lo que pasa en el encoder? Se le pasan estas tres son las mismas, este son la salida del encoder en la etapa anterior o el frase. Entonces, este esto me va a quedar n Sí, siendo n la cantidad, la longitud de la secuencia. Ahora, esto, el softmax se hacía fila a fila, ¿no se acuerdan? Softmax era fila a fila y lo que me quedaba cuando yo multiplicaba por esta matriz es una matriz cuyas filas son las combinaciones de los distintos B, ¿sí? Ponderadas de acuerdo a lo que esta Sofmax diga. Sí. O sea, si uno si uno lo mira eh
+la probabilidad de saber básicamente
+Sí, exacto. Me queda la probabilidad de cada uno. Exacto. Entonces este, o sea, voy a tener eh esto, ¿qué shape tenía? El B y tiene shape
+N
+N D Modem. Entonces, cuando yo haga este producto, me va a quedar algo que es m com mod. Sí. que si n es el mismo, si m es el mismo, digo, eh, entonces para cada para cada query, o sea, es es una matriz, ¿no? Que para cada query, ¿no? Acá tengo las m queries, para cada query me dice eh cuál es la combinación de vez que corresponde a esa query. O sea, acá ya están sumados, ya están ponderados, digamos. O sea, que cada B tiene d model coordenadas. Entonces, por eso tengo D model coordenadas, ¿sí? Pero esto que está acá es ya es la suma de los alfa i con i aquella cosa. Ya es esa ponderación que nos ves como vectores.
+Esto es la salida.
+Claro. Es esa es la salida
+y nos da y digo bien que nos da lo mismo el mismo size que la query que es la entrada.
+Claro. O sea, ahora es para porque eso se hace. Ahí va. Entonces este el eh, ¿qué? fue lo que lo que entró era, digamos, o sea, si si lo que entra, ¿no? O sea, en el caso del del transformer, ¿no? Este, yo estoy poniendo este m
+entra solo la query o no.
+Claro, m es igual a n porque estoy haciendo, o sea, en el caso del transformer, estoy poniendo este Q ig K igendo que todos iguales. Eh, solo que se van a multiplicar por matrices distintas, ¿no? Cada uno se se multiplica por matrices distintas. Entonces, el QI, Ki y B van a ser distintos, ¿sí? Pero NN va a ser igual a M. Sí. Y entonces acá al final lo que voy a tener es algo que es con shape n d model. Entonces, fíjate que lo que entró tenía shap n model y lo que sale tiene shap n. Sí. La multiplicación esa es si yo quiero hacer un multi, digamos, eh esto sería un solo un solo attention. Le puse un porque esto lo puedes hacer varias veces, pero ahí hay que tener eh el de K no importa, en B tampoco, no pasa nada. Este pasa ahora al final pasa algo que es Déjame un segundo. No, no pasa nada, no pasa nada.
+No se multietad, no tienes que hacer particiones.
+Bueno, lo usual es eso. Lo usual es eso, pero teóricamente no tenés restricciones sobre los vist que desaparecieron.
+O sea, pero lo usual es elegir el D. Si tenés Hz. Lo usual es elegir eh DB = D model sobre H y DK igual a D model sobre H. Sí.
+Y lo partís en H cachos.
+Ahí va. Ahí va. Sí, eso es lo usuario. Pero en realidad no tenés restricciones. Es una facilit es para facilitarte la implementación. O sea, que vieron acá en en el encoder Todo el mundo es igual a todo el mundo. Ah, perdón. Acá lo que me faltó es acá se se concatena todo esto, ¿no? Este, ¿qué quiere decir se concatena? Eh, quiere decir que se pone una head arriba de la otra. Ah, no les estoy mostrando. Perdón, no me dijiste nada.
+Estaba toda la el pizarrón. Entonces, ¿qué es lo que se hace?
+Entonces, si yo hago multig, lo que pasa es que voy a tener, ¿no? Ho, o sea, vamos a tener G1, G2, H, sí, cada uno de ellos, ¿qué shape tiene? Y bueno, tiene el shape de salida este, ¿no? Nó semplar. Y esto lo voy a multiplicar por una matriz. Voy a tener, esto tiene model columnas, no tiene n, o sea, n por por h este n por h
+sí,
+lo voy a multiplicar por una matriz este que se llama, o sea, estoy concluyendo si la concatinación es fila a fila o HDB. Eh, eso significa que tiene que tener HDB filas columnas, o sea, que esto tiene H. Sí. Entonces va a tener va a salir algo que tiene eh model y HB. Cada tiene dimensión Se desapareció el deb. Ah, no, el deb aparece acá.
+Yo creo queella es el es la partición de
+No, no, para porque yo creo que la no es no el está bien. Yo le en el pizarrón. Esto es un ¿Qué sentido tenía el esto? Es un y esto tiene d Perdón la confusión. Así que acá en realidad lo hago cuando hago el producto lo que me queda es siempre es BB. Sí. Entonces, ¿qué pasa? El e la salida esta es este N deb. Ya tengo N deb Sí. Entonces acá tengo N, acá tengo DB. Entonces la concatenación no es así. La concatenación es así. Un, el el dos, el hí se multiplica por el w tiene este shape. Sí. ¿Y este qué shape tiene? Este es tiene las seres filas, ¿no? Es unita así. Lo que tiene es,
+profe, porfa muestre.
+Ah, sí, gracias. O sea, estoy acáilo, en esta en la parte izquierda. Este, entonces este tiene e ní por DB. Este también tiene N por DB. O sea, también tengo DB, etcétera, que también tiene B de B columnas. Sí. Entonces, al multiplicarlo por esta matriz que tiene, bueno, quedó esto, esto es H * DB, ¿sí? Y esto tiene D mod. ¿Sí? Entonces, cuando multiplico todo, ¿qué es lo que me resulta? Lo que me resulta es una matriz que va a tener filas y demas. Disculpen, el model viene al final. Cuando hago cuando multiplico por la W, que es la W auto la multip. Este, pero no deja de ser cierto que el DB y el DK podrían ser cualquier cosa en principio. No tienen por qué cumplir estas relaciones. acá, pero sí es estándar, o sea, sí, por ejemplo, en el TER original lo cumplen y sí es bastante estándar que se haga de esa forma. Esta matriz de cierta forma arregla todo, o sea, cuando multiplicas por esta matriz te lo lleva a algo que es n de model al final. Y a eso se le suma, a eso se le, o sea, eso, eso es lo que va a pasar en el en el decoder. Va a haber una self attention muy igual a esta y después Va a haber una que compara el encoder con decoder, pero vieron que en el en el proceso este, ¿no? A las este H, que es esto, el TH es esto, ¿no? SH H ahí es lo que sale de ahí. Eso se le suma el Z anterior, que el Z tiene la misma dimensión, porque el Z es n palabras de dimensión codificadas con dimensión de módulo. Entonces este se le suma eso, se leer normalization y se pasa por la fit. Ah, y después lo mismo. Em, la fit, o sea, que cómo quedaría en el el self attention en el encoder es agarras UKB todos iguales a a la salida anterior, ¿si? Y la formulita que es lo mismo que hicimos hasta ahora, es simplemente te queda, digamos, expresada en los Z, te queda esta fórmula horrible. Pero es pero es es es esto diciendo que Qi es Zl - 1* WQ diciendo que K traspuesto es el es eso que está ahí y que el B es acá L 1.
+Claro, del anterior para calcular el G del L, que es el que te va a dar la salida ZL. arrancá con el Z0 si querés, o sea, arrancas con el Z0, que es simplemente la frase, ¿sí? Y la pasas por esto y tu primer H1 es el es el multi attention, el Z0 y lo que y de ahí después de todo este chorizo sale el Z1.
+Sí. Em en el decoder, bueno, Cuéntan los de layer normalization, que más o menos se lo mostré la la vez pasada. Eh, lo único que les digo es que si ustedes tienen una matriz se hace fila a fila. Acá el layer normalization lo que hace es normalizar fila a fila, o sea, le resta la media a la de la fila, a cada fila, divide entre el levío estándar de la fila, multiplica por gama y suma beta. ¿Sí? Este, o sea, que gama y beta, ¿qué dimensiones tienen? Tienen dimensiones de modelo. Sí, son vectores con dimensiones de modeló. O sea, que un layer normalization agrega 2D model parámetros en el transformer. Vieron porque esto es punto a punto, o sea, gama es un vector, ¿sí? Y beta es un vector. Em, la Fit For Network es lo que les decía, es un MLP de dos capas, o sea, no hay que complicarse demasiado la cabeza, que lo que hace es pasar de D model a una dimensión defit forward del medio y después de la defit pasa otra vez a demodel y tiene una activación que originalmente era la relu por hoy para yo no sé por qué se elige la huel que es la ganan eh eh linear unit este que dicen que forma mejor son cuestiones de performance conceptualmente pasa por una activación y la fit forward algo importante es que también es la misma fit forward que se aplica cada una de las palabras, ¿sí? O sea, no es una fit forward global, ¿sí? Sino que es una es la misma fit forward que se aplica a cada palabra. Ah, a cada fila. Acuérdense que las filas es cada palabra de la frase. Sí. Y el hecho de que las filas sean las palabras de la frase es lo que hace que esto pueda consumir una frase de cualquier longitud. Vieron que en todas estas multiplicaciones el n quedó peladito ahí siempre. Ahora, ¿qué pasa con con estos token especiales, no? O sea, en el decoder, lo que se le pasa en la entrada abajo al decoder es un sequence y la y la secuencia hasta justo el anterior, porque no me digo, tiene el mismo largo y se lo va a comparar con, o sea, lo que espera que la salida sea me de I1, el I1 me el I2, así hasta que el penúltimo me de el Sí.
+No,
+no,
+no, no. Eh, te voy a dar la última. Es la última palabra ITI. Es la última palabra que des Yo quiero que la última palabra que de mi frase original después de esa
+sea el que estuvimos hablando. Eh,
+perdón, Matías,
+esos dos vectores son los que se se restan y se hacen a los
+Claro. Exactamente. Exactamente. Y es un MCE no más o o
+no no es una bailar porque son probabilidades.
+Son probabilidades.
+El de abajo tiene uno más que el de arriba.
+Sí, tiene uno más que el de Sí, el de abajo tiene uno más que el de arriba. Sí. Eh, capaz queier ustedes vendría ser el último tokens.
+Sí, creo que este menos un no va.
+Creo que este menos un no va.
+No tendría sentido. O sea, eh Este tiene que producir esto.
+Claro. Yo creo que la probabilidad de la última palabra se
+tiene que ser en traducir.
+Sí, creo que este no va. Este de cajón uno ahí era de noche y acá. Pero la cuestión es que pasa lo mismo, o sea, se transforma en esta secuencia, se pasa por el embeding, ¿sí? Eh, y se hace un eh este mask multi, ¿sí? Acuérdense, la primera instancia es un self attention, igual que este, todos contra todos, ¿sí? Pero masado. O sea, que a la matriz esa que yo obtengo de que que me da los attentions, esta matriz, este lo todo lo que es este, si yo estoy en la etapa, en la palabra tres, todo lo que es de tres para adelante. Exacto. Esto es previo a hacer el softmax, ¿no? Por eso aparece el menos infinito para que después el Max me lo mande a cero. E lo que sí es importante es que los queries, ¿sí? Eh, o sea, en la tensión ahora que sigue, que es la tensión que combina lo que sale lo del encoder con con lo que el decoder acaba de cubrir, es las queries. Son las palabras del decoder, ¿sí? Es igual que en el set to set de RNs y el key los values son como los hidens del eh encoder. Ah, o sea, que los keys y los values vienen del encoder y las queries vienen del decoder. Entonces, lo que va a hacer es que para cada palabra del decoder, cada palabra que entró en el decoder, me va a decir, bueno, ahora esta palabra he, ¿cómo se relaciona con las palabras de que estaban en español? Sí. A cuáles tenés que prestar la atención como hacía antes, ¿no? Pero después la formulita es la es la misma, ¿sí? O sea, simplemente cambia la matriz Q. Por eso en realidad estaba escrito con una M general, porque eh ahora esta Q va a tener otro largo respecto a
+Es el largo de la otra.
+Es el largo de la otra. Exacto.
+Estas tienen TX de largo y esta tiene Ti. Sí. Eh, y después este se lo se hace todo lo mismo, o sea, es muy parecido y la Fit forward es lo mismo. y el A, todo eso es igual, ¿eh? Y bueno, esta la proyección final y la Softmax es pasarla por una línea. Acá estoy como si fuera una sola capa, ¿no? Pasal lo lo que te salga del decoder, pasalo por una capa. Sí. Para cada posición Tásalo, o sea, para cada fila, pasalo por una por una lineal y hacerle las softws. Sí. El hecho de que sea por fila, ¿por qué es por fila? Porque le puedo pasar una palabra, dos palabras, tres palabras. Sí. Entonces, me va a devolver la probabilidad que cree de que viene de la palabra que sigue en base a lo que yo le haya pasado. Si yo le pasé tres palabras, me va a decir la si le pasé una, me va a decir cuál sería la siguiente dado esa un o sea, me va me va a devolver esto para cada posición y no los quiero matar mucho. Eh, acá lo único que estoy diciendo es que pueden tener cualquier multitud. e que si hay bach hay que hacer pading
+y bueno y quiero safar de todo esto. Esto es el positional encoding que bueno, más o menos creo que más o menos el taller lo lo manejaron y no les quiero matar más con teórico, así podemos hacer los ejercicios, pero más o menos la operativa del del el transformer. Es decir, acá si ustedes miran ahora esta arquitectura que Son misteriosas todavía para para ustedes.
+El dibujo de la derecha.
+El dibujo de la derecha. Una broma.
+Ah, no, pero digo, mira, o sea, esta esta primera parte no es no hay dudas, no hay dudas. Mens varias veces. Sí, todos contra todos. Fan norm sumar lo que había salido. O sea, vos sacaste las ingeniaste para que lo que salió te quedó de la misma dimensión que lo que entró. Sumáelo. Eso, eso se logrado con esta matriz W. Sí, que el attention que salió, ese softmax, no sé qué, lo multiplicaste por una matriz que te lo llevó a la dimensión que tenía que llevar. Sí. Entonces, ahora se lo puede sumar. se lo puede sumar a lo que entró. Eso lo pasas por una fit forward que va a ser lo mismo, va a estar pensada para que te devuelva algo que tenga las mismas dimensiones, ¿no? ¿Se acuerdan? Pasaba de D model algo en el medio, pero después model de nuevo. Entonces esa forward va a estar pensada para que le puedas sumar también la entrada, normalizar. Eso, eso se hace n veces y sale un Z. una matriz que tiene como filas cada palabra que se ingresó.
+El qué se hace n veces por este bloque, digo, este bloque se repite n veces. Son n bloques distintos en realidad.
+Ah, está ta está los bloques que hay.
+Claro, la cantidad de bloques que hay. Sí, vamos a hacer uno. Va, vamos a hacer de cuenta que hacemos uno, ¿no? Hacemos uno, sale el Z de ahí. ¿Qué es el Z de ahí? Es una matriz cuyas filas es la cantidad de palabras que tenía la frase y tengo de columnas el dimensión del envo. de mod. Sí. Y acá pasa lo mismo, se entra con la frase, solo que arranca con el Sequence. Sí. Y este y acá es lo mismo, solo que con la que se la va a comparar se le agrega un end of sequence. Sí. Este, y el multied attention es lo mismo. Se va a armar esta matriz de todos contra todos, pero se va a masquear de la diagonal para arriba. Sí, yo creo que No estoy seguro si yo no le pifí acá en la máscara menor igual acá. No sé si es mayor igual y menor acá. Bueno, no, la palabra que estoy mirando la tengo. Yo estoy en la posición T y estoy con esa palabra. Me estoy preocupando por la siguiente.
+E lo que dijiste de vino
+dibujo. Est
+acá. Claro. V. Acá
+en el decoder. El decoder. en diferencia
+y en entrenamiento también. El único que precisa end of sequence, beginning of sequence y end of sequence es el bicode.
+Okay. El encoder no precisa esos esos.
+Ah, claro que no.
+Sí. O sea, vos lo que hacés nada más es agarrass la frase en inglés. Sí, sí, claro. ¿Por qué la tengo que marcar?
+Claro. Y le pones un begin of sequence y después eso para la entrada y a la salida le pones un end of sequence. Sí. O sea, que te queda longitud más uno.
+Porque al principio primero que no tenés palabra.
+Claro. tenés con quién compararla cero y ahí le pones el
+exacto el el end of sequ
+y a la salida
+no hay una próxima o sea que precisas
+y a la salida esto sigue hasta que encuentra el endocí
+claro y la última no hay una próxima
+entonces por eso y él al entrenarse de esa forma
+qué
+el sectus sec era igual
+era igual en el sectus o sea es que en realidad esto es un sectus secra el encoder y el decoder
+o sea si uno mira el encoder y y el decoder como cajas negras es es lo mismo. O sea, es lo mismo, solo que la caja negra de la RN procesa el input paso a paso secuencialmente. Esto lo procesa todo de un eh, o sea, tienen diferencias de funcionamiento interno, pero eh visto como caja negra este y es eso. Eh, después hacemos unos ejercicios de esto para que
+cuando hac el f forward que se hace línea por línea.
+Claro, es línea. O sea, es palabra a palabra. Es un fit forward que toma como input una palabra si querés. Ahí este, o sea, está diseñado para para tomar un vector de dimensión de mod. Ahí cuando lo implementas, digamos, tenés que hacer un loop o es también te las ingenias para hacer una matriz por otra matriz.
+No, no, ese es fácil porque ese lo puedes hacer una matriz por otra sin problema. Es el Z chiquito, es una fila de la matriz Z. Sí. Agarra una fila de la matriz Z, la multiplica por esta otra matriz, le suma el B1, no sé qué. Son dos capas, ¿no? Una lo lleva el D modelf y la otra capa lleva DFF a D mode.
+Y si tuvieras que escribir matricialmente eso con con todas,
+con todos es pones un Z grande acá.
+Ah, claro, es agregar una dimensión más alcita. ¿Cómo hacer? Sí, o sea, digo, es fila a fila porque está multiplicando por el mismo W cada fila.
+En realidad no tiene ningún misterio. Es una Vamos a ver el taller, no te preocupes.
+No, no, pero digo es es lo es lo Ah, lo que digo es no toma como input el Z entero, sino que es una F forward que está pensada para tomar como input una palabra.
+Sí, sí, sí, sí. Iba al tema implementación de en el tema de implementación no tenés problema. Vos eh implementass una red que está pensada de esta forma. Sí. Y esto lo va a tomar como un si estuviera pasando unas No, el B deaste tod saliste toda la frase de de la parte de abajo y ya juntaste antes de entrar en una matriz y meter la matriz en la
+Exacto.
+Sí, es como si hiciera sacado por Z grande.
+En el dibujo es como que están mucho tiempo ahí abajo antes de entrar en juntando las palabras que pasan por ahí abajo.
+Sí, pero pasa todo a la vez, ¿no?
+Pasa todo. Todo, todo, todo junto pasa en el dibujo, o sea,
+la potencia de esto, porque
+claro, acá digo, todo esto se hace en paralelo, cada get se hace en paralelo, se concatena, se multiplica esta matriz por esta matriz, o sea, pasa todo todo junto.
+La de la estoy en realidad estaba pensando en inferencia yo,
+¿no? En diferencia sí, tenés que hacer uno a uno. Entonces, ya te no estaba en el aprendizaje, estaba en cuando estás infiriendo. Cuando estás infiriendo antes de pasar por la lineal de arriba que la juntada o también la pasas de a una.
+No, pero que va actuar con el batch que vos tengas
+con el batch que le pases. Si le pasas una sola una sola palabra va a ser una sola palabraita negra lo que sea no la voy a pasar de una palabra.
+Sí pas una pero nada más que en una es la cuando pasas
+la primera vez va a ir solo el sequel
+la segunda vez van a ir todos pasan por el lineal tambén.
+Sí, sí, todo, todo. Es una cajita negra. Por eso es una cajita negra.
+Sí, lo lo mejor es pensarlo de forma. Una recibe la tira.
+V a estar acumulando la que está
+en inferencia.
+En inferencia tenemos un look. Sí. Sí o sí. Quiero decir, mando una palabra, hago, mando otra, pero es un for, digamos.
+Tata. Quiero decir, no, no es que ahí no hay nada en paralelo, ahí es secuencial.
+Sí, exacto.
+Está correcto.
+Sí, sí, sí, sí. Vos lo
+porque aparte perdiste el anterior para saber eso. Ahí sí, pero se hace in
+igual ahí no estás aprendiendo nada. El cómputo, te va a demorar largo de la palabra.
+Sí, al largo de la palabra.
+La frase.
+Es lineal en la frase.
+El largo de la frase.
+Ahí no hay Claro,
+no ganas nada.
+Donde ganaste entrenamiento, pero aparte no hay otra manera de hacerlo.
+Yo que me dé la palabra anterior para saber la probabilidad de los
+Sí, nosotros pasar todas las
+Claro. Sí, sí. Por eso la primera la primera las otras dos, las tres, las cuatro uno, porque al principio vos tienes el C va devolver un
+en las RN pas solo la última.
+Pregunta acá, acá le puedes pasar todo.
+Pero si yo le paso, por ejemplo, yo quiero traducir elote Hay hay ventana, tipo hay como una ventana de coso. Tengo que plotar o la última palabra me tiene todo el libro. No, la última palabra te tira todo el libro. La última palabra si no dice finendo. Un momento.
+Usa tiene habilidad de usar el contexto generandoid
+me cuesta imaginármelo, digamos, pero estás
+tiene esa capacidad de base a lo que escribió
+adentro vas a tener unas dos cosas,
+ser super coherente.
+Vas a pasar esto por acá de hecho si
+pero estamos de acuerdo que las primeras palabras no las toman cuenta en cuanto no me doy cuenta, la verdad cuesta como imaginarme, o sea, el tema de los pesos como palabra por la primera palabra. Eso no pausa. Ā. Bueno, vemos este ejercicio cu que está en la guía estudio,
+eh, los va a forzar a entender las matrices estas. Vamos a bajar a tierra todo este herido. La letra con sangre duro, pero real. Ustedes ustedes hicieron un examenis un anis,
+¿no?
+En el en el año 2000, o sea, año es el tiempo que hace.
+Claro, en el 2000 haber salvado análisis dos.
+Claro, pero me asusta.
+Yo estoy tr meses mal. Yo tuve 3 años. Bueno, entonces dice, "Considere el siguiente modelo de Transformer para traducción automática en code recoder y dice, los hiperparámetros son, tenemos un tamaño de vocabulario SE, ¿no? O sea, llamarlo BS más fácil que es 5000 Ahora les pongo la pantalla. Después tenemos el vocabulario del target que es 6. Tenemos que D model es 128. A mod cambiar el nombre y perdemos todo. Le ponemos otro. Eh, H. ¿Qué es H? Heads,
+la heads 4. Eh, DFF. ¿Qué era DFF? En la anotación de de la for 512 dice, y el número de encoders es dos y el número de decoders es dos también. O sea, que hay dos capas de encoder y hay dos capas de decoder. Bueno, entonces dice, "Cada bloque usa las siguientes componentes. Hay un input en beding, un output embedding, un positional encoding multiad attention con cuatro cabezas con estas matrices, eh una fit forward que tiene Ru y la composición hacia dos capas. El layer norm que tiene parámetros alfa y y beta. No sé por qué no me ponen alfa. Cada bloque de encoder está compuesto por multi tension, sí, layer norm layer norm las connections que cada bloque de folder está compuesto por multiad attentionada layer multad attention encoder decoder layer fit forward y layer Dice, al final del modelo se aplica una capa lineal para producir logits sobre el vocabulario de salida con matrices y bo y es notici que es artícula soft si quieren. Hay como una especie de resumen. Dice, a modo resumen, la arquitectura puede representarse en la siguiente tabla e input embeding, output embeding, encoder layer por dos, decoder layer por dos y la salida lineal a No dice, "Calcule el número de parámetros entrenables en una capa de multij tension individual, incluyendo los vamos por pasos. Levanto y me voy. Terminaste el ejercicio febrero
+no esto aprovechen como instancia dos
+no es para
+es calcular la cantidad de parámetros que hay en el multied attention. O sea, ¿cómo cómo funcionaba el multi Te hecho, ¿qué pasaba? No, o sea, hagamos el efemina. Ah, podemos pensar, a ver, en una frase de de lo que uno porque lo mismo entra acá un embeding, ¿no? O sea, la palabra pasa por el embeding, positioning, etcétera, ¿no? O sea, el positioning no tiene par Sí, lo único que tiene parámetros es. Entonces, esto nos queda un vector para dimensión. ¿Cuál es la dimensión este vector?
+El pizarrón.
+Model. Gracias. Model. Exactamente. O sea, que esto tiene dimensión 128. Sí. Y eso ahora va a entrar en cu. Cabezas de multisqueda attention. Cuando con una palabra es como tonto porque tenemos bueno más o menos hay una palabra x1 no2 mismo me da A no es la mejor forma de reparar esto, pero voy a déjenme. Perdón, perdón. Es vemos x1, ¿sí? Va a pasar a algo de 128 dos. Vamos a pasar a acá también 28. Y así ya está. Digamos que Tenemos Xnargo de la palabra. Vamos a algo de 128. Largo de la frase.
+Claro. N es el largo de la frase. Entonces, ¿cómo cómo actuaba cada una de las multip de las cabezas de atención? ¿Qué hacía? La matric.
+Ahí va. Pero tenía que formar a partir de Esto no tenía que estos son los z0, ¿no? Este es el z0. Esto esto es lo que llamamos z0 1 z0 2, z0n, ¿verdad? Que si yo los pongo todos juntos, esta es la matriz, o sea, todos juntos es la matriz eh esta matriz ZC. ¿De acuerdo? ¿Qué tiene? Y dimensión es n * 128. ¿Sí? Entonces, ahora esto, ¿qué pasaba? ¿Cómo pasaba esto? A través de los multigel. Teníamos que transformar esto, ¿no? En eh en en un Q, o sea,
+AQB viene por N.
+QKB, ¿no? Y y QKB eran los tres iguales. Sí. Entonces, pero íbamos para cada cabeza hacíamos, que era igual a qué cosa hacíamos un QI, un Ki, un B. Eran iguales a qué?
+Q por una matriz.
+Exacto. Es el Q.
+El Qud es el Q por una matriz WQ, el K por una matriz y K y el B por una matriz W. ¿Cuál es la particularidad cuando cuando pasa esto por el encog? No es que e es que estos son iguales, iguales, son iguales a este Z. Entonces, en la primer pasada, ¿no? Lo que se hace es se hace, vamos a llamarlo Lo que se hace es y estas qué dimensiones tenían y N18 N el Z tiene n8, tal cual,
+o sea, que el otro es 128.
+O sea, que este tiene n 128, o sea, que perfecto, esto es 128 algo. En realidad podía ser cualquier cosa. Pero, ¿qué es lo estándar? ¿Qué fue lo que dijimos que era lo estándar que que está implícito en la letra? Digamos dividido ahí va de model dividido h
+cantidad de esto es un supuesto que es lo estándar, salvo que alguien nos diga lo contrario, es que el dk es igual al dod divido h y que de B es igual a T9 divido H. En este caso es 128/ 4 128/ 4 ¿Qué da 32? Trabajar con potencia de dos, ¿no? Entonces tiene dimensión 128. 32. E, ¿qué es lo que ocurre? Ahora se hacen estas cosas. Bueno, en realidad acá nos dice que hay los sesgos, hay que incluir los sesgos. Ahí está más que un poco malo de más, pero tenemos un BQ, un BK y un BB, ¿no? Este, o sea, que el sesgo ¿De qué dimensión sería? Más BQ más BK + B. El sesgo simplemente es se hace broadcasting y se le suma, ¿no? Es un vector de dimensión 32. Se le suma el mismo a cada fila. 128.
+Sí, pero lo que digo es que la cantidad de parámetros es 32.
+No es un v por
+no. ¿Por qué no es un por? ¿Qué pasa un por Ahí te estaría quedando con muestra, ¿no?
+Claro. Entonces, si cambio la longitud de la palabra,
+variable, eso mismo.
+Claro,
+depende de la frase.
+Claro.
+¿Cómo? Perdón.
+Si si es que si cambio el n me cambiaría la cantidad de parámetros preciso.
+Entonces, lo más es que haya uno, ¿verdad? Y y se se repite una transición o algo.
+Ah, puede ser.
+N32,
+no, no es un broadcasting. Tenía que transponerlo y broadcastearlo. El broadcast tiene que hacerlo correctamente.
+Ojo que esto que escribí acá es tipo Pero es cierto, o sea, no no fila ni columna porque nototación, pero es cierto que si lo pensas como vector fila está mal. Es una transpuesta que hay que eh o se es una fila que hay que repetir. Exactamente. Bien. Y ahora, ¿qué se hace? Tenemos esto. ¿Y qué hacemos? ¿Cómo hacemos el
+Hay que hacer por Q de y
+exactamente y es, o sea, todo esto no hay que hacerlo en el ejercicio, pero ya que estamos, ¿no? Esto es es la softmax, ¿sí? ¿De qué? De qi por kpuesto dividido la raíz de 128. 14 100 12 11 121 11 con igual es es irrelevante para está por efectosionales podemos hablarlo perfectamente. Y esto nos falta se multiplica por bi, ¿verdad? Entonces, ¿qué qué dimensiones tiene esto? Esto tiene dimensiones, ¿eh? Esto tiene shape. ¿Qué shape va a tener al final? Va a tener shape n por 32, ¿no? N por 32. N por 32. Todo de acuerdo. O sea, que esto va a ser n 32 * 32 con n. Sí, me queda de todo esto me queda de n por n y esto es n con 32. Así que todo esto tiene shape n con 32. Sí, pero en realidad no hay ningún parámetro entrenable acá. Los parámetros entrenables ya están en las matrices esas.
+Entonces, ¿cuál sería la respuesta? Eh, La respuesta es,
+o sea, y nos falta una parte, nos falta una parte.
+Claro, porque
+la última,
+la última que, ¿cómo hacemos? ¿Cuál es el H? El H1. El H1 es concatenamos todos estos head, o sea, sumamos
+head un, head dos, head 3, 4. por el W O más el maldito B. Cada uno de estos G dijimos tiene n con 32. Así que acá tiene toda esta concatenación.
+N18 Y esto entonces es de qué dimensiones
+no 128 este model no.
+Sí, exacto. O sea, queremos que lo que termine saliendo tenga la cantidad de columnas igual al a lo que entró, al Z. Sí. Entonces es 128 por 128. Y este de acá tiene 128. Creo que había un B, si no me equivoco, había un B la letra, ¿ya está? O sea, que ahora sí podemos responder a cuántos parámetros tiene el multi, ¿okay? es esta salida, ¿no? Esto tiene cada una de estas, ¿no? O sea, la W. Si tengo pongo en zo acá. W IQ U, W I K W y B. Todas tienen eh 128 por 32 los vallas de eh por eh los vas eh tienen 32 y el W o W Tipo tiene 128 por 128 y el BO tiene 128. Entonces, ¿cuántos parámetros tiene el multijuger dentro? ¿Cuánto es 128. 22, profe. Y no sería por tres también. Sí, perfecto. Lilio.
+4096.
+Eso es todo.
+No,
+no porque o sea, ¿qué es? Es si quieren hagamos ahí. Es 3 por eh 128 por 32. No, todo esto me da ese tres. ¿Dónde salió? ¿De dónde sale tres?
+Son tres matrices,
+12,288
+1288
+288 después tengo 3 * 32, ¿cuánto vale eso? 46 32 y Tengo 128* 128 + 128 + 128 165, o sea, 100. Bueno, voy a poner así. 128 por 128. Eso
+está, perdón, más 128. Creo que todos entienden eso. Dijiste que da
+16,512.
+16,512. O sea, que la multigel esta tiene cuántos. Es la suma de 12. Este más este más este, ¿verdad? ¿Con cuánto me quedó? 2896 y esto se va a multiplicar por dos. Al final tenemos dos bloquesitos. Pasado.
+Perdón, disculpe. ¿Por qué se multip por
+porque hay dos bloques. Fíjate que el n del encoder acá es dos.
+Ah, ¿cómo era la pregun y cómo era la pregunta del
+No, no, no me adelanté, me adelanté, me adelanté. Acá si querés es solo es solo eso.
+Es solo, sí, es solo.
+Ah, perfecto.
+Me adelanté, me adelanté. Solo, es solo este número. 28896. Dice una individual
+dice una capa individual.
+Una capa.
+Sí, sí, sí. Perfecto.
+Una pregunta.
+No, hay algo nos faltó una cosa. ¿Dónde están los errores?
+No, no sé, pero pregunta
+en los tres puntitos arriba. Estamos G1, G2, G3, G4, o sea,
+como que esto sería un único.
+Claro.
+G.
+Ahora hay que esto por cuatro o todo por cuatro.
+No, no, solo esto.
+Ah, no, solo estos dos. Claro.
+Este no, este no. Este queda
+porque está mal acá. Esto que puse yo. Es no va con
+ese último es el que combina. Disculpe, lo último no entendí. No, acá. Perdón.
+¿Qué pasó?
+Este número, este número está mal, Atili, Leo. Este número está mal. ¿Por qué está mal?
+Porque olvidamos, nos olvidamos de contar que hay cuatro heads. ¿Sí? O sea, que en realidad este numerito de acá y este de acá hay que multiplicarlos por cuatro, o sea, hay que hacer acá.
+Ah,
+4 y 4 por
+el 12 288 te queda 4950. 49 152 96 * 4 son 384
+384 y que sumar que sumar todo estemos 66048 Hasta acá, hasta acá todo en orden.
+Después se calcula el total de parágra, que ahí tenemos que enganchar que eran dos bloques. Multiplicar.
+No va a haber un ejercicio así.
+No, no, no va a haber.
+Por eso, por eso puse día de estudio. O sea, esto es para que realmente
+buenísimo.
+Bajen a tierra, digo, o sea, se esfuercen a bajar a tierra, a entender. De repente hay una partecita de
+de multiplicar por cuatro. Mira que no es tan fácil.
+Hay que darse cuenta.
+Una pregunta que más el supuesto del K y DB. Vos sabrás la la dimensión del CO, digamos, BK y B.
+Claro, el 32. Este,
+este 32 lo saco en base del propuesto.
+Ah, tal y como está en el primero está acá que es 32. el de el de Q.
+Claro,
+porque ya sabes que Q es 12* 22,
+ya sabes que mostrar 22.
+Claro, claro, porque esta tiene que devolver algo en DK, esta tiene que devolver algo en DK
+y esta en DB.
+Si no, no se va.
+E, ¿qué más nos pide?
+O sea, que hay que digamos que cada G hace la tción entre una partecita de cada frase, digamos, o No, no, no. Eh, cada gente usa todo. Por eso son hay cuatro de ellas. Por eso multiplicamos por cuatro. Cada una tiene su matrizente.
+Usa todo el Z, pero tiene su propia W.
+Usa todo el Z, pero tiene su propia W.
+Claro, pero digo que la salida de eso va a ser no va a ser el tamaño total.
+Salida. La salida sí es 32.
+No es el D model, digamos.
+No es el D model.
+En realidad puedes hacer que la salida sea lo que quieras porque fíjate que En la multiplicación esta desaparece acá en el 22 con 32 desaparece ese número. Entonces, en realidad es un parámetro que puede ser cualquier cosa, o sea, no hay la matemática no te restringe ahí, pero lo estándar es usar esto que la regla.
+¿Por qué?
+Además usar el de model dos casos
+porque los podés implementar como un solo, como es el mismo Z que multiplica cada matriz, lo puedes implementar como un solo una sola matriz que tiene 32 para la primer gel, 32 para la segunda, ¿viste? Que es 128* 128. Sí. En definitiva, este 32. Al multiplicarlo por 4 me dio 128. Entonces es como si fuera 3 * 128 por 128. Sí, pero con pero si pero si el número, o sea, pero si digamos eso es un tema de implementación es porque lo implementas como con un con una sola capa lineal, digamos. Sí, por eso lo haces así, porque vos puedes implementar una sola capa lineal, dividís las columnas en en H y te quedan las HS,
+pero en teoría podrías haber elegido cualquier otro valor y ahí no, ahí tienes que implementar una con cada uno.
+Claro.
+Ah, por eso le dije,
+Claro. Sí, para que te quede como que es una matriz sola.
+Creo que lo vi. Sí, sí, creo.
+Así como agarrarlo en B después porque se te plantó.
+Sí,
+podrían ser cosas intermedias también del tamaño que
+del tamaño que quisieras. No vas a tener la facilidad de implementación de implementarlo con una sola con un solo MLP, sino que tenés que tener un MLP para cada
+Pero bueno,
+pero
+sí o en realidad tenés un MLP único, pero tenés que dividirlo en pedazos raros. O sea, este este lo dividís en 32, este en 45, este en ¿Qué? Sí,
+uno como que puede pensar eso en el Bing y estos intermedios como unos pequeños espacios intermedios.
+Claro, son como pequeñas eh son como espacios latentes intermedios.
+Eso es son pequeños espacios que tendrán te importarán o no las características que tengas.
+Claro. Exacto. Después capaz que si analizas a fondo la red después mirando lo que dan en en ciertos inputs podés sacar alguna conclusión.
+Capaz que en algún caso tenés álgebra de palabra
+y en otros Nada que ver.
+Sí, exacto. Bueno, este,
+una pregunta.
+Ahí en la concatenación 128 veces de 32
+cuatro veces 32, ¿no?
+Arriba la llave esa que vas donde dice G1, G2, G3, G4 dice N veces 32. Exacto.
+Eh, después nos dice el layer nor porque esto a esto se les suma el h, perdón, a esto se le suma el z0, ¿no? O sea, ¿cómo es la siguiente capa? Voy a voy aar vo ahorrar esto. Sí,
+ahoraos parámetros tiene el nor Entonces, ¿esto qué pasa a esto? Lo que se hace es se suma, ¿no? Se hace grader normalization de eh Z0 más el H1, ¿no? Y esto se esto mira fila a fila, ¿no? Entonces, este, ¿cuántos eh qué es lo único que importa acá? Es cuántas columnas tiene esta matriz. Este, ¿qué shape tiene? Este tiene cuántas columnas. tiene 128 y el Z tiene 128. O sea, que esto esto tiene shape N. El shape de esto es N18. ¿Sí? O sea, que el gama tiene shape 128 y el beta tiene shape 128. O sea, es, o sea, lo que se hace es se multiplica punto a punto un gama y se le suma punto a punto Así que hay 256 parámetros más acá. Este layer non tiene 256 parámetros. Vamos poner el doble lo que es el
+faltó lo del bloque la vez.
+Yo pasé para acá. Hice este. Y ahora, ahora, no, ahora es el fit forward. Ah, en el en las preguntas está al fit forward. ¿Qué pasa con ahora? ¿Qué pasa con el fit forward? Esto se va a pasar por un fit forward. ¿Que qué va a ser ese fi power? Tenemos que usar este dato,
+profe. La pizarra, disculpe.
+Sí, perdón, Adrio, gracias. Pizarra. Hay que usar, lo que digo es que hay que usar este este dato aquí, este de acá, el 512, ¿no? Porque esto lo que hace es hacer pasa de 128 a 512 y de 512 a 128, ¿no? Con varias, pero bueno. ¿Cuántas tenemos? Es 128 + 1 512. O sea, el forward va tener 128 + 1 * 512 + 512 + 1 * 128. No, de acuerdo con eso. Así que esto es 129* 512. 129* 512 + 513* 128. 129 por 526,048.
+66,048 otra vez.
+Sí, sí, sí. Lo mismo que el multij 513 por 128
+65,664 que estas dos cosas 131 712 parámetros Y después un monstruo este layer, ¿cuántas va a tener rápido y pronto?
+¿Cuántos parámetros va a tener este segundo layer?
+Porque también es de 128,8,
+o sea, que Es igual. Este es igual que Ah, cambia algo en el No cambia nada.
+Ah, perdón. Y las preguntas son eran otras preguntas, ¿no?
+Sí, disculpe.
+No, pero igual cambió el orden como decía, pero
+pero no Usando la estructura de cada bloque, calcule el número de parámetros de Entonces, ¿cuántos parámetros tiene el encoder? Voy a borrar el dibujito este. ¿Y cuántos parámetros tiene el encoder?
+Todo esto sumado.
+Todo esto sumado
+más los bloques, ¿no?
+Multiplicando por dos.
+Multiplicando por los bloques.
+Multiplicar por dos. Ahí va. Que son todos. O sea,
+eh, en realidad cada bloque tiene, hay que hacer este más este más este, ¿no? ¿Cuál? ¿Cuál? Este más este más este.
+Pero hay dos de electrónic, ¿no?
+Hay dos. Perdón, tenes razón. Es este má 512 más este porque hay dos layer nors. O sea, este va por dos.
+Ah,
+porque en el bloque hay dos. O sea, que el encoder, el bloque uno del encoder,
+¿cuánto tiene? 7,48 + 256 + 256 +
+131000, o sea,
+sí, 712. Estoy haciendo una vez todo esto me da 1982 por 2
+198000 para
+272
+272 y entonces el encoder
+396 39654 Pero es un transformer chiquito, ¿no? 4G 128 de de model. Fíjense que digo, ¿cuánto tiene el transformal? Creo que era 512 el model.
+Claro. Y ya acabó todo, o sea, seanda todo. Eh, bien. ¿Qué más? Eh, el Eh, ¿qué cambia en el
+perdón? El decoder. Gracias. El decoder.
+El decoder. E tenemos un multihead. Este ler ahí va todo igual. Sí, porque un D model es igual, son 4 Hz. Ahí viene todo igual. El multi el encoder decoder, eh, hay que ver estas matrices, qué shapes tienen, eh, pero es todo igual porque es el mismo,
+el model es el mismo y la cantidad de es la misma. Lo único que importa es el model y la cantidad de Sí, este no tiene por señ, pero no juega.
+Claro, no juega. Exacto. Así que bueno, todo esto va a ser igual. Entonces, ¿cuántas en realidad tenemos? Ahora tenemos que multiplicar para el bloque un del decoder es este también va por dos y después es igual. Hay tres layers. Bien. Y hay tres players normalization. O sea, que
+¿cómo fue? ¿Cómo fue? Perdón,
+perdón. No, lo que digo es que este este de acá hay que multiplicarlo por dos porque hay dos attensions. Es lo entendí.
+Y este por tr porque este por tr porque hay tres. Hay tres este layer normalization. Así que hacer esto con tres.
+Ah, sí, ahí me raro, tiene razón.
+Sí, no sé. ¿Creen que todo junto?
+Todo junto.
+Otro más había una, ¿no?
+256 3.
+Sí, hay un
+132 864.
+Este es el S por dos. Entonces, no puede ser. No, tenés un
+Ah, me faltó ese por dos también.
+No, este va por este va por tres.
+Ese por tres.
+Este por tres.
+Este por dos.
+Sí, este bien.
+Y este por un
+264 576
+264
+264
+576
+576. Y esto va por dos, ¿verdad? Para el decoder. Esto por dos
+396 288
+casi igual que el otro
+casi igual
+para no no puede ser esto ser más de 500
+porque esto por dos
+sí el último. Es 264
+572
+572 por 2.
+Ahora sí 129 144 9 144.
+La primera me que me controlaron aguandas a ver todos los
+bien pregunta.
+Los ening también son aprendidos.
+Los en son aprendidos,
+pero no lo estás considerando
+por ahora no.
+Pero buena pregunta, tengo que sumar los
+el encoder.
+El del encoder y el gold. Tenes razón. Faltaron los ¿Qué dimensión tienen los envadies?
+Ah, tienen un mod Eh,
+¿en dónde está
+la siguiente? Ah, porque las preguntas las miramos el
+Ah, ahora nos pide eling. Si en realidad el encoder no tiene el dibujito.
+Entonces, este, ¿cuánto es el eding del encoder? De de cuánto a cuánto es una matriz de cuánto a cuánto cuántas vocabulario.
+Vocabulario
+a model.
+Exacto. O sea, que el embeding el embeding del encoder tiene eh 5000 por 128. Eso, ¿cuánto da? 640,000 640,000 y después tenemos el enil del encoder que va de 6000 por 128 768000
+768000 Bien. Y nos falta debe estar como pregunta la capa lineal de salida. La capa lineal de salida, ¿cómo es? Esto va a salir un cosito de 128 unidades y lo va a pasar a algo de 6000. que tiene 129 por seg. O sea, que la salida, la lineal de salida tiene 128 + 1 * 6000 y esa cuánto da
+774. 774. Bueno, y ahora sumamos todo. Tenemos que sumar. Voy a poner en rojo. Hay que sumar porque está en rojo y azul. Transformer. 3 millones
+3,on
+107000
+107000
+688
+un parámetro por cada
+no era tan chiquito, no era tan chiquit Uno cada dos canguros era, ¿no? Dos canguros. Y eso un vocabulario de 5000 tokens es minúsculo. O sea, esto es minúsculo, esto es un minúsculo, esto es minúsculo.
+Y ahora no. La idea de este ejercicio era que como redondear un poquito la operativa del transporte, ¿no? tarjeta que ten parece
+eh
+196 tenía tarjeta
+no
+146
+96
+96 yen debe tener 100000 no sé
+200000
+200,000 o sea esto0000
+y no sé cuántas capas ejercicio parcial va a ser calcular GPT3.
+A ver, ¿alguna preguntita más conceptual de algunas otras cosas? parcial podemos ver ahora.
+Bueno, vamos a ver uno parcial que viene
+de parciales viejos, ¿no?
+El parcial 25 lo tenés.
+Eh, por ejemplo, voy a agar el parcial dos del año pasado. Este es el paciento.
+Qué dibujito tan bonito.
+Pensaron que iban aar.
+Yo esperaba ver la cara de Optimus Prime.
+Hay un ejercicio de de la arquitectura del Transformer. Hay un ejercicio de attention. Hay un ejercicio de sec to sec y esto es lo que les digo, zero short learning. Esto no no lo vimos que es transfer no no nos dieron clases. E este es sencillo. A ver, ¿qué operación se está realizando en el siguiente diagrama? Explique con el mayor nivel de detalle posible. Ahora, ahora la tiene que hacer de taquito. En vez de poner
+es lo que acabamos de hacer, o sea, en vez de poner de K, pone DQ, pero es lo mismo. Tengo la WQ, la WK, la WB, ¿no? Acá tengo las N, el N, el largo de la palabra
+D es el D model.
+Eh, me genera los, o sea, ahí hay que explicarle el AT, el mecanismo de O sea, acá, o sea, pueden explicar todo. Acá lo que se está haciendo es hacer Q por esto. Si quieren olvídense de los vallas, ¿no? O sea, se agarra esta matriz, se la multiplica por esto, ¿no? Eso me da el Q. Se agarra esta matriz, se la multiplica por esto, eso me da el K. Se agarra esta matriz, se la multiplica por esto, me da el B. Sí. Después hago Q* K traspuesta, ¿no? A esto le hago la Softmax y esa matriz la multiplico por B y Tengo el Z, que es la salida de la no
+bueno ahí lo del mayor nivel de detalle posible, no sé, yo estoy la fórmula, pero más detalle que eso no creo que pueda después acá de la arquitectura de Transformer presentada en la imagen derecha explique en más de tres renglones los siguientes elementos. Cada elemento entrar en
+supongo
+por la suma de todo difícil
+input en
+esta er bravísim son incorregibles.
+¿Cómo hacir
+acá donde te apiadas del pobre el pobre que poner
+este acá prometemos que no vamos a escribir en
+Ahí va. Sí, claro. Tienen que escribir en letra de máquina porque si no
+Pero la A es el de entrada.
+Claro, es el debeding que explicar es una matriz
+el encaje entrada.
+Bueno, pero yo lo que explicaría es es una matriz que agarra el one hot del vocabulario de entrada y lo transforma en el output ening es lo mismo. Positional encoding explicar la para lo que te permite nourar el es invariante por presentaciones, entonces
+se le agrega
+se le agrega ahí algo que indique la posición e multiad attention de Q transpuesta por cada. Sí, explicar lo que dice la tension, pero pasa que explicarlo
+el mask multiad attention, el Adam norm,
+pero conceptualmente, o sea, si si explicas el el multi el attention
+lo que se busca
+de todos contra todos.
+Claro. Y lo que lográs con eso y con el multi. Bueno, diferentes visiones.
+Diferentes. Exacto. Tal cual.
+Puedes caminar, ¿no?
+Sí, sí, sí.
+Más o menos. el norm. Bueno, keep connectionation la fit forward, la fit forward, la tapa líneal final, la softm y otra vez estaba dos veces set to sec. E explique con ejemplos y pseudocódigo cómo implementaría el paso de codificación encoding y decoding de una secuencia en un modelo set. Yo no Pero no lo eh pseudo código. ¿Cómo implementaría el paso de codificación? O sea, el encoding y el decoding de una secuencia en un modelo. Básicamente lo que nos dice es cómo se procesa una secuencia en un modelo
+eh sec to sec recurrente,
+pero eso lo saben
+con los dibujitos, digamos. Lo tengo clarísimo.
+Sí. El pseudocódigo es digo para cada palabra
+es claro, no es necesario y el código, pero capaz que en ese en el curso viene código,
+pero sí como una cosa es como una receta de
+es como una recetita de paso a paso, pero está, o sea, si haces un diagrama después tratas de pasarlo a a un formo cómo lo harías vos
+y tenés que iterar en la longitud de la secuencia, ¿no?
+Para cada palabra
+se agarra la palabra, se la pasa no
+sí
+se agarra el hiden anterior y vuelta y ahí lo meto todo de nuevo.
+Exacto. Pero te faltó el status sequence.
+No, eso es el eso es en el decoder siempre
+pero me faltó la W, ¿no? Agarro la palabra y el también
+multiplicar. Una, claro, por una matriz, otro por otra matriz, sumar un variación este múltiples leyes ahí, ¿no? Puedes tener múltiples leyes. Sí, ahí lo escriben como puedes decir paso esto por la RN por el pseudocódigo, no dice en qué nivel estar escrito.
+Paso esto por la RN, ¿no? Obtengo el siguiente, termino eso. y me quedo con el último contexto, si quieren. No sé cómo fue que se dio en su momento, pero me quedo con el último contexto. En el discover para acá palabra, no sé acá si estoy en entrenamiento. No, no dice. No,
+no. Paso de codificaciones
+y y de COVID. Bueno, ahí hay que ver si uno está en COD. Si no, si si está en entrenamiento o no. Si está en amiento puede hacer teacher for sin o no no implementa es lo mismo. Estoy en
+estoy en inferencia justamente no no voy a entrar while of sequenceiro al todo el ch
+while of sequence repetís este lo mismo pasas este el hiden que viene No, más el input de la última salida.
+Ah, pero voy a
+Sí, o sea, hay que inicializar el hay que inicializar el input en beginning of sequence, ¿no? Y el y el hidden en lo que salió del encoger y después es lend of sequence. Encajo, el hidden que vino, el input, eso me da un output que lo paso por una lineal y le hago un softmax y me da la siguiente el siguiente input para Exacto. Y y así te forcing. Ah, no, esto era inferencia.
+Esto era inferencia. Digo, no sé, por decir, si fuera teacher forcing, agarras el
+¿Qué beneficios tiene un modelo encoder decoder para los problemas sec to sec frente a un modelo que emite un output en cada paso de la secuencia? La salida puede ser distinto.
+Todos de acuerdo con eso.
+El salía adantado,
+¿no? En caso de traducción que lo queres pasar de español a inglés, por ejemplo, la frase en español puede ser más larga que la frase en inglés. Entonces pasarlo como el espacio es latente del encoder y después de ahí decodificar la la salida. Si lo haces con todo solo con una, como dice el modelo que emiten un output en cada paso, la cantidad de pasos largo de la secuencia de entrada, ¿no? Entonces tendría como un output por el largo del del español, pero si es una frase más larga, no no podría seguir que darse cuenta que está preguntando Sí, eso es lo que más me gusta. Igual
+cada paso de la secuencia que emite un output en cada paso de la secuencia. Eso es lo que
+Claro, si emite un output en cada paso de la secuencia no puedes cambiar largo.
+¿Qué diferencias tiene implementar el punto uno? ¿Con una RN o con un modelo de tipo transform? Acá la guitarra la la más evidente que el transformer vos hacés todo. Sí.
+No, no es este O sea, haces todo de una
+y aprovechas, con lo cual aprovechas mucho
+entrenamiento, sobre todo beneficio es la
+claro, el atención cambia un poco porque pasamos de tener un attention
+que era digamos, bueno, acá no sé ni si la está mencionado se con recurrente de con recurrentes. Mirábamos básica Solo la parte solo la parte que correspondía a cuando miramos la salida del encoder con el con el palabra.
+Exacto. Ah, no hay self en el recorrente,
+pero capaz que poner lo precisas. Eso es un cambio importante. La máscara no máscara. Bueno, está lo que ya dijeron, ¿no? El procesamiento es secuencial en uno, por más que uno esté en entrenamiento y en el otro no, el otro es en paralelo. Y las preguntas de ejemplo del también las pueden mirar las preguntas de ejemplo de Yo en la guía de estudio les puse varias preguntas así este tipo e y en las preguntas de del año pasado también es como una guía ehu. Eh, también hay cosas, ¿no?, de de modelo de lenguaje de SEUSF, eh, escribo el flujo de datos entre un codificador y un decodificador. un modelo de SET SEC más o menos lo mismo. Explique cómo manejaría el modelo SEC to SEC las diferencias de longitud entre la entrada y la salida de traducción considera un modelo de CC que no produce una oración completa. Falta del token fin de secuencia. ¿Qué posibles problemas podrían estar ocurriendo durante el entrenamiento?
+Claro, es
+transformer. ¿Qué problemas específicos? No sé si me sentí una. Compar un enfoque avanzado en SEC con un modelo basado en reglas para resolver un problema de traducción automática. Bueno, está este medio basado en reglas, digo, es como demasiado caníbal, ¿no? No sé ni cómo lo encararía. Además, ¿qué problemas específicos de las RN resuelve la autoaten selfens en los transformers? Bueno, acá la pregunta está está digamos tiene implícito un asumption que es que la RN no está usando attention, pero si no está usando attention
+pierde la
+la capacidad de
+la memoria tiene memoria a largo plazo.
+Se va quedando con los últimos.
+Exacto.
+No te está diciendo cuál RMN es pas
+Sí. Pero igual aunque fuera una gruo, una LCTM transform, o sea, el attention en ese sentido es inible, digamos, comparón con por más que
+podés hablar de problemas específicos cuando la memoria no es un problema específico y decir resuelve. Estoy preguntando como lo vergon
+no pero digo vos este en un por más que tengas una LSTN o algo este a los miles y miles de palabras ya de tokens digo, ya, o sea, una LSTM tiene memoria a largo plazo mucho mejor que una RN común. La tension este, o sea, el attention considera toda la secuencia de hiden, ¿no? Nos va concentrando en un solo hi pasando. O sea, a largo plazo no no hay comparación. Explique el papel de las máscaras en el mecanismo de atención de un transformer. Describa el proceso de de cálculo de autoatenón en términos de la matriz square key y val. ¿Qué son los positiones? ¿Cómo se transformas y influyen en la representación del texto? Ejemplos. Compare el costo computacional de los Transformers con las RN y explique en qué circunstancias el costo puede ser primitivo. Explique cómo los transformes pueden adaptarse para trabajar con datos no secuenciales. Imágenes. Eso nosotros no lo vimos.
+Disculpe, profe, ¿a qué se refiere costo prohibido?
+Prohibitivo.
+Prohibitivo.
+Muy alto. Costo. Costo de
+Ah, exagerado. O sea, exagerado.
+Sobre costo.
+Exacto.
+Sería un problema sencillo que pueda solucionar con una RMN.
+Claro. Ahí va. Por ejemplo, do el siguiente texto. El perro corre rápido. El perro es feliz. Construya un conjunto. de datos de entrada y salida para entrenar una RNL en el problema de language supone
+hay que construir un conjunto de datos. Este este es bien fácil, parece más, o sea,
+hac de cuenta,
+el perro, ¿no? El primer dato después El perro coma corre, ¿no? El perro corre, coma rápido y y bueno y además pueden hacer las ventanas, ¿no? O sea,
+no perdón, no los enegramas.
+Claro, por ejemplo, por ejemplo,
+o sea, palabras que tengan sentido con eso.
+Depende,
+depende de cómo vayan a implementar el language model, pero si lo implementan con un mtp, por ejemplo, que es tiene que tener un largo fijo,
+agarran una ventana de largo fijo y la van corriendo en el texto. Ahí van a tener poquitos datos. Sí, si fuera dos, ¿no? Si fuera un grama es este es el perro. Perro corre, corre rápido, rápido. Punto. Punto. Él este el perro perro es feliz feliz punto, ¿no? Eso serían. Pero si lo hacen con una recurrente que puede tomar cualquier longitud, de repente pueden agarrar de todas las actitudes. Se agarran el el 1 3 y 4 g de todas las ventanas posibles. Para eso lo explico transformer que está mostrando un overfitting significativo. Proponga tres estrategias para mitigar este problema.
+Y
+al final es como cualquier cosa es una red,
+o sea, que toda la que sirve Sí, sí, sí. Explique con ejemplo si pseudocódigo cómo implementaría el paso de codificación estos lo mismo que puso se ve que ya lo habían visto. Eh, y está y en los ejercicios guía que yo le subí hay todo tipo también de todo tipo. Eso, por ejemplo, para entrenar y usar un modelo se to sex introducen los toques especiales status se siendo Explique por qué el necesita explícitamente el token startup. Describa qué problema surge si no se incluye un token sequence en la secuencia.
+Ya lo preguntar.
+El mecanismo de atención se calculan pesos que indican la importancia relativa de cada posición del input durante la generación de un explique la interpretación de los pesos de atención. Compare conceptualmente un soft attention con un hard attention indicando ventaja. y desventajas. El attention es como elegir el max arquitecturas encoder decoder cada parte cumple un rol distinto. Escriba el objetivo principal del encoder y qué tipo de información produce. Explique cómo el decoder utiliza esa información para generar una secuencia de salida y explique por qué un encoder decoder puede esto es más o menos lo mismo que lo del código, pero capaz que más relajado, ¿no? O sea, habló con palabras, eh, y no tanto con eh ah, esta está buena. Considere la siguiente oración en inglés y su traducción al español. The book that the professor recommended yerday. El libro que recomendó ayer el profesor era Excel. A continuación se muestra una tabla que representa un mapa de atención. Complete la tabla cualitativamente, por ejemplo, con una X o con un valor cualitativo como alta, media, baja. Es decir, Tienen, se acuerdan las los mapas de de que les mostré. ¿Cómo lo importante es cómo se leen estos para tienen que hacer tienen que llenar las columnas o tienen que llenar la fila?
+Las filas.
+Las filas, ¿verdad?
+Filas.
+Sí, las filas. Porque si porque siempre es eh es vas a mirar la palabra, o sea, esto es en un sec to sec, eh, o sea, estamos comparando, estamos haciendo una attention que no es self attention. Sí. Entonces este es la palabra que querés predecir, ¿no? La palabra que querés predecir. Eso eso es básicamente esta pregunta. ¿Cómo interpreta en el contexto de set to sec con aprendiendes? No es la palabra que querés predecir. Eh, vas a mirar el attention de esa posición, el hiden, ¿no? De esa posición con los hidden de todas de todas estas palabras. Pero y la Completamos lo que nosotros queremos.
+Intuitivamente, claro, intuitivamente. ¿Qué te parece a vos?
+Es es como para que
+para que te ayude a decir
+el 20 le tendríamos que poner alta porque ahí ya no.
+Claro. O sea, la idea en realidad es que respondan esto, ¿no? Ayudándose de este ejemplo, o sea, de esto como ejemplo, ayudándote esa tabla como ejemplo. Decí lo que hace el el el mecanismo de atención, o sea, acá podría ser bastante más explícita, ¿no? Apoyándose en esa tabla de ejemplo, este explique el mecanismo de atención en el en las arquitecturas set to set con r. Ahí explicas qué es lo que cada fila representa acá. son sobre las hay un par ahí sobre las resnet. Eh, este estaba bueno también es sobre resnet este se acuerdan es del estilo, ¿cuál cuál es la diferencia entre que haya un problema del estilo están faltando skip connections? Es decir, hay un desvanecimiento ente o tengo un sobrejusto. ¿Se acuerdan que yo les hablé de eso en la por cuando vimos connections esos gráficos? Pasen pasen eso porque es es eso es bien de eso. Cuando cuando agarren esa diapo, agarren este ejercicio y y traten de resolver. O sea, por eso les digo, usen usen esto como guía de estudio, ¿no? O sea, de tratar de responder estas preguntas cuando están estudiando el tema de responde. Puedes ver la segunda pregunta de 15 que dice
+fenómeno conocido como degradación. Es el varish gradient.
+Justifique conceptualmente por qué una red más profunda puede entrenar peor. O sea, ¿por qué en principio, perdón, voy anio aumentar el número de capas no deberían pedalar el rendimiento? No es se acuerdan por un skip concho.
+Sí. está dentro del tema skip connections
+porque cada etapa más profunda que sea va recibiendo todas las
+Claro. La respuesta es que vos en teoría la capa del medio, o sea, existe la posibilidad que que la capa del medio sea la identidad y entonces el modelo se te reduce al que tiene una capa media. Todo lo que puedas expresar con dos capas lo puedes expresar con el tras. Me acuerdo que vimos teórico, pero no me acordab no era asociaba con la pregunta.
+Pero por eso cuando veas el teórico, mira el ejercicio.
+Este y justamente esa era la idea de la de la de la resnet justamente cuánto te desvías de la identidad, ¿no? Este eh ni se justifique conceptualmente por qué Una red más profunda puede entrenar peor que una red no más superficial, incluso teniendo mayor capacidad representacional. O sea, este incluso es es lo que es la conclusión del anterior, ¿no? Pero sin embargo puede entrenar peor. ¿Por qué puede entrenar peor? Porque el banishing grad y compare este fenómeno con el sobreajuste. O sea, que no tiene más parámetros.
+Claro. Exacto. Que no tiene que es diferente, ¿no? O sea, cuando vos mirás los gráficos, este, el debería tener no solo El gradient
+no ahí no el exing gradient este no es lo que acá lo que pasaba es que se estancaba antes, o sea, en train no lograbas bajar
+y el otro quedaba más corrido, pero llegaba igual a
+el explodient sí oscila como loco,
+pero llegaba algún momento a
+no tiene por qué además el explodient lo controlará fácil con Sí, sí, sí. Dice degradación también, ¿no?
+No, generalmente no. Ingredient. Además, el explodient es más fácil de controlar porque puede ser para arriba o para abajo también.
+Eh,
+ser explodient para arriba o para abajo.
+Sí, sí, puede ser para cualquier lado, pero digo, el este el tema es si te estás frenando, o sea, si estás yendo demasiado rápido frenar podés, pero si te estás frenando acelerar no podés.
+Pero se daba cuando las capas eran grandes.
+Exacto. Cuando tenías muchas capas, ¿no? Cuando tenés muchas capas,
+puedes tener cualquiera de las dos cosas.
+Claro, por eso. Y a ver, La pregunta dice, por eso te he preguntado porque creo que la pregunta
+dice, "Justifica conceptualmente porque una red más profunda puede entrenar peor que una red más superficial." Bueno, no, no puedes incluirlo en la respuesta.
+Digo, porque en realidad puede poner
+Sí, sí, puede pasar tal cual. Puedes incluirlo en la respuesta
+más allá de que se pueda solucionar. Exacto. Más allá de que se pueda solucionar.
+¿Cuál?
+Esta esta está es redes recurrentes. Es bien fácil es explicar, digamos, qué representa. O sea, por ejemplo, esta, ¿no? En una red recurrente. Eh, escriba qué ocurriría si B fuese la matriz nula. O sea, ¿qué pasa si B fuese nulla? Si fuese cero
+es un MP. Sí, MP.
+Está esto es sobre back propagation time, que se acuerdan que simplemente es desplegar la red, una cierta cantidad de pasos y hacer back propagation como corriente. Eh, nada. ¿Para qué uno hace eso? para evitar el vanish gradient o el explodient. Eh, y acá sobre las el STM y la puedes acá un ejercicio sobre una red recurrente y el cálculo de la cantidad de parámetros de la red recurrente. Ah, este es medio también para que se sienten y sufran un rato, pero pero les va a bajar a tierra, digamos. Y este
+ah, este es este eh del ¿Cómo se llama? Eh, ah word to. Este es un ejercicio sobre Word to sí que es simplemente armar los datos que se entrenan a partir si ustedes tienen esta frase cómo arman los datos este esto también cuando revisen la diapo a Fíjense a ver si pueden machear a ver cómo cómo se hacen los datos. Y este otro es un language model con una ventana fija de tamaño cuatro, eh, hecho con un MLP. Y esto es un language model hecho con una con una recurrente donde ya apareció eh, perdón, language mod eh donde ya aparece el tema de teacher forcing y este que creo que es el último es un modelo de lenguaje, o sea, Es lo mismo, es pero en vez de una sec to sec es si haces un modelo de lenguaje con una recurrente, ¿cuántos parámetros tenés? En realidad son ejercicios que obviamente no van a no van a haber puede haber alguna parte de de un cálculo o algo, pero llevo horas calcular todo esto, horas, no tanto como este un rato que no va a haber en el parcial, pero sí una partecita, pero sí creo que los ayuda a a bajar a tierra el tema en cuestión que van a estudiar. Bueno, O sea, van a estudiar modelo de lenguaje que se hace con una arquitectura recurrente. Bueno, forzarse a calcular los parámetros es como que te fuerza a entender la arquitectura, ¿no? De punta a punta de la red y obviamente cualquier cosa que la miren quéé qué más tienen de acá. Alguno v a ver cuánto estudiar para estudiar para los de France y dos empleos en Fran. ¿Cuándo es? Ah,
+tenemos que estudiar para el taller del taller dos lo primero que tien es esto.
+Sí, lo primero. Ah, okay.
+El uno, el primero hacia el este entrega.
+El dos en la entrega y es el
+No, pero la competencia sirve para sumar una competencia la competencia cierra anterior.
+Claro. Para que hay obligatorio, pero parte del parcial, creo.
+El parcial es la defensa,
+o sea,
+pero no es solo la defensa.
+No es solo la defensa.
+Hay preguntas aparte La mayor parte son preguntas.
+Ya creo que dos preguntan tres. Bueno,
+bueno, cualquier cosa de orden, me escriben a mí con copia, Martín. Teams, no lo más fácil. Y si no por acá que toda la solidad con que nos puedas tratar.
+Aparte de todo eso, también tenemos trabajo, familia, hijos. No te olvides hay un par de violentas. Chao, Bueno, chao. Chao.

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mapa Mental - IA Generativa</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',sans-serif;background:#0d1117;color:#c9d1d9;overflow:hidden}
+canvas{display:block;width:100vw;height:100vh}
+#controls{position:fixed;top:12px;left:12px;z-index:10;display:flex;gap:6px}
+#controls button{background:#21262d;color:#c9d1d9;border:1px solid #30363d;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:13px}
+#controls button:hover{background:#30363d}
+#controls button.active{background:#58a6ff;color:#0d1117;border-color:#58a6ff}
+#legend{position:fixed;bottom:12px;left:12px;z-index:10;background:#161b22ee;border:1px solid #30363d;border-radius:8px;padding:10px 14px;font-size:11px;line-height:2.1}
+.lr{display:flex;align-items:center;gap:8px}
+.ld{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
+#tooltip{position:fixed;z-index:20;background:#161b22;border:1px solid #58a6ff;border-radius:8px;padding:10px 14px;font-size:12px;max-width:360px;pointer-events:none;display:none;line-height:1.5}
+#tooltip .ttype{color:#8b949e;font-size:10px;text-transform:uppercase;letter-spacing:1px}
+#tooltip .tlabel{color:#58a6ff;font-weight:bold;font-size:13px;margin:3px 0}
+#tooltip .treason{color:#c9d1d9}
+#hint{position:fixed;bottom:12px;right:12px;z-index:10;background:#161b22ee;border:1px solid #30363d;border-radius:8px;padding:8px 14px;font-size:11px;opacity:0.7;line-height:1.6}
+#title-bar{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:10;background:#161b22ee;border:1px solid #30363d;border-radius:8px;padding:8px 20px;font-size:14px;text-align:center;pointer-events:none}
+#node-info{position:fixed;top:12px;right:12px;z-index:10;background:#161b22ee;border:1px solid #30363d;border-radius:8px;padding:12px 16px;font-size:12px;max-width:280px;display:none;line-height:1.6}
+#node-info .ni-title{color:#58a6ff;font-weight:bold;font-size:14px;margin-bottom:4px}
+#node-info .ni-desc{color:#c9d1d9;margin-bottom:8px}
+#node-info .ni-conn{color:#8b949e;font-size:11px}
+#node-info .ni-conn span{color:#f0883e}
+</style>
+</head>
+<body>
+<div id="title-bar">Mapa de Conexiones - IA Generativa (ORT 2025)</div>
+<div id="controls">
+<button onclick="resetView()">Encajar</button>
+<button onclick="setFilter('all')" id="btn-all" class="active">Todas</button>
+<button onclick="setFilter('flow')" id="btn-flow">Flujo</button>
+<button onclick="setFilter('cross')" id="btn-cross">Conexiones</button>
+</div>
+<div id="legend">
+<div class="lr"><span class="ld" style="background:#f0883e"></span> Pregunta central</div>
+<div class="lr"><span class="ld" style="background:#58a6ff"></span> Fundamento matematico</div>
+<div class="lr"><span class="ld" style="background:#7ee787"></span> Modelo generativo</div>
+<div class="lr"><span class="ld" style="background:#d2a8ff"></span> Entrenamiento / Loss</div>
+<div class="lr"><span class="ld" style="background:#ff7b72"></span> Evaluacion</div>
+<div style="margin-top:6px;border-top:1px solid #30363d;padding-top:6px">
+<div class="lr"><span style="width:24px;height:0;border-top:2px solid #555;display:inline-block"></span> Flujo (A lleva a B)</div>
+<div class="lr"><span style="width:24px;height:0;border-top:2px dashed #f0883e;display:inline-block"></span> Conexion cruzada</div>
+</div>
+</div>
+<div id="tooltip"><div class="ttype"></div><div class="tlabel"></div><div class="treason"></div></div>
+<div id="node-info"><div class="ni-title"></div><div class="ni-desc"></div><div class="ni-conn"></div></div>
+<div id="hint">Scroll = zoom | Drag fondo = mover | Drag nodo = reposicionar<br>Hover linea = ver conexion | Click nodo = resaltar</div>
+<canvas id="c"></canvas>
+<script>
+const C={root:"#f0883e",fund:"#58a6ff",model:"#7ee787",train:"#d2a8ff",eval:"#ff7b72"};
+const PI2=Math.PI*2;
+const canvas=document.getElementById("c");
+const ctx=canvas.getContext("2d");
+let W,H,dpr;
+
+function resize(){
+  dpr=window.devicePixelRatio||1;
+  W=window.innerWidth;H=window.innerHeight;
+  canvas.width=W*dpr;canvas.height=H*dpr;
+  canvas.style.width=W+"px";canvas.style.height=H+"px";
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+}
+resize();
+window.addEventListener("resize",()=>{resize();draw();});
+
+const nodes=[
+  {id:"question",label:"Como puede una\nmaquina CREAR?",desc:"La pregunta central del curso",color:C.root,r:30,x:W/2,y:H/2},
+  {id:"prob",label:"Probabilidad",desc:"El idioma de la generacion. Todo modelo generativo se basa en distribuciones de probabilidad.",color:C.fund,r:22},
+  {id:"gauss",label:"Gaussiana",desc:"La campana (centro mu, ancho sigma). LA distribucion del curso: aparece en VAE, GAN y Difusion.",color:C.fund,r:19},
+  {id:"prod_rule",label:"Regla del\nproducto",desc:"P(A,B) = P(A) x P(B|A). Descomponer cosas complejas en pasos simples.",color:C.fund,r:15},
+  {id:"distros",label:"Otras distros",desc:"Uniforme (rectangulo), Laplace (pico agudo), Mixturas de Gaussianas (varias campanas).",color:C.fund,r:13},
+  {id:"bayes",label:"Redes\nBayesianas",desc:"Grafos con flechas que muestran que variables influyen en cuales. Cadena de Markov: solo depende del anterior.",color:C.fund,r:13},
+  {id:"percep",label:"Insight del\nperceptron",desc:"La salida 0.7 NO es un valor, es P(resultado=1)=70%. Las redes estiman probabilidades.",color:C.fund,r:17},
+  {id:"autoreg",label:"Autorregresivo\n(Hinton)",desc:"Generar pixel a pixel. Cada pixel depende de los anteriores. Primer modelo del curso.",color:C.model,r:24},
+  {id:"triang",label:"Matriz\ntriangular",desc:"Ceros fijos garantizan que cada pixel solo vea los anteriores. Reduce de exponencial a lineal.",color:C.model,r:13},
+  {id:"seq",label:"Generacion\nsecuencial",desc:"Limitacion: hay que generar de a uno porque cada paso depende del anterior. Lento.",color:C.model,r:15},
+  {id:"kl",label:"KL\nDivergence",desc:"Mide que tan diferentes son dos distribuciones. 0 = iguales. Aparece en autorregresivos Y en VAE.",color:C.train,r:17},
+  {id:"nll",label:"Neg. Log-\nLikelihood",desc:"Que el modelo asigne alta probabilidad a datos reales. Minimizar NLL = minimizar KL.",color:C.train,r:14},
+  {id:"bce",label:"BCE",desc:"Binary Cross-Entropy. Funcion de error para valores 0/1. Usada en Hinton Y en el Discriminador de GAN.",color:C.train,r:16},
+  {id:"vae",label:"VAE",desc:"Variational Autoencoder. Comprimir a espacio latente, muestrear de ahi, descomprimir. Genera en 1 paso.",color:C.model,r:24},
+  {id:"latent",label:"Variable\nlatente",desc:"Algo que influye en los datos pero no se ve. Ej: variedad de flor afecta medidas pero no la ves.",color:C.fund,r:13},
+  {id:"enc",label:"Encoder",desc:"Comprime imagen a centro (mu) y ancho (sigma) de una campana en el espacio latente.",color:C.model,r:12},
+  {id:"dec",label:"Decoder",desc:"Recibe un punto del espacio latente y reconstruye/genera la imagen.",color:C.model,r:12},
+  {id:"reparam",label:"Reparametrization\nTrick",desc:"z = mu + sigma x epsilon. Separa la aleatoriedad de los parametros para poder derivar.",color:C.train,r:16},
+  {id:"elbo",label:"Loss VAE\n(ELBO)",desc:"Reconstruccion + KL. Dos fuerzas en tension: reconstruir bien vs ordenar el espacio latente.",color:C.train,r:15},
+  {id:"n01",label:"N(0,1)",desc:"Campana estandar (centro 0, ancho 1). El punto de partida universal para muestrear en generacion.",color:C.fund,r:15},
+  {id:"blurry",label:"Imagenes\nborrosas",desc:"Debilidad del VAE: al promediar sobre la campana latente, los detalles se pierden.",color:C.eval,r:12},
+  {id:"gan",label:"GAN",desc:"Generative Adversarial Network. Dos redes compitiendo: falsificador (G) vs policia (D).",color:C.model,r:24},
+  {id:"gen_g",label:"Generador",desc:"Recibe ruido aleatorio z y produce imagenes falsas. Quiere enganar al discriminador.",color:C.model,r:13},
+  {id:"disc_d",label:"Discriminador",desc:"Recibe imagen y dice real (1) o falsa (0). Quiere detectar las falsificaciones.",color:C.model,r:13},
+  {id:"alt_train",label:"Entrenamiento\nalternado",desc:"Turno 1: entrenar D con reales+falsos. Turno 2: entrenar G para enganar a D.",color:C.train,r:13},
+  {id:"flip",label:"Label Flip\n+ .detach()",desc:".detach() al entrenar D (corta gradientes a G). Labels flipeados al entrenar G (mejores gradientes).",color:C.train,r:12},
+  {id:"mode_col",label:"Mode\nCollapse",desc:"G colapsa a generar solo unos pocos tipos. Nada en el modelo incentiva variedad.",color:C.eval,r:13},
+  {id:"sharp",label:"Imagenes\nnitidas",desc:"Fortaleza de GAN: genera imagenes con detalles finos, no borrosas como VAE.",color:C.eval,r:12},
+  {id:"cgan",label:"Conditional\nGAN",desc:"Le pasas info extra (ej: genera un 7) para controlar que genera.",color:C.model,r:12},
+  {id:"lm",label:"Language\nModel",desc:"Modelo autorregresivo aplicado a texto. Predice la siguiente palabra/token.",color:C.model,r:24},
+  {id:"token",label:"Tokenizacion",desc:"Texto -> numeros. BPE/WordPiece cortan en sub-palabras. Un tokenizer va con un modelo.",color:C.fund,r:14},
+  {id:"sampling",label:"Sampling",desc:"Greedy, Top-K, Top-P, Temperatura. El modelo es deterministico, la aleatoriedad viene del muestreo.",color:C.model,r:14},
+  {id:"transf",label:"Transformers",desc:"La arquitectura detras de GPT. Self-Attention + Causal Masking + Multi-Head.",color:C.model,r:18},
+  {id:"attn",label:"Self-\nAttention",desc:"Cada palabra decide cuales otras son relevantes. Query/Key/Value.",color:C.model,r:14},
+  {id:"causal",label:"Causal\nMasking",desc:"Cada token solo ve los anteriores. Impide ver el futuro al generar.",color:C.model,r:12},
+  {id:"ce",label:"Cross-\nEntropy",desc:"-log(prob de la palabra correcta). Penaliza cuando el modelo asigna baja probabilidad.",color:C.train,r:13},
+  {id:"diff",label:"Difusion",desc:"Agregar ruido gradualmente, aprender a quitarlo. El enfoque mas reciente y de mayor calidad.",color:C.model,r:24},
+  {id:"fwd",label:"Forward\n(+ruido)",desc:"Imagen limpia -> 1000 pasos de ruido gaussiano -> pura estatica.",color:C.model,r:13},
+  {id:"rev",label:"Reverse\n(-ruido)",desc:"La red predice CUANTO RUIDO hay (no la imagen). Mas estable que predecir la imagen directamente.",color:C.model,r:13},
+  {id:"unet",label:"U-Net",desc:"Arquitectura encoder-decoder con skip connections. Recibe el timestep t como input.",color:C.model,r:12},
+  {id:"mse",label:"Loss: MSE",desc:"(ruido real - predicho) al cuadrado. El loss mas simple de todos los modelos del curso.",color:C.train,r:12},
+  {id:"latdiff",label:"Latent\nDiffusion",desc:"Stable Diffusion: comprimir con VAE, difundir en espacio chico (64x64 vs 512x512).",color:C.model,r:18},
+  {id:"txt2img",label:"Texto ->\nImagen",desc:"CLIP convierte texto a numeros. Guidance scale controla fidelidad al prompt.",color:C.model,r:13},
+  {id:"eval_node",label:"Evaluacion",desc:"Como medir si un modelo generativo es bueno? Fidelidad vs Diversidad.",color:C.eval,r:20},
+  {id:"fid",label:"FID",desc:"Frechet Inception Distance. Compara features de imagenes reales vs generadas. Bajo = mejor.",color:C.eval,r:14},
+  {id:"perplex",label:"Perplexity",desc:"Que tan sorprendido se queda el modelo ante texto real. Baja = mejor.",color:C.eval,r:13},
+  {id:"bleu",label:"BLEU/ROUGE",desc:"BLEU: precision de n-gramas. ROUGE: cobertura. Para comparar texto generado vs referencia.",color:C.eval,r:12},
+];
+
+const flowLinks=[
+  {s:"question",t:"prob",reason:"Para crear, primero hay que entender como se distribuyen los datos reales"},
+  {s:"prob",t:"gauss",reason:"La Gaussiana (campana) es la distribucion que aparece en practicamente todos los modelos del curso"},
+  {s:"prob",t:"prod_rule",reason:"Descomponer probabilidades complejas en pasos simples: la base del enfoque autorregresivo"},
+  {s:"prob",t:"distros",reason:"Otras distribuciones utiles para modelar datos reales"},
+  {s:"prob",t:"bayes",reason:"Representar visualmente que variables dependen de cuales"},
+  {s:"prob",t:"percep",reason:"Cambio de perspectiva: la salida del perceptron ES una probabilidad, no solo un numero"},
+  {s:"prod_rule",t:"autoreg",reason:"La regla del producto permite descomponer P(imagen) = P(px1) x P(px2|px1) x P(px3|px1,px2)..."},
+  {s:"percep",t:"autoreg",reason:"Los perceptrones reemplazan tablas exponenciales: cada uno calcula P(pixel_i | anteriores)"},
+  {s:"autoreg",t:"triang",reason:"Ceros en la matriz de pesos garantizan que cada pixel solo dependa de los anteriores"},
+  {s:"autoreg",t:"seq",reason:"Limitacion: generar es secuencial (pixel por pixel). Entrenar si es paralelo"},
+  {s:"autoreg",t:"kl",reason:"Para entrenar necesitamos medir que tan lejos esta el modelo de la realidad"},
+  {s:"kl",t:"nll",reason:"Minimizar KL equivale a maximizar la probabilidad que el modelo asigna a datos reales"},
+  {s:"nll",t:"bce",reason:"Para pixeles 0/1, NLL se convierte en BCE: penaliza segun si el pixel real es 0 o 1"},
+  {s:"autoreg",t:"vae",reason:"La generacion secuencial es lenta. El VAE ofrece otro enfoque: comprimir y muestrear"},
+  {s:"latent",t:"vae",reason:"El VAE introduce variables latentes: un espacio comprimido que captura la esencia del dato"},
+  {s:"vae",t:"enc",reason:"El encoder comprime la imagen a parametros de una campana (centro mu, ancho sigma)"},
+  {s:"vae",t:"dec",reason:"El decoder recibe un punto latente y reconstruye la imagen"},
+  {s:"vae",t:"reparam",reason:"No se puede derivar a traves de algo aleatorio. Solucion: z = mu + sigma x epsilon"},
+  {s:"vae",t:"elbo",reason:"Loss = reconstruccion (que tan bien reconstruye) + KL (que tan ordenado esta el espacio)"},
+  {s:"gauss",t:"n01",reason:"N(0,1) es la Gaussiana con centro 0 y ancho 1: el 'default' para muestrear"},
+  {s:"vae",t:"blurry",reason:"Al promediar sobre la campana latente, los detalles finos se pierden"},
+  {s:"blurry",t:"gan",reason:"Las imagenes borrosas del VAE motivan buscar otro enfoque: competencia adversarial"},
+  {s:"gan",t:"gen_g",reason:"El Generador (falsificador) recibe ruido y produce imagenes falsas"},
+  {s:"gan",t:"disc_d",reason:"El Discriminador (policia) clasifica imagenes como reales o falsas"},
+  {s:"gan",t:"alt_train",reason:"Se entrenan por turnos: primero D aprende a detectar, luego G aprende a enganar"},
+  {s:"alt_train",t:"flip",reason:"Trucos practicos: .detach() corta gradientes, label flip da mejores gradientes a G"},
+  {s:"gan",t:"mode_col",reason:"Problema: G puede colapsar a generar solo unos pocos tipos de imagenes"},
+  {s:"gan",t:"sharp",reason:"Fortaleza: imagenes nitidas con detalles finos"},
+  {s:"gan",t:"cgan",reason:"Extension: le pasas info extra para controlar QUE genera"},
+  {s:"autoreg",t:"lm",reason:"Los LMs son la MISMA idea autorregresiva pero aplicada a texto en vez de pixeles"},
+  {s:"lm",t:"token",reason:"Las redes solo entienden numeros: tokenizacion convierte texto a indices"},
+  {s:"lm",t:"sampling",reason:"Despues de obtener probabilidades, hay que elegir que token tomar"},
+  {s:"lm",t:"transf",reason:"Los Transformers son la arquitectura que hace que los LMs escalen"},
+  {s:"transf",t:"attn",reason:"Self-Attention: cada palabra decide cuales otras son relevantes para entenderla"},
+  {s:"transf",t:"causal",reason:"Masking causal: no se puede ver el futuro al generar"},
+  {s:"lm",t:"ce",reason:"Cross-Entropy penaliza cuando el modelo asigna baja probabilidad a la palabra correcta"},
+  {s:"gan",t:"diff",reason:"Los problemas de GAN (inestabilidad, mode collapse) motivan buscar algo mas estable"},
+  {s:"diff",t:"fwd",reason:"Forward: agregar ruido gaussiano poco a poco hasta que sea pura estatica"},
+  {s:"diff",t:"rev",reason:"Reverse: la red aprende a predecir cuanto ruido hay para poder quitarlo"},
+  {s:"rev",t:"unet",reason:"U-Net: arquitectura con forma de U, skip connections, timestep como input"},
+  {s:"diff",t:"mse",reason:"Loss = (ruido real - predicho) al cuadrado. El mas simple del curso"},
+  {s:"diff",t:"latdiff",reason:"Difundir en espacio comprimido en vez de en pixeles directamente"},
+  {s:"latdiff",t:"txt2img",reason:"CLIP traduce texto a numeros, guidance scale controla fidelidad al prompt"},
+  {s:"question",t:"eval_node",reason:"Despues de construir modelos, necesitamos formas de medir si son buenos"},
+  {s:"eval_node",t:"fid",reason:"FID: la metrica mas usada para imagenes generadas"},
+  {s:"eval_node",t:"perplex",reason:"Perplexity: metrica para texto. Que tan sorprendido se queda el modelo"},
+  {s:"eval_node",t:"bleu",reason:"BLEU y ROUGE comparan texto generado vs una referencia"},
+];
+
+const crossLinks=[
+  {s:"n01",t:"vae",reason:"El VAE fuerza su espacio latente a parecerse a N(0,1) para poder generar muestreando de ahi",type:"define espacio latente de"},
+  {s:"n01",t:"gen_g",reason:"El ruido z que recibe el generador de una GAN se muestrea de N(0,1)",type:"es la entrada de"},
+  {s:"n01",t:"fwd",reason:"En cada paso de difusion se agrega ruido de N(0,1). Al final del forward, todo es N(0,1)",type:"es el ruido de"},
+  {s:"bce",t:"disc_d",reason:"El Discriminador de la GAN usa la MISMA BCE que se uso para entrenar Hinton",type:"misma funcion de loss"},
+  {s:"bce",t:"elbo",reason:"La parte de reconstruccion del VAE puede usar BCE cuando los datos son binarios (pixeles 0/1)",type:"se reutiliza en"},
+  {s:"kl",t:"elbo",reason:"La KL del VAE reutiliza la KL Divergence pero con otro proposito: regularizar el espacio latente (no entrenar)",type:"misma metrica, otro proposito"},
+  {s:"seq",t:"lm",reason:"Los LMs tienen la MISMA limitacion: generan token por token, no pueden paralelizar la generacion",type:"misma limitacion"},
+  {s:"prod_rule",t:"lm",reason:"Los LMs factorizan P(texto) IGUAL que Hinton: P(w1) x P(w2|w1) x P(w3|w1,w2)...",type:"misma formula"},
+  {s:"causal",t:"triang",reason:"Causal Masking en Transformers cumple el MISMO rol que la matriz triangular de Hinton: no ver el futuro",type:"misma idea, distinta forma"},
+  {s:"enc",t:"latdiff",reason:"Latent Diffusion reutiliza el ENCODER del VAE para comprimir antes de difundir (512x512 -> 64x64)",type:"se reutiliza en"},
+  {s:"dec",t:"latdiff",reason:"Latent Diffusion reutiliza el DECODER del VAE para descomprimir al final",type:"se reutiliza en"},
+  {s:"sharp",t:"diff",reason:"Difusion logra imagenes tan nitidas como GAN pero sin inestabilidad ni mode collapse",type:"supera a GAN"},
+  {s:"percep",t:"vae",reason:"Encoder y Decoder del VAE son redes de perceptrones estimando parametros de distribuciones",type:"misma idea base"},
+  {s:"percep",t:"gan",reason:"G y D son redes de perceptrones. D estima P(real). G transforma ruido en datos",type:"misma idea base"},
+  {s:"percep",t:"lm",reason:"El LM es una red de perceptrones que estima P(siguiente token | contexto)",type:"misma idea base"},
+  {s:"ce",t:"nll",reason:"Cross-Entropy y NLL son esencialmente lo mismo: penalizar baja probabilidad al dato correcto",type:"es la misma idea"},
+  {s:"perplex",t:"nll",reason:"Perplexity = exponencial del NLL promedio. Misma metrica de entrenamiento, expresada distinto",type:"se deriva de"},
+  {s:"cgan",t:"txt2img",reason:"Conditional GAN condiciona en clase. Texto->Imagen condiciona en texto. Misma idea: guiar la generacion",type:"misma idea generalizada"},
+  {s:"fid",t:"gauss",reason:"FID asume internamente que las features siguen distribuciones Gaussianas para poder compararlas",type:"usa internamente"},
+];
+
+const nodeMap={};
+nodes.forEach((n,i)=>{
+  n.vx=0;n.vy=0;
+  if(!n.x){n.x=W/2+(Math.random()-0.5)*600;n.y=H/2+(Math.random()-0.5)*400;}
+  nodeMap[n.id]=n;
+});
+
+const allLinks=[...flowLinks.map(l=>({...l,kind:"flow"})),...crossLinks.map(l=>({...l,kind:"cross"}))];
+allLinks.forEach(l=>{l.source=nodeMap[l.s];l.target=nodeMap[l.t];});
+
+let camX=0,camY=0,camZ=1;
+let filter="all";
+let dragNode=null,dragOffX=0,dragOffY=0;
+let isPanning=false,panStartX=0,panStartY=0,panCamX=0,panCamY=0;
+let hoverLink=null,hoverNode=null,selectedNode=null;
+let mx=0,my=0;
+
+function screenToWorld(sx,sy){return{x:(sx-W/2)/camZ+W/2-camX,y:(sy-H/2)/camZ+H/2-camY};}
+function worldToScreen(wx,wy){return{x:(wx-W/2+camX)*camZ+W/2,y:(wy-H/2+camY)*camZ+H/2};}
+
+function simulate(){
+  const alpha=0.3;
+  for(let i=0;i<nodes.length;i++){
+    const a=nodes[i];
+    for(let j=i+1;j<nodes.length;j++){
+      const b=nodes[j];
+      let dx=b.x-a.x,dy=b.y-a.y;
+      let dist=Math.sqrt(dx*dx+dy*dy)||1;
+      let minD=(a.r+b.r)*2.5;
+      let force=(a.r+b.r)*180/(dist*dist);
+      if(dist<minD)force+=((minD-dist)*0.5);
+      a.vx-=dx/dist*force*alpha;a.vy-=dy/dist*force*alpha;
+      b.vx+=dx/dist*force*alpha;b.vy+=dy/dist*force*alpha;
+    }
+  }
+  allLinks.forEach(l=>{
+    let dx=l.target.x-l.source.x,dy=l.target.y-l.source.y;
+    let dist=Math.sqrt(dx*dx+dy*dy)||1;
+    let ideal=l.kind==="flow"?140:280;
+    let str=l.kind==="flow"?0.02:0.003;
+    let force=(dist-ideal)*str*alpha;
+    l.source.vx+=dx/dist*force;l.source.vy+=dy/dist*force;
+    l.target.vx-=dx/dist*force;l.target.vy-=dy/dist*force;
+  });
+  nodes.forEach(n=>{
+    n.vx+=(W/2-n.x)*0.0003;n.vy+=(H/2-n.y)*0.0003;
+    if(n===dragNode)return;
+    n.vx*=0.85;n.vy*=0.85;
+    n.x+=n.vx;n.y+=n.vy;
+  });
+}
+
+function distToSeg(px,py,ax,ay,bx,by){
+  let dx=bx-ax,dy=by-ay,t=((px-ax)*dx+(py-ay)*dy)/(dx*dx+dy*dy);
+  t=Math.max(0,Math.min(1,t));
+  let cx=ax+t*dx,cy=ay+t*dy;
+  return Math.sqrt((px-cx)*(px-cx)+(py-cy)*(py-cy));
+}
+
+function findHoverLink(wx,wy){
+  let best=null,bestD=15/camZ;
+  allLinks.forEach(l=>{
+    if(filter==="flow"&&l.kind==="cross")return;
+    if(filter==="cross"&&l.kind==="flow")return;
+    let d=distToSeg(wx,wy,l.source.x,l.source.y,l.target.x,l.target.y);
+    if(d<bestD){bestD=d;best=l;}
+  });
+  return best;
+}
+
+function findHoverNode(wx,wy){
+  for(let i=nodes.length-1;i>=0;i--){
+    let n=nodes[i];
+    let dx=wx-n.x,dy=wy-n.y;
+    if(dx*dx+dy*dy<(n.r+4)*(n.r+4))return n;
+  }
+  return null;
+}
+
+function draw(){
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,W,H);
+  ctx.save();
+  ctx.translate(W/2,H/2);
+  ctx.scale(camZ,camZ);
+  ctx.translate(-W/2+camX,-H/2+camY);
+
+  const connectedToSel=new Set();
+  if(selectedNode){
+    connectedToSel.add(selectedNode.id);
+    allLinks.forEach(l=>{
+      if(l.source===selectedNode)connectedToSel.add(l.target.id);
+      if(l.target===selectedNode)connectedToSel.add(l.source.id);
+    });
+  }
+
+  allLinks.forEach(l=>{
+    if(filter==="flow"&&l.kind==="cross")return;
+    if(filter==="cross"&&l.kind==="flow")return;
+    let isHighlight=l===hoverLink||(selectedNode&&(l.source===selectedNode||l.target===selectedNode));
+    let op=isHighlight?0.9:(selectedNode?0.06:(l.kind==="flow"?0.35:0.3));
+
+    ctx.beginPath();
+    let sx=l.source.x,sy=l.source.y,tx=l.target.x,ty=l.target.y;
+    let dx=tx-sx,dy=ty-sy,dist=Math.sqrt(dx*dx+dy*dy)||1;
+    let sr=l.source.r+2,tr=l.target.r+6;
+    let x1=sx+dx/dist*sr,y1=sy+dy/dist*sr;
+    let x2=tx-dx/dist*tr,y2=ty-dy/dist*tr;
+
+    if(l.kind==="cross"){
+      let mx2=(x1+x2)/2,my2=(y1+y2)/2;
+      let off=Math.min(dist*0.15,50);
+      let nx=-dy/dist*off,ny=dx/dist*off;
+      ctx.moveTo(x1,y1);ctx.quadraticCurveTo(mx2+nx,my2+ny,x2,y2);
+      ctx.strokeStyle=isHighlight?"#f0883e":"#f0883e";
+      ctx.lineWidth=isHighlight?2.5:1.2;
+      ctx.setLineDash([6,4]);
+    } else {
+      ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);
+      ctx.strokeStyle=isHighlight?"#8b949e":"#30363d";
+      ctx.lineWidth=isHighlight?2.5:1.5;
+      ctx.setLineDash([]);
+    }
+    ctx.globalAlpha=op;
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    let angle=Math.atan2(y2-y1,x2-x1);
+    if(l.kind==="cross"){
+      let mx2=(x1+x2)/2,my2=(y1+y2)/2;
+      let off=Math.min(dist*0.15,50);
+      let nx=-dy/dist*off,ny=dx/dist*off;
+      let t=0.95;
+      let cx=mx2+nx,cy=my2+ny;
+      let ex=(1-t)*(1-t)*x1+2*(1-t)*t*cx+t*t*x2;
+      let ey=(1-t)*(1-t)*y1+2*(1-t)*t*cy+t*t*y2;
+      let ex2=(1-0.9)*(1-0.9)*x1+2*(1-0.9)*0.9*cx+0.9*0.9*x2;
+      let ey2=(1-0.9)*(1-0.9)*y1+2*(1-0.9)*0.9*cy+0.9*0.9*y2;
+      angle=Math.atan2(ey-ey2,ex-ex2);
+    }
+    let aLen=isHighlight?10:7;
+    ctx.beginPath();
+    ctx.moveTo(x2,y2);
+    ctx.lineTo(x2-aLen*Math.cos(angle-0.35),y2-aLen*Math.sin(angle-0.35));
+    ctx.lineTo(x2-aLen*Math.cos(angle+0.35),y2-aLen*Math.sin(angle+0.35));
+    ctx.closePath();
+    ctx.fillStyle=l.kind==="cross"?"#f0883e":(isHighlight?"#8b949e":"#30363d");
+    ctx.fill();
+  });
+
+  ctx.globalAlpha=1;
+
+  nodes.forEach(n=>{
+    let isConn=!selectedNode||connectedToSel.has(n.id);
+    let isHov=n===hoverNode;
+    let op=isConn?1:0.12;
+    ctx.globalAlpha=op;
+
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,n.r,0,PI2);
+    ctx.fillStyle=n.color+"18";
+    ctx.fill();
+    ctx.strokeStyle=isHov||n===selectedNode?("#ffffff"):n.color;
+    ctx.lineWidth=isHov||n===selectedNode?3:2;
+    ctx.stroke();
+
+    ctx.fillStyle="#c9d1d9";
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
+    let lines=(n.label||"").split("\n");
+    let fs=n.r>18?11:n.r>14?10:9;
+    ctx.font=(n.r>16?"bold ":"")+fs+"px 'Segoe UI',sans-serif";
+    lines.forEach((line,i)=>{
+      let ly=n.y+(i-(lines.length-1)/2)*13;
+      ctx.fillText(line,n.x,ly);
+    });
+  });
+
+  ctx.globalAlpha=1;
+  ctx.restore();
+}
+
+function showTooltip(link,sx,sy){
+  const tt=document.getElementById("tooltip");
+  tt.querySelector(".ttype").textContent=link.kind==="flow"?"FLUJO DEL CURSO":"CONEXION CRUZADA"+(link.type?" — "+link.type:"");
+  tt.querySelector(".tlabel").textContent=(link.source.label||"").replace(/\n/g," ")+"  →  "+(link.target.label||"").replace(/\n/g," ");
+  tt.querySelector(".treason").textContent=link.reason;
+  tt.style.display="block";
+  tt.style.left=Math.min(sx+14,W-380)+"px";
+  tt.style.top=Math.min(sy-12,H-100)+"px";
+}
+
+function showNodeInfo(n){
+  const ni=document.getElementById("node-info");
+  ni.querySelector(".ni-title").textContent=(n.label||"").replace(/\n/g," ");
+  ni.querySelector(".ni-desc").textContent=n.desc||"";
+  let conns=[];
+  allLinks.forEach(l=>{
+    if(l.source===n) conns.push("→ "+(l.target.label||"").replace(/\n/g," ")+": "+l.reason);
+    if(l.target===n) conns.push("← "+(l.source.label||"").replace(/\n/g," ")+": "+l.reason);
+  });
+  ni.querySelector(".ni-conn").innerHTML=conns.length?"<br><span>Conexiones:</span><br>"+conns.map(c=>"• "+c).join("<br>"):"";
+  ni.style.display="block";
+}
+
+function hideNodeInfo(){document.getElementById("node-info").style.display="none";}
+
+canvas.addEventListener("wheel",e=>{
+  e.preventDefault();
+  let factor=e.deltaY>0?0.9:1.1;
+  let newZ=camZ*factor;
+  if(newZ<0.08||newZ>6)return;
+  let wp=screenToWorld(e.offsetX,e.offsetY);
+  camZ=newZ;
+  let wp2=screenToWorld(e.offsetX,e.offsetY);
+  camX+=wp2.x-wp.x;camY+=wp2.y-wp.y;
+},{passive:false});
+
+canvas.addEventListener("mousedown",e=>{
+  let wp=screenToWorld(e.offsetX,e.offsetY);
+  let n=findHoverNode(wp.x,wp.y);
+  if(n){dragNode=n;dragOffX=n.x-wp.x;dragOffY=n.y-wp.y;canvas.style.cursor="grabbing";return;}
+  isPanning=true;panStartX=e.offsetX;panStartY=e.offsetY;panCamX=camX;panCamY=camY;canvas.style.cursor="grabbing";
+});
+
+canvas.addEventListener("mousemove",e=>{
+  mx=e.offsetX;my=e.offsetY;
+  if(dragNode){
+    let wp=screenToWorld(mx,my);
+    dragNode.x=wp.x+dragOffX;dragNode.y=wp.y+dragOffY;
+    dragNode.vx=0;dragNode.vy=0;
+    return;
+  }
+  if(isPanning){
+    camX=panCamX+(mx-panStartX)/camZ;
+    camY=panCamY+(my-panStartY)/camZ;
+    return;
+  }
+  let wp=screenToWorld(mx,my);
+  let prevHoverNode=hoverNode;
+  hoverNode=findHoverNode(wp.x,wp.y);
+  if(hoverNode){
+    canvas.style.cursor="pointer";
+    hoverLink=null;
+    document.getElementById("tooltip").style.display="none";
+  } else {
+    let hl=findHoverLink(wp.x,wp.y);
+    if(hl!==hoverLink){
+      hoverLink=hl;
+      if(hl)showTooltip(hl,mx,my);
+      else document.getElementById("tooltip").style.display="none";
+    } else if(hl){
+      let tt=document.getElementById("tooltip");
+      tt.style.left=Math.min(mx+14,W-380)+"px";
+      tt.style.top=Math.min(my-12,H-100)+"px";
+    }
+    canvas.style.cursor=hl?"pointer":"default";
+  }
+});
+
+canvas.addEventListener("mouseup",e=>{
+  if(dragNode){dragNode=null;canvas.style.cursor="default";return;}
+  if(isPanning){
+    let moved=Math.abs(mx-panStartX)+Math.abs(my-panStartY);
+    isPanning=false;canvas.style.cursor="default";
+    if(moved>5)return;
+    selectedNode=null;hideNodeInfo();
+    return;
+  }
+});
+
+canvas.addEventListener("click",e=>{
+  let wp=screenToWorld(e.offsetX,e.offsetY);
+  let n=findHoverNode(wp.x,wp.y);
+  if(n){
+    if(selectedNode===n){selectedNode=null;hideNodeInfo();}
+    else{selectedNode=n;showNodeInfo(n);}
+  }
+});
+
+function setFilter(f){
+  filter=f;
+  document.querySelectorAll("#controls button").forEach(b=>b.classList.remove("active"));
+  document.getElementById("btn-"+f).classList.add("active");
+}
+
+function resetView(){camX=0;camY=0;camZ=1;}
+
+function loop(){simulate();draw();requestAnimationFrame(loop);}
+loop();
+</script>
+</body>
+</html>

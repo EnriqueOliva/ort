@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecanismo de Self-Attention</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .flow-container {
+            margin: 30px 0;
+        }
+
+        .step {
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 6px solid #667eea;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 15px;
+        }
+
+        .step-title {
+            display: inline-block;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2d3748;
+            vertical-align: middle;
+        }
+
+        .step-content {
+            margin-top: 15px;
+            padding-left: 55px;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .formula-box {
+            background: #2d3748;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            text-align: center;
+            overflow-x: auto;
+        }
+
+        .matrix-visualization {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .matrix {
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            padding: 15px;
+            min-width: 150px;
+        }
+
+        .matrix-title {
+            text-align: center;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .matrix-content {
+            font-family: 'Courier New', monospace;
+            color: #2d3748;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .operator {
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .info-box {
+            background: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .info-title {
+            font-weight: bold;
+            color: #c53030;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .info-text {
+            color: #742a2a;
+            line-height: 1.6;
+        }
+
+        .key-concept {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .key-concept-title {
+            font-weight: bold;
+            font-size: 1.4em;
+            color: #2d3748;
+            margin-bottom: 12px;
+        }
+
+        .key-concept-text {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .attention-matrix {
+            margin: 30px auto;
+            max-width: 600px;
+        }
+
+        .attention-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .attention-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        .attention-table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .attention-table td:hover {
+            background: #edf2f7;
+            transform: scale(1.1);
+            font-weight: bold;
+        }
+
+        .high-attention {
+            background: #fef5e7;
+            font-weight: bold;
+        }
+
+        .dimension-box {
+            background: #f0fff4;
+            border: 2px solid #48bb78;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            color: #22543d;
+        }
+
+        .example {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #234e52;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .example-text {
+            color: #285e61;
+            line-height: 1.6;
+        }
+
+        .interactive-demo {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+
+        .demo-title {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Mecanismo de Self-Attention</h1>
+        <p class="subtitle">El corazón del Transformer: Todas las palabras se miran entre sí</p>
+
+        <div class="key-concept">
+            <div class="key-concept-title">💡 ¿Qué es el Self-Attention?</div>
+            <div class="key-concept-text">
+                Es un mecanismo donde <strong>todas las palabras de la frase se comparan con todas</strong> para
+                determinar quién está relacionado con quién. Es como si cada palabra preguntara:
+                "¿A cuáles otras palabras debo prestarle atención para entender mi significado en este contexto?"
+            </div>
+        </div>
+
+        <div class="flow-container">
+            <div class="step">
+                <span class="step-number">1</span>
+                <span class="step-title">Entrada: Matriz Z</span>
+                <div class="step-content">
+                    La entrada es una matriz donde cada fila representa una palabra de la frase.
+                    <div class="dimension-box">
+                        Dimensión de Z: N × d_model<br>
+                        donde N = número de palabras<br>
+                        d_model = dimensión de cada vector (ej: 128)
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <span class="step-title">Crear Q, K, V (Query, Key, Value)</span>
+                <div class="step-content">
+                    Se multiplica la entrada Z por tres matrices de pesos entrenables:
+
+                    <div class="matrix-visualization">
+                        <div class="matrix">
+                            <div class="matrix-title">Q (Query)</div>
+                            <div class="matrix-content">
+                                Z × W_Q<br>
+                                "¿Qué estoy buscando?"
+                            </div>
+                        </div>
+
+                        <div class="matrix">
+                            <div class="matrix-title">K (Key)</div>
+                            <div class="matrix-content">
+                                Z × W_K<br>
+                                "¿Qué puedo ofrecer?"
+                            </div>
+                        </div>
+
+                        <div class="matrix">
+                            <div class="matrix-title">V (Value)</div>
+                            <div class="matrix-content">
+                                Z × W_V<br>
+                                "Mi información"
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dimension-box">
+                        W_Q, W_K, W_V: d_model × d_k<br>
+                        Típicamente d_k = d_model / H (número de heads)<br>
+                        Ejemplo: 128 × 32 = 4,096 parámetros cada una
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <span class="step-title">Calcular Scores de Atención</span>
+                <div class="step-content">
+                    Se multiplican las Queries por las Keys transpuestas:
+
+                    <div class="formula-box">
+                        Scores = Q × K<sup>T</sup>
+                    </div>
+
+                    <div class="dimension-box">
+                        Dimensión del resultado: N × N<br>
+                        ¡Esto es todos contra todos!<br>
+                        Cada posición (i,j) indica cuánta atención<br>
+                        la palabra i le presta a la palabra j
+                    </div>
+
+                    <div class="example">
+                        <div class="example-title">📝 Ejemplo</div>
+                        <div class="example-text">
+                            Frase: "El gato come pescado"<br>
+                            La fila de "come" muestra cuánta atención le presta a:<br>
+                            - "El" (probablemente poca)<br>
+                            - "gato" (mucha, es el sujeto)<br>
+                            - "come" (a sí misma)<br>
+                            - "pescado" (mucha, es el objeto directo)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <span class="step-title">Escalar por √d_k</span>
+                <div class="step-content">
+                    Se dividen los scores por la raíz cuadrada de d_k:
+
+                    <div class="formula-box">
+                        Scaled_Scores = (Q × K<sup>T</sup>) / √d_k
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-title">❓ ¿Por qué dividir por √d_k?</div>
+                        <div class="info-text">
+                            Para evitar que los valores sean muy grandes. Si los valores son muy grandes,
+                            el softmax se "satura" y los gradientes se vuelven muy pequeños.
+                            Con d_k = 32, dividimos por √32 ≈ 5.66
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">5</span>
+                <span class="step-title">Aplicar Softmax</span>
+                <div class="step-content">
+                    Se aplica softmax a cada fila para convertir los scores en probabilidades:
+
+                    <div class="formula-box">
+                        Attention_Weights = softmax(Scaled_Scores)
+                    </div>
+
+                    <div class="example">
+                        <div class="example-title">🎯 Resultado</div>
+                        <div class="example-text">
+                            Cada fila suma 1.0 y representa una distribución de probabilidad.<br>
+                            Los valores altos indican "mucha atención", los bajos "poca atención".
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">6</span>
+                <span class="step-title">Multiplicar por Values</span>
+                <div class="step-content">
+                    Se multiplican los pesos de atención por los Values:
+
+                    <div class="formula-box">
+                        Output = Attention_Weights × V
+                    </div>
+
+                    <div class="dimension-box">
+                        Attention_Weights: N × N<br>
+                        V: N × d_v<br>
+                        Output: N × d_v
+                    </div>
+
+                    <div class="example">
+                        <div class="example-title">💡 Interpretación</div>
+                        <div class="example-text">
+                            Cada palabra en la salida es una <strong>combinación ponderada</strong> de todas
+                            las palabras de la entrada, donde los pesos son los valores de atención.<br><br>
+                            Si "come" presta mucha atención a "gato" y "pescado", su representación de salida
+                            será principalmente una mezcla de las representaciones de esas dos palabras.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="key-concept" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+            <div class="key-concept-title">🔍 Fórmula Completa del Self-Attention</div>
+            <div class="formula-box">
+                Attention(Q, K, V) = softmax((Q × K<sup>T</sup>) / √d_k) × V
+            </div>
+        </div>
+
+        <div class="interactive-demo">
+            <div class="demo-title">📊 Ejemplo Visual: Matriz de Atención</div>
+            <div class="attention-matrix">
+                <table class="attention-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>El</th>
+                            <th>gato</th>
+                            <th>come</th>
+                            <th>pescado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>El</th>
+                            <td>0.1</td>
+                            <td class="high-attention">0.7</td>
+                            <td>0.1</td>
+                            <td>0.1</td>
+                        </tr>
+                        <tr>
+                            <th>gato</th>
+                            <td class="high-attention">0.3</td>
+                            <td>0.2</td>
+                            <td class="high-attention">0.4</td>
+                            <td>0.1</td>
+                        </tr>
+                        <tr>
+                            <th>come</th>
+                            <td>0.1</td>
+                            <td class="high-attention">0.4</td>
+                            <td>0.1</td>
+                            <td class="high-attention">0.4</td>
+                        </tr>
+                        <tr>
+                            <th>pescado</th>
+                            <td>0.1</td>
+                            <td>0.2</td>
+                            <td class="high-attention">0.6</td>
+                            <td>0.1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center; margin-top: 15px; color: #4a5568; font-style: italic;">
+                    Cada fila muestra a qué palabras presta atención. Los valores resaltados indican alta atención.
+                    Hover sobre las celdas para explorar.
+                </p>
+            </div>
+        </div>
+
+        <div class="info-box" style="background: #f0fff4; border-left-color: #48bb78;">
+            <div class="info-title" style="color: #276749;">✨ Propiedad Importante</div>
+            <div class="info-text" style="color: #22543d;">
+                <strong>El Self-Attention es invariante bajo permutación.</strong><br>
+                Si cambias el orden de las palabras (sin positional encoding), obtendrías los mismos valores,
+                solo que en diferente orden. Por eso es fundamental agregar el positional encoding
+                en el Transformer.
+            </div>
+        </div>
+
+        <div class="key-concept" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+            <div class="key-concept-title">🎓 Cita del Profesor</div>
+            <div class="key-concept-text">
+                "El self attention es todos contra todos. Vos armás una matriz que tenés todas las palabras
+                de la frase y todas las palabras de las frases. Cada fila te dice, cuando vas a predecir
+                esta palabra, ¿a qué cosas le presta atención?"
+            </div>
+        </div>
+    </div>
+</body>
+</html>

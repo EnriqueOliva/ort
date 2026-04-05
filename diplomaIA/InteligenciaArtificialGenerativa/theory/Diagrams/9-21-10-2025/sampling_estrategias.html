@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategias de Sampling en Language Models</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .strategy-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .strategy-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 15px;
+        }
+
+        .probability-chart {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .prob-bar-container {
+            margin: 12px 0;
+            position: relative;
+        }
+
+        .prob-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .prob-bar {
+            height: 25px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .prob-bar:hover {
+            transform: scaleY(1.2);
+        }
+
+        .comparison-section {
+            margin: 40px 0;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .comparison-title {
+            text-align: center;
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .side-by-side {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .example-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .example-box h4 {
+            color: #f5576c;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .temperature-demo {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+        }
+
+        .temp-slider-container {
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .temp-value {
+            font-size: 2em;
+            color: #333;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .temp-effect {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            gap: 20px;
+        }
+
+        .temp-state {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .explanation {
+            background: #e8f4f8;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid #4facfe;
+        }
+
+        .explanation h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .explanation ul {
+            list-style-position: inside;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .formula-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            text-align: center;
+            color: #333;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎲 Estrategias de Sampling en LMs</h1>
+        <p class="subtitle">Clase 9 - 21 de Octubre 2025</p>
+
+        <div class="explanation">
+            <h3>¿Qué es el Sampling?</h3>
+            <ul>
+                <li><strong>Definición:</strong> Proceso de elegir el siguiente token basándose en la distribución de probabilidad que genera el modelo</li>
+                <li><strong>No determinístico:</strong> Introduce aleatoriedad controlada en la generación</li>
+                <li><strong>Control de calidad:</strong> Las estrategias de sampling afectan la coherencia y creatividad del texto</li>
+                <li><strong>Parámetros clave:</strong> Top-K, Top-P, Temperatura, y max_length</li>
+            </ul>
+        </div>
+
+        <div class="strategy-grid">
+            <div class="strategy-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <h3>🎯 Top-K Sampling</h3>
+
+                <div class="probability-chart">
+                    <h4 style="color: #333; margin-bottom: 15px;">K = 3 (solo los 3 más probables)</h4>
+
+                    <div class="prob-bar-container">
+                        <div class="prob-label">
+                            <span>estás</span>
+                            <span>45%</span>
+                        </div>
+                        <div class="prob-bar" style="width: 90%;"></div>
+                    </div>
+
+                    <div class="prob-bar-container">
+                        <div class="prob-label">
+                            <span>andas</span>
+                            <span>20%</span>
+                        </div>
+                        <div class="prob-bar" style="width: 40%;"></div>
+                    </div>
+
+                    <div class="prob-bar-container">
+                        <div class="prob-label">
+                            <span>te va</span>
+                            <span>15%</span>
+                        </div>
+                        <div class="prob-bar" style="width: 30%;"></div>
+                    </div>
+
+                    <div class="prob-bar-container">
+                        <div class="prob-label">
+                            <span style="text-decoration: line-through; opacity: 0.5;">va</span>
+                            <span style="opacity: 0.5;">10% ❌</span>
+                        </div>
+                        <div class="prob-bar" style="width: 20%; opacity: 0.3; background: gray;"></div>
+                    </div>
+
+                    <div class="prob-bar-container">
+                        <div class="prob-label">
+                            <span style="text-decoration: line-through; opacity: 0.5;">otros</span>
+                            <span style="opacity: 0.5;">10% ❌</span>
+                        </div>
+                        <div class="prob-bar" style="width: 20%; opacity: 0.3; background: gray;"></div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <p><strong>Cómo funciona:</strong></p>
+                    <p style="margin-top: 10px;">1. Ordena tokens por probabilidad</p>
+                    <p>2. Toma solo los K más probables</p>
+                    <p>3. Elimina todos los demás</p>
+                    <p>4. Re-normaliza probabilidades</p>
+                    <p>5. Samplea de los K seleccionados</p>
+                </div>
+            </div>
+
+            <div class="strategy-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <h3>📊 Top-P (Nucleus) Sampling</h3>
+
+                <div class="probability-chart">
+                    <h4 style="color: #333; margin-bottom: 15px;">P = 0.80 (acumulado hasta 80%)</h4>
+
+                    <div class="prob-bar-container">
+                        <div class="prob-label">
+                            <span>estás</span>
+                            <span>45% ✓ (total: 45%)</span>
+                        </div>
+                        <div class="prob-bar" style="width: 90%;"></div>
+                    </div>
+
+                    <div class="prob-bar-container">
+                        <div class="prob-label">
+                            <span>andas</span>
+                            <span>20% ✓ (total: 65%)</span>
+                        </div>
+                        <div class="prob-bar" style="width: 40%;"></div>
+                    </div>
+
+                    <div class="prob-bar-container">
+                        <div class="prob-label">
+                            <span>te va</span>
+                            <span>15% ✓ (total: 80%)</span>
+                        </div>
+                        <div class="prob-bar" style="width: 30%;"></div>
+                    </div>
+
+                    <div class="prob-bar-container">
+                        <div class="prob-label">
+                            <span style="text-decoration: line-through; opacity: 0.5;">va</span>
+                            <span style="opacity: 0.5;">10% ❌ (90%)</span>
+                        </div>
+                        <div class="prob-bar" style="width: 20%; opacity: 0.3; background: gray;"></div>
+                    </div>
+
+                    <div class="prob-bar-container">
+                        <div class="prob-label">
+                            <span style="text-decoration: line-through; opacity: 0.5;">otros</span>
+                            <span style="opacity: 0.5;">10% ❌</span>
+                        </div>
+                        <div class="prob-bar" style="width: 20%; opacity: 0.3; background: gray;"></div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <p><strong>Cómo funciona:</strong></p>
+                    <p style="margin-top: 10px;">1. Ordena tokens por probabilidad</p>
+                    <p>2. Suma probabilidades acumuladas</p>
+                    <p>3. Incluye tokens hasta llegar a P%</p>
+                    <p>4. Elimina el resto</p>
+                    <p>5. Re-normaliza y samplea</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h2 class="comparison-title">⚖️ Top-K vs Top-P: Comparación</h2>
+
+            <div class="side-by-side">
+                <div class="example-box">
+                    <h4>Top-K = 3</h4>
+                    <p style="margin: 15px 0; color: #666;">
+                        <span class="badge">Ventaja</span> Número fijo de opciones
+                    </p>
+                    <p style="margin: 15px 0; color: #666;">
+                        <span class="badge">Desventaja</span> Puede incluir tokens poco probables si K es grande
+                    </p>
+                    <p style="margin: 15px 0; color: #666;">
+                        <span class="badge">Uso</span> Cuando quieres limitar opciones de forma estricta
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Top-P = 0.80</h4>
+                    <p style="margin: 15px 0; color: #666;">
+                        <span class="badge" style="background: #f5576c;">Ventaja</span> Adaptativo: más tokens si están distribuidos uniformemente
+                    </p>
+                    <p style="margin: 15px 0; color: #666;">
+                        <span class="badge" style="background: #f5576c;">Desventaja</span> Número variable de tokens
+                    </p>
+                    <p style="margin: 15px 0; color: #666;">
+                        <span class="badge" style="background: #f5576c;">Uso</span> Generalmente mejor calidad de texto
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="temperature-demo">
+            <h2 style="text-align: center; color: #333; margin-bottom: 30px;">🌡️ Temperatura</h2>
+
+            <div class="explanation" style="background: white;">
+                <h3>¿Qué hace la Temperatura?</h3>
+                <ul>
+                    <li><strong>Modifica la softmax:</strong> Suaviza o agudiza la distribución de probabilidad</li>
+                    <li><strong>No es Top-K ni Top-P:</strong> Es independiente, pero se aplica ANTES</li>
+                    <li><strong>Valor típico:</strong> T = 1.0 (sin cambios)</li>
+                    <li><strong>T {'<'} 1:</strong> Más determinístico, menos creativo</li>
+                    <li><strong>T {'>'} 1:</strong> Más aleatorio, más creativo</li>
+                </ul>
+            </div>
+
+            <div class="formula-box">
+                <h4 style="text-align: center; color: #333; margin-bottom: 15px;">Fórmula de Softmax con Temperatura</h4>
+                <div class="formula">
+                    P(token_i) = exp(logits_i / T) / Σ exp(logits_j / T)
+                </div>
+            </div>
+
+            <div class="temp-effect">
+                <div class="temp-state">
+                    <h4 style="color: #4facfe; margin-bottom: 15px;">T = 0.5 (Baja)</h4>
+                    <div class="prob-bar" style="width: 95%; margin: 10px 0;"></div>
+                    <div class="prob-bar" style="width: 25%; margin: 10px 0; opacity: 0.6;"></div>
+                    <div class="prob-bar" style="width: 15%; margin: 10px 0; opacity: 0.4;"></div>
+                    <p style="margin-top: 15px; color: #666;">
+                        <strong>Efecto:</strong> Distribución más "puntiaguda"
+                    </p>
+                    <p style="color: #666;">Siempre elige opciones seguras</p>
+                </div>
+
+                <div class="temp-state">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">T = 1.0 (Normal)</h4>
+                    <div class="prob-bar" style="width: 75%; margin: 10px 0;"></div>
+                    <div class="prob-bar" style="width: 45%; margin: 10px 0;"></div>
+                    <div class="prob-bar" style="width: 35%; margin: 10px 0;"></div>
+                    <p style="margin-top: 15px; color: #666;">
+                        <strong>Efecto:</strong> Distribución original del modelo
+                    </p>
+                    <p style="color: #666;">Balance entre coherencia y variedad</p>
+                </div>
+
+                <div class="temp-state">
+                    <h4 style="color: #f5576c; margin-bottom: 15px;">T = 2.0 (Alta)</h4>
+                    <div class="prob-bar" style="width: 60%; margin: 10px 0;"></div>
+                    <div class="prob-bar" style="width: 55%; margin: 10px 0;"></div>
+                    <div class="prob-bar" style="width: 50%; margin: 10px 0;"></div>
+                    <p style="margin-top: 15px; color: #666;">
+                        <strong>Efecto:</strong> Distribución más "plana"
+                    </p>
+                    <p style="color: #666;">Más creativo pero menos coherente</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <h3>🛑 Max Length (Longitud Máxima)</h3>
+            <ul>
+                <li><strong>Problema:</strong> El modelo podría no generar nunca el token <code>EOS</code> (End of Sequence)</li>
+                <li><strong>Solución:</strong> Definir un <span class="highlight">máximo de tokens</span> a generar</li>
+                <li><strong>Condición de parada 1:</strong> El modelo genera <code>EOS</code></li>
+                <li><strong>Condición de parada 2:</strong> Se alcanza <code>max_length</code> tokens</li>
+                <li><strong>Valor típico:</strong> 50-2048 tokens dependiendo del caso de uso</li>
+            </ul>
+        </div>
+
+        <div class="formula-box">
+            <h3 style="text-align: center; color: #333; margin-bottom: 20px;">Algoritmo Completo de Generación</h3>
+            <div class="formula" style="text-align: left; font-size: 1em;">
+                <strong>Entrada:</strong> prompt, max_length, temperature, top_k, top_p<br><br>
+
+                <strong>1.</strong> tokens = encode(prompt)<br>
+                <strong>2.</strong> for i = 1 to max_length:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<strong>2.1</strong> logits = model(tokens)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<strong>2.2</strong> logits = logits / temperature<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<strong>2.3</strong> probs = softmax(logits)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<strong>2.4</strong> probs = apply_top_k(probs, k)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<strong>2.5</strong> probs = apply_top_p(probs, p)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<strong>2.6</strong> next_token = sample(probs)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<strong>2.7</strong> if next_token == EOS: break<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<strong>2.8</strong> tokens.append(next_token)<br>
+                <strong>3.</strong> return decode(tokens)
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h2 class="comparison-title">💡 Recomendaciones de Uso</h2>
+            <div class="side-by-side">
+                <div class="example-box">
+                    <h4>Para Texto Coherente y Preciso</h4>
+                    <ul style="color: #666; line-height: 2;">
+                        <li>Temperature = 0.7</li>
+                        <li>Top-P = 0.9</li>
+                        <li>Top-K = 40</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: #555;">
+                        <strong>Uso:</strong> Respuestas de chatbots, documentación, código
+                    </p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Para Texto Creativo</h4>
+                    <ul style="color: #666; line-height: 2;">
+                        <li>Temperature = 1.2</li>
+                        <li>Top-P = 0.95</li>
+                        <li>Top-K = sin límite</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: #555;">
+                        <strong>Uso:</strong> Cuentos, poesía, brainstorming
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+### Análisis del dataset
+
+- Se verificó que todas las imágenes fueran 800x800 como indica el obligatorio.
+- Se visualizaron 6 muestras aleatorias del dataset para entender la variabilidad. Esto da una idea de cómo es el dataset y qué procesamientos puede llegar a requerir.
+- Se analizó la distribución de foreground/background sobre 200 máscaras aleatorias. Estadísticas obtenidas: promedio 38.4%, mediana 36.6%, mínimo 1.04%, máximo 93.71%. Este desbalance de clases justifica usar Dice Loss en lugar de solo BCE, ya que BCE penaliza cada píxel igual e incentivaría predecir todo como fondo.
+- Se visualizaron los casos extremos (mínimo y máximo foreground) para entender los límites del dataset. Personas muy chicas en la imagen vs personas que ocupan casi toda la imagen. Esto ayudó a entender la variabilidad que el modelo debe manejar.
+
+### Procesamiento del dataset
+
+- Se usa Albumentations en lugar de torchvision.transforms. Albumentations aplica la misma transformación a imagen y máscara automáticamente, evitando desalineaciones.
+- Imágenes redimensionadas de 800x800 a 384x384. Resolución más chica para que entre en memoria, pero no tan chica como para perder detalle en bordes.
+- HorizontalFlip activado. Una persona mirando a la izquierda es igual de válida que una mirando a la derecha. El survey de augmentation (Xu et al., 2022) confirma que flip debe elegirse según las características del dataset.
+- VerticalFlip desactivado. El survey menciona que Cityscapes usa HorizontalFlip pero no VerticalFlip porque los autos no aparecen cabeza abajo. Mismo razonamiento aplica a personas.
+- Rotación limitada a 15 grados. El paper de U-Net usa hasta 30 para células que pueden estar en cualquier orientación. El survey indica que "the angle of rotation should be carefully considered to ensure the preservation of appropriate labels". Las personas tienen orientación natural vertical, rotaciones grandes generan imágenes irreales.
+- No se usa ElasticTransform. El paper de U-Net lo usa porque el tejido biológico se deforma naturalmente. El survey lo describe como transformación que "can alter the shape or posture of an object". Los cuerpos humanos son estructuras rígidas, no tiene sentido deformarlos.
+- Variaciones de iluminación (RandomBrightnessContrast, CLAHE, RandomGamma). El dataset tiene fotos con condiciones de luz muy distintas, el modelo debe aprender a manejarlas.
+- Variaciones de color (HueSaturationValue, ColorJitter, ToGray). El survey indica que color processing asume variaciones de color entre train y test. Además fuerza al modelo a aprender formas y no solo "píxeles color piel = persona".
+- GaussNoise con probabilidad baja (3%). El survey menciona que "random noise is one of the simplest intensity transformation algorithms". Se usa con baja probabilidad porque el dataset son fotos de buena calidad.
+- Normalización con valores estándar de ImageNet. Práctica común que ayuda a la convergencia.
+- Se visualizan ejemplos de augmentation para verificar que las transformaciones se ven realistas y que imagen y máscara están alineadas.
+- Clase SegmentationDataset custom que carga imagen y máscara, aplica transformaciones, y las devuelve como tensores. Soporta modo test (sin máscara).
+- Se testea el Dataset y DataLoader con un batch para verificar que todo funciona antes de entrenar.
+- Se visualiza un batch completo para confirmar que las imágenes y máscaras se ven correctas después de todo el pipeline.
+- Split 80% train, 20% validación. Validación se usa para elegir el mejor modelo y optimizar threshold.
+
+### Implementación del modelo
+
+- Arquitectura U-Net siguiendo el paper original.
+    - 4 niveles de encoder: 64→128→256→512→1024 canales.
+    - 4 niveles de decoder con skip connections por concatenación (no suma). La concatenación preserva la información de bajo nivel del encoder.
+    - DoubleConv: dos bloques de Conv 3x3 + InstanceNorm + ReLU.
+    - Padding=1 en las convoluciones para mantener las dimensiones espaciales. Esto simplifica las skip connections porque no hay que hacer crop.
+    - ConvTranspose2d para upsampling en el decoder.
+    - Dropout (p=0.1) aplicado solo en el bottleneck. Regularización en el punto de máxima compresión.
+- InstanceNorm en lugar de BatchNorm. Con batch size chico (8), BatchNorm tiene estadísticas ruidosas. InstanceNorm calcula estadísticas por imagen individual, funciona igual con cualquier batch size.
+- Función de pérdida BCEDiceLoss combinada.
+    - BCE aporta gradientes estables pero es sensible al desbalance de clases.
+    - Dice Loss optimiza directamente la métrica de Kaggle y es invariante al desbalance.
+    - Pesos: BCE 0.3, Dice 0.7. Se le da más peso a Dice porque es la métrica de evaluación.
+- Dice Coefficient como métrica de evaluación (no como loss). Es lo que usa Kaggle para rankear.
+- Mixed Precision Training (AMP) con autocast y GradScaler. Reduce uso de memoria ~50% y acelera el entrenamiento. Esto no fue enseñado en clase, se investigó para poder entrenar con mayor resolución.
+- Optimizador Adam con learning rate 1e-4 y weight decay 1e-4.
+- Scheduler CosineAnnealingLR. Decae el learning rate suavemente siguiendo una curva coseno hasta un mínimo de 1e-6. Se probó CosineAnnealingWarmRestarts pero los reinicios eran muy agresivos y empeoraban los peores casos.
+- Funciones de entrenamiento y validación por época que retornan loss y dice promedio.
+- Sistema de checkpoints que guarda el mejor modelo según validación.
+- Early stopping implementado pero desactivado en la versión final. Con CosineAnnealingLR el modelo sigue mejorando hasta el final.
+
+### Entrenamiento del modelo
+
+- 600 épocas. En iteraciones anteriores se usaron menos épocas (200, 400), pero con CosineAnnealingLR el modelo sigue mejorando lentamente hasta el final. No hay overfitting visible en las curvas.
+- Batch size 8. Se probó batch size 16 y 18, pero dieron peor resultado. Batches más chicos introducen ruido que actúa como regularización implícita.
+- En cada época se calcula loss y dice promedio tanto para train como para validación.
+- Se guarda el mejor modelo según mean val dice. Así al final del entrenamiento tenemos el mejor modelo, no necesariamente el de la última época.
+- Se visualizan las curvas de entrenamiento (loss y dice para train/val) para verificar que no hay overfitting y que el modelo está aprendiendo correctamente.
+
+### Evaluación del modelo
+
+- Se carga el mejor modelo guardado durante el entrenamiento (el de mejor mean val dice, no el de la última época).
+- Test-Time Augmentation (TTA) con HorizontalFlip. Se predice la imagen original y la imagen flipeada, luego se promedian las probabilidades. El promedio suaviza incertidumbre, especialmente en bordes.
+- Optimización de threshold. El modelo produce probabilidades entre 0 y 1, hay que elegir un umbral para binarizar. Se prueban valores de 0.30 a 0.75 en validación y se elige el que maximiza mean dice. El threshold óptimo varió entre experimentos.
+- Se calcula dice por cada imagen individual para identificar mejores y peores casos.
+- Se visualizan y guardan las 5 mejores y 10 peores predicciones. Esto permite entender qué está funcionando bien y qué no.
+    - Las peores predicciones revelaron un patrón: el modelo confunde fondos de colores similares a la piel (rocas naranjas, mantas rosadas, madera marrón) con personas.
+    - Esta es una limitación de U-Net sin encoder preentrenado. Las augmentaciones de color ayudan pero no eliminan el problema.
+- Se genera histograma de distribución de Dice scores para ver la variabilidad de las predicciones.
+- Para las predicciones de test:
+    - Se aplica TTA igual que en validación.
+    - Se usa el threshold óptimo encontrado en validación.
+    - Las máscaras se generan a 384x384 y se redimensionan a 800x800 con interpolación nearest-neighbor (para preservar valores binarios 0/1).
+- RLE (Run-Length Encoding) para Kaggle.
+    - Comprime la máscara binaria en un string de pares "inicio longitud".
+    - Detalle crítico: order='F' al aplanar la máscara. Kaggle espera columnas primero (Fortran order), Python usa filas por defecto. Sin esto las predicciones quedan rotadas 90°.
+    - Se implementó verificación: encode → decode → comparar con original.
+- Se genera el archivo submission.csv para subir a Kaggle.
+
+### Métricas finales del modelo
+
+- El modelo supera ampliamente el requisito mínimo de Dice >= 0.75 establecido en el obligatorio, alcanzando un Dice medio de 0.9562 en validación.
+- La mediana (0.9804) es significativamente mayor que la media (0.9562), lo que indica que la mayoría de las predicciones son muy buenas pero hay algunos outliers que bajan el promedio.
+- El Dice máximo de 0.9972 muestra que el modelo puede lograr predicciones casi perfectas cuando la imagen no presenta ambigüedades.
+- El Dice mínimo de 0.1222 corresponde a los casos problemáticos identificados en la sección de evaluación (fondos con colores similares a piel).
+- El threshold óptimo resultó ser 0.50, que es el valor por defecto. Esto sugiere que el modelo está bien calibrado y sus probabilidades son confiables.
+- La diferencia entre Train Dice (0.9857) y Val Dice (0.9543) es pequeña, indicando que no hay overfitting severo.
+- Predicciones de test: 534 imágenes, todas con foreground detectado (ninguna máscara vacía). El modelo siempre detecta algo, no hay casos donde prediga que no hay persona.

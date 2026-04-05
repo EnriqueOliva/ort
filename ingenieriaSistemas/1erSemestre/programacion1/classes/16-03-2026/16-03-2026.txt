@@ -1,0 +1,2838 @@
+Bueno, buenas a todos. Bienvenidos a Programación 1.
+Bueno, me presento, mi nombre es Gonzalo Wagner.
+Van a tener el teórico de Programación 1 conmigo, en Ingeniería.
+Y bueno, vamos a ir arrancando para entender qué va a ser el curso,
+cómo lo vamos a ir manejando, etc.
+Les voy a ir mostrando desde Aulas, ya entraron a Aulas.
+Les voy a ir mostrando el sitio de Aulas, de la materia,
+donde vamos a ir viendo los objetivos, los requisitos, la forma de trabajar,
+donde van a encontrar todo lo del libro, los temas, etc.
+Ahí ven bien, en la clase aumenta un poco el tamaño.
+¿Se lee bien? ¿En el fondo bien? Perfecto.
+Bueno, entrando en el curso de Programación 1, van a ver que acá tienen un video de bienvenida de la cátedra.
+Ahí van a ver a Inés, que es la catedrática de Programación, y Marcelo Rubino, que trabaja en Streams.
+Adelante.
+Muy bien, vamos a estar viendo los objetivos.
+¿Cuáles son los objetivos del curso?
+La idea sería desarrollar lo que es el pensamiento computacional.
+Vamos a ver cómo pensar, prepararnos para pensar los problemas y abordarlos en una computadora.
+Para eso vamos a ver varios conceptos como abstracción, resolución de problemas, reconocimiento de patrones y algoritmos.
+Vamos a ver lo que son algoritmos.
+Y luego...
+Como segundo objetivo sería desarrollar la habilidad, habilidades básicas en programación, utilizando un lenguaje de amplio uso.
+En este curso lo que vamos a utilizar es Javascript como lenguaje de programación.
+Y después vamos a utilizar HTML y CSS para desarrollar un sitio web.
+A ver, no les digo que van a salir acá programando páginas web como locos.
+¿Sí?
+¿Sí?
+¿Sí?
+Pero la idea es que tengan, como dice ahí, las habilidades básicas.
+Muy bien.
+¿Qué es lo que implica esto?
+Conocer y aplicar las estrategias del pensamiento computacional.
+Eso es lo que vamos a empezar viendo.
+¿Qué es pensamiento computacional?
+¿Cuáles son los distintos?
+Esto que vimos, abstracción, resolución de problemas, reconocimiento de patrones y algoritmos.
+Y cómo aplicarlo en nuestros problemas.
+¿Sí?
+Que vamos a ir viendo.
+Después implica conocer, entender y aplicar los conceptos básicos de programación.
+Vamos a ver lo que es una variable o varias, ¿no?
+¿Qué son las expresiones?
+¿Qué es una estructura de control?
+¿Cuáles son las estructuras de control que vamos a ver?
+Estructura de datos, ¿sí?
+O sea, estructura donde vamos a guardar datos, temporal, ¿no?
+No es que se guarda así, lo guardo, al otro día prendo la máquina y sigue estando, ¿no?
+Son estructuras temporales.
+Como listas y arrays, vamos a ver lo que son funciones, cómo definirlas, cómo desarrollarlas y procedimientos, ¿no?
+Y luego poder diseñar e implementar soluciones de problemas no triviales en lenguaje de promoción.
+¿Sí?
+Esos son los objetivos de la materia.
+Bien.
+Luego tenemos, ¿cuáles son los logros esperados una vez que terminen este curso?
+¿Sí?
+Sería desarrollar soluciones algorítmicas a problemas, ¿sí?
+Y representar.
+Y representarlas como programas de computadora, ¿ah?
+La idea es que puedan agarrar un problema, pensar un algoritmo para poder solucionarlo y luego eso poder escribirlo en un programa, ¿sí?
+O convertirlo en un programa para que se ejecute en la computadora, ¿sí?
+Aplicar estrategias de implementación decentes y con diseño modular, ¿sí?
+A ver, no es que en este curso van a aprender todos los patrones que se sugieren.
+Para obtener un excelente código, digamos.
+Porque en realidad estamos entrando en el mundo de la programación.
+Ya en materia más adelante, en la carrera, sí van a ver estos patrones de diseño.
+Y experimentar con un lenguaje de alto nivel, ¿sí?
+De amplio uso, ¿sí?
+Javascript se usa mucho en el mundo.
+Bueno, cualquier página web tiene Javascript.
+Javascript por detrás, ¿sí?
+Así que no es un lenguaje que lo van a ver hoy en este curso y nunca más lo van a ver, ¿sí?
+Muy bien.
+Vamos a ver.
+Ya voy a ir hablando así, vamos más rápido, ¿ah?
+Acá en el programa de la materia van a ver todo lo que vamos a ir haciendo.
+Voy a mostrar esta parte.
+Luego acá lo que tienen es semana a semana lo que, digamos, lo que está.
+Ya.
+Formado, pero esto se puede ir ajustando dependiendo de cómo vamos a ver el curso, ¿sí?
+Capaz que un tema nos lleva una semana más, ¿sí?
+O un poco menos.
+Vamos a ver, ¿ah?
+Muy bien.
+Lo primero que vamos a empezar y que vamos a empezar desde hoy es la noción del pensamiento computacional.
+Ver qué es abstracción, descomposición de problemas, generalización y reconocimiento de patrones, ¿sí?
+Y algoritmos.
+Luego vamos a ver elementos básicos de lenguaje de programación.
+Vamos a ver lo que es una variable, cómo utilizarla.
+Cómo modificarla, ¿sí?
+Cómo leerla.
+El tema de asignación, expresiones aritméticas y lógicas, ¿sí?
+Y el uso, luego lo, o sea, vamos a verlo y después lo vamos a aplicar en Javascript,
+¿ah?
+Después vamos a ver estructuras de control, funciones y procedimientos, ¿sí?
+Vamos a ver lo que son strings, básicamente son, es texto, ¿ah?
+Lo que son arrays, manejo de colecciones simples, ¿sí?
+Recorridas, o sea, esa array, cómo recorrerlo, cómo hacer una búsqueda en esa array y cómo
+poder ordenarlo, ¿ah?
+Después vamos a ver nociones de prueba de programa, ¿sí?
+Cómo, o sea, vamos a ver cómo probar nuestros programas que son más simples, ¿no?
+Tiene la base de cómo armar realmente pruebas para luego, cuando hagan programas mucho más
+grandes, ¿sí?
+Es la base, pero tiene mucho más, este, más cosas para, para hacer, ¿no?
+Para hacer una buena, este, prueba de mi programa, ¿sí?
+Eh...
+Manejo de entrada y salida, ¿sí?
+Estructuras básicas de almacenamiento de datos, ¿sí?
+El tema de, eh, recibir datos, que me, me diga, eh, ingrese en datos, mostrar los datos,
+¿ah?
+Y después introducción a web, no sé, en HTML, CSS, ¿sí?
+Eso lo vamos a ir viendo en la matriz.
+Acá tienen la bibliografía sugerida, ¿sí?
+Este...
+Tienen varios libros que los pueden encontrar en la biblioteca.
+No todos están en español, ¿sí?
+Eh, ya se, vayan sabiendo que en programación, eh, es muy difícil tener un, este, libros,
+o sea, ya físicos, en, en, en español, ¿sí?
+Lo pueden encontrar en PDF y eso, eso seguro.
+Pero bueno.
+Después, acá, por ejemplo, tienen, este, un, un link para poder ver este libro de acá,
+¿sí?
+O una versión para, para celular.
+Esto lo tienen, ¿sí?
+Para descargar, descargar esto.
+Además.
+Sí.
+Además, eh, tenemos un libro hecho por la cátedra, que ahora después se los voy a
+mostrar, ¿sí?
+Donde está todo lo que vamos a ver, es sencillo de entender, ¿sí?
+Hay muchos ejemplos, hay ejercicios, ¿sí?
+Está bueno que lo tengan presente, ¿no?
+Y luego acá van a ver un link al, eh, GPT para programación, ¿sí?
+Esto es un GPT, ¿sí?
+En, en, ya GPT.
+Ya armado, ¿sí?
+Con lo que vemos en el curso.
+¿Dónde va?
+¿Dónde va?
+¿Dónde va?
+¿Dónde va?
+¿Dónde va?
+¿Dónde va?
+¿Dónde va?
+¿Dónde va?
+¿Dónde va?
+Tranquilo.
+Porque jugando, ¿sí?
+Con lo que vemos en el curso.
+Dónde lo pueden utilizar para…
+A ver, yo ahora después los voy a, vamos a hablar del tema de inteligencia artificial…
+Cómo queremos que, que se utilice, etc.
+Pero esto ya está como acotado a, lo que vamos a ver.
+¿Está?.
+Muy bien.
+Lo que les va, lo que es una de las cosas que más les va a importar.
+¿Cuáles son los requisitos de aprobación de la materia?
+¿Sí?
+La, para aprobar la materia tienen que tener…
+más de 70 y menos de 70 bien a la materia deben recursos pero entre 70 y 86 y 70 85 incluido si
+van tienen que hacer un examen o sea el curso está aprobado pero tiene que dar un examen para
+aprobar un examen para tener la materia si es el crédito luego para exonerar la tienen que
+destacarse 86 o más si sacamos el 86 o más la materia de la acción ya tienen los créditos no
+tienen que dar examen bien muy bien si van acá a este link van a poder ver en la parte de aulas
+debería sí
+los días en que tenemos las pruebas sí que serían las parciales cuando se entrega los obligatorios
+bueno esos puntos como lo vamos a ir lo van a ir teniendo van a tener un parcial
+van a tener dos parciales que son individuales y ya le voy diciendo que es este en papel
+es presencial individual y lo van a escribir en papel
+no es el día en que tenemos las pruebas que sería los parciales cuando se entrega los obligatorios
+la facultad ha que lo que buscamos ahí siempre me dicen porque no no en computadoras que primera
+de nada no nos van las computadoras que tenemos en una universidad para todos los cursos de
+programación sí según lo que nosotros buscamos es que hayan entendido si no espero de que el
+programa me compile si cien por cien y que ejecute y funciones sino que esté la lógica
+que se sepan programar y ahora podemos los puntajes de cada uno
+luego el final de el curso si una vez que terminamos el curso van a tener un
+segundo parcial si no es que en el primer parcial van a ir
+algunas cosas y en el segundo otras sino que en el segundo parcial se agregan
+se va lo que estaba en el promoción en el parcial 1 más cosas nuevas
+porque todo va digamos encajado no es que son temas todos separados
+y luego vamos a tener dos obligatorios si los obligatorios si va a ser
+van a estar o sea tiene ninguno que ver con el otro si se le va a dar la letra
+ya cuando vemos la letra del primer rector y ya estará los dos porque lo que
+van a tener que hacer es una página web si con funcionalidad si entonces en el
+primer obligatorio lo que van a hacer
+es toda la parte visual no va a tener ninguna funcionalidad la página sólo va
+a tener la parte de html y css javascript se lo agregan en la siguiente
+los obligatorios o los obligatorios perdón tienen que ser de a dos si no
+pueden ser más de dos se puede hacer uno sí pero nosotros siempre recomendamos
+trabajar de a dos porque porque se pueden dividir todo el trabajo sí porque
+en esta carrera en este en esta industria el trabajo en equipo es
+importante que entonces siempre si les recomendamos que sea o no es porque para
+que tengamos menos obligatorios de corregir no no tiene nada que ver
+pero si nosotros siempre les recomendamos para que sepan trabajar en
+equipo para que se puedan dividir trabajarlo a dos
+después vamos a ver pero también para se tienen que inscribir en gestión tienen
+que armar el equipo en gestión para poder después subir el obligatorio
+gestión ahora el segundo obligatorio que lo que le decía de esa página o quisieron
+cuando yo lo que rija después le voy a dar los comentarios de que pueden qué
+cosas deberían mejorar las ideas que los lleven y lo mejoren y le agregan la
+funcionalidad
+bueno es es obligatorio va a ir con
+la defensa obligatoria que la defensa van a ir van a venir acá a uno de los
+laboratorios si bien ustedes trabajaron en grupos en cada de los cada obligatorio
+van a ser individual sí va a entrar por ejemplo el equipo uno cada uno va a ir
+una máquina separados bajan su obligatorio le damos un cambio para
+hacer simple no nada no le vamos a agregar algo que no hayan hecho es algo
+simple que ya hicieron en el obligatorio pero lo tienen que aplicar en otro lado
+sí
+y nos explica
+llegan de 30 y 45 minutos pero la idea es que me muestra la autoría de ese
+obligatorio que ustedes trabajaron en él que no lo hicieron todos con guía que no
+trabajó sólo uno y el otro no a que me demostraron que trabajar que conocen su
+obligatorio entonces si ustedes conocen su
+obligatorio lo tienen clarísimo es el cambio lo hacen en diez quince minutos y
+Para que vean que no es un cambio sencillo
+No es un cambio difícil
+¿Sí?
+Muy bien
+Acá leo lo de la guía
+¿Sí?
+No les prohibimos usar la guía
+¿Sí?
+Lo que le decimos es que la usen bien
+¿A qué nos referimos?
+No usen la guía para que les haga el trabajo
+Sino que la usen como apoyo
+Para entender
+Para aprender
+Seguir aprendiendo
+¿Ah?
+Pero la idea es que ustedes
+No es hacerme la página
+No
+La idea es que ustedes
+Vayan preguntándole alguna cosa que no les sale
+Pedirle que le explique
+O sea que después ustedes sean capaces
+De que yo vea una parte en el código
+Que a mí me llama la atención
+Que pasa
+¿No?
+Les pido
+Bueno, quiero que me expliquen esto
+¿Ah?
+Y lo tengan claro
+Y si lo tienen que cambiar
+Porque justo el cambio es
+En esa parte
+Lo sepan hacer
+¿Ah?
+En la defensa
+Y en el parcial
+No van a tener guía
+O sea que
+Si ustedes hicieron
+Imagínense
+Hicieron los dos obligatorios
+Con guía
+Tuvieron la suerte
+Que en la defensa
+Pudieron hacer el cambio
+¿No?
+En el parcial
+No les va a ir bien
+¿Se entiende?
+Porque en el parcial
+Van a estar ahí en el papel
+Y no van a saber qué hacer
+¿Me siguen?
+O sea
+No me están engañando a mí
+¿Se entiende?
+Se están engañando a ustedes mismos
+Si hacen eso
+¿Sí?
+Entonces
+Nosotros les recomendamos
+Usarlo con criterio
+¿Sí?
+Van a ver
+Van a ver documentos
+Que saca
+Que es de la misma
+De la universidad
+Donde les va a decir
+Cómo utilizar
+¿Está?
+Muy bien
+Vienen acá
+Cuando apreté este link
+Me llevó del curso
+Acá en aulas
+Al curso de B de LIA
+Si ustedes bajan acá
+Carreras
+Van a
+Ingeniería en sistemas
+Calentario de eventos
+Nuestro 1
+Acá
+Ya tienen
+Todos los datos
+Los eventos del curso
+¿No?
+De todas las
+De todas las
+Este
+Semanas
+Por ejemplo
+Cuando la universidad
+Está cerrada
+Sí
+Y van a ver que
+El 28
+De
+Abril
+¿Sí?
+Vamos a tener
+El primer parcial
+¿Sí?
+Lo va a hacer
+A las 20.30
+¿Sí?
+Son dos horas
+¿No?
+Después
+El 11 de mayo
+Vamos a leer
+¿Sí?
+La
+Les vamos a entregar
+Disponibilizar
+La letra
+De los obligatorios
+¿Sí?
+Ese día
+Yo lo voy a leer
+Solo la parte
+Del primer obligatorio
+La parte del segundo
+No la leemos
+Por lo menos
+Yo no la voy a leer
+En ese momento
+Para no marearnos
+¿Sí?
+Después cuando
+Ya entreguen
+El primer obligatorio
+Leemos la segunda parte
+¿Está?
+Y después
+Y en el
+La entrega
+Del primer obligatorio
+Es el primero
+De junio
+¿Sí?
+Y la entrega
+Ven que acá
+El 15
+Se termina el semestre
+El 15 de junio
+Y el 29 de junio
+Tienen el segundo
+Parcial
+No, perdón
+Entrega de
+Perdón
+Vi mal
+Tienen acá la entrega
+Del segundo obligatorio
+Termina el semestre
+El 3 de julio
+Cualquier cosa
+Leí
+Disculpenme
+Y el parcial
+Lo tienen
+El 6
+De junio
+¿Estamos?
+¿Se entiende?
+Sí
+Muy bien
+Vamos a leer
+¿Cuáles son las herramientas
+Que vamos a utilizar?
+¿Sí?
+Vamos a utilizar
+Como navegador
+Sí
+Chrome
+Pero si ustedes están
+Acostumbrados con otro
+Lo pueden utilizar
+Yo en clase
+Voy a utilizar Chrome
+¿Ah?
+Y cuando corrija
+Yo voy a ejecutar
+Las cosas en Chrome
+¿Sí?
+Puede pasarles
+Ya lo voy diciendo
+Los que manejan
+Si manejan Windows
+Linux
+O
+iOS
+¿Sí?
+Que
+Algunos íconos
+Por ejemplo
+El de cerrar
+El de minimizar
+O algún
+Algún ícono
+Típico de la página
+Que se vea diferente
+En uno que otro
+¿Ah?
+Pero eso
+Es esperable
+¿Ah?
+No hay problema
+Igual
+Cuando le va pasando
+Nos preguntan
+Y le vamos explicando
+¿Sí?
+Muy bien
+Para el editor
+O sea
+Donde vamos a escribir
+Nuestro código
+Vamos a utilizar
+Visual Code
+¿Sí?
+Eso igual
+Vamos a ver más adelante
+¿Sí?
+Para
+Pero
+Ya vamos a ver
+Ya le voy avisando
+Que visual
+¿Ah?
+Y después
+Le dejé acá
+Está el chat
+Este
+De apoyo
+De GPT
+De la materia
+¿Ah?
+Seguramente
+Durante las clases
+En algún momento
+Vamos a utilizarlo
+El
+Este
+El chat
+Para mostrarles
+Cómo podríamos utilizarlo
+En
+Este
+Para
+Estudiar
+Para aprender
+¿Ah?
+Muy bien
+¿Dudas hasta acá
+La parte de hacer
+KDP1?
+¿No?
+Muy bien
+Bueno
+En la parte de temas
+¿Sí?
+Van a ver acá
+Donde dice teórico
+Que acá
+Si tienen el
+Libro del curso
+En formato PDF
+¿Sí?
+Lo abren
+Y van a ver que acá
+Tenemos el
+Libro de programación
+¿Ah?
+De todo el curso
+Van a ver que
+Tiene todo
+¿Ah?
+Es bastante intuitivo
+Es bastante fácil
+De entender
+¿No?
+Este
+Yo siempre les digo
+De que
+Por lo menos
+Este
+Esta vez
+Abrieron el curso
+En el libro
+Porque no muchas veces
+Lo abran después
+¿Ven?
+Y ya lo vieron
+Muy bien
+Acá tienen algunos links
+De interés
+¿Sí?
+Que
+Coger
+Bueno
+Después lo vamos a ir viendo
+Leí acá
+Para ir a Visual Studio Code
+Una guía básica
+De Visual Studio Code
+¿Sí?
+Cómo utilizarlo
+Este
+Instalarlo
+Etcétera
+Esto de no ocuparnos más
+Lo usábamos en cursos anteriores
+Pasamos a Visual Code
+Este
+Y acá tienen algunos
+Algunas cosas
+Que le pueden interesar
+¿No?
+Muy bien
+La modalidad del curso
+¿Sí?
+Va a ser
+Al revés de lo común
+¿A qué me refiero?
+Les voy a mandar
+Videos
+O materiales para leer
+O ejercicios que hacer
+¿Sí?
+En su casa
+Y
+Cuando vengan a clase
+Vamos a
+No es que voy a dar el tema
+¿Sí?
+De nuevo
+¿Sí?
+Lo que acaban de ver
+Sino que yo les mando
+Para que ustedes vean el video
+Son videos cortos
+¿Sí?
+No les llevan nada
+Mucho tiempo
+Sino que después acá
+Doy un pequeño resumen
+Y después ya
+Vamos a aplicarlo
+A irle más
+A fondo
+¿Ah?
+Entonces
+Acá en este
+En este
+En esta parte
+Video de temas de teórico
+Es donde van a encontrar
+¿Sí?
+Todos los videos
+Del curso
+¿Sí?
+Y yo lo voy a ir mandando
+¿Ok?
+Para la clase que viene
+Quiero que vean el video 3
+¿Ah?
+Las ideas que entren
+Lo ven
+Lo vean
+¿Sí?
+Es importante
+Que vean
+Vengan con el video
+Este visto
+Porque
+Si yo doy un resumen rápido
+Muchos
+Los que no lo vieron
+Se van a perder
+Si me tengo que tomar el tiempo
+Para dar el tema
+Vamos a perder
+Tiempo
+Y no voy a poder
+Darle más profundidad
+¿Ah?
+Entonces es importante
+Esa dinámica
+¿Ah?
+¿Sí?
+Muy bien
+Bueno ven que ya
+Otra vez apareció
+El
+El
+El
+El
+El
+El
+El
+El
+El
+El
+El
+El
+El
+El
+El
+El
+El
+El
+El
+El
+the
+El
+El
+Este
+El
+Este
+El
+Este
+Este
+Este
+Este
+Este
+Este
+Este
+Este
+Este
+Este
+Este
+Muy bien
+Acá lo que le decía
+¿Sí?
+Con el tema de la IA
+Eso queremos preguntar
+En forma clara y específica
+Cuando la escriban
+Pedir ejemplos de código
+Revisar las pruebas
+De código recibido
+Explorar diferentes soluciones
+Experimentar modificando el código
+¿Sí?
+¿Qué pasa si modifico
+Esto en el código que me dio?
+etc
+Verificar la
+Verificar la
+exactitud de las respuestas, porque a veces
+vieron que estos tipos
+de IA
+muchas veces lo que hacen es
+inventan
+si no encuentran la solución
+no entienden lo que le están pidiendo
+inventan
+y van a ver que
+nunca se va a contradecir
+ustedes le dicen, ¿cuánto es 1 más 1?
+le dice 2, si ustedes le dicen no
+es 3, le dicen sí, tenés razón
+es 3, porque están
+hechas para eso
+muy bien, después
+experimentar diferentes soluciones, experimentar la modificación
+ya lo vimos, acá
+utilizar GPT como una herramienta de apoyo
+no para copiar código, consultar
+sobre las buenas prácticas de programación
+y usar GPT para entender errores
+¿sí? y acá
+lo que, si
+el uso está permitido
+cuando no, ¿sí?
+si está permitido para generar preguntas
+y obtener explicaciones para ayudar a comprender
+un tema, generar ejemplos
+adicionales, practicar con nuevos
+ejercicios, usaría
+como apoyo complementario en partes
+acotadas, siempre refiriéndose a su uso
+¿a qué me quiero? si usan
+por ejemplo en el obligatorio
+¿sí? algo pequeño
+de ellas que pongan un comentario
+esto fue sacado de Chachiril
+y hasta si usan
+quieren poner el prompt que usaron
+también se puede, ¿sá? y queda
+bien claro
+en qué lo utilizan
+cuando no se puede utilizar
+generar o resolver total o parcialmente
+trabajos que integran la evaluación
+del curso, usar la guía
+como cuando se indica
+que no se puede utilizar, ejemplo
+la defensa
+y presentar como propio contenido
+generado por guía
+¿sí? como decir
+esto es mío y en realidad no lo hicieron
+¿sá?
+muy bien
+bueno, acá van a tener la parte del práctico
+cuando tengan práctico les voy a explicar
+si
+qué es lo que tienen acá
+qué es lo que van a hacer
+¿estamos?
+muy bien, después en la parte del foro
+en realidad
+van a ver que tenemos acá para que
+quieran escribir
+pero en realidad preferimos que nos manden un mail
+o nos escriban por Teams
+¿sá? a todos le dieron cuenta de Teams
+nosotros también tenemos, nos buscan
+y nos escriben
+¿sá? y nos hacen la pregunta
+yo ahora después les voy a escribir mi mail
+por Teams me buscan por mi nombre y apellido
+¿sá?
+no les prometo de qué les vamos a contestar
+de un día para el otro
+perdón
+no les prometo que les voy a contestar en cinco minutos
+de un día para el otro seguramente sí
+¿sá? pero vamos a intentar escribirlo lo más pronto que podamos
+¿sá? porque tenemos otras cosas además de la clase
+¿sá?
+bueno, acá van a tener la pizarra digital
+que lo van a usar en práctico
+¿sí? lo van a ver con los profes
+¿sá? van a tener
+tienen dos profes en práctico
+uno que va a estar presencial
+¿sá? y otro que le va a dar apoyo por Zoom
+¿sí?
+bueno, las ayudantías van a comenzar en abril
+¿sí?
+van a ver cuando entren en esta parte
+les va a aparecer el horario
+día y horario donde van a estar
+en un laboratorio
+ayudantes para que puedan ir y hacerle preguntas
+está buenísimo cuando están cerca
+por los obligatorios
+¿sí?
+también están por Teams
+van a decir
+el calendario va a decir día y hora
+¿sí?
+¿sá? y en ese horario es que les va a contestar
+no es que le van a contestar en cualquier horario
+es en ese horario
+¿sá?
+muy bien, en la parte de evaluación
+les van a encontrar
+más que nada lo importante
+¿sí? acá van a aparecer la letra de los obligatorios
+¿sí?
+y tiene parciales anteriores
+¿sí? que tienen solución
+les sirve para estudiar, para prepararse para los parciales
+y ahí está la letra de obligatorios anteriores
+pueden ver
+cómo eran los obligatorios
+¿sí?
+no está la solución
+tienen también exámenes
+anteriores
+también con solución
+también sirve para practicar
+para el segundo parcial más que nada
+porque el segundo parcial y el examen
+llevan todo el curso
+¿sí?
+muy bien, y acá cuando yo le esté la letra
+del obligatorio
+subida, les va a aparecer
+¿sí?
+muy bien, bueno
+para que antes de seguir con todo
+me gustaría
+hacer una breve presentación
+de cada uno
+primero me voy a presentar yo
+les voy a contar un poco de mí
+¿sí?
+y después me gustaría que cada uno
+como ahí en la cámara para que los vean
+se vean los compañeros de Zoom
+me gustaría mostrarlo a ustedes
+por Zoom
+a los que están acá
+pero está fija la cámara y no la puedo mover
+¿está?
+bueno
+si quieren lo que hago
+me presento
+y luego lo que hacemos es
+me fijo la lista
+de
+de la clase
+¿está?
+así se van a ir presentando uno por uno
+¿está?
+tengo que poner el código
+tengo que poner el código por todos lados
+para poder
+iniciar sesión
+bueno, muy bien
+bueno, me presento
+mi nombre es Gonzalo Wagner
+ya les voy a poner ahí el mail
+¿sí?
+ahora se les comparto la pantalla
+para que lo vean bien
+gonzalo.e.wagner
+si es donde le ve
+arroba gmail
+gmail.com
+¿está?
+bien, tengo
+bueno, como decía
+Gonzalo Wagner
+tengo 32
+33 años
+ya me saco un año
+ya empiezo a organizar
+tengo un hijo de dos
+de dos años
+así que si me ven con ojeras
+si me ven con
+con
+con
+, este
+con la ropa sucia
+sin darme cuenta
+ya entienden por qué
+¿está?
+aquí están
+los terribles dos
+¿sí?
+o sea
+si alguien
+tiene hijos
+o algún hermano
+chico
+algo que ya van entendiendo
+soy licenciado en sistemas
+¿sí?
+me desecan
+en la universidad
+la ORC
+tengo un posgrado
+en inteligencia artificial
+y un
+máster en Big Data
+¿sí?
+trabajo
+en una empresa
+llamada Kuanam
+¿sí?
+que es una consultora
+de tecnología
+digamos
+y este
+yo estoy en el área
+de data analytics
+¿sí?
+data
+que van a agregar
+en el guía también
+para que esté
+dentro del nombre
+¿sí?
+en
+o sea
+no es que me dedico
+100% a programar
+¿sí?
+no hago sistemas
+para bancos
+sistemas grandes
+sino que
+uso la programación
+para
+manejo de datos
+¿sí?
+para la guía
+para este modelo
+de machine learning
+y algún
+proyectito
+¿sí?
+he hecho
+¿sí?
+por ejemplo
+hace poco
+hicimos
+no hicimos
+sino que
+pasamos
+de una tecnología
+a una más nueva
+¿sí?
+un sistema
+de facturación
+¿sí?
+pero
+en realidad
+era
+cambiarlo
+el lenguaje
+nada más
+no era mucho
+¿sí?
+le agregamos
+alguna cosita
+pero tampoco
+muy loco
+ahora estoy más
+como rol de arquitecto
+¿sí?
+ya la experiencia
+que fui teniendo
+soy decente
+en la labor
+hace como
+7, 8 años
+¿sí?
+doy programación 1
+programación 2
+programación
+en
+biotecnología
+¿sí?
+o sea
+la carrera
+de biotecnología
+que es
+iniciación
+en programación
+y ahora
+este año
+voy a dar
+también
+tipo la
+iniciación
+en programación
+para
+un máster
+que es el
+de
+sistema
+de gestión
+en sistema
+de información
+bueno
+COVID
+así me gusta
+el fútbol
+soy peñador
+así que
+toda la nacional
+van a perder
+les voy avisando
+desde ya
+me gusta
+el básquetbol
+ahí soy de Atenas
+ahí no puedo
+hablar mucho
+bueno
+me gusta
+el cine
+trabajé
+muchos años
+en un cine
+pero
+como
+auxiliar
+viendo pop
+etcétera
+y las series
+y los caballos
+también me gustan
+¿ya?
+bueno
+no sé
+alguna duda
+que quieran
+algo que quieran saber
+de mí
+que me quieran preguntar
+soy Montevideo
+soy Montevideo
+¿no?
+nada más
+muy bien
+vamos a lo siguiente
+voy pasando
+tipo la lista
+¿sí?
+para ir diciendo
+los nombres
+y a medida
+que lo voy nombrando
+se van
+presentando
+¿les parece?
+¿sí?
+Juan Pablo
+Emil Livia
+Mauricio
+Arrada
+Buenas noches
+tengo
+cincuenta años
+trabajo
+en la
+supergasa
+hace
+veinticinco años
+vivo
+en La Paz
+bueno
+hobby
+salgo a correr
+un siglo
+pero salgo a correr
+seis, siete kilómetros
+por la semana
+tengo una hija
+veintiún años
+está en
+segundo año
+de facultad
+de Derecho
+me casaron
+y
+me quedé
+para decidir
+era algo
+que no había dejado
+de ser
+de estudiar
+diferentes razones
+de la vida
+y ahora que tengo
+la oportunidad
+dije que estaba
+en la casa
+vine a hacer
+la iglesia
+muy bien
+¿y haces toda la materia
+del semestre o?
+no, no voy a hacer
+mi trabajo
+yo trabajo
+de la mañana
+o sea
+nunca va a dar
+bien
+sí, igual
+terminar hoy
+a la hora de
+si está
+pero
+todos los días
+hay más
+hola
+pobre
+sí, se entiende
+muy bien
+¿hay experiencia
+programando?
+no
+nada
+cero
+eh
+Joaquín
+Caballero
+buenas noches
+soy Joaquín
+vivo en Montevideo
+tengo treinta años
+programando
+más o menos
+diez
+y bueno
+mis hobbies son
+hacer deporte
+me gustan
+las artes marciales
+y programar
+en mi tiempo libre
+también
+mirar series
+y va por ahí
+voy a tener que
+tener cuidado
+con la noche
+me encanta
+el lenguaje
+que utilice
+o has utilizado
+ahora
+mucho javascript
+pero he usado
+c sharp
+java
+poquito php
+y
+esos
+muy bien
+perfecto
+seguimos con
+Lorenzo
+Caldera
+por acá
+¿qué tal?
+yo tengo
+veintiún años
+soy de Argentina
+mudé a Montevideo
+cuando tenía
+bueno tengo
+veinte
+cumplo
+veintiuno
+los últimos días
+nuevo
+tiempo
+de dieciocho
+trabajo para
+una empresa
+que es una
+CMS
+que es
+que la mesa
+de programador
+trabajo
+principalmente
+en el sitio
+de migraciones
+y configuración
+de servidores
+bueno
+de hobbies
+me gusta
+jugar a
+vole
+juego
+competitivamente
+antes de
+comenzar a
+trabajar
+y estudiar
+y por el
+trabajo anterior
+que tuve
+yo trabajando
+esto hace un año
+me gusta mucho
+el café
+y el barismo
+muy bien
+muy bien
+eh
+Victoria
+Caroso
+acá
+en el pantallo
+hola
+eh
+bueno
+soy Victoria
+tengo
+treinta y siete
+soy economista
+ya me recibí
+en la Horta
+hace un par de años
+bastantes
+y nada
+tengo una empresa
+constructora eléctrica
+y
+y bueno nada
+manoté este año
+ingeniería eléctrica
+curso una mañana
+una materia
+en la mañana
+y programación
+a la noche
+porque me cuesta
+si no trabajar
+todo el día
+y nada
+tengo dos hijas
+de ocho y de cuatro
+y estoy
+hasta hace once años
+bien
+de programación
+alguna idea
+algo
+se le trancó
+justito
+cosa que
+es cosa que nos va a ir pasando
+en el curso
+así que
+a los que están
+del otro lado
+cuando se corte
+les pido perdón
+disculpas
+ya es algo
+que es difícil
+a veces manejar
+¿va?
+bueno
+pasamos con
+Victoria Comas
+¿sólo?
+¿sólo?
+¿sólo?
+¿sólo?
+¿sólo?
+¿sólo?
+¿sólo?
+¿sólo?
+¿sólo?
+esta sería
+mi historia
+esta sería
+mi segunda carrera
+también
+hice
+química
+ciencias
+luego quise seguir
+el camino académico
+hice un máster
+que no
+que no defendí
+y
+bueno
+luego
+quise
+transformarme
+para el área
+energía
+y
+bueno
+hice un máster
+en
+senti la grato
+y estoy
+trabajando acá
+en
+el área
+de
+el centro
+público
+y hacer montaje
+y nada, ahora estoy como en este barco
+intentando
+bueno, en mi tiempo libre me encanta
+arrollar
+tengo bici ahora
+y bueno, tengo dos perros
+está genial para después subir las escaleras
+tener las piernas ya calientes
+van a pasar la vista
+a mi Lidia
+a Raga
+Caldera
+Tomás
+Cordero
+Salpina
+Faría
+Fernández
+Caldares
+García
+Magueira
+Ureña
+Oliva
+Pistaria
+Carrota
+Pistaria
+Pernoso
+Pernoso
+Portillo
+Rivero
+Rodríguez
+Agustina
+Juan
+Santos
+Severo
+¿Me salté a alguien?
+¿Cómo?
+¿Qué tipo estás?
+¿Estás bien?
+Sí
+¿Estás pasando de casualidad?
+¿No?
+Sí
+¿Para qué te vas a pasar por Velería?
+Sí
+¿Y a quién me salté él?
+Gauna
+¿Cómo, perdón?
+Gauna
+Así como sea
+¿Salté a vos?
+No, está bien
+Vale
+Gracias
+No le pasa a nadie, claro
+Vale
+Ahí van a corregir nomás
+Ahí está
+Lo que estaban en Zoom ya los, este, entró uno de Velería, se fijó quién estaba y ya los mató
+¿Va?
+Muy bien, nos hemos quedado con Victoria, ¿verdad?
+¿Vamos con Joaquín Cordero?
+No, ¿a cuál?
+¿Sí?
+Ah, no, caballero
+No, no
+Caso
+Caso
+Caso, parece
+¿No?
+Bien
+Brian del Pino
+Yo
+Sí
+Yo soy Brian del Pino, me gusta que me digan del Pino, más que Brian, o Delpy
+Tengo 25 años, trabajo en una empresa importadora de alimentos saludables y me encargo de todas
+las cosas que me gustan
+Sí
+Sí
+Sí
+Sí
+Sí
+Sí
+Sí
+Sí
+Sí
+Sí
+Sí
+Porque yo terminé la maturación y la tachomía, que es como hobby, jugar al tenis tres veces
+por semana, hasta ahora, que hay que hacer una sola y la otra, este, un poco más, estoy
+casado hace tres años y hace seis con mi pareja
+Muy bien, ¿y el programa de programación?
+El programa de programación hice la ESI, el buceo, perfecto hasta segundo y la realidad
+es que el nivel de programación que pide ilustro y todo
+Muy bien, eh, Pablo, ¿divisa?
+Sí
+Yo lo vi por ahí.
+Sí, Pablo, ¿estás por ahí?
+Sí, entonces.
+Maximiliano Díaz.
+Buenas.
+Soy Maximiliano Díaz, tengo 22 años.
+Soy de Atlántida.
+Y tuve un poco de experiencia con Javascript, CSS y HTML.
+Y mis hobbies son ir al gimnasio, ver películas, series.
+Y jugar al fútbol, aunque me quebré hace tres meses y tuve todo el verano enyesado.
+Qué momento.
+Muy bien.
+Oscar Faría.
+Bueno, mi nombre es Oscar Emanuel Faría.
+¿Qué dirán?
+Tengo 42 años.
+Y hace poco me decidí a empezar a estudiar.
+Había estudiado originalmente en Piguiría Civil.
+De hecho, en la universidad.
+Pero dejé, después me fui a vivir a Maldonado y volví ahora.
+Y bueno, ahí fui yo a estar cerca.
+Y para no ser un estudiante, fui a comprar un plan.
+Y nada, vivo en pareja y tengo dos casas.
+Muy bien.
+¿En promoción de experiencia?
+Alguna vez, no, solo archivo batch.
+Mirando el curso y al final me hice la casa.
+Pues solo eso.
+Ok, bien.
+Salvador Fernández.
+Bueno, tengo 26.
+Trabajo en Movistar y en sistemas.
+Así que la experiencia es de un programa de sesión de Python y automatización más clave.
+Perdón, de infra.
+Una escuela de fútbol.
+Acá en la U.
+En el equipo de la U.
+Trabajo en el clínico de la U.
+En la asistencia de la Universidad de Maldonado.
+Bien.
+Perfecto.
+Gonzalo Ferrari.
+Sí.
+Papá.
+Papá yo.
+Nada, 27 años.
+Soy de Canelones, de Los Piedras.
+Hace un par de años que me mudé para acá a la Universidad.
+No es el estudio más fácil, lo hago yo también.
+Trabajo como desarrollador hace un par de años.
+Trabajaba en HP, Python, script, batching y retomé ingeniería que hace un par de años que había intentado hacer en la universidad.
+Pero, nada, quería terminar la carrera para no dejar la tronca, así que no.
+Muy bien.
+Matías Galán.
+Sí.
+Danalex.
+Soy Matías Galán.
+Tengo 18 años.
+Vivo en la universidad.
+Hace un par de años que me mudé para allá.
+Tengo cuatro perros.
+De COVID, nada más.
+Yo juego, hago música y atento digital.
+No toco ningún instrumento.
+Y de experiencia con la programación, solo tengo un poco de JavaScript y HTML.
+Hago programas muy fáciles.
+Lo único que hice fue una calculadora de clases de vida con mi padre.
+Ahorita no tengo ni un proceso.
+Casi nunca.
+Y, bueno.
+Tengo cuatro perros.
+De COVID, nada más.
+Yo juego, hago música y atento digital.
+No toco ningún instrumento.
+Y, de experiencia con la programación, solo tengo un poco de JavaScript y HTML.
+Hago programas muy fáciles.
+Lo único que hice fue una calculadora de clases de vida con mi padre.
+Ahorita no tengo ni un proceso.
+Casi nunca.
+Y, también, estoy escribiendo en Bash.
+Tengo cuatro perros.
+Muy bien.
+Ulises García.
+Muy bien.
+Mara.
+Maqueira.
+Maqueira.
+Me estoy quedando chiquito.
+¿No es?
+Tengo 21 años.
+Trabajo de soporte de GameGuard primera línea en Notaview.
+Tengo cuatro perros.
+Tengo cuatro perros.
+Tengo cuatro perros.
+Tengo cuatro perros.
+Tengo cuatro perros.
+Tengo cuatro perros.
+Tengo cuatro perros.
+Tengo cuatro perros.
+Tengo cuatro perros.
+Tengo cuatro perros.
+¿ 의�cio?
+Es que sé cómo crear.
+Incorrecto, sí.
+Que OVER...
+No sé...
+No sé qué hago.
+Hago...
+¿Qué hago...?
+¿Puenso caminar?
+No классifico a Juanam too.
+Es que me quedan...
+Me quedan...
+¡ Дж&J Balance!
+No me quedan...
+En realidad es justo una plaga, es el limón.
+En realidad es justo una plaga.
+Y lo hago con la intención.
+Pero, bueno...
+Pero como no se me ha ido.
+Perdón.
+Mira.
+Ah, y hobbies, estoy viendo todo el ronal, tienes a vos y a Félix.
+Muy bien. Facundo Martínez.
+Hola, tengo 27 años, soy de 33 pero vivo en Montevideo hace más o menos 3 años.
+Hice la ESI de buceo hace ya muchos años, vengo de la King ahora el semestre anterior,
+así que esa es mi experiencia en programación, trabajo también de soporte de nivel 1 en Fluxu,
+que no es una empresa muy grande, y vivo con mi novia que voy a aprovechar para avergonzarla.
+¡Dije que vivimos juntos, me escuchaste!
+¿Está listo? Y bueno, eso, no sé si me fue todo de vos.
+Perfecto. Muy bien.
+Alan Muraña.
+¿Y vos, Enrique Oliva?
+Bueno, tengo 27 años, en realidad soy, yo vengo de otro lugar, soy licenciado en Relaciones Internacionales,
+en la OEDAR, en realidad, bueno, estuve años trabajando en automática,
+siempre me quedo a bichitos de hacer ingeniería.
+Bueno, no me arrepiento, pero siento que eso es un sueño que se tiene que cumplir,
+así que bueno, estoy haciendo la transición, digamos.
+Ahora soy abogado como desarrollador, pero es algo más,
+como desarrollo profesional.
+Bueno, estoy viviendo en la Gomar, así que me encantaría venir presencial,
+pero está bastante confuso el trabajo y la distancia a lo largo del juego.
+Muy bien, no hay problema.
+Capaz que se usa el modo remoto.
+Bien, perfecto.
+Victoria Pedrovic.
+Victoria Pedrovic.
+Muy bien.
+Julieta, ¿no?
+Julieta Pernota.
+Bueno.
+Pacundo Portillo.
+Ignacio Plante.
+Hola, tengo 18 años, soy Ignacio.
+Llevo como Jouy programación hace 4 años, empecé hace 4 años, empecé con C-Sharp.
+Tenía un amigo que tenía un proyecto que lo llevaba solo,
+y en ese momento le dije que quería arrancar, le pedí ayuda,
+y de ahí empecé programación.
+Desde entonces, seguí el año siguiente, o sea, el primer año que empecé,
+empecé solo C-Sharp, luego progresé, probé mucho el lenguaje,
+probé Go, Root, bueno, progresé y progresé más,
+y el cambio fue bastante fácil, empecé más.
+Y ahora actualmente termino trabajando solamente para compañías de anti-cheats,
+empecé aún más.
+Perfecto.
+Guillermo Rivero.
+¿No?
+Agustina Rodríguez.
+¿Y vos?
+Luan Rodríguez.
+¿Yo?
+Sí.
+Mi segundo nombre es Benjamín, y es el nombre que normalmente es más usante,
+porque Luan a todo el mundo le parece rarísimo.
+Bueno, tengo 23 años, siempre me gustó mucho la programación.
+Hice UTU, yo soy de Tacuarembó, hice UTU allá, y estudié todo lo que viene siendo bachillerato de informática,
+ahí aprendí el mundo, el mundillo de la informática y de la programación,
+e hice varios proyectos en Java, hice HTML, CSS, JavaScript,
+después como proyectos personales usé Python,
+y un poco por arriba React, también, los frameworks.
+Y bueno, y eso.
+Como hobbies, me encanta la música, toco varios instrumentos, toco piano, guitarra, flauta, batería de bajo.
+Y creo que sería eso. Vamos a volver mañana.
+Bueno, muy bien.
+Vamos a volver.
+Lo único que tenemos que nosotros, no sé si es que nos quieran animar a decir...
+De acá, mirá.
+Muy bien.
+Emiliano Salvo, Leonardo Santos, Caterina...
+Hola, muchas gracias.
+Mi nombre es Caterina Frutti, tengo 24 años,
+y mi experiencia con la programación viene de comenzar a programar,
+y después, estaba estudiando Relaciones Internacionales, no me terminé de buscar,
+y al cambiar, quise probar una software app, y después me adapté al auto de buceo,
+la terminé, y este año estoy en la ingeniería.
+Hace unos años fui trabajando en tecnologías, en data,
+y ahora estoy en la ingeniería.
+Hace unos años también estoy en el departamento de ciberseguridad.
+Entonces, toda mi parte de programación, más que nada, es por la parte del estudio,
+no tanto por el trabajo.
+Te iba a preguntar qué parte de Udata, o sea, qué edificio es Udata.
+Nosotros estamos a sur.
+Udata es un formato, es Udata ciberseguridad.
+Tiene mucha conexión con Udata a infraestructura, pero es...
+¿Conocías a una chica que entró hace poco, que se llamaba Tani?
+¿Para acá?
+Sí.
+O sea, no la conozco de acá, pero siempre habla, siempre trae una presentación.
+Fue una compañera de laburo que se fue para ahí, hace poco.
+Literal, mandale el saludo de Gonzalo, se va a dar cuenta.
+Sí, pues nunca la vi, pero siempre está en la presentación.
+Ah, acá, acá.
+Los chicos nuevos siempre lo traen para acá.
+Algo así, ahora...
+Un chiquito lulú ahí.
+Nosotros tenemos su oficina, la tenemos ahí elegido y...
+Cambiamos el seguido, perdón.
+En el piso de abajo, en el segundo, estamos con Udata, pero no soy fiel.
+Ahí es Ojo.
+Yo nunca fui ahí, yo estuve en Canelones.
+Ah, claro.
+En Canelones, Minas.
+Ah, claro.
+Bien, bien.
+Ah, claro.
+Después voy a hago gimnasio y también aprender idiomas.
+Hace bastante que no lo estaba haciendo porque estaba trabajando en gimnasio.
+Y este año estoy hablando en chino.
+Nada que ver.
+Muy bien.
+¿Está bien?
+Va a cambiar.
+Ok.
+Por favor, lo que le estoy diciendo en español.
+Sí.
+Pero en chino, por favor, no.
+Todavía no hablo.
+Ah, bueno.
+Muy bien.
+Ángeles Severo.
+Hola, soy Ángeles, tengo 22 años.
+Trabajo para una empresa.
+Buscar una work office para hospitales en Estados Unidos.
+Voy a leer o a traer el auto.
+Saluda.
+Muy bien.
+Me queda Santiago Souto.
+Sí, acá.
+Soy Santiago Souto.
+Soy de Canelones, Canelón Chico.
+Mi aproximación a la programación fue una vez que tenía curiosidad y yo no sabía nada.
+Y me anoté en un curso de BIOS.
+Analista de sistemas.
+Hice el primer año.
+Y después, por cosas de laburo, tuve que dejar.
+Soy capintero de aluminio.
+Tengo un curso de bioseguridad.
+Tengo un curso de bioseguridad.
+Tengo un curso de bioseguridad.
+Tengo un curso de bioseguridad.
+Tengo un curso de bioseguridad.
+Tengo un curso de bioseguridad.
+Tengo un curso de bioseguridad.
+Tengo un curso de bioseguridad.
+Tengo un curso de BIOS, analista de sistemas.
+Hice primer año.
+Y después, por cosas de laburo, tuve que dejar.
+Soy carpintero de aluminio hace año ya.
+Y hobby cómo ya mencionó también uno.
+Soy también jugador de voleibol.
+Este año lo puse en pausa por tema de estudio.
+Así que ahora, solamente los fines semanas, voy a mirar voleibol y nada, es la presentación.
+Sí.
+Igual, algunos que no estaban en la lista.
+Sí.
+Yo soy Santiago Bauna,
+de 93, de la Comunidad de Desarrollo
+de la Fuerza Aérea, hace seis meses.
+Antes estaba
+como técnico en Infra, level 3,
+como hobby y fotografía.
+Estaba en labor,
+ahora, por tema de tiempo, no puedo.
+Pero, le he pasado
+por el tiempo.
+¿Sigue estando Víctor, Karina?
+No, por favor.
+Él trabaja con nosotros
+y estuvo ahí.
+Por dos grandes.
+Ya me mataste.
+Soy de la región
+y soy de la costa.
+¿Me falta alguien?
+¿Estamos todos?
+Muy bien, si les parece, hacemos el corte
+de cinco minutos y a la vuelta seguimos.
+¿Sí?
+Les comparto la pantalla
+del Zoom
+para que vean
+tenemos un visto
+para que vean
+el pizarrón que yo anoté.
+Me di.
+Me di.
+Muy bien.
+Ahora, pausa en la grabación
+para que no quede este tiempo muerto.
+Y seguimos después del recreo.
+Bueno.
+Antes que nada,
+para que estemos como un pacto
+cuando estén en Zoom,
+yo no soy exigir las cámaras.
+¿Por qué?
+Porque yo sé que
+no todos tienen un lugar
+en su casa.
+¿Por qué?
+¿Por qué?
+¿Por qué?
+¿Por qué?
+¿Por qué?
+¿Por qué?
+¿Por qué?
+¿Por qué?
+¿Por qué?
+¿Por qué?
+¿Por qué?
+¿Por qué?
+Acorde para tener la cámara prendida,
+¿no?
+Y menos en la noche.
+Ya están todos en casa,
+¿no?
+Pero sí, o sea,
+lo que espero es que me respondan.
+Lo mismo que hagan clases.
+Aquí era una clase dinámica.
+No nos sirven
+ni para mí, ni para ustedes
+que sea un monólogo.
+¿No?
+Y lo que les voy a pedir
+también es que
+cuando me acerquen a la pantalla
+Cuando me escriban por el chat, si no lo veo, si lo que está en el Zoom me dicen Profe o Gonza, hay una pregunta en el chat y la veo.
+No es tan sencillo, ya hace años que estoy dando híbrido, pero no es tan sencillo estar atento a todo.
+Muy bien, bueno, vamos a empezar con lo que estaba pensado para esta clase.
+Muy bien, ahí ven, por Zoom. Bueno, el silencio espero que sea un sí.
+Entonces, ahí ven, un dedito para arriba, gracias.
+Bueno, a ver, hay un cuento.
+Que se llama Fish is a Fish, donde un pez en un estanque es amigo de un renacuajo.
+Entonces pasa el tiempo y el renacuajo, ya sabemos la evolución del renacuajo, le van a salir patitas, se va a convertir en sapo o rana y va a salir del estado.
+Y va a salir a conocer, digamos.
+Y el tiempo regresa, cuando vuelve, habla con el pez y él les empieza a contar todo lo que vio en el mundo, en todo lo que fue aprendido.
+Viendo la imagen ahí, ¿qué pueden interpretar acá?
+En todo lo que veían, las ranas afuera eran peces, no eran pájaros.
+En realidad, todo lo que ellos...
+La rana le estaba diciendo al pez, ¿sí?
+El pez se lo estaba imaginando como peces, ¿sí?
+Por ejemplo, estaba contando, vi animales voladores, ¿sí?
+Porque tenían alas, tenían plumas.
+Y él lo que se estaba imaginando, el pez, es otro pez con alas que vuelve, ¿sí?
+Entonces, ¿qué quiere decir?
+Que si uno solo conoce peces, ¿sí?
+Todo tiene forma de pez, ¿sí?
+Lo mismo pasa en programación, ¿sí?
+Como ya fuimos hablando, muchos ya tienen una formación en programación, ¿sí?
+Hay otros que no, hay otros que tienen más, otros que tienen menos, ¿sí?
+Y la idea, o sea, ¿cuál es la idea?
+Acá es que no es que se olviden eso que aprendieron, eso quizás.
+Sino que sean capaces de abrirse, ¿sí?
+Y pensar, ¿sí?
+De que quizás hay otra forma de hacer las cosas.
+Capaz que ustedes la aprendieron de una forma...
+Y acá la van a aprender de otra, ¿sí?
+No quiere decir de que lo que yo diga acá es lo que está bien, ¿sí?
+Y lo que aprendieron fuera está mal, no.
+Lo que quiero decir es que no sean cerrados a lo que ya saben, sino que abran la cabeza para poder...
+No sé qué les pasa a los que se agarran hasta el tele, ¿sá?
+Pero bueno.
+Y además, ¿sí?
+Los que partan de cero, ¿sí?
+No se preocupen.
+¿Por qué?
+Porque la manera está pensada para no tener conocimiento de programación.
+O sea, que se empieza de cerca, ¿no?
+A los que ya saben de programación, está de maravilla entender que hay otra forma de hacerlo.
+Meten la paciencia, ¿sí?
+Que en un momento nos vamos a enganchar todos juntos, ¿sí?
+Muy bien.
+Vamos a ver los diferentes perfiles que tenemos.
+Tenemos licenciado en sistemas, ingeniero en sistemas, y programador.
+Serían las tres carreras que tenemos en la universidad, por ejemplo.
+Entonces vamos a empezar con lo que sería una definición, una explicación, una descripción de cómo sería licenciado en sistemas.
+El licenciado en sistemas va a cumplir un rol clave.
+El licenciado va a trabajar en las empresas donde va a combinar su fuerte conocimiento técnico, ¿sí?
+Con lo que va a aprender, su conocimiento también, en la gestión y funcionamiento de las empresas.
+Entonces, por ejemplo, se quiere automatizar un proceso de logística.
+El licenciado va a la empresa, habla con las personas, ¿sí?
+Trata de, o sea, va a hablar con, sabiendo de tecnología y sabiendo de cómo se maneja en una empresa, digamos, cómo se gestiona, etc.
+Entonces va a hablar en forma objetiva, diplomática, y verificando la información que le van a dar.
+Y a partir de ello, va a armar un plano o un diseño de cómo se va a trabajar, o de esa solución, mejor dicho.
+Va a asignar diferentes programadores, que luego van a poner en marcha ese diseño, esa forma, ¿está bien?
+A ver, no quiere decir que solo el licenciado lo pueda hacer.
+Un ingeniero también lo puede hacer, ¿está bien?
+Y más, ustedes van a tener materia de gestión de empresa, ¿sí?
+O sea, no es que no lo puedan hacer.
+Ahora, el ingeniero tiene un rol similar, pero va a estar orientado a sistemas más grandes.
+De vuelta, no quiere decir tampoco que un licenciado no lo pueda hacer.
+Es más, para un licenciado y un ingeniero, la parte técnica va a ser similar.
+¿Qué le van a sumar, por ejemplo, a ustedes?
+Es un entendimiento un poco más de abajo, más tipo, ¿por qué es así las cosas?
+¿Por qué funcionan así?
+¿Se entiende?
+Bueno, ahorita van a trabajar con otros ingenieros.
+Más, vamos a ver.
+Los programadores, los licenciados.
+Miren que acá yo he visto muy buenos programadores, excelentes, que no tienen ningún título,
+que vuelan y son gerentes, etc.
+Y ingenieros que son un desastre, ¿sí?
+O sea, no quiere decir que porque tengan el título van a volar,
+sino que van más de uno, ¿sí?
+Como el Oncari.
+¿Sí?
+Más ahora con todo esto nuevo de la IA, ¿sí?
+Que cada vez, cada vez menos se programa, menos se codea, ¿sí?
+Ahora con el Bitcoin, también, tengo muchos conocidos que me dicen que hace meses que no codean, ¿sí?
+Pero, ¿qué es lo que van a seguir aprendiendo de la carrera o sabiendo?
+Es, o sea, ok, yo puedo pedirle a una gente de inteligencia artificial,
+que me haga, me vaya haciendo cosas, pero eso me puede, o sea, puede ser que le escriba cualquier cosa,
+no le esté pidiendo bien lo que se quiere, o sea, tiene que, tenemos que tener un conocimiento, ¿sí?
+Este, para poder llevarlo a eso, ¿está?
+Después, este, lo que me va a devolver, me puede devolver cualquier cosa.
+Tengo que ser capaz de entender lo que me está devolviendo.
+La IA del Bitcoin, este, se dice que se acelera tres veces más,
+cinco veces más, la productividad, ¿ah?
+Pero, por algo, no están, no contratan a sus niños, ahora, hoy en día.
+Eso va a cambiar, no se preocupen, ¿sí?
+Pero, eso es porque, este, no están, no, o sea, necesitan conocimiento, necesitan que sepan, ¿sí?
+¿Me entienden?
+Después, esto no se me va a llamar a bajar de la carrera, por favor.
+¿Por qué? ¿Qué va a cambiar?
+Porque, a ver, primero que nada, los señores se van a jubilar.
+En algún momento no va a haber más señores.
+Y si no se preparan los señores para ser señores, no va a haber señores para cagar de ningún lado, ¿está?
+Y, bueno, hay muchas, digamos, hoy en día, bueno, ya me estoy metiendo en más, este, filosófico y todo lo que va.
+Pero, hoy en día.
+Lo que está pasando en la industria es, este, es mezcla de muchas cosas.
+Obviamente que mucho, mucho peso lo tiene la guía, ¿está?
+Pero, hay muchas cosas.
+Imagínense que mañana le pasa algo con la guía, ¿está?
+¿Qué puede pasar?
+Por ejemplo, ahora, Antropic tiene tremendo lío con Estados Unidos.
+Estados Unidos no permite que usen Antropic.
+Y, en realidad, casi todas, no decir todas, las empresas de inteligencia artificial están,
+en déficit.
+Pero en plata.
+Están, lo que están apostando es poner plata para que uno, una de ellas se quede con él.
+Este, el liderazgo, digamos.
+¿Pero qué va a pasar?
+No se sabe qué, no sabemos qué va a pasar.
+Entre, en un momento, no le va a dar mal, si siguen así no le va a dar mal la plata.
+¿Sí?
+Entonces, está.
+Para cuando yo cursaba la, la, este, la carrera nosotros siempre decíamos que, eh,
+o cuando, ¿no?
+Cuando me terminé de recibir, digamos, que todavía tampoco estaba la guía, eh, que
+la, en la, la, lo que diste a la carrera te sirve, eh, para saber cómo, cómo googlear.
+No que no le voy a mentir de que, de que terminamos usando, buscando las soluciones o cómo,
+no es que vamos a, si está casi todo hecho, vamos a hacer la, la verdad, ¿no?
+Pero, eh, también me sirve para ir a discutir con un cliente y saber lo que le, lo que le,
+lo que le estoy diciendo, ¿se entiende?
+O sea, es, es, es, esto que estoy hablando es algo dif, dif, que vengo pensando en cómo,
+cómo, eh, hacer, porque hay muchos que tienen la duda de, bueno, con la situación que hay,
+¿pa' qué voy a, a, a estudiar esto?
+¿Sí?
+Y también, dejarles el bichito de que es importante ese foro.
+¿Yo puedo aportar algo?
+Sí.
+Acá en mi empresa nosotros estamos asociados por Microsoft, eh, y los empleados de Microsoft,
+bueno, eh, son los que ponen.
+Financias en cierta parte del que son los desarrolladores, los usuarios de la
+que se usa en el, eh, agente copiloto de Github, eh, y ellos nos solicitaron que el equipo
+entero trate de desarrollar cierta aplicación solamente utilizando, no podemos tocar una
+sola línea de código nosotros, aunque estén aún al carácter de hacerlo bien, no podemos
+corregirlo, tenemos que corregir el mensaje que le enviamos inicialmente para que después
+nos devuelva todo correcto.
+Y está siendo muy complicado, o sea, no es, no es capaz de sustantar totalmente el proyecto
+del equipo entero, necesita todavía soporte de nosotros, y lo que funciona es que nosotros
+no escribimos el código, pero diseñamos toda la infraestructura de los sistemas, de
+los servidores, y todo el, se dice, el workflow, el sistema de trabajo, por dónde entrar los
+datos, qué procesos pasan y cómo salen, eso ahora ya no lo diseñan, lo diseñamos
+nosotros y le pedimos que lo haga.
+O sea, aún así, aunque no, aunque no escribamos código, hace un mes y trigo que estamos con
+el proyecto, se necesita todo del equipo, igual que este diamante, cuando cría un código
+nosotros también.
+Eso es lo que voy a decir, no va a suplantar a los desarrolladores.
+No, yo, yo creo que, yo creo, hace mucho tiempo había escuchado un, este, una charla que decía
+de que está estudiado, o sea, cree que el, uno de los, de las, eh, de los trabajos que
+no va a poder suplantar la inteligencia artificial es la del desarrollador.
+¿Por qué?
+¿Por qué?
+Porque está, está aprendiendo en base a cosas hechas, cosas nuevas, eh, ¿sí?
+O sea que, eh, es muy importante, o sea, mismo lo que vamos a ver acá en el curso
+y los que ya están trabajando, no va a ser directamente lo que, lo que apliquen, sino
+que lo que le digo, la base para poder entenderlo, cuando agreguen más cositas, decir, ah, mirá
+por cómo él, por qué era.
+¿Sí?
+¿Se entiende?
+Yo creo que el tema de la inteligencia artificial, más bien, es algo que tenemos que acostumbrarnos,
+más que tenerle miedo, porque yo por lo menos lo veo como mucho tiempo atrás, ¿no?, en
+la época de la revolución industrial, cuando la gente se empezó a asustar por causa de
+la revolución industrial.
+Es verdad.
+El cambio de, todos los artesanos, ¿no?
+Exactamente.
+No es que, no es que le sacaran el trabajo, su trabajo evolucionó a otra cosa.
+Exactamente.
+Las personas que llevaban a otras personas, ¿no?, a carro de caballo, eso se revolucionó,
+¿no?
+Se evolucionó.
+Ahora, por ejemplo, tenés un taxi y te lo suben.
+O sea, yo creo que, en realidad, tenerle miedo a que la guía te va a suplantar, es simplemente
+tener miedo a usar una herramienta a tu favor, que no tiene sentido.
+Bueno.
+Gracias, Ylen.
+Un ejemplo de eso era que un viejo es uno de los pocos que saben cómo funciona todo
+el trabajo.
+Por ejemplo, hay tres, dos personas, y cuando vino la guía, ahora ya están trabajando con
+Entropy, están dando Cloud Ecoder a todos.
+Y el trabajo que tienen que hacer es pasar de las cosas que están en COBOL a pasar a
+otro lenguaje.
+Y él sigue ahí.
+Él usa la herramienta artificial.
+Antes era, ay, no, qué miedo.
+La gente, el trabajo de él, los pocos que sabían COBOL decían, no, nos van a sacar.
+Cuando podamos usar el Cloud Ecoder, nos van a sacar.
+Y ahora ellos están usándolo más que los demás porque son los que saben cómo pasar
+las cosas.
+Claro.
+Saben cómo pedirle.
+Y cómo saber que lo que está pasando es realmente lo que significa.
+Una función como traducirlo, por ejemplo.
+Otra cosa es también entender, me puede decir una solución que va a ser, sirve, o sea,
+es lo que quiere, ¿sabes?, en finalidad, pero no es lo que quiere, no es la mejor,
+no está enganchado al diseño, a la arquitectura que se armó.
+Hay muchas cosas, ¿sabes?
+Así que, eso.
+Lo que había dicho, ¿no?
+No tenerle miedo a la IA, incorporarla como herramienta, ¿sí?
+Tampoco descansarse, ¿no?
+Porque también, solo con la IA, y es una de las preocupaciones que hay, es que gente
+que trabaja, que trabajaba programando, ahora usa todo IA, que le pones un programa sin
+IA grande, no va, le va a costar mucho más.
+Entonces, tipo, no, perdela por ahí.
+Sí, recién era más o menos eso.
+Yo, desde que incorporé la IA en mi trabajo, realmente noté como que luego al escribir
+código por mi cuenta, se me hace mucho más difícil.
+Me pongo a pensar cosas que antes me las había en memoria, o simplemente ya no asumo el
+voy a solucionar este problema simple por mi cuenta.
+Puedo, sé que lo puedo hacer, pero en vez de pensar eso de primera, pienso, se lo voy
+a preguntar al ICTT, se lo voy a preguntar a Claudio.
+Entonces, termino delegando el trabajo a otro, a la IA, para que lo programe.
+Y siento que estoy perdiendo esa capacidad de programarlo por mi cuenta.
+Hay veces que me da miedo el hecho de eso, y esa es una parte por la que voy a intentar
+no usar IA en la mayoría de todo esto.
+O sea, a ver, en el trabajo, en el día a día, una y otra que si no usas IA porque
+pensás eso, va a venir otra que me hace el mismo trabajo mucho más rápido.
+Claro, pero va, entendí.
+Pero digo que esto es una discusión que tuve con amigos.
+Había uno que decía, yo no voy a usar la IA porque si no, voy a perder esa práctica.
+Pero en realidad, pensando en cabeza de empresa, viene uno que me lo hace en,
+uno que yo demoro, una semana, y otra persona me lo hace en cuatro horas.
+Y bueno, ya no me va a elegir, aunque yo ande volando, y en algún momento,
+el costo le va a pesar mucho más.
+Entonces, dentro del ámbito laboral, hay que hacerse amiga fuera también,
+pero no perder la costumbre de ir practicando, como un deporte.
+Como cuando practicas un deporte, los futbolistas que pasan meses sin jugar,
+después son un desastre, miren a Peñar lo que le pasa.
+Así que, está dentro.
+Sí.
+Lo que realmente me pasa ahora, es que tengo un dilema que a veces en problemas difíciles,
+que yo anteriormente podía resolver, o había disfrutado,
+ahora se me hacen imposibles en el momento de bloquearme al decir, la IA no pasa.
+Porque me pasa muchas veces que me encuentro con el limitante de que la IA simplemente
+no puede programar cosas que, bueno, mi tarea es hacerlo.
+Entonces, en ese momento yo pienso y digo, si yo hubiese programado esto,
+a mano, directamente, como lo he hecho siempre, básicamente,
+hubiese tardado 8 horas.
+Pero al intentar y bloquearme con la IA, una y otra y otra vez,
+intentando restringir el bronco para que quede bien,
+intentando cambiar las palabras, que entienda mejor,
+simplemente estoy frustrándome más y más, y entendiendo cada vez menos y menos.
+A veces la IA termina haciendo cambios inútiles en el código,
+y empieza a arruinar la code.
+Es bastante interesante.
+Por eso, también, de vuelta.
+Es importante formarse para que lo que yo voy a querer llevar a la IA se lleve bien.
+Que si le escribí cualquier cosa, va a ser cualquier.
+Muy bien, seguimos porque nos copamos con la charla.
+Muy bien.
+Vamos a ver estas definiciones ya que tenemos el libro en el libro mismo.
+Vamos a leer lo que es...
+Miren acá, lo que estamos viendo acá.
+Muchas veces me preguntan ahí si la PPT la subo en algún lado.
+No la subo porque en realidad está todo en el libro.
+Yo, o sea, saco de ahí para armarla.
+Básicamente es para llevar un flujo de la clase,
+y también, obviamente, hay cosas que se me pueden olvidar,
+y con tener la PPT la tengo armada, ¿está?
+Bueno.
+Antes de leer la definición, para ustedes,
+¿qué es sistema? ¿Qué es un sistema?
+Es algo que cumple una o muchas funciones
+usando diferentes partes o herramientas.
+Yo me consideraría que nuestro cuerpo es un sistema, por ejemplo,
+y una aplicación, una calculadora, es un sistema, también.
+Bien, ahora pensémoslo, más de nada, como un sistema en la computadora.
+Claro.
+Bien.
+Un entorno que cumple una función.
+Bien.
+¿Alguna más que les diga algo más?
+Un conjunto de funciones.
+En la duda de Zoom, si quieren hablar,
+se desmutean y hablan de una, ¿está?
+No hay problema.
+Bueno, vamos a ver la definición, ¿está?
+Ahí dice, hay varias definiciones de definición posible de sistema.
+Algunas de ellas tomadas en diccionarios indican que
+es un conjunto o ordenación de cosas relacionadas de tal manera
+que forman una unidad o un todo.
+Un conjunto de hechos, ¿sí?
+Principios, reglas, etcétera, ¿sí?
+Clasificadas y ordenadas de tal manera que muestran un plan lógico,
+una forma establecida de hacer algo, ¿sí?
+En computación tomaremos como definición de sistema
+conjunto u ordenación de elementos organizados para llevar a cabo algún método,
+procedimiento o control mediante el procesamiento de la información.
+¿Sí?
+Muy bien.
+Ahora, ¿qué es hardware?
+¿A nosotros o al...?
+La parte física.
+La parte física.
+Muy bien.
+Como por ejemplo...
+Tasha, mouse.
+Tasha, mouse.
+RAM.
+Sí.
+Todo duro.
+Mother.
+¿Sí?
+¿Y qué otro componente de un sistema de computación tenemos?
+Nada más de hardware.
+Software.
+El software.
+¿Qué sería el software?
+Program.
+Software.
+Sería intangible.
+Sería intangible.
+¿Verdad?
+Sí.
+Programas.
+Muy bien.
+El sistema operativo.
+¿Qué más?
+¿Qué más necesitamos para un sistema de información?
+Datos.
+¿Datos?
+Sí.
+Muy bien.
+¿Qué más?
+Una base de datos para guardar.
+Bien.
+Sí.
+Eso vendría a ser un...
+Podría ser un software.
+Sí.
+Podemos pensar...
+Vendría a ser un software.
+Sí.
+Que está...
+Tiene todo un diseño, etcétera.
+Muy bien.
+Impresionante.
+Muy bien.
+Muy bien.
+¿Qué precisamos?
+Muy bien.
+¿Qué...
+qué precisamos?
+Bueno, ahora la guía...
+permite...
+puede ser un poquito buena en algunas cosas, pero ¿qué necesitamos para hacer funcionar
+el sistema?
+Programar.
+Che create.
+¿Programar el código del sistema?
+Para eso necesitamos gente.
+Ok...
+пятera línea del3641.
+¿Sí?
+Necesitamos gente.
+Hay algo importante que a nadie le gusta hacer, pero es muy importante.
+Documentación.
+Documentación.
+¿Qué es importante?
+Necesita documentación.
+Buenos.
+Decágeste de menos.
+Muy bien.
+¿Qué necesitamos?
+procesamiento, donde se procese nuestro sistema. Entonces vamos a ver la definición rápida
+de hardware. Hardware refiere a todos los elementos físicos de una computadora, se
+incluye los discos, los circuitos, cables, tarjetas, monitores, teclado, mouse, etc.
+Todo lo físico. Se puede clasificar en hardware fundamental y accesorio. El fundamental es
+el imprescindible para que funcione la computadora, en general se refiere a monitor, unidad de
+proceso, teclado. Dentro del accesorio se podría incluir, por ejemplo, una cámara
+de video o una escala. También se puede clasificar como dispositivo de entrada, mouse, teclado
+o micrófono, de salida, impresora, monitor o entrada, salida, pendrive, disco duro, etc.
+Software. Comprende los principales.
+Los programas. Un programa puede ser de uso general, como un procesador de texto, o una
+planilla electrónica, o de uso específico, por ejemplo, un sistema de cálculo de sueldo.
+Otra clasificación lo divide en software de base, incluye lo necesario para que funcione
+el hardware, y software de aplicación.
+Programa. ¿Qué es programa? Es el arte de dar comandos a algo que puede ser ejecutado
+después. Se puede especificar de diferentes formas, botones, mapa, lista.
+Un comando es una orden para algo o alguien para realizar determinada acción. Puede ser,
+por ejemplo, oral, por ejemplo, le digo a ella, levantar.
+¿Sí? O lo que nos decía nuestro padre, ¿no? Todo lo que nos manda nuestro padre.
+Cuando alguna señora cumplía las órdenes, bueno, con nuestro padre podría pasar algo
+más complejo, ¿sí? Pero en otra, diferente.
+Manual, ¿sí? Sería la acción de darle clic. Le estoy dando una orden.
+Bueno, diseñar es el acto de organizar los comandos, así como un novelista, probablemente
+antes de escribir un libro, estructure sobre qué temas trata, y o elabore un índice.
+No siempre pasa. Pero bueno. En forma similar, antes de programar, se diseña.
+Se hacen los planos del software. ¿Sí? En general, muchos van a ver que van y se estiran a programar.
+Muy buena práctica, antes de armar un diseño. ¿Sí? Eso lo van a ver luego en lo que sería
+ingeniería de software. ¿No?
+¿Y ahí entra el requerimiento del software también?
+Bueno, ahí también es parte de ese sí. ¿No? Ahora, ¿qué es la ingeniería del software?
+Ah, ahí está.
+¿Puedo comentar? ¿Puede ser el proceso de pensar las partes y el problema que tiene
+que solucionar para una especie de estrategia? ¿Cómo el sistema va a resolver esos problemas?
+y cómo el sistema va a resolver
+eso. Bien, ahí.
+Bien, va por ahí, hay más
+cosas. No, pero sí, obvio, es
+por ahí. Pero vamos a ver.
+Es la aplicación de un enfoque
+sistemático, disciplinado
+y cuantificable
+hacia el desarrollo,
+operación y mantenimiento del software.
+¿Sí? Van a tener
+materia de ingeniería de software, o sea que
+no es algo así nomás.
+Sí, sí.
+Está muy bien estudiado.
+¿Está? Y nuestros
+programas van a tener un ciclo
+de vida. ¿Está?
+Básicamente tiene algunos
+cambios a veces, depende de
+qué ingeniería se utilice.
+Sería de esta forma, ¿sí?
+Durante el análisis o especificación
+de requerimientos, ¿sí?
+Es la primera etapa.
+Se trata de determinar
+cuáles cosas
+deben terminar claramente
+cuáles son los requisitos que
+deben satisfacer el sistema.
+¿Qué características deben tener?
+Ahí se va. Van a haber un montón de reuniones
+con los...
+el cliente, a ver, qué es lo que quiere.
+El cliente nunca sabe lo que quiere,
+o sea, es muy difícil
+entenderlo o llegar a algo.
+Ah, pero se termina
+llegando a ciertos puntos
+de requerimiento, donde lo ideal
+es que se firme, para que después no me diga
+ah, es...
+esto no estaba
+o te falta esto.
+¿Qué es lo que te falta?
+¿Qué es lo que te falta?
+Eso lo van a ir aprendiendo, ¿no?
+Y luego
+pasamos a la etapa de diseño, ¿sí?
+Donde se va a realizar
+los planos del sistema, ¿sí?
+Teniendo los requerimientos
+se va a hacer un diseño de lo que
+se quiere o cómo lo vamos a
+implementar, ¿no?
+Y luego pasamos a la etapa
+de implementación, ¿sí?
+Que es desarrollar
+efectivamente el software, ¿no?
+Se empieza a escribir los programas.
+Bien. Una vez que
+ya vamos a implementar,
+se pasa a la etapa
+de prueba, ¿no?
+Durante la prueba se trata de eliminar
+los errores.
+¿Sí?
+En medida que no hay
+sistemas...
+que existen sistemas sin errores,
+está muy equivocado, ¿no?
+Siempre va a haber errores.
+Siempre va a haber el ejemplo,
+estaba haciendo una de las materias
+de la carrera, ¿no?
+Y hice todo el programa,
+me andaba hermoso, divino, ¿sí?
+Y mi pareja,
+mi señora en ese momento
+era mi novia,
+le digo, mirá,
+tomá, tenés que probarlo. En el domingo
+ya me lo rompió. ¿A qué pasa?
+A veces estamos sesgados
+a lo que nosotros ya sabemos que funciona,
+cómo lo programamos. Entonces es muy
+importante que otro...
+Por eso también existe
+WA, existe...
+Que no estén sesgados por lo que...
+que se programó, ¿sí?
+Entonces puedan probar
+a alguien de afuera, ¿no?
+Antes de llegar al usuario. O sea,
+lo ideal es que...
+Minimizar los errores antes que llegue a probar el usuario.
+¿No?
+Bueno, además tenemos dos tipos de pruebas, ¿sí?
+Tenemos la alfa y beta, ¿sí?
+La prueba alfa habitualmente se hace dentro
+del equipo de desarrollo, ¿sí?
+Otro programador
+verifica los programas, ¿no?
+Y las pruebas
+denominadas beta, ¿sí?
+Serían... Se pide colaboración
+al cliente. En general
+primero hacemos la alfa
+y cuando vamos a la beta ya tenemos algo
+medianamente
+estable, ¿sí?
+En general se les
+entrega de forma
+adelantada, ¿sí?
+El software, ¿sí?
+A cambio de que colaboren
+en su verificación.
+En general,
+o sea, lo que hace bien
+en día, que ya se llamaría ingeniería
+de sofá ágil, etcétera, lo que se hace
+es repetir el flujo.
+Todavía me falta el mantenimiento, que ahora lo explico.
+Pero es repetir, ¿sí?
+Varias veces. O sea, los requerimientos
+se eligen uno, por ejemplo,
+se eligen unos cuantos,
+pasamos a diseñar
+para esos requerimientos, implementarlo,
+probarlo,
+y entra el mantenimiento.
+Y ahí llegamos a un
+prototipo,
+digamos, a una versión
+y se la liberamos al cliente.
+Seguimos, pasamos de vuelta
+a elegir otros requerimientos, empezar todo el ciclo
+de nuevo, mientras el cliente
+va probando, ¿sí? Y si
+en las pruebas del cliente vienen errores,
+¿sí? Se agregan
+como requerimientos nuevos, o requerimientos
+se llaman de otro tipo, ¿sí?
+Muy bien.
+Después, durante el mantenimiento, se hacen los ajustes
+del software debido a errores no detectados
+antes, cambios en la
+realidad, por ejemplo, creación de un nuevo impuesto,
+sobre la facturación,
+y o aplicación
+en el sistema digital.
+No solo es que en el mantenimiento se van a arreglar
+cosas, sino es que pueden venir cosas
+nuevas, ¿sí?
+De verdad,
+siempre nuestros sistemas empiezan
+en este sistema.
+Además, ¿no?
+Que en otro tipo de software,
+no sé, por ejemplo,
+Instagram,
+los que lo usan, las redes sociales,
+¿cuándo está cambiando?
+¿Es siempre lo mismo o cambia?
+¿O es que se cambia constantemente?
+Eso es porque la idea es que
+el usuario nos aburra.
+Entonces, buscar esos
+cambios por último.
+Muy bien.
+Bueno, y al
+hablar de implementación,
+vamos a necesitar
+un lenguaje de programación.
+Y vamos a hablar
+de...
+Lenguaje de...
+A ver. Nosotros...
+Vamos a ver. ¿Cómo...
+Funciona la computadora?
+¿Cómo se va realmente a hablar
+por la computadora? No es con
+el texto
+fácil para intentar nosotros.
+¿Sí? Sino que
+se va a hablar en lenguaje
+de máquina. ¿Sí?
+¿Qué es lenguaje de máquina?
+Un conjunto de ceros y uno.
+¿Va? Que diferentes
+ceros y uno, la combinación, va a ser
+diferentes indicaciones.
+¿Va? ¿Saben lo que significa el cero y el uno?
+Los bits.
+Los bits, pero además, más abajo.
+Más abajo.
+Más abajo.
+Pasa corriente.
+Pasa corriente, no pasa corriente.
+Es eso.
+¿Sí? En combinación de circuitos,
+eso empiezan... Fueron
+combinándolo y
+empezaron a
+estar los cómics.
+Entonces, lo que les diría.
+Inicialmente los programas escribían en lenguaje de máquina.
+Imagínense escribir un
+programa. ¿Sí?
+Todo con unos y ceros.
+Se van a hacer con unas planillas esas que tienes que agujerearlas.
+Eso.
+Este lenguaje es una combinación de
+ceros y uno, como les decía. Cero
+representa que no hay corriente, uno que sí hay
+corriente. ¿No?
+Y sirvió para mostrar que era
+posible
+escribir programas.
+Pero el nivel de abstracción, digamos,
+de cada instrucción, es muy
+bajo. ¿Sí?
+¿A qué me refiero?
+Básicamente,
+una combinación de ceros y uno va a ser
+un
+comando.
+Digamos que es muy
+lineal. Es uno a uno.
+Que, por ejemplo,
+el típico Hola Mundo,
+que escriba Hola Mundo,
+en realidad son muchas combinaciones
+de esos
+comandos de ceros y uno.
+¿Sí? Imagínense
+escribir eso. No sé si entra acá.
+¿No?
+Entonces, por esta razón,
+aquí surgió
+un lenguaje con un nivel más,
+un poquito más de abstracción,
+a ver si lo conocen,
+llamado, o de tipo
+assembler.
+Donde una sentencia escrita en
+assembler
+corresponde a una instrucción
+en lenguaje
+de maíz. Sigue siendo
+uno a uno. Pero acá,
+esa
+instrucción, ya la
+escribo, por ejemplo ahí lo que están viendo
+un poquito más, no es tanto assembler,
+pero ahí el sum uno
+total.
+¿Sí? Que
+va a ser un poquito,
+lo voy a entender un poquito más,
+digamos,
+más fácil de leer.
+¿No? Pero
+como la máquina sigue siendo,
+o sea, la máquina hasta el día de hoy,
+lo único que entiende es el lenguaje
+de ceros y uno.
+Entonces fue necesario que
+aparezca algo que me traduzca
+ese código en assembler,
+¿sí? Traducirlo
+a el lenguaje de maíz.
+Este proceso de traducir
+de assembler a lenguaje de máquina
+se realiza por un programa llamado
+ensamblador.
+¿Sí?
+¿Qué es lo que hace el ensamblador?
+Agarra assembler y lo traduce
+uno a uno al lenguaje de maíz.
+¿Sí?
+Assemble el lenguaje de maíz
+a los dos
+se denomina de bajo nivel de abstracción.
+¿Sí? Porque
+si bien está assembler que lo escribo
+con alguna letra,
+no solo sería uno, sigue siendo
+uno.
+Entonces,
+posteriormente surgieron
+los lenguajes de alto nivel de abstracción.
+¿Sí? Con lo cual
+una sentencia
+va a representar muchas sentencias
+del lenguaje de máquina.
+Por ejemplo,
+si hacemos hora del mundo
+ese print que estamos escribiendo
+es muchas sentencias de
+de
+de lenguaje de máquina.
+Sigue siendo necesario traducirlo.
+¿Sí? Escribo mi código
+lo que ustedes van a estar escribiendo
+hay algo que lo tienen que seguir
+traduciendo.
+Existen dos formas.
+Compilar e interpretar.
+Los lenguajes compilados
+el compilador toma
+el programa
+lo traduce a un lenguaje
+al lenguaje de máquina y luego
+le dice ejecutar.
+Todo esto. Pero básicamente agarra
+todo el código
+de mi lenguaje
+de alto nivel, la abstracción,
+lo traduce todo al lenguaje de máquina
+y después se lo da a la máquina a tomar, ejecutar.
+¿No? El intérprete
+hace diferente.
+Si uno que va a ir línea por línea
+de mi código, agarra una línea
+lo traduce al lenguaje de máquina
+le pide que ejecute.
+Va a la siguiente línea, traduce
+se le dice a la máquina que lo ejecute
+así hasta terminar.
+¿Sí? Ahí tienen
+un ejemplo de esto.
+Tengo la sentencia de alto nivel
+sum 1 tu total.
+Va a estar el compilador o el intérprete
+que lo traduce y se lo da
+a la máquina para que lo funcione.
+¿Está? Bueno.
+¿Qué lenguajes? Ya me han nombrado varios.
+¿Qué lenguajes conocen?
+Python. Python.
+C, C sharp.
+C, C sharp.
+Pascal también existe.
+Pascal.
+Bien.
+Gobo eligieron.
+Gobo.
+Ahí tenemos
+varios.
+Grip.
+Ah, ahí les pongo
+varios.
+Assembler.
+Fortran. Cobol. Visual Basic.
+Model tag. Pascal.
+C, C++. Delphi. Java.
+JavaScript. Python.
+Esta módula.
+Hay un montón.
+¿Sí?
+Ahí está.
+Y existe
+un índice
+que se llama
+IOB
+que dice cómo va
+en popularidad y uso de los lenguajes.
+¿Sí?
+Entonces, por ejemplo, hoy en día
+el que hace
+varios años que sigue
+igual, el que más
+está utilizando es Python. Más que nada
+porque ahora toda la inteligencia artificial
+y machine learning está en Python.
+¿Sí? Después C.
+C++. Java. C sharp.
+JavaScript. Para que vean que
+JavaScript está entre los pies.
+Este.
+Entre los idiomas usados. Visual Basic.
+SQL. R.
+¿No? Y acá tienen todos.
+Fíjense. Per.
+Estaba en el puesto 24. Pasó al 11.
+¿No?
+Esto porque hicieron una actualización.
+Per. Hace poco.
+Scratch.
+¿No?
+Bueno.
+Acá tienen un montón. Acá están los
+20.
+¿No? Si les interesa
+verlo. ¿Sí? Se llama
+TOYBETEINTS.
+Muy bien. Bueno.
+Vamos a. ¿Qué nos queda?
+Nos queda unos minutos. Todavía nos queda.
+Vamos a empezar
+viendo el video 2.
+De la materia.
+Voy a dejar de compartir
+y volver a compartir porque creo que no compartí
+el audio. Para la gente
+de Zoom. Pero me avisen
+por favor.
+Que
+si no se escucha.
+Todo lo que recién veo.
+Si hacemos más.
+Una consulta. El tema de los puntos para la aprobación
+está.
+Si ustedes entran en gestión. Se ve.
+Pero ahora igual.
+Si no suele.
+¿No?
+Bueno. Y aquí va a estar.
+No se pasa eso.
+Muy bien.
+Vamos a temas.
+Videos de temas teóricos.
+Vamos con el
+segundo de pensamiento computación.
+¿No?
+Avísenme si se escucha por el Zoom por favor.
+Trabajaremos con
+conceptos vinculados al
+pensamiento computacional.
+Primero veremos unos ejemplos
+y luego definiremos qué es
+pensamiento computacional.
+Queremos salir con amigos.
+Cuando preparamos la salida pensamos
+¿Qué podemos hacer? ¿Qué opciones hay?
+¿Dónde podemos ir?
+¿Qué hicimos otras veces?
+¿Cuánto dinero tenemos disponible?
+¿Y cuánto nos cuestan las diferentes alternativas?
+Seguramente consideraremos
+también otros factores tales
+como si hará frío o calor
+y hasta cuánto tiempo tenemos.
+Luego organizamos efectivamente
+la salida combinando la hora,
+lugar y demás detalles.
+Veamos otro ejemplo.
+Otro ejemplo.
+Nuestra lámpara de mesa
+no funciona. ¿Qué hacemos?
+Analizamos posibles
+causas. Verificamos si está enchufada,
+si la lámpara se quemó,
+si el enchufe está bien,
+si hay corriente, entre otras.
+En función de la situación, vemos
+qué curso de acción tomar.
+Por ejemplo, si está quemada
+buscamos en casa si hay un repuesto
+y si no lo hay, vamos al supermercado
+a comprar uno. ¿Qué tienen en común
+estos dos casos? En ambos
+descompusimos el problema
+en problemas más pequeños.
+¿Dónde iremos y cuánto cuesta en el primer
+ejemplo? ¿Y cuál es la causa
+de que no aprenda en el segundo?
+Tomamos sólo lo importante.
+Por ejemplo, no nos preocupamos en este
+momento si, en caso de tener
+que tomar un ómnibus para la salida,
+lo pagaremos con billetes, moneda
+o tarjeta. Tuvimos en cuenta
+el conocimiento de situaciones
+anteriores similares. Por ejemplo,
+recordamos otras salidas previas
+y tomamos ideas de ahí.
+Y organizamos un plan paso a paso.
+Por ejemplo, para cambiar
+la lámpara, si me falta
+el repuesto, ir al supermercado
+a comprar uno. O sea, el pensamiento
+computacional refiere
+a tomar un problema complejo
+y dividirlo en problemas más pequeños
+y manejables. Es lo que se llama
+descomposición.
+Cada uno de ellos puede ser analizado
+en forma individual
+considerando cómo se han resuelto
+problemas similares anteriormente.
+Esto se denomina reconocimiento
+de patrones. Se trata
+también de concentrarse en
+los hechos y datos importantes,
+ignorando lo irrelevante.
+Esta es la noción de abstracción.
+Luego, se puede
+diseñar un conjunto de pasos
+para resolver cada uno de esos problemas
+más pequeños, o sea,
+diseñar él o los algoritmos.
+Entonces, el pensamiento computacional
+es un proceso de resolución
+de problemas que tiene,
+entre otras, las características de
+formular problemas
+de forma que permitan el uso de una computadora
+y otras herramientas para ayudar
+en su resolución, organizar
+y analizar lógicamente datos,
+automatizar soluciones
+a través del pensamiento algorítmico
+como una serie ordenada de pasos,
+representar datos a través
+de abstracciones como modelos
+o simulaciones,
+identificar, analizar
+e implementar posibles soluciones
+para alcanzar la más efectiva
+y eficiente combinación de pasos
+y recursos, y generalizar
+y transferir este proceso
+de resolución a una amplia variedad
+de problemas. También,
+el pensamiento computacional está
+relacionado con habilidades o competencias
+tales como la confianza
+en el manejo de la complejidad,
+la persistencia en el trabajo
+con problemas difíciles,
+la tolerancia a gestionar problemas
+abiertos y la habilidad
+para comunicar y trabajar con
+otras personas para alcanzar una
+solución o meta.
+El pensamiento crítico y las habilidades
+de resolución de problemas son
+competencias esenciales que las
+personas requieren para desempeñarse
+en ambientes complejos como los actuales.
+Veremos más ejemplos de
+todos estos conceptos en la vida real,
+como ejemplos de abstracción,
+podemos citar un horario de clases
+o un mapa de geografía.
+Son ejemplos de descomposición
+el ordenar la habitación de un adolescente.
+¿Por dónde empezar?
+u organizar un recorrido turístico
+por una ciudad. ¿Qué ver?
+Como ejemplos de reconocimiento
+de patrones tenemos
+sumar los números de 1 a 200
+cuando observamos el patrón
+es fácil calcular su suma.
+Otro caso de reconocimiento de patrones
+lo tenemos en Netflix o Youtube.
+¿Cómo me ofrecen nuevas series
+o películas?
+En función de lo que habitualmente miramos
+descubre patrones que le permiten
+recomendar o no ciertos materiales.
+Ahora veamos unos ejemplos
+de algoritmos. Uno de ellos
+es hacer un licuado. Consiste
+en pelar la fruta, ponerla
+en la licuadora, agregar leche,
+poner la tapa, prender
+dos minutos, apagar
+y servir. Otro refiere a un problema
+que probablemente muchos de nosotros
+compartamos. Tenemos muchas contraseñas
+la de Twitter, la de Facebook,
+la de Instagram y más.
+¿Cómo hago para acordarme de todas
+y no usar la misma?
+Es un tema de mucha importancia
+porque se trata que sean seguras.
+Podría usar contraseñas aleatorias
+pero son muy difíciles de recordar.
+Una solución usar un algoritmo.
+Como comentamos
+un algoritmo es una secuencia ordenada
+y paso a paso de instrucciones
+para resolver un problema.
+Para este caso el algoritmo podría ser
+dar vuelta el nombre del sitio
+por ejemplo el de Twitter.
+Cada letra que doy vuelta si es vocal
+la cambio por su número, considerando
+para la A el 1, para la E el 2,
+para la I el 3,
+para la O el 4 y para la U el 5.
+Y le agrego al final
+el largo, aquí 7.
+Queda como vemos en pantalla.
+¿Cómo sería para Facebook?
+De la misma forma, voy dando vuelta
+cada letra, prestando atención
+si es vocal y agrego el largo.
+Resuelto. En resumen
+pensamiento computacional trata
+de abstracción, concentrarse
+en lo fundamental, ignorando lo
+irrelevante, descomposición
+partir los datos
+procesos o problemas en partes
+más pequeñas y manejables
+reconocimiento de patrones
+encontrar patrones o regularidades
+para poder generalizar
+y diseño de algoritmos, conjunto
+de instrucciones, paso a paso
+para resolver problemas.
+Mona. ¿Viste el QLQ que Carlos tiene?
+¿Qué tiene?
+Que es tía de mi tía.
+Me llamó mucho la atención.
+Es la catedrática de él.
+Muy bien.
+Esto lo vamos a seguir la clase que viene.
+Vamos a abordar estos
+todos estos que vimos recién
+en el video.
+Les voy a mostrar que les debería
+las notas de cada
+de cada
+instancia.
+Este
+tiene un
+máximo de 15 puntos
+y un mínimo de 0. Ahora les explico lo de los mínimos.
+El
+primer obligatorio tiene
+un máximo de 10
+y un mínimo de 0.
+Segundo obligatorio tiene un máximo de 35
+y un mínimo de 18.
+El mínimo
+quiere decir que si no llegan a este
+mínimo, ya pierden la materia.
+Además
+acuérdense que el segundo obligatorio
+tiene una defensa.
+La defensa no es que suma puntos, sino que
+puede restarles puntos en el obligatorio.
+¿Cuánto se puede restar?
+Dependiendo de cada caso.
+Siempre
+se junta
+con la corrección del segundo parcial,
+el cierre de todas las notas.
+Ahí se ve como le fue a todo
+el grupo y en otros grupos
+vemos cuál es la
+de los términos. Pero pueden llegar
+a perder todos los puntos. Por ejemplo,
+creo que no se presentaron en la defensa.
+Hizo obligatorio.
+Bien, y el segundo parcial
+tiene un máximo de 40
+y un mínimo de 20.
+Muy bien.
+Y ya para que no se aburran
+ya los libero con
+deberes.
+Les voy a pedir que vean
+el video 3
+para la clase que viene.
+Repas, si quieren vuelven a ver el video 2
+y el video 3
+veanlo para la clase.
+Nos vemos en miércoles.
+Nos vemos en miércoles.
+Nos vemos.
+Chao, gracias.
+Chao.
+Profe, una consulta.
+Sí, claro.
+Porque yo en realidad
+los lunes se me complica por el trabajo.
+Yo estuve pendiente de la clase, pero
+estoy trabajando porque soy profe
+y recién ahora también en la clase.
+Por eso no pude estar
+mucho en la clase.
+Pero...
+Pero está. Intenté mezclar
+un poquito.
+No hay problema.
+Después de las grabaciones
+cuando las vea, si se tenga dudas
+Ya, porque
+me va a pasar medio que todos los lunes, entonces
+va a ser como medio un caos, en ese sentido.
+No hay problema.
+Vale, impecable. Gracias.
+¿Las 4 de noviembre serían mañanas?
+¿El informatorio?

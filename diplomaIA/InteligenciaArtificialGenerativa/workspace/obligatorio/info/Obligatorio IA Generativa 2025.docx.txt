@@ -1,0 +1,170 @@
+Facultad de Ingeniería
+Bernard Wand-Polak
+Cuareim 1451
+11.100 Montevideo, Uruguay
+Tel. 2902 15 05 Fax 2908 13 70
+www.ort.edu.uy
+
+EVALUACIÓN
+
+Obligatorio
+
+MATERIA
+
+Inteligencia Artificial Generativa
+
+CARRERA
+CONDICIONES
+
+Diploma de especialización en Inteligencia Artificial
+
+GRUPO
+
+Nocturno
+
+FECHA
+
+08/12/2025
+
+- Puntaje máximo: 40 puntos
+- Puntaje mínimo: 1 puntos
+- Fecha de entrega: 8/12/2025 hasta las 21:00 horas en gestion.ort.edu.uy (max. 40Mb en
+formato zip, rar o pdf)
+Uso de material de apoyo y/o consulta
+Inteligencia Artificial Generativa
+-​
+-​
+-​
+-​
+
+-​
+
+Seguir las pautas de los docentes: Se deben seguir las instrucciones específicas de los
+docentes sobre cómo utilizar la IA en cada curso.
+Citar correctamente las fuentes y usos de IA: Siempre que se utilice una herramienta de IA para
+generar contenido, se debe citar adecuadamente la fuente y la forma en que se utilizó.
+Verificar el contenido generado por la IA: No todo el contenido generado por la IA es correcto o
+preciso. Es esencial que los estudiantes verifiquen la información antes de usarla.
+Ser responsables con el uso de la IA: Conocer los riesgos y desafíos, como la creación de
+“alucinaciones”, los peligros para la privacidad, las cuestiones de propiedad intelectual, los
+sesgos inherentes y la producción de contenido falso
+En caso de existir dudas sobre la autoría, plagio o uso no atribuido de IAG, el docente tendrá la
+opción de convocar al equipo de obligatorio a una defensa específica e individual sobre el tema
+
+IMPORTANTE:
+1) Inscribirse
+2) Formar grupos de hasta 3 personas del mismo dictado
+3) Subir el trabajo a Gestión antes de la hora indicada (ver hoja al final del documento:
+“RECORDATORIO”)
+Aquellos de ustedes que presenten alguna dificultad con su inscripción o tengan inconvenientes técnicos,
+por favor contactarse con el Coordinador de cursos o Coordinación adjunta antes de las 20:00h del día
+de la entrega, a través de los mails crosa@ort.edu.uy / posada_l@ort.edu.uy (matutino) /
+larrosa@ort.edu.uy (nocturno), o vía Ms Teams.
+
+Página 1 de 3
+
+Computación - Electrónica - Telecomunicaciones - Sistemas de Información
+
+Facultad de Ingeniería
+Bernard Wand-Polak
+Cuareim 1451
+11.100 Montevideo, Uruguay
+Tel. 2902 15 05 Fax 2908 13 70
+www.ort.edu.uy
+
+Letra
+El objetivo de esta tarea es el de implementar una técnica de IAG de su interés.
+Para ello se definen una serie de temáticas posibles a abordar. La selección de
+la temática, si bien es libre, debe ser previamente acordada con los docentes a
+fin de tener un alcance adecuado.
+Temas posibles*:
+●​ Image captioning
+●​ Uso de LLMs
+●​ Variantes de GANs (ej: Conditional GANs)
+●​ Variantes de VAEs
+●​ Audio generation
+*Estos temas son una guía y es posible proponer otro, el cual debe ser validado
+con los docentes.
+Los dos ejes centrales de la tarea son:
+1.​ Comprender una técnica nueva no presentada por los docentes, siendo
+capaces de explicarla oralmente frente a pares.
+2.​ Desarrollar un prototipo funcional en un caso acotado.
+Entregables:
+-​ Los días 11/11 y 18/11 se desarrollarán talleres expositivos, de naturaleza
+preferentemente presencial. Donde los estudiantes presentarán su tema,
+darán una introducción teórica y justificarán el interés de su trabajo frente
+a compañeros. La presentación no puede exceder los 10 minutos.​
+-​ El 8/12 se realizará la entrega final a través de gestión. Que debe incluir
+un informe y código prototipo.
+
+Página 2 de 3
+
+Computación - Electrónica - Telecomunicaciones - Sistemas de Información
+
+Facultad de Ingeniería
+Bernard Wand-Polak
+Cuareim 1451
+11.100 Montevideo, Uruguay
+Tel. 2902 15 05 Fax 2908 13 70
+www.ort.edu.uy
+
+RECORDATORIO: IMPORTANTE PARA LA ENTREGA
+Obligatorios
+
+●​
+
+La entrega de los obligatorios será en formato digital online, a excepción de algunas materias que se entregarán en Bedelía
+y en ese caso recibirá información específica en el dictado de la misma.
+Los principales aspectos a destacar sobre la entrega online de obligatorios son:
+1.​
+
+Ingresá al sistema de Gestión.
+
+2.​
+En el menú, seleccioná el ítem “Evaluaciones” y la instancia de evaluación correspondiente, que figura bajo el
+título “Inscripto”.
+3.​
+
+Para iniciar la entrega hacé clic en el ícono:
+
+4.​
+Ingresá el número de estudiante de cada uno de los integrantes y hacé clic en “Agregar”. El sistema confirmará
+que los integrantes estén inscriptos al obligatorio y, de ser así, mostrará el nombre y la fotografía de cada uno de ellos.
+Una vez agregados todos los integrantes, hacé clic en “Crear equipo”.
+Cualquier integrante podrá:
+• Modificar la integración del equipo.
+• Subir el archivo de la entrega.
+5.​
+Seleccioná el archivo que deseás entregar. Verificá el nombre del archivo que aparecerá en la pantalla y hacé
+clic en “Subir” para iniciar la entrega. Cada equipo (hasta 2 estudiantes) debe entregar un único archivo en formato
+zip o rar (los documentos de texto deben ser pdf, y deben ir dentro del zip o rar). El archivo a subir debe tener un
+tamaño máximo de 40mb
+Cuando el archivo quede subido, se mostrará el nombre generado por el sistema (1), el tamaño y la fecha en que
+fue subido.
+6.​
+El sistema enviará un e-mail a todos los integrantes del equipo informando los detalles del archivo entregado y
+confirmando que la entrega fue realizada correctamente.
+7.​
+
+Podés cerrar la pestaña de entrega y continuar utilizando Gestión o salir del sistema.
+
+8.​
+
+La hora tope para subir el archivo será las 21:00 del día fijado para la entrega.
+
+9.​
+etc).
+
+La entrega se podrá realizar desde cualquier lugar (ej. hogar del estudiante, laboratorios de la Universidad,
+
+10.​
+Aquellos de ustedes que presenten alguna dificultad con su inscripción o tengan inconvenientes técnicos, por
+favor contactarse con el Coordinador de cursos o Coordinación adjunta antes de las 20:00h del día de la entrega, a
+través de los mails crosa@ort.edu.uy / posada_l@ort.edu.uy (matutino) / larrosa@ort.edu.uy (nocturno), o vía Ms
+Teams.
+
+Página 3 de 3
+
+Computación - Electrónica - Telecomunicaciones - Sistemas de Información
+
+

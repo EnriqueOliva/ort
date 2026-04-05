@@ -1,0 +1,26 @@
+Today's task is to complete the notebook C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\practico2\Practico2.ipynb following standard practices from this course.
+
+TASKS:
+
+1. Analyze C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\PRACTICOS_GUIDE.md.
+2. Analyze C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\practico2\Practico2.ipynb AND C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\practico2\tennis.csv
+3. Analyze C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory\3-02-09-2025\3-02-09-2025.txt or whichever class transcript where the practico's topic was explained at, to understand what the teachers said about this notebook.
+4. Analyze the notebook successfully completed, in folder C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\practico7\practico7_eo214205.ipynb. Compare the empty notebook with its completed version, and take note of the way in which the task was performed. You will need to imitate this.
+5. Create a duplicate of C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\practico2\Practico2.ipynb in its location, call the duplicate "toComplete.ipynb" and from now on modify only this file.
+6. Analyze C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\workspace\practicos\NOTEBOOK_TOOL_LIMITATIONS.md.
+7. Complete the notebook, both the answers in markdown cells and the code in code cells, with everything that does not require analyzing results / running the notebook.
+8. Analyze the notebook, the questions to be answered, and tell me where should I add cells, and which type of cells (markdown or code) so that all the necessary experiments demanded by the notebook can be ran sequentially. The idea is that I can simply hit "Run All" and all experiments in all their variations will be executed sequentially, so I have all the results I need in one go.
+9. I will tell you when I create these cells. Once I do, complete them with the code necessary for the multiple experiments if any.
+10. I will run the notebook, and when I tell you, you analyze the notebook again to complete the remaining answers not previously completed.
+
+
+
+GUIDELINES:
+
+- Do not add any comment in the code.
+- Use spanish for all the prints, logs etc. Use English for the code itself (variable names, etc.) as per industry standard.
+- When writing answers to questions, be extremely brief. Use Spanish. Imitate the natural language of students and teachers observed in the transcripts of the classes, in folder C:\Users\Enrique\Documents\2doSemestre\InteligenciaArtificialGenerativa\theory. Do not give advanced explanations since we are supposed to be beginner students.
+- Do not use any bold formatting (**example**).
+- Make all the images/graphs that are generated in all the experiments be saved in a folder inside this practico's folder in image format, this way I can later tell you to analyze them.
+
+Ultrathink.
