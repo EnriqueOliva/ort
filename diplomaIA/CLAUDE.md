@@ -1,9 +1,5 @@
-- Explica de la manera más sencilla posible.
+# Diploma en Inteligencia Artificial — Completado (2025)
 
-- Explica ÚNICAMENTE los temas dados en la clase, en la transcripción.
+Material de referencia. No se genera contenido nuevo salvo consultas puntuales.
 
-- Usa todos los archivos relevantes, nombrados con esa fecha.
-
-- No entiendo nada de esto porque vengo de otra disciplina, así que explica hasta lo más básico.
-
-- Es fundamental que de cada tema que te pido estudiar, tu respuesta me permita saber todo lo que dictó el profesor acerca de ese tema.
+Cursos: Inteligencia Artificial Generativa (Prof. Fran), Modelos de Deep Learning (Prof. Matias Carrasco), Taller de Deep Learning (Prof. Jo Vina).

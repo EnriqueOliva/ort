@@ -1,0 +1,10 @@
+{
+  "name": "ort-print",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "katex": "^0.16.21",
+    "md-to-pdf": "^5.2.5"
+  }
+}
