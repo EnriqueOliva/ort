@@ -86,13 +86,17 @@ mlruns/
 **/myResearch/workingImplementations/
 
 # ==============================================================================
-# Large media (class recordings — too large for git)
+# Large media (raw class recordings — too large for git)
 # ==============================================================================
 *.mp4
 *.avi
 *.mkv
 *.mov
 *.webm
+
+# Allow compressed class videos (<95MB parts) in project
+!**/clasesVideos/**/*.mp4
+!**/classes/**/*.mp4
 
 # ==============================================================================
 # Log files
