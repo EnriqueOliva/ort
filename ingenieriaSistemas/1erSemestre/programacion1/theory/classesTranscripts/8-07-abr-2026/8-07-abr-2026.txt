@@ -1,0 +1,280 @@
+Transcript generated automatically. Some words may be inaccurate.
+Source: FI-1479-Programación 1-75965-P1 N1A ID | 07-04-2026
+URL: https://vimeo.com/showcase/12151817
+Date: 2026-04-08
+
+[00:00:09] Buenas tardes  ¿Me escuchan?
+
+[00:00:36] Joaquín, buenas tardes  ¿Se escucha?
+
+[00:00:50] Ok, gracias por el feedback  Sí, claro  Ya vamos aprendiendo todo  Facundo, buenas tardes  ¿Qué tal?  ...  Acá venimos del práctico 4  Es un práctico de consola  Facundo, Joaquín, ¿me escuchan?
+[00:09:50] Está muy silencioso, ¿tienen micro por lo menos?
+[00:09:54] Para darme feedback  Hola profe, se escucha bien  Gracias  ¿Cómo?  No, el de abajo, el de abajo es práctico  Sí  Benjamín, ¿verdad? Que me habló recién  Correcto  Bien, gracias  Vamos arriba  Facundo, Mateo  Ahora se sumó Mateo  Brian  ¿Cómo es tu nombre?  Emanuel  Emanuel, tenemos a Emanuel acá  Esencial  Vayamos abriendo el práctico  El práctico 4  Ok, que es el que vamos a trabajar hoy  La consola  La consola, mirá  Ahora lo muestro para todos  Pero  ¿Se acuerdan de lo que estamos en casa?  ¿Cómo se abría la consola?
+[00:11:47] ¿O más o menos?  No, no, no  Bien, lo repasamos  Adelante  ¿Está lloviendo?
+[00:12:36] Bueno, bien, mirá  Mauri está llegando  Voy a sufrir a Oliver  Hoy, no podía venir  Pero solamente por hoy  Lo que estamos en casa  Están viendo en mi pantalla  Sí  Perfecto  Facundo, Leonardo  Bien  Vamos a recordar acá  Cómo hacíamos para abrir la consola  Agarramos una nueva pestaña  Ok  De Chrome o de cualquier configurador  Poníamos  About blank  Sí, about  Buenas  Mauri  Estamos repasando cómo abrir una consola  Porque no se acordaban  Pasando  Sí, about  Dos puntos blancos  Y acá, ¿os acuerdan  La ruta? Perdón  ¿Os acuerdan la combinación que es control shift  Y?
+[00:14:04] O si no van  Directamente acá a las herramientas  Herramientas  Del desarrollador  ¿Ok?  Y acá tenemos  La consolita  Bien  Entre una de las pestañas tenemos la consulta  ¿Llegaron todos?  ¿Ahí, Juanín?  ¿Benjamín? ¿Brian?  ¿Sí?
+[00:14:30] Ok  Mauri, vos sos el líder acá  ¿Propuesta? ¿Practico 4?  Sí, en realidad  Ahí para que comparto un cachito  Dale  Les comparto el miro, chicos, un ratito  Ahí  Bueno, sí, en realidad sí, exactamente  como decía Seba, es el práctico 4  la idea que en vez de  venir acá y trabajar sobre  el mismo  el frame, la idea es que lo hagan  con estos quizzes  igual la idea es que no lo hagan  individualmente, esperen un poquito  voy a armar  los breakout rooms  y de ahí la idea es que cada uno  con su grupito se arme  ahí con un nombre que quieran  lo que es en salones actos, júntense ahí  en un par de máquinas.
+[00:15:21] Y como les mostraba Seba, la idea es ir probando a ver  si pueden ir contestando las preguntas.  Las preguntas son exactamente las mismas que hay acá.
+[00:15:31] La idea es que ustedes por ahí abran una consola
+[00:15:34] y discutan un poquito antes de tirar el valor en la consola,  porque obviamente si uno empieza a escribir cosas acá,
+[00:15:43] ya va a empezar a hacer el preview y le va a mostrar.  Entonces la idea sería, cuando les pregunte,
+[00:15:48] bueno, cuando yo hago esto, me da estas opciones que pueden ocurrir.
+[00:15:54] Bueno, ahí entra el grupo discutir, ver, probar, tirar una opción,
+[00:15:58] la más votada, y después pueden chequearlo en la consola  por si todavía tienen dudas.
+[00:16:03] La idea sería hacer el quiz 1, que es la primera parte,
+[00:16:09] esto es más bien de números, y después la parte del quiz 2,  que es ya con la parte de strings.  Y ahí en el medio tienen  Por si quieren probar  También algunas cositas más  Que igual después las vamos a estar discutiendo  Entre todos  Entonces, déjenme crear ahí  Rapidito los breakout rooms  Bien, arrancamos  Vamos a abrir nosotros  Dale, háganle nomás  Breakout rooms rapidito  ¿Se animan a usar el QR de nuevo?  Sí  Recuerden que esto está todo en el Miro  igual se los comparto en el chat  ¿ya tienen eso mirado?  sí  bien  chat acá  ¿está?
+[00:17:11] pero vos traje el punto  traje el punto  así  así igual  la idea es  que arranquen la cuarzonita  ahí está  y ahí voy a abrir ya los rooms  vale, ahí es el práctico  ahí es el práctico
+[00:17:43] Me saco  De grupo  Ahí, sí  Yo no te puedo mandar de vuelta, Mati
+[00:17:59] Tenés que vos buscar en los rooms y darle join  Ah, ok, ok  Ahí  Ahí creo que volvieron los de mi grupo  Ahí volvió, sí  ¿Caterina, pasó algo?
+[00:18:14] No sé en qué hice click  No, lo que les comentaba
+[00:18:18] Fíjense ahí, yo no les puedo mandar de vuelta al room  Tienen que fijarse como las opciones ahí de rooms  Y darle join  Creo que pueden hacer un OVC room  Ah, join back room  O un OVC room y van viendo el quiz  Y el OVC room lo van  Siendo los, ¿me explicó?  Sí  Agarren el primer quiz, que es el primer QR  De ahí  Y bueno, movilizando  Agarren  Pasamos
+[00:18:44] La idea es que, ahí tienen un Wii, pero la idea es que en práctico,
+[00:19:30] lo que propone, ir probando, y antes de ponerlo, porque ahora es la primera.
+[00:19:36] O sea, en el práctico.
+[00:19:38] En el práctico.
+[00:19:41] Dejen en todo como van a trabajar.  Tengo cuatro.  Y la idea es probar una línea por vez.  Anotar el resultado.
+[00:19:48] Esa es la idea, que antes de ponerlo, ella lo pone.
+[00:19:52] Ah, necesitaría el resultado.  Necesitaría el resultado.
+[00:19:54] La idea es que ustedes, antes de que lo pongan ahí,  podrán discutir un tema  y los ponemos en  y bueno  a la medida se va a preguntar  a Carlos  ¿cómo te estás?
+[00:20:15] Mauri  porque  te paraste  igual que la  exacto  básicamente  la multiplicación y la división  van antes que la suma y la resta  la programación funciona exactamente igual  ok  también
+
+[00:21:34] Hola, buenos días  Buenas tardes  Estamos en una clase  En una sala  Buenas tardes, si están en Breaking Rooms  Te voy a asignar a un equipo  Me parecía  Gracias
+
+[00:23:17] M igual a X  entonces M es  3
+
+[00:23:54] así también agarraremos,  y,
+
+[00:24:46] No, no, no, la anterior  X mayor a Z  Y mayor a Z  Pero ahí la respuesta  En realidad  No, no, no, no, no, no  Lo de que F es falso
+[00:25:03] ¿Sí?  Ah, no, no, no, no, no  ¿Cuál es la pregunta?  Decía solo F igual falso  Entonces  Estaba true, falso  este  y el  falso  es falso  pero  el que hay  en el comentario  sí
+[00:25:51] claro  es un juego  claro
+[00:25:55] 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30.  ¿está bien?  la lúdica es  y es 4, 4 sobre 2  más x, ¿verdad?  ¿por qué?
+[00:26:58] presencia operadora  la división y la multiplicación  se hace en la ruta  entonces primero vamos a la división  y después ahora es un  y dividido por 2  igual que dividido por 2  y después 2 más 3 es 5  5 es igual a 5  no
+[00:27:24] y
+
+[00:27:43] No, no, como quieren, lo pueden decirlo allí, en la consola, lo que dicen es que respondan a la consola, la consola es determinada.  el chino de declaración  si F fuera verdadero  llegado F  F fue falso  llegado F verdadero
+[00:28:22] Perdón que les pregunte algo porque no sé la dinámica de Oliver  ¿Oliver también interactuaba con los que estaban online?  ¿Como estaba acá?  o solamente con ustedes?  No, con todos.
+[00:29:14] Ah, con todos.  Yo para no molestarlo,  lo tapé, lo vi ahí.
+[00:29:20] Ahí está muteado.
+
+[00:32:23] Ustedes tienen esto acá.  ¿Ya cuándo evalúan esto?  ¿Esto es falso?  No, no es falso.  Ah, perdón.  Esto es negado F.  ¿Es verdadero?
+[00:32:35] ¿El menino se paga ahí?  ¿Cuál es?  Está ocupando toda la desprestigio.  Claro, pero vos, claro.  Vos fijate, esto es  esto o todo esto.
+[00:32:47] Ah, el O es el que se para.  En realidad, tanto el O como el AN  son operadores relacionales.  Ambos separan expresiones.  Esto es una expresión  y esto es otra expresión.  Entonces, si ya  esta le da verdadero,  no le importa toda esta expresión  que está acá. Ya sabe que es todo verdadero.  Ah, perdón.  si esto fuera falso  él ahí sí tiene que evaluar esta expresión  y para eso tiene que ver  que esto sea verdadero  y que esto sea verdadero  para que realmente todo sea verdadero
+[00:33:22] en realidad  son ambos operadores  nacionales, el tema creo que es  un paréntesis acá  tenés dos paréntesis  entonces todo esto es una expresión entera  está paréntesis  paréntesis, paréntesis, paréntesis  Joaquín, Salvador, Santiago, Benjamín  ¿Terminaron los dos quiz?  Ah, sí, profesor  Buenas  Ah, ok  Ahora estamos haciendo la parte 3  Ok  Pero volvimos acá porque no es necesario  ok  por eso  por eso pienso que  un número junto  y todo lo más grande  que puede poner la mano  porque esto  lo devolvieron acá  no puede ser  y lo mandaron  Y bueno, para hacer ese grupo  Así que bueno  Está de vivo el profe  Bueno está  Supongo que si tenemos  Alguna duda o algo  Que la resolvamos  A ustedes los dos primeros  ¿Les diga indefinido?
+[00:51:58] Yo no hice todavía  Estoy anotando acá  Las cosas que me parecieron curiosas  De los quiz  Yo todavía estoy con  Otro tema  Buenas  Mejas, Huacos, Salva, ¿terminan con todo?
+[00:52:31] Con los quiz, nomás  ¿Sí?  Si quieren métanse nomás  Tranqui y prueben con el 3  Para hacer las pruebitas esas  Una consulta  Sí, decime  En las dos primeras combinaciones del LED  ¿Te tiene que dar indefinido?
+[00:52:50] No  En las dos primeras combinaciones  ¿De cuál decís?
+[00:52:55] Es día laboral  Igual a true y tiene vacaciones igual a false
+[00:52:58] Yo creo que ahí te tiene que dar es un día de trabajo  Porque es día laboral y es igual a true  Y led tiene vacaciones  Pero viste que ahí en el if  Aparece que es el not  El negado, o sea que sería true  True y true te toma el primero  El if es un día de trabajo  Exacto  Después tienen las
+[00:53:24] Otras que es la licencia, el del texto, el decimal.
+[00:53:33] Sí, con la potencia y después con console.log para mostrar por pantalla también eso.
+
+[00:54:02] Esperen que voy por el otro room.
+[00:54:05] No sé, ¿tienen alguna dudita de alguno de los cositos que estuvieron corriendo, que les haya llamado la atención?
+[00:54:10] ¿Qué quieran consultar?
+[00:54:14] No, yo justo estaba anotando algunas cosas que me parecieron curiosas de los quiz.  Como por ejemplo el tema de la coma  Que yo no sabía eso  El tema de cuando haces un número positivo  Dividido a cero  Da infinity  Y cuando haces negativo  Dividido a cero da como resultado menos infinity  Y tal, cosas así  Después como cero dividido a cero  Da none  Ese tipo de cosas que estoy anotando  Que yo la verdad no tenía ni idea  Dejaba escrito  Si pasa que en realidad es como  si vos dividís cualquier número por 0  en realidad vas a tener infinito  para que tal que multiplicado por 0  se aproxima el otro número  entonces por eso es que te da infinito  cuando dividís por 0 y menos infinito  cuando lo dividís por un número negativo, digamos  después lo de la coma  es cosa javascript  no tengo explicación para eso  y en cuanto
+[00:55:10] a la división de 0 por 0, porque en sí  así está definida  o digamos, así no está definida  de la división por cero, porque en realidad  división por cero matemáticamente  no tiene como resultado  entonces por eso le ponen NAN, que es  Nora Number  pero de vuelta por convención  Sobre NAN tengo una pregunta  el tema de la  función o método  isNAN  es diferente a lo que viene siendo el valor  NAN  ¿El isNAN te devuelve verdadero  si el valor es Nora Number?  O sea, es una función booleana, digamos  Ok  ¿Pero el nan como tal es un valor?
+[00:55:51] Sí  O sea, de vuelta  Es como un valor que no es un número  Claro, claro  Pero digo, no puedes hacer nada con eso  No puedes operar, no puedes  Sí, sí, entiendo  Perfecto  Porque estaba mirando  Pregunto nada más porque estaba mirando acá en  MDN  y claro, me parece tipo  la función esta booleana que me dijiste  de isNone, que supongo yo que verifica  si es un número o no  es un golazo eso  para errores  y también está cuando  dividí cero, dividió cero, te da none  en vez de error  o algún tipo de excepción, entonces supongo yo  que none es como algún tipo de valor  como decís bien, no tiene  ningún valor como tal  pero es un valor  es un resultado  Exactamente  De las cosas de Javascript, digamos  A ver, esperen que voy por otro grupito  No sé ahí cómo van, se va
+[00:56:54] Los otros están recién ahí, como que en la primera parte  Ah, justo se fue  Un grupito más  Se evita ahí cómo van con esto  Más o menos ya liquidaron  Yo creo que el 1 lo tenían medio atrasado  Pero les aviso a ver si pueden  Estás muteado  Ahí  No, estaba diciendo que  Hay un grupo que llegó  Empezar la clase y que va recién  Por el primero  Y otro grupo  Va por el segundo ahora  Por la parte dos  Perfecto, si yo hacía más o menos
+[01:01:25] Un par de minutos más y ya capaz que cerramos  Y pasamos a  La apuesta en común nomás  Dale, dale, cuando vos digas  Dale  Dale.
+[01:01:41] ¿Cómo, cómo?
+[01:01:43] Ah, el cuide la parte 2.
+[01:01:46] Acá.
+[01:01:49] Está caberando ahí.  Y por acá.  Ahí.
+
+[01:02:53] ¿Es buena probando?
+[01:03:23] ¿Es buena más que tal?  Ah, sí, porque tal queda finito, ¿no?
+[01:03:27] Claro, puede ser que es más, cuando yo tengo una cadena y otra cosa,
+[01:03:31] tengo una cadena o un número, siempre lo que hace es buscar el mar.  entonces si es que es una cadena más algo  o si es que es otra cadena  entonces si tengo una cadena en la cadena  el resultado es pegado  si tengo una cadena en un número  es una cadena  que es pegada en un número  ¿no?
+[01:03:54] aunque  la red  la verdad  como que  no, tenemos  procesos diferentes  esto capaz que  era para  por
+[01:04:18] aunque para  la ley  tanto el len como el tuvo upper case  como el charlat son funciones  de string que es la cadena  ok  claro porque son funciones que se aplican  a la cadena  entonces es la cadena punto  Esto me da el lengua  Me da el largo de la cadena  La que dice punto  Tu aparcase es  Paso mayúscula de la cadena  La que yo le hago punto  Listo  Bueno, ya los voy a ir llamando  Seba, así hacemos la apuesta en común  Mauro  ahí  50 segundos  ok  vamos a hacer una apuesta a punto  los ejercicios que quedan  obviamente quedan para que ustedes terminen  ok  compartiendo pantalla  ¿no?
+
+[01:12:02] este cuéntame un poquito de la parte 1 algo que se ha llamado la atención que quieran consultar
+[01:12:12] que todavía queden dudas como dijimos sí como dijimos a los gritos un lenguaje un poco loco
+[01:12:20] este entonces pueden ver como cositas raras este si se fijan por ejemplo la división entre 1 por
+[01:12:27] cero uno podría pensar que directamente da error o les va como a decir algo pero en realidad les
+[01:12:33] vuelve un valor que justamente es el infinito digamos si hacen lo mismo pero con menos menos
+[01:12:46] tres le da menos infinito si hacen la división por cero que en realidad justamente la división  por cero no está definida,  les va a dar un none,  que básicamente es un  nora number.
+[01:13:03] Después acá,  en realidad, lo que estamos  haciendo es accediendo a constantes que ya  existen en ciertas clases.  En el tema de Javascript,  la cuestión es que no hay ninguna constante  que sea maxValue de esta  forma, entonces en realidad le va  a dar undefined. En el caso  de maxValue le van a dar  el valor de esta constante  que está dentro de la clase number  y en el caso de minValue  le va a pasar lo mismo que está  definida esa constante dentro de la clase number  ¿está?
+[01:13:32] a su vez como está la clase number, está la clase math  ¿sí?  Mauri, tengo una consulta  porque acá en el ejercicio  tenemos minSafe  y no está  ¿qué es el problema?  la pregunta  es por el minSafeInteger  Que ahí no está puesto  En realidad creo que la pregunta es  ¿Cuál es la diferencia entre el  MinValue y el MinSafeVintage?  Si querés la respondo yo como vos quieras  Sí, no, vos  Básicamente es el tema del tipo  Digamos  Dale, dale, dale  Dale, Mario, dale  Sí, bueno, de vuelta  En realidad es  De vuelta, por un lado es la  el tipo de integer  como tal  que te permite de alguna manera  hacer operaciones más seguras  y a su vez  está el tema de que  con el min value  solamente es un número como 0,0  a la  323 creo que era  y en el safe integer  en realidad es un número negativo  entonces son como  para trabajarlos con diferentes operaciones  si se quiere  Claro, ahí lo que dijo Mauri  Esa es la clave  El mean safe integer  Es el menor número representable posible  Es un negativo  ¿Bien?  No hay número que yo pueda poner  Que sea menor al mean safe integer  ¿Ok?
+[01:15:13] Pero el mean value en realidad no es un número negativo  Es un número  Bien cercano a cero  Pero no llega a cero  Pero es lo menor que yo puedo representar  Más próximo a cero  ¿Se entiende?
+[01:15:26] Ah, es como que lo he puesto de más vale  el min-size-fin.  Por eso, es diferente el min-value que el min-size-fin.  Uno es un número  negativo, lo más chico  representable, y lo otro es un  número positivo,  el min-value,  positivo, muy cercano a cero  pero que no llegó a cero.
+[01:15:47] Esa es la diferencia de uno y otro.
+[01:15:49] Dale, Mauri.  ¿Qué es lo que más me gusta?
+[01:15:51] Que sea tipo  al lado del positivo  hay un max safe integer  al igual que hay un min safe integer  hay un max safe integer  que tiene la misma lógica  el max safe integer es el máximo  positivo infinito representable  posible, no hay número  que pueda ser mayor al max  safe integer  ¿ok? después vamos a ver en qué  lo podemos utilizar bien  en qué estrategia de programación  dale Mavi nomás a seguir  y después lo que comentamos es que también
+[01:16:23] aparte de la clase number, que también tiene algunas constantes,
+[01:16:26] la clase math, por ejemplo, tiene la constante de pi,
+[01:16:28] por si en algún caso tienen que usar alguna operación con el número pi,
+[01:16:32] pero a su vez tiene otros métodos que pueden utilizar, por ejemplo,  para hacer potencia, hacer raíz cuadrada y demás.
+[01:16:41] Son todos métodos que pueden acceder a través de esta clase math.
+[01:16:46] Detallecito después, acá, por ejemplo, que les decía probar el tema del console log,  de hacer una suma entre dos valores.  si ustedes ejecutan este código,
+[01:16:57] básicamente lo que va a decir es suma espacio 15.  La cuestión es que si ustedes de alguna manera  se olvidan de poner estos paréntesis,
+[01:17:06] lo que va a ocurrir es que les va a quedar  suma espacio 5 espacio 10.  ¿Por qué? ¿Qué va a ocurrir?  El operador más, cuando ustedes están trabajando con strings,  lo que hace no es sumar,  sino que lo que hace es apendear o concatenar.
+[01:17:23] entonces primero va a resolver esta expresión de acá, suma más m,
+[01:17:27] lo que va a hacer es apendear justamente ese 5 a ese suma,
+[01:17:31] y por último va a apendear el 10 a ese string suma 5.
+[01:17:36] Entonces, por eso hay que tener cuidado a veces de cuando estamos operando  o queriendo mostrar un mensaje,
+[01:17:41] de tener cuidado de que si estamos usando una operación ahí en el medio,  tener cuidado de usar paréntesis para dar prioridad.
+[01:17:48] Es decir, con paréntesis nosotros damos prioridad a esta expresión  para que primero calcule la suma  y luego esa suma la termine concatenando  con el resto del texto.
+[01:17:59] Después les consulto alguna duda, por ejemplo,  de la parte de strings que quieran preguntar.
+[01:18:05] Ya vimos que, por ejemplo, con el más  lo que hacemos es concatenar cosas.
+[01:18:10] El length es una propiedad de los strings  o de los textos,  el cual nos dice el largo de ese texto.
+[01:18:18] A su vez hay otro tipo de método  que podemos hacer, el toUpperCase,  toLowerCase, el charAt.  Son todos métodos propios de strings  que nosotros podemos utilizar para hacer diferentes cosas.
+[01:18:29] En el caso del charAt,  lo que nos da es el carácter  a partir de cierta posición.
+[01:18:35] En este caso, recuerden que  JavaScript, como otros lenguajes,  manejan los textos  o los strings  como cadenas de texto.  Cuando me refiero a cadena, es como una lista  de caracteres.  Entonces en Realola es una lista de caracteres
+[01:18:51] Que es la H, la O, la L y la A  Y esas listas  En Javascript, en Java  En varios lenguajes  Siempre empiezan con el índice en 0  Hay lenguajes por ejemplo como  Creo que es R  Que empieza en 1  SQL no me acuerdo ahora como  Pero siempre puede variar  Entonces dependiendo del lenguaje  Siempre tiene que tener presente  Si es 0-based los índices  O 1-based
+[01:19:18] En este caso es siempre 0, entonces es 1, 2 y 3.
+[01:19:25] Donde tenemos la H en la posición 0, la O en la 1, la L en la 2 y la 3 en la A.
+[01:19:31] Como estamos accediendo a la 2, siempre nos va a decir la L.
+[01:19:36] Igual después sobre esto vamos a trabajar más y vamos a estar metiéndole bastante a la parte de texto.
+[01:19:41] Después hay otras funciones que ya vienen cargadas en la consola y que podemos hacer uso, por ejemplo,  Para convertir textos a números  Esto básicamente lo que devuelve es el número 124  Acá me viene algo que para complementar
+[01:20:01] Ustedes tomen en cuenta que cualquier dato que yo tome por consola  Que pide el usuario  Siempre, por más que yo escriba números
+[01:20:09] Siempre lo voy a tomar como una cadena de caracteres  Entonces ustedes tengan en cuenta que si escribo números
+[01:20:16] y los quiero operar, los quiero sumar, restar y demás,  siempre me lo hay que parchear.
+[01:20:21] Porque si no va a pasar lo que decía Mauri antes,  que lo va a tomar en una cadena  y esa cadena más tarde concatera,  opera numéricamente.  Entonces, acuérdense, en todo lo que fue,  y vamos a ver cómo tomamos datos por pantalla,  yo tomo por pantalla,  siempre por defecto es una cadena.  Así que si son números y los quiero operar,  los tengo que parchear.  No me queda otro.  ¿Ok?  ¿Sabes más de mí, Mauri?  Exacto. Gracias, Seba.  bueno, después teníamos la suma  esto ya lo comentamos varias veces  y bueno, después el typeof que les permite  preguntar por qué tipo  es una variable  o en este caso una expresión
+[01:20:56] en este caso les va a decir que es de texto  y en este caso que es numérico  bien, y bueno, después las pruebitas  no sé si tienen alguna dudita de esto  en particular, pero básicamente era como  ir haciendo  operaciones básicamente  en este caso de la
+[01:21:14] tenemos que el día laboral es true, tiene vacaciones es false,
+[01:21:21] si vamos al condicional primero, nos va a preguntar que si es día laboral,  esto es verdadero, y no tiene vacaciones,  tiene vacaciones es falso, pero como tiene el not,
+[01:21:39] vamos a negar esa expresión, y en total esto va a quedar en verdadero.  verdadero y verdadero  eso nos da verdadero  por lo tanto entra al if  y imprime el console.log  es un día de trabajo  y después  las otras son parecidas  en este caso  bueno  tiene el texto 42  lo parsea número y luego lo vuelve a concatenar  después acá tenemos la suma  de dos decimales
+[01:22:13] donde lo suma y luego lo concatenan en el mensaje.
+[01:22:19] Bueno, acá por ejemplo usamos el método math.po
+[01:22:22] que les comentábamos, que la clase math tiene varios métodos  que ustedes pueden utilizar, donde en este caso
+[01:22:27] le pasan la base al exponente y obviamente les da  el resultado de elevar ese número al exponente.  Y una alternativa también es con el doble asterisco.
+[01:22:38] eso les permite también usar exponentes para hacer los cálculos  y bueno después otra cosita que también creo  estuvimos comentando por varios grupos  el tema del triple igual  o el distinto doble igual  recuerden que javascript
+[01:23:00] les va a permitir a ustedes comparar números con texto
+[01:23:05] y siempre y cuando ese número y ese texto tengan el mismo valor  les va a dar verdadero.  Es decir, si yo comparo el número 5  y hago igual, igual,  en JavaScript,
+[01:23:15] con el 5,
+[01:23:19] esto me va a dar verdadero.  Porque justamente son el mismo valor.
+[01:23:24] Si yo, por alguna razón,  quiero que verifique  que además que el valor sea el mismo,  el tipo sea el mismo,  hay que utilizar el triple igual.  Entonces, en este caso,  si yo hiciera triple igual,  Esto me va a dar verdadero.
+[01:23:40] Y en este caso me va a dar falso.
+[01:23:45] Porque si bien es el mismo valor, no tienen el mismo tipo.
+[01:23:49] Uno es un número y el otro es un texto.
+[01:23:54] Y también es bueno que sepan que esto de triple igual  es muy puntual de Javascript.  Porque después va a venir otro lenguaje  y no existe el triple igual.  Y lenguajes tipados,  bien donde tengo que definir el tipo,  no puedo comparar números  con cadenas, ya eso me da errores  de conspiración, vamos a decir  entonces esas son cosas muy puntuales de JavaScript  que tiene esa versatilidad  está bueno y la verdad
+[01:24:20] bueno, a alguno le puede causar un poco de ruido  porque estoy comparando cosas que son diferentes  pero bueno  Exactamente, sí, sí
+[01:24:28] después cuando pasemos a Java van a ver que esto  ni siquiera lo va a dejar hacer el compilador  Perfecto  Bueno, hacemos un cortecito de 5 minutos chicos  la idea de a la vuelta  es hacer una especie de brainstorm  acerca de una actividad en particular.
+[01:24:48] Y después algo parecido,  pero con relación a lo obligatorio.
+[01:24:53] Hacemos esta actividad  y pasaríamos al práctico 5,  que ya es con snippets  y escribir ya directamente código con JavaScript.  Ahí vemos el ejercicio 1,  que lo hacemos entre todos,  y después arrancamos con el resto  Para que lo hagan ustedes  Ahí en el salón  En las computadoras  Y el resto de los chicos acá online  En la parte de los rooms  Bien, vamos a poner  Un timercito de 5 minutos  Y volvemos con todo eso  Bien de bien  Bueno  ¿Tienen acceso a un biro?  ¿O para escribir acá en la pizarra?  Porque la idea me parece que cada uno escriba  Como brainstorming  ¿Se acuerdan cómo va a ser?  ¿Allá atrás? ¿Saben cómo acceder a mi blog?
+[01:30:47] ¿Sí?
+[01:30:49] Sí  Por las dudas se los recuerdo  En la parte de foros  La parte de foros  Está el pizarrón digital  Y ahí está  Escúchenlo entre ustedes y ponganlo  Escriban ahí  Vayan escribiendo  ¿sí?
+[01:31:11] La dinámica de hoy,  básicamente, este ratito,  es como para ir viendo si  podemos generar ideas entre todos  y después ver ahí lo que  surge. La cuestión es,  yo les planteo, más allá  de que sepan o no sepan,  que quiero hacer un combo box desde JavaScript.  Obviamente no conozco  en sí los detalles.  ¿Cómo puedo hacer yo para resolver ese problema?
+[01:31:36] Entonces la idea es  empezar a tirar post-it.  Hacer clic acá en estas Tiki Notes  Y bueno, van agregando notitas  Le pregunto a mi tía Josefina  Le pregunto al profe  Entonces la idea es dejar dos minutitos  Para que ustedes vayan dejando como sus ideas  Dentro de ese frame  Entonces les digo  Vayan poniendo sticky notes  En realidad  Con las ideas que ustedes consideren que pueden ayudarles
+[01:32:25] Justamente a resolver eso de acceder a un combo box  Desde Javascript  Gracias.
+
+[01:32:59] Tiene una realidad de contraria.  Bueno, pregunta ahí.  ¿Qué hace para la...  Bueno,  el reúno que hicieron  ya fue...  A la IA.
+[01:33:12] No,  la pregunta ya se emitió.  Perfecto, esa fue el reúno.  Sí.
+[01:33:22] Ahí le voy tirando notitas, por si no saben  cómo crear.
+[01:33:30] lo busco en google  muy bien
+[01:33:46] no, no, tenía una forma inteligente  recibo algo con un lado  y otro lado  y lo uso de la llave
+[01:34:11] Vamos a bichar  A ver un poquito  Bien  Un buen sitio de referencia  Bueno, por acá tenemos  Le pregunto al chat, imagino el chat GPT, ¿no?
+[01:34:30] Le pregunto al chat  Ya hasta lo tuteamos y todo  Le pregunto al chat  Reservo con close  Esto sería con todo uso de AI, ¿no?
+[01:34:41] Por acá lo googleo.  Acá otro más de investigo en Google.  Busco en Google.  Esto sería como buscar documentación.  Ahí va.
+[01:34:51] Este acá lo puse escondiendo.  Yo le pregunté a mi tía Josefina.  Voy a dejarlo por acá.
+[01:34:56] Busco un tutorial en YouTube o un curso sobre eso.
+[01:34:59] Hay algunos viejos videos de 10 minutos que explican todo.  Sí, tal cual.  Sería como buscar documentación.  Voy a dejarlo por acá.
+[01:35:07] Perfecto.  Más o menos salieron buenas ideas.  acá por ejemplo les presento  algunas de las que podría haber sido  podría ser la básica  buscar en Google o en Internet  puede ser que también le pregunto  a un compañero, quizás un compañero esté más avanzado  en la carrera o ya esté trabajando  o ya sepa cómo hacerlo  podría ir a la biblioteca a consultar material  consultar la ayudantía  podría revisar  los materiales que tenemos en la  cátedra, podemos preguntarlo  obviamente al profesor
+[01:35:38] podía tirarme yo a probar algo de código, a ver si me sale.
+[01:35:43] Bueno, obviamente chat GPT, que fue este, creo que mucho lo que pusieron, etc.
+[01:35:50] Bien.
+[01:35:52] Y ahora sería como la misma idea, pero en el caso del obligatorio.
+[01:35:58] Ustedes imagínense que ya le entregamos el obligatorio, le dimos la letra,
+[01:36:02] ustedes hicieron todo, o por lo menos consideran que hicieron todo,
+[01:36:08] bueno, ¿qué pueden hacer para mejorar lo que ya tienen?  o chequear lo que ya tienen
+[01:36:15] entonces la idea es dejar dos minutitos para revisar eso
+[01:36:19] y de vuelta pensar qué cosas harían para mejorar eso obligatorio  voy a poner de vuelta a correr el timer  dos minutitos  vamos a poner un par de notas más  por si quieren escribir  Por las dudas  lo que no vieron  es en la parte de abajo  yo puse como varios arriba
+[01:37:12] Ah, no, no, sí, yo estoy recomiendo más las cositas que vimos  Me pasó, lo bajé después  Tranquilo  ¿Puedo poner ahí si puse algún post y más?  Gracias.
+
+[01:38:07] pero te digo, si vos le preguntás a alguien  o a un instructor  acá tenés el error  en las consolas con el  el resultado de lo que le da  si se puede correr o te da un error  en realidad  el que lo pones en un evento  no se sabe quién es  Bien, hagamos ahí un poquito de puesta en común  A ver, tenemos  Envíe el código al chat para saldar dudas  Y al profesor de igual forma  Entonces acá sería un poco de AI  Y profesor  Acá se lo muestro  Algún egresado de alguna carrera de ingeniería  O afín, sería como algún experto  Busco personas a las que se les haya  Planteado el mismo problema, capaz que la podemos poner  Como por acá también  Hablo con alguien más avanzado  creo que iría por este lado también.
+[01:39:14] Busco referencias con alguien  que ya lo hizo bien o con algún compañero  que sabe. Vamos a dejarlo por aquí.
+[01:39:21] Comparo con el de mis compañeros.  También podemos tomarlo como una referencia.  Busco opiniones externas. También iría  por este lado, me parece.
+[01:39:29] Le pregunto a JPT o a  Claudio cómo mejorarlo. Este vamos por acá, por la  IAI. Consulto con los  profesores o verifico con inteligencia artificial.  Este vamos a dejarlo por acá, con  la parte de AI.  Lo comparto con otras soluciones similares hechas por  otras personas. Creo que sería por este lado.
+[01:39:46] Pregunto  consultoría con estudiante  avanzado. Ponemos por acá.
+[01:39:52] Busco una segunda opinión  en ayudantías. Consulto a tutor.  También creo que sería como consultar a alguien  que por ahí sepa.
+[01:39:59] Perfecto, chicos.
+[01:40:01] Bien, acá les tiro nomás  algunas otras.  La mayoría ya las mencionaron, pero  simplemente para ver algunas otras.
+[01:40:09] Una podría ser, por ejemplo, mejorar los datos de prueba  Recuerden que ustedes cuando terminen el obligatorio  Obviamente lo tienen que probar
+[01:40:18] Porque básicamente la idea es que responda a lo que les pide la letra
+[01:40:23] Entonces muchas veces la mejora simplemente se basa en probarlo más  O probarlo mejor
+[01:40:29] Y eso les va a ayudar también a detectar errores  Y justamente mejorar el código  Puede ser mejorar la documentación  Recuerden que también parte importante  De siempre de una entrega  Es la forma que ustedes la documentan  El tema del código  Creo que lo hemos comentado  Que cuando entregan código siempre traten de  Intentarlo, que sea fácil de leer  Que no sea toda una maraña de cosas  Con una orientación por acá, otra por allá  Que uno vea el código  Y lo entienda fácilmente  Obviamente  Chequear el tema de estándares  con Oliver le hemos estado comentando algunos
+[01:41:10] el tema del nombre de las variables, que sean nombres mnemotécnicos  y algunos detallecitos que obviamente vamos a ir cubriendo  pero siempre ajustarse a esos estándares  que les proponemos desde la cátedra  después revisar las sugerencias de la cátedra  hay un linkecito que después les podemos mostrar  que es de buen, mal, obligatorio  una cosa que también comentaron
+[01:41:36] por ejemplo, hablar ya con estudiantes que ya la cursaron.
+[01:41:39] Eso les puede dar como una visión de lo que se espera.  Y algo que tienen también los obligatorios de programación  es que siempre se les da una rúbrica.
+[01:41:48] La rúbrica básicamente son los ítems sobre los cuales se van a puntuar,  ese obligatorio, y ustedes sobre eso pueden verificar.  Por ejemplo, que todas las sentencias terminen con punticoma,  que los nombres de las variables estén correctos,  que los nombres de los métodos estén correctamente.  que todos los HTML  los tags de las  etiquetas que ustedes creen tengan su  correspondiente ID
+[01:42:12] son todas cositas que nosotros les damos como un listadito  ustedes pueden hacer como un simple check  de ver si lo están cumpliendo o no  y obviamente pueden haber  X cosas más para hacer  bien  otro tallecito  no sé cómo venimos con la  planilla de contacto
+[01:42:33] recuerden que por las dudas, ustedes pueden ir dejando sus datos ahí,  para decir si están o no buscando obligatorio,
+[01:42:44] no sé si también ya estarían de todas formas usando el grupo de WhatsApp que había puesto Mara,
+[01:42:51] lo importante es que ustedes más o menos estén en contacto para buscar compañero obligatorio.
+[01:42:56] Y un detallecito más, ahora que veo eso y que me acuerdo,  por las dudas, se actualizaron  las ayudantías  cosa de tener en cuenta de que  creo que antes había  otro bloquecito más me parece  pero creo que lo sacaron  pero nada, simplemente eso, chequen ahí  un poco los updates de los horarios  para tenerlo ahí presente  bien, bueno, ahora sí  pasemos al 5  práctico 5  exacto, entonces  hagamos quizás el primero entre todos, más o menos  para ver cómo es que funciona  esto, lo que vamos a estar utilizando son  las snippets, justamente  de la parte de la developer tools  ahí se va, más o menos
+[01:43:43] les estuve explicando al comienzo de la clase cómo era  que acciona la consola  no importa si es Chrome  si es Opera  si es Mozilla, todos los browsers  tienen developer tools  lo que puede cambiar quizás es cómo  está presentado o cómo se accede  Generalmente pueden ir a la parte  De  More tools  Acá, y en la parte more tools  Le va a dar la opción de developer tools  Acá por ejemplo es  Control shift i, pero también se aprieta en F12  Les aparece  La consola  Vamos a la parte de tools  Luego de aquí  Vamos a más herramientas  Y herramientas de desarrollador  O si no, Control Shift I  Es lo mismo  Claro, yo lo tengo en inglés  Pero sí, puede ser más herramientas  Y herramientas de desarrollador  ¿Y con F12?  ¿O sea, no funga también eso o no?  También, sí  O sea, porque a mí me salta con F12  Yo lo hago con F12  También, con F12 también  Con mi compañero  Sí, puede ser Control Shift I, F12  O de vuelta va en la parte de Settings  y en Settings, More Tools  y Developer Tools.
+[01:45:00] Siempre les va a aparecer la parte de la consola,  pero en realidad nosotros lo que vamos a usar  justamente son pequeños snippets para trabajar.
+[01:45:07] En este caso vamos a ir a la parte de Sources  y en Sources,
+[01:45:12] tenemos, de vuelta,  dependiendo de cómo ustedes tengan el layout,  puede variar un poquito o no,  van a tener, por ejemplo, en esta parte,  ¿puedo agrandar esto?  Sí, ahí va, se ve un poquito mejor, ¿no?  si lo tienen colapsado  les va a aparecer como esas dos flechitas  pueden hacer clic sobre eso  e ir a la parte de snippets  o si lo tienen como un poquito más grande
+[01:45:33] directamente les va a aparecer ahí la parte de snippets  la idea es que a partir de ahora  para este práctico vayamos creando como snippets  para ir trabajando  justamente ese código
+[01:45:45] y esto a su vez nos va a permitir probarlo y correr  entonces le puede dar a new snippet  vamos a ponerle ejercicio 1  y el ejercicio 1 nos dice lo siguiente  pedir la base y la altura de un triángulo  mostrar su área y dar un ejemplo  si se lee 6 y 2 nos muestra 6  porque básicamente es base por altura sobre 2  entonces  lo primero sería pedirla  pedir la  bueno, puede ser la base y la altura  podemos empezar por la base  entonces, ahí no sé si recuerdan  cómo hacemos para pedir datos por pantalla  en Javascript, ¿se acuerdan de eso?
+[01:46:37] con el prompt
+[01:46:43] console.log es más que nada para escribir mensajes  es justamente como escribir  en el log de la consola  algo  Para mostrarlo al usuario  Exacto  Entonces en realidad siempre vamos a usar el prompt  Ahora  Bueno, lo vemos igual  Igual no deberíamos poner  Variable igual prompt  Para que se cargue  En la variable  Porque si no va a quedar  O sea, va a quedar ahí suelto
+[01:47:15] O sea, va a ingresar datos que no vamos a leer  Exacto  Hasta ahora en realidad  Si yo pongo solo esto así pelado  El prompt me va a pedir un valor  Yo lo voy a ingresar  Pero justamente, ahora no lo estamos guardando  En ningún lado  Entonces lo que vamos a hacer es un let  Base  Igual a prompt  De esto  Ahora, ¿qué le ven de  O sea, no sé si qué le ven  Pero qué piensan que podría estar faltando acá  Un parseInt porque es dato numérico  Exacto  Recuerden que cuando ustedes  Utilizan el prompt  Siempre les va a devolver un string  Un texto  Nosotros si vamos a hacer operaciones con ese texto  Como decía hoy Seba, lo tenemos que convertir  A número  Entonces nos va a hacer de ayuda  El parseInt  De todo lo que nos devuelva  Ese método  Es decir  Hacemos como dos pasitos  Primero hacemos el prompt  Con el mensaje  Eso va a saltar como una pantallita arriba  Donde nos va a permitir ingresar un valor  Y una vez que nos devuelva ese valor  Cuando nosotros le demos enter  Es ese valor el que es parseado entero  Y por último ese valor parseado entero  Es el que guardamos en base  Podemos hacer la parte de  ¿Cómo es? De variaciones  Pero para hacerlo sencillito nomás  Hagámoslo así nomás  Tengo una duda  ¿Cómo hacés que corra  El ejercicio ese básicamente?  Acá abajo querías  Correr acá o control enter  Ah, está, gracias  Y vamos a hacer lo mismo  Vamos a hacer el parseInt  De  La altura  Del triángulo  Y bueno, acá  Una vez que tenemos la base y la altura  Simplemente es  podemos utilizar otra variable  que sea área  que sea base  por altura  sobre 2  ¿está?  noten que estoy poniendo en todas  las sentencias tipo punto y coma  ¿sí? en Javascript no es obligatorio  pero igual les vamos a pedir siempre
+[01:49:34] que lo hagan por un tema de que cuando ya  pasen a Java y eso va a ser obligatorio  ¿sí? no les va a rechinar tanto  ¿está? van a hacerlo casi que sin pensar  ¿está?
+[01:49:43] Y por último lo que podemos hacer es mostrar el mensaje.
+[01:49:46] El mensaje lo podemos mostrar por la consola, que sería esta,
+[01:49:50] o por, de vuelta, un pop-up con el uso del alert.  Eso como ustedes quieran.
+[01:49:58] Entonces, por eso el alert, el área del triángulo es,
+[01:50:07] y ahí uso más área, punto y coma.
+[01:50:13] ¿Hasta acá alguna duda de lo que hicimos?
+[01:50:18] ¿Estamos bien?
+[01:50:20] Bueno, y ahora simplemente queda correrlo, ¿no?  Entonces, básicamente lo que vamos a hacer es,  el programa va a empezar a ejecutar,
+[01:50:28] va a venir acá, nos va a dar un prompt  para que ingresemos la base del triángulo.
+[01:50:32] Ese valor se va primero a pasar para el método parsing,  que lo va a convertir a número.  Ese número lo vamos a guardar en base.
+[01:50:40] Va a continuar con la altura haciendo lo mismo, ¿no?
+[01:50:42] haciendo el prompt, pidiendo un valor que va a venir en texto,  ese texto lo vamos a parcerar en número,  y ese número lo vamos a guardar en altura.  Después definimos un área,  donde hacemos simplemente el cálculo,  y por último simplemente mostramos.  También podría haber puesto esto directamente acá,  simplemente es como para ejemplificar.  Entonces lo que decía, pueden darle control enter,  o darle acá en el RAM.
+[01:51:08] Y acá no sé por qué tenía el pause ahí.  Ahí va bien.
+[01:51:11] Le pongo, creo que el ejemplo era 6 y 2  6  Por 2  Ahí me dice  El área del triángulo es 6  No lo ven porque está en la ventana  No se ve acá  Ah, el pop-up  No pasa nada  En el zoom lo vemos  Igual, no se ven  ¿Se vio en el zoom?  Sí  Sí, en el zoom se ve  Sí  Igual  Le voy a copiar el código  Si querés, te lo paso por el miro  Para copiarlo rápido  Y se lo mostrás a ellos ahí  Te dejo ahí  Pero básicamente, sí, créanme  Que le salta el pop-up justamente con este mensajito  Nosotros le ingresamos  El valor, eso lo guarda en base  Hacemos lo mismo con altura  Y después nos salta otro pop-up  Con  El mensaje de  El área del triángulo es  En este caso era 6  Y ahí básicamente ya tenemos la posibilidad  De nosotros empezar a programar scripts  Y poder correrlos  Que es un poco la idea de este práctico  Ahora nos ponemos de lleno  En programar en javascript  ¿Estamos bien?  Entonces  Si no obviamente el ejemplito  Les queda acá chicos  Pueden ustedes ya directamente probarlo y correrlo  Y les va a quedar ya andando  Bueno
+[01:53:17] ¿Qué vamos a estar haciendo el resto de la clase?  Básicamente ejercicios  Entonces  De vuelta, en el salón  Puntese ahí en alguna máquina  Para ir resolviendo  Y en el Zoom  Lo mismo, uno que comparta pantalla  Y van resolviendo los ejercicios entre todos  ¿Y lo deberíamos poner  En el code block que hice?
+[01:53:41] Sí, sí, elíjense un código de estos de acá, ¿sí?
+[01:53:46] Pónganle si pueden también el nombre, cosa de que después cuando hacemos la corrección  sabemos a quién preguntar o sobre qué comentar, ¿está?
+[01:53:52] Entonces le voy a estar leyendo un poco los ejercicios.
+[01:53:54] Tenemos el 2, dice, ingresar tres valores enteros y mostrar el menor de ellos, ¿no?
+[01:54:00] Entonces le da 1, menos 3 y 5 y muestra menos 3, ¿está?
+[01:54:04] Algunos de estos ya lo hicimos casi que en pseudocódigo,
+[01:54:07] la idea es que ahora básicamente lo traduzcamos a JavaScript, ¿está?
+[01:54:11] y tenemos el 3, que dice ingresar 3 datos,  y mostrar la suma de sus valores absolutos,
+[01:54:18] y dice, por ejemplo, si se lee menos 1, 5 menos 30,  muestra 36,
+[01:54:23] y leemos un cuarto,  estos son bastante rapiditos,  dice pedir el ingreso de un número n,
+[01:54:30] mostrar la suma de todos los impares que sean múltiplos de 3,  entre 1 y n,  ejemplo, si se ingresa 16, se muestra 27,  Ahí, si no recuerdan  El tema de la multiplicidad  Pueden chequear  El operador del  Porcentaje  Que en realidad es el del resto  Entonces teníamos estos tres ejercicios  Yo voy a abrir los rooms  Ahora  Ahí los abro  y ahora pongo un tiempito  más o menos para  poder hacer una apuesta común de eso
+
+[01:55:37] acá  nos va a dar  no para de decir  en definitiva pues  desde el día en que me conocí  escucho mucho  de vos  y me quedé en conciencia  y me conté  que en la universidad  te dijeron  que no sabías  lo que hacías  y me conté  que no sabías  lo que hacías  y me conté
+
+[01:56:42] y
+
+[01:57:04] más  y
+
+[01:57:19] hay que ingresar tres datos y de ellos, pues el mínimo
+[01:57:24] pero claro, hay que pedir los datos, y acá pedimos el dato también  entonces nuestro mismo compara los dos así  pedimos tres datos
+[01:57:35] como saben que son tres datos, ustedes ya saben que la estructura iterativa es más  que esa jornada más es el POR
+[01:57:43] pues no hay que ingresar tres datos, no es igual, son tres datos
+[01:57:47] ¿No es que en el for hay que definir la variable?
+[01:58:40] En el for se define la variable en el mismo for.  Yo voy a echarle for.  Hago for.  Le i igual 1.  i menor igual que 3.  I igual I más 1.
+[01:58:57] Acá no la declaro.
+[01:59:04] Valor inicial,  condición de trabajo,
+[01:59:08] incremento o variación  después de cada alteración.
+[01:59:12] Este trabaja con I igual 1,  cumple. Con I igual 2,  cumple. Con I igual 3, cumple.  Con I igual 4, cumple.  Intera tres veces.
+
+[01:59:31] El valor de C es más valo, ¿no?  Sí.  Y con el vaquero.
+[01:59:37] ¿Cómo?
+[01:59:39] Acuérdense que  mis value es  number.
+[01:59:45] mis value  es  number.  y mis value es  matrícula.  ¿Lo va a sugerir?
+[01:59:58] number.
+[02:00:05] mis value.
+[02:00:09] ¿Se acuerdan que mis value  era  un número como, ¿se acuerdan?  el máximo
+[02:00:19] pero puede ser con el máximo  claro  entonces cuál es el problema  si ustedes ponen todos los números negativos  el mínimo  va a ser el mismo  porque nunca lo vas a sustituir  pero  el máximo  el mínimo
+[02:00:42] no  más
+
+[02:01:42] Listo  Se va a volver llamando  Que ya estamos ahí más o menos en hora  Como para hacer un redondeito  Antes de cerrar la clase  Creo que ahí estamos todos  Bueno, hagamos una rapidita  Pues tan común  Así ya los dejamos libres  Tenemos  Para el 2 era ingresar 3 valores enteros  Y mostrar el menor de ellos  En este caso  Acá lo que hacemos  Es pedir los 3 valores  Agrandale un poquito más  Agrandale un poquitito más  Ahí va  Ahí va, ahí va.  Después por acá  Creo que más o menos la misma lógica  En este caso  Lo usamos alert  Bueno acá lo hicieron con console.log  Pero la lógica es la misma  En este caso el else  Porque obviamente es el  El caso, no es necesidad de preguntar  De vuelta  Acá tomamos un  MinValue  Y en realidad acá con un for  Vamos pidiendo valores y si ese valor  es menor a lo que ya tenemos  lo vamos guardando y por último mostramos ese valor  también resuelto  y por acá no sé si terminaron  ahí justo Pablo y Facundo  no sé si alguno de ustedes se están seleccionando  let min  este no sería, ese igual no iría  min igual a max value
+[02:11:33] y esto recuerden que en realidad viene de la clase number  entonces sería number.maxValue  es una constante de esa clase  y de 1 hasta 3  voy pidiendo números  y si ese número es menor que el mínimo  utilizo el mínimo y por último lo muestro  perfecto  y después para el último  Acá tenían básicamente dos formas de resolverlo  Uno era, si no sabían justamente  Que está la función  Apps de la clase Math  Que básicamente es eso, les da como  El valor absoluto  El valor absoluto de un número es  Si el número es positivo, es el propio número  Y si es negativo, le cambia el signo  Lo pueden hacer manualmente  Multiplicando por menos uno si el número es negativo  O utilizando esta función  Entonces en este caso tenemos  Que  por un lado  lo que hacemos es pedir el prompt  con el valor que queremos.  Una vez que tenemos ese prompt,  lo que vamos a hacer es pasar ese valor
+[02:12:43] a la función parsing para que lo convierta a número.  Y por último,  lo que sale de toda esa expresión,
+[02:12:49] que es ese número o ese texto pasado a número,  si es negativo,  le aplicamos la inversión de signo  y si es positivo, lo mantenemos como es,  tal cual con la función mathTabs.
+[02:13:01] Entonces hacemos lo mismo para los otros números  y por último los sumamos.
+[02:13:06] Y obviamente en este caso ponemos los paréntesis  para darle precedencia a la suma  antes de concatenarla con el mensaje.
+[02:13:15] Y por acá también perfecto.  Hicieron un for para pedir los tres números.  Los fueron parseando a número  y después aplicándole el value  y después sumándolo en el count.  capaz que más que count sería suma  o sum, pero está bien igual  ¿alguna duda chicos que quieran consultar más o menos  de estos ejercicios?
+[02:13:42] la semana que viene vamos a seguir un poquito con este práctico
+[02:13:44] de snippets, les queda de deberes si quieren seguir practicando  están todos los ejercicios de la parte de variables  que hicimos en pseudocódigo, los podrían pasar a javascript  Si quisieran  Y después continuar con el práctico 5
+[02:13:58] La semana que viene también estaríamos entrando en la parte de funciones  Y strings
+[02:14:02] Que no varía mucho de lo que ya venimos haciendo  Lo único que vamos a hacer es  Hacer un wrap de todo este código  Y lo vamos a poner en funciones  Así que vengan con ese tema repasado  No sé si Seba  Tenés algún comentario final  No, ninguno  Bueno, buenazo chicos, nos vemos  Hasta luego  Nos vemos, buenas noches  Chao

@@ -1,0 +1,419 @@
+Transcript generated automatically. Some words may be inaccurate.
+Source: FI-1479-Programación 1-75965-P1 N1A ID | 06-04-2026
+URL: https://vimeo.com/showcase/12151817
+Date: 2026-04-08
+
+[00:00:02] Sí, vamos arrancando, ¿se parece?
+[00:00:05] Dale.
+[00:00:09] ¿Tenés mano de cerrar ahí?
+[00:00:12] No.  De cualquier.  Bueno, muchachos.
+[00:00:16] La idea de hoy es, vamos a hacer un repasito rápido de expresiones aritméticas y lógicas.
+[00:00:29] Y vamos a seguir haciendo ejercicios.  Y por último, vamos a ver introducción a JavaScript.  con lo que ustedes  fueron haciendo las encografías  muy bien  para repasarlo de  expresiones aritméticas  vamos a hacer un crisis  a medida que hagamos más adelante  cada vez lo pasamos un poco más completo  con trampitas y eso  les compartí chicos  me lo metió en la página rara  bueno muchachos  por el zoom en la pantalla  ahí se pueden ir  sumando  como siempre les digo  lo que está en el zoom les recomiendo  que lo hagan desde el celular  así van viendo la pantalla  y el zoom  es la primera vuelta de los bancos  ¿Qué es lo que dice?
+
+[00:01:56] Sí, pero es...  ¿Cuál?  ¿Por qué?
+[00:02:13] ¿Por qué estás dos veces?  Ay, no.
+[00:02:17] Sí, pero es la primera.
+[00:02:20] Pero, porque a veces lo que hace es  como que quedan dos usuarios  iguales.  De vos, ¿eh?
+[00:02:34] Estamos de historia dos veces.  Bueno, también creo que tenemos varios.  Bueno, falta alguno  Si no arranco
+[00:02:45] Estamos un poquito que está teniendo problemas con el QR  ¿Lo viste ya?
+[00:02:57] Sí, puede, puede, estamos un poquito  Ahí creo que entró  Ahí entró, creo, ¿no?  Sí  Ahí arranca, bueno, siendo B  Igual a true  ¿Cuál de estas es verdad?  La respuesta correcta es  La expresión B o not B  Es valida y vale true
+[00:04:05] en este caso no importa si lo que tenga siempre no va a dar verdadera
+[00:04:13] cuando es doble cuando le pones un solo presente los acentos
+[00:04:26] bueno  Acá lo que  Cualquier  Sin importar el valor que tenga B  Siempre va a dar true  ¿Sí?  ¿Por qué?  Acá lo que tenemos es  B or not B  ¿Sí?  En el or  Si se acuerdan  Da true  Siempre que alguno de los dos  Sea true  ¿Qué era la ampersand?
+[00:04:46] El ampersand es el A  Ah, el ampersand  Entonces  Acá lo que está diciendo  B o not B  O sea, el contrario de B  ¿No?  entonces, si B es true  B es true, el not B es false  y si B es false  B es false, not B  true, entonces siempre va a haber  uno de los dos lados que va a ser  true  bien, la expresión  not B es válida y vale true  es falsa, ¿verdad? porque  not B me convierte, o sea, lo cambia  el valor al contrario
+[00:05:22] si B era true, el not B nos da false  y acá tenemos la expresión  B and not B  este es lo contrario a LOR  o sea, el AND  siempre, la única forma que nos dé  true es que ambas condiciones  sean true, entonces si tengo B  y not B, siempre el 1  va a ser falsa, por lo tanto siempre  va a dar falsa  ¿si?
+[00:05:48] vamos a seguir  la expresión 2  siempre el porcentaje  5 dividido 2  vale  ¿cuánto?
+[00:06:01] ¿no?
+
+[00:06:17] la respuesta es cierta.
+[00:06:20] No, pero nada, que era el...  Es el trancón.  No.
+[00:06:27] Recargate la respuesta.
+[00:06:30] El valor  es 1.  A ver, ¿qué daba?  ¿Qué es lo que calculamos  con el porcentaje?  El resto de  22 dividido 5.  ¿Cuánto va a ser el resto de 22  dividido 5? 2.  ¿Sí?  Porque, o sea, puedo hacer  Llegar a 20  ¿Sí? Pero me van a sobrar 2  ¿Ah?  ¿También le llaman módulo?  Sí, se llama esto mismo  ¿Sí? Entonces, 22  Módulo de 5, me va a dar 2  Divido 2, 1  ¿Sí?
+[00:07:12] Así es, si A es 3  Y B es 4, la expresión  A menor o igual a B  Y B menor o igual a A son
+[00:07:19] La opción correcta es la primera verdadera y la segunda falsa  ¿Verdad?  O sea, siempre  Estas son operaciones lógicas  ¿Verdad?
+[00:07:57] Las operaciones lógicas siempre nos van a dar true o false  ¿Sí?  No tiene otro tipo de resultado  Entonces, si A es 3  Y B es 4  3 menor o igual a 4 es verdadero  ¿Sí? Porque es menor  Ahora  B menor o igual a A  No es verdad  Porque 4 no es menor o igual a A  Por lo tanto la primera verdadera  Es la segunda falsa  ¿Ok?
+[00:08:30] ¿Qué pasa?  6 más 4 por 2, vale  ¿Esto de 2?  No, medirá, medirá  ¿Qué pasa con 50?
+[00:08:53] ¿Tengo la de cálculo?  ¿Tú comparás con la de cálculo?  ¿Dónde está?  Tengo la de R  Tiene R todavía  Bueno  La opción correcta es 14  Acuérdense, esto es igual que matemática  Se separa por términos  Entonces  El más separa términos
+[00:09:19] Tenemos 6 por un lado y por otro lado 4 por 2
+[00:09:22] Lo primero que tiene que resolver es 4 por 2  4 por 2 es 8  Más 6 es 14  Bueno, los que le pusieron 20  Es porque nos separamos por términos  El que puso 12  Está medio dormido todavía  ¿Sí?
+[00:09:46] Seguimos  Lo dejo ya  25 más 15 menos 7  Vale  Muy bien, 3 y 5  Acá, si no hubiéramos puesto los paréntesis  Lo mismo, ¿sí?  O sea, también en programación  Los paréntesis van a separar el término
+[00:10:33] ¿Sí? Pero en este caso, como es suma y resta  No me cambiaba nada  ¿Sí?
+[00:10:42] Por detrás, lo que va a ser  lo que va a hacer es  primero tiene que resolver este término acá  como está separado  ¿sí? y luego le sumo 25  si no tuvieron los paréntesis  hace primero 25 más 15  y después le resta 7  ¿sí?  18 dividido 3  por favor, presten atención  la respuesta  ¿qué significa esto?
+[00:11:40] 4 factorial  ¿qué es 4 factorial?  4 por 2  y listo  4 por 3 por 2  el tema que había bajado  y dije da trabajo  ¿si?  o sea  a ver  ¿cómo lo resuelve esto?  va a ser  18 dividido por 3  ¿si?  me da 6  menos 6 en realidad  30 menos 6  nos va a dar  24  muy bien  ah y si ya se ve el cálculo  el 4 factorial  pero si se ve el 24  después que  ¿si?
+[00:12:12] ¿todos acordaban esto de factorial?  En programación  Esto no existe  No le podemos poner 4  Y el símbolo de exclamación  Y hace factor  Sino que tenemos que crear una función  Que calcule ese factor  ¿Está?
+[00:12:33] Muy bien  Y la última  A, A, not A, O, not A  Va a dar
+[00:12:42] Quiere decir que no les doy el valor de A  Muy bien, veamos que pasa  Si es verdadero, vamos viendo el primer caso  ¿No?  Ya sabíamos que este de acá  Esto nos va a dar siempre false  ¿Se acuerdan? No importa  ¿Qué valor?  Puse la 2 y me dio incorrecto  Entonces  En el or, ¿se acuerdan que nos da true?  ¿Sí? Uno de los dos es true  O sea, este ya sabemos que nos da false  No importa qué valor tiene  Entonces todo depende de este de acá  ¿Sí? Entonces ¿Cuándo nos va a dar true?  Cuando sea falso  Porque el not lo va a convertir en true  ¿Entienden?
+[00:13:54] Una cosa  Si  Los paréntesis los sacamos  ¿Sí?  El que separa términos acá es el an  ¿Verdad?  Entonces primero viene resuelto esto  ¿Sí?  Not a o not a  Depende de lo que sea  ¿Verdad?  Y después hace el a  ¿Sí?  Es igual que en matemática  El an  Funciona como el más o el menos  Ah, y los paréntesis también se empacatan  ¿Sí?  ¿Alguna duda?
+[00:14:35] Muy bien  ¿Esto está en orden?  No, no está en orden  Muy bien, bueno  Oye, expresiones aritméticas y lógicas  ¿Se entendió, no?
+[00:14:57] ¿Sí?  O sea  Las aritméticas, ya en matemática  tienen bastante base  ¿verdad?  y las lógicas  se puede complejizar  mucho más, o sea, hacer un chorizo enorme  de una expresión  de una aritmética  lógica, pero no va a pasar  ¿verdad?
+[00:15:19] eso lo van a ver en lógica y se van a divertir más  muy bien  sin dudas, volvemos a los ejercicios que veníamos haciendo  ¿si?
+[00:15:32] muy bien  Vamos a hacer este ejercicio  De acá  Nos pide leer dos números  ¿Sí?
+[00:15:42] Seguimos con el segundo código  ¿Verdad?
+[00:15:45] Leer dos números, ordenarlos si hace falta  Y mostrar todos los números entre ellos  ¿Sí?
+[00:15:52] ¿Entienden?
+[00:15:57] Tengo ingresa 1 y 2  Voy a mostrar 1, 2, 3  Entre 1 y 2  Entre 1 y 5 voy a mostrar  1, 2, 3, 4, 5
+[00:16:07] Si me ingresa 5, 1, voy a mostrar 1, 2, 3, 4, 5.  No importa en qué botón me lo ingrese.  ¿Estamos?
+
+[00:16:31] Bien.
+[00:16:33] Escucho.  ¿Cómo haría?
+[00:16:40] Tengo que leer.
+[00:16:42] Primero tenemos que leer.  O sea, vamos a poner a mostrar.
+[00:16:50] Ingrese A.
+[00:16:52] Si lo podés mostrar, ingrese B.  Leer A.
+[00:16:58] Mostrar.
+[00:17:02] Ingrese B.  Leer B.  Muy bien, ¿y ahora?
+
+[00:17:24] No, todavía no dimos nada de ordenado.  Esto no.
+[00:17:30] Entonces lo que haría es primero comparar A y B.
+[00:17:33] Si A es mayor que B, haces un para, o sea, un por, ¿no?
+[00:17:43] O mientras, creo que era.  No, o sea, lo mostrás en ordenado, no pasas.
+[00:17:49] Eso es, pero vas.  A ver.  ¿No crees que íbamos todos a ver entre medio?  Sí.  Si, pero tenemos que fijarnos de que este...  Osea, tenemos que mostrarlo ordenado  Si me ingresa A mas grande que B  tendria que hacer un switch  Si, cambiamos  Osea tenias que hacer un play-form  Eso después  Pero antes me falta  ordenar los A y B  dependiendo de su menú  Si A es mas grande que B  tendria que intercambiarlos
+[00:18:17] Que me quede lo que esta en B en A  y lo que hay en A en B  Claro, entonces pone...
+[00:18:23] hay que poner otra variable  si A es mayor a B  ¿qué hacemos?
+[00:18:29] A es igual  no, si A es mayor a B está bien  vamos a dejar así nomás  porque  lo que vamos a mostrar en orden  el menor a mayor  entonces vas a  B a C  y después  A B  y C A  A B  A, B  Y después A  A igual a  A igual a C  ¿Sí?
+[00:19:04] Ah, entonces al terminar ese  De C, vamos a tener A y B  En orden  ¿Sí?
+[00:19:13] Bien, y ahora  Decreciente  A  Igual a  ¿Era de metano mayor?  Igual a 0 o 1  Igual a A  A  Si me ingresa 8 y 10  Yo quiero mostrar los números entre 8 y 10  Yo estaba pensando distinto  Que en el bucle
+[00:19:43] Compruebe después en el bucle si es mayor a A  Y después le pasas  Otra cosa  Era mucho más triste el ver  Muy bien  ¿Cuál va a ser la condición para que siga  sigue avanzando  que siga  que siga repitiendo  y A menor o igual a B  no, A en realidad  debería ser igual  perdón, I  porque A se va al izquierdo  menor o igual a B  perfecto  y la condición de  o sea, la acción  de crecimiento  y más más  Pues vale.
+[00:20:26] Todavía no lo estamos haciendo.  No lo estamos haciendo.
+[00:20:30] Muy bien, entonces ¿qué vamos a hacer?
+[00:20:33] Dentro del para.
+[00:20:35] Vamos.
+[00:20:37] Mostrar que...  ¿Mostrar qué?  Mostrar que...  ¿Sí?
+
+[00:20:51] Es una corrida a mano para que vean el funcionamiento del para.  ¿Ah? Para que quede claro.  Ah, entonces lo primero que hace es mostrar a...  Vuestra pantalla, ingrese a, leera.  Entonces vamos a tener A igual a  Vamos a poner 5  ¿Sí?  Después A va a mostrar en qué se ve  Leve  Así que nos va a quedar B  Igual a 2  ¿Sí?  Ahora van a pasar la lista  Y ya se ve  Bueno  Gracias
+[00:21:35] Muy bien  Muy bien, entonces viene el sí  Y pregunta, ¿A es más grande que B?  Sí, por lo tanto creo una variable C  Que le voy a poner  El valor de B  Entonces lo voy a quedar en 2
+[00:21:50] A, B, le voy a poner lo que tiene A  O sea, pasa por arriba lo que tiene B  Le pone el 5  ¿Sí? Y ahora A  Me pone lo que tiene C  Lo que es A  Muy bien  Bien, para
+[00:22:11] lo primero que hace al para es crear la variable i  i es igual a lo que tiene a  o sea que va a ser 2  bien  voy a mostrar lo que va saliendo en pantalla  muy bien
+[00:22:31] lo que va a hacer ahora es consultar la condición del para  i es menor o igual a b  2 es menor o igual a 5  Por lo tanto, ejecuto la iteración  Y va a mostrar i  Por lo tanto, me va a quedar en pantalla  Dos  ¿Sí?
+[00:22:52] Una vez que termina la iteración  Va a ir al paso de crecimiento  En este caso, va a ser i  Es igual a i más uno  Por lo tanto, en i nos va a quedar  Tres  Bien  Se fija la condición  3 es menor o igual a 5  Si, por lo tanto muestro  Vamos a mostrar 3  Terminé la iteración  Vuelve de vuelta al crecimiento  Va a sumarle 1 ahí  4  Pregunta de la condición  4 es menor o igual a 5  Si, muestro  Lo que tiene ahí es 4  Voy de vuelta al paso del crecimiento  5  Bien, pregunto la condición
+[00:23:43] 5 es menor o igual a 5, si, lo muestro  5  Vuelve a incrementar  Si, y le sumamos 1  Quedan 6  Pregunta la condición  6 es menor o igual a 5, no  Por lo tanto el para termina
+[00:23:58] Y como no tiene más nada abajo, termina nuestro problema  Si, y en la pantalla  Nos sale 2, 3, 4, 5  Si
+[00:24:07] En el caso que A no hubiera sido mayor a B  ¿Sí?  No entra dentro del sí  Y va directo al para  ¿Qué hubiera pasado si A y B son iguales?
+[00:24:25] O sea, muestra solo una vez  Muestra solo un valor  ¿Sí?  ¿Vos?  ¿Sí?
+[00:24:36] ¿Entiendes?  Con el zoom  Me voy haciendo  Dedito gordo para arriba  Yo lo espero por favor  Muy bien, vamos al otro  Dice  Leer el  Asumir positivo  ¿Va?  Y mostrar  Tantos asteriscos como hice valor  Y lo hace con un por  Algo así está en el tríptate  La pirámide
+
+[00:25:50] así tenéis que resolver esto y pone por dos puntos y escribir en vez de alcohol
+[00:26:01] y ya le pedí género o sale a asumir que es positivo que se pasa al bucle tiene bucle
+[00:26:10] el valor de 1 mientras sea menor a n  pero igual  muy bien  vamos primero que nada necesitamos  mostrar un gris  en el  y ahora por  zapara  porque en realidad es un micro positivo  entonces  si si si  y pone ahí  igual 0 1  y  punto y coma  y  menor o menor o igual  menor o igual  te muestro un atalisco más  si  porque empecé con igual 0  si yo empezaba con igual 1  ahí si necesito menor o igual  y después nada más  y ahí le metemos claro  de 1 a 3  y 2 a 3  ¿sí?
+[00:27:32] bastante sencillo
+[00:27:33] mostrar todo en la cantidad de este disco igual al  lo podemos hacer escrito con un while verdad  si
+[00:27:59] si deseas que te asumieras posición, no te ha gustado nada  si, cuando te dice asumir, no asumimos
+[00:28:04] si no, tenés que poner si es mayor 1 o mayor 0  y ahí va a ser  el i igual 0 te pueden perder, no?
+[00:28:17] el i igual 0 te pueden perder, bueno, porque si lo hiciste  si, eh...  tenés que comparar con algo  vamos, te voy a cambiar la cosa
+[00:28:28] cant igual cero, mientras cant sea menor a n, mostrar asterisco, y hay que a cant sumarle punto.
+[00:28:50] No se podía haber usado solo n, entonces mientras n sea mayor o igual a 0, voy mostrando  y restando la n.  ¿Restando la n?
+[00:29:11] Ya, lo que había hecho así.  No lo visualicé.  Esto acá lo podemos poner como...
+[00:29:14] Si vos haces n igual a... mayor que 0, lo que va a pasar es que va a ser mayor o igual  a 0.
+[00:29:20] si haces n igual a mayor que 0 y le das n te queda la serie  no, lo voy restando a n  ahhh claro, n-1, n-1  n-1 y 5  queda serie  si, voy a ir restando a n y listo  tiene  con el zoom si se entiende perfecto
+[00:30:04] algún ejercicio
+[00:30:11] y
+[00:30:15] no
+[00:30:19] En realidad, le resto una vez todo eso.
+[00:30:29] ¿Cuál es el?  Si es 3, ¿no?
+[00:30:32] La primera.
+[00:30:35] ¿Tarzo de suerte?
+[00:30:39] Sí, sí.
+[00:30:42] Cuando llegue a ser, tiene que ser.  Espera que estén atentos.  Bueno, el siguiente  Dice  Leer n  Luego de leer n  Tenemos que leer n números más  ¿Sí?  Y  Tenemos que decir  Juan  La cantidad de pares que se ingresaron  ¿Entendió?  ¿Puedo borrar?
+[00:31:27] Sí  Y ahí lo hace
+[00:31:30] Si pongo un par y hace su bucle, lo usamos como el pico.
+[00:31:34] Si divido dos, el módulo es cero.
+
+[00:31:48] ¿Alguna versión que quiera hablar?
+[00:31:55] No tiene micrófono.
+[00:31:58] ¿Podés poner una letra de nuevo?
+[00:31:59] Yo sé que tenés que usar módulo para saber si es par.
+[00:32:02] Lo tenés que dividir entre dos y el resto tiene que ser cero.
+[00:32:06] Creo que lo tengo.  Ahí.  Tengo que leer N  Luego de leer N  Tenemos que leer N número más  ¿Sí?  Y decir la cantidad de cuáles  ¿Qué?
+[00:32:23] Leer un N  Por ejemplo, me ingresa 3  Tengo que leer 3 números  ¿Sí?
+[00:32:31] Arranco con el mostrar  Ingrese N  Leer N  ¿Cómo continuo?  con un for  que adentro del for esté n  ¿cuál va a ser el valor de i?
+[00:33:01] n  ¿n?
+[00:33:04] o 0, bueno  como ustedes me digan  ¿cuál es la condición?  eso puedo  para mí sería  que i vale n  y mientras i sea menor a n  se le suma 1  ¿lo pongo así?  y lo volvemos  si yo pongo A, ¿sí?  no se ejecuta ninguna iteración  ¿por qué?  claro, porque  si N es 3, entonces si N  si I es igual a N  y I es menor a 3  ahí sería I igual a 0  si no, hacerlo con menos  sí, exacto  I igual a 0  o  si hubieran hecho con I  igual a N, hubieran hecho  Y  Mayor a cero  Y  Igual a I menos 1  ¿Sí?  En cualquier lado  En el de negrito  Voy creciendo I  En el otro voy  Hacia el otro lado  ¿Está?
+[00:34:22] Como acá lo único que me interesa  Son las repeticiones  Cualquier lado no se ve  No voy a utilizar i dentro  Así que no me moleste  Bien, dentro del para  ¿Qué hago?
+[00:34:37] Pedirle un número  Ese dato  El dato  ¿Qué hacemos?  Ahora  Pasarle el módulo con 2  Sí  Dato  Módulo de 2  Tiene que ser igual a qué?  A 0  Si es igual a 0  ¿Qué hacemos?
+[00:35:13] Lo mostrás  Tengo que contar  Ah, contar, ok, con otra variable  Ah, bueno  Nos faltó crear una variable acá arriba  Cant  Igual a 0  Y acá lo que vamos a hacer es  Cant  Igual a cant  Más 0  Fin  Impara  Y mostramos  Eh...  Pares, dos puntos, más, cero.
+[00:35:53] ¿No sería más uno?
+[00:36:00] Más uno.
+[00:36:03] Todo va a verse tan despierto.
+[00:36:07] No es un error en mí.
+[00:36:09] Los signos son iguales, los dos seguidos, ¿qué quiere decir?
+[00:36:14] Cuando son, es así, cuando es un solo signo igual, es para asignar.  O sea  A igual a 3  ¿Sí?  Cuando son dos iguales  ¿Sí?  Esto me lo voy a fijar  Es una comparación  Si son iguales  Pero acá solo me voy a fijar  El valor  ¿Sí?  No hay tipo de...  Aunque eso es medio...  Y después tenemos el triple igual
+[00:36:55] acá se va a fijar si el valor es igual y el tipo de dato igual.
+[00:37:18] Básicamente el doble igual que te dice que es igual.  El otro es estrictamente igual.  Un ejemplo, voy a borrarlo de este lado.  Acuérdense, el asignar solo asigna  No me va a devolver ninguna  Ningún valor  Los otros dos me van a devolver trufos  ¿Está?
+[00:37:43] Ejemplo, si yo pongo  El texto 2  Es igual  A 2  ¿Sí?  Esto me lo va a dar verdadero  Si pongo  El texto 2  Igual a 3  o el texto 3  igual al número  2  esto me va a dar false  porque el valor  es diferente  ahora, si yo pongo  el texto que tiene  un 2 triple igual  y el valor 2  me va a dar false  porque si bien tienen el mismo valor  los dos tienen un 2  De un lado tengo un string, un texto  Y del otro lado tengo un  Entonces como se fija  Tanto el tipo de dato  Como el  El valor  Me va a dar falso  ¿Se entiende?  Si  Con el zoom, ¿se entendió?  Si pones el testero 2  Más el testero 2, 52  4  ¿Listo?
+[00:39:10] Primero que nada  ¿Qué me va a dar esto?
+[00:39:18] 22 en string  Va a dar un texto  22  Cuando el más  Tiene  De vuelta  Si le volás a un número 22  Te debería dar  Si pongo el texto 2  más 2, como el número que me da  no, me va a dar  22, el text  aires, ¿sí?  lo mismo si pongo primero el número  y después el texto  ¿cuándo?  el más es un operador  muy completo, es bastante incompleto  ¿sí? ¿cuándo?  uno de los dos lados, ¿sí? siempre  recuerden que va a resolver dos cosas  ¿sí? con la separación de términos  va a ir siendo  ¿cuándo?  ¿Sí? Uno de los dos  es un texto,  le va a dar prioridad al texto,  entonces, al otro que no es  texto, lo convierte en un texto  y después lo concatenó.
+[00:40:24] ¿Sí?  ¿Se entiende?
+[00:40:28] Entonces, si yo hiciera,  como decía el compañero...
+[00:40:34] Igual eso pasa porque lo usan también para concatenar, ¿no?
+[00:40:40] Sí, mira eso.
+[00:40:48] Ah, necesitamos
+[00:40:50] a los dos, que yo después se los voy a mostrar en la consola.
+[00:40:53] eso es lo que pasó cuando hice un curso, eso hacía pensar en otra cosa
+[00:40:59] ¿Se entendió? Igual después lo vamos a ver más a profundidad  ¿Sí?  Bien, bueno  ¿Todos conocen el algoritmo de Fibonacci?  Sí  Bueno, vamos a ver si tengo el video
+[00:41:24] ¿Por qué será que el número actual se hacía con los cursos anteriores, no?
+[00:41:30] Fibonacci fue un matemático italiano autor de la denominada sucesión que lleva su nombre  Fibonacci explicó el desarrollo de fenómenos naturales de crecimiento  a través de una secuencia numérica
+[00:42:05] la que se genera sumando dos números consecutivos para obtener el siguiente  La sucesión comienza por el número 1
+[00:42:12] Al sumarle el anterior 0 da como resultado el siguiente número, 1. El siguiente surge del 1 más 1, o sea, 2. El siguiente es la suma de 2 más 1, 3. 3 más 2, 5. Y así sucesivamente.
+[00:42:27] La sucesión de Fibonacci se encuentra presente en la naturaleza, en el desarrollo de las plantas.
+[00:42:32] La espiral de crecimiento básica del reino animal responde a la espiral de Durero,
+[00:42:37] que está generada a partir de la secuencia de Fibonacci.
+[00:42:39] El largo de las falanges también respeta la progresión, como así también los brazos en espiral de las galaxias.
+[00:42:45] La sucesión también está presente en el arte, en la relación entre las partes del Partenón
+[00:42:49] y en las obras de Miguel Ángel y Da Vinci.  actualmente se aplica en el ámbito  bursátil, buscando predecir  tendencias en los mercados.
+[00:42:59] ¿Qué es eso?
+[00:43:03] Cuando era chico y vi la película  ¿Lo entendí?  La película de el patrón  en el país  de las matemáticas.  Ahí también lo explico.
+[00:43:16] Creo que me lo mostraron  en la escuela.
+[00:43:20] Bueno.
+[00:43:22] ¿Se entendió un poco?  en este caso es una sucesión  donde tiene  dos casos  bases  ¿sí?
+[00:43:33] ¿qué es eso?  esperen que voy a ir  a la pieza  ¿puedo borrar?
+[00:43:41] tenemos el caso  a0 que es igual  a 0  a1 que es igual a 1  y después la sucesión  va a ser igual a  va a ser  A de N  menos 2 más  A de N menos 1  ¿Sí?
+[00:44:23] ¿Entiendes?
+[00:44:24] Ok, entonces  lo que nosotros queremos hacer es  a mí me dan  un N  y quiero mostrar  los N  valores de la sucesión  ¿Eso es que a momento se nos queda
+[00:44:41] Vaya el morbo de amor. Hay cosas de materiales que ya no hay.  ¿Qué les suena?  Sí, sí.  ¿Ah?  Que yo malo.
+[00:44:51] De vuelta.
+[00:44:53] Nosotros vamos a pedir n y nos vamos a mostrar los n términos de la sucesión.
+[00:44:59] Si me ingresa 3, voy a mostrar 0, 1, 1.  Si me ingresa  5, 0, 1, 1  2, 3  3  Son los 3 primeros  De la asociación  Ah, no, no, no  0, 1  2, 3  5, 8  Y así sucesivamente  Ahí vamos  Yo quiero mostrar, por ejemplo, si es 3  Son estos 3 primeros  ¿Sí?
+[00:45:38] Bueno, primero que nada necesitamos leer n  ¿Verdad?
+
+[00:46:04] ¿Sí?
+[00:46:10] Bien  Vamos a utilizar dos variables
+[00:46:13] a va a ser 0 y b es igual a  Siempre lo que vamos a hacer es  a es el término actual, digamos  en el que estoy parado  b es el siguiente  ¿está?
+[00:46:31] ¿se queda en azul?  pero ahí no perdés algún valor  no tendría que haber un valor C  ¿sí?
+[00:46:40] vamos a usar un C  teniendo AIB vamos a arrancar  o sea, inicialicé  el AIB, ¿verdad?  por el tema de sobreescribir y si ya perdés  el valor anterior  vas a tener que sobreescribir  lo vamos a suscribir adentro pero usando C  claro  vamos a usar C para eso  Muy bien, para  Igual 0, esto igual  Lo que tenemos que hacer es que se repita  N veces  Se repite N veces  ¿Qué es lo primero que voy a hacer?
+[00:47:15] Yo ya tengo el término  Que tengo que mostrar, ¿cuál es?  Sumás  Me daría la manera de mostrar  El anterior y el otro  En cada  Son N iteraciones  Entonces por cada iteración voy a mostrar  el término de esa iteración.  O sea que la primera iteración  tengo que mostrar cero.  Mostrás la suma.
+[00:47:38] Si muestro la suma, muestro uno.  Yo les dije que en A está siempre  el término en el que yo  tengo que mostrar en ese momento.
+[00:47:46] Y B es el siguiente término que voy a mostrar.
+[00:47:50] ¿Está?
+[00:47:51] Entonces empezamos  mostrando A.
+[00:47:57] Mostré A. O sea, ya hice la acción  de mostrar el término.  Ahora tengo que mover,  digamos, o sea básicamente nosotros estamos así
+[00:48:09] y moves a, c, no digo, ah imagínense que en realidad los términos siguientes a, b no los tengo
+[00:48:22] si? y sigan? y moves b a a y hacés la suma y que quieren b
+[00:48:28] ahí va, yo ahora tengo que decir que a vale lo que vale b y b en realidad es la suma de los dos términos que están ahora  Antes necesito calcular el que viene, digamos.  ¿Sí?  O sea, tendría que C calcular este.
+[00:48:48] Claro.
+[00:48:50] ¿Y igual C es igual a A más 1?  C es igual a A más B.  Bueno, A más B es como... ¿Sí?  ¿Sí?
+[00:48:59] Bien, ya tengo el valor de C que sería el tercer término.
+[00:49:05] Sí.  ¿Sí?
+[00:49:08] Bien, ahora estoy preparándome para la siguiente iteración.
+[00:49:12] Pones P es igual a y C es igual B.
+[00:49:16] B igual a, C, A igual, no, esto es al revés.
+[00:49:29] A igual B, P igual C.  Sí, yo te lo hice al revés.  Sí.
+[00:49:36] Es la culpa de él.  Ya me voy de la clase, Julio.
+[00:49:41] entonces básicamente una vez que yo tengo el valor de los vamos a hacerlo  después de la corriente
+[00:49:54] vamos a poner un n5 ingresa n, n igual 5  es muy raro  n igual 5, a igual 0, b igual 1  va el para, i igual 0  ¿0 es menor a 5?  sí, por lo tanto va a ejecutar una iteración  ¿qué es lo que va a hacer ahí?  es mostrar  a, o sea mostrar el primer término
+[00:50:25] nos va a quedar  0  muy bien  lo siguiente que va a hacer es crear  la variable c  y asignarle  la suma de a y b  0 más 1, 1
+[00:50:41] Muy bien, luego voy a decir que A es igual a B, vas a hacer el valor 1, B es igual a C, vas a hacer 1.
+[00:50:55] Claro, pero es todo claro.
+[00:50:56] O sea, lo que hice fue, yo estaba parado así, ahora estoy parado así.
+[00:51:02] Al siguiente voy a estar parado así, y así, sucesivamente.
+[00:51:08] Nunca he sido un profesor ni nada.
+[00:51:11] Hay formas mejores de calcular flujo de todo.  Es este.  También existe de forma recursiva.  ¿De forma qué?  Recursiva. Eso lo vamos a ver...
+[00:51:25] Ah, no sé si lo vamos a ver en este curso. Creo que lo vamos a ver en el siguiente.  ¿Ah?  Muy bien.  Ahora, terminal de iteración aumenta una línea.  Va a quedar igual.  ¿Sí?
+[00:51:41] Muy bien, 1 menos la 5, sí.
+[00:51:44] Entonces arranca y lo que va a hacer primero es mostrar A.  ¿Qué tiene A? 1.  Ok, muestro.
+[00:51:50] ¿Sí?  En C ahora va a valer A más B.  Vale 2.
+[00:51:57] Bien, A le digo va a valer lo que tiene B.  1.  B va a tener lo que tiene C.  2.
+[00:52:06] ¿Sí?  Sí.
+[00:52:07] O sea, ya tengo preparado para la siguiente iteración el término que quiero mostrar y el siguiente.  1 y 2.  ¿No? Muy bien. Incremento en i.
+[00:52:17] 3. Voy a empezar a ir más rápido.  ¿No? Ahora. Ahora.
+[00:52:23] 3. Terminó la 5. Sí. Así que vamos a mostrar  lo que tiene a es 1. Muy bien.
+[00:52:32] Vamos a c igual a a más b. Se la suma  ¿Te quedaría 3 y 2?  No, se suma antes.  era la suma de i  ahora si  ahora si sumamos  me da 3  a2  b3  a2  b3  igual no hace falta que lo quede todo  si hago uno más  muy bien y vale 3  3 a menos de 5 si  o sea que ejecuto otra iteración  vamos a ver lo que viene en la  va a ser 2, ¿sí?  Muy bien.  Le sumamos a C,  va a quedar 3 más 2, 5.
+[00:53:21] ¿Sí?  A, ya pongo lo que tiene B,  A va a ver lo que tiene C.
+[00:53:26] ¿Sí?  Y ahí sigo.
+[00:53:30] ¿Se entendió?  Sí.  ¿Por el sum se entendió?
+[00:53:35] Sí.
+[00:53:38] Muy bien.
+[00:53:41] Bueno, si les parece, hacemos un corte.  cinco minutos y 36 continuó como
+[00:53:53] no ha sido bueno si el ejercicio dice leer datos hasta  que me ingresen en el set
+[00:54:09] si pasó no se pegan 37 tengo que indicar al final si pasó o no  pasó el 37 vamos  si entendieron todos lo que hay que hacer  si
+[00:54:27] solo tengo que decir si ingreso  o no  claro  le pedimos a  while  le pedi a  while ingrese dato  numérico  igual  a su pinge numérico  bueno, vamos por partes
+[00:54:49] voy a dejar de ponerlo mostrar al momento de leer  mientras  7  el repetir se va a repetir mientras el  el dato que me ingrese es distinto de cero.  Claro.  Muy bien.
+[00:55:29] Pero el tema es que algo va a estar repetitivamente.  Hasta que me ingrese un cero.  Claro.  Pero...  Claro.  Sí, pero...  Pero el resultado es cero, dijo.  Si ponés el dato...  Claro, vos cambiás el dato a cero.  Cuando...  Sí, sí.  No, no, no es así.  O sea,
+[00:55:44] después le voy a pedir que me lea la vuelta al dato  si el cero me ingresa un cero, pero no.
+[00:55:51] Pero...
+[00:55:51] O sea, si te da 37, tenés que cambiar a cero.  Si no, va a ser igual.  yo quiero pedirle datos  me ingrese  no me importa si me ingresó 3 veces 37  si yo al final  no, lo único que quiero decir  es mostrar  solo quiero decirle  pasó o no pasó  y el dato  igual 37  era igual 37  y listo, demostrar  o sea, no, le va sumando  porque era mostrar el dato  porque era mostrar  el 37  ojo  acá dentro del mientras  tiene que quedar  si yo acá le pongo mostrar  y pasó 37  y a mi me ingresó 5 veces  37 le voy a mostrar 5 veces  pasó el 37
+[00:56:47] entonces le metemos un contador y al final le mostramos  el 37  vamos a usar una variable  booleana que no hemos usado  bueno, crea booleana  vamos a poner una variable  paso  igual a false  vamos a arrancar  porque false, porque asumo al principio  en la realidad, no pasó  entonces  solo le voy a cambiar  capaz conviene primero meter el sí  pasó  es igual igual true les mandó a la cantidad
+[00:57:28] y ahí simplemente que pasó el otro y como sigo fin si terminadas  y después metes el...  ¿Sí?  Y le pedís más datos y terminás.
+[00:57:48] El dato.
+[00:57:51] Y mientras...  Sí, ahí le mostrás el...  Vamos a decir...  ¡Sí!
+[00:57:59] Pasó.
+[00:58:05] Lo voy a poner así por ahora.  Lo voy a poner así.
+[00:58:09] Sí, mostrar.
+[00:58:16] Sí.
+[00:58:18] Pasó.  Si no...  No, él no hace falta, no.  Dice que diga si pasó o no.  No, no tengo como a tragar el número.  Sí, dice a ver si pasó.
+[00:58:33] No, de acá sí pasó.  Sí pasó.  A mí solo me interesa si pasó.  Sí o no.  La cantidad no me interesa.  Si pasó, a ver si le da 500.  ¿Sí?  ¿Está bien así?  Sí.
+[00:58:52] ¿Qué pasa?
+[00:58:54] No pusimos montar  el dato.  Dijo bien.
+[00:59:02] ¿Qué pasa si ya va a ver?
+[00:59:10] Cuando no pase va a quedar en false.
+[00:59:13] O sea,  capaz de buscar, o sea, puso 37  la 10.000 veces  y en la 10.001 puso  poner 7.  Está a romper.  te va a decir falso  muy bien  en este caso  me está ingresando datos  me ingresa el 37  ahí pasó  la variable pasó  pasó a ser true  el siguiente valor es un 5  ahí va a entrar  al si no  y va a quedar en falso  entonces el siguiente me ingresa un 0  cuando termina me dice  no, no pasó. Mentira.  Sí, pues.
+[00:59:56] ¿Cuándo? Estamos jugando con esto,  o sea, nosotros inicializamos la variable,  esto es como una bandera, ¿sí?  Como una bandera, una lucecita,  ¿no? Cuando está en false, está abajo  la bandera. Una vez que la bandera  se pasa a true, o sea, la levanta,  ¿no? No debería volver a pasar.  ¿Se entiende?  O sea, porque ya está, ya me marcó  de que pasó, y que  quede ahí.
+[01:00:19] ¿Sí?  Entonces esto de  De azul no iría  Ahora estoy mostrando porque  Les puede pasar que  Piensen de que tienen que poner  La parte del sino  No debería estar  ¿Se entendió por qué no va el sino?
+[01:00:40] Sí  Por el zoom  Por favor me detienen  Si tienen alguna duda  Muy bien, ahora  En el caso de que  Igual le estaba diciendo  Una vez que levanta la bandera  No debería bajar más  Pero puede ser que me ingrese 25.37  Esa 25  La primera vez pasa de false a true  La levanta  Y los otros 37  Está sobre escribiendo el true  O sea va a quedar true igual  No me cambia que vuelva a entrar  ¿Se entiende?
+[01:01:21] ¿Si?  ¿Todos entendió el uso de la variable booleana?
+[01:01:32] Bien  Ya lo voy a ir diciendo
+[01:01:36] Esta forma de escribir no la voy a usar más  ¿Sí?  Esta es una operación lógica  ¿Qué valor me puede dar?  True o false  ¿Sí?
+[01:01:50] O sea, al sí lo único que le importa es el valor de esa operación
+[01:01:58] es igual a true, esto es igual a true, entonces es lo mismo que decir si pasó, sin importar
+[01:02:07] el igual igual, se entiende, si le pongo si pasó, mostrar si pasó, si, si no, mostrar
+[01:02:22] no, ¿si? Ya estamos cumpliendo, ¿si? Pues fíjense, acá, si pasó es true, el resultado
+[01:02:34] de esto va a ser true. ¿Sabes que es lo mismo que poner si pasó solo? ¿Verdad? Porque
+[01:02:39] acá ya va a tener true, ¿si? Y al sí va a entrar porque pasó es true. ¿Se entiende?
+[01:02:46] ¿Cómo haría si yo quiero usar el sí pero que pasó sea falso?
+[01:02:58] Tenemos que usar el negado. Para el negado, podría ser not pasó.
+[01:03:09] Si yo quiero consultar si la variable pasó tiene falso, lo pongo not pasó.
+[01:03:16] porque fíjense, si es true, cuánto me va a dar el negado? Falso. Entonces, qué pasaba
+[01:03:24] si la condición del sí era falso? No entraba ahí. Esta es la operación. Si la condición  de esta operación era falso, el sí no entra.  Te pedí si falso, si paso era falso.
+[01:03:43] entonces cuando va a entrar el sí utilizando lo que está en verde  solo si paso false
+[01:03:52] si paso del false el no me va a dar true  y ahí va a entrar el sí  si les quedó medio complejo
+[01:04:03] cada vez que vamos viendo estas cosas con las variables  booleanas
+[01:04:09] lo voy a explicar, lo voy a mostrar todas las veces que sea necesario  cada vez que ponen un número, si ponen 37  es que se pasó y si ponen 87  sí  lo dice cada vez  o sea  una vez que termino de  ingresar todos los números  ahí le digo, pasó 1%  no es cada vez que pasó  viste que recién cuando termina  mientras, yo voy a mostrar  dudas  bueno, el tiempo que vamos a usar  mucho, va a ser  el máximo  Vamos a escribir el máximo  ¿Cuál es la idea?
+[01:05:12] La idea principal es leer datos hasta que me ingrese el valor 0  Cuando termino de ingresar datos
+[01:05:19] O sea, después de que me ingrese el valor 0
+[01:05:22] Tengo que indicar cuál es el número más grande que se haya ingresado  Excluyendo ese 0 que me ingresó por último  ¿Me entienden?
+[01:05:40] ¿Todos me entendieron?  y no  no lo he hecho  este sí  no, no lo he hecho  muy bien  el mientras  queremos que frene cuando le ingrese un C  cuando le dice la letra A  hasta que, mientras que  eso mismo  muy bien  le ponemos la  después pasé  ¿Qué más?
+[01:06:32] Y ahí ya empezamos  Bueno, pintos de datos
+[01:06:35] Me parece que vas a necesitar más de una variable  No sé cuántas, pero  Que vas a tener que recalcar antes  Pero no hace falta  Porque en general  Voy a escuchar  Pero no iré a mostrar  El mayor dato  Sí, pero tengo que recalcar  Ah, sí, tenés que recalcar  Vamos a crear una variable  Como están diciendo  Max  Y la vamos a inicializar en C  ¿No?
+[01:07:16] Muy bien, dentro del mientras  ¿Qué hago?
+[01:07:20] Le pedís  Datto  Ponés  Sí  Datto  short max  max igual dato  y  después le pedí el valor de dato  y después me transformó  muy bien, si el dato que me ingresó  es mayor a mi máximo  es que vuelve a pedir  si el dato que me ingresan  es más grande que mi máximo  entonces mi máximo pasa a ser  ese dato que me ingresa  luego de terminar el sí  tengo que pedirle ingresarme otro dato  y ahí finaliza el min  ¿ok?
+[01:08:09] y mostramos max  ¿no? muy bien
+[01:08:26] ahora, ¿qué pasa si yo el primer valor que ingreso  es cero, que es un extra?  o sea, te muestra cero  ¿está bien eso?  sí, sí, no hubo más
+[01:08:35] la letra decía que el cero no se tenía que  tener en cuenta  tengo que  cuando no me ingresan datos, decirle  che, no se ingresaron datos  y bueno es bueno realmente es igual  bueno
+[01:08:58] no en el dato metes y dato es igual si no me sirve ya pero te voy a explicar  después porque si vamos a  bueno, variable variable, si? vamos a ponerle cubo  lo ingreso o lo que sea igual a false
+[01:09:21] voy a borrar, yo voy a seguir modificando este variable  si? así que si quieren esperen a copiarlo  ok entonces cuando ponemos este cubo en true?
+[01:09:39] cuando datos iguales si por lo menos ingresen todas las mientas mientras quiere decir que
+[01:09:48] queda o sea que el dato distinto de ser así que hubo vamos a pasarlo a truco sí el dato  Ok, ahora que terminé el mientras  Puedo utilizar esa variable  Si  Hubo  Igual, igual, igual  Vamos a saber igual, igual  True  Solo si hubo  Si la variable es true  Si no, no sé qué es  Si esta variable es true  Va a entrar el sí  Entonces  Entonces, si hubo, mostrar max.
+[01:10:41] Si no, mostrar sin datos.
+[01:10:46] Entonces, resolvimos acá que si me ingresó 0 por el primer dato que me ingresa 0,  no voy a mostrar un max.  Voy a decir, che, no tengo datos.  No me ingresaste ningún.
+[01:11:06] ¿Sí?
+
+[01:11:16] ¿Entendés?  Sí.  Muy bien.  ¿Qué pasa si ingreso todos valores negativos?
+[01:11:20] y no al máximo porque siempre va a ser mayor cero
+[01:11:28] y máximo va a ser cero o sea voy a mostrar cero y está bien eso no entonces ahí metes  le metes en el  leer dato  en el leer dato  o sea va a ser cero igual  porque cero es más grande que menos  o sea yo le puse  Max arranca siendo cero  si es mi caso todo negativo  a este sí nunca va a entrar  te va a mostrar cero que no se tiene  lo que hace es meter en el leer dato  no ponga el número negativo  no, yo quiero que pueda leer  no te lo voy a leer  ¿Qué es lo que vamos a hacer?  En casi todo el lenguaje de programación  existe una variable, una constante, ¿no?  Que sería el valor más chico que puede representar  teniendo la memoria que tiene.
+[01:12:23] ¿Sí? Porque hasta qué número puede...  O sea, la máquina es...
+[01:12:28] No es real que tenemos números infinitos en el computador.  Llega hasta lo que puede representar  con los bits que tiene la memoria.  Si se me  se me termina la memoria  no puedo generar más números, más  grandes, o más chicos.
+[01:12:45] Con la cantidad de memoria que hay hoy en día  es casi como infinito.  ¿No? Entonces,  existe, ahora vamos a  poner acá, después  les voy a mostrar cómo un javascript se pone,  pero le vamos a poner  un  flow value.
+[01:13:07] Acá, lo que le estoy poniendo es  el valor más chiquito  el entero más chiquito que puede  representar  mi máquina  ¿está?
+[01:13:19] entonces, si es el valor más chiquito que tengo ahí  los datos
+[01:13:24] que me van a ingresar, o es igual o mayor  no hay más chiquito  ¿se entiende?  entonces, el primer  valor que me va a ingresar acá  lo más seguro es que sea más grande  ¿está? o igual  si en caso que sea igual  me va a quedar ese valor y está bien  ¿En Codemir se puede crear una variable  sin asignarle nada?
+[01:13:48] Si lo que le pone
+[01:13:52] valores
+[01:13:52] por defecto, si es un número le pone un c  ¿Se entiende?  Más chiquito tendría que ser  No, es el valor más chico  siendo el negativo, más chiquitito  chiquito, chiquito  menos  trillones o no sé  ¿si?
+[01:14:16] ¿se entiende?  entonces, teniendo  arrancando con más, el max  con el valor más chiquito  que se puede representar  ¿si?
+[01:14:26] y ahí ya resuelvo de que los negativos estén en cuenta  ¿si?  ¿se entiende? ¿todos me entendieron  eso?
+
+[01:14:45] tenemos el tema de que  no le podemos pedir  no puede tener  el cero como  un número  posible  a ingresar  le estoy sacando el cero de todos los números  ya le puse todos los negativos, todos los positivos  pero el cero no lo tiene  entonces  menos uno  mismo, le saqué el menos uno  acá lo que podemos hacer es preguntarle  che, ¿querés ingresar un número?
+[01:15:17] si me dice que sí  ¿si?
+[01:15:21] voy a borrar  porque tengo que empezar de nuevo  y no me voy a entrar todo  vamos a leer  vamos a poner  max en low value  vamos a poner  mostrar  quiere ingresar  dato  lo que me tiene que ingresar la persona  es una S o una N  para hacerlo fácil  ¿está?
+[01:16:00] leer res y es más a la respuesta a esa pregunta y ahí sí mientras
+[01:16:12] y o sea igual a ese es lo mismo entonces acá vamos a tener que leer el dato primero
+[01:16:28] y a diferencia del otro nosotros ya habíamos leído antes del miento  Acá lo que le hice antes del mientras  Es preguntarle si quiere repetir
+[01:16:36] Me dijo que sí, entro al mientras, leo el dato  ¿Ah?  Leo el dato  Sí  Dato es mayor a max  Max  Igual a dato  En sí  Me faltó acá el uo  Igual a true  Y después le vuelvo a preguntar
+[01:17:06] mostrar que quiere ingresar el dato, que res, que mientras, si hubo, mostrar max, si no, mostrar siguiente.
+[01:17:51] ¿Sí? Tenemos en cuenta todos los números que quiera ingresar el dato.  Hasta que me diga que no quiero ingresar más.  Claro  Yo voy a ir  a ese X  un poco más  un poco igual  True  Sí  Ahora entendiste  por qué  Sí  Vamos a hacer  el otro  Claro  Vas a hacer  una numérica  para analizarle  Ah  también no podía procesar  necesitaba los números  negativos  y no podía  tener los negativos  Sí  Por eso también  es eso  si  una de las cosas  que me preguntaron  me dijeron  era que pongamos  al final  si max es mayor a 0  digo, ah, ya tuve max  pero ahí de vuelta, no tenemos en cuenta  los negativos  ni el 0  ¿sí?
+[01:18:55] eso es un parcial negativo que lo facilita, ¿no?
+[01:18:59] si no, así  por primera vez  igual esto es fácil para un parcial  es obvio  demasiado fácil  o sea, puede ser que  dentro de un algoritmo tengan que calcular  un máximo  encontrar un máximo, ¿sí?  Pero con muchas cosas más, no solo esto.
+[01:19:18] ¿Qué es la N de ahí?
+[01:19:21] Eh, la red, o sea,  yo lo que espero en lo que me  responda esto es una S  o una N, ¿sí o no?  Ah, no.
+[01:19:32] Pregunta,  si yo quiero cambiar esto y encontrar  el mínimo,  ¿cómo tenía que cambiar?  En realidad,  menor cero, o sea, menor  máximo. Si yo pongo  igual
+[01:19:57] lo mismo una equis una lo que sea me va a contar lo mismo
+[01:20:12] porque de vuelta capa actuales re puede ingresar la ley sin querer
+[01:20:22] la frente la mejor y después tenemos que tratar el usuario como monos cualquier cosa
+[01:20:33] con la limitación lo que tendría que hacer es bueno  mientras  res  sea  diferente a n o s  vuelve a ingresar  y ahí no entra  pero acá  no estamos llegando a eso  estamos más  flojos todavía  ¿Y ahí lo que vos preguntaste, Juan San?  En vez de si ya tomamos el max,  si ya tomamos el max, ¿y qué?
+[01:21:12] Tenemos varios cambios.  Eso para encontrar el mínimo.  En vez de max igual a  los varios, sería  min igual a max  value.
+[01:21:24] ¿Sí?
+[01:21:25] Porque como voy a buscar  el máximo,  digo, el mínimo,
+[01:21:30] seteo la variable mínimo como más grande posible.  Claro.  y después busco cuál es más chico que ese  de última ingresión  acá va a ser  si  dato en menor a min  min
+[01:21:52] igual dato  mostrar min  mostrar  ¿entiendes?
+[01:22:11] si  ¿alguna duda?  bueno  Bueno, muy bien  Vamos a aprender un poco de ejercicio  Tengo otro más para hacer  Vamos a ver  La introducción a JavaScript  Para eso  Voy a mostrar sus infografías  Creo que me mandaron otra  Maximiliano me mandó otra  Vamos a cargarla  Muy bien  voy a mostrar más o menos  en el orden que me fueron mandando  porque fue como lo fui guardando  ¿no?
+[01:23:06] vamos con Salvador  ¿estás por ahí Salvador?
+[01:23:11] ¿estás en el teatro?
+[01:23:14] ¿estás en el estudio?  no, pues está acá  en esta máquina  o sea, no  en plan de bonafuera  no sé si  mira, después de que cambiaron el plan  no sé si  pero yo cuando hice la carrera
+[01:23:37] en realidad  en alguna otra pero más  del lado de las intelectuas  pero creo que ahora lo agregaron  bueno  se me acordó que dijiste que estabas, ¿no?  ¿quieres contarnos un poco  contanos un poco de tu  infografía?  así yo no hablo tanto  no sé  la hice en
+[01:24:21] campo  Ah, contanos la información que fuiste viendo.
+[01:24:26] Ah, bueno, puse lo básico, lo que me parecía, como medio como una introducción,
+[01:24:33] dónde se ejecuta, después estaba una parte más de...  Primero, así viendo rápido, perdón que te corté.  JavaScript es un lenguaje de programación, muy bien.  Corre en un navegador  ¿Sí?
+[01:24:53] Javascript  Funciona en todos los navegadores  Todos los sistemas operativos  ¿Sí? No importa  El sistema operativo, va a funcionar  Después les explico por qué  ¿Es de alto nivel? ¿Por qué?
+[01:25:09] Ah, ¿me preguntás a mí?  Sí  Porque  No es un lenguaje  De bajo nivel  Como C o Assembly  Sino que usa  Funciones como predeterminadas  Para que sea más  Sencillo capaz  Digamos que sería  De alto nivel de abstracción  Sí, eso lo hemos visto  O sea, nosotros podemos entender  Casi, no es tan  Directo a  Como lenguaje natural  Y no  Cuanto más bajo nivel nos estamos acercando  lenguaje de máquina, ¿verdad?  Java se puede poner con el reglamento.
+[01:25:53] Java es de la capacidad.  Pero es mucho más robot.  Claro.
+[01:25:58] Muy bien.
+[01:26:01] Sí,  siguen contándonos si querés.
+[01:26:05] Bueno, puse que se ejecutan  en el navegador  como frontend  y después en el backend puse el ejemplo  de Node.js  y está ahí.
+[01:26:15] Se ejecutan servidores, bases de datos, APIs, etc.  Que es la parte que el usuario no ve  Node.js es más un framework  Que se utiliza  Está basado en Javascript  ¿Verdad?  Pero sigue siendo Javascript  Perdón que moleste  Pero yo entendía que Node.js  Era el ejecutador de Javascript  No  No podés correr  Node.js sin tener  Node instalado  Yo  Sin instalar nada
+[01:26:51] Mi navegador puede ejecutar JavaScript  Puro y directo  Node.js  Apareció después  Y está pensado para  Más para  Para que ejecute dentro de un servidor  Cada vez sería navegador  Para un servidor  Después lo vemos en la  Diferencia  Bueno, así lo vamos a hacer más rápido
+[01:27:24] Tenemos los conceptos básicos, la variable que se pueden almacenar datos  Para crear una variable let age igual a 20  Let es lo que vamos a usar más  Par no lo vamos a usar en el curso
+[01:27:40] Voy a llegar a un momento donde le voy a explicar la diferencia
+[01:27:45] Si nos da el tiempo, porque tampoco me parece tan importante  y después const en realidad  es una constante, es una variable  y en el resto del código  no cabe  así  rápido  por arriba  funciones  podemos utilizar código  eso lo vamos a ver  la palabra function, el nombre  y después vienen los parámetros
+[01:28:12] lo estoy diciendo así rápido porque lo vamos a ver  más adelante  Bien, las condiciones para terminar  Tomar decisiones, el if  Como vimos acá, if else  El else sería el si no  El if, el si  También tenés el if  Que es la relación de los  Sí, ese es  No, no, perdón  No, después  Son con expresiones  Sí, es esto  Bucles, tenemos  Que repite, podemos usar el
+[01:28:44] el for, que sería el para, para nosotros, o el while, que sería el mientras, moviendo.
+[01:28:51] Bueno, después vamos a ver algún tipo de datos para almacenar varios datos dentro,
+[01:28:57] uno de ellos son los arreglos o las listas, no quiero esternar mucho, objetos, que también
+[01:29:03] vamos a ver más al final del curso. Tenemos distintos tipos de datos, string, que son
+[01:29:08] las cadenas de caracteres o sea texto números acá no sé no hay un tipo de
+[01:29:15] topar a número 20 y otro para el número con decimales como en la mayoría de los
+[01:29:19] de la lengua sino que están amber y es para todo si entero o decimal que
+[01:29:26] acuérdense que el decimal es con un punto separado un punto
+[01:29:30] los bolianos que puede ser tu voz a raíz y son unas listas vamos a ver objetos o  que es cuando no tiene ningún valor  hello define
+[01:29:46] sí, o n a n  tenemos varios  vamos a ver  claro  en una página web  vamos a ver que tenemos el html  que para la estructura de la página  css para la apariencia  y javascript que sería el comportamiento  sí, lo llevo a una
+[01:30:07] analogía de por ejemplo una casa, el HTML es la estructura de la casa, los planos, las
+[01:30:15] vigas, etc. El CSS es toda la pintura, la decoración, etc. Javascript es por ejemplo
+[01:30:22] cuando aprieto... Las paredes también serían CSS. La pared sería HTML, CSS, la pinte.
+[01:30:29] La pinte. A la pared lo que le puedo hacer es cambiar tamaños y colores. Claro, hasta  pero la estructura  la estructura de  cuántas paredes van y eso  está chiquitita  y después por ejemplo  para apagar y prender la luz  la llave de luz lo maneja  javascript  le da funcionalidad  algunas sentencias básicas  me gustó esto  en javascript no es  obligatorio utilizar el .incom  El punto de coma se utiliza al finalizar  Una sentencia  Eso se le indica acá también  Pero en este curso  Vamos a agregar  ¿Por qué? Porque van a dar Java  El semestre que viene  Y es obligatorio  Tampoco lo voy a matar  Lo voy a ir recordando  Para que se acostumen  Con doble barra  Vamos a comentar el código  La línea  una línea. Comentar  significa que esa línea  al ejecutarse no la tiene en cuenta.  ¿Ok? Se usa para tener comentarios,  texto para  entender una cosa,  cierta parte del código, cómo funciona.
+[01:31:48] Bien, van a ver  después las llaves, cómo las usamos bien.
+[01:31:52] Paréntesis, en general  para las funciones, se utiliza para los parámetros.  Corchete para los arreglos.  Las comillas, acá no importa  si es doble o simple,  Se puede usar cualquiera de las dos  Para texto  Después de los WAPTips  Después les voy a mostrar  Cómo hacer comentarios de más de una línea  Muy bien  Muy bien Salvador  Vamos con  Santiago Gauna  Santiago  Es básicamente  Un bosque de programación que se usa  Principalmente para crear prácticas biodinámicas
+[01:32:31] en interactivos para que se usa aquí se usa para hacer una buena actividad de detectar
+[01:32:36] clics del usuario por ejemplo al ir a un área para ocultar elementos consumir a pis  las obligaciones propiedades
+[01:32:46] en el navegador firefox  O pero aquí en Pong 3  En realidad el mejor puede ser  Chrome, Firefox, Safari  Opera, Cera  Todos  Puede pasar que ahora ya casi  Ya están iguales más o menos  Pero puede ser que una funcionalidad  Funcione en una y en otra no  O funcione  Diferente, más que nada con HTML  Pasa eso, ¿no?  Y la parte de utilizaciones  Que básicamente se hace  En un estándar que se llama  casi no tenemos  ya todo el tiempo  y ya, básicamente es eso  no mucho más  una cosa de las actualizaciones  lo que tiene  por ejemplo en el navegador se hace solo  no pasa nada, en Node.js si hay que hacerlo  porque ya hay  alzarlo en mi servidor  yo soy el responsable  vos comentarás, en Node.js básicamente  se instala una versión  si lo querés usar otra  lo que le quería decir es que  Java hace lo mismo, que lo que hace es  cuando una funcionalidad  es desprecada  o sea, ya no se utiliza  y se  se le dice a la comunidad  que hay que usar otra cosa  no la borra, ¿por qué?  porque si yo tengo una página vieja  que utiliza esas funcionalidades  me va a dejar funcionar  y no le diga  se mantiene en la popularidad  muy bien
+[01:34:21] Mauricio Arraga  ahí arrancamos  porque lo hicimos con Gonzalo  cuando se creó  fue en el 95, quien fue el creador  fue en la maíz  y lo hizo en 10 días  le muestro el nombre original  Mocha  es de café  el jabalón es por café  y luego la escribí  cada vez que llega  nombran a la semillita  fue mi primera vez en el web  como un escape en el editor  bueno, lo que hice ahí  mi hijo me ha dicho  todo, he sabido que he sido muy interdicto  todo en el web  también en el web móviles  se vaquean con entornos de node, juegos, gráficos.
+[01:35:37] Vengo interpretado, se interpreta directamente al grabador, sin otra necesidad.
+[01:35:43] Claro, esto quiere decir que no necesita una compilación previa.  Traduce y pasa, traduce y pasa.  ¿Qué pasa?
+[01:35:55] Que le dice que permite cambiar tipos de datos en tiempo de decisión.
+[01:35:59] Claro, esto porque JavaScript no es un lenguaje fuertemente tipado, se llama.  Este es Debi, o Java.
+[01:36:14] ¿Qué pasa? ¿Se acuerdan que yo les dije que hay lenguaje que se le tiene que decir a la variable qué tipo de datos va a tener?
+[01:36:21] acá, acá, y a lo mismo que en Python tampoco se necesita, como en JavaScript,
+[01:36:27] yo creo la variable y le pongo lo que quiera, después le pongo el dato que yo quiera,  no me, tengo ninguna restricción.
+[01:36:34] Muy bien, los tipos, el sal es herencia mediante los tipos al lugar de clase personal,  que no entendí mucho.
+[01:36:43] Acá tenemos que ver lo que son objetos, si no, no lo vi.  después de hacer objetos a partir  de objetos, de objetos  de Javascript  después cuando veamos eso  orientado a esto, responde a acciones del usuario
+[01:37:03] un clic, pues si, todo eso lo vamos a ver  vamos a captar los diferentes eventos  que tenemos  multiplataforma, funciona  esto es así  al igual que Javascript  Javascript y Java  No tienen nada que ver uno con otro  ¿Sí?  El que hizo JavaScript  Se basó un poco en Java  El funcionamiento  Pero son cosas diferentes  No tienen nada  No tienen ninguna relación entre ellos  Solo un nombre  Yo puse mucho texto me parece  Bien  Entonces  Ambos lenguajes tienen  Una máquina virtual  Ponganle  que es en ese lugar donde se  traduce  el código, entonces  como es una máquina virtual  no le importa que  el sistema operativo está abajo  y javascript no  entonces  por eso  los dos son orientados a objetos  los dos son medio limpiados  muy bien  multipanaritmas, o sea en realidad  javascript es  multipanaritma, es orientado a objetos  funcional e imperativo  ¿si?  muy bien, ahí está el resumen rápido  muy bien, para acá vamos al siguiente  si puedo con Gonzalo  si, si, si  Caterina  Scudetti  si anda por ahí  hola  bien, no sé si querés contar algo  o lo leo  fue básicamente  siento que no tiene tanta información  con lo que pasaron los compañeros  pero nada, hice como un resumen  de un poco de el origen  que básicamente fue creado en 10 días  que es uno de los lenguajes  más usados actualmente  y nada, que  a lo largo de los años  se fue actualizando y fue agregando  ciertas cosas que ahora  hacen que se use más, por ejemplo  originalmente en la parte  donde se usa se indica que  primeramente fue para  navegadores pero después se expandió  con servidores con Node.js  y después también en aplicaciones  móviles  Exacto  También  una de las características  principales que también de seguro ya se  mencionaron  que básicamente  no necesita compilarse
+[01:39:40] antes de que se ejecute, que es también otro que puede hacer varias tareas sin detener el programa,
+[01:39:50] o sea que es asíncrono, permite programar en distintas formas, distintas maneras,
+[01:39:57] y también está basado en prototipos, lo de los objetos, que básicamente pueden heredar de otros.  Bueno, que quede el concepto
+[01:40:07] Que después igual lo vamos a ver bien cuando veamos objetos  Básicamente  Yo puedo crear un objeto que herede  Funcionalidades y características  De otro  No las tengo que volver a escribir  Después lo vamos a ver  Igual el tema que sea  Sincronizado  Por temas como ese  algo más  puse algunas curiosidades  algunas que ya estaban  dichas, pero también por ejemplo  bueno, hay tres formas  de declarar las variables  la más antigua es var, ya ni se usa  es complicado  que te lo pidan, no se usa  let te pide  lo que tiene, puede cambiar  el valor y la const  es básicamente la constante, o sea que ese valor  nunca va a cambiar a lo largo del programa  y después bueno  tiene el null y undefined  que son parecidos pero  son distintos porque  uno es una variable en sí sin valor  y el otro es  realmente dejar un vacío  dentro del código  lo que hablábamos de  que era una variable sin  asignarle nada en realidad  queda antifinal  yo creo que era una variable  y va a quedar como  en la forma  si creas un arraigo así  todo  si  ¿no?  muy bien  pero después le podés poner datos  así que  está vale  decimos que nada  para saber  decimos que nada  para saber si están llegando  bien  Leonardo Santos  no sé si está  voy a ver  mostrarme igual  lo hizo más como una  línea de tiempo  sí  en  en 95  fue creado, en el 97  nace  PENMA  Script, en el 99  se agrega  las expresiones regulares  el trade and catch  que después vamos a ir a ver  en este curso no lo van a ver  lo van a ver en el  Promotion 2, el 4in  que si lo vamos a ver  tenemos que  en el 2005 se implementa  la implementación de AJAX  Ajax también es como  Como que te agrega  Algunas funcionalidades más  En 2000  Apareció el ArrayMap  Filter, Reduce, JSON Parts  StrictMode  Lanzamiento de Node.js  Varios de estos lo vamos a ver  2014 lanzamiento de Vue.js  No es solo Node.js  Hay varios  En 2015  está apareciendo  row function  el tema es  cons, clases  promesas  mapiset, en el 2017  async y await  eso es lo de  en el  2013 quedó la array  en el, que?  en el 2013 quedó la array  2023, array.add  es una funcionalidad de la array  el doble de la array  Object.gloob.by  Finlast  2026  Es el lenguaje de programación más usado  Subiendo su porcentaje  Año tras año  ¿Qué es lo que hace Finlast?
+[01:43:41] Busca, pero desde el final  Ah, ahí va  O sea, el último  El find normal  Busca la primera ocurrencia desde el principio  El find last  Busca la primera ocurrencia desde el final  Ah, el last  Matías  Garnaris  yo, acá  bien, lo paso rápido Mati porque  si no, no me da tiempo, ¿no?  sí, sí, sin problema  usado por el 98.9%  de los sitios web del mundo  el bajo conocimiento  interpretado, dinámico y de alto nivel  principalmente usado para interactividad  en navegadores  pero es de uso general  Yo veo Mati que me vas a  Ser muy quilloso  Con los  El estilo de las páginas  Dato relevante  En el 95  Se crea Mocha  Entonces solo 10 días  En anuncio bajo el nombre  Del Light Script y finalmente Javascript  Si ven que antes ni siquiera tenía  Java en el nombre  Después  Acá le dice
+[01:44:55] Si habían un Javascript, elegieron el 95 para motivos de marketing, para beneficiarse de la hoja de Java.  Sí, con el Java también.
+[01:45:04] Estandarización.
+[01:45:06] EGMAscript es el estándar oficial que define el núcleo de Javascript.
+[01:45:10] Esto resuelve los problemas de inconsistencia entre los navegadores y permitió la evolución ordenada del lenguaje.  Es de los más usados.
+[01:45:21] Y...  Ah, bueno, acá explica lo que es EGMA.  Sí, ya está.
+[01:45:25] área de aplicación, aplicación móvil, desarrollo de videojuegos, inteligencia artificial, aplicaciones de escritorio, estaciones de navegador, automotización y script.
+[01:45:38] Porque es Javascript, corren todos los navegadores de forma nativa, alta portabilidad, soporte activo con actualizaciones anuales, comunidad grande y activa.
+[01:45:48] Yo después voy a crear una carpeta de Drive, donde después voy a ir dejando los códigos que vayamos haciendo, y estos también se los voy a dejar, cada uno de todos.
+[01:45:59] Pablo de Elisa, veo la introducción, JavaScript es un lenguaje de programación, se utiliza principalmente para crear páginas de juego dinámica,
+[01:46:15] técnicamente javascript es un lenguaje de promoción interpretado. Estoy viendo a ver si tenemos algo nuevo que no hayamos visto, ya hemos dicho.
+[01:46:23] Yo mencioné con Lolo la empresa anterior, o sea la empresa de los leones que mencionábamos ahí.
+[01:46:29] Ahí va, se quedó en él. Fue diseñado en un principio por Netscape Communication, lo que hoy conocemos como Mozilla Foundations.
+[01:46:39] Fue integrado Munkain, el generador de la primera web, fue criticado por su lentitud a la hora de generar código, dado que esta acción generaba un retardo notable en la carga completa de la página.
+[01:46:56] ¿Syntax? Bueno, creo que ya estábamos hablando que es intérprete, pero cuando yo levanto la página, que le importa todo el código, ahí se fija un poco el syntax.
+[01:47:07] La sintaxis de Javascript es muy similar a la de otro lenguaje de programación como Java y C
+[01:47:13] Las normas básicas que definen la sintaxis de Javascript son las siguientes
+[01:47:17] No se tienen en cuenta los espacios en blanco y las nuevas líneas  Se distinguen las mayúsculas y minúsculas  No se define el tipo de variable
+[01:47:25] No es necesario terminar cada sentencia con el carácter de punto y coma  Se puede incluir comentarios  Está jodido utilizar Javascript  Es un lenguaje sencillo
+[01:47:37] Cuando está integrado con el motor web ejecuta rápidamente su sintaxis  Está integrado en navegadores  El versátil  Muy bien  Vamos a pasar con  Ahora Facundo Portillo  Lenguaje de programación que da vida a la web  Lenguaje de alto nivel, interpretado y orientado a objetos  Sintaxis y variables  No variables en un contenedor  Js es la  Avaliación  Utiliza LED para los valores  También utiliza diferentes tipos de datos  Tal y como string, texto, número  Número y el número, booleano, truco, force  Object y array  Que es una de estas  El DOM  El DOM es el  El DOM es el puente entre JavaScript y HTML  Esto lo vamos a ver más adelante  Básicamente  Cuando se crea la página en HTML  Arma como un árbol  y cada nodito  podemos centrar, modificarlo, agregar  sacarlo  podemos hacer muchas cosas con cada script  y también podemos editar el CSS  para que me cambie los colores  ¿si?
+[01:48:50] es como cuando pedís  comida y te dan un numerito  el código dice  que esto termine para seguir pero no me  congeles toda la paja  es la forma de manejar tareas que llevan tiempo  sin que todo explote.  Fetch API es el  mandadero de tu web.
+[01:49:09] Va a buscar info de otros sitios, como el precio del dólar
+[01:49:11] o el clima, y te lo trae para que lo muestres.
+[01:49:15] ¿Bien?
+[01:49:18] ¿Lo leíste, Joaquín?
+[01:49:20] Acá.  Mucho texto pusimos, pero bueno.
+[01:49:24] Muy bien.
+[01:49:27] Ah, no, no lo íbamos a evitar.
+[01:49:30] No, eso de  viste la tipografía de Canvas.  o sea eso no  no le vamos a poner  claro  hablamos ahí  de que JavaScript  después de como se creó  o sea que  se creó por  Brendan H  que trabaja en Netscape  y después  de estar  quienes crearon Netscape  medio porque  crearon JavaScript  porque precisaron  un lenguaje  para hacer páginas web  o sea  porque estaban  trabajando  sus páginas web  con su  con internet  peor  o sea música  estaban trabajando  con eso  y estaba  empezando a crear  páginas web
+[01:50:02] entonces claro muy bien vamos a nosotros ya la hora así son para que los puedan ver todos de
+[01:50:10] ángeles y es que la creación porque se usa la principal es tipo de datos de fácil sintaxis
+[01:50:21] básica vamos a hacer, si? Emanuel Faría, que es una PPT, bien acá se habla de los
+[01:50:36] operadores, estos son los operadores aritméticos, la asignación, esta ponemos acá, esto lo
+[01:50:44] vamos a ver después, comparación, tenemos el mayor, menor, mayor igual, menor igual,  Igual, igual, igual, triple igual  Distinto, igual  Y distinto, igual, igual  Esto de acá funciona igual  Que doble igual  Y tres igual  Después lo vemos igual  Los lógicos  Ternarios  Y siete ternarios  Muy bien  Y creo que me quedaba
+[01:51:11] ¿Qué quiere decir, profe, eso de entorno de ejecución web?  Lo de  ramjs.app  Esto es lo que va a utilizar  Para  O sea, lo que ejecuta JavaScript  En un navegador  Por detrás ni lo vemos  No llegamos ni a verlo  No es ese que ejecuta  Dentro de Visual  No  Y por último  Y no tengo que esperar  el último
+[01:51:55] qué es nuestra historia
+[01:52:03] para ustedes si ver 7 videos 7 codificación  básica de Javascript  ¿eh?
+[01:52:19] Sí, también.  Nos vemos, profe.  Nos vemos.  Adiós, que terminen bien.  Chao.
+[01:52:34] Nos vemos, profe. Gracias.  Nos vemos.

@@ -1,0 +1,1562 @@
+para los dos
+la otra semana
+¿el turismo ahí?
+sí, la otra
+la semana que tengamos clases
+Gracias.
+Recording in progress.
+Bueno, en el clase pasado vimos, ya vamos a ver el video, sí, el segundo video, de pensamiento computacional.
+¿Sí? ¿Se acuerdan? Bueno, ¿de qué se trata pensamiento computacional?
+¿Qué me pueden decir?
+¿De cómo se llama el concepto de un libro? ¿Qué pases?
+Conocer patrones
+¿Qué otros conceptos?
+Vamos a tener algoritmo
+Vamos a ver
+Reconocimiento de patrones
+Algoritmo
+¿Qué más?
+Descomponer
+La descomposición.
+Bien.
+¿Sí se acuerdan?
+Sí, trataba de, por ejemplo,
+si yo quiero planificar una salida,
+o cambiar una bombita de luz,
+¿sí?
+La bombita que está quemada.
+ahí, o sea,
+en eso nosotros vamos a,
+en esos problemas,
+a llevar el pensamiento computacional
+para poder resolverlo,
+y hay distintos elementos,
+que se nombraron en el video,
+que vamos a utilizar
+para poder llevar ese pensamiento computacional.
+Por un lado era la descomposición,
+problemas más pequeños, más sencillos.
+¿Hasta cuánto ir bajando, descomponerlo?
+Hasta que sea un problema que es fácil de resolver, que es obvio, digamos, la resolución, o sencilla.
+Una vez que tenemos todos esos problemas chicos resueltos, vamos a tener el problema mayor ya resuelto.
+después el reconocimiento de patrones y en el análisis de nuestro problema ver si
+reconocemos ciertos patrones sí que nos puede que podemos enganchar en algún otro problema
+que tuvimos antes sí y poder aplicar esa misma solución que vimos o detectar ok esto se está o detectar, ok, esto se está repitiendo, entonces hay que atacar este patrón para poder resolverlo.
+Abstracción, abstraerme a lo que necesito.
+A ver, es lo mismo de cuando estábamos hablando de los tipos de lenguajes, ¿se acuerdan?
+Cuando era muy bajo el nivel de abstracción, que era...
+con lenguaje de computadora,
+a alto nivel
+de abstracción,
+que no necesito.
+Podemos entender en lenguaje humano
+más o menos lo que estamos
+llevando.
+Ah, en esto va así,
+tenemos que ir viendo
+a qué tanto tenemos que ir
+en cuánto tenemos que bajar en el nivel
+de abstracción para poder
+tener la información necesaria para resolver
+nuestro problema.
+Y después
+vamos a ir con algoritmos
+y armar algoritmos
+que nos van a resolver
+o sea, que al ejecutarse
+va a resolver un problema.
+Vamos a ver un poquito en detalle
+en detalle de esto.
+Vamos a hacer un resumen rapidito.
+Entonces, el pensamiento computacional
+es un proceso de resolución de problemas
+que tiene, entre otras cosas,
+estas características.
+Formular problemas.
+Formular problemas de forma que permita
+el uso de una computadora,
+computacionales,
+y otras herramientas para llevar
+su resolución. Bien,
+organizar y analizar datos
+de forma lógica
+para que esos datos nos
+sirvan.
+Automatizar soluciones
+Bien, en la programación, o sea, por detrás tienen mucho de matemática.
+Muy bien.
+Representar datos a través de abstracciones como modelos o simulaciones.
+Si vieron que hay una simulación,
+yo veo, estoy en muy alto nivel de abstracción lo que estoy mirando.
+Quiero meter, si voy bien hacia abajo, hasta lo más bajo de abstracción,
+estoy ya viendo los datos uno a uno.
+¿Sí?
+Después, identificar,
+de pasos y recursos. Los recursos, eso capaz que en el curso no lo vamos a centrar tanto,
+porque lo primero que quiero que se entienda es que armemos los pasos de tal forma
+que solucionemos el problema.
+Después el tema de recursos, bueno,
+¿qué tanta memoria voy a estar utilizando?
+¿Qué tanto espacio
+voy a usar? ¿Qué tanto
+CPU necesito? Todo eso
+se va a ver más adelante.
+Obviamente, como yo les decía
+ya en la clase pasada, tenemos muchas
+para
+para un mismo problema
+pero
+hay soluciones que son más eficientes
+que otras
+o que usan menos
+recursos que otras
+muy bien, vamos a generalizar
+transferir este proceso de resolución
+a una amplia variedad
+de problemas.
+Muy bien.
+Y
+esto van a ser
+los
+cuatro conceptos
+que vamos a tratar dentro del
+pensamiento de la abstracción,
+Descomposición, que es partir los datos o problemas en partes más pequeñas y manejables.
+Reconocimiento de patrones, que es encontrar patrones o regularidad.
+Y diseño de algoritmo, que es seguir paso a paso instrucciones para resolver el problema.
+Esto lo habíamos visto en el video de la clase pasada.
+Voy a mostrarles algunos ejemplos de estos cuatro conceptos.
+Ya tenemos un ejemplo de abstracción.
+¿Por qué sería un ejemplo de abstracción esto?
+Vamos allá.
+Esto es el metro de Buenos Aires.
+¿Qué es lo importante?
+Yo, cuando tengo esto, yo quiero llegar de tal lado a tal lado.
+A mí lo que me interesa es saber...
+O sea, por ejemplo, a mí me lo resuelve la línea B.
+A mí el resto, la verdad, no me importa.
+¿Entiendes?
+A mí me va a resolver mi problema, que es, tomando la línea B, llegar a tal lado.
+es ver la línea B.
+¿Se entiende?
+Me abstraigo de lo que yo necesito.
+Lo del resto, que sea irrelevante, que no me sirve,
+está fuera.
+Típico cuando van a hablar con un cliente
+de que les va a dar información que no sirve para nada.
+necesario. Aquí tenemos otro ejemplo de abstracción. Acá va a ir un poquito más en momentos más pequeños,
+o sea, yo voy a ir mirando lo que necesito a medida que voy avanzando. todo entero de una no me sirve
+analizarlo. Sirve ir
+de a poco.
+¿Sí?
+En cocinar una torta tenemos
+distintos niveles de abstracción.
+Por ejemplo, antes de empezar
+Y ahí me van a ir saliendo distintos problemas para resolver.
+Hasta el momento mi primer problema es saber si tengo los ingredientes.
+A mí no me interesan todos los pasos de la receta.
+El siguiente nivel de la traducción va a ser la... El siguiente nivel de la abstracción va a ser la cantidad de cada ingrediente.
+Y luego ya sería otro nivel el tiempo de cocción que necesita.
+Muy bien.
+Los patrones se ven mucho en lo que es el arte, la arquitectura.
+¿Sí? Como decía. Siguiendo el patrón, ¿cuál debería ser el último ícone?
+¿Sí?
+Eso es porque reconocimos el patrón muy rápido.
+¿Qué tienen todos estos en común?
+Que giran.
+Y yo les muestro esto, ya que apagé un poquito más viejo, pero no les llego a mostrar todo.
+¿Ustedes ya identifican qué es?
+Sí.
+¿Qué sería?
+Sí, están viendo un poco el patrón, digamos, de su ícono, podemos identificar qué es.
+Va a interesar.
+¿Eh?
+Bueno acá, no tenemos este ejemplo, tenemos cada cuadrado lleva un número, cada región lleva los números del 1 a la cantidad de cuadrados que hay en esa región.
+Ningún número puede ser vacío, horizontal, diagonal o vertical a un número igual, o sea, perdón, ningún número puede ser vecino, dije vacío cualquiera.
+A, de forma horizontal, diagonal o vertical a un número igual, o sea, no puede ser igual
+a su vecino. Teniendo esto, estas reglas que tienen que cumplir, ¿cómo lo dirigimos
+en el 2 solo
+va a ir un 1
+en el 2
+en el 2
+en el 2
+si
+y ahora 4
+y uno arriba a la derecha abajo al lado
+arriba del 2
+ahí va
+todos estos no pueden ir en 1
+este tampoco
+acá tampoco porque no podrían
+bueno, sí podría estar acá
+a la derecha
+de 2
+porque si no, no tenés donde dejar el otro 1
+Ahí, o sea, ahí pará.
+Ah, abajo del 2 sería el otro.
+¿Sería algo así?
+Sí.
+Y el 2 ahí entre los 2 y 1.
+Y el 2 en el rato.
+Entre los 2 y 1, el 4 abajo y arriba el 3, el más arriba.
+El 3 ahí abajo y el 5.
+Esto lo programamos porque tiene que cumplir ciertos patrones para poder funcionar.
+Muy bien, ahí está la solución.
+Muy bien, si les muestro esto, ¿saben qué? ¿Me pueden decir qué personajes son?
+¿Qué son?
+¿Qué son?
+ahí estamos
+reconociendo los patrones
+de los
+personajes
+el de Ab
+después una princesa
+y Tarzan
+Mowgli
+Mobley, Cam
+y quién es mi falso
+y no sé, la princesa
+la princesa de Aladín
+ya me sé
+muy bien, acá
+ah, el de Monterrey
+y
+el gato
+le dice para mí maravilla
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+y
+acá por ejemplo
+los perros
+en donde irían
+cada uno de los perros tiene que estar
+al lado de su hueso
+horizontal o vertical
+no puede haber dos perros vecinos
+horizontal, vertical o horizontal
+y
+la indicación
+que está en las columnas acá
+y las filas nos indican la cantidad de perros que hay en esa fila o esa columna.
+¿Sí?
+Y en la fila de más abajo, en la última, y en la cuarta columna,
+iría un perro.
+¿Ya?
+Sí.
+Ahí sí o sí.
+Después tendría que ir uno en la primera fila, primera columna.
+en la primera
+fila y última columna
+acá
+después iría un perro
+en la segunda fila
+última columna
+este me parece que está bien
+a la izquierda
+en la última fila, segunda columna también, ahí y en la última fila, segunda columna,
+y después en el
+ah, que era de
+en la tercera columna
+igual, acá
+este de acá
+está mal, no puede estar
+sonado por el C
+tiene que estar en
+2, 3, 4
+Este para mí lo tendría que ir acá
+Este?
+acá ya sabemos que acá no pudimos ir más
+acá no fue
+¿en 3-3 puede ir uno?
+sí, sí
+¿verdad?
+sí
+en 4-1
+en 4-1 y en tercera fila
+y después en la misma fila
+pero, ah no queda de hablar
+ya está
+si?
+bien, tenemos que
+no podemos repetir números, o sea tenemos que poner los números del 1 al 9, no podemos
+repetir, y la suma de los 3, estos 3 por ejemplo me da 9.
+Para mí tendría que ir un 5, 6 o 4, podría ir más de 7 en el decente, porque si tenés bajo 9, si metés
+7, 1 más 2
+queda 10, o sea, tendría que ser mínimo
+6. Para mí
+para mí
+manejarnos con un número alto
+en el medio no nos sirve
+mucho. ¿Por qué? Porque hay números
+chiquitos que tenemos que ir
+capaz, también el 1
+ahí sí capaz, porque después metes 9, 8
+no, el 1 no
+el 2
+y ahora sí
+serías en el 18
+a la izquierda, el 7
+a la izquierda, abajo
+7 y 9 sería
+tiene que estar
+7, 9...
+El 7 sería arriba, si me confundí.
+El 7 sería arriba.
+El 7 sería arriba.
+Ah, por eso decía.
+No, yo pensé que me confundí y pensé que habías puesto el 9.
+Ahí va a ser así.
+Acá sería un 1.
+Acá ya empieza a salir...
+Ahí sería un 6.
+Sí, queda bien.
+Sí, sí.
+Muy bien.
+La posición es la suma de los dos de abajo.
+y arrancás con números chicos
+¿Esto es ayer?
+1 y 3 sería abajo
+¿Ah? Para llevar el 4 al 7
+3 y ahí sería 1 y el 2
+Buenas, te voy a poner aquí. A Milivia, a Raba, a Andera, a Cordero, a Defina, a Delisa, a Faria, a Fernández, a Ferrari, a Paula.
+¡Suscríbete!
+Gracias.
+A ti.
+Hola.
+¿A dónde estás?
+8 y 6, mira.
+¿8 y 6, ¿verdad?
+Sí.
+Ok, ¿del 8 al que lado?
+El 8 al que quieras,
+es lo mismo.
+¿Ellas son datos random,
+a la sola?
+Claro.
+Sí, lo que es...
+Lo otro que se podría haber hecho
+es un sistema
+que se llama
+Periodtube.
+Aunque igual ahora
+que me puedo besar,
+no tienen por qué
+Si no llegás a conseguir.
+Pero claro, se importa el 8 o el 6,
+porque el 7 sube al medio con el que va a estar ahí.
+Si es, por ejemplo, 7 más 3 y te queda 10,
+y después ahí te queda 14 más 3 y no te queda.
+Para este, sí.
+No, no, el 7 va a un 12,
+porque tiene que ser 4 más 8.
+si si ahí va 12 estoy diciendo
+supuestamente
+ahí sería 19
+acá me da
+26
+capaz el 6 ahí
+en vez del 8
+lo conveniente es
+ir
+Una vez que tenemos esto, ir armando un sistema de cocina medio grande,
+pero podríamos resolverlo con eso.
+Muy bien, se lo dejo para pensar en sus casas y me traen el resultado.
+Muy bien, ya vimos descomposición. Ya vimos descomposición, recomeción de patrones, abstracción, no me salía la palabra, perdón, y que nos quedaba el alcoholismo.
+¿Sí?
+¿De qué se trata?
+¿Qué es algo así?
+Son patrones.
+La más...
+Yo creo que son como los pasos.
+Es posible dar una receta.
+Tienen que ser súper específicos para continuar.
+Una secuencia de pasos.
+Bien, una secuencia de pasos.
+Ordenada.
+Importante que sea ordenada.
+y el algoritmo
+para llegar al siguiente
+y está centrada en algo
+un algoritmo es una secuencia ordenada
+un tipo específico de problema
+es importante la palabra ordenada
+¿por qué? porque
+esa secuencia de pasos
+si yo no los ordeno no llevo lo mismo
+Por ejemplo, para hacer un café,
+si no pongo la taza antes,
+no me va a quedar el café hecho.
+Me queda en el piso.
+¿Y cuáles son las propiedades del algoritmo?
+Que sea finito.
+O sea que...
+La contradicción de infinito.
+O sea que pueda terminar.
+O sea que...
+Tiene entrada. El algoritmo va a recibir datos de entrada que lo va a procesar.
+Por ejemplo, en el caso del algoritmo de un player, va a recibir los datos que son dos números.
+Y además el algoritmo tiene una salida.
+Va a devolver un dato.
+En el caso que estábamos hablando
+del ejemplo anterior, ¿qué me va a devolver?
+El de Euclides.
+La suma, sí.
+Porque vos quieras.
+¿Qué hace la ecuación de Euclides?
+El algoritmo de Euclides.
+¿Se acuerdan?
+Me da el máximo común divisor.
+Eso ya es un algoritmo que existe.
+Lo recibe, entra dos números y me da el máximo común divisor de esos dos.
+Tiene que ser efectivo.
+Todas las operaciones son lo suficientemente básicas para que puedan ser realizadas. en tiempo finito.
+Lo que yo les dije es una persona.
+No dije que no tienen que ser un doctor.
+Por ejemplo,
+si se debe dividir,
+si tenemos que dividir,
+tenemos que decir
+el...
+No sé.
+la cifra
+que vamos a tomar, la división.
+¿No? Y además
+tiene que ser preciso. Todos los pasos
+están bien detallados.
+No podemos, o sea, por ejemplo,
+como ha dicho el compañero, una receta
+es un algoritmo.
+Si yo le digo a una computadora
+o mismo a nosotros
+¿Qué es eso? ¿Cuánto tiempo es que tiene que estar en el horno?
+¿Entiendes?
+Entonces, si hiciéramos eso de, tiene que estar en un golpe de horno,
+eso rompe la característica de ser preciso.
+¿sí?
+por ejemplo, podríamos decirle
+tenés que darle
+cierta cantidad de minutos
+de temperatura
+hay que ser bien preciso
+¿sí? voy a mostrar un video
+con el algoritmo
+y después voy a compartir
+así comparto el audio
+En esta unidad aprenderás cómo crear tu primer programa.
+¿Pronto para comenzar? ¡Arrancamos! ¿Alguna vez le diste instrucciones a una persona para ir de un
+lugar a otro? ¿O le enseñaste a un amigo a realizar alguna tarea, como por ejemplo atarse
+los cordones? ¿O seguiste una receta de cocina para elaborar una torta, galletitas u otra
+preparación? Si tu respuesta a alguna de estas preguntas es sí, entonces ya conoces algo de
+programación. Vamos a empezar analizando ejemplos de la vida real que nos
+permitirán mostrarte conceptos fundamentales de programación.
+Supongamos que queremos enseñarle a una persona cómo preparar un sándwich con
+pan, jamón y queso. Los pasos los podemos describir como tomar dos tajadas de pan,
+colocar una feta de jamón sobre una tajada, colocar una feta de queso sobre
+colocar la segunda tajada de pan sobre el queso
+y pronto.
+Si quisiéramos escribir los pasos en español
+podría ser similar a esto.
+Puedes observar que el proceso lo describimos como una secuencia de pasos
+que se siguen en orden,
+uno detrás de otro.
+Veamos otro ejemplo.
+Queremos detallar el proceso de cambiar
+forma segura de esta manera. Si me falta repuesto de bombita, comprar un repuesto. Apagar la
+llave de la luz. Repetir girar la bombita quemada en sentido antihorario hasta sacarla
+del portalámparas. Tirar la basura de la bombita quemada. Colocar la bombita nueva
+en el portalámparas. Repetir girar en sentido contrario hasta que quede apretada. Prender la llave de luz.
+Si el proceso lo queremos escribir, podría lucir similar a este.
+Aquí tenemos una secuencia de pasos en orden.
+Y también utilizamos una decisión, si me falta repuesto.
+Y repeticiones o iteraciones, repetir hasta.
+La secuencia, la decisión y la iteración son lo que llamamos estructuras de control. La decisión y la iteración son lo que llamamos estructuras de control y con ellas construimos los programas.
+Describimos el proceso de preparar un sándwich o cambiar la bombita como un proceso paso a paso.
+Esta secuencia ordenada de pasos se llama algoritmo.
+Los algoritmos describen el proceso para llevar adelante una tarea o resolver un problema en una forma paso a paso. Pueden incluir secuencias, decisiones
+e iteraciones como vimos en los dos ejemplos previos.
+si lo que decía un algoritmo por ejemplo de cómo coser si un botón podría ser de esta manera y si
+me falta hilo aguja y o botón lo consigo en la tienda y decir pasar un trozo de hilo con la
+aguja anudarlo tomar la tela poner el botón en el lugar apropiado insertar la aguja desde el reverso poner el botón en el lugar apropiado, insertar la aguja desde el reverso de la tela atravesando
+un agujero del botón, mientras no esté firme pasar la aguja con el hilo hacia el otro lado
+de la tela atravesando un agujero diferente del botón, mientras anudar el hilo del lado
+el revés y cortar el chimp haga Acá vamos a ir viendo distintas cosas que vamos a ir utilizando en algo.
+Bueno, esto se llama estructura de control.
+Las estructuras de control que vamos a estar viendo es, por ejemplo, el SI, que es una estructura de control condicional.
+y justo esta condición está está armada con varias condiciones es una operación lógica
+lo que tenemos acá pero básicamente lo que está lo que va a hacer es si toda esta condición es verdadera Lo que va a hacer es, si toda esta condición de acá es verdadera, ahí recién voy a ejecutar esto de acá.
+En caso que la condición sea falsa, pasa directamente a lo que sigue después del sí.
+No ejecuta lo que está ahí.
+Luego van a seguir viniendo estos pasos, todos estos de acá, el de a1, son secos.
+las secuencias se ejecutan de a una, una vez que termina esa secuencia pasa a la siguiente,
+y así va a ir una por otra.
+Muy bien, luego acá tenemos otra estructura de control, que es el mientras.
+Mientras el miento va a hacer una estructura de control iterativa, o sea que itera, repite.
+¿Cómo funciona? Va a venir y va a decir, bueno, tengo esta condición que es que no esté firme.
+Lo primero que hago es variar si esa condición es verdadera.
+Si es verdadera, se va a ejecutar una de las iteraciones.
+¿En qué lo conforma esa iteración? Todo lo que está dentro del miento. En este caso, hay una sola secuencia.
+Entonces, si me da verdadero esto, ejecuto una iteración.
+Una vez que termina de ejecutar la iteración,
+vuelvo a preguntar si esta condición es verdadera.
+Si es verdadera, vuelvo a ejecutar la secuencia,
+O sea, lo que está dentro del mío.
+Ejecutar la iteración.
+Y va a quedar ejecutando esas iteraciones
+hasta que esta condición cambie y me dé que es falsa.
+Una vez que esa condición es falsa,
+voy a pasar a ejecutar lo que viene después del mío.
+Continúo con este paso.
+Importante, cuando estamos hablando de, por ejemplo, por ejemplo acá en la condición del mientras
+es que, por ejemplo, si yo
+esta acción que está acá, adentro
+nunca deja el botón firme
+entramos en lo que se llama loop infinito
+lo que hablábamos de que
+nosotros hablamos tiene que ser finito
+o sea, eso no debería pasar
+entonces, es muy importante que la condición
+acá adentro es importante que dentro de esa iteración modifique esa condición y en algún momento se vuelva falsa
+entonces tenemos lo que estábamos hablando si este es es una secuencia de pasos si ordenada
+que también incluye decisiones es donde tenemos el sí si falta y lo busca y o botón a esto lo
+consigo la tienda solamente va a ejecutar si si me falta hilo o me falta o me falta otro si una vez las tres, si
+ninguna de las tres me da verdadero,
+o sea, ninguna de las tres es
+verdad, entonces nunca
+voy a ejecutarla de ir a buscarla
+a la tía, ¿sí?
+Y tenemos la
+iterativa, que es el mío.
+Muy bien.
+Con esto vamos a empezar a armar algoritmos en pseudocódigo.
+¿Qué significa pseudocódigo? Que estamos escribiendo en español sin utilizar lenguaje de programación.
+Y luego cuando empecemos con Javascript van a ver que vamos a tomar los algoritmos hechos con pseudocódigo y le vamos a dar... traducir
+básicamente a Java. Otro tema importante
+si se fijan
+tanto cuando viene el sí
+o el mientras, cuando
+abro esa
+viene acá
+hay un espacio
+Intentar, es indentación se llama. Esto es para que sea fácil de leer.
+¿Tiene sangría? Sí, pero sería...
+¿Un tipo cinco espacios? Son tres, en una tabulación son tres. Siempre sería más o menos.
+Pero básicamente para que nos sea fácil de leer y decir,
+ok, esto es dentro del sí, o sea, se va a ejecutar únicamente si esta condición es verdadera,
+esto está dentro del mientras, es fácil de leer a simple vista.
+Hay algunos lenguajes de programación que no funcionan
+si no se escribe con los espacios correspondientes no funciona
+Puedes ver una condición encascada que yo tenga que poner en cada una de las entidades?
+Si, le podría pasar que tenes un si, x, y, y, si X, Y, Y, Z.
+Cada vez que abro una de estas estructuras de control,
+se va a dar el error.
+O al centro de un ambiente, o para afectar el control.
+También.
+¿Sí?
+Después vamos a seguir viendo.
+¿Alguna duda?
+si cada usuario va a repetir
+si hay una estructura de control
+es de
+condicional o de decisión
+les dejé acá ejemplos de
+cómo sería cada estructura de control
+bueno tenemos la secuencia que es una lista de pasos si uno tras otro
+el formato es escrito normal lineal
+O sea, no necesita que lo que esté dentro se intente porque no tiene nada adentro.
+Después vamos a ir viendo, se va a ir viendo bien con los ojos.
+Después tenemos la de decisión.
+Y fíjense que la decisión es la del sí.
+Se escribe sí, condición, y adentro el código que se va a ejecutar si se cumple esta condición.
+Pero también podríamos querer hacer algo... Pero también podríamos querer hacer algo en caso de que la condición no se cumpla.
+Entonces tenemos el sí, la condición, el código que queremos que se ejecute si se cumple esa condición,
+y luego viene el otro caso y el código que queremos que se ejecute si la condición no se cumplió.
+O sea, o se ejecuta este o se ejecuta el otro.
+Y en el otro caso también podes meter condición.
+Lo que está dentro del sí, del otro caso, del mientras.
+Yo puedo armar un algoritmo nuevo entero.
+Entonces.
+De vuelta.
+El sí siempre va a preguntar una única vez la condición.
+o no se cumple la condición.
+En este caso, si se cumple, ejecuta algo.
+Si no se cumple,
+no hace nada
+en esa decisión, o sea, pasa
+a lo que continúa.
+Cuando tenemos
+también
+agregado en otro caso,
+se va a ejecutar algo
+si se cumple la condición, o otra cosa
+si no se cumple con él.
+¿Se ejecuta una o la otra?
+Nunca se van a ejecutar las dos al arco.
+Acuérdense, y vuelvo a repetir,
+el sí se ejecuta
+una única vez.
+Para volver a ejecutar varias veces
+necesitamos una iterativa.
+Tenemos, por ejemplo, repetir X veces.
+Acá le voy a decir, yo le voy a decir, quiero que te repitas 5 veces.
+Y se va a repetir el código de continuación que esté adentro.
+El repetir 5 veces.
+O sea, se repite esas 5 veces el script.
+Ahora, en el mientras se va a repetir dependiendo de una condición.
+Si la condición es verdadera, ejecuta una iteración.
+una iteración. Vuelvo a preguntar
+si la condición es verdadera, vuelvo a ejecutar
+la iteración. Y así
+preguntar, ejecutar, preguntar, ejecutar
+hasta que al preguntar
+la condición me diga, no, esto es falso.
+¿Está? Ahí
+ahí al mientras detiene.
+Prende. ¿Se entiende?
+¿Dudas?
+¿Dudas?
+¿El repetir cuál sería la mejor opción?
+El repetir después se va a convertir, o sea, después nosotros en el pseudo código lo vamos a convertir a para
+cuando ya entendamos cómo funciona esto y después es el for
+Ah, no hay repetir existente
+No, o sea, lo que pasa es que en realidad yo puedo armar un para para que se aspire 5 veces
+después en reposo
+igual 0
+igual 5
+y el más mal
+no me voy a adelantar para no marear
+el resto, pero después lo vamos a
+ver, va a haber un momento
+que le voy a decir, ok, no vamos a usar más al repetir
+vamos a utilizarlo de esta forma
+yo pensé que capaz era otro comando
+hay otro también
+Es cierto.
+O repetir, pero es diferente.
+O decir por el for.
+Si vamos a cómo lo traduzco al lenguaje, sería el Dubai.
+Ah.
+Que...
+¿Es para decir?
+Ah, sí, pero termino lo que quería decir, profe, y después yo si quiere comentar.
+Lo que iba a decir es que sería un repetir, viene la condición, se los explico acá,
+es que vamos a cambiar la cámara para que...
+Sí, se ve perfecto.
+Muy bien.
+Sería algo así.
+Voy a prender la luz, sí.
+repetir, tener todo el código de lo que se va a repetir, mientras, en condición. A diferencia del mientras que estábamos viendo antes, la primera vez se va a ejecutar el código.
+O sea, el orden cambia. Antes era condición y después, depende de la condición, ejecuto. Acá es al revés. Ejecuto y luego me fijo si continúo. Claro. ¿Sí? Muy bien. Bueno, ejemplo de secuencias.
+¿Sí? Acá tenemos, estas son secuencias, es un algoritmo secuencial, no tiene ninguna estructura
+Tenemos la decisión.
+Si tengo frío, me pongo un abrigo.
+En ese caso, si la condición tengo frío es verdadera,
+me voy a poner abrigo.
+Ahora, si la condición es falsa, no voy a hacer nada.
+Porque, o sea, seguiría con lo que está luego del sí y no va a ser nada en ese.
+Y tenemos el otro ejemplo, es si tengo frío y tengo mucha hambre, voy a pedir jugo, torta y waffles.
+Si tengo tiempo, dije frío, ¿no?
+Si tengo tiempo y tengo mucha hambre, pedir jugo, torta y waffles.
+En otro caso,
+pediré solo café.
+A ver, acá es una condición
+donde ven que tiene un I ahí.
+Cuando tiene un I,
+son dos condiciones.
+Una es tengo tiempo y otra
+tengo mucha hambre. Cuando tiene el I,
+se tienen que cumplir las dos.
+Entonces, si tengo
+tiempo y tengo mucha hambre, voy a pedir
+jugo, torta y waffle.
+Voy a ejecutar una u otra. No me voy a pedir jugo, torta, guafles y además café. Eso no va a pasar.
+Después tenemos el repetir. Repetir cinco veces. Tomar un pan, poner queso, poner jamón. veces a tomar un pan para el queso ponerle jamón tomar otro pan
+haciendo cinco refuerzos vamos a repetir cinco veces tomar un pan
+ponerle queso con el jamón tomar otro pan tomar un pan ponerle queso con el
+jamón tomar otro pan y así cinco veces después vamos a tener mientras si mientras esté seca la tierra a llegar 15 gotas de agua en la
+maceta fíjense lo preciso que es si le estoy diciendo cuánto exactamente quiero poner de
+agua básicamente decir ok está seca la tierra así como 15 o tito vuelvo fijarme está seca la
+tierra así vuelvo a la pincha de sí y así voy a ir poniendo 15 gotitas hasta que ya no esté más Ahora imagínense que la voy a ejecutar por primera vez y llovió y la tierra estaba mojada.
+No se ejecuta.
+En ningún momento voy a agregar 15 gotas de agua.
+Porque la primera vez que consulté la condición ya era falsa.
+A diferencia de este de acá. A diferencia de este de acá, acá si hubiera puesto, poner 15 gotitas de agua mientras la tierra esté seca, puse 15 gotitas de agua a una tierra que ya está mojada, la primera vez.
+¿Eh?
+No, el tema es que ese es otro, se ejecuta siempre una vez.
+una vez. Siempre se ejecuta
+en este acá, siempre se ejecuta
+por lo menos una vez.
+Es tipo hacer mientras.
+Si vos haces, pues mientras
+y si no se cumple, es hacer.
+¿Entiendes?
+Otra forma que van a ver
+escrita, si lo ven
+si lo ven en algún libro, es que en vez de decir el mientras al final es un hasta.
+Es lo mismo.
+Porque cambié la...
+Le pongo un falso, por ejemplo, esta si era la de las gotas,
+va a ser hasta que esté mojada.
+Sí.
+Pero acá sería, poner masa en el sartén, esperar dos minutos, dar vueltas,
+esperar un minuto, sacar el panqué.
+Me sigo teniendo masa, sí, porque...
+Ahora, en este el problema que tendría es que si yo lo ejecuté y no tenía la masa hecha, voy a intentar hacer un pancake sin masa.
+Entonces hay que tener cuidado en qué momento se utiliza el uno o el otro.
+Claro. Igual lo podés meter dentro de un if y que se quede más...
+más adelante lo vamos a ver y se los voy a demostrar todo repetir lo que vimos de repetir
+x veces lo puedo compartir en un mientras si a veces al revés es un poco más difícil pero
+pero no siempre los mientras los puedo compartir en perpetuo.
+Muy bien.
+¿Qué te iba a decir?
+¿Qué te iba a decir?
+Si, lo que pasa es que en algunos, o sea, yo les muestro este de acá, porque en Javascript va a ser así.
+Hay algunos que utilizan el asta, o sea que en este caso se va a repetir mientras sea verdadero.
+Con el asta se va a repetir mientras sea falso.
+¿Dudas hasta acá?
+Por ejemplo, en un bingo, la decisión sería si lo marco o no.
+O si tengo
+el número o no. Si tengo cartón
+lleno o no.
+Ahí se va bien.
+No es monópolis.
+Si tengo la plata lo compro.
+El avance lo da.
+Algo así.
+El ajedrez.
+mucho más complejidad
+solo jugar con los i
+podría ser un
+algoritmo que juegue
+con solos i en otro caso
+podría, me va a quedar un algoritmo
+gigantesco
+si te comen y no me veas
+listo
+no solo eso
+parado si porque si está el tablero de tal forma muevo y puedo mover esto la muevo se entiende
+es muchísimo más la máquina que hacen ahora los movimientos futuros ahí lo que usa en realidad es
+montón de opciones que puedo hacer.
+Pero además, antes yo podía haber
+hecho otras jugadas, que ahí también se dispara
+un montón de cosas que puedo hacer.
+Entonces, una máquina
+muy rápido puede ver todas esas
+decisiones. Va a ver cuál es
+la mejor. Y se utiliza
+un sistema de recompensa, digamos,
+que
+si llega a ganar,
+le voy a dar
+O sea, tiene castigo. Y de esa forma lo va entrenando y lo que va haciendo es armar caminos seguros para donde quiera.
+Entonces ahí sube rapidísimo. No es que se lo arrenó. Después si buscan en YouTube hay... hay hecho una película,
+Alpha Go, ¿lo conocen?
+No.
+El Go es un juego asiático
+que tiene una complejidad enorme
+porque tiene esto de que les decía
+que se expanden las decisiones que podés tener,
+tiene muchísimo más.
+y demuestran el progreso que lograron, es una máquina que le ganaba el campeón
+y todo lo que llevaba a eso y que era un logro inmenso
+El tema es que si tiene en cuenta todos los valores, está difícil ganar una máquina
+porque siempre va a ser el movimiento perfecto, no tenés forma, a menos que sea una máquina buena y aunque seas
+en el AGT y seas el mejor
+la máquina ya lo hizo
+ya lo vio
+entonces, sabes, voy para acá
+que es el siguiente
+y ya sabiendo
+el siguiente de ella, sabe el siguiente de él
+o puede adivinar el siguiente de él
+parece una probabilidad de que
+si yo voy para acá, a él le quede mejor
+Además te lo hacen instantáneo, ¿no?
+Si metes por tiempo.
+Es el tiempo.
+El tiempo.
+No me van a dar a ver todas las decisiones que puede tomar.
+No, igual es que no va a ser conveniente porque si no siempre está dos robots iguales,
+digamos, para jugar.
+Ya se hizo.
+No, termina uno.
+No, no, sí, termina uno.
+Ahí va a ganar.
+porque hay un momento
+donde no hay
+no tienen jugada
+sí
+por eso
+ya sé
+ya sé
+hay más
+no
+o sea
+pero
+hay formas de ganarlo
+o sea
+claro
+pero ahí tenés que meter
+una partida
+que tengas todo el tiempo
+del mundo
+si metes en una partida
+como juegan los profesionales
+para decirlo
+que son por tiempo
+en serio
+es la máquina
+la máquina
+no es instantánea
+no creo
+Los profesionales son
+En algún momento
+En el juego van a ir llegando
+A un momento donde no hay muchas cosas
+Para ir
+Y si alguno
+Que le erre, ya pierde
+Además con las
+Menos fichas
+Bueno
+Bueno, en el Jenga
+Bueno, voy a decidir
+Sacar, ¿no?
+El póker
+Acá también hay mucho de suerte
+Sí
+No es solo de...
+Pero sí
+Hay estudiado, hay unos cálculos
+Para saber cuándo
+Arriesgarse y cuándo no
+De lo más que nada en el Black Shirt, en el mejor que es el Shirt, en el Texas.
+Si te sale la cuarta mejor mano tenés más probabilidad de ganar que si te sale la peor mano.
+Porque en el Black Shirt vos estás jugando contra el Dillard, no estás jugando contra el Arkes. contra el tiro. Entonces, en un momento, dependiendo de la carta que vos llegues a,
+el número que tengas en la carta, es si te conviene pedir más o no. Ahí, más o menos ahí.
+Igual tenés cierta suerte para lo que le va a salir. Después están los que cuentan cartas.
+Qué probabilidades. Qué probabilidades. todos.
+Probabilidades,
+pero viste,
+sacan 1%
+de cada.
+El TTIP,
+también ahí vemos
+de decisiones.
+Este,
+por ejemplo,
+en el máster
+que hice,
+hicimos uno
+que fue solo
+y después
+que jugaba
+con otra máquina.
+Es que tenés
+una estrategia,
+creo,
+o sea
+a diferencia de lo que le decían
+el ajedrez
+las decisiones que se van a ir ramificando
+son más
+son menos
+entonces estaba bueno
+cuando hicimos ese ejemplo
+bueno vamos a hacer
+a pensar un
+un poco
+poco nada de este bien bueno vamos a pensar nuestro problema principal si va a ser planificar
+el próximo trimestre si yo se lo digo así es un problema grande entonces que nos conviene
+cuando es un problema grande y vamos a ir bajando del nivel de abstracción por ejemplo voy a decir de nivel de abstracción. Por ejemplo, voy a decir que el primer mes voy a tener mis
+tareas habituales, en el segundo mes me voy a pegar un viajecito a Río, y el último
+mes voy a tener que preparar un examen. Cada una de ellas es otro problema, que debería
+en meterme y empezar a bajar de nivel.
+Por ejemplo, si elegimos viaje.
+Ahora vamos a ir viendo cómo vamos a,
+lo que les quiero mostrar en este,
+cómo vamos a ir bajando,
+a poco el problema.
+Y van a ver que,
+Si les parece, hacemos un corte de cinco minutos y volvemos.
+Dale.
+Recording stopped.
+Gracias.
+Gracias.
+Gracias.
+Gracias.
+Bueno, continuamos, me parece.
+Por mí sí, profe. Yo acá estoy para continuar.
+Me parece muy bien.
+Yo también, yo también para acá.
+recording in progress
+Mara no había visto
+tu mensaje
+eh
+hay
+yo
+y los casos
+especiales
+como peón
+al
+al
+al paso
+en Roque
+si
+también
+hay muchos
+muchas
+este
+se puede ramificar
+mucho
+si
+en
+en las redes
+avísenme
+y ahí cuando estén por el chat a veces
+si alguno lo ve, si no lo vi antes.
+Muy bien.
+Bueno, por ejemplo, para un viaje,
+el viaje planificado,
+yo podría tener un algoritmo
+que sea ir al aeropuerto el día indicado,
+tomar el avión de 10 horas a Río,
+Entonces tendría que seguir bajando para poder ir resolviendo cada uno. Entonces tendríamos, por ejemplo, el de tomar el avión.
+esa parte no es la pantalla no me están viendo
+no tenga valijas o no yo voy a continuar acá embarcar subir al avión desayuno si
+lo que va a cambiar acá es si la decisión de si tengo que ir a despachar la valija o no
+alijas hoy directo embarcados y su bolsillo y es el final de los arcos
+de marcas podría reír de usarlo y puede usar y puede usar y me gusta la tarde
+de su escalera subir menos bien lo que decía hoy hasta que lo vamos a ir
+evidente o que sale fácil, sencillo. Después en la práctica tampoco tenemos problemas tan grandes
+o que tienen mucho, mucho, ¿no?
+Bueno, también, entonces, por ejemplo, despachar valija sería otro problema diferente,
+otro problema que tendríamos que ver, ¿sí?
+Bueno, despachar valija podría ser mientras me quede en valija, ¿sí?
+Tomo una valija, la peso, le pongo el sticker, despacho.
+Vuelvo a preguntar, ¿me queda valija?
+queda valija, si, ok, vuelvo a tomar una valija, la peso, le pongo el sticker y la despacho.
+Y voy a repetir esto de tomar una valija. Hasta que no te coman más valijas.
+Ven ahí que importante que el tema de que yo despaché la valija quiere decir que se
+me va a reducir el número de valijas y en la condición de quedar valijas en algún
+en un momento va a quedar en falso.
+Sí, sí.
+Aunque sean millones, tiene que...
+Si yo sacara el despachar,
+voy a tomar las valijas y pesarlas
+poniéndole stickers sin parar.
+Me va a quedar una cosa así de stickers.
+Sí o no.
+Que le cobre el recargo.
+Bien.
+Y después, una vez que ya despaché todas,
+voy a preguntar, ok,
+si se me supere el peso permitido.
+Te quedo de hecho.
+Vale, pará, pará, pará, ¿qué pasó?
+El meso ahora pasa en el otro, dejame mover algo ahí.
+Bien.
+Teníamos antes el tema de desayunar en el avión, era lo que habíamos visto. en el avión, era lo que habíamos visto, qué es lo que voy a pedir en el avión. En este caso no es pollo o pasta,
+porque estamos desayunando, pero ahí si hay buen tiempo y tengo mucha hambre, pedí un burguazo.
+En otro caso pedí el café. Bueno, ahora mirá que ahora la salinidad ahora ni comida te da.
+Sí, sí. Todo para abaratar.
+Sí, o para que antes más
+el desayuno.
+Un porcito así.
+Así, hirviendo.
+Un cafecito así.
+Un cafecito así con leche.
+¿Por cuál era el cierto?
+Sí.
+Y si querés pedir algo más, te lo darán.
+¿Eh? ¿Qué querís?
+Muy bien. Otro ejemplo
+del sí, ¿no? Donde
+ahí sí voy a tomar una opción o la otra.
+Si se cumple que hay buen tiempo
+y tengo mucha hambre, me pido jugo y waffles.
+En otro caso voy a pedir solo
+café.
+O si no, a la Uruguaya
+¿me lo recuerda?
+la verdad es que lo citas tú
+muy bien, por ahí dejaron de dar
+los auriculares
+muchas cosas
+muy bien, se acuerdan
+del botón, el algoritmo
+que habíamos visto
+Entonces, van a ver que cuando viene un sí, lo abre como este rombo, si falta i lo busca
+y botón
+si se cumple esa condición
+Si va que no, lo salta ese paso.
+Igual es el siguiente.
+Donde va a pasar, hilo por una aguja, después lo ennuda, después toma la tela,
+pone el botón en el lugar apropiado, inserta la aguja de reverso a través del botón.
+Miren acá, mientras se ve gráfico, se entiende bien de bien. Mientras no esté firme el botón, si no está firme,
+o sea el si esto que se cumple. Si está firme pasa el. Si no está firme paso la aguja al otro lado
+de la tela atravesando un agujero diferente. Y ven que después de ejecutar esto vuelve acá arriba
+el miento. No está firme el botón, ok, entonces vuelvo a ejecutar esto.
+vuelve a subir
+y esto va a quedar acá
+si es para el mientras, verdad?
+claro, acá sería verdadero o falso
+entonces, si se cumple la condición, sí
+ahora, si vengo acá y la condición ya no es verdadera, no se cumple
+voy a venir acá abajo, que es anudar
+Ahí está bien.
+¿Qué?
+Me va a mostrar un video viendo esto mismo.
+Muchas veces hay más de un posible algoritmo para resolver efectivamente un problema.
+Miremos este mapa y tratemos de darle instrucciones a una persona que está en el hotel
+y quiere llegar a la estación de tren.
+¿Puedes proponer dos algoritmos para este problema?
+Una opción puede ser mirar hacia el norte, caminar dos cuadras, mirar hacia el oeste, caminar una cuadra.
+Otra opción puede ser mirar hacia el oeste, caminar una cuadra, mirar hacia el norte, caminar dos cuadras. Hay más opciones,
+quizás no tan rápidas, pero que igualmente resuelven nuestro problema. Como seguramente
+habrás notado, los algoritmos anteriores no tienen que ver con las computadoras y pueden
+tomar varias formas. Por ejemplo, el primer algoritmo que mostramos para ir del hotel a
+la estación de tren puede ser representado en un mapa o como texto o como un diagrama de flujo. puede ser representado en un mapa, o como texto, o como un diagrama de flujo, o como código de computadora.
+Vamos a ver estas opciones.
+Aquí tenemos un mapa que representa en forma visual el algoritmo.
+Claramente muestra que debemos caminar dos cuadras hacia el norte y luego una mirando hacia el oeste.
+El algoritmo en español podría ser, mira hacia el norte y camina dos cuadras, luego gira hacia el oeste, mira hacia el norte y camina dos cuadras, luego gira hacia el oeste y camina una cuadra. El
+diagrama de flujo muestra visualmente el algoritmo. Se ve en forma clara el carácter secuencial,
+el seguir un paso tras otro. ¿Quieres saber más sobre los algoritmos? En el próximo vídeo
+analizaremos más ejemplos.
+Ahí vimos las diferentes formas que podemos representar a un álbum.
+¿Quién es la profesora de la mañana?
+Ella es la catedrática.
+La catedrática es la catedrática.
+¿También la profesora de la mañana?
+Sí, la también.
+Seguramente en parciales la van a ver.
+¿Quién es la catedrática?
+La que inicia.
+La que inicia.
+Mi jefe.
+Gracias.
+no, no es rápido
+no, Eva
+creo que ella creó el programa
+también
+o sea, ella
+no pasa solo por ella
+ella con el equipo
+armó
+el plan, la programación
+se tiene que machar
+con todo el resto de las materias
+pasa por
+pero tal, toda la cátedra
+Bueno, cumplimos el video.
+Vamos a hacer un ejercicio.
+Ustedes sean mis computadores.
+un algoritmo y vamos a ver qué tan buenas máquinas son estamos pronto ok necesito que
+dibujo en una circunferencia de más o menos, a ojo, para matarlo, de 3 centímetros.
+¿Sí? Por el zoom.
+Ok, ahora, dentro de la circunferencia
+En la parte inferior
+Dibujar la parte inferior
+De media, ahí me faltó la I
+Circunferencia más chica
+Dentro de la circunferencia
+Dentro de la circunferencia
+Está mal escrito.
+Puede ser que nos quieran hacer una cosa, pero yo...
+¿Y qué es eso? ¿Llamo la parte...?
+No, no, ahí dice, dentro de la circunferencia.
+En la parte inferior dibujar la parte inferior de media circunferencia más chica.
+¿Sí? Bien. Lo siguiente.
+Dentro de la circunferencia, en la parte superior, dibujar dos segmentos verticales paralelos que no salgan de la circunferencia.
+Aguas ya.
+a la B
+yo pedí la parte inferior
+de una circunferencia, la línea esa
+la C
+la C
+tendría que haber llegado a esto de acá
+y la A
+si se fijan no llegan a ser para el B
+la D
+yo puse la parte inferior
+La parte inferior de una semi-influencia es...
+Tiene que cambiar mi computadora.
+Bueno, yo a la computadora le digo...
+Bueno, tenés más, vamos a hacer algo.
+¡Aaah! No te enojes.
+¡Aaah! Ya.
+¿Dónde estás?
+Mirá, ¿a quién traje?
+Mirá, le voy a decir...
+Decímelo ahora.
+No, no, no.
+Copiá lo que vamos a hacer.
+Ahora, ahora, ahora, vamos a usar este prompt acá.
+Le voy a decir, dame las instrucciones para dibujar algo sencillo, pero sin decirme qué es, yo lo dividiré.
+A ver, tenés algo en el mismo ejercicio.
+a ver qué nos dice
+vamos a ver, el primer paso
+hacer un círculo grande
+grande
+no hay falta de especificidad
+bueno, está así
+eso es
+de tamaño del pizarrón
+Después se lo criticamos.
+Arriba del círculo, agregar dos triángulos chicos,
+uno a cada lado.
+Arriba del círculo, la parte superior.
+Va a ser una carita con
+hoja de triángulo y boca...
+Dentro del círculo, dibujar dos puntos medianos.
+¿En qué par?
+¿Dónde se te cante?
+y yo los voy a dejar arriba de los tirantes
+va a ser los cachetes
+en el centro hacen un triángulo pequeño invertido
+desde ese triángulo
+Abajo del círculo dibujar una forma ovalada o horizontal.
+Desde la parte de abajo agregar cuatro palitos cortos.
+¿Qué les quedó?
+¿Gato? ¿Le ponemos un...?
+¿Quieres un gato?
+Ponle que...
+Es un gato pero...
+Excelente.
+Ah, y acá te puede empezar a dar.
+¿Sí? Vamos ahora a hacer
+Yo te daré las instrucciones, y vos dibujás con caracteres ASCII, si lo que querés.
+¿Está? Muy bien.
+Hacer los videos con dinosaurios.
+Lo que le vamos a decir es que haga un cohete, simple.
+Un cohete simple.
+Pero realista, algo realista
+Va a ser formado por
+Un cuadrado
+Algo más que le quieran poner
+Vamos a poner
+Un cuadrado
+Pero
+pero...
+eeeh...
+no hay nada
+no hay nada
+no hay nada
+no hay nada
+bueno, un cuadrado con la base
+lo metes así, con la derecha, lo metes así
+eeeh...
+con un círculo dentro
+y si lo metes solo en este
+¿cómo hace para que ponga un cuadrado?
+mirá aquí
+ah, ah
+Un rígado ángulo en la parte superior y otros dos...
+Y un hexágono en la parte superior.
+En la base.
+y una ventana, vamos a tener una ventana
+vamos a ver que quizá
+para mi, si hubo un poco aquí
+pero la idea era que los triángulos fueron abajo
+con L te quedó horrible, era abajo de cuadrada
+tenés que poner, tenés que poner la contraria
+estamos usando la idea para
+ir demostrando
+el tema de
+vamos siguiendo tus pasos
+le dijo abajo
+pero le dijo abajo
+en la base
+pero tomó la base
+yo le tendría que haber
+especificado en la base
+del cuadro
+yo creo que con esa va al espacio y llega a alguna parte
+para mí no para la persona
+ahora después vamos a seguir usando el chat
+para ver cómo lo podemos utilizar para estudiar
+para pedirle ejercicios
+como acá vieron que yo le pedí
+vos para la vista ya se lo hiciste bien
+bueno, siguiente Bueno, siguiente ejercicio, quiero que lo hagan...
+Opa, se fue lejos.
+Esa puta.
+Bueno, vamos a hacer este ejercicio.
+Quiero que hagan el pseudocódigo para cruzar la calle.
+Nosotros vamos a estar parados en A.
+Dibujo mejor que Chessy
+con el mouse.
+Y queremos llegar
+a D.
+Es una esquina con el semáforo.
+O sea, por el medio.
+Ahí va.
+Quiero que cada uno haga un algoritmo
+¿Se animan?
+Algo que tengan en cuenta, imagínense que...
+que yo le voy a ir diciendo
+cada pasito que tiene que hacer
+¿Visto? Está lloviendo.
+¿Pero qué es eso?
+No me parece que...
+Está por arriba de la...
+No es de Zoom.
+¿Tienen? ¿Quién se anima
+a decirme?
+Si ves tan verde...
+Bueno, antes le puedo decir...
+Pero no hace falta,
+Nosotros ya estamos ahí en A.
+Ahora no es que mirás hacia la esquina.
+Pero...
+No puedo, no quiero escribir mucho.
+Eh, no, pero primero que nada, tengo que mirar hacia B.
+Pero por eso, si ves tan verde...
+Pero por eso, vamos a poner A. Mirar a B.
+si es tan verde, cruzar
+en otro caso, cruzar a C
+porque si está
+en verde
+también es una clase complicada
+y después
+fin del sí
+en otro caso
+cruzar a usar a bueno mira así hace falta ver por ejemplo allá y después si no le da instrucciones mirar
+a hacer así mirar a hacer a ver y hoy si de también y si pasa un auto fundiado
+Pero, ¿qué pasa si la cruz está roja?
+Es que no hace falta ver que está en rojo.
+Pero, ¿tienes que ir a la cruz en el otro caso?
+No, porque si está en verde, ¿qué hace? Se sentó y se...
+Pero, en otro caso, si no está en verde, no hace nada.
+Porque pasa en el otro caso, se queda ahí.
+¿Por qué?
+No, en el otro caso.
+Acá en el otro caso.
+Si está en verde...
+Si está en verde, cruza la cruz.
+Si no, no lo va a hacer.
+En otro caso, esperás a que cambie.
+Si no se lo pone, no hace nada.
+Hasta que lo deshacen del orden.
+Y te aprenda.
+Si yo aplico esto acá en la esquina de Mercedes 40,
+en un momento me voy a quedar en una esquina y no voy a llegar a mi destino. Profe, yo la parte de cruzar a D, yo le hice un mientras.
+Mientras el semanal no esté en verde, no cruzar básicamente.
+Porque si no es como dicen, tendría que tener un método de esperar, digamos.
+Me parece que es más alto usar un mientras.
+Ahora en el caso de que esté en rojo, va a ejecutar acá, en otro caso, esperar 5 segundos y termina en sí.
+Yo esperé y quedó ahí.
+¿Está? Porque ahí terminó
+mi código. Nunca crucé.
+¿Está? Entonces,
+lo que hay que hacer, como decía el compañero...
+Competés cruzar cuando cambie, delito.
+Sí, pero, o sea,
+como estamos tratando de armar algoritmos
+con lo que tenemos, decir,
+esa acción de esperar hasta que
+terminó, sí, es
+Entonces lo mejor sería, mientras, en rojo, esperar,
+y acá lo que le digo que es importante,
+el ponerle el tiempo, fin, mientras.
+Bien. Cuando termina el mientras, ¿en qué estado va a estar la luz de D?
+Fuck Trump, fuck ICE, free Palestine, and I love you all.
+¿Sí? Entonces acá...
+¿Eh?
+Sí, demora eso.
+Bueno, pero fíjate que mientras D...
+Yo podría, mientras D está en rojo, pero es un acta que D está en verde.
+Si yo siento tan rojo,
+vamos a poner acá.
+O si justo es tan amarillo,
+vamos a poner ahí.
+Mientras no,
+verde.
+Tan rojo y verde.
+Yo acá voy a ir. Bueno, voy a mirar.
+¿Están verdes? No. Espero 5 segundos.
+Vuelve a subir. ¿Están verdes? No.
+pero cinco segundos.
+Vuelve a subir.
+Cuando esto ya deje de ser verdadero,
+o sea, que está en verde,
+va a terminar el fin.
+Y cuando termine acá,
+ahí le voy a decir cruza a este.
+¿Y si no quiere cruzar?
+O sea, esa acción que le estaban diciendo
+el método de esperar a que cambie,
+lo está haciendo acá.
+¿Sí?
+Entonces yo le decía, cuando llega a este punto de acá,
+el estado de la luz va a ser que está en verde.
+Porque es la única forma de que esta condición de mientras me dé falso
+y termine mientras.
+Sí que está en verde.
+¿Se entendió?
+Sí.
+¿Con el zoom?
+Sí.
+Por acá a la vez entendió, sí.
+Sí.
+Una pregunta.
+¿No se puede usar la función de repetir?
+Sí, pero en ese caso, repito, yo voy a repetir X veces.
+Capaz no soy suficiente.
+Yo lo había pensado como repetir,
+mirar hacia B,
+y cuando está en verde cruzo.
+Y si no, voy a seguir así hasta que cruzo.
+Cuando está en verde cruzo...
+Ahí, lo que me estás describiendo
+es el mismo enmienda.
+El repetir, ¿sí?
+por ejemplo, cinco veces
+como la que habíamos puesto hoy
+poner pan
+para poder repetir siempre le tenés que poner
+la cantidad de veces
+esa es la idea
+para ejecutar eso
+¿La que invitaré es una 5 veces?
+Si, en las 5 veces va a ejecutar lo que previste acá.
+Muy bien, ¿a alguien se le ocurrió otra forma a este? Hay otra forma.
+Si, con él.
+O sea, de que...
+Hace que mire el otro semáforo con el otro...
+mirar a B
+mientras, no verde
+mirar, segundos
+y mientras
+usar a B
+cruzar, ¿si? En este caso aplicamos la lógica que ya conocemos del semáforo, si yo miro para un lado y está en rojo, el otro tiene que estar en verde.
+En este me quedé en que voy a cruzar a B sí o sí, voy a ir por el lado de B.
+La otra versión que podría hacer es que en vez de ir a B, voy a C. Y en el caso de no transitar.
+Y bueno, y la otra, si somos medio kamikaze, no, no tiramos un diagonal.
+Ah, pero...
+En el caso de que no pasa nada y te mandas...
+Igual esas no tienen ni semáforo, así que...
+¿Entendieron estos dos?
+Sí, que hay más de una solución. no hay duda
+exacto
+alguna duda
+me pasó uno
+mientras ubicación
+me falta ahí
+en lo que nos pasa de Mara
+es la
+como le digo, anda por este
+cocinar panqueques y la masa de ella está hecha
+Lo siguiente
+Lo que viene
+Para que vean que no solo aprendemos a programar
+Aprendemos a cocinar
+Bueno, está
+No te voy a
+Esto es para que me pagues más
+Pagues el resto
+Yo te doy el gustito
+Es esa, ¿viste?
+Bueno, muy bien.
+¿Qué haces?
+Repetir.
+Bien.
+Hasta tendría que calentar, prender el fuego.
+Prender el fuego, poner el aceite, prender el fuego, poner el aceite, poner el saltito.
+vamos a hacer una secuencia
+ahora sí
+prender el fuego
+calentar sartén
+y ahora sí
+aceite o manteca
+pero eso yo lo voy a hacer por cada
+panqueque que voy a hacer
+hacer. No le voy a poner una única vez. Entonces necesito repetir de alguna forma. ¿Cuántas
+veces voy a repetir? Hasta que tenga más manteca. ¿Entonces qué podemos utilizar
+para eso? Mientras. Mientras. Manteca tenemos infinita. Hasta que no tengamos masa. No,
+masa sigue. Muy a través. Haya masa. Hay preparación, masa. corta pedacitos de masa
+y le ponemos agua
+nunca existe masa líquida
+es líquida
+es líquida, líquida
+se hacen a licuadores líquidas
+por eso le puse preparación, es tipo líquida
+entonces
+ponemos manteca
+o aceite, o aceite de coco
+¿sí?
+el sartén
+sí, porque la palabra es el piso
+muy bien
+poner en la sartén
+la mezcla
+una chalada
+de...
+Tampoco se me ponga, tampoco se me ponga money.
+Que si no los hago ustedes pasan a escribir.
+Pon una cucharada de preparación en el sartén, vamos a esperar.
+Esperá a que se coja.
+Ponle, ponle, ponle, ponle, ponle esperar, ponle 2 minutos a retirar.
+a retirar. O a que estén cocidos.
+Cuando estén cocidos.
+Claro, lo retirás, te va a quedar de un lado.
+Ah, está bien.
+Esperar a que estén cocidos.
+Vamos a ponerle 30 segundos
+porque me va a quedar negro si no.
+Esperar 30 segundos.
+Dar vuelta.
+Necesita que le diga que preparar.
+Dar vuelta el panquejo.
+Esperar.
+Esperar 30 segundos.
+Esperar 30 segundos.
+Esperar 30 segundos.
+Ahí va, muy bien.
+Sacar panqueque, comerlo y poner pan.
+Sacar panqueque, comerlo y poner pan.
+Sacar panqueque, comerlo y poner pan.
+Sacar panqueque, comerlo y poner pan.
+Sacar panqueque, comerlo y poner pan.
+Ahí sería la otra estructura.
+Si hay preparación, vamos a hacer.
+Vamos a ver qué en general vamos a hacer.
+Claro.
+El otro...
+Está mal.
+Hay que hacer.
+Está muy calo.
+¿Qué es el cuerpo?
+¿Qué te hace?
+Bueno, como te aseguraste que uno va a salir.
+El tema es que mientras haya preparación...
+Ahora también.
+Sí, lo siento.
+Si yo lo hubiera...
+Si yo con ese que vos me decís, si yo ejecuto y justo me olvide de hacer la preparación... y justo me olvide hacer la preparación voy a intentar hacer uno
+con esto me asegure que tengo que tener
+Revenían dos porque la vamos a llatar
+Por eso dije, si no tuviera...
+Nada, pero...
+Sabes, en el rato llegaste
+Me la vas a pegar
+Cosa muy importante
+Apagar el fuego
+Ahora vamos a eso
+Apagar el fuego lavar sartén, vamos a poner lavar todo y a veces ensuciamos toda la cocina, si no hacemos ese último paso vamos a tener problemas en casa
+a los que no viven solos, los que viven solos también tenemos problemas, si pero problemas vomitos, claro, una bola de panqueque, se entiende?
+aunque siga todo lo que he visto muchos casos el tipico el puré de sobre que te dice que es lo que tenes que hacer
+mientras
+no, cuando es el mientras
+Una vez...
+Vuelve a ejecutar.
+Lo primero que va a hacer, esto es el orden, lo que haría el miem.
+Primero pasa para ver la condición.
+Una vez que la condición...
+Si la condición es verdadera, ejecuta lo que está acá.
+Y va a ejecutar todo.
+Una vez que termina de ejecutar todo esto, vuelve acá arriba.
+bien lo que le decía si yo le saco la condición la de la masa ya está en el bowl y ejecuto esto
+voy a prender el fuego calentar el sartén apago el fuego y lavo porque va a llegar acá el fuego y la porque porque va a llegar acá y así tener preparación no tiene
+un tiempo que nos queda hacer el práctico 1 y este que es el pensamiento computacional
+Mira, abrí el práctico.
+Ya no les estaba compartiendo...
+Lo vieron por la cámara igual,
+no les estaba compartiendo esto a la gente.
+Sí, sí, se vio todo.
+Ah, perdón.
+Avísenme eso.
+Vean que hay veces que no me doy cuenta.
+Por lo menos le dejo ahí un poquito para que lo vean
+y ya les queda la grabación.
+Muy bien.
+Muy bien, vamos a pensamiento computacional.
+se lee bien ahí? muy bien
+para la gente de Zoom si quieren me escriben la solución me la van escribiendo por el chat
+o me dicen, van abriendo el micrófono y me lo dicen
+pero sería así
+estos son ejercicios que acabo de ver en una página que se llama bebras.org
+de pensamiento con repetición de patrones entonces tenemos la secuencia que es izquierda
+izquierda arriba y cuántas veces no teniendo la nave acá y el planeta acá y cuántas veces tengo
+que ejecutar esa secuencia para llegar al planeta 3 todos están de acuerdo que 3 3, sí, sería
+Izquierda, izquierda, arriba
+Izquierda, izquierda, arriba
+Este ejercicio se resolvió
+Ejecutando un patrón
+En la secuencia 2, 5, 10
+65.
+La B.
+¿La B?
+¿Todos?
+Sí, la B.
+¿Quién me explica por qué?
+Porque es un patrón.
+Pasa un cuando de 2 en 2.
+Empieza con 3, 5, 7, 9, 11, y después 3.
+Lo que voy a sumar es la suma de los 2, lo voy a sumar al segundo y suma 2.
+La suma de los 2 anteriores y a 10 más los 2 anteriores.
+empezamos con el impar mayor a este número sería 3, 3 más 2, 5, 5, 5, 10, 10 más 7, 17
+pero para mí le está sumando 2 en cada uno
+empresa de transporte tienen en la siguiente tabla la indicación de que el récord de que
+ha recorrido realizar con el vehículo segundo según donde comience a 12 por ejemplo si un chofer Por ejemplo, si un chofer en su vehículo comienza recorriendo en A3,
+¿sí? A3, ¿sí?
+Como en esa posición indica D4, se va a mover a D4, ¿sí?
+Y D4 va a viajar a B4, B4.
+Cuando llega a B4, como no hay instrucción, ahí se va a estacionar, ¿sí?
+¿Qué ocurriría si el vehículo comienza recorriendo B3?
+Se queda viajando como ahí.
+Sí.
+Queda de loop.
+La D.
+Queda viajando permanente.
+Muy bien.
+Si se fijan, empezamos.
+B3 va a C2.
+loop infinito un robot se mueve de un bloque si está en caes en cada instrucción a las
+instrucciones pueden ser sincero que se mueve arriba 1 se mueva con todos a la derecha y 3 0 que se mueve arriba, 1 que se mueve abajo, 2 a la derecha y 3 que se mueve a la izquierda.
+Comienza en el centro el robot y recibe las instrucciones 3, 0, 2, 0, 1 en qué bloque queda.
+todos en la h vamos a fijarnos con tres de ese nivel es que se mueve de arriba derecha
+derecha y cero arriba y vuelve a bajar
+cada fruta representa un valor la misma fruta tiene siempre el mismo valor
+la suma de cada columna aparece al costado excepto en el abajo a la izquierda qué número debe ponerse
+ahí
+y 25
+es 7
+y el tema de la manera de hacerse una situación hacerlo y
+entonces sacas el sistema de ecuaciones con x y y y ahí tipo multiplicás por ejemplo tenés multiplicar por 2 y por menos 1 y ahí te daba en la recta
+La respuesta es 25.
+¿Sí?
+Ahí lo que serían son ecuaciones.
+¿Sí?
+Acá tenemos 4 manzanas,
+me va a dar 28.
+Yo digo 4, me va a dar 7.
+y esto acá pueden armar dos ecuaciones y un sistema de dos ecuaciones y luego resuelven
+¿Sí? ¿Se entiende?
+Bueno gente, es la hora.
+Es de las 15 creo.
+Les dejo para terminar
+lo que queda y los vemos en la clase
+que viene.
+Y además, a ver si tengo un video
+para mandarles.
+Video 4 de variables.
+Bueno gente, nos vemos en la clase que viene.
+nos vemos
+gracias
