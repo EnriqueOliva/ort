@@ -55,10 +55,13 @@ Patrones compartidos a esperar en cualquier profesor nuevo:
 | Tutorial de concepto | Cuando un tema necesita mas profundidad | explicar-clase |
 | Perfil de voz del profesor | Al inicio de cada curso nuevo | perfil-profesor |
 | Version imprimible (PDF A4 B&W) | Cuando se necesita copia fisica | imprimir |
+| Procesar videos de clase | Cuando llegan videos de Unvimeo | procesar-videos |
 
-## Impresion
+## Herramientas (utils/)
 
-Para generar PDFs imprimibles: `node utils/print/build.js <archivo.md>`. CSS optimizado para A4, blanco y negro, tipografia grande, maxima legibilidad. KaTeX renderiza las formulas LaTeX automaticamente.
+- **Imprimir PDF**: `node utils/print/build.js <archivo.md>` — A4, blanco y negro, tipografia grande, KaTeX para formulas LaTeX
+- **Procesar Showcase completo**: `python utils/video-compressor/process-showcase.py "<ruta-showcase>"` — Escanea un Showcase de Unvimeo, identifica curso y fecha, comprime videos, copia transcripciones, y coloca todo en las carpetas correctas. Requiere ffmpeg en PATH.
+- **Comprimir video individual**: `python utils/video-compressor/compress.py [--output DIR] <video.mp4>` — Comprime a 480p/10fps H.265, auto-divide en partes <95MB.
 
 ## Estructura de Carpetas
 
@@ -76,5 +79,6 @@ ort/
           preguntas.md
           respuestas.md
   utils/
-    print/                       — Sistema de impresion (build.js + CSS)
+    print/                       — MD a PDF (build.js + CSS)
+    video-compressor/            — Comprimir y dividir videos (compress.py)
 ```

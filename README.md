@@ -8,71 +8,92 @@ Repositorio personal de material universitario para la [Universidad ORT Uruguay]
 
 Carrera activa desde marzo 2026. Primer semestre:
 
-| Curso | Carpeta |
-|-------|---------|
-| Algebra Lineal | `ingenieriaSistemas/1erSemestre/algebraLineal/` |
-| Programacion 1 | `ingenieriaSistemas/1erSemestre/programacion1/` |
-| Taller de Tecnologias 1 | `ingenieriaSistemas/1erSemestre/tallertecnologias1/` |
+| Curso | Profesor | Carpeta |
+|-------|----------|---------|
+| Algebra Lineal | Gabriel Cisneros | `ingenieriaSistemas/1erSemestre/algebraLineal/` |
+| Programacion 1 | Gonzalo Wagner | `ingenieriaSistemas/1erSemestre/programacion1/` |
+| Taller de Tecnologias 1 | Por confirmar | `ingenieriaSistemas/1erSemestre/tallertecnologias1/` |
 
-### Diploma en Inteligencia Artificial (completado)
+### Diploma en Inteligencia Artificial (completado 2025)
 
-Completado en 2025. Material de referencia:
+Material de referencia. Incluye transcripciones, explicaciones, examenes, y codigo de practicos/obligatorios.
 
-| Curso | Carpeta |
-|-------|---------|
-| Inteligencia Artificial Generativa | `diplomaIA/InteligenciaArtificialGenerativa/` |
-| Modelos de Deep Learning | `diplomaIA/ModelosDeDeepLearning/` |
-| Taller de Deep Learning | `diplomaIA/TallerDeDeepLearning/` |
+| Curso | Profesor | Carpeta |
+|-------|----------|---------|
+| Inteligencia Artificial Generativa | Fran | `diplomaIA/InteligenciaArtificialGenerativa/` |
+| Modelos de Deep Learning | Matias Carrasco | `diplomaIA/ModelosDeDeepLearning/` |
+| Taller de Deep Learning | Jo Vina | `diplomaIA/TallerDeDeepLearning/` |
 
 ## Estructura de carpetas
 
 ```
 ort/
-├── ingenieriaSistemas/           # Carrera activa
+├── ingenieriaSistemas/                 # Carrera activa
 │   └── 1erSemestre/
 │       ├── algebraLineal/
-│       │   ├── classes/          # Transcripciones + explicaciones por fecha
-│       │   └── practicoMatrices/ # Ejercicios y soluciones
+│       │   ├── theory/
+│       │   │   ├── clasesVideos/       # Grabaciones comprimidas por fecha
+│       │   │   ├── classesMaterial/    # Explicaciones por fecha
+│       │   │   └── classesTranscripts/ # Transcripciones por fecha
+│       │   └── practicos/             # Ejercicios y soluciones
 │       ├── programacion1/
-│       │   └── classes/
+│       │   └── theory/
+│       │       ├── clasesVideos/
+│       │       ├── classesMaterial/
+│       │       └── classesTranscripts/
 │       └── tallertecnologias1/
 │
-├── diplomaIA/                    # Diploma completado (referencia)
+├── diplomaIA/                          # Diploma completado (referencia)
 │   ├── InteligenciaArtificialGenerativa/
-│   │   ├── theory/              # Clases: transcripciones + explicaciones
-│   │   ├── PARCIAL/             # Examenes y respuestas
-│   │   └── workspace/           # Codigo de practicos y obligatorio
 │   ├── ModelosDeDeepLearning/
-│   │   ├── theory/
-│   │   └── workspace/
 │   └── TallerDeDeepLearning/
-│       ├── theory/
-│       └── workspace/
 │
-├── PATRONES_ESCRITURA.md         # Guia de estilo para explicaciones
-├── CATALOGO_TIPOS_DOCUMENTO.md   # Templates por tipo de documento
-└── VOZ_PROFESORES_REFERENCIA.md  # Perfiles de voz de profesores
+└── utils/                              # Herramientas
+    ├── print/                          # MD -> PDF (A4, B&W, KaTeX)
+    └── video-compressor/               # Comprimir videos para GitHub
 ```
 
-## Contenido
+## Contenido por tipo
 
-- **Transcripciones** (`.txt`) — Transcripciones de clases grabadas
-- **Explicaciones** (`.md`) — Resumen y explicacion de cada clase
-- **Examenes** — Letras de parciales con respuestas
-- **Codigo** (`.py`, `.ipynb`) — Practicos, obligatorios, y experimentos
-- **Diagramas** — Flujos, arquitecturas, y mapas mentales
-- **Material de referencia** — Ejercicios, guias, soluciones
+| Tipo | Formato | Descripcion |
+|------|---------|-------------|
+| Transcripciones | `.txt` | Transcripciones automaticas de clases grabadas |
+| Explicaciones | `.md` | Resumen y explicacion exhaustiva de cada clase |
+| Videos | `.mp4` | Grabaciones comprimidas (<95MB por parte) |
+| Examenes | `.md` + `.jpg` | Letras de parciales con respuestas |
+| Codigo | `.py`, `.ipynb` | Practicos, obligatorios, y experimentos |
+| Ejercicios | `.jpg`, `.md`, `.pdf` | Practicos escaneados con soluciones |
+| Diagramas | `.html`, `.md` | Flujos, arquitecturas, y mapas mentales |
 
-## Que NO esta en el repositorio
+## Herramientas
 
-Los siguientes archivos se excluyen via `.gitignore` por su tamaño:
+### Imprimir a PDF
 
-- Datasets de ML (CIFAR-10, ImageNet, MNIST, FashionMNIST)
-- Pesos de modelos entrenados (`.pth`, `.h5`, `.onnx`)
-- Grabaciones de clase (`.mp4`)
-- Logs de experimentos (WandB)
-- Repositorios de terceros clonados como referencia
+Convierte archivos Markdown a PDF A4 optimizado para impresion en blanco y negro. Renderiza formulas LaTeX via KaTeX. Tipografia grande y clara, pensada para consulta rapida durante evaluaciones.
+
+```bash
+node utils/print/build.js <archivo.md>
+```
+
+Requiere: Node.js. Instalar dependencias con `cd utils/print && npm install`.
+
+### Comprimir videos
+
+Comprime grabaciones de clase (1080p) a 480p/10fps H.265 y auto-divide en partes menores a 95MB para poder subirlas a GitHub.
+
+```bash
+python utils/video-compressor/compress.py [--output DIR] <video.mp4> [video2.mp4 ...]
+```
+
+Requiere: Python 3, ffmpeg en PATH.
+
+## Convenciones de nombres
+
+- Carpetas de fecha: `DD-mmm-YYYY` (ej: `17-mar-2026`)
+- Transcripciones: `DD-mmm-YYYY.txt`
+- Explicaciones: `DD-mmm-YYYY-explicacion.md` o `explicaciones.md` (segun el curso)
+- Videos: `DD-mmm-YYYY.mp4` o `DD-mmm-YYYY-partN.mp4` si fue dividido
 
 ## Licencia
 
-Este material se distribuye bajo [CC BY-NC-SA 4.0](LICENSE). Ver el archivo LICENSE para mas detalles.
+[CC BY-NC-SA 4.0](LICENSE) — Atribucion, no comercial, compartir igual.

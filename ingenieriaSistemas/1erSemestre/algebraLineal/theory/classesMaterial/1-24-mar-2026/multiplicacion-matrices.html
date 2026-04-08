@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Multiplicacion de Matrices — Diagrama Visual</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: #cba6f7;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #a6adc8;
+    margin-bottom: 40px;
+    font-size: 0.95rem;
+  }
+
+  /* ── SECCION 1: Regla de compatibilidad ─────────────────────────── */
+  section {
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+
+  section h2 {
+    font-size: 1.1rem;
+    color: #89dceb;
+    border-left: 4px solid #89dceb;
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+
+  /* ── GRILLA DE MATRICES ─────────────────────────────────────────── */
+  .matrix-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .matrix-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .matrix-label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f38ba8;
+  }
+
+  .matrix-label.blue { color: #89b4fa; }
+  .matrix-label.orange { color: #fab387; }
+  .matrix-label.green { color: #a6e3a1; }
+
+  .matrix {
+    display: grid;
+    border-left: 3px solid #6c7086;
+    border-right: 3px solid #6c7086;
+    gap: 3px;
+    padding: 8px 4px;
+  }
+
+  .cell {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    background: #313244;
+    color: #cdd6f4;
+    transition: background 0.35s, color 0.35s, transform 0.2s;
+  }
+
+  .cell.highlight-row {
+    background: #1e3a5f;
+    color: #89b4fa;
+    outline: 2px solid #89b4fa;
+    transform: scale(1.08);
+  }
+
+  .cell.highlight-col {
+    background: #3d2000;
+    color: #fab387;
+    outline: 2px solid #fab387;
+    transform: scale(1.08);
+  }
+
+  .cell.highlight-result {
+    background: #1a3a1a;
+    color: #a6e3a1;
+    outline: 3px solid #a6e3a1;
+    transform: scale(1.12);
+  }
+
+  .cell.dim {
+    opacity: 0.25;
+  }
+
+  /* ── OPERADOR ───────────────────────────────────────────────────── */
+  .op {
+    font-size: 2rem;
+    color: #6c7086;
+    padding: 0 4px;
+  }
+
+  .equals {
+    font-size: 2rem;
+    color: #a6e3a1;
+    padding: 0 4px;
+  }
+
+  /* ── PANEL DE CALCULO ───────────────────────────────────────────── */
+  .calc-panel {
+    background: #181825;
+    border: 1px solid #45475a;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-top: 28px;
+    min-height: 160px;
+  }
+
+  .calc-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6c7086;
+    margin-bottom: 12px;
+  }
+
+  .calc-step {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: #cdd6f4;
+  }
+
+  .calc-step .row-nums { color: #89b4fa; font-weight: bold; }
+  .calc-step .col-nums { color: #fab387; font-weight: bold; }
+  .calc-step .result-num { color: #a6e3a1; font-weight: bold; font-size: 1.2rem; }
+  .calc-step .formula { font-family: monospace; font-size: 1.05rem; }
+  .calc-step .arrow { color: #6c7086; margin: 0 6px; }
+
+  .calc-step .pair {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+    margin: 0 2px;
+  }
+
+  .blank-state {
+    color: #585b70;
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-top: 12px;
+  }
+
+  /* ── BOTONES ────────────────────────────────────────────────────── */
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .btn:active { transform: scale(0.97); }
+
+  .btn-primary {
+    background: #cba6f7;
+    color: #1e1e2e;
+  }
+  .btn-primary:hover { background: #b48de0; }
+
+  .btn-secondary {
+    background: #313244;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+  }
+  .btn-secondary:hover { background: #45475a; }
+
+  .btn-entry {
+    background: #313244;
+    color: #cdd6f4;
+    border: 2px solid #45475a;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-entry.active {
+    border-color: #a6e3a1;
+    background: #1a3a1a;
+    color: #a6e3a1;
+  }
+
+  .btn-entry:hover { border-color: #cba6f7; }
+
+  /* ── SECCION 2: Regla de compatibilidad ─────────────────────────── */
+  .compat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .compat-card {
+    background: #181825;
+    border: 1px solid #45475a;
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .compat-card.ok { border-color: #a6e3a1; }
+  .compat-card.no { border-color: #f38ba8; }
+
+  .compat-card .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .badge.ok { background: #1a3a1a; color: #a6e3a1; }
+  .badge.no { background: #3a1a1a; color: #f38ba8; }
+
+  .compat-card code {
+    background: #313244;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #cdd6f4;
+  }
+
+  .highlight-match {
+    background: #3a2a00;
+    color: #fab387;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+
+  /* ── SECCION 3: Truco dimensional ───────────────────────────────── */
+  .dim-diagram {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .dim-box {
+    background: #313244;
+    border: 2px solid #45475a;
+    border-radius: 8px;
+    padding: 12px 20px;
+    text-align: center;
+    min-width: 100px;
+  }
+
+  .dim-box .label { font-size: 0.75rem; color: #6c7086; text-transform: uppercase; }
+  .dim-box .dims { font-size: 1.3rem; font-weight: bold; margin-top: 4px; }
+  .dim-box .dims .match { color: #f38ba8; }
+  .dim-box.result-box { border-color: #a6e3a1; }
+  .dim-box.result-box .dims { color: #a6e3a1; }
+
+  .dim-arrow {
+    font-size: 1.5rem;
+    color: #6c7086;
+    padding: 0 8px;
+  }
+
+  .dim-cancel {
+    font-size: 0.8rem;
+    color: #f38ba8;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .dim-keep {
+    font-size: 0.8rem;
+    color: #a6e3a1;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  hr { border: none; border-top: 1px solid #45475a; margin: 40px 0; }
+</style>
+</head>
+<body>
+
+<h1>Multiplicacion de Matrices</h1>
+<p class="subtitle">Diagrama visual interactivo — hace click en cada entrada para ver el calculo</p>
+
+<!-- ═══════════════════════════════════════════════════
+     SECCION 1: Regla de compatibilidad
+═══════════════════════════════════════════════════ -->
+<section>
+  <h2>Regla 1 — Cuando se puede multiplicar?</h2>
+
+  <p style="margin-bottom: 16px; color: #a6adc8;">
+    Las matrices tienen dos numeros que describen su tamano: <strong style="color:#89b4fa">filas</strong> x <strong style="color:#fab387">columnas</strong>.<br>
+    Para poder multiplicar A × B, el numero de <strong style="color:#fab387">columnas de A</strong> tiene que ser igual al numero de <strong style="color:#89b4fa">filas de B</strong>.
+  </p>
+
+  <div class="dim-diagram">
+    <div class="dim-box">
+      <div class="label">Matriz A</div>
+      <div class="dims">filas × <span class="match">cols</span></div>
+    </div>
+    <div class="dim-arrow">×</div>
+    <div class="dim-box">
+      <div class="label">Matriz B</div>
+      <div class="dims"><span class="match">fils</span> × cols</div>
+    </div>
+    <div class="dim-arrow">=</div>
+    <div class="dim-box result-box">
+      <div class="label">Resultado</div>
+      <div class="dims">filas × cols</div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:8px">
+    <span style="color:#f38ba8; font-size:0.85rem">Los numeros en rojo tienen que coincidir. Si coinciden, desaparecen en el resultado.</span>
+  </div>
+
+  <div class="compat-grid" style="margin-top: 24px;">
+    <div class="compat-card ok">
+      <span class="badge ok">SE PUEDE</span><br>
+      A es <code>2 × <span style="color:#fab387">3</span></code>, B es <code><span style="color:#fab387">3</span> × 4</code><br>
+      El <span class="highlight-match">3</span> coincide.<br>
+      Resultado: <code>2 × 4</code>
+    </div>
+    <div class="compat-card ok">
+      <span class="badge ok">SE PUEDE</span><br>
+      A es <code>2 × <span style="color:#fab387">2</span></code>, B es <code><span style="color:#fab387">2</span> × 2</code><br>
+      El <span class="highlight-match">2</span> coincide.<br>
+      Resultado: <code>2 × 2</code>
+    </div>
+    <div class="compat-card no">
+      <span class="badge no">NO SE PUEDE</span><br>
+      A es <code>2 × <span style="color:#f38ba8">3</span></code>, B es <code><span style="color:#f38ba8">2</span> × 4</code><br>
+      3 ≠ 2. No coinciden.<br>
+      <em style="color:#585b70">Imposible.</em>
+    </div>
+    <div class="compat-card no">
+      <span class="badge no">NO SE PUEDE</span><br>
+      A es <code>4 × <span style="color:#f38ba8">2</span></code>, B es <code><span style="color:#f38ba8">3</span> × 2</code><br>
+      2 ≠ 3. No coinciden.<br>
+      <em style="color:#585b70">Imposible.</em>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SECCION 2: Diagrama interactivo de calculo
+═══════════════════════════════════════════════════ -->
+<section>
+  <h2>Regla 2 — Como se calcula cada numero del resultado?</h2>
+
+  <p style="margin-bottom: 6px; color: #a6adc8;">
+    Para obtener el numero en la <strong style="color:#89b4fa">fila F</strong>, <strong style="color:#fab387">columna C</strong> del resultado:
+  </p>
+  <ol style="color: #a6adc8; padding-left: 24px; margin-bottom: 20px; line-height: 2;">
+    <li>Tomas <strong style="color:#89b4fa">todos los numeros de la fila F de A</strong> (de izquierda a derecha)</li>
+    <li>Tomas <strong style="color:#fab387">todos los numeros de la columna C de B</strong> (de arriba a abajo)</li>
+    <li>Multiplicas el 1° de A con el 1° de B, el 2° de A con el 2° de B, etc.</li>
+    <li>Sumas todos esos productos — ese es el numero buscado</li>
+  </ol>
+
+  <p style="color: #585b70; font-size: 0.85rem; margin-bottom: 20px;">
+    Ejemplo con A = [[1, 2], [3, -4]] y B = [[5, 6], [7, 8]]. Hace click en cada boton para ver el calculo.
+  </p>
+
+  <!-- Botones de seleccion de entrada -->
+  <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 20px; align-items: center;">
+    <span style="color: #6c7086; font-size: 0.85rem;">Calcular entrada:</span>
+    <button class="btn-entry active" onclick="selectEntry(0,0)">[fila 1, col 1]</button>
+    <button class="btn-entry" onclick="selectEntry(0,1)">[fila 1, col 2]</button>
+    <button class="btn-entry" onclick="selectEntry(1,0)">[fila 2, col 1]</button>
+    <button class="btn-entry" onclick="selectEntry(1,1)">[fila 2, col 2]</button>
+    <button class="btn-secondary btn" onclick="autoPlay()" style="margin-left: auto;" id="autoBtn">▶ Reproducir todo</button>
+  </div>
+
+  <!-- Matrices y resultado -->
+  <div class="matrix-row">
+    <!-- Matriz A -->
+    <div class="matrix-wrapper">
+      <div class="matrix-label blue">A</div>
+      <div class="matrix" id="matA" style="grid-template-columns: repeat(2, 52px);">
+        <div class="cell" id="a00">1</div>
+        <div class="cell" id="a01">2</div>
+        <div class="cell" id="a10">3</div>
+        <div class="cell" id="a11">-4</div>
+      </div>
+      <div style="font-size:0.75rem; color:#6c7086;">2 filas × 2 columnas</div>
+    </div>
+
+    <div class="op">×</div>
+
+    <!-- Matriz B -->
+    <div class="matrix-wrapper">
+      <div class="matrix-label orange">B</div>
+      <div class="matrix" id="matB" style="grid-template-columns: repeat(2, 52px);">
+        <div class="cell" id="b00">5</div>
+        <div class="cell" id="b01">6</div>
+        <div class="cell" id="b10">7</div>
+        <div class="cell" id="b11">8</div>
+      </div>
+      <div style="font-size:0.75rem; color:#6c7086;">2 filas × 2 columnas</div>
+    </div>
+
+    <div class="equals">=</div>
+
+    <!-- Resultado -->
+    <div class="matrix-wrapper">
+      <div class="matrix-label green">A × B</div>
+      <div class="matrix" id="matR" style="grid-template-columns: repeat(2, 52px);">
+        <div class="cell" id="r00">?</div>
+        <div class="cell" id="r01">?</div>
+        <div class="cell" id="r10">?</div>
+        <div class="cell" id="r11">?</div>
+      </div>
+      <div style="font-size:0.75rem; color:#6c7086;">2 filas × 2 columnas</div>
+    </div>
+  </div>
+
+  <!-- Panel de calculo detallado -->
+  <div class="calc-panel">
+    <div class="calc-title">Calculo detallado</div>
+    <div class="calc-step" id="calcPanel">
+      <span class="blank-state">Selecciona una entrada arriba para ver el calculo paso a paso.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SECCION 3: La ley del orden
+═══════════════════════════════════════════════════ -->
+<section>
+  <h2>Regla 3 — El orden importa (A × B ≠ B × A)</h2>
+
+  <p style="color: #a6adc8; margin-bottom: 20px;">
+    A diferencia de los numeros comunes, en matrices <strong style="color:#f38ba8">cambiar el orden cambia el resultado</strong>.
+    Aca podes ver como A × B y B × A dan matrices completamente distintas con las mismas matrices de arriba.
+  </p>
+
+  <div class="matrix-row" style="margin-bottom: 20px;">
+    <div class="matrix-wrapper">
+      <div class="matrix-label blue" style="font-size: 0.9rem;">A × B</div>
+      <div class="matrix" style="grid-template-columns: repeat(2, 52px);">
+        <div class="cell">19</div>
+        <div class="cell">22</div>
+        <div class="cell" style="color:#f38ba8">-13</div>
+        <div class="cell" style="color:#f38ba8">-14</div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; align-items:center; justify-content: center; gap: 6px; padding: 10px;">
+      <div style="font-size: 1.5rem; color: #f38ba8;">≠</div>
+      <div style="font-size: 0.75rem; color: #6c7086; text-align:center;">Son distintas!</div>
+    </div>
+
+    <div class="matrix-wrapper">
+      <div class="matrix-label orange" style="font-size: 0.9rem;">B × A</div>
+      <div class="matrix" style="grid-template-columns: repeat(2, 52px);">
+        <div class="cell">23</div>
+        <div class="cell">-14</div>
+        <div class="cell" style="color:#f38ba8">31</div>
+        <div class="cell" style="color:#f38ba8">-26</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #3a1a1a; border: 1px solid #f38ba8; border-radius: 10px; padding: 16px 20px; color: #f38ba8; font-size: 0.95rem;">
+    <strong>NUNCA</strong> cambies el orden de las matrices en un producto. Aunque en numeros 3 × 5 = 5 × 3, en matrices esa regla <strong>no existe</strong>.
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SECCION 4: Resumen
+═══════════════════════════════════════════════════ -->
+<section>
+  <h2>Resumen en una imagen</h2>
+
+  <div style="background: #181825; border: 1px solid #45475a; border-radius: 12px; padding: 28px; font-family: monospace; font-size: 0.92rem; line-height: 2.2; white-space: pre-wrap; overflow-x: auto; color: #cdd6f4;">
+<span style="color:#89dceb">PASO 1 — VERIFICAR QUE SE PUEDE:</span>
+
+  A [m × <span style="color:#fab387">n</span>]  ×  B [<span style="color:#fab387">n</span> × p]  =  resultado [m × p]
+                  ↑           ↑
+           estos dos numeros tienen que coincidir
+
+
+<span style="color:#89dceb">PASO 2 — CALCULAR CADA ENTRADA:</span>
+
+  resultado[fila F, col C]  =  (fila F de A) · (columna C de B)
+
+                              ┌ a₁ ┐   ┌ b₁ ┐
+  "punto por punto y sumar"  │ a₂ │ · │ b₂ │  =  a₁·b₁ + a₂·b₂ + ...
+                              └ a₃ ┘   └ b₃ ┘
+
+  Para cada celda del resultado repetir con la fila y columna correspondiente.
+
+
+<span style="color:#89dceb">PASO 3 — RECORDAR:</span>
+
+  A × B  <span style="color:#f38ba8">≠</span>  B × A   ← el orden cambia el resultado
+  </div>
+</section>
+
+<script>
+  const A = [[1, 2], [3, -4]];
+  const B = [[5, 6], [7, 8]];
+  const R = [[19, 22], [-13, -14]];
+
+  const rowNames = ['primera', 'segunda'];
+  const colNames = ['primera', 'segunda'];
+
+  let revealed = [false, false, false, false];
+  let autoTimer = null;
+  let autoIndex = 0;
+
+  function allCells(matId) {
+    const mat = document.getElementById(matId);
+    return [...mat.querySelectorAll('.cell')];
+  }
+
+  function clearHighlights() {
+    ['a00','a01','a10','a11','b00','b01','b10','b11','r00','r01','r10','r11'].forEach(id => {
+      const el = document.getElementById(id);
+      el.classList.remove('highlight-row', 'highlight-col', 'highlight-result', 'dim');
+    });
+    document.querySelectorAll('.btn-entry').forEach(b => b.classList.remove('active'));
+  }
+
+  function selectEntry(row, col) {
+    clearHighlights();
+    const btnIndex = row * 2 + col;
+    document.querySelectorAll('.btn-entry')[btnIndex].classList.add('active');
+
+    // Dim all A cells, then highlight row
+    for (let r = 0; r < 2; r++) {
+      for (let c = 0; c < 2; c++) {
+        const cellA = document.getElementById('a' + r + c);
+        if (r === row) {
+          cellA.classList.add('highlight-row');
+        } else {
+          cellA.classList.add('dim');
+        }
+      }
+    }
+
+    // Dim all B cells, then highlight column
+    for (let r = 0; r < 2; r++) {
+      for (let c = 0; c < 2; c++) {
+        const cellB = document.getElementById('b' + r + c);
+        if (c === col) {
+          cellB.classList.add('highlight-col');
+        } else {
+          cellB.classList.add('dim');
+        }
+      }
+    }
+
+    // Dim all result cells, highlight target
+    for (let r = 0; r < 2; r++) {
+      for (let c = 0; c < 2; c++) {
+        const cellR = document.getElementById('r' + r + c);
+        if (r === row && c === col) {
+          cellR.classList.add('highlight-result');
+          revealed[row * 2 + col] = true;
+          cellR.textContent = R[row][col];
+        } else {
+          // show previously revealed
+          if (revealed[r * 2 + c]) {
+            cellR.textContent = R[r][c];
+            cellR.classList.add('dim');
+          } else {
+            cellR.textContent = '?';
+            cellR.classList.add('dim');
+          }
+        }
+      }
+    }
+
+    // Build calc panel
+    const rowVals = A[row];
+    const colVals = B.map(r => r[col]);
+
+    const terms = rowVals.map((v, i) => {
+      const av = v;
+      const bv = colVals[i];
+      const avStr = av < 0 ? '(' + av + ')' : '' + av;
+      const bvStr = bv < 0 ? '(' + bv + ')' : '' + bv;
+      return `<span class="pair"><span class="row-nums">${avStr}</span> × <span class="col-nums">${bvStr}</span></span>`;
+    });
+
+    const products = rowVals.map((v, i) => v * colVals[i]);
+    const productStrs = products.map(p => {
+      return `<span class="${p < 0 ? 'col-nums' : 'row-nums'}">${p}</span>`;
+    });
+
+    const result = R[row][col];
+
+    const panel = document.getElementById('calcPanel');
+    panel.innerHTML = `
+      <div style="margin-bottom: 10px;">
+        <strong>Buscamos:</strong> el numero en [<span class="row-nums">fila ${row + 1}</span>, <span class="col-nums">columna ${col + 1}</span>] del resultado
+      </div>
+      <div style="margin-bottom: 10px;">
+        <strong><span class="row-nums">Fila ${row + 1} de A:</span></strong>
+        ${rowVals.map(v => `<span class="row-nums">${v}</span>`).join(', ')}
+        &emsp;
+        <strong><span class="col-nums">Columna ${col + 1} de B:</span></strong>
+        ${colVals.map(v => `<span class="col-nums">${v}</span>`).join(', ')}
+      </div>
+      <div style="margin-bottom: 10px;" class="formula">
+        Multiplico par a par: ${terms.join(' + ')}
+      </div>
+      <div style="margin-bottom: 10px;" class="formula">
+        = ${productStrs.join(' + ')}
+      </div>
+      <div class="formula">
+        = <span class="result-num">${result}</span>
+      </div>
+    `;
+  }
+
+  let autoEntries = [[0,0],[0,1],[1,0],[1,1]];
+  let autoIdx = 0;
+  let autoRunning = false;
+
+  function autoPlay() {
+    if (autoRunning) {
+      clearInterval(autoTimer);
+      autoRunning = false;
+      document.getElementById('autoBtn').textContent = '▶ Reproducir todo';
+      return;
+    }
+    autoRunning = true;
+    document.getElementById('autoBtn').textContent = '⏹ Detener';
+    autoIdx = 0;
+    revealed = [false, false, false, false];
+    // reset result cells
+    for (let r = 0; r < 2; r++)
+      for (let c = 0; c < 2; c++)
+        document.getElementById('r' + r + c).textContent = '?';
+
+    autoTimer = setInterval(() => {
+      if (autoIdx >= autoEntries.length) {
+        clearInterval(autoTimer);
+        autoRunning = false;
+        document.getElementById('autoBtn').textContent = '▶ Reproducir todo';
+        return;
+      }
+      const [row, col] = autoEntries[autoIdx];
+      selectEntry(row, col);
+      autoIdx++;
+    }, 1800);
+  }
+
+  // Initialize showing first entry
+  selectEntry(0, 0);
+</script>
+</body>
+</html>
