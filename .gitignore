@@ -44,6 +44,7 @@ env/
 # ==============================================================================
 node_modules/
 package-lock.json
+!utils/print/package-lock.json
 
 # ==============================================================================
 # ML datasets (binary data — reproducible via download scripts)
@@ -100,8 +101,7 @@ mlruns/
 *.webm
 
 # Allow compressed class videos (<95MB parts) in project
-!**/clasesVideos/**/*.mp4
-!**/classes/**/*.mp4
+!**/classesVideos/**/*.mp4
 
 # ==============================================================================
 # Log files
