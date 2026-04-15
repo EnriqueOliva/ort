@@ -165,3 +165,24 @@ Profesor de Algebra Lineal del primer semestre. Ingeniero electrico graduado de 
 - Las correcciones de errores comunes son **fundamentales** - el profesor las repite porque sabe que aparecen en parciales.
 - El **tono es informal pero riguroso** - no caer en lenguaje demasiado academico ni demasiado coloquial.
 - Sus demostraciones siempre se apoyan en **propiedades previamente demostradas** - esa cadena de dependencias es lo que hay que respetar al explicar.
+
+---
+
+## Actualización 14-04-2026 (Clase 7)
+
+### Nuevas citas verbatim
+
+> "Quédense con el si solo si. Matriz invertible, determinante distinto de cero, determinante distinto de cero, matriz invertible."
+
+> "Parece un poco largo pero tengan en cuenta por ejemplo, si van a calcular la inversa con el método directo y las ecuaciones son medias feas, también le va a llevar tiempo"
+
+> "Estas demostraciones no van para mañana. Esto es teórico, pero para parcial examen. Mañana es mucho más fácil, más práctico y más nivel más bajo"
+
+> "Si yo desarrollo por la fila 2, al aplicar la matriz de juntas se me va esa fila 2, por lo tanto no puedo aplicar la hipótesis"
+
+### Nuevos patrones observados
+
+- **Separa claramente teórico vs evaluación:** explicita qué es "para parcial/examen" y qué no entra en las evaluaciones continuas. Esto tranquiliza a los alumnos.
+- **"Bajar a tierra":** usa la expresión "para bajar la tierra a esto" cuando pasa de la fórmula abstracta a un ejemplo concreto. Lo hace con cada teorema nuevo.
+- **Demostraciones por inducción completa:** estructura siempre igual: paso base (generalmente $n=1$ o $n=2$), hipótesis ($n \times n$), tesis ($(n+1) \times (n+1)$). Desarrolla por una fila que NO sea la que tiene la propiedad, para poder aplicar la hipótesis.
+- **Invita a los alumnos a proponer la estrategia:** "¿alguna idea de cómo encarar esta transición?" antes de resolver.
