@@ -1,13 +1,6 @@
 @page {
   size: A4;
   margin: 22mm 18mm 22mm 18mm;
-
-  @bottom-center {
-    content: counter(page);
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 10pt;
-    color: #555;
-  }
 }
 
 body {
