@@ -1,0 +1,208 @@
+Transcript generated automatically. Some words may be inaccurate.
+Source: FI-1479-Programación 1-75965-P1 N1A ID | 14-04-2026
+URL: https://vimeo.com/showcase/12151817
+Date: 2026-04-21
+
+[00:00:01] Buenas Buenas, ¿cómo van? ¿Se te complicó o no se te complicó, Oliver? Muy bueno No quedó otra, no quedó otra ¿Qué quedáis? Yo ahí Y un ratito
+[00:01:22] Practicaré más tarde para mañana ¿Qué le está faltando? Nada, nada, practicarlo Ya tiene ahí todo armado el speech, imagino Todo, todo Falta memoria, nomás Uy, eso no se consigue fácil
+[00:01:51] Estoy tratando de hacerlo lo menos Lo menos complicado posible Pero bueno Hay cosas que no son tan fáciles No, tal cual Bueno, a ver cómo estamos Tenemos unos 5 online
+[00:02:28] Bien, bien. ¿Qué tal? ¿Cómo andan? Buenas. Sí, en total somos ocho. Yo ahora voy presencialmente, pasa que se me envoló en el trabajo. Cosa que pasa.
+[00:02:57] bueno entonces estamos bueno, estamos, ya nos pude con el práctico 5
+[00:03:11] Ahí habían arrancado ya con el plástico 5, ¿no? Sí, ahí habíamos avanzado hasta el 3, 3 de nippets. ¿Alguna duda por ahora, Befano?
+[00:03:33] No sé si estuvieron practicando, chicos Ahí vieron que había quedado Incluso para los que quisieran, obviamente Leían toda la parte de pseudocódigo Pasarlo justamente a Snippets y demás Con la idea de seguir practicando un poco El lenguaje, digamos, de Javascript Sí, sí, porque Este práctico es el mismo que el práctico 3 Lo único que esto ya es pseudocódigo
+[00:04:13] Así que más o menos con las soluciones que hay en ese código, ahí veo que hay uno en el 3 que lo hizo, y ahí capaz que podemos armar el grupo ahí que va en el 4 o 5. Sí, es para que les voy a...
+[00:04:45] Compartir pantallita rápida nomás para decirles cuáles. Ahí está viendo, sí. Sí. Bien. Bueno chicos, ahí va. Sigamos ahí un poco con el 5. Después en la segunda hora la idea sería arrancar con el 6. Que ya es funciones y strings básicamente. O sea, lo que vamos a ver que en realidad las funciones son un wrapper.
+[00:05:09] Digamos, de este código que estamos haciendo ahí ahora medio suelto. Pero bueno, eso lo vamos a empezar a meter en funciones para empezar a complejizar un poco la cosa. Entonces, del práctico 5 de snippets. Tenemos el 4 que dice pedir el ingreso de un número n y mostrar la suma de todos los impares que sean múltiplos de 3 entre 1 y n. Ahí va a ser muy importante el operador.
+[00:05:36] el del porcentaje o el del módulo, o el modo, no sé cómo lo vieron ahí en la parte de pseudocódigo. Y, por ejemplo, si se ingresa 16, se muestra el 27. Después tenemos el 5, dice ingresar 10 números y muestra el promedio. Eso es sencillito. Y el 6 dice ingresar 10 números y se suben positivos, indicar la diferencia entre el mayor y el menor.
+[00:06:00] Entonces en esa pedida de números tendría que llevar la cuentita de cada uno y después hacer la... O sea, llevar el máximo y el mínimo, digamos, y después hacer simplemente la diferencia de eso. Vayamos con estos tres ahí para arrancar. Yo voy a crear los grupitos acá. Create. Y como siempre, aparte del zoom, uno de ustedes comparte pantalla y entre todos lo van resolviendo.
+[00:06:29] por los rooms y ya pongo el tiempito para ir trabajando y creo que tengo el permiso para que compartan listo y ahí pongo a correr el tiempo
+[00:08:43] Gracias.
+[00:09:41] Sí, con mi compa.
+[00:12:25] y
+
+[00:13:42] No se puede decirlo.
+[00:14:40] Gracias.
+[00:15:23] y
+
+[00:16:08] Gracias.
+[00:16:39] y
+
+[00:17:36] por ahí
+[00:17:59] pero sería
+[00:18:29] y
+[00:19:06] y bueno  y
+[00:20:36] ¿Del fondo se ve? ¿Allá atrás se ve ahí la URL?
+[00:20:45] ¿Pasa más corto eso o qué es?
+[00:21:14] ¿Cómo si? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué? ¿Por qué?  no  y  entre la verdad  3  y  Gracias.
+[00:24:20] y
+[00:24:53] Gracias.
+[00:25:49] y
+[00:26:33] no
+[00:27:08] y
+
+[00:29:01] Gracias.
+[00:29:39] y
+[00:30:28] sí sí
+[00:31:10] Gracias.
+
+[00:32:05] y
+
+[00:32:53] ¿Cómo se pone? ¿Diste el? A ver, ¿diste el trayecto?
+[00:33:16] así no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no  entonces  y
+[00:34:38] Ah, de comer, de comer. Sí, sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí. Sí.  y
+
+[00:36:00] ah perdón  y  ah  Gracias.
+[00:37:35] pero no  Gracias.
+[00:38:34] y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y y  Gracias.
+[00:39:07] y hoy
+[00:39:36] y el mandante no puede ser igual el mínimo mi mi
+[00:39:59] Sí, ahí.  Gracias.
+[00:41:01] y
+
+[00:42:07] Gracias.
+[00:42:36] ahí los chicos se van  están ahí casi terminando así que estamos bien
+[00:43:41] No, no lo puedo hacer. No puedo hacer nada más. No, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no  Ahí los voy a llamar.  y  Ahí estamos todos.  Gracias.
+[00:45:50] Vamos a revisar un poco los ejercicios, así salimos a creer después. El 4 les pedía, por bien ingresos número n, mostrarles uno de todos los impares que sean múltiplos de 3 entre 1 y n.
+[00:46:19] Entonces, básicamente lo que tienen que hacer es pedir primero un número, este está bien, acá define una variable suma impar, ojo que acá faltó el let. Detalle. Bien, después también. Después también.
+[00:46:49] acá el informe sí a ver se recomienda usar solamente el hecho porque principalmente en el arn en snippets y en un programa donde puedan tener varios javascript el problema usar bar es que cuando definir una variable probar
+[00:47:18] El scope no es el archivo, el scope es todo el programa. Si yo defino un var en el snippet, en un snippet del navegador, el scope es todo el navegador. O sea, cualquier snippet que tenga esa variable va a agarrar ese valor.
+[00:47:36] El let es más restrictivo, el let solamente está en el contexto de la función en que está, y aparte está en el contexto a veces, por ejemplo, adentro de un for, la variable que vos definís con let, existe solamente adentro del for. Afuera del for ya no existe. Por eso recomendamos solamente usar let. El var se parlo en...
+[00:48:06] No lo usá. Bien. Acá hicieron desde i igual 1 hasta i menor que n. ¿Cuál es el problema? Se arranca desde 1 hasta i menor que n. En realidad lo que va a hacer va a leer n menos 1.
+[00:48:35] Entonces acá podría ser menor o igual que n, o arrancar desde cero y ser menor que n.
+[00:48:49] después el ir acá tenga un poco más prolijidad capaz que no le dije nada pero no tendría un espacio en el libro el porno tan importa tanto pero en el que una sentencia acá seguimos los tres igual a cero y y módulo 2 distinto de cero
+[00:49:17] Acá, porque hay como una suspicacia más que otra cosa, acá si ponen distinto de 0 con 3, acá pongan con 3 también. Para mantener coherencia, porque si ponen solamente 2, lo que está comparando es el valor de las dos variables.
+[00:49:46] Ahora, si ponen 3, están comprando el valor y el tipo. Sí, incluso en ese caso también ustedes ya saben que están comprando números. Entonces, es quizás un poco redundante también preguntar por tipo. Por tipo, exacto. Si no le pusieran parsing, bueno, más allá de otros problemas que puede dar, sí, sería adecuado hacerlo por tipo, pero en realidad acá están parseando un entero.
+[00:50:16] y acá están haciendo un módulo de un entero y un entero, igual un entero, es muy redundante ponerlo a tres.
+[00:50:26] Bien, y después la variable que viene iniciada en cero, le suman el i si el módulo 3 es igual a cero, que quiere decir que justamente lo que le pedían, un múltiplo de 3 y distinto de 2 que es impar, distinto al módulo 2 que es impar. Esto es lo mismo que poner suma impar igual suma impar más i, o sea que está bien. De esta manera.
+[00:50:54] Es la manera corta. Y después en realidad cómo se muestra, no se especificó, por lo tanto acá podrían usar tanto un console.log como un alert.
+[00:51:13] Bien, después, más o menos lo mismo, ingreso un número con el prompt, sumo cero, desde i igual 1 hasta número, i más más, módulo 2, bueno, acá lo mismo, ¿no? Sí, acá sacaría un igual y listo. Bueno, no tenemos mucho.
+[00:51:43] acá acá queda un total ahí por las dudas esto creo que está de más acá del módulo 3 faltó el módulo 2
+[00:52:08] Bien, y después... Pueden saber lo numérico, count, desde igual cero hasta y menor que num, dos módulo n igual a uno, y tres módulo n igual a cero. Es lo mismo, básicamente. Ah, y ojo ahí, en lo último, que no sé por qué puse unas comas en las llaves ahí del for.
+[00:52:35] Ah, no, sí, coma sacan la llave, no. No sé, chicos, ¿están preguntando algo? Sí, esperé que viniera a pasar.
+[00:52:59] ¿bien? ¿bien? ¿bien? ¿bien? gracias les iba a preguntar si se entendía el uso del módulo si quedó clara esa parte porque digo
+[00:53:24] En general en los ejercicios siempre hay una cuentita que hay que hacer con módulo porque les pide que sea múltiplo o impar o par. Entonces van a usar bastante quizás el módulo en algunos ejercicios simplemente para ver qué preguntas tienen de eso. Pero básicamente de vuelta es el resto de la división entera entre dos números. Si ese resto me da cero,
+[00:53:49] es que justamente ese número es múltiplo del otro. Si me da distinto de 0, bueno, es que no es múltiplo. Y lo que yo les comentaba también en los grupitos de sumo, en uno de los grupitos, es que también el módulo muchas veces es útil como para cuando yo quiero iterar sobre una cierta cantidad de valores. Porque cuando yo divido entre, por ejemplo, módulo 2, el resto siempre va a ir de 0 a 1. Si yo hago entre módulo 3, va a ser de 0 a 2.
+[00:54:17] Siempre va de 0 a n-1. Entonces, uno cuando quiere iterar sobre cierta cantidad de valores, lo que aplica siempre es el módulo entre un número que justamente le dé ese rango. Entonces, yo por más que tenga un contador que va de 1 hasta 10 millones, esos números siempre van a ser 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3. Entonces, eso también permite hacer esas cosas cíclicas. Entonces, es muy importante que al menos la tengan presente y lo tengan claro como...  Como qué cosas puedo hacer con eso. Nada más.
+[00:54:54] bien después teníamos ingresar 10 números contra el promedio nada definiendo de suma un for de 1 hasta 10 vamos en un par sin de ingresar el dato y suma del dato y después el primer promedio si hay le faltó el exacto
+[00:55:21] acá lo mismo que antes bien console.log promedio suma dividido 10 acá en el sentido que ingresa 10 números por las dudas si a alguien se le da por poner una variable y asignarle el valor 10 está de más o sea, si yo ya sé que son 10 números que me van a ingresar pongo 10 y listo
+[00:55:53] lo comento porque ha visto a veces gente complicarse bien acá lo mismo al tablet suma igual 0 número igual 0 bien número suma acá
+[00:56:23] Vieron que este tiene el let afuera y este probablemente tiene el let adentro del for y este lo tiene afuera. Si este número va a existir adentro del for, yo haría el let adentro. Porque si no va a existir fuera del for, no tiene mucho sentido definirlo afuera. Pero incluso en este caso, yo haría algo un poquito más drástico. Yo haría un...
+[00:57:07] Si yo no tengo que validar datos para nada, directamente yo lo sumaría. En este caso no tenemos ninguna validación más que leer el dato. Bien, acá vamos a hacer lo mismo. El con 6 por medio es 4 dividido 10. Acá no hay un...
+[00:58:16] No hay una regla definida entre usar paréntesis o no usar paréntesis cuando están concatenando algo. Yo creo que uno por proligidad, para entenderse uno, siempre lo hace y nunca está de más. Pero, bueno, tampoco pasa nada, pero...
+[00:58:39] mientras funcione, ¿no? Vamos a ser claros. Sí, en el caso de la suma seguro, pero claro, cuando es división y multiplicación, como eso tiene precedencia, siempre va a resolver la operación antes de hacer la concatenación. Exacto. Pero sí, si quieren estar como seguros. Exactamente. Bueno, acá es lo mismo en el lead, faltaba el punto y coma. Ojo, siempre acuérdense del punto y coma.
+[00:59:08] después de las sentencias porque son cositas que después les pase al resto y después de que salga el número se asume un positivo indicar la diferencia entre el mayor y el menor acá definieron mayor como min value menor como max value y la diferencia
+[00:59:37] ¿En qué sentido vos te referís al Maxi Pintager? Sí, podrías usarlo. Yo creo que es más fácil acordarse el number.minvalue y el number.magvalue.
+[01:00:05] Sí, en realidad todo, pero... A ver, si no se me escuajeringa todo acá. Ah, mirá. Pero vos podés usar incluso hasta Infinity, si querés.
+[01:00:37] y si querés el menos infinity después tenés el number tenés el max value, el min value, el max safe integer el min safe integer tenés el negative infinity y el positive infinity también o sea, podés usar cualquiera
+[01:01:03] Si te fijás, lo único que difiere es realmente el valor exacto que es cada una de las cosas. Pero eso es más bien por cómo se representan. Pero no vas a tener un valor normal de que vos ingreses por consola, que vas a ser mayor o menor que esos números, porque son casi, diría, imposibles.
+[01:01:33] bien está igual desde igual 0 hasta y menos que 10 acá para hacerle la vuelta pasen un par de sin del número si número es mayor que mayor
+[01:01:49] mayor o igual número y si número es menor que menor, menor o igual número después que termine el por diferencia igual mayor o menor y con soldado bien bien podría podría haber usado un el si acá pero bueno
+
+[01:02:24] si acá si acá hay una hay un temita que si lo resolvieron acá es el matas porque igual mayor no va a dar
+[01:02:51] Mayor no va a dar... Mayor menos menor... Estoy pensando si sería negativo en algún escenario. Son todos positivos. El ejercicio decía que eran todos positivos, así que... Sí, son todos positivos, así que no, no sé. En este caso, son muy positivos. No, no.
+[01:03:19] En este caso el math.apps sobraría. Si no dijera que se asume todo positivo, capaz que es necesario. Pero en este caso se asume todo positivo. Bien, acá fue más o menos lo mismo, ¿no? La diferencia, mayor o igual menos infinity, menor o infiniti.
+[01:03:44] más o menos todos por el mismo lado el min max value, el max igual cero acá como recomendación ojo con las tabulaciones que sean entendibles porque si no se complica
+[01:04:12] Bueno, acá traten de que el nombre de las variables sea significativo, nada más. Sea mayor que máximo, máximo igual a, sea menor que mínimo.
+[01:04:35] ¿Alguna duda hasta acá? ¿Vamos a hacer una pausa de 5 minutos? Hagámosle pues. Ya pongo. Bien chicos, nos vemos dentro de 5.
+[01:05:01] Ay, resumí el recorde. Bueno, creo que pasaríamos para el 6 ya, ¿no? Para el 7. No, el 7 es la semana que viene, sería. El 6, que es el de funciones y string. Ah, el 3. Entonces me estaba diciendo de ejercicios. Sí, 7. No, no, no.
+[01:05:28] Ok, ¿sabés alguno más de Nippets? No, no, no, yo creo que está bastante claro hasta ahora, a ver si si había algo más No, yo creo que lo podemos dejar de ver en lo demás, porque en realidad son todos más o menos lo mismo yo creo que lo que lo que van a tener que practicar un poco es las funciones que están dentro de la librería de math como para conocerlas un poco más
+[01:05:58] y yo creo que vale la pena más pasarnos ya a stream que seguir usando más
+[01:06:26] Vamos a hacer el 1 del plático 6.
+[01:06:42] siempre siempre es más fácil pero bueno no estoy compartiendo no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no no
+[01:07:10] Bueno, a ver, en Practico 6 básicamente vamos a usar todo lo que es funciones y la librería strings. Por acá arriba nosotros ya les dejamos algunos links de métodos de strings que se usan normalmente. Está bueno que después los revisen, si no los revisaron ya.
+[01:07:36] Pero nada, acá un poco habla algunos... Cómo se asigna un string, ya más o menos ya saben. Algunas funciones como el largo de un string. Cuando usan algunos caracteres especiales. Esto normalmente no vamos a tener que tomar esto en cuenta, pero está bueno saberlo.
+[01:08:06] Pero bueno, después tienen acá todo lo que son los métodos, que estos sí, normalmente, o sea, por lo menos los métodos básicos, muchos de esos los van a tener que usar.
+[01:08:21] Igual creo que están Bastante completados el libro Pero bueno, esto es como una ayuda Una adicional Ah bueno, incluso creo Está también la parte de strings Está lo de template strings Que quizás En sí no lo damos en el curso Pero muchas veces hay chicos que lo usan Para resolver ejercicios O mismo si ustedes ven soluciones en internet lo van a ver
+[01:08:47] Que es justamente una forma diferente a usar en vez de hacer el mensajito más la variable y esas cosas. Pueden hacerlo con un poquito más sencillo con el uso de template strings. De vuelta, no está dentro del curso, pero si quieren bichar cómo es y demás, ahí también están en esos links. ¿Qué es acá? Comilla francesa. Acá...
+[01:09:16] Lo que se refiere básicamente al template string es, nosotros podemos armar un string con variables. Entonces yo tengo definida una variable, firstName y lastName, que esto dependerá de lo que pase en el programa, y yo le digo, bueno, cuando vas a imprimir, que use esa variable firstName, que se usa entre corchetes y con el símbolo de pesos adelante, coma y la variable lastName.
+[01:09:45] esto lo que va a hacer es que cuando vaya a imprimir va a suplantar esta variable por el valor que tiene acá por ejemplo hace un ejemplo pero con estas variables de valores
+[01:10:04] que acá incluso, que esto lo vamos a ver más adelante, lo que hace es, por ejemplo acá, calcula el precio por 1 más el Watt, y acá a ese número, a ese valor, le aplica un toFixed2. ¿Por qué? Porque estamos usando un decimal,
+[01:10:32] un float y un entero entonces cuando usamos decimales muchas veces más si hacer una división el número puede quedar 0,91234 entonces si voy primero a imprimir eso el tufix es lo que hace que me muestra solamente dos números puede la copa
+[01:11:00] pero esto está bueno saberlo y si lo si lo saben usar y lo aprenden y lo entienden está buenísimo pero es como un complemento no es una obligación por la duda implementar una función que convierta la edad de un perro en años humanos que es multiplicando ese por ciento entonces vamos a
+[01:11:29] Un snippet acá. Bueno, suerte que no dice práctico 6. Práctico 6, ejercicio 1. Entonces, vamos a cerrar un poco las cosas. Lo primero que nos dicen es que tenemos que hacer una función, ¿no? O sea, una función como la hacemos.  una función es función el nombre de la función
+[01:12:06] calcular edad del perro y el parámetro ¿no? ¿qué es lo que le vamos a pasar a la función? el número más en este caso la edad solamente la edad solamente la edad no va a pasar una edad nosotros la tenemos que multiplicar por 7 y devolverlo ¿no? o sea que podríamos hacer
+[01:12:35] un letra edad de perro igual a 7 por la edad y acá mandamos un return edad perro o sea, nosotros vamos a devolver eso el return es lo que retorna la función
+[01:13:05] cuando yo llamo una función me va a dar un valor un valor o lo que sea que devuelve la función en este caso es un valor ahora ¿cómo llamo la función?
+[01:13:25] ¿Nadie sabe? ¿Cómo te llamas? ¿Tienes un calcular de asado? Vamos a hacer un console.log Así... ¿Tienes algo para hablar? ¿Te toca la edad? Edad... Edad... En años perros...
+[01:13:54] en años de perro y acá le voy a llamar a calcular edad perro y le paso la edad
+[01:14:12] O sea, como está dentro del mismo archivo, es simplemente, ya han pasado de la función, y... Si querés... Oliver, ponle capacidad humana, para que no piensen que es... Que tiene ese mismo nombre del parámetro, capaz, nomás. Ahí abajito. Ponle capaz edad humana, y ya vamos con edad humana.
+[01:14:40] Sí, sí, quería marear un poco. Incluso, a ver, me quedó muy largo la tía para acá abajo. Ahora, me está faltando algo acá. ¿De dónde viene esa edad humana?
+[01:15:11] Debería ser una variable. Pero ¿de dónde obtengo yo esa información?
+[01:15:29] ¿De dónde obtengo yo este valor que voy a mandarle a esa función?
+[01:15:47] la tengo que pedir o sea que tengo que hacer para seguir a ver si la va a convertir
+[01:16:11] entonces si esto funciona bien me va a pedir la edad le pongo 5 años y le voy a poner edad 5 años de mi padre de 35
+[01:16:31] Todo esto de error en realidad María, pero porque Sí, de la página De la página que revienta Si lo hacemos acá Que acá queda más limpio Mientras la página esta de Google no revienta También Si ponemos 10 va a decir 70 Ahí
+[01:17:00] edad 10 en año perro es 7. ¿Entiendes? O sea, la función definimos, una función que va a ser algo. Ese algo yo le tengo que pasar o no ciertos parámetros, en este caso es una edad, va a ser algo dentro de la función y lo que me va a devolver a mí tiene que ser un return.
+[01:17:30] Ahora, yo después, por fuera de la función, tengo que llamar a esa función para aplicar eso que hace la función a un valor, por ejemplo. Esto es bastante sencillo. Es más, yo haría incluso...
+[01:17:58] Yo esto lo dejo comentado así, ¿por qué? Porque yo directamente...
+[01:18:06] lo que haría sería un retorno de esto. Porque estoy definiendo una variable para hacer una cuenta y retornar esa cuenta. Entonces normalmente cuando hago eso lo mejor es me omito la variable y retorno directamente la cuenta que voy a retornar. Vamos a dejar esto acá.
+[01:18:39] Y después un comentario, chicos. De vuelta, hicimos a propósito el tema de cambiarle edad humana a la variable para que ustedes no asocien que tiene que ser el mismo nombre. No tiene nada que ver una cosa con la otra. Una cosa es la variable como yo la defino en la firma, ese parámetro, que se llama justamente parámetro formal, según como está definido en el cabezal o en la firma de la función.
+[01:19:08] y es justamente el valor que representa con lo que yo lo voy a llamar. Entonces, dentro de esa función, edad representa el número que después yo voy a llamar a esa función. Y por otro lado, después tenemos la variable, que en este caso es edad humana, que en este caso es lo que se llama el parámetro actual o el parámetro en contexto, que es justamente con el que yo voy a llamar la función. Entonces, cuando yo esté haciendo calcular edad perro,
+[01:19:36] y le paso edad humana, cuando yo estoy ejecutando ese código y la función, esa edad humana viene representada por esa edad.
+[01:19:48] o sea acá yo este edad es definición de la función si después yo le paso edad humana esta edad esta que dice edad acá en realidad es la edad humana que le estoy pasando si desvienen con el mismo nombre en realidad no pasa nada pero capaz que se pueden marear ustedes
+[01:20:16] pero depende algunos que lo prefieren otros que no a gusto consumidor bien la diferencia que con sólo que lo imprime en el logro de la consola y el área se abre un modal bien
+[01:20:48] bueno después lo que van a ver así como tuvimos del mar tenemos strings tienen tienen tienen varias propiedades vamos a lo mejor con un string
+[01:21:22] ahí está tienen el app por ejemplo que dice cuáles o el chat el chat le dice que cuál es el carácter la posición que le indican ahí claro lo que capaz que van a entender después pero está bueno que ya lo piensen desde de entrada
+[01:21:52] En realidad el string es un array de caracteres. Y cuando veamos array van a ver que los arrays siempre arrancan de cero. La primera posición es el cero. Bueno, el string es lo mismo. Como es un array de caracteres, el primer carácter es la posición cero. O sea, el largo les va a decir cinco es porque va de cero a cuatro.
+[01:22:21] Por ejemplo, si yo acá le pongo len, me pone 7. Ahora, si yo le pongo...
+[01:22:33] el chará de cero es la S, el 1 es la F, es el 2 si yo le pongo chará de 7 no hay nada porque me fui, el chará de 6 va a ser la D porque va de 0 a 6
+[01:22:58] Después tienen, bueno, en suits, la traducción literal termina con el includes, el index of, el last index of, quiere decir, por ejemplo, el índice de la última vez que aparece tal carácter, por ejemplo, ¿no? O sea, si yo pongo...
+[01:23:26] Por ejemplo, el index of de la f, que aparece dos veces, me va a poner la 1, que es la primera vez que aparece. Ahora, si sin embargo acá pongo el last index of del f, me va a dar 4, porque se aparece la f después en la posición 4.
+[01:23:57] a ver qué más el charco de la tierra
+[01:24:20] Bueno, tenemos, tiene el replay, el play-sol, el... En realidad el slice, si se fijan, va a decir desde qué inicio hasta qué final. Bolín de casa. Ahora. Yo, por ejemplo, si hago tres...
+[01:24:49] Y no le pongo nada. Va de 3 al final. Porque si se fijan acá, vieron que estar y en está con un signo de interrogación. Eso quiere decir que son opcionales. Que pueden ir como pueden no ir. Ahora, si no va, hay que entender por qué no va.
+[01:25:15] si le pongo así más y esto no es nada o sea algo algo de estar en realidad
+[01:25:27] acá siempre me va a tomar uno solo pero si quiero decirle bueno desde la posición 0 a la 4 te lo indicó y me lo corto algo muy parecido a esto es su string también tiene
+[01:25:54] es parecido en el sentido de que vos le decís desde qué posición y a partir de qué posición qué cantidad de caracteres querés entonces yo acá si le digo a partir de ahí quiero cuatro caracteres
+[01:26:11] que es lo mismo que el slide de 0 a 4 pero no es lo mismo en el sentido que el slide es desde donde hasta donde y el substring es a partir de acá quiero cuántos n caracteres en este caso justo son la misma cantidad exacto
+[01:26:39] Vos el slide le decís de 0 a 4, pero en realidad si vos ves el resultado es 0, 1, 2, 3. El 4 no va. Y sí, para manejar pedazos de texto. Bueno, ahora en los ejercicios vamos a ver unos cuantos casos y en los parciales unos cuantos más.
+[01:27:03] Ah, perdón, y un detalle no menor, todos estos métodos no modifican el string donde se los aplica. En realidad les retorna un nuevo string con lo que estén aplicando. Si es un slice, los pedacitos del string, si es un charat o un at, el carácter. Son métodos que dejan inmutable al string que se los aplique. Siempre les va a devolver algo nuevo.
+[01:27:36] Exactamente. Bien. Bueno. Manos a la obra. Estamos... No estamos para mucho.
+[01:27:58] ¿Implementar la función bus que recibe un número natural n? Vamos a hacer alguna, porque no nos queda mucho tiempo para andar en grupo. ¿Implementar la función bus que recibe un número natural n?
+[01:28:27] Y retorna la palabra blue si el número es múltiplo de 3 o de 5. En otro caso retorna el mismo número.
+[01:28:39] Entonces, vamos a hacerlo acá, para no tener problemas. O sea que nos están pidiendo que definamos la función. Sí, comentario off the record, el ejercicio es un poco siniestro, ¿no? En lo que en cuanto a programación se refiere, o sea...
+[01:29:03] Es casi monstruoso hacer una función que retorne como diferentes tipos en función de lo que vos le pasás. Entonces, ten en cuenta que esto es como para explicar cosas, pero en sí el ejercicio es un poco siniestro. Sí, sí. Sí, a ver. Acá lo que tenemos en Javascript es que cuando definimos una variable estamos usando let o var, en realidad no.
+[01:29:31] pero uno podría usar leto var. Lo que implica que no le estamos diciendo implícitamente de qué tipo son las variables. Porque después en Java, ahí sí, vamos a tener tipos de variables. JavaScript es más amplio y te deja... La variable puede mutar lo que se le antoje.
+[01:30:00] Entonces, es más, ya esto, ya que la función esté con mayúscula no me gusta, pero bueno, ya que lo pusimos acá con mayúscula, que a la función bus recibe un número natural n y retorna la palabra bus, si es múltiplo de 3 o de 5, y en otro caso retorna el mismo número. Entonces, acá le vamos a pasar un número.
+[01:30:35] Entonces, por defecto, yo voy a poner que el resultado va a ser ese número que me pasa. O sea que al resultado le estoy asignando una variable numérica.
+[01:30:56] entonces yo voy a preguntar acá lo que más o menos hicimos el práctico anterior como sé si
+[01:31:25] El módulo. Si n módulo 3 es igual a 0, y si n módulo 5 es igual a 0.
+[01:31:51] Si el número es múltiplo de 3 o de 5, retorna la palabra a vos. Si el número es múltiplo de 3 o de 5, en otro caso retorna el mismo número. O sea que acá... Está bien, si es múltiplo de 3 y es múltiplo...
+[01:32:07] Si es múltiplo de 3 o de 5. Acá, en realidad acá. Debería ser un OR. Encontrar el OR punto con punto. Ahí está. Ahora, si es múltiplo de 3 o múltiplo de 5, nos dice que retorna la palabra bus.
+[01:32:35] entonces el resultado va a ser un buzz y lo que hago acá al final es un return del resultado
+[01:32:58] ¿Qué es lo que decíamos hoy? Esto es un monstruo de tipo porque le estamos asignando a la misma variable un número y después le estamos asignando un string. O sea, la variable mutó de un número a un string.
+[01:33:23] JavaScript nos permite... Después te dice, volvemos a la palabra. La variable, como no te define el tipo, o sea, si te va a definir el tipo en tiempo de generación, como no define el tipo estáticamente, vos podés meterle un número, un string, lo que quieras.
+[01:33:48] entonces acá vamos a probarla vamos a hacer un alert de la función y le vamos a pasar 14 vamos a hacer otro alert para pasar 15
+[01:34:21] A ver si nos da lo que debería dar.
+[01:34:42] Bueno, lo que digo es que... ¿Soy Mario? Ah, no, yo me morí. Ah, porque no le había puesto nombre. Qué cosa. Práctico, soy ejercitado, ahora sí. Me estaba marcando el outro. Era esto.
+[01:35:11] En CatRof el cerro, N is not the final. ¿Qué pasa, Choco? No le pusiste el número. ¿Cómo? N no debería ser número. Ahí va, exacto. Acá no es N, acá es NUM. Bien. Estaba en la T, claro.
+[01:35:40] Ahora sí, ahora sí. Bien. 14, el primero 14. 15 bus. El otro, el adicional bus, está bien. Y el otro bus. Así que está bien. Una cosa que no sé si lo vieron la vez pasada. Cuando están acá en el snippet pueden poner un breakpoint.
+[01:36:10] un breakpoint acá con el cursor se paran acá a la izquierda del número de la línea bien, ves que se va marcando entonces, por ejemplo, si yo corro esto de vuelta en vez de mostrarme el resultado de una lo que va a hacer es pararse acá entonces me dice acá, bueno, número 14
+[01:36:36] Espero que no me dé problema esto, porque... No, no, bien. Entonces acá te muestra. Con el F10 yo paso la siguiente línea y veo que el resultado es el signo número 14. Entonces, por ejemplo, número módulo 3 podría ver acá cuál es el resultado.
+[01:37:05] Sí, incluso está muy grande, pero abajito vieron que tiene el scope y el watch, perdón. Ahí les muestran en realidad todas las variables y demás. Ya iba, ya iba. Ah, perdón. ¿Qué eran? No sabía qué hacer. Arsioso, ¿no? Claro. Ven acá, en el scope muestra las variables que están.
+[01:37:34] acá número y resultado, bueno, acá, esta ya me muestra otras cosas, pero en watch incluso, si yo tengo un código muy largo, y yo quisiera, bueno, quiero ver cómo me va cambiando resultado, entonces en watch acá le pongo resultado, y acá me va mostrando el resultado.
+[01:38:00] Entonces, mientras voy navegando con F10 en el código, me va cambiando. Ahí me muestra 14. Acá llegó el 15, preguntado 15, y el resultado BAS, está bien.
+[01:38:18] 18 acá ya tiene el número 18 entra acá porque módulo 3 igual 0 resultado vas y acá me va mostrando ahí siempre saben con el watch pueden poner lo que quieran incluso cosas que no tienen por qué estar en el código o sea si por ejemplo si yo quiero saber si
+[01:38:45] resultado es mayor que 10 por ejemplo yo quiero yo quiero variar esto en el código para saber que en algún momento pasa esto pero no quiero poner el código entonces podría agregarlo el watch para saber si está pasando eso en algún momento y bueno ya después sí
+[01:39:13] Si termine de baggear, vieron que acá le dice resume script execution F8, o directamente con la flechita ahí, y que termine. Que termine, no, que siga hasta el próximo breakpoint. O si no, deshabilita el breakpoint y listo. Sí, incluso hay, Oliver, mostrale las flechitas ahí de la izquierda. Ahí tienen como el paso, el salto de línea.
+[01:39:42] la flechita hacia abajo es que yo me voy para el método o entro en el método y la flechita para arriba es que yo salgo del método. Este es como el debugger integrado de las tools o debugger o depurador como le quieran llamar, que tal, justamente les permite hacer como el paso a paso y ahí va, como le iba mostrando Oliver, bueno, yo puedo poner breakpoints, chequear como el estado de las variables, crear nuevas expresiones en el código y demás.
+[01:40:10] Porque si en algún punto necesitan devaluar un código y es muy complejo, lo suficientemente como para no hacer una corrida manual, bueno, usar estas cositas. Claro, porque por ejemplo dentro de una función yo podría estar llamando a otra función. Entonces con el F10, que es este, que está acá, yo voy a ir línea por línea. Pero cuando llegue a esta línea que llama a otra función,
+[01:40:38] voy a ir a la siguiente línea, no entro en la función. Ah, como que calculas cada otra. Claro, ya calculas el resultado y vas al siguiente día. Ahora, si vos, el problema justamente está en esa otra función, o vos querés ver qué hace esa otra función, cuando llegaste a esa línea, ahí tenés que usar el F11, normalmente es el F11, que es este step into next function call, que ahí sí te entra esa otra función.
+[01:41:06] si lo hago con funciones nativas me va a ir al código nativo pero no vamos a entender nada de lo que dice voy a hacer F11 a ver si en algún momento entra
+[01:41:23] creo que no creo que es nada nada acá no tenemos nada como para que entre ninguna función pero bueno pero si viste si tienes funciones encadenadas ahí sí si tuviera un más por ejemplo acá más punto algo ahí sí seguro me va el código nativo de esa función
+[01:41:53] vamos a probar, no tengo ningún breakpoint, si tengo uno acá, vamos a probarlo, para verlo nomás, vamos a poner,
+[01:42:10] matpour 2 a la 3 esto es 2 elevado a la 3 voy a poner un breakpoint acá bueno si me deja no me deja? bueno me deja
+[01:42:42] ¿Estás corriendo? No, no está corriendo. Bueno, a veces pasa que los snippets se nos enloquecen. Vamos a tratar de cargar esto de vuelta.
+[01:43:11] Borda un sexto. A ver si me deja. ¿Por qué tiene un coso verde esto? No sé. No está corriendo, así que... A ver si me deja ahora. No me deja. Se taró. Se taró, sí, sí. Sí, es como que quedó este corriendo. No sé por qué. Pero está.
+[01:43:41] no sé por qué está marcado con el cosito en verde pero bueno ahora sí
+[01:43:52] Hacés F10 y cuando llegue acá Hacés F11 Ahí no me dio pelota Bueno Sí, es que muchas veces depende del lenguaje Si te deja ir a A las funciones Sí En ETA no me dejó Pero bueno A ver si
+[01:44:21] Igual creo que es... Eh... Sería un live capaz. Pero no estoy seguro. Igual no me da. Ahí, ahí me dejó. Ah.
+[01:44:49] si puedo correrlo, creo que me va a pelear igual, sé, nada, pero bueno, vamos a hacerlo más fácil.
+
+[01:45:45] entonces acá cuando yo llego acá si hoy 11 me fue a la otra función
+[01:46:10] Y acá me vuelve. Ejemplo medio choto, pero bueno, era para que... Pero ven que teniendo más una función, si tienen una dentro de otra, pueden recorrerlo igual sin problema. Bien. Voy a sacar esto que no era parte de la solución. Voy a dejar esto acá.
+[01:46:46] Bien, ¿algunas dudas, consultas hasta ahora?
+[01:46:56] ¿No? De veras yo diría que terminen el práctico anterior y siguen viendo alguno de este y como para ir practicando, pero lo que les recomendaría más es que revisen los métodos de strings, practiquen con esos métodos de strings para entenderlos bien y ya la clase que viene está...
+[01:47:24] Pues tomamos este práctico, terminamos y empezamos ya con algún ejercicio de parcial para practicar.
+[01:47:34] ¿Y cuesta el práctico 6, entonces? Sí. Sí, en realidad 6 y 7, pues el 7 también es lo mismo, ¿no? Funciones y strings. Pero sí, hasta funciones y strings es lo del parcial. Bien. Bueno, listo. Todo por hoy, chicos. Obviamente cualquier cosa que vean y necesiten preguntarnos, nos consultan sin problema.
+[01:48:02] No sean tímidos en ese sentido. Sí, sí. Nos vemos la semana que viene. Nos vemos, se cuidan. Chau, chau.
