@@ -186,3 +186,37 @@ Profesor de Algebra Lineal del primer semestre. Ingeniero electrico graduado de 
 - **"Bajar a tierra":** usa la expresión "para bajar la tierra a esto" cuando pasa de la fórmula abstracta a un ejemplo concreto. Lo hace con cada teorema nuevo.
 - **Demostraciones por inducción completa:** estructura siempre igual: paso base (generalmente $n=1$ o $n=2$), hipótesis ($n \times n$), tesis ($(n+1) \times (n+1)$). Desarrolla por una fila que NO sea la que tiene la propiedad, para poder aplicar la hipótesis.
 - **Invita a los alumnos a proponer la estrategia:** "¿alguna idea de cómo encarar esta transición?" antes de resolver.
+
+---
+
+## Actualización 15-04-2026 y 21-04-2026 (Clases 8 y 9)
+
+### Nuevas citas verbatim
+
+> "Se empieza a relacionar todo, matrices, determinantes, sistemas de ecuaciones. Podemos saber el siguiente tema, que es geometría, también se relaciona con matrices como estamos explicando todo el tiempo"
+
+> "En un parcial, hace un par de años se preguntó, si ponía un sistema homogéneo no así genérico sino con unos particulares y se pedía, sin hacer cuentas porque se podía concluir que es compatible. Entonces había que decir eso"
+
+> "Más allá de que le hayan errado alguna cuenta, conceptualmente nunca les puede pasar" *(sobre un sistema homogéneo que dé incompatible)*
+
+> "En este tema, el teórico es bastante cortito"
+
+> "Este ejercicio es bien de parcial. En un mismo ejercicio te meto a todos los temas. Matrices, determinantes y ecuaciones"
+
+> "No es un teórico complejo a diferencia de otros temas más pesados con temas de demostraciones, pero hay que agarrar la mano con las cuentas, saber escalarizar las matrices, que no es poca cosa"
+
+> "Tenemos esa complejidad en las cuentas, pero el procedimiento es el mismo"
+
+> "Si no cambian la matriz $A$, sigue siendo invertible, con determinante distinto de cero, el sistema va a seguir siendo compatible determinado"
+
+> "Acuerdense que $X$ es una matriz, no puedo pasar $X$ dividiendo. Lo análogo es multiplicar por la inversa"
+
+### Nuevos patrones observados
+
+- **Cuadro resumen al final de sistemas con parámetro:** después de discutir caso por caso, arma un "cuadro de resumen" con los valores del parámetro en una columna y la clasificación/solución en las otras. Lo usa consistentemente.
+- **Pide interpretación geométrica 2×2:** cuando el sistema es de 2 ecuaciones y 2 incógnitas, siempre acompaña con el gráfico de las dos rectas e interpreta el caso (se cortan / paralelas / coincidentes).
+- **Anticipa la triple equivalencia:** antes de llegar al teorema formal, ya adelanta la conclusión ("si det distinto de cero, el sistema es compatible determinado y A tiene inversa"). Esto prepara el terreno intuitivamente.
+- **Conecta sin hacer cuentas:** explicita varias veces que ciertos problemas se pueden resolver "sin hacer cuentas" si uno aplica bien los teoremas. Lo enmarca como estrategia de parcial.
+- **Pide estimar el grado de libertad antes de despejar:** "y ¿cuántos grados de libertad tiene?" antes de resolver un SCI. Quiere que los alumnos piensen en la estructura antes de las cuentas.
+- **Señala los casos problemáticos en ecuaciones con parámetro:** cuando aparece algo tipo "$(\ldots) \cdot x = \ldots$", detiene el avance para señalar "¿qué pasa si esto se anula?" antes de dividir.
+- **Admite complejidad de cálculo como legítima:** no simplifica artificialmente. Si hay que resolver con fórmula resolvente o factorizar un polinomio, lo hace y pide a los alumnos que lo sigan.
