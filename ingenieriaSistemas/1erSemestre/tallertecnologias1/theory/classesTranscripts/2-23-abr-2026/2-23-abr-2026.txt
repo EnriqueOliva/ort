@@ -1,0 +1,468 @@
+Transcript generated automatically. Some words may be inaccurate.
+Source: FI-7687-Taller de tecnologías 1-75966-TT N1A ID | 23-04-2026
+URL: https://vimeo.com/showcase/12151820
+Date: 2026-04-30
+
+[00:00:01] No era ese, sí, pero...  Ahí viene un saludo.  Ahí dentro, gente.  Buenas.
+[00:00:11] Buenas, ¿cómo están?
+[00:00:16] Ok.  Ok, ok, ok, ok, ok, genial.  Voy a cambiar la pista.
+[00:00:24] ¿Cuál es la galería?  Acá, bien, ahí los veo a todos.
+[00:00:28] Alguien me escribió por Teams diciéndome que no iba a venir.  ¿Eras vos?  No, no eras vos.
+[00:00:33] Durante no haya venido
+[00:00:36] Genial  Bueno, a vos me te pregunté  Decime tu color favorito  Celeste, tipo Cian  O Celeste  Tipo cielo  No me acuerdo que dijo eso
+[00:00:58] No me acuerdo  Es verdad, alguien dijo  Alguien preguntó, le preguntaste a alguien  Y dijo cielo  Tenés razón  Frío, frío  pero caliente  bueno  gente  comparto  yo no me di cuenta  de una cosa, yo no me acuerdo  no me acuerdo  si la clase pasada compartí pantalla  los que estaban por zoom  compartí pantalla la clase pasada  ustedes veían las  si, estaba ok  me tiré su dedito, así que si
+[00:01:36] No es divertido, explicó un poco de todo lo que pasó con tres cosas.
+[00:01:44] Parte 1.
+[00:01:49] Esta la hicimos, ¿verdad?  Todo por una impresora la hicimos.
+[00:01:57] Parte 1, introducción.
+[00:02:00] Me cambian las cosas.
+[00:02:04] Este es el que estaba dando yo.  Sí, claro.  Bueno, vamos a seguir con este hasta el final  Sí, hasta el final  ¿Por qué este no nos gusta mucho?  No sé quién lo hizo
+[00:02:15] No sé quién... No, ¿saben qué? Vamos a seguir con este  ¿Por qué parece la versión futura del...  Sí, porque ahora somos Emos  Cambiamos la distribución  Mira, mira  Bien  Vamos a estar estudiantes  Vamos a estar teniendo permisos  Ok, vamos con este
+[00:02:36] ¿Dónde nos habíamos quedado? Después de todo con una impresora  y dónde era la impresora ventajas de iu nix
+[00:02:52] dinámica de un cuarto con impresora bien acá nos quedamos bueno vamos a ver un poco de la
+[00:02:55] free software fundation también hablamos de la presión por un millón bien es una organización
+[00:03:02] también bien ok gm un linux también hablamos y rápido libertad de principios también lo hablamos
+[00:03:15] ok esto también creo que llevamos en uso de la parte copyright y copia creo que nos quedamos  Ok  Entonces
+[00:03:30] No, hay más  Pero les voy a dejar una tarea  Les voy a decir ahora en un ratito  Les voy a dejar una tarea  Que va a ser  Instalarse una máquina virtual  Y meterle alguna distribución de Linux  Ok, ahí en sus casas  Ya pueden ir haciendo  Tipo VirtualBox  por ejemplo, ahora vamos a ver igual una guía  caminamos un poco para arriba  quiero que sigan la guía, en realidad
+[00:03:58] no la hagan por su cuenta, sigan la guía mejor  pero vamos a terminar primero esta diapositiva  requisitos  esto ya lo vimos  ejemplos, ¿ustedes lo vimos también?
+[00:04:10] licenciamiento, copyright  ahí lo veo  creo que por ahí  es otro que lo vimos un poco  y la siguiente  se mencionó un poco el SEI también  Bueno, estas son  Las etiquetas del licenciamiento  Cuando ven  Vieron que viene siempre CC  Y las etiquetas  Bueno, esto significa  Atribución, reconocimiento  Bueno, esto lo hice yo  Copyright es mío  Obras no derivadas  no comercial  compartir bajo la misma licencia  ese no se puede crecer  pero ahora no derivarte  ves algo de lo mío  sin analizarlo  ok, puede ser  compartir bajo la misma licencia  no, capaz que  yo te lo puedo compartir a vos  si compramos una licencia  común entre los dos  tipo una organización  ponele que compra  para toda su organización  tipo la Hort  por ejemplo  yo puedo tener  el Word gratis  ¿no?  yo puedo tener el Word gratis  porque le está pagando la Horta  pero no sé si va por ahí  habría que buscar  me parece más que  por el lado de si  la original es  no revender  cada parte de esa línea  no revender  y que la Horta de Ibar  también  eso no  Me gusta.  Me gusta la idea.
+[00:05:56] Me suena más.
+[00:06:00] Bueno, vamos a seguir.  Distribuciones de Linux.
+[00:06:03] Una distribución GNU barra Linux, coloquial y abreviadamente llamada distro,
+[00:06:08] es una distribución de software basada en el núcleo de Linux,
+[00:06:12] que incluye determinados paquetes de software para satisfacer las necesidades de un grupo específico de usuarios,
+[00:06:17] dando así origen a ediciones domésticas, empresariales y para servidores.
+[00:06:22] Por lo general están compuestas total o mayoritariamente de software libre  aunque a menudo incorporan aplicaciones o controladores propietarios.
+[00:06:30] Dependiendo del tipo de usuario a los que la distribución esté dirigida
+[00:06:33] se incluyen también otro tipo de software como procesadores de texto, hojas de cálculo,  reproductores multimedia, herramientas administrativas, etc.
+[00:06:42] Como es el caso de Ubuntu que te vine a contar un poco
+[00:06:44] porque se supone que es un paquete como para el público, como para todo el mundo.
+[00:06:49] Existen distribuciones que están soportadas comercialmente,
+[00:06:53] como Fedora, que la soporta la empresa Red Hat, no sé si la conocen,  pero está muy grande.
+[00:06:58] OpenSUSE, que lo soporta SUSE, y Ubuntu, que lo soporta Canonical.
+[00:07:02] Distribuciones mantenidas por la comunidad, como es Debian, como es Arclinus,  como es Gento.
+[00:07:07] Y distribuciones que no están relacionadas con ninguna empresa o comunidad,  como es el caso de Slackware o WPB.
+[00:07:12] Slackware, esto se acaba de WPB, no hay que ver.  Dinámica grupal  Cuestionario, 15 minutos  Así no hacemos nada  Las preguntas si me voy a alazar  Porque creo que sale muy bien rapidito  Bueno, vamos a hablar de todo  ¿Cuál es el modelo del negocio del software libre?
+[00:07:34] Ya lo habíamos hablado, esto creo, en la clase pasada  El soporte puede ser una  Ahí tienen como varios  Te incluyo varios  ¿Otra?  Acá por Zoom, ¿otro?  modelo de negocio  del software libre, yo empresa  proveo un software libre  o yo individuo  creo un software  y le dejo un licenciamiento libre  ¿cuál es mi modelo de negocio? ¿cómo yo podría  generar rédito con eso?
+[00:08:03] no, habíamos hablado de eso  ¿sí? bueno  que podías  cobrar por un uso comercial  pero no por, o sea que fuera algo  que se use gratis  por ejemplo  si sos un entorno de una persona  o no, si sos una empresa  de los comerciales  te hay que decir el coche  el soporte, la implementación  la implementación, ok  la optimización  el soporte quizás también  le podés cobrar por ahí  el soporte, también, hay muchas empresas  ¿cómo se llama esto?  ¿conocen lo que son los CRM?  ¿cómo se llama eso?
+[00:08:42] bueno, hay muchas empresas  que pagan mucha plata  a, por ejemplo,  Oracle.  El CRM de Oracle es NetSuite.  ¿No?
+[00:08:53] No sé si alguno lo ha utilizado, lo ha visto,  escuchado de él alguna vez.
+[00:08:57] Bueno, NetSuite es como un programa que te permite  gestionar tu empresa.  Bueno, en este caso NetSuite es pago.  Entonces, bueno, ahí medio que estamos  agarrados las manos. Pero existen otros CRM  que no son pagos.  OpenCRM, por ejemplo. Y hay varias empresas que  dicen, che, yo estoy pagando demasiado  por este  le estoy pagando demasiado a Aracle  o le estoy pagando demasiado a X  digamos, y capaz que no me renta  bueno, vamos a bajar  y tratar de, con un software libre  monetizar menos  tratar de gastar menos plata  no, gastar menos plata con un software libre  claro, el tema es que  los software libres suelen tener  todo open source suele ser un poquito  más complicado, un poquito más complicado
+[00:09:39] un poquito más robusto, entonces al fin y al cabo  terminás gastando un poquito más  porque necesitas gente que te dé soporte  otra empresa que se le llama comúnmente  este...  no me sale la palabra ahora  hay empresas dedicadas a enseñar o explicar  a otras empresas, consultadores  las empresas que hacen de consulting  bueno, es que llevan a una persona  que conoce mucho de una tecnología en específica
+[00:10:05] y dice, bueno, esta persona te va a ayudar a setear todo  por ejemplo, me pasó a varias empresas  que pasaron de Windows a Linux  queriendo bajar un poco los costos  y claro, se encontraron  de que Linux es un poco más complicado
+[00:10:18] de las cosas que hacer, no es descargar de internet  y listo, no, bueno
+[00:10:21] ahí tiene un repositorio de paquetes, otro tipo de cosas  Francia va a hacer un proyecto  para pasar todo el sistema  deletado a  Open Source  buenísimo  quieren supuestamente  migrar  a Open Source como para dar  ¿Y qué nube de open source?  No hay  O sea, quieren hacer algo de ahí propio  En Francia  Pero  Fijar un antecedente o algo así  Para que otros países lo hagan  Me gusta  Para no depender tanto  Me gusta, siempre Francia  Siempre Francia llevando  La revolución  Grupo 2, a ver  ¿Qué es la Apache Software Foundation?
+[00:11:07] ¿Y qué valores persigue?
+[00:11:09] ¿eh?
+[00:11:13] ¿me escuchás?
+[00:11:15] bueno, ¿qué es la Apache Software Foundation?
+[00:11:21] Zoom  creo que leímos la clase pasada  es como una organización  no voy a decir que no es gubernamental  que fomenta  o  fomenta el código open source  y ayuda a creadores de código open source  si, bien  que grandes  piezas de código programas  tenemos del Apache Software Foundation  ¿Qué más?  ¿Vos te felicité?  El WhatsApp de Apache  También, sí  ¿Qué otras cosas?
+[00:12:05] ¿Qué otras cosas se nos pueden ocurrir?
+[00:12:09] ¿Algo?  Apache Tomcat  Tomcat  Sí, es verdad  ¿para qué sirve?
+[00:12:18] para
+[00:12:22] para mover datos  ¿estás cumpliendo?
+[00:12:33] Sí, pero está bien, bueno, mueve datos  Está bien  Pero mueve datos podrías decirlo que es una herramienta  De TVL, pero no es eso  Pero sí está bien  Bueno, ¿qué valores percibe?
+[00:12:51] ¿Qué valores percibe?
+[00:12:53] Bueno, ese, lo de la software  ¿Cuál es la relación  Entre open source y el concepto  De inteligencia colectiva de Pierre  Levy  Esta la maté, ¿no?  capaz que acá hay que buscar un poquito  inteligencia colectiva  vamos a tratar de desglosarlo  inteligencia colectiva  ¿qué podría venir a ser la inteligencia colectiva?  las hormigas  una mente colmena  una participación de todas  ¿Y cuál es la relación de eso?  De la unicidad  De las mentes  Relacionado al open source  ¿Qué puede tener en común?
+[00:13:46] El conocimiento queda  Dentro de la gente  Porque la gente es lo que  Lo hace  Colectivamente no se pierde  Nada  Porque no es que la empresa  Decida que no quiere seguirlo manteniendo  Es seguro
+[00:14:03] No es algo que queda en varios repositorios, pero en muchos lugares.
+[00:14:09] Y cada uno va aportando su granito de arena.
+[00:14:13] Llego yo y digo, esto me parece que estaría bueno que esta herramienta de Photoshop,
+[00:14:21] Open Source, que no me acuerdo cómo se llamaba en el cartito,
+[00:14:23] estaría bueno que tenga una herramienta de inteligencia artificial para quitar manchos.  no sé  como que tengo  la ramera manchada  y que la quito  y bueno  eso no existe  no sé si lo existe  capaz que lo tiene  capaz que no  pero vengo yo  desarrollador  y digo  lo hago de onda  estoy aburrido en mi casa  y lo hago de onda  hay mucha gente  que hace eso  y después saca  como cartel  yo hice esto  chicos  mírenme  para el currículum  para GitHub  ahí como  ganás medallitas  cada vez que te aprueban  un PR  ganás como una medallita  Bueno, sí, para ganar renombre  Bueno, a ver  ¿Qué es un repositorio de una distribución?  ¿Qué posibilidades me brindan?  ¿Y qué significa para un software  Estar en un repositorio?
+[00:15:15] ¿Qué es un repositorio de una distribución?
+[00:15:18] ¿Una distribución?
+[00:15:22] Sí  Una distro  Un conjunto de paquetes  E interfaz  que utilizan el kernel  del Linux
+[00:15:32] tenemos el kernel del Linux y en vez de usar JNU usamos  otra cosa  ok  y que es una distribución  de esa  distribución  que es un repositorio de esa distribución  un repositorio  es el lugar donde  se almacena el código, se hacen los cambios  y esas cosas  donde se maneja el proyecto  digamos  Sí, ok, pero piensenlo más como  no el repositorio donde se escribe el código  de esa distribución, sino más bien el repositorio  que esa distribución tiene  para que los usuarios de dicha distribución puedan descargar  el código  Exactamente, si yo me quiero descargar  alguna aplicación en Ubuntu
+[00:16:25] yo, si bien es verdad que puedo entrar a Google y descargarme un paquete
+[00:16:29] y después conectar y todo ese tema, y tratar de instalar  a la fuerza, es más fácil  si la aplicación  que me quiero descargar  WhatsApp, bueno, si la aplicación
+[00:16:39] que me quiero, WhatsApp para escritorio, no, si la aplicación
+[00:16:41] que me quiero descargar de este WhatsApp, ya se encuentra  en ese repositorio, porque es mucho más sencillo.  El app que te get.  Pero eso no depende del Packet Manager,  más que de la app. Yo puedo tener  cualquier app, cualquier Packet Manager, casi  pero tenés que tener  el app para el escritorio.  Sí, sí, sí, también se puede, podés  meterle más, pero...
+[00:17:00] ¿Pero eso a lo largo es que no depende de la distro?
+[00:17:03] No depende de la... ¿El repositorio de paquetes hay que hacer?  Sí, pero te viene con  una en particular, digamos. Ah, bueno.  Sí, sí, después lo podés agregar más, es verdad.  Entonces ahí como que, ahí lo que podés  decir es, ok, expandimos  el repositorio. Porque te metés  varios paquetes, sí, tenés razón.  Es el manejador de paquetes  que pueden encargar dentro de la distribución,
+[00:17:23] pero en este caso apunta como a eso, al conjunto  de programas que te deja descargar  la distribución como de base.  se puede expandir agregándole otros manejadores de paquetes  pero sí, tal cual  ¿qué posibilidades me brinda?  bueno, esto que hablamos recién de descargar  programas, ¿y qué significa para un software  estar en ese repositorio?
+[00:17:41] si yo como software  me habilitan estar, por ejemplo, en el manejador  de paquetes que viene por defecto  con Ubuntu  ¿el software es seguro?  por ejemplo, es un software seguro  confiable  no tiene que pasar por, no tiene que cargar  de internet ahí, ¿no?  A veces en el celular con Android.  Ahí va, exactamente.
+[00:18:06] Muy bien.  Como un reconocimiento. Es como pasar a la...  Iba a decir  a la Play Store, pero en la Play Store  como que entra cualquiera, ¿no?  Más que nada la Apple Store, capaz.  Ahí como que... También entra cualquiera, pero  con un poquito más cara.
+[00:18:22] Bueno, ¿qué es  Android?
+[00:18:28] Un software.  Sí, un software.  un sistema operativo  ¿qué más?
+[00:18:38] sí  existía una empresa  Android  fue fundado  por una empresa  que se llamaba Android  después la compró Google  pero en un principio  Android  era una empresa  que se llamaba Android  ¿quién está detrás  de Android?  ah bueno  ¿quién lo impulsa  y quién lo programa?  bueno Google  hoy en día  Google es el que más pone  ¿Qué más pone ahí?
+[00:19:03] Hay varios tipos de Android igual  Después hay como capas arriba de Android  ¿Conocen el HyperOS?  De Redmi  Como una capa arriba de lo que viene siendo  El Android puro  ¿Cómo? ¿Empezaron a hacer cosas?  Todos, todos  ¿Sí? ¿También tiene?  Sí, el Samsung  ¿Cómo se llama?  No sé cómo se llama  Pero el Samsung sé que es  Tiene un montón de cosas feas arriba  el iPad S está buenísimo  porque funciona muy bien  pero tenés publicidad  integrada en el teléfono  es una locura  vos te compras un Redmi  vos te compras un Xiaomi  Redmi  o  sí, creo que es solo Redmi  vos te compras uno de esos  y por ejemplo  querés entrar a tu galería  puede que cuando entres  a tu galería  te encuentres con una publicidad  es una locura  ¿por qué?  porque además es un Android  con una plataforma  o un interfaz arriba  que es el iPad S  y lo micro  abrís una carpeta  y tenés publicidad  abrís una carpeta  y tenés publicidad  sí, sí, sí  tenés que empezar a pagar publicidad  yo compré  y empezás a entrar a pagar  publicidades  hay que pagar publicidad  pero ese es un programa  por sobre que te mete publicidad  ojo, te mete publicidad  porque también te da cosas  tenés un lector de PDF por defecto  o sea  hay como cosas integradas que están buenas  hay aplicaciones de  de edición de imágenes  también integradas  hay un montón de cosas que ya te vienen  que vos decís, bueno, de algún lado  tenían que ganar los tipos, ¿no?  Sí, pero eso más toda la telemetría  Sí, o fiat  ¿Qué vocal de San Juan?  Juan Ibai  Juan Ibai me suena  Sí, me suena allá en China  Bueno, ¿qué tenemos acá?  Que puso este usuario  Digno que es gratis  si no valorás tu tiempo  para los hinchas de boca  ¿Por qué? ¿Por qué dice eso?
+[00:20:57] Porque  ¿Por qué crees?  No, demora más no  Tenés que meter a ver un tutorial  Eso es otro tema  O sea, sí  Yo no diría demora más  No es que  No es que el kernel de Linux  Está menos optimizado que el de Windows  Yo diría que es más como  Debido al poco conocimiento  Que suele tener un usuario  Común y corriente de Linux  Para hacer algo  como descargarte  el issue  de Fampire 2  acá  debe ser  el guión  capaz que no  capaz que hoy en día  ha mejorado  no lo sé  recuerda  la próxima clase  al menos un gran grupo  es necesario  tener una computadora  ¿trajeron?  bien  ¿vos trajiste computadora?
+[00:21:46] bueno y acá tienen la  bibliografía  esta actividad  la hicimos  ¿cuándo se entrega  el obligatorio?  ¿tienes idea?  en un mes creo que es
+[00:22:02] yo digo que se da la letra del segundo obligatorio  antes de la entrega  porque eso me sorprendió un montón  ¿profe?
+[00:22:14] ¿en qué momento se dio la letra  del obligatorio?
+[00:22:18] todavía no, por eso pregunté  me asusté un poco  la entrega es el 20 de mayo  eso, 20 de mayo  ¿20 de mayo? Ok  ¿Vamos a leerlo?  ¿Vamos a leer la letra?
+[00:22:36] Sí, después de leer la letra  es que arrancamos a ver cómo se hace  Así  ¿Estás subiendo ahora, Melita?
+[00:22:53] Bueno  obligatoria 1  un trato típico de todas las materias  máximo puntaje  mínimo puntaje, fecha de entrega  etc, etc  el 20 de mayo  bien, falta 3 días menos  uso de material de apoyo  o consultas  inteligencia artificial generativa  seguir las pautas del docente  bueno, se puede usar  se puede usar IA
+[00:23:28] la van a usar aunque yo diga que no, así que  sería  no tendría sentido  decir que no se puede  ahora, quiero que me pongan  por lo menos que entendieron  lo que estaban haciendo, no es como que  bueno, la uso, agarro la letra entera  la copio, toda la letra  control C, control B  en Cloud  en chat GPT  en Gemini, no  entiendan un poquito  por lo menos  porque después va a haber  una defensa  y yo les voy a hacer preguntas  y si no entienden  lo que hicieron  el puntaje baja  bueno  la defensa es acordar  con el docente  previo al 9 de 7  esto va a ser después  de que lo entreguen  así que no creo  que lo vea  más adelante  importante  inscribirse al relegatorio  se tienen que inscribir  a través de gestión  todos entraron a gestión ya  saben cómo usar  la plataforma de gestión  han visto  todos  si hagan su también  ¿Conocen la plataforma de gestión?
+[00:24:27] Sí  Bien  Segundo, formar grupos de tres personas del mismo dictado  ¿Se entendió?  No pueden ir con taller de tecnologías  Uno de  La otra carrera, licenciatura  Tres personas por grupo  ¿Pueden haber de dos?  Sí, pueden. ¿Pueden haber de uno?  También pueden en esta primera entrega nada más  Que quede claro que solo en esta primera entrega  Se puede hacer de a uno  en la segunda entrega siempre tiene que ser  obligatoriamente de A3  se puede de A2  como excepción, como que me lo preguntan  a mí, me dicen, profe, solo somos dos  no hay otro alumno en la  clase, es imposible, ok  en ese caso lo entiendo
+[00:25:10] subir el trabajo a gestión antes de la hora indicada  normalmente es a las 9 de la noche
+[00:25:16] pero súbanlo antes porque siempre a las 9 se tranca un poquito  más, no sé si han visto que para inscribirse  a las materias, cuando se abre  la inscripción de gestión es como colapsa el servidor  de la hora.  Claro.  Nos mencionaron.  No, no.  Porque si éramos  progresivos,  si éramos  varias estrellas,  no hay...  Bien.  Está bien.
+[00:25:36] Bueno, vamos a leer  la letra.  Obligatorio 1.
+[00:25:40] ¿Están escuchando  por Zoom?  ¿Sí, no?
+[00:25:43] Sí, estamos bien.  ¿Están viendo  bien la pantalla?
+[00:25:48] Yep.
+[00:25:50] Perfecto.  Obligatorio 1.  El objetivo  de esta tarea  es que los estudiantes  demuestren
+[00:25:54] su comprensión y habilidades prácticas en el uso de Valle Scripting,  mediante la creación de un script interactivo.
+[00:26:00] En esta tarea los estudiantes deberán implementar un sistema basado en menú
+[00:26:04] que permita simular funcionalidades relacionadas con el mundial de fútbol,  utilizando funciones, estructuras de control y validaciones básicas.  Ahora que se viene el mundial nos actualizamos,
+[00:26:14] pero no, que tengo la cátedra de arquitectura siempre poniendo un granito de arena por la sociedad.
+[00:26:19] Ahí lo tienen.
+[00:26:22] Sistema.  gestor del mundial, así se va a llamar  el sistema a desarrollar  consiste en un script en bash  que permite al usuario interactuar con distintas funcionalidades  mediante un menú  vamos a ver esta semana  vamos a arrancar hoy y vamos a seguir  no sé si vamos a arrancar hoy
+[00:26:39] espero que sí, pero si no la semana que viene
+[00:26:41] y la otra vamos a dejar visto todos los temas  así que ya desde antes la pueden ir haciendo  pero ya la semana que viene  ya con lo que tengan la semana que viene  van a poder terminar el variatorio  O sea, el jueves que viene, hoy no creo  Pero el jueves que viene sí  Bueno, opciones del menú principal  Y por favor  Que quede entendido que son  No opciones a tomar por ustedes
+[00:27:03] No les estoy diciendo, elijan una de las siguientes opciones  No, les estoy diciendo  Tienen que estar todas esas opciones, ok  Todas, no elegir una  Se los pido por favor  Porque el semestre pasado tuve un grupo
+[00:27:15] Que me hizo una opción de las 7 que tenía que tener  Y yo le digo, muchachos
+[00:27:19] No sean malos, fueron el único grupo que lo hizo  Yo sé que a veces es difícil de entender  Pero si no entienden algo me preguntan  Me preguntan, me mandan un mensajito  Profe, ¿es verdad que solo tengo...?  No, no  Todas, ¿ok? Todas  Nota, se debe utilizar un único archivo  Para guardar la totalidad de la información  Ya vamos a ver qué se refiere con esto  Listar equipos  Opción 1, listar equipos  El sistema deberá mostrar  un listado de equipos predefinidos  que existan en un archivo a definir.  Ok.
+[00:27:56] Entonces vamos a tener un menú  menú de opciones  que me permite hacer varias opciones.  La número uno, si yo le digo  quiero la opción uno, va a ser listar  equipos.
+[00:28:15] ¿Ok? Y los va a ir a buscar  a un archivo.  Que no es el mismo.  Ahí se ve por su todo.  Sí, se ve. Que no es este archivo.  No, porque este archivo solo es código.  código simple, esto es otro archivo  ok, un archivo .txt  por ejemplo  acá pueden guardar equipos  yo les tiro ideas, si quieren hacerlo
+[00:28:43] con una base de datos, háganlo con una base de datos  listar equipos, el sistema  deberá mostrar una lista de equipos predefinidos que existan  en un archivo a definir  mostrar campeón actual  segundo, mostrar campeón actual  vienen acá y me dicen  el campeón actual del mundial  es tal. En este caso, ¿quién ganó  el último mundial?
+[00:29:05] Argentina. Bueno, si yo aprieto la opción  2, tiene que salir Argentina, no tiene que salir  Mozambique, ¿no?
+[00:29:11] Y eso tiene que estar de nuevo en el mismo  teléfono que tenés allá.  No sé.
+[00:29:17] ¿Pero dice ahí?
+[00:29:19] Puede ser en jacoreado, capaz que sí.  Dice, en el mismo archivo.  Cuando dice en el mismo archivo,
+[00:29:25] se refiere al mismo archivo  del anterior.
+[00:29:28] esta dicha información debe estar guardada en el mismo archivo  ajá, es verdad  pero en ese archivo punto txt  tenés razón  esta opción 2  acá también, todo en el mismo archivo  ahí ya la complicamos un poquito  porque ya ahora no van a tener  sobrevista, sino que también van a tener otra variable  ahí  registrar equipo, el sistema deberá  posibilitar  el ingreso de un nuevo equipo  en caso de superar los 15, deberá mostrar  un mensaje de advertencia.  ¿Ok?  ¿Se entendió o no se entendió?
+[00:30:05] El archivo TXT solo puede tener 15 equipos.  Esa sería la broma.  Si hay 15...  Perfecto.  Este archivo acá, según lo que dice esto,  el sistema deberá posibilitar el ingreso  de un nuevo equipo.  En caso de superar los 15,  deberá mostrar un mensaje de advertencia.
+[00:30:23] Igual no es un mensaje de errores como una advertencia.  Dejalo.  este archivo puede tener  n equipos  infinitos, no infinitos no, pero  n equipos  y cuando superan los 15  cuando esto es  bueno, al revés, mayor que 15  así  bueno, esta no sería así  cuando n es mayor que 15  siendo n el número de  equipos que tengo en el archivo  acá me tiran un error  un error no, una advertencia, un cartelito que diga  ¿estás seguro? mirá que ya hay 15  ¿Querés agregar más?
+[00:31:03] ¿Mayor? No  Yo tengo 15  Y le quiero aumentar 16  Ahí N sería mayor  Y cuando yo llego a los 15  También mostramos una advertencia  Llegaste a los 15  Si yo tengo 14  Vamos a bajar un poquito  Mayor o igual  Registrar partido  El sistema deberá solicitar el ingreso de dos equipos  No se permiten valores vacíos  Se debe validar
+[00:31:29] Se debe validar significa que cuando yo aprieto la opción 1, 2, 3, 4, la opción 4, y le pongo nulo, o sea, le pongo enter, me dice no, tenés que poner un equipo.
+[00:31:43] Esto se tiene que validar, ¿ok? El tema tiene que validarse.
+[00:31:47] No se permiten valores vacíos, se debe validar.
+[00:31:49] Se deberán pedir en orden cada uno de los atributos necesarios.
+[00:31:52] Se deberá registrar en el archivo algo similar a Francia 1, Argentina 4.  Esto fue la final, ¿no?  No, no fue la final  No, se lo salieron  Entonces si yo pongo la 4 acá  Me va a decir  Este  Yo pongo la opción 4 acá  Me dice  Ingresá al equipo 1  ¿No?
+[00:32:17] Equipo 1  Por ejemplo  Después me dice  Ingresá al equipo 2  Y después me dice los resultados  O equipo 1, resultado  Equipo 1, equipo 2  Esto es como a conveniencia  como ustedes quieran, como les parezca más simple  si quieren podemos definir algo entre todos  ¿qué les gusta más? ¿así?  equipo 1, equipo 2  equipo 1 y equipo 2  ¿prefijo?  o insufijo creo que es  o posfijo, no, bueno  bueno, pero ¿cómo sería?  tenés que escribir todo el nombre del país  por ejemplo  la misma
+[00:32:59] ¿No tenías que validar que ese equipo  realmente sea delitado?
+[00:33:07] ¿Cómo deberías decir  contra todos los equipos  en su medio cuál equipo es?  Por ejemplo, es una buena técnica  ¿Eso es a conciencia nuestra?
+[00:33:18] Acá  te deja libre  El sistema deberá solicitar el ingreso de dos equipos  ¿Puede ser así?  ¿Puede ser mostrarme la lista de los 15?  Igual la lista de los 15 si tengo 400  me vas a mostrar  de a 10  y con la flechita  le voy pasando  puede ser  me parece que ahí  te la complicás bastante  pero  es como el mismo  pero ahora tiene el 1  ya resolviste  el problema  en el menú 1  ok
+[00:33:44] pero si yo le pongo  500 equipos  bueno  tenés el mismo problema  en el 1  si en el 1  tu te diste a 500  tenés un problema  en el 4  no, tomás el primero  15  y antes  serían los primeros 15  después tenés  el exagerado  ok, dejemoslo libre  mientras me muestren acá  cuánto salió cada equipo  cómo salió el partido  bueno  ver historial de partidos  el sistema deberá mostrar  todos los partidos registrados  entonces el 5  me va a decir  si yo le aprieto el 5 es una lista  lo mismo  es una lista de  Francia  1, Argentina 4  lo que había mostrado  algo así  ¿no?
+[00:34:43] Holanda 1, Uruguay 2  ver historial de partidos  bien, buscar equipo  el sistema deberá solicitar el nombre  de un equipo y decirte si el mismo  se encuentra registrado  ok, número 6 sería  haces una pregunta  ¿qué equipo querés? yo le pongo Uruguay  y el pibe me trae  sí, se encuentra  y por ejemplo, pero ¿qué más?  el sistema debe solicitar el nombre del equipo  y decirte si el mismo se encuentra registrado  mirá, vamos a agregarle algo  el sistema deberá indicar
+[00:35:22] si el equipo se encuentra en la lista de equipos disponibles  ¿y le quieren agregar una más?  ¿una extra? una extra sería  bueno, encuentro  el equipo, te digo que sí existe
+[00:35:31] y a su vez te muestro los últimos tres partidos  de ese  equipo, ¿eh?  I go light  te muestro los últimos tres  esto no hace falta que lo hagan
+[00:35:43] no está en la letra, así que no hace falta  pero es como un extra  cantidad de partidos jugados  ¿cuántas opciones hay en esto, no?  cantidad de partidos jugados, el sistema deberá mostrar  la cantidad total de partidos simulados  durante la ejecución del programa  ¿Eso significa que  Los partidos jugados  No se guardan en el archivo?
+[00:36:08] Eso significa que  Si yo  Digo, ok, voy a registrar el resultado  De un partido, lo registro  Eso, ¿lo guardo en el archivo?  ¿No lo guardo en el archivo?  ¿Lo registro?
+[00:36:22] Ya, dejame terminar de leerlo  Y te digo, porque capaz acá lo hice  Se deben utilizar funciones  Para organizar las distintas funcionalidades del sistema  se deben validar entradas del usuario, por ejemplo  evitar string vacíos, importante  el script debe contener comentarios adecuados  para explicar cada paso y el propósito  de los comandos utilizados, se animan  los estudiantes a ser creativos en la  implementación y mejora del sistema  ahí tienen, esto es muy bueno  algunos conocimientos son vistos en clase  otros corren por cuenta del alumno para investigarlos  el alumno debe conocer la solución  presentada, de entregarse a la solución funcional  pero desconociendo sus comandos  y funcionamiento se tomará como nula  el alumno puede apoyarse en los recursos  que crea convenientes, incluyendo la IA  en el código deben figurar los nombres  y números de los integrantes del grupo  el archivo de entrega  deberá incluir el script y un informe  explicando la solución implementada  el código no puede tener comentarios  es tremendo esto, el código no puede  pero acá también que sí  ¿y dónde pongo el número?  creo que aquí lo he errado  de aliviar  que te pone todos los comentarios  esos con emojis  que eso te dice acá  o que aparte  que no te puede sonar código  no
+[00:37:47] vamos a hacer una cosa  cuando me entreguen la solución  pongan en los comentarios diciendo que hace  cada comando  cuando vengan a la defensa  yo quiero el código limpio  no quiero ningún comentario, borralos  podemos hacer un help  para qué?  para guardar ahí todo el comentario  a ver, sí, podés  pero lo que yo quiero es que  el día de la defensa
+[00:38:17] lo que yo quiero es que no esté el comentario  porque si yo te pregunto  qué hace esto, vas a mirar el comentario  entonces cuando yo te haga la defensa  no para eso  ¿Están para eso?  Están para eso, pero están para la entrega  Yo digo, bueno, debería ser otro documento  No debería tener como estar  Esa es la mayor mentira  Eso lo dice el libro de Klingon  Lo dice el libro de Klingon  Sí, no existe ese libro  Ese libro lleva al extremo cosas  Sí, es imposible mantener todas las reglas  Tenés que estar con la regla  A través de la gente  No hay chance  Vos hacés tu parte  Y después juntamos todo  bueno, ok  vos me dijiste, vos me habías preguntado  de este archivo, ¿no?  si, cuando  resulta un partido, eso se guarda  en el archivo, o si es simplemente  en el archivo local  porque al final te dice que  tendremos una realidad total de partidos  simulados en el programa
+[00:39:15] lo cual significaría que si yo lo guardo en el archivo  me va a dar resultados  de partidos  previos en el programa  se puede ejecutar el programa 3 o 4 veces  presentar 4 partidos en cada uno  se entiende  esto tiene que guardarse  tiene que ser un historial  cuando yo te digo, dame los de actual  tienen que ser los nuevos  no los viejos  cuando te digan cantidad de partidos jugados
+[00:39:41] te tengo que decir solo los que en esta sesión  se jugaron  acá pueden haber  40 partidos jugados  pero en esta sesión se crearon 3  vos me vas a mostrar  ¿Cómo?
+[00:39:56] Vos te encargas  Está lindo este, ¿eh?
+[00:39:59] La verdad, vos sabés que el semestre pasado fue mucho más fácil  Te dejaban tener varios archivos  Y tengo otra pregunta  Es un archivo
+[00:40:06] Y según lo que parece acá, yo voy a preguntar igual  Voy a repreguntar esto
+[00:40:11] La entrega me parece, aparte la entrega decía que tenía que ser un script  Sí, pero vos tenés un archivo  Y un archivo  Igual el archivo  vos no me entregás un archivo  el script genera  los archivos que necesites  si no tengo ningún archivo  no tengo ningún  si el archivo no está creado  no tengo un perfil  si es lo primero que haces  es crear equipos  el programa no tiene equipos  cuando yo agarro creo uno  dos, tres, cuatro y después empiezo a generar partidos  y la otra pregunta  en el cuatro  en el 4, este del equipo  ¿hay que validar?  ¿no?  ¿se ha repetido ese partido?  hay que validar  ¿cuál es?  el que le decís los dos partidos  registrar  registrar partidos  ¿el sistema deberá solicitar  el ingreso de dos equipos?
+[00:41:07] ¿es esta?  no  equipo 1  ¿qué es eso?  registrar partidos
+[00:41:15] ahí va, registrar partidos  ¿cómo está el registro del equipo?
+[00:41:18] Ok  ¿Y cuál era tu pregunta?  Que ese partido no se haya  Ya jugado  Ya  Estaría bueno  ¿Sabes qué?  Sí, pero te digo más  Porque si yo pongo Francia 1, Argentina 4  Dos veces, pueden ser dos partidos independientes  Que tuvieron el mismo resultado  Eso puede llegar a pasar  El tema es  cómo los diferenciás  le agregás la fecha
+[00:41:53] entonces acá  Francia y Argentina juegan una sola vez  en un mundial
+[00:41:57] Francia y Argentina juegan una sola vez en un mundial  y fase de grupos  se pueden volver a encontrar
+[00:42:10] porque después va  es como el libertador  el segundo  de cada grupo  se pueden desmitear  se pueden mover a encontrar de nuevo  bien, perfecto  gracias por  si querés  hacer eso  vas a tener que  vas a tener que agregar acá un  timestamp del momento en el que  se fue este partido, por ejemplo  algo básico, ¿no?  tipo 20  26  08  05  solo con una fecha  año, mes, día  bien, ¿se entendió?  ¿más preguntas con respecto a la stock?
+[00:43:04] el archivo donde se guarda toda la información
+[00:43:05] ¿tiene que ser un archivo o puede ser poner un MySQL  o un MiniSQL  algo así  no, tiene que ser un archivo de texto  porque si vos lo hicieras  bueno, en una sola tabla  Sería imposible  Porque  Sería una sola tabla  Me tendrías que dar un punto  SQL o PSQL
+[00:43:31] Que sea la única tabla en la que vos guardás información  Y aparte después como lo conectás a Bash  No, no, sigue siendo un TXT  TXT puro  Bien, más preguntas  Otra pregunta  Sí  Registrar partido
+[00:43:48] Se deberán pedir en orden cada uno de los atributos  necesarios?  ¿Cuáles son los atributos necesarios?
+[00:43:55] Entiendo que está  uno en la charla  anterior fue la fecha.
+[00:44:01] Fecha, nombres,  goles, ¿algo más?
+[00:44:08] No, no, está bien.  Atributo necesario sería  equipo 1, resultado del equipo  1 o equipo 1, equipo 2,  resultado del equipo 1, equipo 2, fecha.  Ok.  Eso sería suficiente.  Si vos me pones, por ejemplo,
+[00:44:22] que el equipo 1 es un string vacío con un espacio a ojos fíjense eso no con un string vacío no
+[00:44:28] quiere decir un equipo un espacio ya esto no es lo mismo que esto entonces que quede en esto también
+[00:44:36] pues yo te pongo siete espacios tampoco debería ponerse acá tampoco caracteres raros porque no
+[00:44:43] hay países con caracteres raros no existe un punto algo tiene que ser letras letras de la  A la Z  ¿Sí?  ¿Alguien habló?
+[00:44:56] No tenemos que chequear también que los equipos que se ponen  Estén dentro de la lista de equipos  También
+[00:45:02] Por ejemplo, que ponen a Chile, pero Chile en otro mundial  Sí, bueno, ah, ok  ¿Te referís a eso?  Ok, no, está bien, está perfecto  Pero no le llevamos a ese extremo
+[00:45:13] Vamos a poner que los equipos tienen que estar acá  En el archivo
+[00:45:15] Si los equipos están en el archivo, sí se puede agregar el partido  Suponemos que en el archivo uno va a incluir  aquellos partidos que están en el mundial.  Si no, no.
+[00:45:26] Pregunta.  Ahí es válido, como hoy hablamos,  de evitar que no hayan los equipos.  ¿100%?  Yo digo para evitar.  ¿Puedes hacer?  Sí, sí.  ¿Puedes mostrar una lista de todos los equipos?
+[00:45:38] Por ejemplo, ahorita me eliminás el problema de los vacíos.
+[00:45:40] Si vos me mostrás una lista de todos los equipos que tengo,  seleccioname el 7 si querés el equipo 7.  Y yo selecciono, claro.
+[00:45:48] Ok, ¿más preguntas?  ¿Más preguntas?
+[00:45:54] Yo te entrego un archivo de equipo vacío,  yo no quiero ningún archivo de xd
+[00:46:00] vos me vas a entregar un script y una documentación  claro, o sea el script  creo vacío, igual te vas a agregar
+[00:46:08] los equipos, porque se cree con la lista de equipos  agregame 3 o 4 equipos  así por defecto  cuando yo abro el script quiero que  cree un archivo y haga  inserte 4 equipos  y algún resultado
+[00:46:23] porque si no vamos a estar perdiendo tiempo en la clase  Sí, meteme unas combinaciones ahí.
+[00:46:29] Ok.  Si no lo hace esta, lo hacemos acá, pero  va a llevar tiempo. ¿Más preguntas?  ¿Más preguntas?
+[00:46:37] ¿Sí? ¿No? ¿No? ¿Sí?  ¿Se pueden borrar equipos?  Aunque veo que solo se puede agregar y quitar,  ¿pero querés imprime tantos?
+[00:46:46] No aparece borrar, así que obligatoriamente  no es necesario.  Si lo querés agregar, agregale.  Eso son todo. Y lo que venga extra  siempre va a ser mejor.  ¿Con vos qué traves?  puede llegar a ese punto  yo jamás puse un 100  jamás  porque nadie hace  nadie hace las cosas  jamás puse un 100  ni notas muy altas  pero si hacen todos los extras  si por supuesto  es más que nadie viene a clase  no puedes poner un 100  no sé si se mencionó  ahí  Sí, pero...
+[00:47:32] ¿Tenés alguna pregunta?
+[00:47:37] ¿Me acuerdas de la posibilidad de dar...  ¿Te acuerdas de cómo utilizarlo?  No, ya lo preguntamos.  Ok, tener esto en cuenta.  ¿Cómo subir el script?  Yo quiero que me hagan el script,
+[00:47:57] O sea, el .sh, todo script de bash es un .sh  Van a tener un .sh y un .pdf
+[00:48:05] Que va a ser, el .pdf va a ser la documentación
+[00:48:07] O sea, me van a explicar ahí, bueno, lo que nosotros hicimos, bla, bla, bla  Me van a contar un poco, unas imágenes
+[00:48:13] Lo típico que se pide con las recomendaciones que da la ORT para las entregas universitarias, ¿ok?
+[00:48:20] Quiero eso, eso lo meten en una carpetita y lo comprimen  ¿Ok? Esos dos archivos, lo comprimen.
+[00:48:29] Lo comprimen, van a gestión,  evaluaciones, una vez ya  anotados,
+[00:48:36] ponen eso ahí, ¿ok? Compresa,  tiene que estar. Comprimido.
+[00:48:40] Comprimido tiene que estar.  Punto, no,  ponen un punto...  Ponen un punto sí.
+[00:48:51] Ponen un punto raro también, no pasa nada.
+[00:48:54] Ok.
+[00:48:55] Listo, con esto es suficiente. ¿Tienen 5 minutos de relax y después seguimos o salimos 10 minutos antes?
+[00:49:05] Yo quiero 5 minutos de ir al baño.  Ok.  Capaz que no 5, pero...  Ok, hacemos 5 de relax.
+[00:49:18] Y la B.  ¿Conseguiste?  La mañana del 4.  ¿Tienes celular?
+[00:49:24] Estoy bien.  Hay máquina electrónica en el celular.  Sí.  Me gusta.  Se puede programar en Java en el celular  La mano  Pero tenía un computador  Yo tenía un compañero  En programación 2, de acuerdo  Hace ya 20 años atrás  Que el flaco programaba en Java en el celular  Una locura era
+[00:49:48] Y aparte tenía uno, no sé si era un BlackBerry  O qué carajo, pero tenía  Tenía un teclado con botones  Volvimos hasta el 2009  Qué locura  Google Times  Bueno  Ahora tus datos están en una base de datos  En Wuhan  Bueno, ¿cómo andan? ¿Qué otras materias están haciendo?
+[00:50:17] ¿Algo que quieran contar?
+[00:50:19] Las cuatro  ¿Cuáles son?  La escritura  La traducción  La escritura  ¿Cómo te gusta?  Muy bien, un puntito más  ¿Entendés?  El tipo que sabe responder  No, a mí me gustó mucho  Cálculo que me gustaba bastante  Cálculo que me gustó mucho  Algebra, no, la abrí con toda mi alma  Ah, qué materia odiosa  Tener que dibujar círculos  Ejercicios, no, hay ejercicios que son una locura  Es tipo
+[00:50:58] Un plano, ¿no? No sé si esto ya lo están dando  Tengo un plano  Acá pasa otro plano  esto no sé igual si se da acá
+[00:51:07] honestamente no sé si se da acá, yo la he cruzado en la fin  así que  un plano, acá se cursa con otro plano  y te forma  una imagen así  y te dicen, por ejemplo  la intersección  no, sí, ojalá  y te dicen, por ejemplo, hay un punto  si vos seguís esta línea  se toca con esta línea  o sea, son afines  estas dos líneas se tocan  y forman un triángulo  y te dicen tipo, dame  dame ese punto  ese punto que está ahí flotando entre  ambos cosas, dame las coordenadas  o, sí, sí, dame las coordenadas  entonces vos acá decís, bueno, pero este punto  está  formado en una normal con este plano
+[00:51:52] este plano no tenés ni idea de lo que es  te dan por ejemplo acá, tenés un cuadrado  acá, te dan, y dicen, bueno  con el conocimiento de este cuadrado decime  como odiaba eso  siempre que fue mal  siempre sería odioso  sin embargo cálculo es como más sencillo  porque cálculo es tipo, bueno hay una fórmula  y siempre son integrales  límite  a bueno  para mí  a mí me costaron  aparte  en cálculo  en cálculo tenés teoremas que están tremendos  teorema de sandwich  ¿vos acordás de teorema de sandwich?  para hacer una demostración del examen  y caer  en su proceso  ¿cómo es la demostración?  es ilusión  ¿vos te acordás del teorema del sándwich?  si vos tenés una F acá  vos tenés una F de X acá  y querés hallar por ejemplo  esta recta, vos decís bueno la voy aproximando  con esta otra, entonces la voy haciendo  está bueno, está bastante buena  ese teorema te salva la vida  todo el tiempo  está ahí cuando va a la presencia  es verdad  sí, es como  bueno  bueno, pero este  taller también sirve  otro dato extra  para poner una bandera virtual en mi casa  pero  eso me gusta más  gracias por sacarla  este taller también  sirve como dato extra  si tienen dudas de otras materias  si necesitan ayuda con otras materias  con programación, con cálculo, con algo  y se verá cualquiera de ellas  vienen, los charlamos, tienen clases extra  y a todos tienen otras materias pero
+[00:53:53] a ver si los profesores de otras materias son bien  ok  esto está dado  obligatorio  ahora  les voy a contar  otra cosa  que quiero que hagamos.
+
+[00:54:35] Bueno, como ya les había dicho,  sacamos la beta,  ahí por Zoom,  ¿están activos?  ¿Sí? ¿Deditos para arriba?
+[00:54:50] ¿Deditos para arriba? Muy bien.  ¿Un dedito para arriba?  ¿Deditos para arriba?
+[00:54:54] ¿Tres deditos? No, pero  prendan la cámara.
+[00:54:58] Prenden la cámara, tiran deditos para arriba  y después apaga la cámara.  Bueno, como ya les había dicho,
+[00:55:04] en esta materia no solo se dan puntos por venir,  también se dan puntos por ejercicio, ejercicios en clase.  Como este tipo, que vamos a hacer ahora.  Este ejercicio quiero que me lo entreguen
+[00:55:15] antes de la semana que viene de este mismo día.  ¿Ok?  Así que, lo que vamos a hacer es  hablar de este ejercicio ahora,  dar el tema,
+[00:55:23] y me lo van a entregar la clase que viene.
+[00:55:25] O sea, la clase que viene antes de las 12 de la noche.  O sea, si no me lo entregaron
+[00:55:30] Para la clase que viene a esta hora no pasa nada  Esas tienen cuatro horas más  ¿Se pasa cuatro?
+[00:55:36] Tres  Ok  Y conforme vaya pasando el curso
+[00:55:42] Van a haber más ejercicios en clase, son tres en total  ¿Va?  La entrega de esto es por  Por aulas  No, perdón  La entrega de esto es por Teams
+[00:55:53] Quiero que me escriban en Teams y que me manden  Profe, este es el ejercicio en clase  ¿Ok?
+[00:55:58] No es individual, pueden hacer un grupo  Con sus compañeros de grupo que ya tienen  Meten ahí en el grupo y mandan la  Tarea, ¿ok?
+[00:56:08] Ahora, vamos a  Dar el tema  Hasta acá  Eso está  En tareas  En tareas, es la que dice  31  Marzo  No
+[00:56:38] antes de hacer eso quiero dejar también dado esto porque lo hagan
+[00:56:43] bueno en la parte 2 de la parte de aulas cortito bien bien cortito y bien al bien cortita del pie
+[00:56:48] como la pelota en la parte donde aulas donde dice virtualización instalación pero que yo les pedí
+[00:56:53] que traigan su máquina bueno este ejercicio se va a hacer en su máquina ahora su máquina tiene
+[00:56:59] que tener instalado una distribución de libros pues según tú puede ser fedora puede ser este
+[00:57:05] y nos grite la recomendó porque es fácil de usar y se instala muy fácil cualquiera de ellos ahora
+[00:57:12] cuando van a la parte de acá de parte 2 consola de comandos les va a aparecer virtualización
+[00:57:18] instalación acá vamos a hablar un poco de la virtualización e instalación pero esto lo quiero
+[00:57:23] hacer la clase que viene esto es ahora un poco más en profundidad de lo que es la virtualización  Ok, esto estaría bueno que vengan.
+[00:57:29] Esta clase, ahí los de Zoom, esto estaría bueno que vengan.
+[00:57:32] Ahora, lo único que quiero dar medio rapidito son los manuales de instalación.
+[00:57:36] Con los manuales de instalación dados, quiero que los instalen,
+[00:57:39] pasamos a ver la letra y hablamos de los ejercicios, los vamos haciendo,
+[00:57:44] y después la clase que viene hablamos de qué es la virtualización,
+[00:57:47] para qué funciona, de qué nos sirve, qué es lo malo, y todo ese tipo de cosas.
+[00:57:52] Ok, vamos a hacer acá, manual de instalación, máquina virtual.  guías para instalar virtual machine  qué lindo el logo  me hizo  graffiti design is my passion  guías para instalar una virtual machine  instalación Oracle  ingresan  y se descarga el virtual box  ingresan a este link  abrimos acá  y que nos dice, para descargar el instalador  de VirtualBox  entramos acá, luego cliquear en  en el link Windows Host  por lo general debería descargarse  en la carpeta descargas, el nombre  de la aplicación descargada debería ser  esta, donde dice  Windows Host, si es que tengo un Windows  si tengo otra cosa, no lo hago  porque ya tengo un Linux  Windows Host, vamos a descargarlo  ahí lo descargamos  y abrimos  la carpetita, ¿no?  ejecutamos con permiso de administrador dicha aplicación  abrimos la carpetita  clic derecho  ay, no sé si tengo permiso de administrador  a ver, bueno, no hace falta  háganlo ustedes, pero  no pasa nada  ¿por qué?
+[00:59:19] ¿por qué estoy matando tu Zoom?
+[00:59:27] ah, ok, ok, tengo un montón  de mensajes acá por Zoom que no estaba viendo  No estoy en el Teams  Yo tampoco, yo tampoco  Hay grupo, pensé que decía  Al director, no, sí
+[00:59:42] No hay grupo de Teams todavía, yo no creé ninguno
+[00:59:44] El grupo de Teams que hay es para el otro grupo de taller  ¿Ok?  No creo que creé un grupo de Teams  No me siento cómodo  Capaz que sí, capaz que no  Máximo a la clase que viene  Si
+[00:59:57] Tienen que mandarme cosas, como son este tipo de ejercicios en clase  Mándenmelo a mi Teams personal  enviérmelo a mí  hacen un grupito, si ustedes dos lo hacen juntos  agarran ustedes dos
+[01:00:07] hacen un grupito de teams, ¿saben cómo es un grupo?  tipo, hablan con una persona
+[01:00:12] y le dan arriba a la derecha, aparece un más
+[01:00:14] y un iconito de persona, y me agregan a mí  entonces ustedes dos, entro yo a su chat  o sea, no entro yo a su chat  ahí, mandan el ejercicio en clase  dicho, y listo, con eso es suficiente
+[01:00:26] yo después entro a todos los grupos y voy viendo  bueno  como dice acá el instalador  Le damos a siguiente
+[01:00:35] Le damos a acepto los términos  Sí, no leo nada porque  Clickear next  Acepto los términos  Next, next  Acá es next warning, network disconnection  Dale  Missing dependency  Sí  Missing dependency sí  Clickear en next y luego en install  Esto vamos a sacárselo  Start by default  Ok  Ok, next, install.
+[01:01:08] Y acá se instala, ok.
+[01:01:17] Creo que ya está instalado, así que capaz que lo cante.
+[01:01:26] Ah, sí, ya está.
+[01:01:29] Vamos a dejarlo igual.
+[01:01:31] Bien, ahora hay que instalar la imagen.  una vez tenemos VirtualBox  que es súper sencillo  podés pasar tu Teams  en Teams me buscas todo Mateo  así mismo  soy el único que va a aparecer  incluso podés poner mi número de estudiante  si pones mi número de estudiante  en el buscador también debería aparecerte yo  ahí me mandas un mensajito  y ya me tenés en el Teams  y me mandás por ahí la entrega  no estaría andando así  no estaría andando, qué lindo  Ese que está ahí, donde dice descargar la imagen  Ah, mirá  Ok  Ok, ok, ok  Entonces podemos descargar la imagen  Creo que a ver, creo que en otro lugar  Esta, creo que la actividad 2  De VirtualBox tiene una imagen por ahí  Sí  Ok
+[01:02:54] Ok, sí, no aparece, no anda el link.
+[01:03:09] Bueno, yo lo veo, veo el tema para que funcione arreglar este link,
+[01:03:15] y si no, que no sé con quién tengo que hablar con esto,
+[01:03:22] si no lo que tienen que hacer, como este link no les anda,  y cuando quieren descargarse una imagen, van a...
+[01:03:30] Unboxes, sí.
+[01:03:33] lo que dice la actividad 2.  ¿La actividad 2 es eso? Ok.  Bueno.
+[01:03:39] Adelantá, por favor.
+[01:03:43] Vale.
+[01:03:47] Van a VirtualBox Images.
+[01:03:52] Aceptamos todo.
+[01:03:55] Iniciar descarga no.  Y buscamos una acá.  ¿Bajamos un poquito?  ¿Dónde está en VirtualBox Images?  Acá, VM Images, VirtualBox Images.  Bajamos un poquito y, por ejemplo,  queremos descargar  Arclinux creo que pesa un poquito  Perdón, me complica  el instructivo de Mac  está hecho para  chips M, no para Intel  lo voy a hacer igual  y veo si va a funcionar o no  Ok, sí  creo que  si el chip de Intel  podés usar este  podés usar este poniendo  macOS interhost  usando la misma  configuración de Windows pero  pero acá  acá apareció  bueno, vieron los pasos que se  vi entonces, van a osboxes  donde dice máquina virtual  acá arriba a la derecha  osboxes lo que va a tener son imágenes  VirtualBox es la caja  yo tengo una caja donde voy a correr  algo, es el emulador, para los que juegan  Play, es el emulador, el que emula  emule un entorno virtual
+[01:05:17] ¿qué entorno virtual va a emular? bueno, el que yo le diga  ¿cómo le digo qué entorno virtual  emular? le puedo decir que emule Windows  que emule Android, que emule un celular  que emule la Play 2  puede emular cualquier cosa  entonces, yo necesito una imagen  que emular, las imágenes son  eso que se va
+[01:05:36] emular ese entorno que yo quiero que genere entonces voy a imágenes virtual box porque
+[01:05:43] el emulador que estoy utilizando es virtual box y busco la que yo quiero elegir archlinux acá
+[01:05:49] vieron si van a imágenes virtual box y empiezan a bajar acá tienen un montón de distribuciones que
+[01:05:55] son todas las imágenes de linux yo elegí archlinux porque porque es bastante pesa poquito 300 megas  Ok  Esto  Acá bajé la imagen  Bueno, ¿dónde está? Acá  Vamos a dejarla abierta  Esto de acá  Vamos a arrancar el VirtualBox  Esta es la nueva UI de VirtualBox  Esto hacemos así y vamos a seguir con el  POS  Bueno, acá estamos en la UI  Ya descargamos una imagen  Vamos a extraerla  ¿Dónde está?  Extraer todo  Esta es la que yo quiero pasar  Acá  Dale, poquito  Una consulta al profe, si tenemos Docker  O un S2 con  Linux Arc instalado  ¿Sirve también?
+[01:06:57] Sirve también, un S2 es una máquina virtual  Claro, claro  Docker no es una máquina virtual  Preferiría que uses  La S2  Dale, dale, muchas gracias  Ok, tenemos acá esto  Y vamos a seguir con la guía  ¿Ok? ¿Vieron lo que hice, no?  Me descargó una imagen desde Osboxes  Esta es la que yo hice  Voy acá a descargas  La extraigo y entro solo a esto  Acá, lo que dice Virtual Disk Image  Ok, hacemos clic  En importar  En este caso no sé si voy a hacer  Importar, creo que solo voy a hacer el más  en nueva  acá, nueva  le damos click en nueva y le ponemos  este  arch, vieron que yo le pongo  arch, el nombre del AVM  voy a nueva  le pongo arch y ya automáticamente  el tipo dice, el sistema operativo es Linux  la distribución es arch Linux  y es esta, la de 64 bits  y yo no hice nada, esto es por defecto  el loco detecta el nombre que yo le puse
+[01:08:04] si yo le pongo Manuel, obviamente no va a poder  pero  Pero, pero, pero, o sea, lo dejo.  Este, el user...  ¿Eh?
+[01:08:16] Sí.
+[01:08:19] Ahora, ahora la metemos acá.  Virtual Disk Image.
+[01:08:25] Vos le estás diciendo cómo se llama acá en la máquina virtual,  pero no le metés ninguna ISO.  ¿Viste? ISO de Image.  No, acá no.
+[01:08:31] Si yo busco una imagen, una ISO, no voy a tener ninguna.  Lo que yo voy a hacer es especificarle.  Acá sí voy a buscar el que yo quiero.  que en este caso, bueno para Jamel  y por parte  bueno, acá ponemos el nombre  y no buscamos ninguna ISO, hay bastantes
+[01:08:46] alumnos que a veces me dicen, no me anda, no me encuentra
+[01:08:48] la imagen que me descargué, y no, porque no es una ISO  lo que estamos descargando  bueno, solo le ponemos  el nombre acá, acá no hace falta  esto es para el nombre de usuario  y la contraseña de
+[01:08:59] los propios boxes, esto en el lado no hace falta  acá es cuanto le vamos a dar de  memoria, vamos a darle  4 GB RAM  GPU 1  acá es crear una nueva  un nuevo disco virtual  acá es donde sí tenemos que prestar  atención y hacerlo nosotros  vamos a seleccionar
+[01:09:26] vieron que solo me aparece esto, porque acá está buscando  discos virtuales, y yo de los boxes  me descargo un disco virtual con una  imagen  entonces seleccionamos y le decimos  sí, ese está un .bdi  no un .iso, .bdi virtual  disk image  ahí lo ponemos  y acá  que me tiró un error  porque no me encuentra  alguna cosa  ok  lo ignoro por completo
+[01:09:50] y seguimos para adelante  eh  papapá  ¿cuánto le ponemos?  y 5 gigas  está bien  papapapapá  y acá  no  creo que es  acá  no  claro  desmentí
+[01:10:19] Cuando van acá no crean un nuevo VirtualDisk  Utilizan uno ya utilizado  Uno ya creado que es el que descargamos  De 500 GB  No, sí, sí, pero es virtual eso, no importa  No te reserva 500 GB  Cuando van acá  Es más, yo porque no seguí la guía  Pero si siguen la guía  Esta guía no, la que dice Actividad 2  Esta guía, ignórenla hasta acá  Solo descarguen ese VirtualBox  Hasta acá  Después sigan la otra guía, la que dice actividades  La otra guía, si se fijan  Que es esta de acá
+[01:10:56] Les va a decir lo que yo les estaba haciendo  Acá  Luego de continuar vamos a la opción  Usar un disco virtual existente  Que es esta de acá  Usar un archivo de disco virtual existente  Acá, cliquean acá, ponen añadir  Porque antes no estaba, antes estaba vacío  Añadir y añado la que acabo de descargar  Ok, la añado  y una vez añadida me va a aparecer acá,  clickeo y le pongo seleccionar.  Y con esto termino.  Y ahí está mi arch. Está apagado.  Como entro, doble clic y lo prendo.
+[01:11:27] Vamos a esperar, arrancando  VM.
+[01:11:31] No sé si me va a dejar porque a veces las máquinas  de la facultad son medias  complicadas. Ok, me dejó.
+[01:11:42] A ver si me deja  hasta el final.
+[01:11:44] Bien, bien.  Bien, bien, bien.
+[01:11:48] O boxes login, acá tengo que poner la misma contraseña de nombre  Creo  No, incorrecto  B, O, O  No, está seguro que es un antepaso  Me parece que estaba  B, B, O, O  Y la otra  La contraseña no será vacía  ¿Cuál era la tarea?  ¿No te dice  en la parte de info  te dice la contraseña  si vas a la página?  En la parte de  Opa, ¿qué tenemos acá?
+[01:13:11] La parte de info de la página  Sí  Acá  Cuando vas a  Donde está  ¿Donde está acá distribución?
+[01:13:23] Donde está para descargar  ¿Viste que dice?  Dicen las versiones, VirtualBox, Vmware  La parte de info  La que descargaste  Ok  Ah, los boxes  Muchas gracias  Ahí va, ahí estoy yo  Bueno, vieron  Este es el proceso para instalar una máquina virtual  Y para meterle una imagen  En este caso Arch  Una barata, una que pesa poquito  Esto es lo que quiero que ustedes hagan  Para la clase que viene  tenerlo ya prontito, así la clase que viene  ya  vayamos rápido  alguien había preguntado  acá en el chat  cuál era la tarea que teníamos  que hacer para la semana que viene
+[01:14:21] dónde era que la encontraba, ok, una de las tareas es esta  tener esto montado  una máquina virtual con cualquier  distribución que vos quieras, sea Arch, sea Ubuntu  sea a tu gusto  y segundo
+[01:14:33] si vos vas acá a aulas y vas a tareas  vas a ver esto, letra ejercicios  parte 1, marzo 2026  bueno, si abrís esto  te va a mostrar la letra de estos ejercicios  estos ejercicios se van a tener  que hacer acá adentro  entonces primero  descargamos una máquina virtual, le ponemos una imagen  esta clase queda grabada, así que  la pueden ver las veces que quieran
+[01:14:57] si pueden seguir mis pasos, porque me entregué un poquito  en el medio, y capaz que se  complicaron ustedes, perdón  me da culpa  Puedes ver la clase grabada  Y acá dentro  Dentro de esta consolita virtual que tenemos acá  Es que yo quiero que me hagan este ejercicio  ¿Ok? Por ejemplo  El paso 1, crear un archivo de nombre  Archivo 1 y de extensión txt  Utilizando touch, en este caso  Lo que podemos hacer es hacer  Touch, archivo 1  Punto txt  Y ahí si hacemos el s  Me va a aparecer archivo 1 punto txt  El s es un comando  Que vimos en la clase pasada  que me lista  archivos  o programas o ejecutables  dentro de un directorio.  En este caso, el directorio no parado  que es home-boxes.  Porque pwd nos da  la ruta actual, la posición actual  donde estoy parado.
+[01:15:58] Esto vamos a dejarlo por acá.
+[01:16:01] Para la clase que viene, instálense  esto, tenganlo pronto
+[01:16:04] y quiero que hagan este ejercicio. ¿Cómo lo van a hacer?  Vamos a ver todo el teórico de esto ahora.
+[01:16:10] Claro, ¿no?  ¿Vamos claro?
+[01:16:13] ¿Se va entendiendo?  Ahí por Zoom.  ¿Se va entendiendo?
+[01:16:16] Paso uno.  Instalar osboxes y una imagen.
+[01:16:23] Osboxes no, perdón.  Virtualbox y una imagen.  Virtualbox lo descargamos de acá.  De donde dice guía para instalar máquina virtual.  Esto también está en Aulas.  Si no lo encuentran, me escriban por Teams.  Guía para instalar máquina virtual.
+[01:16:36] luego como este link no sirve este que está acá quiero que entre en los boxes y que se descarguen
+[01:16:44] una imagen como lo vimos a la clase como bien la compañera nos dijo acá está el usuario otra
+[01:16:51] seña creo que es el mismo para todas las imágenes me parece que siempre se repite para todos así que
+[01:16:56] con ese deberían dar en todo donde encuentro la página de boxes y donde encuentro todo lo demás
+[01:17:02] bueno lo pueden ver en donde dice actividad 2 creo que es y si no y si no es la actividad 2
+[01:17:13] bueno veas en la clase y vean que yo entré a virtualbox y listo hacen osboxes.com hacen
+[01:17:21] osboxes entran osboxes van acá bm imágenes imágenes de la máquina virtual van a la de
+[01:17:29] van a la de VirtualBox, porque es la que queremos,  y acá siguen los pasos que yo hice.  Se descargan, por ejemplo, de bien.
+[01:17:36] ¿Y cómo te mando a Teams?  Como para que cuente cómo hecha la tarea.
+[01:17:41] Vamos a eso.  Una vez con esto, voy a la tarea,
+[01:17:45] que es esta que está acá, letra de ejercicios parte 1,  la hago acá, por ejemplo,  el ejercicio 1 era ese,
+[01:17:52] crear un archivo de no sé qué, no sé cuánto,  y utilizando touch.  Entonces yo hago eso,  y por ejemplo le saco una  una captura de pantalla  bueno, saquen una captura de pantalla  hagan un print screen o algo de eso
+[01:18:10] saquen una captura de pantalla de cada ejercicio y me van poniendo  bueno, por ejemplo así  hacen esto  así
+[01:18:29] y con esto yo entiendo que hicieron la primera parte ok con esta captura ahora agarran y me la
+[01:18:35] pasan la captura de video tendría que haber quedado por ahí no se abrió bueno si se puede
+[01:18:46] un win shift s con windows les deja sacar capturas es el clipboard el captura bueno
+[01:18:53] ahí se entendió matías saca captura me buscasen en teams yo pase acá mi nombre y mi número de
+[01:19:00] estudiante para que puedan buscarme entendió buenísimo hacen todas estas 10 y me lo pasan
+[01:19:10] en un pdf por favor respiro no así vacío en el chat ok ahora continuemos vamos a ver esto
+[01:19:19] que tengo ganas de dar permisos acá vamos a ver todos los permisos que hay o al menos un montón  y aquello que nos demos lo buscan.  Ponen en Google. ¿Cómo hago para...?  Listo. Bueno, ¿cuáles son las bases  de consola y file system?  ¿Qué es un usuario?  ¿Qué es un topo?  ¿Qué es un privilegio?  ¿Qué es un tipo de cosas?  ¿Qué es un administrador?  ¿Quién puede modificar un archivo?  ¿Cómo se puede autenticar un usuario?
+[01:19:57] Eso es lo que vamos a ver en esta parte.
+[01:20:00] Permisos.  ¿Alguno conoce de permisos?
+[01:20:04] saben para qué se usan los permisos que son los permisos
+[01:20:10] no
+[01:20:12] los permisos establecen sobre un directorio o son un archivo ok
+[01:20:21] permiten para la porción por su madre  ¿Quién es el de Zoom que interactúe?
+[01:20:30] Yo hasta donde sé los permisos,
+[01:20:32] vos le podés dar permisos a, como dijo el compañero,
+[01:20:34] un archivo o una carpeta, o sea, un directorio o un archivo.
+[01:20:39] Y en caso de que estés, por ejemplo, en un directorio,  todos los archivos que estén dentro de ese directorio,
+[01:20:43] por ahí que se ejecutan con Bash o con algún servicio,  van a poder modificar o crear archivos
+[01:20:51] dependiendo los permisos que le des a ese directorio o archivo.
+[01:20:57] Bien.
+[01:20:59] Sí, por ejemplo, si hay un directorio que tiene permiso de escritura,  yo puedo crear otro archivo dentro de él, ¿no?  Si yo...
+[01:21:05] O sea, si tiene permiso de escritura, para todo el mundo.
+[01:21:09] Bien, bien, ok.
+[01:21:11] Bueno, bien.  Sí, tal cual.
+[01:21:15] ¿Cómo se establecen los permisos?  ¿Cómo yo establezco un permiso?  Y con esto, vamos a seguir un poquito.
+
+[01:21:46] Ok.
+[01:21:46] Los permisos se dividen en tres principales, tres grupos principales.
+[01:21:55] Como lo dice acá, tenemos permiso de lectura, permiso de escritura y permiso de ejecución.
+[01:22:07] El permiso de ejecución es el que nos permite ejecutar un programa.
+[01:22:10] Como decía el compañero acá, uno le puede dar tanto una carpeta como un programa.  El permiso de lectura es el que nos dice  Ok, podés ver lo que hay acá  Podés ver  El permiso de escritura es edición en general  Escritura ya sea insertar, modificar o borrar
+[01:22:30] Esto se usa mucho en las bases de datos, por ejemplo  Diferentes tipos de usuarios tienen diferentes tipos de permisos  Yo, por ejemplo, que soy del área de finanzas  no puedo  no puedo tocar la base de datos  no puedo escribir sobre la base de datos  pero sí que puedo hacer, sacar un reporte  capaz, entonces sacar un reporte  ¿qué vendría a ser? un permiso de lectura
+[01:22:54] yo voy a leer lo que me da la base de datos  la base de datos tiene muchas más  cosas incluso, ¿no? como son las vistas
+[01:23:00] se le da una vista específica a un grupo de usuarios  pero  vamos a decir que tenemos esos  tres básicos  R, W, X  y si ven ahí en la imagen  aparece  notación octal  y alcance permitido  notación octal, ¿les suena de algo?
+[01:23:27] de permiso, muy bien  de permiso, notación octal  ok, como en este caso llega hasta 7  la notación octal es casi la misma  que la decimal, esto es como un extra  pero la notación octal  va hasta 7, hasta 8  o sea, 1, 2, 3, 4  5, 6, 7, 8
+[01:23:44] el 7 tendría que ser el número 8 porque el 0 es el 1  entonces cuando llegamos al 8  salta el 10, pero octal  el 10 es el 8, el decimal  ¿verdad?  que no, no influye  para nuestro caso hipotético  y acá, como ven acá  tenemos en binario  el número en octal  o decimal, y en binario  acá lo tenemos  entonces acá nos está diciendo que el 0  0, 0  es lo mismo que el número 0, que significa  no tengo ningún permiso.  El 001 es lo mismo que...
+[01:24:20] ¿Qué qué?  ¿Qué es el 1?
+[01:24:25] ¿Qué es el permiso de ejecución?  ¿El 1, 1 qué es?
+[01:24:32] El 3. ¿Por qué es el 3?
+[01:24:37] Por pasar de octal a binario.  Pasémoslo a decimal.  Porque más o menos es lo mismo.  Pasémoslo a decimal.  ¿Cómo pasamos este número encima de acá?
+[01:24:47] A la posición  Bien, esto que sería 2 a la  A la 0  ¿Cuánto nos da esto?
+[01:24:58] 1  2 a la 1  ¿Cuánto tenemos acá?
+[01:25:07] 2 más 1, 3  Así se transforman las cosas  1, 1, 1 es el 7 porque  2 elevado a la 2, ¿cuánto es?
+[01:25:16] 4  ¿No?
+[01:25:18] 7  Eso lo van a dar en arquitectura igual  No tiene nada que ver con este curso  Pero como ya el semestre que viene
+[01:25:26] Ya no se va a dar esta materia y se va a empezar a agregar arquitectura de base  Está bueno como
+[01:25:30] Que el medio no sepa cómo se transporta ese tipo de cosas  Bueno, bien, perfecto  Bien, bien, bien, bien  Ahora vamos con esta parte de acá  Esto tiene un poquito más de letra  Un poquito bastante más de letra  A ver  Yo qué les dije  Y los permisos se separaban en tres.  RWX.
+[01:25:57] Pero acá en esta imagen me dice RWX, R un espacio que puede ser la W y la X,  y R un espacio y la X de vuelta.  ¿Por qué?  Tres veces tres permisos.  O sea, nos metió.
+[01:26:11] Tres a la dos.  ¿Por qué?
+[01:26:14] No tiene nada que ver con tres a la dos.
+[01:26:17] ¿Por qué sucede eso?  Porque como lo dice acá  El primer RWX  Hace referencia a los permisos del propietario  Yo como propietario  Tengo estos permisos  Como el creador  Como el que lo hace  Tengo estos permisos  Normalmente siempre suelen ser RWX  Normalmente  En este caso vieron que las del medio  No tienen el de ejecución  No pasa nada  Permisos del grupo  ¿Qué grupo hace referencia?  Bueno, el grupo del propietario
+[01:26:51] Yo lo creo, mi grupo va a tener estos permisos  Por ejemplo, yo, desarrollador de un área  Creo una carpeta  Y le pongo RW  RW y ahí adentro mi grupo  Mi grupo de desarrolladores  Va a poder crear, borrar, modificar, etc.  Todas sus carpetas o archivos que allí hayan  Si les dejamos todos los permisos como por defecto.  Mi grupo va a poder hacer.
+[01:27:21] Y por último es el grupo de nosotros.
+[01:27:24] El grupo de nosotros es todos los demás que no son yo.  Entonces, yo cuando genero un usuario dentro de Linux,
+[01:27:30] si yo hoy voy a Arch Linux ahí y le digo,
+[01:27:33] quiero generar un usuario, ¿cómo se va a llamar el usuario?  Se va a llamar Mateo.  ¿Cómo se va a llamar el grupo?  El grupo de Mateo.
+[01:27:41] Exactamente el mismo nombre.  Grupo Mateo.  Usuario Mateo, grupo Mateo.
+[01:27:44] Si yo después genero otro usuario y le pongo Manuel, tengo que agregar a Manuel al grupo de Mateo.
+[01:27:50] Entonces va a haber el usuario Mateo, el usuario Manuel, y dentro del grupo Mateo va a estar Mateo y va a estar Manuel.
+[01:27:57] Supongamos yo puedo crear otro grupo que se llame desarrolladores.
+[01:28:00] Cada usuario tiene su propio grupo y puedo tener varios.
+[01:28:06] Estos son los permisos de los demás. Aquellos que no están dentro del grupo Mateo o del grupo desarrolladores.  ¿Ok? Por ejemplo  El usuario  Otro, X  Un usuario solo pertenece a otro grupo  No, puede pertenecer a varios grupos  De ahí, en ese caso  Son los permisos  De cualquiera  Bien, bien  Los grupos  De los dos grupos  O de los dos grupos  No, de tu grupo personal  Es decir  ¿Tiene un archivo que quieras?  Ah, ok, ok.  Ahí trae desarrollo, por ejemplo.
+[01:28:47] No voy a ver.
+[01:28:49] Vas a poder entrar.
+[01:28:52] Del grupo personal del usuario que quiere el archivo.
+[01:28:56] Normalmente tenés usuarios tipo...  Te suele inspirar mucho a tener usuarios Army.  Antes del grupo de Army.  El usuario de Velo.  El usuario...  En GitHub, viste que se usa mucho, por ejemplo,
+[01:29:11] esto nada que ver con el curso, nada que ver con el curso,
+[01:29:13] pero por ejemplo, vos con GitHub podés hacer algo que se llama  las acciones, no las actions de GitHub,  que te permiten hacer un montón de chuchería.  Vos podés ir y tirar fuegos artificiales,  tenés que hacer un montón de cosas, claro.
+[01:29:27] Una de esas cosas son, por ejemplo, el despliegue en una nube.  Supongamos Amazon, que es como la más guapo.  desplegamos en Amazon  para desplegar en Amazon  Amazon nos va a decir  pero tiene que haber alguien que se haga responsable  dentro de GitHub
+[01:29:44] entonces vos tenés que ir a Amazon y hacer ese pre-ceteo  entre Amazon y GitHub  tiene que haber ese pre-ceteo de qué usuario  no usuario persona  qué usuario de GitHub es el que va  a empujar esos cambios  hacia la nube
+[01:29:58] y la nube va a decir, ah ok, los acepto de este usuario  ese usuario  puede ser el mío, puede ser Mateo  pero no queda lindo  porque si yo tengo tres desarrolladores y cada uno  trabaja en cosas distintas, la nube  va a tener que, o sea  esta aplicación se empujó por este, esta aplicación
+[01:30:14] se empujó por este otro, se empujó por este otro  y después, si yo hago algo automático  si yo hago tipo a las actions  el que la empuja va a quedar  siempre el mismo, va como por definido  aunque lo haga Pepito  aunque lo empuje Pepito que hizo la  pull request digamos, ahí siempre  se va a tomar como que el  el primero que lo hizo
+[01:30:35] o sea  el que hizo el  el macheo  digamos  porque hay un usuario  con el que macheo  entonces lo que se tira a hacer  es poner como  robots  o usuario fantasma  creás una cuenta  creás una cuenta artificial  que es como un usuario extra  y otro usuario  que es el usuario  que es el que empuja  el usuario  tanto  que es el que empuja tanto  se tira a hacer eso  como para tener  algo coexil  este  entonces acá  es Raúl  porque está  porque es el usuario Raúl  pero normalmente  podría ser cualquiera  ¿No vamos a ir a nada?  ¿Pasa, pasa?  ¿Sabés qué puedo pasar ahorita?  ¿Qué haces?  ¿Me hiciste un apellido?  Sí  ¿Cómo se llama?
+[01:31:15] Gracias  Bueno, tipo de archivo  ¿Tipo de archivo qué sería?  ¿Si es un directorio o no?  Es sencillo, directorio siendo carpeta  Enlaces  Enlaces es como más complicado  Es como difícil  Como todas las entradas directas
+[01:31:31] Todos los accesos directos que puede llegar a tener ese archivo  desde afuera, desde otras carpetas  pero es como acá, no importa mucho  acá tenemos, etcétera  tamaño, fecha, hora y nombre  acá tenemos  755, ¿qué vendría a ser  755? es el 7  todos los permisos  entonces, el usuario  el propietario va a tener todos los permisos  ¿el 5?
+[01:32:01] ¿qué es eso?  la ejecución, ¿no?
+[01:32:06] es como más típico  la historia de ejecución  muy bien  ¿y el otro?  ¿el otro?
+[01:32:19] bueno, preguntas  ¿qué permiso elegiría  para hacer que su  creador pueda leerlo únicamente  su grupo, solo escribirlo  y el resto del mundo solo ejecutarlo?  vamos a escribirlo entre todos  ¿su creador únicamente qué puede  leerlo sólo puede leerlo  si quieren les pongo ahí  arranco por R  4  porque si no tendría que hacerlo como  así muy chiquito  su creador sólo puede leerlo  4  su grupo sólo puede escribirlo  ¿cuál?
+[01:33:23] ¿dos?  dos  tres o dos  ¿quién a más?
+[01:33:34] creo que tres  ¿crees que tres?
+[01:33:38] su grupo  solo escribiendo  permiso de escritura  dos, porque el tres también deja ejecutar  ejecutar. Dos.  Y el último es...
+[01:33:56] Ah, pará que hay una pregunta.
+[01:34:00] Este...  CHmod, bien. CHmod, lo que te  cambia  son los permisos de un archivo.
+[01:34:08] Y otros  hacen referencia a usuario  y grupo, o ambos. No.  Otros hacen referencia, a ver, acá te lo conté
+[01:34:14] como compañero, hacen referencia a todo lo que no sea el dueño
+[01:34:17] o parte del grupo del dueño. O sea, que los usuarios  son los usuarios. Sí, perfecto.
+[01:34:20] Su grupo solo puede escribirlo y el resto del mundo solo puede ejecutarlo.
+[01:34:30] ¿Qué sería?
+[01:34:32] Uno. Bien.
+[01:34:35] Ok.
+[01:34:38] ¿Qué permiso es el correcto para una página web en un servidor?
+[01:34:42] Supongamos que tenemos un servidor, una cajita,
+[01:34:46] y mi página web es el HTML, el index.html.  y lo ejecuta  lo ejecuta otro programa  un programa P ejecuta  a este archivo, ¿qué permisos  debería  o sea, lo muestra, digamos, lo muestra  en la internet, ¿qué permisos  debería de tener esta  persona, programa  X para poder ver  esto?
+[01:35:18] ¿qué permisos es el correcto para una página web en un  servidor? Sí, ok, con respecto a esto  o sea, con respecto a esto  Supongamos que no es el creador  Esta persona quiere poder acceder a esta página web  Y no es el creador  Entonces, ¿qué tipo de permisos pondrían?
+
+[01:35:43] Lectura  Arrancamos con siempre el propietario  El que la hace  Lectura, tiene que tener  Escritura, tiene que tener  Y ejecutarlo, y la van a exponger yo  Arrancamos con un 7  Yo puedo hacer cualquier cosa  Supongamos que yo soy usuario de Velo  todos los developers  que pueden hacer  deberían también poder leer y escribir  y capaz que también ejecutar  y el resto  entiendo que el programa es solamente leer  digamos ejecutar  podemos ejecutar  leer, leer está bien  leer está bien  si esto fuera  un programa que tiene que leer  lo que hay dentro del bucket  si está bien, pero nada, supongamos  ejecutar, ejecutar, mostrar  está bien, bueno, vamos a ponerlo a leer  ejecutar, para que no  para que no haya malentendido, ¿cuál sería entonces?
+[01:36:53] 5  5, ok  ¿por qué no es una buena costumbre  un permiso 777?
+[01:37:07] porque no puede estar  también  muy buena respuesta  acá por Zoom, ¿qué dijeron?  no, pero no podés permitirle al usuario  que escriba sobre tu código  pues sí, ok, sí  claro, darle permiso 7 a los otros  al resto que no tengo ni idea quiénes son  no parece ser muy inteligente  aparte por el principio de  la mayor exclusión posible  del menor permiso de seguridad  necesario para cada usuario  por eso es una mala idea  y comente  007  en realidad es un muy mal permiso  para tener una espía  no usamos malas palabras en esta clase  ¿por qué?  comenten, díganme algo interesante con respecto a esta frase  decís, ah, qué boludo
+[01:37:56] ¿cómo se puso a hacer eso si tiene una espía?
+[01:38:00] qué boludo, no tienen permiso ni de ejecución  ni de lectura, ni de  escritura, tu grupo tampoco  solamente las personas de afuera  tienen permisos  exactamente
+[01:38:12] Esto es muy...  Todo el mundo puede cambiarlo.  Bueno, gestión de usuarios.
+[01:38:19] Esto, ojo con esto, porque esto que vamos a dar ahora
+[01:38:22] es dependiendo de la distribución de Linux que estemos usando.  El sudo, el add user puede ser user add.  Acá hay como que distinciones.
+[01:38:33] Así que yo lo voy a dar así porque es lo que dice la diapositiva.
+[01:38:37] Si no les anda, que es altamente probable que no les ande,  lo dan vuestro.  lo dan vuelta o buscan en Google  ¿cuál es el permiso para agregar un usuario?  así, sencillo  gestión de usuarios  obtiene privilegios de administrador  al comando  a ejecutar, con el sudo  ¿no? el de toda la vida  meto sudo y hago lo que quiera  destruyo cualquier cosa  sudo y listar, sudo y  cambiar de página, sudo y  cambiar permisos
+[01:39:10] add user, agrega un usuario  ¿A dónde? Al sistema  Al agregarlo automáticamente se genera un grupo  El grupo del usuario  Usar del menos R  Elimina un usuario, menos R  Borra también el directorio  O sea, porque normalmente dentro del directorio  El usuario como varias cosas
+[01:39:27] Creo que lo vamos a ver más adelante, no le da mucha importancia ahora  Es un borrado recursivo  Agregar un usuario a un grupo  Borrar un grupo  Modificar los datos de un grupo  Cambiar nombre  dos veces tab muestra sugerencias  es decir, todos los grupos creados  cat set  barra group nos muestra  los grupos existentes  userMode menos a menos g nombre de grupo  usuario, agrega un usuario al grupo  chMode cambia los permisos  de un archivo  o de una carpeta  chOwn cambia el propietario  whoAmI te muestra quien soy yo  y
+[01:40:08] esto no lo vamos a hacer, lo vamos a hacer  más adelante  y esto lo vamos  a cortar hasta acá  esto lo vamos a cortar  hasta acá porque este es el ejercicio  de la clase que viene  así que vamos a dejarlo  hasta acá  y lo que vamos a hacer ahora  es  dado que me tienen que entregar ese ejercicio  quiero que veamos
+[01:40:44] Bueno, esto no lo tienen ustedes, pero se lo voy a mostrar de todas formas.  De onda.
+
+[01:41:09] Acá.
+[01:41:11] Ok.
+[01:41:12] Para el ejercicio que tienen que entregar para la clase que viene,
+[01:41:16] estos son los comandos que van a tener que usar.
+[01:41:19] Ok.
+[01:41:20] Así que vamos a leer el ejercicio y vamos a irlo haciendo entre todos.  Entréguenmelo igual, ¿no?
+[01:41:33] O sea, tienen que entregarlo, pero vamos a ir haciendo.  el primer ejercicio que dice  crear un archivo de nombre archivo 1  y de extensión txt utilizando touch  esto ya lo hice  que comando tengo que usar  touch que hace  crea un archivo  crear un archivo con nano  de nombre archivo 2  y de extensión txt  que es nano  saben lo que es nano  un editor de texto  alguno acá en zoom conoce  nano o vi?  si, no  no?
+[01:42:10] si  ok, bueno, nano es un editor de texto  como por ejemplo  visual studio code, como  notepad, como blog de notas  como  cualquier otro  editor de texto que pueda llegar a existir  etcétera, ¿cómo creamos un archivo  con nano?  sencillo  nano  acá tenemos el  acá ingresamos  acá ingresamos nano  nombre del archivo  sencillo  nano nombre del archivo, esto que hace
+[01:42:49] abre el archivo, si el archivo no existe lo va a crear  abrimos un archivo  cuando entramos con nano  vamos a abrir un archivo
+[01:42:58] de extensión te dice agregable a la línea, primera línea  entonces nano  nombre del archivo y agregamos  primera línea  y saben que, podemos irlo haciendo  si está instalado  lo hago  no, no, no
+
+[01:43:34] si te faltó el txt creo  si, si, si  no, no, no
+[01:43:54] xp y acá pongo primera línea
+[01:44:01] como salgo de acá la pregunta ok si bien ahí abajo
+[01:44:07] bien ahí abajo aparecen varias opciones bueno ahí aparece una que se llama
+[01:44:13] write out esa opción lo que me dice es que va a guardar lo que yo estoy haciendo  me dice el nombre del archivo  a sobre escribir o escribir  es archivo 2.txt  le pongo enter que es el que quiero
+[01:44:30] y después simplemente tengo que hacer un exit que es un  control x, si yo hago un exit  de control x sin haber guardado
+[01:44:37] primero lo que me va a pasar es que me va a decir  este, está seguro que
+[01:44:41] quiere salir o no quiere guardar primero o algo así
+[01:44:43] y ahí ustedes ven si lo quieren guardar o no  ok, entonces si hago  el s de vuelta  me muestra archivo 1 y archivo 2
+[01:44:51] ¿Qué hacemos para enviarte esto a vos, por ejemplo, profe?  Capturas  Capturas de pantalla  Ok  Quedará un archivo  Mediante bit  De nombre archivo 3 y extensión txt  Agregable a la primera línea con bit  Ok  No está instalado  Archivo 3.t  Ah, buena parada  ¿Bim?
+[01:45:20] ¿Bim tampoco?  seguramente también lo es  sí, pero no lo vi  bueno, es parecido a nano  la única diferencia de Vee  es que Vee tiene tres modos, modo de escritura  modo de inserción y modo de comandos  para salir de Vee tienen que poner dos puntos  Q  busquen en YouTube
+[01:45:43] busquen en YouTube cómo funciona Vee y si no me escriben por privado  y si le quieren no guardar  le ponen una exclamación  y si quieren guardar es dos puntos W  primero guarda  Esto uno, esto dos, abrevejo yo.  Podés hacer WQ, Wipes.  También WQ.
+[01:46:00] Es más fácil.
+[01:46:02] Ya tenemos otra como...  Como entrar al modo comandos.  Como instalar...  Ok.
+[01:46:14] Creo que WQ  y internación  lo guardas sin importar qué.
+[01:46:20] Por conflicto.  Ah, pues.  con esto debería ser suficiente  para cualquier caso a la altura  de este taller  lo que comentan los compañeros  no lo van a necesitar  pero  está buenísimo  vi  es como  un viaje de  no ida  pero tampoco  porque es complicado  o sea  al que le gusta  le gusta mucho  y al que no le gusta  no le gusta nada  hay un odio ahí  es otro editor de texto  más  que te da  más capacidades  como comentaba  un compañero  por ejemplo  que tiene un  ¿cómo se le llama?  registro  guarda registro  de todas las cosas  podés ir modificando  varios registros  es como  los comandos  pues AWK  y te mandas  te abrís una consola de adentro  podés hacerlo como quieras  incluso
+[01:47:36] NeoBeam te deja hacer cosas  más locas como instalarle  instalarle  los plugins  claro, pero algunos de los plugins son incluso  correctores de texto  de lenguajes  muy increíble  entonces estás escribiendo con el  soft  y al loco ya, boom, la autocompleta  en el propio no, es una locura  y te da lo mismo  cuando estás programando algo que vas a poner  punto  no sé, add
+[01:48:10] y pones add y ya te sabe que va una D  al final porque es la única función  de string que termina carregona  ¿cuánto tira la documentación de la función?  sí, ahora está muy bueno
+[01:48:21] Lo tengo por ahí, si quieren algún día se los comparto  Es como una base muy limpia  De un Visual Studio Code  En Neovim  No sirve para absolutamente nada  Porque no vas a trabajar con eso
+[01:48:32] Y no lo vas a usar jamás en tu vida  Pero, ah bueno  Bueno, esto ya lo vi  Generar una carpeta de nombre Carpe1  Copiar el archivo 1 de dicha carpeta  Bueno, ¿cómo generamos una carpeta?  Este lo vimos  MKD  ¿De qué nombre decía? Carpe1
+[01:48:50] Y luego te decía, copiar el archivo 1 en la carpeta 1  ¿Cómo copio un archivo en una carpeta?  CP  CP, ¿qué?
+[01:49:03] No, bueno, vamos a captarla  Archivo y carpeta  Archivo 1.txt  Si le dan el tab, los autocompleta  Y  Car  P1  Ok, ahora si hago
+[01:49:18] ls de carpe uno me tira archivo uno porque acabo de copiar ls lista donde va a estar en la ruta
+[01:49:27] que le pase como yo no le pasó nunca el ruta como yo le pasó nunca ruta va a estar siempre en la
+[01:49:35] ruta de base pero como estaba en el pase de cartel 1 pelita y ok mover el archivo 2 a la carpeta
+[01:49:43] generada en el mundo anterior estos mover ya no es copiar como el nuevo archivo de carpeta otra  MV
+[01:49:54] Bien, MV  ¿Y cómo sigo?
+[01:49:59] Archivo que quieras mover  Archivo que quiero mover  Archivo 2  ¿A dónde? Al carta  Ok, si hago el S  Dejarme de vuelta, ahí tenemos el archivo 2  Si hago el S, ¿dónde estoy yo?
+[01:50:15] Ya no está el archivo 2  Bien  ¿Generar una carpeta de nombre Carpe2?
+[01:50:22] ver el contenido de Carpe 1 y ver el path
+[01:50:24] bueno, tabler con contenido de Carpe 1 ya lo hice
+[01:50:26] generar una carpeta de Carpe 2 y se me cae de vuelta  ver el path, ¿cómo veo el path?  en el que estoy parado  ok, sí  pwd, me dice home  barra dos boxes, y si quiero ver el  path de una carpeta  ¿dónde está Carpe 2?  ¿en qué path tiene Carpe 2?  fine, ok  ¿qué?  fine  ¿Tienes el nombre?  ¿Tienes el raíz?  ¿El que es?  ¿O bueno?  ¿Desde dónde?  ¿Para qué?  ¿Para dónde estás?  ¿Para vos?  ¿Probemos?
+[01:51:06] Find, guión, time, espacio, hotel  Ah, espera  Que te voy a decir cualquier cosa  Vamos a tratar de hablar de eso  Find  Guión, time, espacio, hotel  Guión  El pad donde querés buscarlo va antes de...  ¿Este es el guión?  Creo que lo tenés en teclado inglés  Entonces ahí está  Y no sé ni cómo cambiarlo  Bueno, no lo vamos a probar  Porque no sabemos cómo cambiar el teclado  Fíjate con load case  Espacio ES  O sea, load case  Y creo que eso te carga  El teclado  No sé  No me quieras hackear la mano  Bueno, eso  Búscalo ustedes  Con Fine sale  Y si no te parás  Dentro de la carpeta  Y tirás un PwD  Como la base  Pero el contenido  De Carpe 1  Y del path  Crear un directorio  Llamado  Mis documentos  En tu directorio personal  Una vez que estás  En directorio  Mis documentos  MKDIR lo mismo  Y CD  Change the directory  Por ejemplo  No tengo directorio personal  Pero imaginemos  Que hago uno  Que se llama  MKDIR  Personal  Entonces para ir  A mi directorio personal  Hago CD  Personal  listo, ahí estoy en el directorio  para ir para atrás es cd.jum  navegué hasta ese directorio, listo  creo un nuevo fichero llamado notas.txt  dentro del directorio, abra notas  utilizando el editor de texto nano, escriba  algunas notas, guarde el archivo, esto ya lo hicimos  se lo vemos que era parte 1  creo un subdirectorio llamado trabajo dentro de mis documentos  creo otro subdirectorio llamado personal dentro de mis documentos  muevo el archivo notas.txt  en mis documentos de trabajo, enumero el contenido  del directorio de trabajo para confirmar
+[01:52:57] que el archivo ha sido movido, todo esto ya lo hicimos  con los pasos anteriores  es todo lo mismo  así que quiero esto para la clase que viene  y listo, terminó la clase, vayan  fuera  bueno, nos estamos viendo chicos  un gusto, un placer, igual que siempre  y nos vemos el jueves que viene  pasen bien, chau  chau
+[01:53:22] que terminen bien  adiós

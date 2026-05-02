@@ -59,7 +59,10 @@ Patrones compartidos a esperar en cualquier profesor nuevo:
 
 ## Herramientas (utils/)
 
-- **Imprimir PDF**: `node utils/print/build.js <archivo.md>` — A4, blanco y negro, tipografia grande, KaTeX para formulas LaTeX
+- **Imprimir PDF (normal)**: `node utils/print/build.js <archivo.md>` — A4, blanco y negro, tipografia grande (12pt), KaTeX para formulas LaTeX. Genera `<archivo>.pdf`.
+- **Imprimir PDF (compacto)**: `node utils/print/build-compacto.js <archivo.md>` — A4, fuente chica (9pt), line-height apretado, margenes reducidos. ~55% menos paginas que el normal. Genera `<archivo>-compacto.pdf`. Ideal cuando el documento es largo y el costo de impresion importa.
+- **Audio MP3 (TTS)**: `python utils/tts/build.py <archivo.md> [--voice VOZ]` — Genera `<archivo>.mp3` con voz `es-AR-ElenaNeural` por default (edge-tts). Para escuchar manejando.
+- **EPUB**: `python utils/epub/build.py <archivo.md>` — Genera `<archivo>.epub` con capitulos por H2. Compatible con Read aloud de Google Play Books.
 - **Procesar Showcase completo**: `python utils/video-compressor/process-showcase.py "<ruta-showcase>"` — Escanea un Showcase de Unvimeo, identifica curso y fecha, comprime videos, copia transcripciones, y coloca todo en las carpetas correctas. Requiere ffmpeg en PATH.
 - **Comprimir video individual**: `python utils/video-compressor/compress.py [--output DIR] <video.mp4>` — Comprime a 480p/10fps H.265, auto-divide en partes <95MB.
 
@@ -80,5 +83,7 @@ ort/
           respuestas.md
   utils/
     print/                       — MD a PDF (build.js + CSS)
+    tts/                         — MD a MP3 (edge-tts)
+    epub/                        — MD a EPUB (ebooklib)
     video-compressor/            — Comprimir y dividir videos (compress.py)
 ```

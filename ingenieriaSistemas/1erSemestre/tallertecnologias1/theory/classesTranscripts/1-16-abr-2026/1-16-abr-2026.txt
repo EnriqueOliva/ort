@@ -1,0 +1,455 @@
+Transcript generated automatically. Some words may be inaccurate.
+Source: FI-7687-Taller de tecnologías 1-75966-TT N1A ID | 16-04-2026
+URL: https://vimeo.com/showcase/12151820
+Date: 2026-04-23
+
+[00:00:00] Mira acá, chido.  Ah, mira.  Ah, pero podía arrancarlo aquí por el otro.  ¿Dónde pasará el material?  Es como una serie de trucos.  Claro, es otra materia.  Claro.  ¿Estás haciendo taller?  Sí.
+[00:00:19] Bueno, ¿cómo andan?
+[00:00:21] ¿Terminaron de copiar esto?  Ahí está.  Ok.
+[00:00:27] Consulta, ¿hay problemas?  Sí, hay problemas.  ¿Hay problemas, sí?  Sí, hay problemas.  Armandra Nielsen, que no me deniera hacer.  Dale.  Dale, la corredora.
+[00:00:37] La licenciatura lo manda al...  No, es el...
+[00:00:48] Sí, es que yo en la clase pasada fui al 313,
+[00:00:54] y estuve ahí un rato y no vi a nadie.  Y después vine para acá.  No, uno del anterior se inició todo.  Claro que se le pagaron.  Sí.  Bueno, buenísimo, gracias  Bueno  Hace calor, ¿no?  Acá con el aire está bien  Ok  Es la primer clase  De taller formalmente hablando  Porque hasta ahora siempre venían  ¿Hay gente? ¿No?  Hola, ¿qué tal?  Sí, estamos acá  a la gente  ¿cuántos hay en el Zoom?
+[00:01:41] un, dos, tres, cuatro personas  bueno, por reglamento  se pide que se prendan las cámaras
+[00:01:47] a mí no me molesta, si la quieren dejar apagada  no tengo ningún drama  pero por lo menos  cada tanto si los nombro o alguna cosa  ah, no, hay más en el Zoom  hay como 10 personas
+[00:01:57] cada tanto si tienen ganas de hablar o decir algo  estaría bueno como que se muteen un segundo  o levantan la mano  se prendan la cámara  y ahora  ok  hasta ahora  ¿qué dieron?  ¿quieren algo con las personas?  era una psicóloga  que lo daba  introducción al BN  y vimos  que después  que después no son  irrelevantes
+[00:02:40] Bueno, bien, bienvenidos al taller de tecnología, formalmente hablando, ahora arranca el curso
+[00:03:04] como tal. Este curso arranca un poco tarde, ya estamos en abril, si ustedes hubieran visto  la planilla del curso les dice que  la semana pasada  se tendría que haber leído el obligatorio  no se leyó, dudo mucho que lo lea hoy  seguramente lo lea la clase que viene  independientemente de ello  es un obligatorio muy sencillo, muy fácil de hacer  que lo vamos a ir construyendo en la clase  así que no debería haber mucho problema
+[00:03:26] si es que tiene problema me pueden contactar fuera de hora  en cualquier momento, pero ahora paso a  hablar un poco más de ello  bueno, presentación  yo en realidad no los conozco  yo sé que ya se conocen todos ustedes  bueno, gracias a nadie porque no viniste nunca  acá por Zoom seguramente ya conozcan  los nombres de algunos de otros  pero me gustaría conocerlos, cuéntenme un poco  ustedes, a ver, ahí tienen las preguntas clásicas  cómo se llaman, si son del interior  de la capital, no, no es relevante  pero si quieren mencionarlo  por qué eligieron esta carrera  y al final de todo me presento yo  así que  ¿quién tiene ganas de arrancar? ¿por Zoom?  a mí me gusta arrancar por Zoom  Al primero que tengo acá  Mateo Silveira  ¿Sí me estás ahí?
+[00:04:14] ¿Estás bien?  Ya  Ahí se me ve  Igual  Sí te ves  Sí  Me veo  Bueno, nada  Soy de la capital  Me llamo Mateo  Y  Justo con esta materia  tuvimos una introducción en la primera clase  en la primera clase  la psicóloga presentó a todos  pero  bueno, eso  después  elegí la carrera porque  siempre me gustó  el tema de entender  lo que hacemos  o lo que creamos, por así decirlo  estar atrás de eso  ¿Race?
+[00:05:06] No sé qué más  ¿Cuántos años tenés?
+[00:05:09] Tengo 20 años  ¿Trabajás?
+[00:05:12] Trabajo, sí, de mañana y de noche  ¿Pero relacionado a algo de la carrera o no?  No, no, nada que ver  ¿Y entraste por qué te gusta  lo relacionado a la...  Siempre me gustó el tema de  programar  Y el tema de los juegos y esas cosas  Me parece un mundo interesante  Ok, muchas gracias  Muchas gracias por tu presentación  Ahora vamos a la clase  Vos que recibiaste  Yo creo que te conozco  Te vi en algún momento, ¿no?
+[00:05:50] Es la primera vez que te curso  ¿Te cursás una materia?
+[00:05:55] Sí  Hay alguien muy parecido a vos en esta causa  Tené cuidado
+[00:05:59] lo típico seguramente ya lo conozcas o sepas el nombre de alguno pero  y esta carrera porque
+[00:06:19] y empecé a trabajar mientras estudiaba en sistemas  que me gustó  así que me cambié  para sistemas  ¿trabajás ahora de esto?  sí  ¿qué te dedicas?  trabajo en sistemas  en Modestart  ¿Modestart?  sí  ¿qué programás ahí?  no, soy tipo  la parte  operaciones  infraestructura  ¿verdad?  ¿qué más?
+[00:06:40] muy lindo  infraestructura  cátedra de arquitectura  damos esta materia  y otra  bien  seguimos por acá  allá al fondo  yo soy  de 97 años  soy de 33  tengo esta carrera  porque siempre  me gustaron las computadoras  siempre supe que eso era  todo lo que podía hacer  igual también me gustan  las capas en el futuro  cambio  para entregar a todos  pero en el momento  ¿estás viendo Montevideo ahora?  sí, sí, sí  y trabajo de soporte  de un programa que  pone más o menos  en relación con la carrera  eventualmente con los temas  si puedo  mi madre  me hace  a pesar de lo que  me hace  ¿no?  que genial  ¿tu postre favorito?
+[00:07:32] es que elegí uno  ok  genérico  bien  gracias por la  introducción  soy Leonardo  tengo 27 años  soy de  Montevideo  y  soy de la empresa laboral  pues  con usted  más con usted  y  trabajo con usted  ahora  y  ahora que me lo puedo permitir  me voy a estudiar  ¿Trabajás en esta hora?  Sí, soporte, pero es un soporte  bastante amplio, así programado  ¿Tenés alguna mascota?  No tenés mascota  Y si tuvieras una mascota  ¿Cuál te gustaría tener?  ¿Un gato?  ¿Y tu animado favorito?  ¿También los gatos?
+[00:08:25] Gracias  Me llamo Gonzalo, tengo 27  actualmente vivo en Londres  en la casa de las piedras  en la zona de la unión con temas  de trabajo  y de tuya que quedamos más cerca  de trabajo  de sistemas  un abrazo  estoy en desarrollo  y no, me anoté en la carrera  porque en realidad llegué  a la hora  así que nada  esta es la forma de seguir creciendo  y profesionalizarme  ¿cuál es tu favorito del helado de menta?  te iba a preguntar otra cosa  no importa  el helado de menta, sos de esos  te espero afuera  ¡Ey! Mirá que se lo despierto.  ¡Listo!  ¡Al toco!  ¡Olé! La de menta.
+[00:09:19] Me da mate y le da menta hasta además, así que... ¡Qué bien, tío!  No era hombre.  ¿Canción favorita de Green Day?  Canción favorita de Green Day, Back in Space.  Ok.
+[00:09:30] Gracias.
+[00:09:32] Yo soy Verónica.  Soy montevideo, siempre fui montevideo, siempre fui montevideo...
+[00:09:39] Born and raised.
+[00:09:41] Sí, elegí esta carrera porque como él trabajo en IT,  trabajó hace, en este momento, casi 11 años.  ¿11 años?  Sí.  Una trayectoria.  Sí, arranqué como UA, ahora soy una especie de,
+[00:09:59] seguí como desarrolladora y ahora soy una especie de paloje  que hace lo que venga.  Hago desarrollo, testing, arreglo cosas de base de datos
+[00:10:07] y cuando mi manager no estaba también le hago de manager.
+[00:10:10] y los bomberos y nada de venir para acá porque creo que la industria cada vez está más desafiante
+[00:10:25] y más picadora de carne y nada y quiero mejorar un poco mis conocimientos en la parte más cimientos  y también  mejorar un buen currículum  tener un level allá y decir  quiero cobrar esto  o algo y tener un título  de más que lo santifique  Buenísimo, muchas gracias  Pará, Pará  ¿Escritor favorito?
+[00:10:57] Muchos  hoy en día el que me acuerdo más  porque marcó mi infancia
+[00:11:03] y aún así hoy en día con todos sus libros  de Felip Baña, uruguayo  pero  Philip Pullman es otro  gran  pero los de  Feridu Bañar  el Jorge  ¿qué dos dejes?  ¿los cómo?  no los putié pero me pasó una vez  en una feria del libro  que me ofreció un papelito  con su firma
+[00:11:31] y mi hermana dijo ¿pero usted es el autor del libro este que te encanta?  y me fue  y la segunda vez  ya fui como para pedirle  ya fue como, ya estaba haciendo una tarada  y me fui, y la segunda me pasó  que  estaba en una feria del libro y estaba mucho  su libro y dije, vete y saco el tercero  y no saco el tercero  se me cayeron un montón de libros  y vino un flaco, me empezó a ayudar  y digo, ah, este flaco, lo odio  porque no escribe el tercer libro
+[00:11:59] y la que estaba al lado dice, ah, yo lo amo  y abrazó al flaco  era el actor  es él  y no, nunca me atreví a decirle vos  porque siempre  quedé pegada  del pobre  bien, muchas gracias  seguimos por acá  Benja Rodríguez  me imagino que es Benja  correcto  tiramos el apodo ahí  ahí va, ya tenés ahí la evaluación del nombre  bueno, me dice Benja  venís más a aprender la cobertura  para un ratito  ahí tipo  para la presentación  no, pasa nada, no te estás viendo igual  mirá que no estoy compartiendo  ahí va  me llamo Benja  soy del interior, soy de la Cuarenbo  siempre me gustó mucho la programación  toda la parte de ingeniería  matemática y todo eso  y tal, justamente por eso mismo elegí la carrera  y bueno, nada  me gusta mucho la música  toco piano, guitarra, un montón de cosas  batería también, bajo  ahí de vez en cuando  y nada, eso nomás  ¿Y viste actualmente  el trabajo de Mojo?  No, yo también  Ah, bien  Bien, bien, bien  a pensar  ¿Cómo te ves?  Ah, ok, bien  O sea, mal, no, no me interesa  No, ¿cómo que mal, profe?  No, ¿cómo te bloqueo acá?
+[00:13:43] Bien  No, pero te iba a preguntar otra cosa  ¿Cuál es, sos hincha  del verano, del otoño, de primavera?  A mí me gusta mucho  el otoño  Me gusta el frío  El frío del invierno  Me gusta el frío del otoño, ¿me explico?  Tipo moderado, bien  muchas gracias  estamos arriba  seguimos con  Agustín Fraigola, ¿puede ser?
+[00:14:17] sí, sí, sí, está bien, no sé si se  escucha  hola  yo había puesto un mensajito de justo
+[00:14:25] por esta clase de hoy iba a estar sin cámara  pero me comprometo a estar con cámara  el resto de clases  yo soy Agustín  yo soy Montevideo  vivo en la blanqueada  actualmente trabajo como soporte técnico  para varias empresas  hincha nacional  hincha nacional, sí, sí, hincha nacional  y elegí esta carrera  porque me gustaban  mucho las computadoras  siempre me gustaban mucho las computadoras
+[00:14:55] y yo en realidad  antes venía a ser profesorado  y me quería cambiar de carrera  y me dio que pasar  y di clase durante un par de tiempos  un par de años  ¿Profesorado de qué?
+[00:15:07] En realidad yo estudié  Biología e Inglés, o sea yo hice las dos  Porque hacía una mañana y una noche  Pero también mi clase de informática después  Con Ingeniería  ¿Y te hiciste un poco?  ¿Eh?
+[00:15:21] O sea, ¿fiste profe de todo un poco?  ¿De Inglés, Biología  Y Informática?
+[00:15:28] Sí, estuvo bueno  ¿Qué más?  Te hiciste la carrera porque me gustaban mucho  Las compus básicamente  ¿Qué parte de las computadoras?  Así lo físico, cuando vos ves  decís, pa, ¿qué demás? ¿Sacarle un chip  y meterle?  ¿O el diseño  de software?
+[00:15:46] Bueno, inicialmente  me parecía como muy interesante  cómo funcionaban  cómo pasás desde  el hardware al software, en el sentido  de cómo se hace uso del hardware  para que una computadora funcione  pero ahora con el laburo me he interesado  mucho más, cosas más grandes  como funciona un data center, como funciona un servidor  como se comunican  todas esas cosas, me pareció muy interesante  ¿verdad? ¿infraestructura?
+[00:16:15] bien  si, yo por suerte de trabajo  tengo mucha libertad  para tocar infraestructura, ciberseguridad  hasta virtualización  cosas de ese estilo  y está bueno  y eso me ha llamado un poco la atención
+[00:16:29] pero hasta ahora me ha gustado un poco de todo  bien, buenísimo  ¿color favorito?
+[00:16:37] me gusta mucho  el azul clarito  ¿cuál te decían?
+[00:16:43] tipo  ¿viste el azul como de mañana?  cuando te despertás y es como bien de mañana  ese azul me gusta mucho  ¿honda, cielo decís vos?
+[00:16:53] sí, tipo cielo  tipo 6 de la mañana  ok  buenísimo, muchas gracias  A ver, vamos con  Caterina Scudetti  ¿Puede ser? ¿Pronunció bien o...?
+[00:17:15] Hola
+[00:17:17] Sí, sí, pronunciaste bien  Buenísimo  Ahí en la cámara  Bien, soy Caterina  Estoy viendo acá Montevideo  Estoy trabajando en la mañana  En una empresa de tecnología  Elegí esta carrera básicamente para  Ayudarme en tema de  Curriculum  Y profundizar  De lo que estoy trabajando también  Buenísimo  Ahí terminó, ok  Está bien, está bien  Dejá contarle algo  ¿Promadora?
+[00:18:07] No, no, trabajo en el área de ciberseguridad  Soy analista  Ok  ¿Con qué cloud?
+[00:18:18] ¿Con qué qué?  ¿Con qué cloud? ¿Con cloud?
+[00:18:22] No  O sea, trabajo con distintos  100 y dependiendo de  de  de lo que se necesita detectar
+[00:18:31] es lo que se hace, básicamente hago lo que se  necesita  ¿Cuál es tu deporte favorito?  ¿Deporte favorito?
+[00:18:41] Me gusta mucho el volei  ¿Jugás?  He jugado  Y ahora no, ya no  Bien  Muchas gracias  Vamos con el siguiente  ¿Cuántos me quedan?  Matías G  ¿Qué querés?
+[00:19:08] Galnares  Galnares, ok  Galnares, sí  Bueno, me llamo Matías  Yo vivo en la floresta  Qué lindo  Sí, sí, está muy tranquilo  Y la carrera la elegí porque  Me gusta todo lo que tiene que ver con  ¿Cómo?
+[00:19:29] Todos los lugares son lindos
+[00:19:30] A todo el mundo que no le dije qué lindo lugar  Son todos muy lindos lugares  A mí me gusta específicamente la costa  Buenísimo  Y nada, eso
+[00:19:41] Me gusta todo lo que tiene que ver con computación  Tengo a mi viejo  Que trabaja esto  Y como referencia lo tengo ahí  Sé que me va a gustar  Me ha enseñado alguna que otra cosa  Pero, ta, eso  ¿Él es programador?
+[00:19:57] O...  Él es, sí, es analista  Ok  Buenísimo  A ver, dejáme preguntarte algo  me quedé sin ideas
+[00:20:12] ¿te gusta el edad de menta?
+[00:20:16] no, no, no  más radical  pizza con ananá  ¿cómo?
+[00:20:23] no, tampoco  la puedo comer pero no la pido  ok  sabor de empanada  si tuvieras que pedir una empanada  sí  ¿cuál pedirías?  Así de sabores comunes  Comunes que encontrás en todos lados de carne  Básico, carne  ¿Con qué?  ¿Aceituna, limones?
+[00:20:52] No, voluntariamente no  Pero si me lo dan con aceituna, bueno, va  Está bien  Está bien, suficientes  Muchas controles  Mucha comida, estamos  A ver, acá  Me falta  Facundo Portillo  ¿Se me escucha?  Se te escucha bien, sí  Bueno, soy Facundo Portillo  Soy de acá, de la capital  Y, tal, elegí la carrera  Porque  Me gustaría crear soluciones  Todo lo que tiene que ver con  Con crear, así  Y me gustaría crear alguna solución  Con impacto real en la sociedad  ¿Trabajás de esto?  ¿trabajás?  no, todavía no  ok  ah, bien  dejame preguntarte  ah, no sé  ¿tenés una ONG favorita?
+[00:22:07] la verdad que no  pero Niños con Alas  está buena  Niños con Alas  Buenísimo, muchas gracias  A ver, me queda  David Pereira  Hola, buenas  ¿Se me escucha?  Se escucha bien  ¿Estás activo?
+[00:22:32] Bueno, soy David Pereira  Tengo 23 años  Soy del interior  Acá de Mercedes Orián  Estoy bastante lejos  ¿Decidiste estudiar esta carrera?
+[00:22:50] Bueno, un poco lo que estoy estudiando yo, que estoy haciendo cosas de forma autodidacta,
+[00:22:57] un poco de desarrollo de aplicación y un poco de desarrollo web, y bueno, probando algo nuevo, a ver qué sale acá.
+[00:23:05] Bien, buenísimo, buenísimo. ¿Practicás algún deporte?
+[00:23:11] Hice artes marciales por 3, 4 años más o menos.  Ah, ¿verdad? Buenísimo.
+[00:23:16] ¿Y qué? ¿Llegaste a alguna categoría alta ahí? ¿Hiciste competencias?
+[00:23:21] Fui a competir a las piedras, sí, 3 veces.
+[00:23:24] Después acá en el interior también, acá en Mercedes también hace poco hubo una competencia y también fui.  Ah, buenísimo.  Ahora me dedico más al gimnasio igual.
+[00:23:33] Bien, bien, bien. Buenísimo, buenísimo. Muchas gracias.
+[00:23:36] Por favor.
+[00:23:38] Continuamos. Me queda Joaquín Caballero.
+[00:23:45] Buenas tardes, buenas noches.
+[00:23:48] Hola, me llamo Joaquín, soy de Montevideo, tengo 30 años
+[00:23:52] y estoy haciendo la carrera porque es una que tengo pendiente de hace mucho tiempo.
+[00:23:58] Buenísimo, me encanta.
+[00:24:01] ¿Vos sabés que yo también tengo una carrera pendiente?
+[00:24:03] Yo en algún momento de mi vida, cuando termine esto, tengo ganas de hacer historia.
+[00:24:07] La licenciatura en historia en Facultad de Humanidades en Casa Genes.  No, pero a esta hora  El partido arranca en media horita, ¿no?  La tensor  Bien  ¿A qué te dedicas?  ¿Trabajas de esto o no?  Sí, ahora estoy como  Frontend  Y he trabajado  Empecé backend, hice un poco de  QA, automation, después hice full stack  Hice un poco de  Mobile y ahora  Full frontend  ¿Te tocó un poquito?  Sí, sí, he trabajado  Buenísimo, buenísimo  Dejame preguntarte  A ver  Dejame preguntarte  ¿Tenés algún director de cine favorito?
+[00:24:59] No, no, no me sé los nombres  Ni siquiera  ¿Una película favorita?
+[00:25:07] Oppenheimer  Ok  Ok, bueno  Muchas gracias  A ver, me queda  Victoria Comas  ¿Me pronuncio bien?  ¿O es Comas?
+[00:25:28] Sí, Comas  Está bien  ¿Está bien?  Bien, sí  Bueno, yo soy Victoria  Soy de Montevideo  Esta sería mi segunda carrera  ya habíamos contado, ya nos presentamos  para los demás  estudié bioquímica  en la facultad de ciencias y bueno  después de varios, muchos años  trabajando  en investigación, dando clases  y me empezaron a gustar los datos
+[00:25:59] y por ahí me metí a la parte de tecnología  y bueno, ahora estoy trabajando  desarrollando aplicaciones  pero de datos, de análisis de datos  acá en la ORT  y bueno, nada  por ahora, creo que también el mercado  está bastante  competitivo y está bueno  además como yo vengo de otro palo  o sea, también  si bien hice muchos cursos por mi cuenta  y  también algunos otros en algunas  instituciones, pero como que  está bueno tener una carrera así de grado  que te avale un poco también lo que  Sí, sí, buenísimo  lo que comentás, en realidad vos sabés que yo  muchas veces siento que cuando la gente viene  de otro palo, o sea  cae un músico y se pasa  para acá un arquitecto  vos como me decías que hacías química  como que viene con otra cabeza  y para mí eso influye un montón  te cambia un montón la cabeza  y te ayuda muchas veces a diferentes  tipos de soluciones, a concargar las cosas  y haces siempre lo mismo, siempre lo mismo
+[00:27:00] siempre lo mismo, entonces siento que estás como en una cajita  y es más difícil  así que buenísimo lo que comentaste, ¿verdad?
+[00:27:08] Sí, gracias
+[00:27:09] Voy a preguntarte algo. ¿Trabajás acá en la Bort? ¿Me dijiste?  Sí.  ¿Pero estás clases acá o...?
+[00:27:19] No, no, no. Ahí viste en DSEID, por los sistemas de Bort, está bueno ahí la parte de...
+[00:27:26] Como haciendo aplicaciones en Clixen, se llaman, como para diferentes partes de la facultad,
+[00:27:31] gestión académica, marketing, con datos mismos de la facultad, de la base de datos,  y datos variados de otras cosas.  Buenísimo, muchas gracias.  De nada.
+[00:27:43] Gracias.
+[00:27:44] O sea, ¿qué tal?  ¿Cuáles son los opciones?  ¿Cuáles son tantos?
+[00:27:48] ¿Quién?  Ferrer.
+[00:27:52] ¿Quién?  Candela.
+[00:27:57] Estás por Zoom, ¿no?  Sí.  ¿Vos?  Santos.
+[00:28:04] Martínez.
+[00:28:08] ¿Aureo o Facundo?  Facundo.  Bien.  Fernández.
+[00:28:14] Gracias.  A ti, hasta luego.  Y creo que por Zoom eran todos.
+[00:28:19] Sí, a ver, Matías, Agustín, Caterina, Victoria, David, hay dos Juan, ¿quién es ese mismo?
+[00:28:34] No, eso no es así. Bueno, buenísimo. Ah, pará, y vos que llegaste recién por la computadora.
+[00:28:40] Sí, sí, sí. Yo soy de la Universidad de Altea, yo también estoy trabajando, bueno,
+[00:28:45] para mejorar profesionalmente y por lo que dijo también para tener un título cabal
+[00:28:54] y lo que uno sabe también está bueno. Ahora estoy trabajando en una empresa de SMS,
+[00:29:01] manejo la parte de infraestructura, arranqué a trabajar en la automatización, un poquito
+[00:29:08] pero por onda media era más posible, todo solo en la infraestructura.
+[00:29:11] Y creo que... bueno, tengo 20 años y soy de Alcandir.  Ah, ¿verdad? ¿Qué provincia naciste?
+[00:29:18] Nací en Buenos Aires, pero en la capital, San Antonio de Jampolito.  Sí, me suena. ¿De qué cuadro naciste?  En Argentina, Sede de River.
+[00:29:27] ¿Argentina, Sede de River y acá? ¿Para qué edad te monté a Uruguay?  Ah, a los 18. Tengo 20.  Ah, vamos, te dicen la River.  Sí, sí, yo soy de River.  Eso no se cambia.  Bueno, bien.
+[00:29:38] Las reglas del taller.  ¿Concurrir?
+[00:29:42] ¿Tu presentación?  Ah, es verdad.  Me había olvidado.
+[00:29:49] Bueno, me llamo Mateo.
+[00:29:50] Creo que aparece en el cosito, en el aulas, cuando ven.  M aparece.  Aparece M.  Para que todo llegue bien.  Mirá, Mateo.  Mateo Barbachán.  ¿Se puede comunicar conmigo por Teams?  Ahí, como dicen, nos presentamos y sumamos a Teams.  No hay grupo de Teams todavía.  lo voy a hacer en algún momento  capaz el fin de semana, capaz que no  capaz que el otro, no sé, cuando vea  cuando lo considere adecuado  me pueden escribir por team siempre que quieran  soy el único Mateo Barbachán  como suena, eso sí aparece en el aula  ¿no? mi apellido  voy a escribir igual por las dudas  ¿cuál aparece?
+[00:30:25] ¿sabes?
+[00:30:28] aparezco arriba, ¿no?  sí, el primero, listo, me encuentran en aulas  el primero que sale abajo de la cátedra  de la materia de taller  vengo 26 años  soy de acá de Montevideo  casi canelones  me dicen que soy del interior  pero no lo soy, soy de Montevideo  zona semi rural  hay vacas pero no pueden haber chanchos  hay una diferencia  trabajo  de desarrollador hace ya  4 años  más o menos  me dedico a todo un poco  backend  infraestructura  va a quedar infraestructura, no, frontend no toco  no me gusta para nada, pero  mi posición es full stack, aunque nunca hice nada  de frontend, por suerte  gracias a  Dios  y qué más contar, a mí una pregunta  que tengan, doy clases hace ya  arranqué cuando tenía  22  hace 4 años, también, hace 4 años  que doy clases de esta misma materia, 4 años  consecutivos acá, fieles  pero ya el semestre que viene  les cuento un tatazo, ya el semestre que viene  no creo que dé más  esta materia, voy a subir
+[00:31:40] a la siguiente materia, porque esta materia capaz que la cierren  creo que  el semestre que viene esta materia se cierra  y la base  de la cátedra va a empezar a ser arquitectura  en la siguiente slide
+[00:31:52] creo que en estas de acá se muestran las materias  de la cátedra y creo que ya saltamos  con arquitectura, entonces arranco en eso  ¿Alguna pregunta que tengan?  No me gusta el helado con menta  Soy nacional  ¿Cuál?  ¿Mascota?  Mascota  Tenía dos perros  Tiene los dos  Hace ya como tres años  No he vuelto a tener perros  Me gustan mucho los perros  Tendría más  No tengo porque  No me da tiempo en general  No, no  Como que quede mal  Ni a eso  Estoy bien  ¿Alguna otra pregunta?  ¿Director favorito?  ¿Lenguaje?  ¿Lenguaje, profesión favorito?  ¿Director favorito a qué?  Es por CES  Canción favorita de linday
+[00:32:35] Uh  El parada  Good Riddance  Esa  Esa es muy buena  La necesito para quitar  Jueguito de computadora
+[00:32:43] Uh  Complicadísimo  Me compré una Play  ¿Vos sabés?  Fui a comprarme una Play  Porque era más barata  Tengo 10 dólares  Verreta  Tremenda  Este  Pero estoy jugando más a la Play  Ahora  Hace tiempo que no juego a la Compu  Pero cuando jugaba  Ponía que  No era mi favorito  Pero la que más jugaba era  el rol, exageradamente  ¿y el favorito del play?
+[00:33:03] no, pará, ojo, mi juego favorito no era el rol, era el Mass Effect  que me lo compré de vuelta en la play  juegazo, y el canadien también  que se me acaba acá tanto  pero el rol era lo que más viciaba obviamente  un perrito  de play, juego de play  y ahora estoy jugando  ahora estoy jugando la trilogía de  Uncharted, pues me la compré  a esa, viste, el Nathan  ladrón es algo simple  no lo había jugado nunca  conocía el juego pero nunca lo había jugado  y cuando vi la película dije, qué mala película
+[00:33:32] voy a jugar al juego para ver si es igual  y no, el juego está mejor por suerte  ¿no más preguntas?
+[00:33:41] ¿película favorita?  no tengo  ¿tienes los anillos?
+[00:33:48] ¿reglas?
+[00:33:50] bueno, concurrí  ¿el lenguaje de programación favorito?  para otra pregunta  ¿Mi lenguaje de programación favorito?  ¡Uy, qué buena pregunta!
+[00:34:00] Acá en la ORT se insiste mucho en C-Sharp  Demasiado
+[00:34:04] Como que te abren la boca y te lo meten por la garganta  Pero a mí C-Sharp no me gusta mucho  Últimamente hace ya como  Dos años  Soy bastante fanático de Golang  Me parece muy sencillo de aprender  Muy sencillo de usar  Muy fácil de todo lo que es  Ese sería mi lenguaje favorito  Pero  Más o menos  Java tampoco es malo  banco  a los files de Java  también los banco  y no gusta sellar  ¿no?  que contradicción de la vida  este  yo también  también  no quiero sellar  no
+[00:34:40] bueno concurrir por favor venga ok porque esta materia da puntos conforme van viniendo hay dos
+[00:34:47] obligatorios no hay parciales y hay 15 puntos de clase esos 15 puntos de clase se dan mientras
+[00:34:53] vengan y hagan unos ejercicios en clase que vamos a ir haciendo arrancar la semana que viene
+[00:34:57] también abarca el zoom estaría bueno si venís presencial porque es como otra viste otra jerga  se puede usar  pero  no pasa nada  si vienen por Zoom  al flaco que era  de Aguarembón  o no  que se venía acá  vivía en Montegrego  dijo  ah vivía en Montegrego  ah no  cuál era  yo profesor  cerró el día  a ver vos no te vengas  algún día  Benjamín  te voy a esperar  bueno  salir de clase
+[00:35:33] pueden salir de clase  cuando quieran  no me molesta  este
+[00:35:37] ¿Cómo me comunico con el docente? A través de Teams.
+[00:35:39] Me buscan, no al de Barbachán, el único que aparece.  ¿Barullo en clase? La importancia de tener la palabra.  Bueno, puede haber.
+[00:35:47] ¿Puntualidad? Sí, yo me gusta arrancar la clase ahí, como en hora, unos minutitos antes, porque me gusta.  ¿Dinámica de clase? ¿Trabajo en grupo y actividades?  Hay bastantes trabajos en grupo.  Hay actividades, en realidad, no trabajos en grupo.  Si lo quieren hacer en grupo, allá ustedes.
+[00:36:04] ¿Cuánto demora en responder? No sé, puede ser entre 10 segundos a un día. Así que,
+[00:36:15] manéjenlo. Si me quieren preguntar algo con respecto a los obligatorios,
+[00:36:19] tenganlo en cuenta. Si estoy desconforme, ¿a quién recurrir? Bueno, me pueden comentar a mí,
+[00:36:24] y si no me quieren decir a mí qué maldad es la clase, lo que pueden hacer es concurrir al...  en Bedelías  se pueden quejar en Bedelías  y si quieren hacerla más heavy todavía  pueden ir al catedrático Gabriel Ventos  aparece también en el Aulas  él es el catedrático y le pueden decir  pésimo docente  y ahí él va a decir  voy a tomar las acciones adecuadas  hasta ahora no se han quejado de mí  así que no considero un logro  bueno, la cátedra de arquitectura  de sistemas  como pueden ver ahí está la primera materia  la de talleres de tecnologías  que se va a tallar  se va a tallar en algún momento
+[00:37:05] y esta arquitectura de sistemas va a pasar a estar acá  muy buena materia, esta materia es como  las bases tanto de  sistemas operativos como  arquitectura en realidad, arquitectura en base a sistemas operativos  pero acá vamos a hablar bastante de sistemas operativos  por arriba, que es un sistema  operativo, más o menos, como funciona con dibujitos  no vamos a meternos de lleno  infraestructura es solo una materia  de licenciatura  acá no la tienen, en ingeniería no la tienen  programación de redes  esta materia
+[00:37:34] es un poco un bodrio  en realidad  no tiene nada que ver  con las redes  no sé por qué  y ahora agregaron otras  hay dos más  que son  algo de compiladores  no me acuerdo  cómo se llama  no sé qué  de compiladores  y otra más  que se llama  esto es viejo  de la casa  tiene como 40 años  ya estaba cuando yo entré  imagínate  la otra se llama  mecanismos no tripulados  es una cosa así  usan drones  algo así  está buena  Es una linda materia, la da un compañero  Un amigo  Objetivos del taller  Aprender  Aprender la temática del curso  Bueno, como podrán saber
+[00:38:12] Los talleres no tienen la misma carga que las materias  Son solo dos horas semanales  Por lo que el aprendizaje  Van a tener aprendizaje, sí, por supuesto  Por eso está ahí, no está en cero  Hay un aprendizaje, pero el aprendizaje no es  Este...  ¿Cómo decirlo?  No es una materia con carga pesada  No hay parciales tampoco  no te voy a pedir que aprendas  o sea, que me hagas un sistema andando  ese tipo de cosas no se piden acá  sino que el aprendizaje es más, bueno,  resolutivo, este, cómo hiciste  esto, cómo se modelaron las cosas  así, asá, investigar  bueno, sí tiene bastante carga la investigación  porque la mayoría de las cosas que dan acá  si bien conozco algunas  otras no, porque el segundo obligatorio  tiene demasiados temas que yo no los conozco  a todos, les puedo brindar las herramientas  pero después de ahí ustedes tienen que investigar  Hay docentes referentes para cada pregunta
+[00:39:00] Si es que llegan a tenerla, en su momento lo vamos a ver  Pero hasta ahora  Ese tema no lo vamos a ver  ¿Trabajo en equipo?
+[00:39:08] No es obligatorio, pero estaría bueno que trabajen en equipo  Nota, por ser taller  Implica buscar el aprendizaje  Desde el trabajo en grupo
+[00:39:16] Es deseable que exista un arato por grupo de trabajo  Buenísimo
+[00:39:19] Por esto la van a quitar la materia, porque ya como que el taller quedó muy pesado  Quieren meter arquitectura para que sea  Más pesado  ¿De qué trata el taller?  Inox y desafíos  Bueno, vamos a hablar un poquito  De los sistemas operativos  Como acá hay un montón de gente  Ah, pará, acá hay alguien con la mano levantada  Agustín, decime  Ah, la tenía levantada la regla  Pero igual la pregunto después si querés  No, no, mandale, mandale  Ah, era  A mí me habían dicho que  Era una materia que contaba las faltas  ¿Puede ser? ¿En esta?
+[00:39:56] No  ¿podés faltar hasta N veces?
+[00:40:01] no, no, depende del docente  hay docentes que sí lo hacen  yo no lo hago, yo simplemente si me entregás  las cosas como son y  haces los ejercicios de clase  y te veo en clase  no cuento  no, sí, sí  entiendo, no era para irme corriendo  de clase sino porque me habían dicho eso  y era para preguntarte el límite, pero entiendo que  no hay límite  No, no hay un límite.  No, podés faltar.  A ver si alguien quiere.  No pasa nada.  Pero,  si sos 15 puntos de clase,  si me entregás todos los ejercicios  y faltás todos los días,  capaz que no tenés los 15,  capaz que tenés la mitad.  O sea, porque yo ahí...  No, lógico, lógico.  Entiendo.  Pero si metés  buenas tareas,  buenas entregas.  Pero los puntos  es igual que otras materias.  O sexonera  o tiene examen.  No tiene examen la materia.  Es o sexonera  o no sexonera.  ¿Qué?  ¿O sea, te exceso o nada?  No, es 70.  Se baja el límite  porque no tiene examen.
+[00:40:56] Entiendo, muchas gracias  Bueno, Linux desafíos  Vamos a hablar un poco de sistemas operativos  No es tanta la carga  No es como que les voy a decir  Que es el run robin y todas esas cosas  Eso ya va para la materia de sistemas operativos  No se va a ver acá  Lo podemos comentar si alguno tiene ganas  Eso sí, es por eso  Pero no es mucha la carga  Imagino que lo van a encontrar sencillo
+[00:41:24] sobre todo a aquellas personas que ya trabajan con la infraestructura.
+[00:41:28] Virtualización.
+[00:41:29] Había una persona acá que dijo que hacía mucho por acá, no me acuerdo.  Alguien dijo que trabajaba mucho con virtualización.
+[00:41:36] Bueno, vamos a ver un poco.  Yo sí, algo, pero poquito.
+[00:41:41] Buenísimo.
+[00:41:42] Pero con la base es suficiente con entender qué es lo que es,  para qué se usa, qué ventajas tiene.  Es buenísimo.
+[00:41:48] Comandos de consola.
+[00:41:50] No sé si están familiarizados con la utilización de la consola.  Como ya vienen trabajando, seguramente sí  Pero no solo el CD y el LS  Hay como una banda más de comandos  Este...  Desafío grupal  Eso no sé lo que es  Bien, evaluaciones, tenemos un primer obligatorio  De 30 puntos, creo que son 30  Porque esto es viejo, así que lo van variando  Capaz que son 35, capaz que son 25  Y le agregan más puntos al final  Pero más o menos tendrían que ser  30 puntos el primer obligatorio  55 el segundo obligatorio  Las fechas no le den importancia porque esto varía  y ejercicios en clase  que esto es lo que yo estaba mencionando recién  individual, tarea  bueno, este taller se aprueba con 70 puntos  tenemos un calendario de eventos  hay  hay un calendario de eventos  tenemos el general, pero con esto de que  arrancamos una semana más tarde  no hay un calendario de eventos  más o menos lo vamos a ir viendo
+[00:42:51] porque mirá  pero las entregas  son cuando están  en  las entregas  están marcadas  sí  esas 100%  digamos acá  ingeniería  en el sistema  calendario  de eventos  esto se tendría  que haber hablado  no se habló  se va a hablar  acá la semana  que viene  ¿les parece?  el 23 de abril  y se entrega  20 de mayo  van a tener  un mes entero  para hacerlo  para mí es  sobradísimo  de tiempo  muy sobrado de tiempo, es muy sencillo el obligatorio  y hoy en día  con las herramientas de inteligencia artificial  se vuelve incluso más sencillo  ¿es obligatorio hacerlo de 3?
+[00:43:32] no, no es obligatorio hacerlo de 3, pueden hacerlo de 1
+[00:43:34] si quieren, estaría muy bueno que lo hagan de 3  si lo hacen de 1  está complicado porque
+[00:43:42] para el segundo obligatorio si lo van a tener que hacer de 3  obligatoriamente, de 2 o de 3  pero la idea es que el segundo sea  obligatoriamente de 3, a menos
+[00:43:50] que no haya una tercera persona en la clase en general y yo acepto como dos porque el tercero
+[00:43:57] es bastante más pesado y hay como más carga bueno introducción a la hora que yo quiero que ya tuvieron
+[00:44:04] hablar de esas no hablar de si quisieran dos semanas  innovación y emprendedorismo  ok
+[00:44:23] si ya lo conocen tuvieron presentación y fueron al centro o guiar las siguientes  de las positivas. Bueno, ¿fueron al centro?  ¿Fueron así? ¿Pasaron por ahí?
+[00:44:35] Yo había pedido.  ¿Fueron a la biblioteca?  Salimos a pasear.
+[00:44:41] Pero no fueron así.  No, así no.
+[00:44:44] Ok, este...  Estaría bueno ir algún día.
+[00:44:49] Voy a ver qué puedo hacer. Yo pregunté al catedrático  para ir hoy, pero me dijo ese Gabriel,
+[00:44:53] que se puede quejar con él. Bueno, le pregunté y me dijo que  hoy no había nadie. Así que...  Pasé por ahí a viajar.
+[00:45:00] Así que...  Ahí ven, ahí ven.
+[00:45:05] Las siguientes diapositivas describen al estudiante  el centro de innovación y emprendedorismo.  Esto ya lo vieron, entonces, ¿no?  Tiene como objetivo fomentar la cultura emprendedora  e innovación en la universidad para lograr las ejecutaciones.  Bla, bla, bla, bla, bla, bla.  Sí, eso lo vieron.  Todo lo vieron, perfecto.  ¿Eso también?
+[00:45:25] Sí, estaba en las explicaciones.  Ahí, ahí abrimos un resumido.  Fotos.
+[00:45:31] ¿Pero qué es el CIE?  ¿Hay como mesas?
+[00:45:34] Sí.  hay mesas en el medio y ustedes van
+[00:45:36] ya no van a las mesas, ustedes van al CIE  y presentan su idea  este, mirá acá  lo mencionaron en el laboratorio  de programación  de los martes  sí, ahí va  ahí mencionaron  bueno, que he pedido ya, por ejemplo  había salido  también  hay sorteos también  puede ser, Paganza  también, ¿se acuerdan de Paganza?  remeja antes de que puedas pagar  antes de que existiera Itaú  y todas las movidas  y Totalnet y todas esas cosas  seguís usando baganza  en sus inicios, sabías lo que hacían los tipos?  iban a pagar ellos en hábitat  en sus inicios los tipos hacían eso  recolectaban todo y después un día caían al arte  pagaban 200  ¿sí?
+[00:46:28] yo pensé que dejó de existir  no, te creo  te voy a pasar
+
+[00:47:05] yo tenía como una fecha  juntaban todos hasta un día  creo que como semanal  era quilombo  pero  pero poco  pero tipo al principio no  buenísimo  bueno, el SIE les puede ayudar  si tienen alguna idea  dicen  ¿esto es rompe?  pueden ir al SIE  lo charlan con ellos  ellos les dan como  los ayudan a crear  su modelo de negocio  los ayudan a encontrar gente  que está dispuesta a pagar  por esa idea  o inversores  la ANI  la ANI sobre todo  es la que mayoritariamente  apoya a los  a los emprendimientos
+[00:47:35] que están en el CIE. La ANI es la Asociación Nacional de...
+[00:47:41] Al ser una institución con sello ANI-ANDE, el CIE puede avalar y recomendar tu postulación
+[00:47:51] a instrumentos de financiamiento para obtener fondos que permitan validar y potenciar el
+[00:47:55] desarrollo de tu experimento. Está bueno. Yo tengo varios conocidos y compañeros que
+[00:47:59] han ido al CIE con diferentes ideas. No tienen por qué tener una que la rompa. Incluso aunque  no tengan ideas pueden ir, hay talleres  pueden hablar con otras personas que sí tienen ideas  se pueden acercar a grupos  incluso hay gente que encuentra  trabajo atrás del CIE porque el CIE  supongamos que vos sos
+[00:48:15] una persona que viene con una idea pero no tenés  capital humano, necesitas a otra persona que te  ayude, el CIE junta emprendedores  con personas que buscan trabajo  está muy bueno  yo les recomiendo ir  siempre viene a venir  aunque no tengan una idea, si tienen una idea  y no logran sacarla porque  era malísima, no importa, pueden  reintentar, esto es un look infinito  siempre hay pivotes en el medio  pueden cambiar 100%  estamos bueno, nunca dejen de intentarlo  que la ORC tiene un programa muy lindo  de emprendedurismo  ¿es solo relacionado con estudiantes?  no, egresados también  estudiantes y egresados  bueno, acá hay un diagrama  ¿quiénes pueden postular su idea?  cualquier persona puede presentar una idea  para ser preincubada en el CIE  dando prioridad a equipos con al menos  un estudiante o graduado en laboratorio
+[00:49:06] o sea, si son 5 personas y uno solo es estudiante  o graduado, pueden presentarse también  y ayudar a los otros 4  a la razón lo que dice ahí, puede decir  no, sos estudiante también  dice que da prioridad  no que nos importe mucho a nosotros  habría que ver  sí, me imagino que puede ir cualquier persona  pero habría que ver
+[00:49:27] si no tengo ni idea, puedo acercarme al CIE también  por supuesto  aparte tenés esto, ¿cómo se le llama ahora?  cuando se juntan las personas y hablan entre ellas  networking  puedes hacer ahí como estas cosas  ¿qué pasa si hay gente?  hay gente, ahora hay gente ahí  trabajando, no sé, en realidad no sé  qué están haciendo, pero hay gente  yo no fui, pero  super recomiendo  bueno, acá tienen algunos emprendimientos  que salieron de ahí, acá está Paganza  para los fans  pedido ya, antes pedido ya
+[00:49:58] más más con un gorrito bueno ahora será una otra
+[00:50:06] la rifa nos mira para esta también no se seguirá existiendo  creo que sí  a la mano  de la persona  no puedo creer  a la persona  hay una  en el entrado  ¿cuál?  tu terapia  continuamos  hay un plazo  para postular la idea  no, no hay plazo  puede ir en cualquier momento  del año  no pasa nada  ¿en qué consiste  una preincubación?  bla bla bla  seguramente esto ya lo vieron  acá está el pivot  si las cosas no funcionan  se pichea la idea  se habla  se explica la idea  a la gente no le gusta  se pivotea  y se preincuba de vuelta  y otra vez  ¿Quién recibe las postulaciones?  Ya lo vieron  Quiero creer, ¿no? Todo esto ya lo vieron, ¿no?  No, ¿no vieron nada de todo?
+[00:50:57] Eso sí que ya  Ok  ¿Quién recibe las postulaciones?  ¿Quién tiene acceso a las ideas postuladas?  Las postulaciones son recibidas por los ejecutivos  del seguimiento del CIE, quien se ponen  en contacto en un plazo de 48 horas  con el solicitante  a los efectos de coordinar una primera reunión  Imagino que no mayor a 48 horas, ¿no?  efectivamente en las 48 horas  ¿Qué tipo de emprendimiento apoyan?  El CIE se enfoca en proyectos dinámicos  de base tecnológica o proyectos que tengan  un valor diferencial en cualquier área  o industria. Es un requisito que  los emprendimientos busquen innovar en su sector  y apunten a un mercado global, con un modelo  de negocio que sea escalable y dinámico  Hay modelos  de negocios  que solo sirven para Uruguay, que se pueden  llegar a plantear, hay algunos  ejemplos, pero sobre todo apoyan  más a los que son  escalables
+[00:51:47] como es el caso del pedido ya, que se puede extender a cualquier parte del mundo
+[00:51:50] como Viatic, que ahora en Uruguay no la está pegando  tanto, pero en Argentina sí  metodología emprendedora  ¿qué conceptos vamos a ver hoy?
+[00:52:04] esto creo que es para la segunda clase, pero ya como faltamos un montón  de clases, vamos a seguir acá  ¿quieren hacer una pausa de 5 minutos o  seguimos de largo?
+[00:52:16] yo necesitaría al menos 3 o 4  vale, marcamos 5 minutos  bueno, pero yo creo que  por suerte también pueden hablar si quieren  cuando yo pregunto cosas  me pueden decir  yo considero  yo los veo  ¿qué es lo que me ven?  ahí se los veo  ahí  ¿qué pasa de la Champions?  ¿quién lo leí?  ¿qué pasa de la Champions?  no sigo fútbol europeo yo  a mí se lo muestra el club uruguayo  a ver  ¿quiénes juegan la Champions ahora?
+[00:54:14] a ver  el Bayern o el PSG  ¿puedo decir que está entre esos dos?  sí  ¿entre el Bayern o el PSG?  ah, yo me quedé en el tiempo  la última vez que vi un partido de Champions  Darwin Nuñez jugaba en el Liverpool  Y creo que ya no juega más  Acá ponen  Que gana el Atleti  El Atleti  Acá  Está complicado  Mirá que ganó 2 a 1 el Barcelona  ¿Cuándo fue?
+[00:54:41] Ah, y después el Abuelo  Que gana el Barça  Ah, pero ya pasó el Atlético  Bayern  Real Madrid  ¿Le dejó fuera ayer?  ¿Le dejó fuera a Real Madrid?  tenemos acá que sería esto semifinal
+[00:55:06] y tenemos arsenal se viene la sexta
+
+[00:55:47] y ahora que no tienen el guacho este como se llama el que le pega bien a la pelota,
+[00:55:55] Leo Fernández, lo que da pina es nacional, nacional de la pina, oh jesá, te cago en
+[00:56:06] perdí porque me empatamos, se me quita el nido, se gana igual el otro día, viste, contra  la extinción sobre la curva  la pescadería
+
+[00:57:01] ¿Qué pasa?  ¿Le vemos ganando o qué?
+[00:57:39] ¿Hay otra clase de taller?
+[00:57:43] Era la misma presentación  Ah, lo de la clase  Ahora metemos  Ok, ¿qué vamos a ver hoy?  Nuevo día, comienza hoy es  La semana que viene, hardware, software, sistemas  Operativo, uno solo vamos a ver  Unix, Free Software Foundation  Open Source y Linux  Pregunta, vos habías dicho que estaba bueno  Que tuviéramos una autodrama  por el tipo, ¿tiene que tener un Windows?  tiene que tener, si lo vamos a instalar  y si no usamos  una máquina virtual o si tiene  doble buteo, buscamos eso, y si no  ¿subsystem?  no, ¿ubuntu?
+[00:58:18] ¿ubuntu?  sí, sí  bueno, puede ser subsistema  del Windows  sí, no, pero tiene que ser  un Ubuntu, instalamos un Ubuntu  instalamos un Ubuntu  no la consolita dentro  del doble buteo
+[00:58:32] es parte de curso porque no se puede usar el subsistema  no es parte del curso  básicamente por eso  también vamos a ver  un poco de docker  para aquellos  a los que no les anda  ir todo al box  porque hay algunas laptops  que no les anda  muy específicas  pero hay algunas  que no les anda  aunque actives  dentro de la BIOS  algunas ya los vienen  por defecto activadas  otras no  y aún activándolo  sigue sin andar  es un tema específico  de un fabricante  no me acuerdo  qué marca era  pero hay algunas  que no se pueden  y en las Macs  que no  pero la idea es que utilicen  una máquina virtual  ¿está bien?
+[00:59:36] ¿qué distribución de Linux?  la que ustedes quieran  acá se va a enseñar una
+[00:59:41] que no recuerdo cuál es, pero la que ustedes quieran  decir tranquilamente  bueno, ¿qué diferencia hay  entre el hardware y el software? preguntas básicas  preguntas sencillas, como para arrancar  así en caliente  a uno le podés pegar  y al otro se lo insultaron  y al otro le podés insultar  ok, algo más  un tecnicismo  uno es tangible y el otro es intangible
+[01:00:13] ok, ya es filosófico  el tema, me encanta  bien, bien  ¿otras respuestas?
+[01:00:27] ¿no?  la parte física
+[01:00:32] ¿cómo?
+[01:00:34] y la parte lógica, software  el software puede tener parte lógica  pero el hardware también puede tener parte lógica  ¿no? los chips, ¿cómo funciona la CPU?  ¿tiene una lógica?
+[01:00:50] ¿se va a dar en arquitectura eso?  ¿cómo van a armar una CPU?  ¿qué es lo que tenés?
+[01:00:55] ok, ¿otras cosas tenés ganas de decir?  yo no sé  totalmente
+[01:01:00] hace poco lo que hizo androfica en la empresa que maneja cloud fue en un chip integrado en
+[01:01:10] lugar de tener el código como aplicación como software producido como hardware ya tienen como
+[01:01:16] 125 millones de tokens pero esto es bueno uno de los apolos uno de los apolos que fue la luna
+[01:01:26] el software lo tenía lo tenía cosido tipo metían unos cabros
+[01:01:35] bueno y los programas antiguamente también eran a tarjetas ahora sí  la primera computadora
+[01:01:48] creo que es un tema que no es se toca en arquitectura
+[01:02:01] bueno que se entiende por un sistema operativo y se entiende por un sistema operativo tema operativo
+[01:02:09] operaciones sistemáticas es el que transcribe todos los procesos envía software al sol
+[01:02:23] y aunque el seminario  el sistema de seminario  es el punto jarro  claro  no sabés  una mejor descripción  bien, no, pero está perfecto  es una de sus tareas  bien, ¿qué más?  ¿qué más tenemos?  ¿acá por Zoom? ¿alguien quiere decir algo?
+[01:02:44] pues si no, señalo con el dedo
+[01:02:49] a vieja época  ¿no?  no seamos con el de Peñarol acá  ¿ves a mí?  a ver  ¿Qué entendemos por sistema operativo?
+[01:03:04] Yo sabía que me iba a preguntar a mí  No, no  Ya me agarró de punto ya, profe  No, no  Bueno, eso mismo lo que están comentando  Los compañeros  Es un sistema que nos permite poder  Operar dentro de la computadora  O sea, hacer diferentes  Tipos de cosas  Y tal, lo que estaban comentando  Que antes era todo más robusto
+[01:03:30] Hoy en día, por suerte, tenemos íconos, tenemos cosas más visuales para poder operar
+[01:03:36] y tenemos un montón de tipos de sistemas operativos, ¿no?  Pero, ta, eso nomás.
+[01:03:43] Bien, bien, bien, ok.
+[01:03:47] Bien, entonces lo podemos... ¿Alguien me va a decir algo?
+[01:03:51] Lo podemos describir como algo en el medio, ¿no?
+[01:03:57] Una cajita en el medio entre la persona o la computadora, por así decirlo, y ¿qué?  Y el hardware.
+[01:04:08] Ok.  Entre el software y el hardware.
+[01:04:10] Podemos llegar a decir la persona utiliza el software por medio del hardware, etc.
+[01:04:15] Pero eso se traduce luego con esa cajita que llamemos el sistema operativo.  Bien.
+[01:04:20] Eso es como la arquitectura moderna que tenemos hoy en día.
+[01:04:24] Sin un sistema operativo, entonces, ¿qué pasa?
+[01:04:26] si no existían los operativos no podrían andar las computadoras
+[01:04:30] pero podrías meter días a ese nivel de abstracción de casa todo el manejo
+[01:04:38] acceder a la asignación de recursos
+[01:04:47] en realidad existen el cargo del mouse  tendrías que programar los controladores  tendrías que programar visualmente  lo que sea computador  si se puede  los sistemas operativos en realidad son relativamente  nuevos, antes no  tenía sistemas operativos  con el primer tipo de arquitectura
+[01:05:12] que lo van a ver en arquitectura del 80, 86  y todas esas cosas  pero antes no  antes no había, son relativamente nuevos
+[01:05:21] pero vamos a ver más adelante en las slides que están más adelante  lo vamos a ver  este, por ejemplo si han visto  si han visto el código enigma  la película del código enigma, el flaco que mete  son unas bobinas que locos las vamos viendo  es la película de la profesora  que muy buena película  muy buena película, voy a acordar contigo  en realidad son unas bobinas  y es una computadora  es la de Turi  y al final calcula un número  una calculadora, una máquina de probabilidades  la máquina de líneas  bien, nombrar ejemplos de sistemas  operativos  están ahí todos  ejemplos de sistemas operativos  DOS  ¿cuál?  DOS  BSD  vamos a ver cosas más  que bueno  ya me lo acabé de leer  ¿Grafé o S?  ¿Cuál?  ¿Grafé o S?
+[01:06:22] No sé, o sea,  Grafé y...  El...  Bueno, sí, está bien.  ¿Está bien?  Bueno.  ¿Cómo hiciste?  Este...  Bien, bien, bien.  Fedora.  ¿Algún uso de Fedora?  Buenísimo.  Lo recomiendo.  Está bueno.  No me gustó.  Y lo que es no tener clase.
+[01:06:43] Bueno, ventajas y desventajas  de sistemas operativos.
+[01:06:47] ¿Qué ventaja?  Bueno, nos facilita la utilización de un sistema, ¿no?  Nos hace más fácil la vida.  Para el usuario, pero también para un desarrollador.
+[01:06:58] Porque si yo tuviera que desarrollar un programa, supongamos,
+[01:07:03] en una máquina que no tiene un sistema operativo,
+[01:07:05] como mencionaba el compañero, yo tendría que hacer un montón de cosas.
+[01:07:08] Y el problema también viene si otro desarrollador ya había desarrollado algo en esa máquina
+[01:07:12] y después me dicen a mí desarrollarle algo, ahí se complica, ¿no?  porque cuando tenés que mover las memorias a mano,
+[01:07:20] cuando tenés que decir esta sección de esta memoria, la AB32,  ¿cómo sé yo que no está en uso?
+[01:07:28] Pasaba 3 días.  Y ahí se rompe todo.
+[01:07:33] Desventajas de sistemas operativos.  A ver, porque ventajas, ok, las entendemos, pero desventajas...  ¿Qué tal? ¿Qué son los más recursos?  Vos tenés siempre demons, ¿no?
+[01:07:42] En Windows se le llaman los demonios corriendo siempre de fondo.
+[01:07:45] ¿Qué más?  restrictivo  puede ser  muy restrictivo  los kernels  suelen ser  las casas cerradas  ¿no?
+[01:07:52] ¿y habías mencionado algo?  no, eso que es  un restrictivo  o sea lo que paga  lo que decidió  y que desarrolló  decidió  el que hizo  a menos que te pongas  a programar  el sistema operativo  podés hacer  tu propio sistema operativo  sí  bueno  podés usar  como base  Unix  y desde Unix  haces lo que vos quieras  también podés desarrollar  también
+[01:08:14] Windows  puede pasar de que quieras desarrollar un private  para tu propio  para tu propia marca  a mi me pasó, tenía un JTIC  que me daba Windows 10 perfectamente  ese es el problema, actualizaba Windows 11  se rompió  y no me quiere reconocer  el certificado del JTIC  y no, ahí me dice  no, no, no
+[01:08:43] bueno pero si es el sistema más usado con usuarios
+[01:08:59] windows
+[01:09:04] porque si yo me quiero descargar el leyes y un bombero 2 donde elementos  100%
+[01:09:17] este bien a ver qué diferencia un software común da un sistema operativo un software
+[01:09:27] común llamémosle un programa una calculadora un programa de la clave y lo diferencia los  ¿Qué es el sistema operativo?  El sistema operativo  entiende el lenguaje máquina.
+[01:09:41] Es más básico.
+[01:09:43] El sistema operativo  entiende el lenguaje máquina.  Las aplicaciones que hacemos nosotros  hablan con el sistema operativo.  Ok.  O debería, por temas más de seguridad.
+[01:09:56] Sí, la única que  nos puede decir.  La calculadora habla con el sistema  operativo y le pide  cómo se construye.
+[01:10:03] Bien, pero en un sentido más abstracto, es verdad, porque estoy de acuerdo contigo,
+[01:10:09] el sistema operativo expone librerías, por ejemplo el Printf, de toda la vida de C,
+[01:10:19] eso es una librería que después la usas con Java, que en realidad de base,
+[01:10:24] el sistema operativo expone un montón de librerías, que después son las programas las que los usan,
+[01:10:28] en realidad el programa cada vez que vos te pones un  system.out.
+[01:10:33] ¿Cómo es el de Java?  System.out.  Print.
+[01:10:37] Println.  Ahí va.  O soft.
+[01:10:44] En realidad Java lo que hace es  viene la J machine  esa cosa que estamos de acuerdo  para la unicidad entre todos los dispositivos  pero después al fin y al cabo
+[01:10:54] le dice al sistema operativo ¿cuál es el comando que me imprime  en pantalla?
+[01:10:58] al final baja y se lo tira ahí  estoy de acuerdo contigo  pero más en un sentido abstracto en general  ¿qué es lo de diferenciar?
+[01:11:08] ¿un software o un software?
+[01:11:10] el sistema operativo tiene acceso a todos los recursos  de la máquina y ese software  solamente a ciertos recursos  nada más que el sistema operativo  se lo asigna
+[01:11:19] el sistema operativo va a ser lo primero que usted  en una vaina abre un día directo  del sistema operativo por lo general  que la calculadora no  a menos que le digas al sistema operativo  que la habrá penas por minas  sí  y entonces, el sistema operativo  ¿es un software también?
+[01:11:38] sí  ¿qué no?  ¿todos dijeron que sí, no?
+[01:11:44] bueno, muy bien, sí, pero el sistema operativo también es un software  entonces  ¿qué diferencia hay?  y bueno  es verdad, hay diferencias de  de concepción, digamos  accesos, privilegios y seguridad  pero a un nivel más  abstracto, podríamos llegar a decir  que en realidad son prácticamente iguales  son software, ambos tienen acceso a datos  ambos tienen  interfaces visuales  o no, pero pueden tenerlo o pueden no  tenerlo, es la posibilidad  etcétera  y esta pregunta acá que está escondida  a ver cuál es  ¿qué objetivo percibe un sistema operativo?
+[01:12:26] ¿qué objetivo percibe?  ¿ayudar a un usuario común?  poder acceder a esos  al uso general de la computadora  ayudar al usuario común  a acceder al uso general de la computadora  ok  sin tener conocimientos claves de cómo  un bueno es un tigre  ¿esos son todos los sistemas operativos?
+[01:12:47] no todos  pero es un poco más sencillo  de todas formas  como yo entiendo  que no tiene entorno mensual también  son más sencillos que es  lo directo  ok  Bien, ¿qué otra cosa?  ¿Una otra?
+[01:13:08] ¿Otra agregado?
+[01:13:13] ¿Ser traductor?  ¿Facilitar el  uso de la computadora?
+[01:13:21] ¿Algo más?
+[01:13:30] A veces previene falla de seguridad  o romper algo  ¿No lo vean como del punto de vista  del usuario? Miralo más desde el punto  de vista del hardware  Por eso se evita a veces  La responsabilidad de romper el hardware  Por acceder a un espacio de memoria  Que no sea  Cambiar los hertz a un espacio de memoria  Y cambiar que no a un disco  Ok  Que todo sea  Compatible  Todos  Esa no es el sistema operativo
+[01:14:04] Y antes  Cuando Microsoft  las computadoras  o chips  tenían que correr Microsoft  claro, pero si yo me compro  un chip de Intel  no la puedo poner en cualquier motherboard  tiene que ser compatible  de fábrica, algunas cosas  le dicen, esta solo puede ser con esto  y ahí va más allá  de este operativo, pero está, ok  te entiendo de que
+[01:14:31] es como un marco común sobre el que hay cualquier chip  capaz que puede irse  ok
+[01:14:40] va a correr  mismo Windows  ok, sí  ¿cuál era la pregunta?
+[01:14:53] ¿qué objetivos percibe?  ok, sí, bueno, percibe  esos objetivos, entre algunos  otros, como es el control de la computadora  como tal, o sea  controlar  qué tarea se va a correr en cada momento  del procesador, porque el procesador es una calculadora  no ejecuta, sumo, resto, multiplico  divido, hago ese tipo de cosas  entonces, el procesador, si no tuviera
+[01:15:15] nadie que le dijera, lo tendrías que hacer vos a Manopla  como ya hablamos, pero el sistema operativo
+[01:15:20] es el que le dice, vas a hacer esto, vas a hacer esto  cortá, tirame para atrás la información
+[01:15:23] guardá lo que estabas haciendo, ahora vas a hacer esto, vas a hacer esto  cuando yo muevo el mouse, el programa  que corre de fondo, que me muestra a mí  el mouse en pantalla
+[01:15:30] ahora está corriendo ese programa, pa pa pa pa pa  cuando, o sea, corre y corta  corre y corta, corre y corta, por cada núcleo  se ejecuta, pa pa pa pa pa, muchos en  milisegundos, está ejecutando esto  pero a su vez está ejecutando este otro montón  de, uah, este no es  que mal  pero también está ejecutando  eso también está ejecutando  pero también está ejecutando este montón de cosas  este otro montón de cosas  las está ejecutando tipo  por milisegundos  le dice, ¿no?
+[01:16:05] perdón en mi inglés, pero  el scheduler  tan conocido  le dice  bueno, vas a correr  este 3,5 milisegundos  este otro 2,3 milisegundos  y el mouse está entre ellos  hay un proceso que es el mouse  la visualización en pantalla  el mouse moviéndose  creo que no  no sé, no tengo la prueba  el linux te dejaría  el linux, como he dicho  todo es un proceso  o un archivo?  Un archivo.  Todos son archivos.  O un proceso, ¿no era?  Un proceso también es un archivo.  ¿Un proceso también es un archivo?  Creo que sí.  Si un proceso es un archivo,  entonces todos son archivos.  Si todos son archivos,  un proceso es un archivo.  Ok, me gusta.  Todos son archivos.  Facha.
+[01:16:53] Bueno, definiciones.  Usuario, aplicación,  sistema operativo, hardware.  ¿Qué es el software?  Programas informáticos  que hacen posible  la ejecución de tareas específicas  dentro de un computador.  Por ejemplo,
+[01:17:05] los sistemas operativos, aplicaciones, navegadores web, juegos o programas, una larga lista de etcétera
+[01:17:11] que ya saben ustedes, que las pueden nombrar. Es el hardware, es la parte que puedes ver y tocar de los
+[01:17:18] dispositivos, es decir, todos los componentes de su estructura física como pantallas y teclados.
+[01:17:23] Un sistema operativo es un conjunto de programas y funciones que ocultan los detalles del hardware
+[01:17:29] ofreciendo a los usuarios una vía sencilla y flexible de acceso al mismo. ¿Cómo?
+[01:17:35] Bueno, definiciones. Programas de aplicación. Interfaz hermosa, sistema operativo, tiene una interfaz fea con respecto al hardware. Un sistema operativo es el soporte lógico que controla el funcionamiento del equipo físico.  o sea, el mantenimiento de la máquina  el núcleo de la máquina  el que decide qué correr, cómo correrlo  en qué momento, durante cuánto tiempo  cuándo cortar esas famosas  no sé si lo han escuchado antes, interrupciones  cuando se hace una interrupción  en una  en una CPU  que guarda todo lo que estaba en ese momento  los registros los guarda  eso lo van a ver en arquitectura  ya me estoy preparando para darle ese mensaje  y pone  lo demás, etcétera  etcétera, etcétera  bueno, un poco de historia  en el 65, Bell Telephone  Laboratories  inglés  y General Electric  intervienen en el proceso  en el proyecto MAC del MIT  para desarrollar un nuevo sistema  operativo que se llamaba Multics  ¿te suena? en lo opuesto a Unix  el cual tenía como objetivo ofrecer un sistema multiusuario
+[01:18:52] de gran capacidad de almacenamiento y facilidades para compartir datos entre procesos.  Una locura para esa época en el 68.  Bueno, en el 69 Bell se retira del proyecto.  Hay una larga lista de problemas en ese proyecto.
+[01:19:10] Tiempos que no se dieron, presupuestos que se fueron a nubes,  desarrolladores inconformes.
+[01:19:18] Lo van a ver en sistemas operativos, creo que se introduce un poco más la historia y el problema.
+[01:19:22] Aparte el profesor que hace sistemas operativos, es como muy así, como le gusta el chisme, entonces se la da.  Viene carísima, la sabe toda.
+[01:19:29] Y si no lo pueden leer en Wikipedia.
+[01:19:31] Tiene un poquito más aburrido, pero lo pueden ver ahí.
+[01:19:34] Bueno, en el 69 Bell se retira del proyecto y ya se desarrolla su propio sistema operativo para la computadora PDP-7.  El cual constituyó la primera versión de Unix.  ¿Vale? ¿Cómo lo ven?
+[01:19:47] En el 71, Richie crea el lenguaje C, continuación de B, inspirado de este último, en BCPL y Fortran.  ¿Conocen Fortran?
+[01:19:59] Es una cosa...
+[01:20:00] Hay una película de esos que es del grupo de mujeres que programaban en Fortran para el mensaje.  Ah, sí, sí.
+[01:20:10] Nunca la vi, pero creo que me apareció en Shorts.  No me acuerdo cómo se llama.  Creo que me apareció en el Facebook Shorts.  10 horas y media  el de Insta no son bices  se unen y el de Facebook son un dígme  que raro  bueno, en el 73 se escribe  en C la versión de Unix  en el 74 se introduce Unix  en las universidades con fines educativos  antes de que todo fuera privado  el capital  en el 77 nace
+[01:20:42] En el 77 nace la primera versión comercial de Unix  Conocida como versión 6  En el 81 nace la primera versión de Unix  Para computadoras personales  Y acá seguramente hay un tema  Bueno, ¿saben inglés?  Vos que no sos de Boca, tendrías que entenderlo  La verdad es que
+[01:21:07] Bien.
+[01:21:09] Espero ahí al compañero, que se va a preparar la interpretativa.
+[01:21:13] Con esa barba de clorija que es lo que dice, ¿te van a suspender?
+[01:21:22] No. Dice esa barba de clorija, esos miradores, esa expresión condescendiente.  No, condescendiente no.  Vete a expresar  Como expresión de que sos superior  Sos uno de esos  Usuarios de computadora Unix  Con descendientes  Y el otro le dice  Acá tenés  Una moneda  Conseguiste una mejor computadora  Creo que siempre los que usan Linux  Es como que se sienten ahí en unos cracks  Y los  En el MMS cuando aparece  El de  La arquitectura y es un flaco  no quiero decir la palabra pero  grande, con una campera que dice  Arch  tremendo  aparece  ¿sabes que el problema se puso serio cuando aparecen  esos tipos en la empresa del spa?
+[01:22:21] bueno, ventajas de Unix  escrito en lenguaje alto nivel C  por lo tanto es mucho más manejable  todos podemos escribir C  sencillamente  no tan sencillamente porque habría que aprenderlo primero  y hay que mover punteros  esas cosas horrorosas  Me encanta en realidad  Pero como que todo el mundo lo soy  Este  Y cuando tenés listas
+[01:22:45] Con punteros dentro de esas listas que apuntan a race  Me acuerdo, ¿tengo uno?  De la fin  Ahí ves arreglos  Sí  Vas a ver  Eso va a ser en la materia  algoritmos 1  creo que es  sí  diseño  creo que es  sí, en toda la materia  sí, pero no tengo que ir a  Java  no estás en escribir código Java  tenés que poner el system.out.main  no, sí  public main  static voice  bueno  sí, en la carrera  se ve C++  esa materia de algoritmos  1 y 2, algoritmos 1 te obligan a usar  C++, es una obligación de la materia, pero algoritmos  2 te dejan libre si querés usar Java  yo usé Java porque ya sabía C  y dije, voy a probar con Java  preferiblemente usar C  porque era más fácil, era mucho más fácil  usar C++ para trabajar, porque igual  aún así te obligan a crear estructuras  algoritmos 1 y 2  son relativamente
+[01:24:03] parecidas a programación 1, 2 y 3 de la FING, relativamente parecidas. El catedrático de la
+[01:24:16] cátedra de programación es el mismo que la facultad de ingeniería, o sea, dejó de trabajar
+[01:24:22] allá, ahora trabaja acá. Carlos Luna, no sé si lo conocen. Flaco Aelto, me agarré muerto. Es
+[01:24:30] impresionante lo que sabe ese tipo, pero un montonazo lo que sabe. Si lo ven a veces caminando  ahí de tarde  ¿se viste con el muchacho  de la hospital de Ligao?  no, no, no se viste con Tirante  parece un zombie  es como que ya perdió toda esperanza  perdió toda esperanza
+[01:24:49] en la vida y lo que es así como con ojeras  tipo una taza de café, pero es impresionante  lo que sabe, y él armó  el programa de las materias de  programación de algoritmos, acá se ve  diferente que en la facultad de ingeniería  la facultad de ingeniería arrancás viendo Pascal  viejo y querido Pascal  y ahí te enseñan  lo que son  arrays con tope  ese tipo de estructuras  como  que vos sin paz  las pilas  ahí va  ese tipo de cosas  listas encadenadas  y como no tenés  records  ahí va  arrancás con records  porque no tenés  los arrays  como tal  entonces  generás tus propios arrays  pero eso sea  de los últimos temas  del semestre  si?  si, si  la primera array  y la array con tope  después las records  pero se hacen con arrays  se hacen con records  los arrays  no?  no  eso es la  Yo fui tipo el tercero de la fin  ¿Qué fue?  Fue el primer  ¿Sí?
+[01:25:47] Fue después del cálculo  La aprobé por  Puro odio  Y después vine para acá  Fui porque no pude salvar ninguna batería  No pude hacer promoción  Este  Bueno, sistemas jerárquicos de procesos y archivos  File system  Ahí tenemos un file system  Un ordenamiento de carpetas ahí adentro  Nunca vieron el equipo  Ahí adentro del equipo, el disco local  O de, o cualquiera  Interfaz y periféricos  Interfaz, bueno, es lo que estamos viendo
+[01:26:24] Es la propia pantalla, puede llegar a ser la interfaz  Otra interfaz puede ser la  La Porsche, ¿no?  Esto también es una interfaz  No, ahí  Eso también es una interfaz  Una interfaz de consola  Este, multiusuario  Y tiempo compartido  Bueno, eso  No tenés que esperar a que otra persona termine  De trabajar  Este, dos personas pueden usar la misma  Adapta sus programas  A cualquier máquina hardware con Unix  Claro, bueno, da como punto  de partida, para esto es una ventaja de Unix  yo me había perdido que esto no estaba malando  Unix nos da  como punto de partida una base común  que ya sea que lo instale en cualquier  computadora, sé que va a funcionar  y cualquier programa compatible con él  también va a funcionar, o sea me da  una certeza  por así decirlo, una certeza  fundacional, yo me quedo más tranquilo
+[01:27:18] que sé que Unix va a funcionar, después de ahí  yo construyo  no está ligada a ningún fabricante  de computadoras en particular  acá tenemos algunos comandos  ¿conocen alguno de estos?  acá los tenemos como una caracola  los más sencillos a los más  raros  este  help  who, ¿qué hace who?  no, no, no, no  ¿qué usuario  que ahí va?  ¿qué usuario tenemos? ¿pwd?  el path  el path, ahí va directamente que estás ahora  este, ps  bien  ls, bien, listo  acá tenemos  otros, cat, ¿qué hace cat?  vuelca el contenido  ¿es un folder?  sí  y constante  se actualiza el archivo  ese es el tail  tail  bien  mkdir
+[01:28:22] este papá papá kill que hace clic para los procesos  Matan con los dedos  Write  Y yo se lo hago así  Dice  Talk to current user  I run the login  Ah mira  Le escribe  Al usuario  Tremendo  Me dijo  ¿Qué haces conectado acá?  Y la consola  Te abre  Y te dice  ¿Qué haces?  Y te dice  Alusiruminati  Bien  Bueno  Ahora vamos a hacer  Una actividad cortita  30 minutos  De ya acá  Pero la hacemos  tipo 5, reventando  30 minutos, realizar  la propuesta de la lectura 1  que se encuentra en Auras  van a Auras, una computadora ahí, ¿alguno tiene?
+[01:29:17] sí  o celular, pero quiero que se junten  ¿pueden juntarse ustedes tres?
+[01:29:22] ¿y ustedes tres?  ahí por Zoom también, si se animan  ¿quieren que haga el salto?
+[01:29:30] ¿pueden hacer el salto?  si van a taller  van acá a taller de tecnologías  van a teórico  y acá van a encontrar  actividad 1, todo por una impresora  somos 10  salas  o dos salas  5 y 5  Bueno, ahora tres alas  ¿Y ustedes trabajan ahí? ¿Se animan?
+[01:30:16] Un sí, un dedito para arriba  ¿No?  Teórico y todo como un eléctrico  ¿No?
+
+[01:30:53] Ah, nada, por fin.  No, ya lo vi.  Discutan las siguientes preguntas.
+[01:30:59] 15 minutos.  Bueno.
+[01:31:02] Llevo a un rato.  Voy a peñar.
+
+[01:31:13] ¿Alguna vez te has peñado acá?
+[01:31:15] ¿Vos sospechado de peñar?  No, no, pero...  ¡Joder!
+[01:31:21] ¿Cómo vas a peñar?  y ahí  ¿Cómo vamos?  Ah, un usuario Mac.
+[01:31:54] ¿Teórico?  ¿Actividad 1?  ¿No era un poquito así?  ¿Por qué no la ves?
+[01:32:04] Exactamente.
+
+[01:32:13] a los usuarios con un segundo.
+[01:32:15] Así que el usuario dice, ah, lo vi en un video.
+[01:32:19] No me acordaba  de la noche.
+[01:32:21] ¿Qué es lo que le parece?
+[01:32:27] Venga a la última clase  de la materia, porque quiero sacar una foto.  ¿Ok?  ¿Cómo es la última clase?  ¿Cómo es la última materia?  ¿Cómo es la clase de taller?  Lo que hacía el usuario  era tratar de ser pintuero.  Pero que la persona y los usuarios pudieran  seguir trabajando con ella.  La de hacer algo parecido con la impresora  llegó, pero eso es un problema.
+[01:32:49] El problema que nosotros controlamos precisamente es para un formato  binario. No hay código fuente que pudiera  usar una asimiladora y la  comprender.
+[01:32:58] Perdón, perdón, perdón.
+[01:33:01] Se creen los seguidores.
+[01:33:03] A lo mejor ellos van cayendo, porque ahora ya no son.
+[01:33:07] No, joder.
+
+[01:33:27] ¿También?
+[01:33:29] No, no, no.
+[01:33:31] No, perdón, ¿está bien?  Sí, perdón, dale.  ¿Qué pasó?  ¿Preguntó?  No.
+[01:34:23] Le hablamos de todo.
+[01:34:30] Le pregunto más o menos una pregunta.  ¿Preguntó?
+
+[01:35:05] bueno, pagado  elegible o eso?  no, elegible
+[01:35:17] si no te quieres  son  son 15 páginas  pero esto  no es  pero no da sentido  si lo lees en ese contexto  para entenderlo fácil, no usan  cosas  operaciones que no han tenido  con ese bebé donde se pone ahora  las LLM  las lenguas modernas  yo miraba  estas dos versiones son de  este es la UCO  estas dos versiones son de Ivor Rumpa  yo tengo Cloud  pero es
+[01:36:22] mira, mirá, sabes que te voy a decir una frase que me hizo mi hermano  que trabajaba en negocios de salida.  O sea, que...
+[01:36:29] Y que un compañero de trabajo lo había listo un día antes.  Estamos hablando de un anuncio.  Ahora nuestro rol profesional cambia estereotipo.  Antes era escribir código, pero hoy es imposible  escribir código más rápido que un idioma.
+[01:36:43] Puedes usar la AIDA, hacer un error en un propósito  y usar un botoncito en grabado.  ¿Estamos ready?  Y una compañera le pone.  ¿Estamos ready?  ¿Estamos, chicos?  Vamos a enseñar la caleta de sonido.  Es así, vos no podés.  Ah, no, no.  Ya, no, no.  No, pero...  Sí, para más calentarse.  Tú le dices, por favor.  Para más calentarse.  Ah, no, no, no, no, no.  Sí, pero es más calentarse.  A ver, ¿qué cambia el tiempo?  ¿Llevas tres minutos?  ¿Podrás meter la seguridad?  Yo creo que sí, yo lo estoy haciendo.
+[01:37:15] Yo creo que si la armás con las estrellitas, con las estrellas,  te pierdes todo el tiempo.  No, no, no, no, no.  Sí, es como...  Estamos esperando a que terminen las salitas y ya...  Pero...
+[01:37:28] Pero no sabés, porque tu modelo sale su mismo y yo fui la que ya...  Bueno, está, ahí sí.  Bueno, ahí está bien.
+[01:37:36] Pero tienen una discusión a favor y en contra de las sierras.  Exactamente.
+[01:37:40] Tú estabas un tío con 4.5, 6, todo muy lindo y las cosas que tenés...
+[01:37:47] Y te lo pasás una prom producida con su cantera de skills y de habilidades, creando de todo.  de todo  mirá el código  y fijá que es este incidente  y te dice  no, no  pensando en voz alta lo que está haciendo  y ahora otra vez en DevSar  creo que era  bueno, terminaron, te cerré la sala
+[01:38:13] es un poco de vivo, pero no sé si ya va a terminar  no, recién  terminamos de leer  Bueno  Así que pasemos a la acción  Pregunta 1  Discutamos las siguientes preguntas  Pregunta 1  ¿Qué cambió de una impresora a la otra?  ¿Qué impidió su modificación?  A ver acá en clase  ¿Alguien?
+[01:38:40] ¿El software con el que venía la impresora?  Sí  Uno era con software a alto nivel  Y otro era binario  Decía  Ok, acá por Zoom  ¿Alguien algo que agregar?
+[01:38:53] Que uno no tenía código fuente  Ok, bien, sí  Que se le negó cuando el  Generalizador se lo llevó a refugio  O sea, que no  No  ¿Qué objetivo persigue la  Free Software Foundation?
+[01:39:15] A ver, acá por Zoom primero, ¿alguien?  distribuir software libre  sí  ok, ¿qué más?
+[01:39:30] el tema de la cooperación  entre varias personas  sí, también  también  tenés acceso  al código y poder hacer tu versión  de ese software  también, sí  esos son como los pilares  las bases  ¿algo más?  no, hay que mejorar  acesorio.
+[01:39:53] Bien.
+[01:39:57] ¿Algo más?
+[01:39:59] Un poco el siguiente.  Si vos tenés un aparato  que vos seas libre de usar ese aparato  de la forma que quieras realmente y no sea  un... ok, puede ser que esto  da porque es limitación.  ¿Por qué Panabox me dice  que las ondas de mi microondas  tienen que ser tales?  No. Me niego. Yo quiero...  No quiero eso.  Estoy de acuerdo.  Bueno, adquiriendo una pieza de hardware  ¿Se adquiere también el software?  ¿Podemos modificar el software adquirido?  A ver acá primero en clase  Depende de la empresa, depende del hardware  Normalmente no  Bueno, pero eso está popularizando mucho  La Steam Deck  Sí, es verdad  Está bien, esa fue la respuesta  La Steam Deck también es una filosofía  Que maneja Steam  justamente con Gaben, que justamente es muy  abierto a otros temas, con el  Wizard que hizo para  la creación de Steam  se hizo porque se usaba un Wizard para utilizar  CS, bueno, los juegos  de Valve, y eso podría haberlo  patentado
+[01:41:11] pero en lugar de eso lo dejaron abierto y se le dieron  todos los próximos  como funciona como Steam ahora, y la  es justamente Gaben que lo que se ha hecho  es un tipazo, ¿no?  es un tipazo, hay que hacer software libre  estoy de acuerdo, ¿qué significa  copyleft y copyright  copyright es el derecho  a la propiedad individual  copyleft es  pará, no me lo digas, acá por Zoom  copyleft  lo contrario  lo contrario, ok  bien  Matías, tenía ganas de decir algo  no, te iba a decir eso  pero justo junto con César me contestaron  era como que no se protege  la confidencialidad, digamos,  de lo hecho.
+[01:42:00] ¿De qué, para mí?
+[01:42:02] Claro, que  el copyright es como que
+[01:42:05] tal cosa le pertenece a la persona que lo hizo  y  como pasaba
+[01:42:11] con el tipo este que le tuvo que pedir permiso  al que hizo el código y no se le  podía dar por un contrato  de confidencialidad, pero el copyleft sería  como libre.
+[01:42:21] Claro. Un poco político.  es un tanto  controversial, porque uno dice  bueno, si yo hago algo  ¿por qué tengo que dejarlo libre?
+[01:42:34] y bueno  hay formas de ganar  dinero, aunque sea el software libre  vamos a verlo más adelante  hay formas de ganar dinero aún así  pero...  que sea libre no significa que sea gratis  que sea libre no significa  que sea gratis  sí
+[01:42:55] dicen que nada es gratis  ¿pero por qué no es gratis si es libre?  no, depende  el nivel  ¿pero es  libre?  entiendo que es basado en Unix  depende el nivel de libertad que tengas  hay varios niveles de libertad  principalmente  tiene que ser gratis, principalmente  ahora, tiene que ser gratis para usuarios  no para empresas, eso es otro  tipo de nivel de libertad. Si vos como usuario  querés utilizar un software  por ejemplo, para tu uso personal  buenísimo, pero si lo querés utilizar  para venderlo, ahí ya capaz que tenés que  pagar al creador.  Si vos querés hacer lucro de ello  pero para mejoras, para hacer  PRs y mejorar el repo  dale para adelante, mandale pinche a lo mejor.
+[01:43:43] Eso está bien.  Es controversial el tema  porque claro, si yo hago algo  y pagué por ello, me estuve  noches en vela  tuve ese tipo de cosas  para  desde benchelía  no la conocen  que lo parejo  claro que se supone  que  del software libre  que nadie empezó  a hacer  se tomaron prestado  y unif  y arriba le hicieron  es como el meme ese  de  copien tu código  no es mi código  por ejemplo  que arrancó también  sí  que compraron  antes  sí  este
+[01:44:29] sí  es un tema  es un tema complicado  hay gente que está a favor  y dice  sí  tenemos que defender  la libertad del software  porque así genera mejoras  pero mejoras  a nivel del individuo  o sea  cada uno aportando  para mejorar  para tener una mejor solución  pero el otro tipo de personas  dicen
+[01:44:45] hay que vender esto porque si no, no, como mantenemos un equipo, ¿no?  Y también hay un cierto nivel en el que
+[01:44:51] si nos ponemos una mano en el pecho, es verdad que  el software libre, los tipos de software open source  suele ser un poco de peor calidad  que los software pagos. Photoshop,
+[01:45:02] las cuentan todos que no es Photoshop, pero la versión libre  es el...  ¿Qué día es el cito, la boca?  El montón, sí.  y
+[01:45:15] exactamente  y
+
+[01:45:37] si no lo puedo
+[01:45:49] si no son caras auditoriales tiene que mantener todo eso entonces que los
+[01:45:55] codios no sea pensó directamente de mucha más seguridad la empresa  Autocad, por ejemplo  sale 1800 dólares al mes  y un compañero está haciendo un curso  y no lo tenía y me estresó  y se lo di a un alguien también  No estamos diciendo  Que quede claro que no estamos diciendo  Que eso es lo que enseñamos en esta clase  Que quede registrado yo  No es lo correcto  No es lo que estamos haciendo en esta clase  Yo solo digo que el confortado  Puedo piratear lo que sea  Bien
+[01:46:42] No me he encontrado con algo que no lograré instalar en mi compu  ¿Cómo te agarró?
+[01:46:53] No, por Dios  Si no  Si no venís a la clase  Este tipo de interacciones  No se dan  Que lindo que te vieras  Tengo que decir lo perfecto  Que hay muchas cosas gratis  Estudiando  O más baratas  O nada  Tipo YouTube  Autocad  Autocad es carísimo  De gratis  Sí, sí, sí  No  No es Autocad  Es el otro  Sketch  SketchUp  Ah, no sé cuál es SketchUp  Es muy bueno  Pero sobre el Autocad  Autocad es carísimo  Sí, yo tengo  mi primo está estudiando un curso de autocad  y salían 1800 dólares al año  una raridad  como estudiante esperate  puse ahí el certificado estudiante de RT  yo uso la skitch  para hacer ahí  no sé qué hago pero vamos  la skitch no tiene 3D  tiene 3D  bueno Free Software Foundation  1985  la Free Software Foundation, la FSF  de ahora en adelante  es una organización sin fines de lucro  con la misión mundial de promover la libertad  de los usuarios de computadoras  defendemos los derechos de todos los usuarios  del software, Linux y todo su  desarrollo no tendría cabida  si no hubiera existido el concepto  de software libre como lo pensó  Richard Stallman en 1985  Richard Stallman, punto  que en 1985 crea la FSDF  y publica el manifiesto  GNU, de hecho uno de los principales  objetivos de GNU era precisamente
+[01:48:22] desarrollar un sistema operativo libre del que juzga así lo llamo sería el núcleo que al final
+[01:48:30] no terminó siendo ser bueno en realidad tiene un hubo como una disputa entre gm un linux cuando
+[01:48:37] cuando arrancaron todos estos temas ahí apareció el inicio torvald que dijo pero la maestra este  GNU  en realidad son siglas que significan  GNU es not Unix  sigue un diseño  de tipo Unix y se mantiene  compatible, pero se distingue de Unix  por ser software, el tema  en realidad el tema, dicen  las malas lenguas  el tema fue que el loco demoraba mucho  el loco dijo  yo necesito un kernel  necesito un kernel, pero no lo tengo  entonces me voy a, lo tengo que construir  cuando arrancó la Free Software Foundation  pensaba, tengo que construir el kernel  pero el kernel es un poco complicado  de construir, no es tan sencillo  el manejo interno  del kernel del sistema operativo  no es la CPU el kernel  eso es el físico, el kernel del sistema operativo  este  estoy leyendo  ¿qué pasa?
+[01:49:39] es sostenible  ¿a qué se refiere con sostenible?  hablen chicos  prendan el micrófono y digan  Yo tengo una pregunta  Relacionado a eso  Del software libre  Incluso comercial o no  Te quería preguntar si más adelante en la carrera  Se ve el tema de licencias  Sí, se ven  En otros cursos y en otros talleres  Sí se ven  Y es más, si te acercás al CIE  También lo vas a ver  La carrera tiene un fuerte  Fuerte componente  De emprendedurismo  Negocios  Ese tipo de cosas  Que está bastante bueno  Así que sí, lo vas a ver  ¿No somos fanáticos de software libre?  ¿Eh?  ¿No somos fanáticos de software libre?  Yo o la carrera  No, para nada, odiamos el software libre  Kipis  Pero sí  Nosotros, yo personalmente  Yo soy de la tía poder del software libre  Cuestión, el tipo  El tipo crea la Free Software Foundation
+[01:50:48] Y dice, voy a dejar el kernel para lo último
+[01:50:50] y me enfoco en todo lo relacionado a conexiones más alto nivel etcétera etcétera
+[01:51:02] y en realidad linux y gnu la gente lo conoce como linux pero son los dos juntos es gnu el
+[01:51:12] sistema y el carnet pero le llamamos virus porque este pero en realidad este es el nombre
+[01:51:21] pero la gente lo conoce como el carnet porque es la parte más si la instancia en el carnet
+[01:51:28] solamente por ejemplo si las distribuciones de carnet de linux pero tienen otro tipo 2  que luego utilizan GNU como interfaz.  Sí, sí.
+[01:51:41] Bueno, auspiciado por la FSF.
+[01:51:44] Con el tiempo, distintos grupos de personas empezaron a unir esfuerzos
+[01:51:48] para crear lo que se conoce como distribuciones de Linux.  La mayor parte de estas distribuciones se diferencian solamente  en los conjuntos de software que incluyen.
+[01:51:57] A medida que pasaba el tiempo, las diferentes distribuciones diversificaron sus ofertas
+[01:52:00] añadiendo algunas veces software escrito específicamente para las propias distribuciones  como utilidades de empaquetamiento  o interfaces gráficas  en un esfuerzo por diferenciarse del resto  así que el flaco creó algo  y al final la gente terminó usando Linux  este...  bueno, ley de historia, porque en realidad  si bien en su momento hubo problemas  y al Richard Stallman no le gustaba mucho
+[01:52:23] que la gente le dijera solo Linux a su sistema  este...  te muestra como  van poniendo granitos de arena  diferentes actores a lo largo del tiempo  este loco arrancó con la idea  otro llegó y dijo, mira yo tengo esto armado  podemos usarlo, otras personas dijeron  eso que tenés está buenísimo y si le sacamos  esto otro de GeneMood  y le hacemos nosotros lo que nosotros queramos  por ejemplo  y luego las distribuciones empezaron a tomar  un formato diferente cada una de ellas  Ubuntu es la más  user friendly, por así decirlo  es como la que le quiere competir a Windows  y  es como sencilla de usar, por así decirlo  después tenemos otras como  Kali  la de Cali  claro, pero ahí  vos también te la podés descargar, Cali viene mucho  con el tema de la gente de seguridad  la gente que trabaja con seguridad  tiene bastante  ya preinstalados, tiene bastantes  programas de  de pentesting que mencionaba  bueno, libertades  y principios
+[01:53:25] acá estamos hablando de los niveles de jerarquía de libertad  libertad  de ejecutar el programa como CDC  con cualquier propósito. Esa es la libertad 0.
+[01:53:35] La libertad de estudiar cómo funciona el programa y cambiar para que haga lo que se desee.
+[01:53:41] Esa es la libertad 1. El acceso al código fuente es una condición necesaria para ello.
+[01:53:45] La libertad de redistribuir copias para ayudar a otros. Esa es la libertad 2.
+[01:53:49] La libertad de distribuir copias de subversiones modificadas a terceros.
+[01:53:53] O sea, yo agarro una copia, la modifico, se la doy a otro, otro la modifica y ese se la da a otro.  esa es la libertad, tres  esto le permite ofrecer a toda la comunidad  la oportunidad de beneficiarse de las modificaciones  el acceso al código fuente  es una condición necesaria para ello  tenemos un ejemplo de esto  que es Neobim, no sé si lo conocen  arrancó con B  después Bim, que es el  y si van al  repo oficial de Bim  el flaco  Pro Free Software Fundation dijo  aguante Neobim, aguante Neobim  estoy de acuerdo  no permitió  algunos PR y la comunidad empezó  a abrir mejoras para BIM  y el tipo dijo, no  entonces la gente que hizo forqueó el repo  y generó NeoBIM, que tiene de base  BIM, pero le empezaron a agregar todas estas mejoras
+[01:54:42] de la comunidad, y hoy en día NeoBIM es bastante  bueno, a mí me encanta, de hecho  yo hice un proyecto, hice  con mi cuenta, ¿no?
+[01:54:50] hice el Visual Studio Code  y hice con NeoBIM, abrí  NeoBIM y es Visual Studio Code  la verdad que es bastante  aparte NeoBeam está hecho  en Lua  que es un lenguaje de programación brasileño  me hicieron unos  o sea, una persona de Brasil  me hicieron unos  universitarios, algunos profesores  universitarios construyeron Lua  para, no sé  si fue como tesis o qué onda, pero  también tienen este otro juego  que está hecho en Lua, ¿cuál era?  Balatro  ¿Fue?
+[01:55:27] Ah, lo conozco.  Sí, fue...  Fue el...  El Roblox. El Roblox está en John Lua.  Ah, el Roblox también, es verdad.
+[01:55:36] Yo he nominado a Game of the Year, el baratro,  que ganó el Game de Velo pero de Year.  ¿Vero?
+[01:55:42] Lua, son los de Lua o Marde. Muy linda lenguaje.
+[01:55:45] Yo lo usé para hacer unas teteos en una mano.  Sí, sí, Lua es...  Se usa con la herramienta de...  Sí.
+[01:55:54] Es verdad, es verdad.  ¿Cuáles son los requisitos para ser open source?  Bueno, se puede copiar, modificar  O regalar a terceras personas con coste cero  El programa tiene que tener el código fuente  No se permite que no aparezca el código fuente  O que aparezca solamente parte de él  Tiene que aparecer por completo  Y se tiene que permitir modificaciones  Bueno, tenemos casos, por ejemplo, para ganar plata  El caso, ya queda poco tiempo de clase  Wordpress, vos tenés el Wordpress pago  Que ellos te montan el servidor  O te pueden dar el código Wordpress  Y es tipo, montalo vos  Ahí tenemos un caso vocal  ¿Es el más  ¿Cómo se llama?  El framework más utilizado  Arriba es de query  Da igual  ¿Qué otros casos teníamos?  Open VPN  Lo podés montar en el  Router de tu casa  Los TP-Link creo que vienen  De hecho ya vienen instalados  Ya tienen un Open VPN instalado  Para tener una VPN  Incluso así  Bueno, terminamos esto y cortamos la clase.
+[01:56:56] La licencia del software tiene que permitir modificaciones y cambios.
+[01:56:59] Para la ley, el programa tiene que tener el código Fender.  Bueno, la 3.
+[01:57:03] La licencia del software tiene que permitir modificaciones y cambios.  Se puede requerir la integridad del código del autor.  Es decir, las modificaciones tienen que ser completamente visibles.  No se puede restringir la licencia a nadie.
+[01:57:23] Todo el mundo tiene que tener acceso a él. Si por lo que sea tiene alguna restricción, hay que mencionarlas.
+[01:57:29] Y no se vayan todavía, voy a terminar de leer esto.
+[01:57:33] El software se tiene que poder utilizar en cualquier ámbito laboral, además se tiene que permitir la finalidad comercial.
+[01:57:40] La licencia es apta para cualquier persona que reciba el programa.
+[01:57:44] Si el software es parte de un producto mayor, tiene que estar con la misma licencia.  La licencia no puede excluir ningún software.  Es decir, si la licencia tiene algún software incorporado,
+[01:57:55] no tiene que haber ningún problema para distribuirlo en conjunto.
+[01:58:01] O sea, si yo uso librerías de terceros, estas no tienen que ser pagas.
+[01:58:05] La licencia tiene que poderse compartir, sea de la forma que sea,
+[01:58:09] mediante web, CD o lo que sea, o por un pendrive.  Ejemplos, ahí tenemos LibreOffice,
+[01:58:15] ahí está el de Encantito con el pincel que mencionamos hoy.  ¿Conocen este Thunderbird?  No, está muy bueno.  Ha mejorado bastante.  Quedó en el olvido un par de años,  pero ahora empezó a usarse  de vuelta. Esto es...  ¿Cómo se llama esta?  La Raspberry.
+[01:58:35] Scratch.  VLC.
+[01:58:38] El reproductor de video.  La pluma de la vida.  Sí.
+[01:58:45] MySQL.  Magento se usa bastante  en e-commerce. Es como el WordPress de  e-commerce  ¿cuál?  Magento  ¿magento?
+[01:58:56] ah, este arriba  arriba de hint  ¿te usas mucho e-commerce?  mirá, no lo conozco  Magento, lo voy a buscar  ¿dice Open Source o Zip?  Zip también  ¿sí?  Wordpress está dos veces  en Zip también  y Magento también  ahí va  sí  no, ahí con el clip  faltaba  Java  Java solía  Java solía hacerlo, ¿no?  hoy en día ya  De Java 5  Más o menos  Taka Taka  Esto es Java  ¿Alguna vez utilizaron esto?  Eclipse  Cuando empezaron en Java  ID de Java  NetBeans  Tendría que estar NetBeans por acá  Ah, pero viene dentro del Apache  Creo que NetBeans es de Apache  Sí, creo que es de ellos  Firefox  si esta es la competencia ahora  bueno  que más tenemos acá  listo  pueden irse chicos  nos vemos en la clase que viene  vengan presentar  por favor les pido  vengan presentar  porque  aparte de la clase que viene  voy a leer el obligatorio, le tengo uno  y vamos a hacer un ejercicio de clase  que les va a ayudar para el obligatorio 1  creo  el obligatorio 1 es instalarle  venga con computadora la clase que viene  venga con computadora  a mi me llego que podíamos armar  eso es  hubiera expulsado la materia hace dos semestres atrás  hoy en día se quitó  es para el obligatorio 2  se erigizó  porque era muy fácil  pasa que hay cientos de tutoriales  pero puedes armarte un servidor  de open source  tengo uno con  ¿cómo se llama esto?  complex  ¿sirve?  yo lo tengo, todo en docker  así lo voy  porque vas a tener que mostrar fotos del proceso  al menos que yo tenga  lo hice, no estaba dockerizado  reinicié y volví a arrancar lo que he visto  buenísimo, bueno nos vemos chicos  acuérdense, traigan computadora  y vengan por favor presencial  nos vemos acá en Zoom  voy a cortar la clase  nos vemos, gracias  chao
