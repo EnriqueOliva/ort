@@ -1,31 +1,38 @@
-# Sistemas de Ecuaciones — Explicación paso a paso, desde cero
+# Sistemas de Ecuaciones — Para el PARCIAL (5 de mayo de 2026)
 
-Este documento cubre **sistemas de ecuaciones lineales**: qué son, cómo se clasifican, cómo se resuelven por escalerización, la inversa por el método de Gauss, y la triple equivalencia que conecta matrices, determinantes y sistemas. Al final hay preparación para la evaluación continua del 22 de abril. Todo explicado asumiendo que no sabés nada.
+Este documento cubre **sistemas de ecuaciones lineales**: qué son, cómo se clasifican, cómo se resuelven por escalerización, la inversa por el método de Gauss, y la triple equivalencia que conecta matrices, determinantes y sistemas. Está orientado al **primer parcial** del 5 de mayo, donde entran tres temas: matrices, determinantes y sistemas de ecuaciones. **Este md cubre solo el último** — los otros dos temas tienen sus propios md aparte. Todo explicado asumiendo que no sabés nada.
+
+> "Va hasta el sistema de ecuaciones. Eso es lo que va a haber. Yo lo hablé con el catedrático y con los otros profesores" — clase 10 (22-abr)
+>
+> "Primero parcial, les mandé ahí los temas por correo, matrices, determinantes sistemas de ecuaciones" — clase 12 (29-abr)
 
 ---
 
 ## Mapa de lo que vamos a ver
 
-| Parte | ¿Qué se aprende? |
-|-------|-------------------|
-| 1 | Qué es un sistema de ecuaciones, clasificación, matriz ampliada, método de escalerización, tres formas escalerizadas, grados de libertad, ejemplos 2×2 y 4×3 (Clase 8) |
-| 2 | Sistema con parámetro, inversa por escalerización (Gauss), triple equivalencia (matriz ↔ determinante ↔ sistema), despeje matricial $x = A^{-1}B$, ejemplos de parcial (Clase 9) |
-| 3 | **Prep evaluación continua: errores comunes, checklist, preguntas de práctica** |
+| Parte | ¿Qué se aprende? | Origen |
+|-------|-------------------|--------|
+| 1 | Qué es un sistema de ecuaciones, clasificación, matriz ampliada, método de escalerización, tres formas escalerizadas, grados de libertad, ejemplos 2×2 y 4×3 | Clase 8 (15-abr) |
+| 2 | Sistema con parámetro, inversa por escalerización (Gauss), triple equivalencia (matriz ↔ determinante ↔ sistema), despeje matricial $x = A^{-1}B$, ejercicio integrador estilo parcial | Clase 9 (21-abr) |
+| 3 | Práctico oficial: ejercicios V.1 a V.8 con respuestas, dos resueltos paso a paso (V.3a y V.3b — los que el profesor hizo en clase con el parámetro $\lambda$) | Clases 10-11 (22-abr, 28-abr) + práctico oficial |
+| 4 | Repaso para el parcial: errores típicos, checklist, 12 preguntas de práctica orientadas al parcial | Cierre |
+
+**Nota sobre la clase 12 (29-abr):** el profesor empezó **geometría del espacio**, que es el cuarto tema y **NO entra en este parcial**. Por eso no aparece en este md.
 
 ---
 
 ```
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxx   PLAYBOOK PARA LA PRUEBA   xxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxx   (usar durante la prueba)  xxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxx   PLAYBOOK PARA EL PARCIAL   xxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxx   (usar durante el parcial)  xxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-# PLAYBOOK PARA LA PRUEBA
+# PLAYBOOK PARA EL PARCIAL
 
-**Esta sección es la que vas a usar durante la evaluación continua.** Si te trabás, vení acá primero antes de buscar teoría. Está pensada para leer rápido y aplicar.
+**Esta sección es la que vas a usar durante el parcial** (en la parte de sistemas de ecuaciones). Si te trabás, vení acá primero antes de buscar teoría. Está pensada para leer rápido y aplicar.
 
 ## ▶ Árbol de decisión: tengo un sistema, ¿qué hago?
 
@@ -115,7 +122,7 @@ Antes de empezar a escalerizar, chequeá rápido:
 
 ---
 
-## ▶ Errores típicos en evaluaciones (NO los cometas)
+## ▶ Errores típicos en el parcial (NO los cometas)
 
 1. **Olvidar el término independiente al multiplicar una fila.** Si multiplicás $F_1$ por 3, el número a la derecha de la barra también se multiplica por 3.
 2. **Multiplicar una fila por 0.** No vale — destruís la ecuación.
@@ -134,7 +141,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-El resto del documento es la **teoría detallada** que construyó estas recetas. Si durante la prueba te trabás con un concepto específico, buscá la sección correspondiente más abajo.
+El resto del documento es la **teoría detallada** que construyó estas recetas. Si durante el parcial te trabás con un concepto específico, buscá la sección correspondiente más abajo.
 
 ---
 
@@ -2376,46 +2383,434 @@ Se da una matriz $A_0$ concreta (la matriz $A$ sustituida con $m = -2$). ¿Cuán
 
 ---
 
-# PARTE 3 — Preparación para la evaluación continua (22 de abril)
+# PARTE 3 — Práctico oficial: ejercicios y respuestas (clases 10 y 11)
 
-Evaluación sobre **sistemas de ecuaciones**. Nivel básico, en grupo, con material. Mismo formato que las dos anteriores (matrices y determinantes). Duración: media hora.
-
-> "Mañana tenemos la prueba de sistema de ecuaciones. El mismo formato de siempre. Lo que hemos visto del sistema de ecuaciones: vas a resolver un sistema de ecuaciones por escalerización. No va a haber ninguna sorpresa"
+Después de cerrar el teórico de sistemas en la clase 9, el profesor dedicó las clases 10 y 11 a **practicar** sobre el práctico oficial de la cátedra (sección V de la guía: "Práctico del tema SISTEMAS DE ECUACIONES"). Esta parte resume **todos los ejercicios** del práctico con sus respuestas y muestra paso a paso los dos que el profesor resolvió en pizarrón (V.3.a y V.3.b), porque son los más representativos del tipo de ejercicio que cae en parcial.
 
 ---
 
-## Lo que SÍ necesitás manejar
+## ¿Qué pasó en cada clase?
+
+### Clase 10 (martes 22 de abril)
+
+Las primeras dos horas se dedicaron al práctico de sistemas. A las 21:30 hubo **evaluación continua** de sistemas de ecuaciones (en grupo, con material — un sistema 3×3 a resolver por escalerización). El profesor confirmó la fecha y alcance del parcial:
+
+> "Va hasta el sistema de ecuaciones. Va hasta el sistema de ecuaciones. Eso es lo que va a haber. Yo lo hablé con el catedrático y con los otros profesores"
+
+Se trabajó sobre ejercicios de V.1 (sin parámetro) en pizarrón. **No hubo teórico nuevo.**
+
+### Clase 11 (martes 28 de abril)
+
+Día del parcial de Programación 1 (otra materia), por lo que asistió poca gente. El profesor decidió **no avanzar con teórico nuevo** y solo trabajar dudas del práctico de sistemas. En pizarrón se resolvieron **V.3.a** y **V.3.b** completamente, paso a paso. La clase del miércoles 29 (clase 12) ya empezó **geometría del espacio** — tema que NO entra en este parcial.
+
+---
+
+## Práctico V — Listado completo con respuestas
+
+Las respuestas vienen del documento oficial de la cátedra (`solucion.pdf`).
+
+### Ejercicio V.1 — Resolver por escalerización (9 sistemas, sin parámetro)
+
+| Sistema | Clasificación | Solución |
+|---------|---------------|----------|
+| (a) $\begin{cases} x+y+z=2 \\ 2x+y-2z=0 \\ -x-2y+3z=4 \end{cases}$ | SCD | $x = \tfrac{7}{4}, \; y = -1, \; z = \tfrac{5}{4}$ |
+| (b) $\begin{cases} 3x-y-z=7 \\ x-y+z=0 \\ -x+2y+2z=-2 \end{cases}$ | SCD | $x = \tfrac{12}{5}, \; y = \tfrac{13}{10}, \; z = -\tfrac{11}{10}$ |
+| (c) $\begin{cases} x+5y-2z=0 \\ 3x-y+10z=0 \\ -x-2y+7z=0 \end{cases}$ | SCD (homogéneo) | $x = y = z = 0$ (trivial) |
+| (d) $\begin{cases} x-3y-z=0 \\ 2x-4y-7z=2 \\ 7x-13y=8 \end{cases}$ | SCD | $(3, 1, 0)$ |
+| (e) $\begin{cases} 3y+z=-3 \\ x-2y-2z=4 \\ 2x+y-3z=3 \end{cases}$ | SCD | $(2, -1, 0)$ |
+| (f) $\begin{cases} x+y+z=5 \\ -x+2y-7z=-2 \\ 2x+y+4z=9 \end{cases}$ | SCI | $x = \alpha, \; y = \tfrac{11-2\alpha}{3}, \; z = \tfrac{4-\alpha}{3}, \; \alpha \in \mathbb{R}$ |
+| (g) $\begin{cases} 2x-y+4z=4 \\ x+2y-3z=1 \\ 3x+3z=6 \end{cases}$ | **SI** | — |
+| (h) $\begin{cases} x+2y+3z=3 \\ 2x+3y+4z=3 \\ 3x+4y+5z=3 \\ x+y+z=0 \end{cases}$ | SCI | $x = \alpha, \; y = -2\alpha-3, \; z = \alpha+3, \; \alpha \in \mathbb{R}$ |
+| (i) $\begin{cases} -x+y+z+t=2 \\ x-y+z+t=4 \\ x+y-z+t=6 \\ x+y+z-t=8 \end{cases}$ | SCD | $x=4, \; y=3, \; z=2, \; t=1$ |
+
+**Notas tácticas para el parcial:**
+- (c) es homogéneo — chequeá rápido que da la trivial; si te da otra cosa, error.
+- (g) da **SI** — única SI del lote, atención al término independiente al escalerizar.
+- (h) tiene 4 ecuaciones y 3 incógnitas — tipo "sobran ecuaciones", probablemente alguna se anule.
+- (i) es 4×4 con simetría — fíjate si se simplifica sumando todas las ecuaciones.
+
+---
+
+### Ejercicio V.2 — Sistema 3×3 con parámetro $\lambda$
+
+$$\begin{cases} x - y + z = \lambda \\ 2x - 3y + 4z = 0 \\ 3x - 4y + 5z = 1 \end{cases}$$
+
+| Caso | Clasificación | Solución |
+|------|---------------|----------|
+| $\lambda = 1$ | SCI (1 grado de libertad) | $x = 3 + \alpha, \; y = 2 + 2\alpha, \; z = \alpha, \; \alpha \in \mathbb{R}$ |
+| $\lambda \neq 1$ | **SI** | — |
+
+**Observación:** este ejercicio es atípico — solo tiene **dos casos** (no hay caso "SCD general"). Es porque al escalerizar la fila 3 se vuelve combinación lineal de las otras dos, así que el sistema **nunca es SCD**. Solo hay un valor "bueno" de $\lambda$ (el que hace compatible el sistema redundante) y todos los demás dan SI.
+
+---
+
+### Ejercicio V.3 — Tres sistemas con parámetro $\lambda$ (los más completos)
+
+#### V.3.a (resuelto paso a paso más abajo, hecho en clase 11)
+
+$$\begin{cases} x + y - z = 2 \\ x + 2y + z = 3 \\ x + y + (\lambda^2 - 5)z = \lambda \end{cases}$$
+
+| Caso | Clasificación | Solución |
+|------|---------------|----------|
+| $\lambda = 2$ | SCI (1 grado de libertad) | $x = 1 + 3\alpha, \; y = 1 - 2\alpha, \; z = \alpha, \; \alpha \in \mathbb{R}$ |
+| $\lambda = -2$ | **SI** | — |
+| $\lambda \neq 2$ y $\lambda \neq -2$ | SCD | $x = \dfrac{\lambda + 5}{\lambda + 2}, \; y = \dfrac{\lambda}{\lambda + 2}, \; z = \dfrac{1}{\lambda + 2}$ |
+
+#### V.3.b (resuelto paso a paso más abajo, hecho en clase 11)
+
+$$\begin{cases} x + y + z = 2 \\ 2x + 3y + 2z = -5 \\ 2x + 3y - (\lambda^2 - 1)z = \lambda + 1 \end{cases}$$
+
+| Caso | Clasificación | Solución |
+|------|---------------|----------|
+| Para todo $\lambda \in \mathbb{R}$ | SCD | $x = \dfrac{11\lambda^2 + \lambda + 17}{\lambda^2 + 1}, \; y = -9, \; z = \dfrac{-\lambda - 6}{\lambda^2 + 1}$ |
+
+**Importante:** este sistema es SCD para **todos** los valores de $\lambda$ (no hay casos críticos). Eso pasa porque al escalerizar, la expresión por la que dividís queda $-(\lambda^2 + 1)$, que **nunca es cero** (para $\lambda$ real, $\lambda^2 + 1 \geq 1 > 0$ siempre).
+
+> "Acá lo que dice el compañero es que menos lambda cuadrado menos uno no tiene raíz. Porque siempre va a haber... no hay ningún número que te anule este polinomio. Por lo tanto, acá podemos pasar dividiendo sin inconvenientes" — clase 11
+
+#### V.3.c
+
+$$\begin{cases} x + 2y - z = 1 \\ x + (\lambda + 3)y - z = 2 \\ -x - 2y + (\lambda^2 + \lambda + 1)z = \lambda \end{cases}$$
+
+| Caso | Clasificación | Solución |
+|------|---------------|----------|
+| $\lambda = 0$ | **SI** | — |
+| $\lambda = -1$ | **SI** | — |
+| $\lambda \neq 0$ y $\lambda \neq -1$ | SCD | $x = \dfrac{\lambda^2 + 1}{\lambda(\lambda + 1)}, \; y = \dfrac{1}{\lambda + 1}, \; z = \dfrac{1}{\lambda}$ |
+
+---
+
+### Ejercicio V.4 — Encontrar valores del parámetro $k$ para los cuales el sistema es compatible
+
+$$\begin{cases} x + y + z = 1 \\ x + ky + kz = k \\ x + y + (2k^2 - 1)z = k^2 \end{cases}$$
+
+| Caso | Clasificación | Solución |
+|------|---------------|----------|
+| $k \neq 1$ y $k \neq -1$ | SCD | $x = 0, \; y = \tfrac{1}{2}, \; z = \tfrac{1}{2}$ |
+| $k = 1$ | SCI (2 grados de libertad) | $x = \alpha, \; y = \beta, \; z = 1 - \alpha - \beta, \; \alpha, \beta \in \mathbb{R}$ |
+| $k = -1$ | SCI (1 grado de libertad) | $x = 0, \; y = 1 - \alpha, \; z = \alpha, \; \alpha \in \mathbb{R}$ |
+
+**Lo que pide el ejercicio:** valores de $k$ para que el sistema sea **compatible**. Como no hay ningún caso SI, el sistema es compatible para **todo** $k \in \mathbb{R}$.
+
+---
+
+### Ejercicio V.5 — Ecuación matricial $AX = B$ con parámetro $m$
+
+$$A = \begin{pmatrix} m & 1 & 1 \\ 1 & m & 1 \\ 1 & 1 & m \end{pmatrix}, \quad X = \begin{pmatrix} x \\ y \\ z \end{pmatrix}, \quad B = \begin{pmatrix} 1 \\ m \\ m^2 \end{pmatrix}$$
+
+**Este es el ejercicio que el profesor desarrolló paso a paso en la clase 9** como "ejemplo completo de sistema 3×3 con parámetro" — está resuelto arriba en la PARTE 2 (con $a$ en vez de $m$). Resultado:
+
+| Caso | Clasificación | Solución |
+|------|---------------|----------|
+| $m \neq -2$ y $m \neq 1$ | SCD | $x = -\tfrac{m+1}{m+2}, \; y = \tfrac{1}{m+2}, \; z = \tfrac{(m+1)^2}{m+2}$ |
+| $m = 1$ | SCI (2 grados de libertad) | $x = 1 - \alpha - \beta, \; y = \alpha, \; z = \beta$ |
+| $m = -2$ | **SI** | — |
+
+---
+
+### Ejercicio V.6 — Sistema 3×3 con parámetro $m$
+
+$$\begin{cases} x + my - mz = m \\ 3x + 3y - 3z = 3 \\ -2x - 10y + (2m + 2)z = -4 \end{cases}$$
+
+| Caso | Clasificación | Solución |
+|------|---------------|----------|
+| $m \neq 4$ y $m \neq 1$ | SCD | $x = 0, \; y = \tfrac{m-1}{m-4}, \; z = \tfrac{3}{m-4}$ |
+| $m = 4$ | **SI** | — |
+| $m = 1$ | SCI (1 grado de libertad) | $x = \tfrac{3\alpha + 3}{4}, \; y = \tfrac{1 + \alpha}{4}, \; z = \alpha$ |
+
+---
+
+### Ejercicio V.7 — Sistema 5×5 sin parámetro
+
+$$\begin{cases} x_1 + x_2 + x_3 + x_4 + x_5 = 3 \\ x_1 + 2x_2 + 3x_3 + 4x_4 + 5x_5 = 15 \\ 2x_1 + 3x_2 + 4x_3 + 5x_4 + x_5 = -7 \\ 3x_1 + 4x_2 + 5x_3 + x_4 + 2x_5 = 16 \\ 4x_1 + 5x_2 + x_3 + 2x_4 + 3x_5 = 4 \end{cases}$$
+
+| Clasificación | Solución |
+|---------------|----------|
+| SCD | $x_1 = 1, \; x_2 = -2, \; x_3 = 3, \; x_4 = -4, \; x_5 = 5$ |
+
+**Comentario:** sistema "grande" pero limpio (todos los coeficientes son enteros chicos, y la solución también). Es de cuentas, no conceptual. Apto para parcial cuando hay tiempo.
+
+---
+
+### Ejercicio V.8 — Sistema homogéneo con parámetro $a$
+
+$$\begin{cases} ax_1 - x_2 + x_3 - 2x_4 = 0 \\ x_1 - x_2 - x_4 = 0 \\ (a+3)x_1 - x_2 + x_4 = 0 \\ 2ax_1 + x_2 + x_3 - x_4 = 0 \end{cases}$$
+
+**Parte 1:** Determinar el parámetro $a$ real para que el sistema admita **solución no trivial** (la trivial es $x_1 = x_2 = x_3 = x_4 = 0$).
+
+> Para que un sistema homogéneo tenga solución no trivial → tiene que ser **SCI** (no SCD). Por la triple equivalencia, eso pasa cuando $\det(A) = 0$. Resolviendo, $a = -2$.
+
+**Solución general para $a = -2$:** $\quad x_1 = \alpha, \; x_2 = \alpha, \; x_3 = 3\alpha, \; x_4 = 0, \; \alpha \in \mathbb{R}$.
+
+**Parte 2:** Hallar la solución particular que cumple $x_1 + x_2 + x_3 + x_4 = 5$.
+
+> Sustituyendo: $\alpha + \alpha + 3\alpha + 0 = 5 \Rightarrow 5\alpha = 5 \Rightarrow \alpha = 1$. Solución particular: $x_1 = 1, \; x_2 = 1, \; x_3 = 3, \; x_4 = 0$.
+
+**Verificación rápida:** sustituí en el sistema original con $a = -2$:
+- Ec 1: $(-2)(1) - 1 + 3 - 2(0) = -2 - 1 + 3 = 0$ ✓
+- Ec 2: $1 - 1 - 0 = 0$ ✓
+- Ec 3: $(1)(1) - 1 + 0 = 0$ ✓
+- Ec 4: $(-4)(1) + 1 + 3 - 0 = 0$ ✓
+
+> "Se recomienda verificar esta última en el sistema original para eventualmente detectar así posibles errores de cálculo" — enunciado del práctico
+
+---
+
+```
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxx  Ejercicio V.3.a — Resuelto paso a paso  xxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+## Ejercicio V.3.a resuelto paso a paso (clase 11, 28 de abril)
+
+### Enunciado
+
+$$\begin{cases} x + y - z = 2 \\ x + 2y + z = 3 \\ x + y + (\lambda^2 - 5)z = \lambda \end{cases}$$
+
+Discutir y resolver según los valores del parámetro $\lambda \in \mathbb{R}$.
+
+### Paso 1 — Matriz ampliada
+
+$$\left(\begin{array}{ccc|c} 1 & 1 & -1 & 2 \\ 1 & 2 & 1 & 3 \\ 1 & 1 & \lambda^2 - 5 & \lambda \end{array}\right)$$
+
+### Paso 2 — Generar ceros en la columna 1
+
+Tanto $F_2$ como $F_3$ empiezan con $1$, igual que $F_1$. Aplicamos $F_2 \leftarrow F_2 - F_1$ y $F_3 \leftarrow F_3 - F_1$ simultáneamente:
+
+**Cálculo de la nueva $F_2$:**
+- Col 1: $1 - 1 = 0$
+- Col 2: $2 - 1 = 1$
+- Col 3: $1 - (-1) = 2$
+- Término indep: $3 - 2 = 1$
+
+**Cálculo de la nueva $F_3$:**
+- Col 1: $1 - 1 = 0$
+- Col 2: $1 - 1 = 0$
+- Col 3: $(\lambda^2 - 5) - (-1) = \lambda^2 - 4$
+- Término indep: $\lambda - 2$
+
+Matriz:
+
+$$\left(\begin{array}{ccc|c} 1 & 1 & -1 & 2 \\ 0 & 1 & 2 & 1 \\ 0 & 0 & \lambda^2 - 4 & \lambda - 2 \end{array}\right)$$
+
+**¡Ya está escalerizada!** Solo nos queda discutir según $\lambda$.
+
+### Paso 3 — Identificar la trampa: ¿cuándo se anula el coeficiente del pivote de $F_3$?
+
+La fila 3 dice: $(\lambda^2 - 4) z = \lambda - 2$.
+
+Para despejar $z$, queremos dividir por $\lambda^2 - 4$. Pero **solo podemos dividir si $\lambda^2 - 4 \neq 0$**.
+
+**Encontrar las raíces:** $\lambda^2 - 4 = 0 \Rightarrow \lambda = 2$ o $\lambda = -2$.
+
+**Factorización:** $\lambda^2 - 4 = (\lambda - 2)(\lambda + 2)$.
+
+Tenemos **tres casos** que analizar:
+
+### Caso 1 — $\lambda \neq 2$ y $\lambda \neq -2$ (caso general)
+
+Podemos dividir tranquilos.
+
+**Despejar $z$:**
+
+$$z = \frac{\lambda - 2}{(\lambda - 2)(\lambda + 2)} = \frac{1}{\lambda + 2}$$
+
+(El $(\lambda - 2)$ se cancela porque estamos en el caso $\lambda \neq 2$.)
+
+**Despejar $y$ de $F_2$** ($y + 2z = 1$):
+
+$$y = 1 - 2z = 1 - \frac{2}{\lambda + 2} = \frac{(\lambda + 2) - 2}{\lambda + 2} = \frac{\lambda}{\lambda + 2}$$
+
+**Despejar $x$ de $F_1$** ($x + y - z = 2$):
+
+$$x = 2 - y + z = 2 - \frac{\lambda}{\lambda + 2} + \frac{1}{\lambda + 2} = \frac{2(\lambda + 2) - \lambda + 1}{\lambda + 2} = \frac{\lambda + 5}{\lambda + 2}$$
+
+**Resultado del caso 1:** SCD con $x = \dfrac{\lambda + 5}{\lambda + 2}, \; y = \dfrac{\lambda}{\lambda + 2}, \; z = \dfrac{1}{\lambda + 2}$.
+
+### Caso 2 — $\lambda = -2$
+
+Sustituir en la fila 3: $(\lambda^2 - 4) = 0$ y $(\lambda - 2) = -4$. Queda:
+
+$$0 \cdot z = -4$$
+
+Imposible (el lado izquierdo es siempre 0, el derecho es $-4$). **SI** — sistema incompatible.
+
+### Caso 3 — $\lambda = 2$
+
+Sustituir: $(\lambda^2 - 4) = 0$ y $(\lambda - 2) = 0$. Queda:
+
+$$0 \cdot z = 0$$
+
+Verdadero siempre — la fila 3 se **anula**. La matriz queda:
+
+$$\left(\begin{array}{ccc|c} 1 & 1 & -1 & 2 \\ 0 & 1 & 2 & 1 \\ 0 & 0 & 0 & 0 \end{array}\right)$$
+
+**Conteo:**
+- Incógnitas: $n = 3$
+- Ecuaciones efectivas: $p = 2$
+- Grados de libertad: $r = n - p = 1$
+
+→ **SCI con 1 grado de libertad**.
+
+**Resolver con parámetro $\alpha$:** tomamos $z = \alpha$.
+
+De $F_2$ ($y + 2z = 1$): $y = 1 - 2\alpha$.
+
+De $F_1$ ($x + y - z = 2$): $x = 2 - y + z = 2 - (1 - 2\alpha) + \alpha = 1 + 3\alpha$.
+
+**Resultado del caso 3:** SCI con $x = 1 + 3\alpha, \; y = 1 - 2\alpha, \; z = \alpha, \; \alpha \in \mathbb{R}$.
+
+### Cuadro resumen
+
+| Valor de $\lambda$ | Clasificación | Solución |
+|--------------------|---------------|----------|
+| $\lambda \neq 2$ y $\lambda \neq -2$ | SCD | $x = \dfrac{\lambda + 5}{\lambda + 2}, \; y = \dfrac{\lambda}{\lambda + 2}, \; z = \dfrac{1}{\lambda + 2}$ |
+| $\lambda = 2$ | SCI (1 g.l.) | $x = 1 + 3\alpha, \; y = 1 - 2\alpha, \; z = \alpha$ |
+| $\lambda = -2$ | **SI** | — |
+
+---
+
+```
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxx  Ejercicio V.3.b — Resuelto paso a paso  xxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+## Ejercicio V.3.b resuelto paso a paso (clase 11, 28 de abril)
+
+### Enunciado
+
+$$\begin{cases} x + y + z = 2 \\ 2x + 3y + 2z = -5 \\ 2x + 3y - (\lambda^2 - 1)z = \lambda + 1 \end{cases}$$
+
+Discutir y resolver según $\lambda \in \mathbb{R}$.
+
+### Paso 1 — Matriz ampliada
+
+$$\left(\begin{array}{ccc|c} 1 & 1 & 1 & 2 \\ 2 & 3 & 2 & -5 \\ 2 & 3 & -(\lambda^2 - 1) & \lambda + 1 \end{array}\right)$$
+
+### Paso 2 — Generar ceros en la columna 1
+
+$F_2 \leftarrow F_2 - 2F_1$:
+- Col 1: $2 - 2 = 0$
+- Col 2: $3 - 2 = 1$
+- Col 3: $2 - 2 = 0$
+- Término indep: $-5 - 4 = -9$
+
+$F_3 \leftarrow F_3 - 2F_1$:
+- Col 1: $2 - 2 = 0$
+- Col 2: $3 - 2 = 1$
+- Col 3: $-(\lambda^2 - 1) - 2 = -\lambda^2 - 1$
+- Término indep: $(\lambda + 1) - 4 = \lambda - 3$
+
+Matriz:
+
+$$\left(\begin{array}{ccc|c} 1 & 1 & 1 & 2 \\ 0 & 1 & 0 & -9 \\ 0 & 1 & -\lambda^2 - 1 & \lambda - 3 \end{array}\right)$$
+
+### Paso 3 — Generar cero en la columna 2 de la fila 3
+
+$F_3 \leftarrow F_3 - F_2$:
+- Col 1: $0 - 0 = 0$
+- Col 2: $1 - 1 = 0$
+- Col 3: $(-\lambda^2 - 1) - 0 = -\lambda^2 - 1 = -(\lambda^2 + 1)$
+- Término indep: $(\lambda - 3) - (-9) = \lambda + 6$
+
+Matriz escalerizada:
+
+$$\left(\begin{array}{ccc|c} 1 & 1 & 1 & 2 \\ 0 & 1 & 0 & -9 \\ 0 & 0 & -(\lambda^2 + 1) & \lambda + 6 \end{array}\right)$$
+
+### Paso 4 — Discutir según $\lambda$
+
+La fila 3 dice: $-(\lambda^2 + 1) z = \lambda + 6$.
+
+Para despejar $z$ queremos dividir por $-(\lambda^2 + 1)$. ¿Cuándo se anula?
+
+$$-(\lambda^2 + 1) = 0 \;\Leftrightarrow\; \lambda^2 + 1 = 0 \;\Leftrightarrow\; \lambda^2 = -1$$
+
+**Esa ecuación no tiene solución real.** Para todo $\lambda \in \mathbb{R}$, $\lambda^2 \geq 0$, entonces $\lambda^2 + 1 \geq 1 > 0$. **El coeficiente NUNCA es cero.**
+
+Conclusión: **podemos dividir siempre, sin importar el valor de $\lambda$**. No hay casos críticos.
+
+### Paso 5 — Resolver (un solo caso, válido para todo $\lambda$)
+
+**Despejar $z$:**
+
+$$z = \frac{\lambda + 6}{-(\lambda^2 + 1)} = -\frac{\lambda + 6}{\lambda^2 + 1} = \frac{-\lambda - 6}{\lambda^2 + 1}$$
+
+**Despejar $y$ de $F_2$** (que dice $y = -9$):
+
+$$y = -9$$
+
+**Despejar $x$ de $F_1$** ($x + y + z = 2$):
+
+$$x = 2 - y - z = 2 - (-9) - \frac{-\lambda - 6}{\lambda^2 + 1} = 11 + \frac{\lambda + 6}{\lambda^2 + 1}$$
+
+Sacando denominador común $(\lambda^2 + 1)$:
+
+$$x = \frac{11(\lambda^2 + 1) + \lambda + 6}{\lambda^2 + 1} = \frac{11\lambda^2 + 11 + \lambda + 6}{\lambda^2 + 1} = \frac{11\lambda^2 + \lambda + 17}{\lambda^2 + 1}$$
+
+### Cuadro resumen (solo un caso)
+
+| Valor de $\lambda$ | Clasificación | Solución |
+|--------------------|---------------|----------|
+| Para todo $\lambda \in \mathbb{R}$ | SCD | $x = \dfrac{11\lambda^2 + \lambda + 17}{\lambda^2 + 1}, \; y = -9, \; z = \dfrac{-\lambda - 6}{\lambda^2 + 1}$ |
+
+**Lección clave de este ejercicio:** no todo sistema con parámetro tiene casos críticos. Cuando el coeficiente del pivote es una expresión que **no se anula** para ningún valor real (por ejemplo $\lambda^2 + 1$, $\lambda^2 + 4$, cualquier polinomio "siempre positivo"), el sistema es SCD para todo $\lambda$ y solo tenés que resolver una vez.
+
+> "Acá lo que dice el compañero es que menos lambda cuadrado menos uno no tiene raíz... no hay ningún número que te anule este polinomio. Por lo tanto, podemos pasar dividiendo sin inconvenientes" — clase 11
+
+---
+
+# PARTE 4 — Repaso para el parcial (5 de mayo de 2026)
+
+Cierre orientado al parcial. **Todo lo visto en sistemas de ecuaciones entra en el parcial** (a diferencia de la evaluación continua del 22 de abril, que era nivel básico). Esta parte resume lo que necesitás manejar, los errores típicos, y trae 12 preguntas de práctica.
+
+> "Bueno, primero parcial, les mandé ahí los temas por correo, matrices, determinantes, sistemas de ecuaciones" — clase 12 (29-abr)
+
+---
+
+## Lo que entra en el parcial (en sistemas de ecuaciones)
+
+**Todo lo que está en este md.** En particular:
 
 - **Escribir la matriz ampliada** de un sistema.
 - **Escalerizar** aplicando las tres operaciones (intercambiar filas, multiplicar por $k \neq 0$, sumar filas).
 - **Identificar** las tres formas escalonadas y **clasificar** el sistema (SCD, SCI, SI).
 - **Calcular los grados de libertad** en un SCI: $r = n - p$ (incógnitas menos ecuaciones efectivas).
-- **Resolver** un SCD despejando hacia arriba desde la última fila.
+- **Resolver** un SCD despejando hacia arriba desde la última fila (back-substitution).
 - **Resolver un SCI** introduciendo parámetros ($\alpha$, $\beta$, …) para los grados de libertad.
-- **Reconocer un sistema homogéneo** y saber que **nunca es incompatible**.
+- **Reconocer un sistema homogéneo** y saber que **nunca es incompatible** (siempre tiene la trivial).
 - **Interpretar geométricamente** un sistema 2×2 (rectas que se cortan / paralelas / coincidentes).
+- **Sistemas con parámetro:** discutir según valores críticos del parámetro, armar cuadro resumen, distinguir caso general de casos "trampa". **Esto es lo más típico de parcial.**
+- **Inversa por escalerización (método de Gauss):** $(A \mid I) \to (I \mid A^{-1})$.
+- **Triple equivalencia** entre $\det(A) \neq 0$, $A$ invertible, y $A x = B$ es SCD. **Saber usarla "sin hacer cuentas"** es clave.
+- **Despeje matricial:** $x = A^{-1} B$ cuando $A$ es invertible.
+- **Ejercicio integrador:** un solo enunciado que mezcla matrices, determinantes y sistemas (estilo parcial 2017 — está resuelto en la PARTE 2 de este md).
 
-## Lo que probablemente NO entra en esta evaluación
+## Lo que NO entra en el parcial
 
-- Sistemas con parámetro (vienen en el parcial, según el profesor).
-- Inversa por escalerización (concepto visto al final de la clase 9).
-- Demostración de la triple equivalencia.
-- La fórmula $\det(A) = (-1)^k \cdot \prod (1/\alpha_i) \cdot \det(E)$.
+- **Geometría del espacio** (cuarto tema, recién empezado en clase 12). El parcial es **antes** de avanzar en este tema.
+- Demostraciones no vistas explícitamente en clase.
+- La fórmula $\det(A) = (-1)^k \cdot \prod (1/\alpha_i) \cdot \det(E)$ es información adicional teórica — la triple equivalencia se usa como herramienta, no se demuestra en parcial.
 
-Estos temas ya vistos **sí entran en el parcial** del 5 de mayo.
+---
 
 ## Prerrequisitos de matrices y determinantes que vas a usar
+
+(Estos están en sus propios md, pero los listo para que sepas qué necesitás tener fresco.)
 
 | Concepto previo | ¿Por qué lo necesitás? |
 |-----------------|----------------------|
 | Producto matriz × vector | Para entender la forma $A \cdot x = B$ |
-| Matriz identidad $I$ | Aparece en la inversa y en el despeje matricial |
+| Matriz identidad $I$ | Aparece en la inversa por Gauss y en el despeje matricial |
 | Determinante $\neq 0$ ⟺ invertible | Triple equivalencia |
+| Sarrus / cofactores para calcular determinantes 3×3 | Aparece en ejercicios integradores |
 | Operaciones elementales sobre filas | Son las mismas que en escalerización |
+| Definición de inversa: $A \cdot A^{-1} = I$ | Para verificar y para el despeje matricial |
 
 ---
 
-## 5 errores que pueden aparecer en la evaluación
+## Errores típicos en el parcial (de sistemas)
 
 ### Error 1: Olvidar la condición $k \neq 0$ al multiplicar una fila
 
@@ -2446,17 +2841,35 @@ $r = n - p$, donde:
 
 Es tentador contar todas las filas originales, pero las que se anulan **no cuentan**. Si escalerizaste un sistema 4×3 y dos filas se anularon, quedan $p = 2$ ecuaciones efectivas.
 
+### Error 6 (específico de sistemas con parámetro): Dividir sin chequear
+
+Cuando llegás a algo tipo $(\lambda - 3) z = 5$, **no** dividas inmediatamente. Antes preguntate: "¿podría $\lambda - 3$ ser cero?". Si la respuesta es sí, esos valores hay que tratarlos **aparte**. Olvidar esto es el error más común en sistemas con parámetro.
+
+### Error 7 (específico de la triple equivalencia): Confundir "no SCD" con "SI"
+
+Si $\det(A) = 0$, la triple equivalencia te dice que el sistema **no es SCD**. Pero **no te dice que sea SI** — podría ser SCI o SI, depende del término independiente. Hay que escalerizar para distinguir.
+
+### Error 8 (específico del despeje matricial): No conmutar — mantener orden
+
+> "No podes mover el A inversa... acuerdate que no conmuta, no podes cambiar el orden"
+
+Cuando despejás $x = A^{-1} B$, $A^{-1}$ va **a izquierda** de $B$. Escribir $B \cdot A^{-1}$ es **distinto** y está **mal**. El producto de matrices no es conmutativo.
+
 ---
 
-## Checklist antes de entregar
+## Checklist antes de entregar el parcial
 
 1. ¿Escribí la matriz ampliada correctamente (con la barra separando coeficientes y términos independientes)?
 2. ¿Apliqué solo las tres operaciones permitidas (intercambio, multiplicación por $\neq 0$, suma de filas)?
 3. ¿Revisé cada operación en las dos partes (coeficientes y término independiente)?
 4. ¿Clasifiqué el sistema (SCD, SCI, o SI) explícitamente?
 5. Si es SCI, ¿calculé bien los grados de libertad e introduje los parámetros apropiados?
-6. Si es SCD, ¿despejé todas las incógnitas desde la última fila?
+6. Si es SCD, ¿despejé todas las incógnitas desde la última fila (back-substitution)?
 7. Si es un sistema homogéneo, ¿verifiqué que **no** me dio incompatible?
+8. **Si hay parámetro:** ¿identifiqué los valores críticos? ¿Hice un cuadro resumen con todos los casos?
+9. **Si calculé inversa por Gauss:** ¿llegué a la forma $(I \mid A^{-1})$? ¿Verifiqué multiplicando $A \cdot A^{-1} = I$?
+10. **Si usé despeje matricial:** ¿justifiqué que $A$ es invertible (con $\det \neq 0$ o triple equivalencia)?
+11. **Si pude usar la triple equivalencia para evitar cuentas:** ¿la mencioné explícitamente como justificación?
 
 ---
 
@@ -2468,6 +2881,7 @@ Es tentador contar todas las filas originales, pero las que se anulan **no cuent
 | Sistema homogéneo | $A \cdot x = \vec{0}$ — siempre compatible |
 | Solución trivial | $x_1 = x_2 = \ldots = x_n = 0$ |
 | Grados de libertad | $r = n - p$ |
+| Inversa por Gauss | $(A \mid I) \to (I \mid A^{-1})$ |
 | Despeje si $A$ invertible | $x = A^{-1} \cdot B$ |
 | Triple equivalencia | $\det(A) \neq 0 \Leftrightarrow A$ invertible $\Leftrightarrow Ax = B$ es SCD |
 
@@ -2479,11 +2893,21 @@ Es tentador contar todas las filas originales, pero las que se anulan **no cuent
 | Escalera perfecta | $(0, 0, a \mid b)$ con $a \neq 0$ | SCD |
 | Fila entera de ceros | $(0, 0, 0 \mid 0)$ | SCI |
 
+### Estructura típica de un ejercicio "estilo parcial" con parámetro
+
+1. Plantear matriz ampliada.
+2. Escalerizar normalmente, **tratando al parámetro como número**.
+3. Cuando al despejar te aparece una división por una expresión con el parámetro, **detenete**.
+4. Encontrar valores críticos (los que anulan esa expresión) → casos a tratar aparte.
+5. **Caso general:** despejar todas las incógnitas en función del parámetro (suelen ser fracciones).
+6. **Caso por valor crítico:** sustituir, ver qué pasa, clasificar (SCD / SCI / SI), resolver si compatible.
+7. **Cuadro resumen** con todos los casos. Esta tabla es **lo que el profesor busca ver**.
+
 ---
 
-## Preguntas de práctica
+## Preguntas de práctica orientadas al parcial
 
-### Pregunta 1 (clasificación rápida)
+### Pregunta 1 (clasificación rápida — usando triple equivalencia)
 
 Un sistema homogéneo $A \cdot x = \vec{0}$ tiene $\det(A) = 0$. ¿Cuál es la clasificación?
 
@@ -2521,7 +2945,7 @@ Un sistema 4×5 (4 ecuaciones, 5 incógnitas) da, después de escalerizar, 2 fil
 
 ---
 
-### Pregunta 5 (sistema homogéneo)
+### Pregunta 5 (sistema homogéneo + triple equivalencia)
 
 Sea $A$ una matriz cuadrada con $\det(A) = 7$. Clasificar el sistema $A \cdot x = \vec{0}$.
 
@@ -2537,7 +2961,7 @@ Las rectas $2x + y = 4$ y $4x + 2y = 7$ representan un sistema. ¿Cómo se ven g
 
 ---
 
-### Pregunta 7 (escalerización 3×3)
+### Pregunta 7 (escalerización 3×3 con redundancia)
 
 Clasificar y resolver:
 
@@ -2579,7 +3003,7 @@ Un sistema homogéneo $4 \times 4$, después de escalerizar, tiene dos filas anu
 
 ---
 
-### Pregunta 11 (detección por inspección)
+### Pregunta 11 (detección por inspección — atajo de parcial)
 
 Sin hacer cuentas, ¿qué podés decir del determinante de la matriz de este sistema?
 
@@ -2589,7 +3013,7 @@ $$\begin{cases} x + 2y + 3z = 5 \\ 2x + 4y + 6z = 10 \\ x - y + z = 2 \end{cases
 
 ---
 
-### Pregunta 12 (sistema con parámetro — estilo parcial)
+### Pregunta 12 (sistema con parámetro — estilo parcial, formato V.3)
 
 Dado el sistema
 
@@ -2618,8 +3042,19 @@ discutir y resolver en función de $\lambda$.
 
 ## Cierre
 
-Con esta parte cerramos los sistemas de ecuaciones. La **triple equivalencia** es el concepto más importante de la unidad — conecta todo lo visto en el curso: matrices, determinantes, invertibilidad, sistemas. Entender que **saber una cosa es saber las tres** es clave para el parcial, porque permite resolver ejercicios sin calcular lo que ya está implícito.
+Con esta parte cerramos sistemas de ecuaciones para el parcial. La **triple equivalencia** es el concepto más importante de la unidad — conecta todo lo visto en el curso: matrices, determinantes, invertibilidad, sistemas. Entender que **saber una cosa es saber las tres** es clave para el parcial, porque permite resolver ejercicios sin calcular lo que ya está implícito.
 
-> "Este no es un teórico complejo a diferencia de otros temas más pesados con temas de demostraciones, pero hay que agarrar la mano con las cuentas, saber escalerizar las matrices, que no es poca cosa"
+> "Este no es un teórico complejo a diferencia de otros temas más pesados con temas de demostraciones, pero hay que agarrar la mano con las cuentas, saber escalerizar las matrices, que no es poca cosa" — clase 9
 
-El próximo tema del curso es **geometría del espacio** (cuarto y último tema antes del parcial del 5 de mayo), que también se va a relacionar con todo lo anterior.
+**Estrategia general para el día del parcial:**
+
+1. **Mirá primero todo el parcial** antes de empezar — ubicate qué tipo de ejercicio es cada uno (matrices / determinantes / sistemas).
+2. **En sistemas**, identifica si tiene parámetro o no. Si tiene → preparate para hacer cuadro resumen.
+3. **Si te dan una matriz $A$ y te piden algo de un sistema con $A$**, pensá si la triple equivalencia te ahorra cuentas.
+4. **Si te dan $\det(A) \neq 0$** o "$A$ es invertible" como dato → el sistema $Ax = B$ es **automáticamente SCD**, no escalerizes innecesariamente.
+5. **Verificá** las soluciones sustituyendo en al menos una ecuación original. Si te queda tiempo, sustituí en todas.
+6. **No subestimes las cuentas** — el profesor lo dice constantemente.
+
+> "No subestimen las cuentas porque después en los parciales el tiempo no sobra y a veces tiene que estar como ágil para las cuentas" — clase 8
+
+Suerte. Tenés todo lo necesario en este md.
