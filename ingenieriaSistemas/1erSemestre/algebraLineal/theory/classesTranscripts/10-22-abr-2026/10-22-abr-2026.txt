@@ -1,0 +1,24 @@
+Transcript generated automatically. Some words may be inaccurate.
+Source: FI-2103-Álgebra lineal-75968-AL N1A ID | 22-04-2026
+URL: https://vimeo.com/showcase/12151824
+Date: 2026-05-02
+
+[00:00:01] Bueno, la clase entonces ya vamos a liquidar con sistema de ecuaciones, vamos a dedicarle un poco el práctico, estas dos horas que nos quedan y nueve y media tenemos la prueba. El martes que viene,
+[00:00:30] Esto lo había comentado en la clase pasada, pero por las dos lo vuelvo a comentar. Les muestro ahí el calendario. Estamos parados acá, 22 de abril. Entonces, hoy tenemos, vamos a dedicar las dos horas al práctico, las dudas que puedan avanzar. Y el práctico que comentamos ayer y empezamos a trabajar. Con eso entonces tenemos la prueba, estamos liquidando el sistema de ecuaciones.
+[00:00:58] El martes que viene acá, ustedes tienen el parcial de programación, así que bueno, eso nos perdemos dos horas de clase. La primera hora yo voy a estar acá, digo, por dudas y demás, pero no vamos a avanzar con el teórico ni nada. Así que bueno, va a ser casi una clase perdida. Si alguien no hace programación o quiere venir a hacer consultas de práctico, lo que sea, obviamente voy a estar acá yo. Y el miércoles acá, miércoles que viene, vamos a empezar con el cuarto tema, que es geometría.
+[00:01:26] Y acá, bueno, ya tendríamos el parcial. Entonces, que os metí a eso, no hay parcial. No hay. No hay. Va hasta el sistema de ecuaciones. Va hasta el sistema de ecuaciones. Eso es lo que va a haber. Y eso está. Yo lo hablé con el catedrático y con los otros profesores. La catedrática. Y con los otros profesores. Así que bien. Esos son los avisos del día. Bueno, entonces vamos a dedicarle al práctico del sistema de ecuaciones.
+[00:01:53] Acá, bueno, ya habíamos comentado un poco los ejercicios. Así que, bueno, tinencia al agua. Y nueve y media tengo la prueba. Cualquier duda, bueno, vais pasando ahí por los bancos o nos vemos en el pizarro.
+[00:02:15] ¿Qué te sintió más?
+[00:02:35] Bueno, ¿qué pasos aplicaron? Seguramente los resolveron de forma distinta. Matriz ampliada. Matriz ampliada. Esa es la primera acción.
+[00:03:06] y luego que aplicaron? esp3-sp1 y la 3 bueno y les quedo entonces 0 1 1 y acá les quedo menos 3 y ahí aplicaron el otro paso más
+[00:03:38] F2 es igual a F1 por 3 menos F2. Entonces, menos 3 por fila 1 más fila 2. Bueno, la fila 1 queda igual.
+[00:04:01] Nos queda menos 3 por este más este, nos queda 0. Luego nos queda menos 3 por este más este, nos queda menos 4 acá, ¿no? Y menos 3 por este más este, ahí nos queda menos 9 más 4, menos 5, ahí va. Y después menos 3 por este más este, acá nos queda menos 12 más 3, menos 9, ¿no? Ahí va. Entonces...
+[00:04:29] Bueno, ahí hacemos un pasito más. Oye, ¿podría...? Yo doy vuelta de fila 2 y 3 para que me quede arriba el 1 y después apliqué F3. Sí, ahí. O sea, sacé el 4. Cambiaste la fila. Cambié la fila para sacar el 4 que me queda abajo aplicando F... Vamos a hacer eso, tío. ¿Está bien? Sí. Hiciste fila 2, la intercambiaste con la fila 3.
+[00:04:58] y la 3 igual a la 3 intercambiando ahí te quedó 0 1 1 acá te quedó menos 3 y acá menos 4 menos 5 y menos 5.000 0 acá 0 menos 4 menos 5
+[00:05:22] Le está a mí cuatro veces a F3, pero no a F2, pero no sé si es más o menos, porque ya te venía la cabeza. Ah, o sea, si te fila 3, igual 4 por fila 2 más fila 3. Entonces le queda la fila 1 que es igual, la fila 2 también. 0, 1, 1, menos 3.
+[00:05:52] 4 por fila 12 más fila 3 acá te queda 0 y acá te queda 4 ahí va, menos 1 y acá te queda, sería menos 12 menos 9 o sea te queda menos 21, ¿no? ahí va 7 igual a 21
+[00:06:26] Entonces, bueno, ahí fuiste a la segunda ecuación. Y más Z es igual a menos 3. Entonces ya sabemos que la Z vale 21. Entonces te queda que la Y es menos 24. Y, bueno, nos falta ahí la primera ecuación. Nos dice que X más 2Y más 3Z.
+[00:06:55] es igual a 4, entonces sería, X es igual a 4, menos 3Z, menos 2Y, que esto entonces nos queda, 4, menos 3 por, sería, Z21, y más, perdón, ahí también, sustituí la Y, menos 24 acá,
+[00:07:25] Y acá me queda 2 por menos. Está bien, el z acá, el 21, está bien como lo había hecho antes. 21, ahí va. Y ahora menos 2 por el valor de la y, ahora sí, que es menos 24. Y esto nos queda el valor de x, que es el que nos falta.
+[00:07:51] Sería 4 menos 3 por 21, o sea, menos 63 y más 48, menos 11, ¿no? Ahí va. Entonces, bueno, sistema compatible determinado, eso ya se da cuenta acá, ¿no? Por la forma canalizada. Y la solución es X es igual a menos 11 y menos 24 y 7 igual a 21. ¿Se entendió? En general, estuve viendo los resultados y que estaba bien.
+[00:08:22] Bueno, preguntar sobre el mío, porque no me dio su preguntado. Lo hizo con nosotros, así que no. Bueno, por acá la grabación.

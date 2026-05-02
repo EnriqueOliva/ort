@@ -1,0 +1,40 @@
+Transcript generated automatically. Some words may be inaccurate.
+Source: FI-2103-Álgebra lineal-75968-AL N1A ID | 28-04-2026
+URL: https://vimeo.com/showcase/12151824
+Date: 2026-05-02
+
+[00:00:08] Dejo esto grabado así. Yo les había comentado en la clase pasada, como hoy tienen parcial de programación, yo no tenía pensado dar nada en particular. Obviamente si tenés alguna duda podemos verlo. La idea no era ver teórico nuevo, ni ejemplos, ni nada, sino bueno, hasta ahora sabía que no iba a entrar casi nadie.
+[00:00:36] Nada, a ver las dudas que tengas y mañana sí vamos a arrancar con todo con el cuarto tema que es geometría del espacio. Después, bueno, el martes que viene tenemos el parcial y luego sí seguiremos con geometría del espacio. O sea, hoy la verdad que no, un tema de que bueno, no va a entrar casi nadie, no, no va a entrar casi nadie, tiene parcial ahora, van a estar con la cabeza en el suelo, tenía pensado.
+[00:01:05] No tenía pensado dar nada en particular, pero bueno, cualquier duda que tengas, por haberse entrado vos, podemos verlo. No sé si estuviste trabajando en el práctico de sistema de ecuaciones. Sí, sí, yo les doy un minutito para hacer el 3A y luego lo comentamos. Para la paralización, plantean la matriz ampliada.
+
+[00:01:39] 1, 1, 1, 4, 2, menos 5. Y bueno, luego descalelizaba, según la ANDA, si es compatible determinado, compatible indeterminado o incompatible y resolvía lo que se vea que tenga la solución. Unos minutitos y lo comentamos.
+[00:02:01] O sea, ahí viene, una vez que finalizamos, sería lambda cuadrado menos 4 por z es igual a lambda menos 2. ¿Y qué decías? Estaba pasando dividiendo lambda cuadrado menos 4 y sabes que lambda cuadrado menos 4... Ah, o sea, lo paso diciendo siempre cuando... ¿Cuáles son las condiciones? Que lambda sea distinto de 2 y que lambda sea distinto de menos 2, ¿no?
+[00:02:29] Si es cierto lo puedo pasar dividiendo, entonces me queda z igual a lambda menos 2 sobre lambda cuadrada menos 4. Y ahora me dirías... Después hay que lambda cuadrada menos 4 es lo mismo que lambda menos 2 por lambda más 2. Ahí va, lambda más 2 por lambda menos 2. Y arriba se queda lambda menos 2. Entonces esto es 1 sobre lambda más 2.
+[00:03:02] Ya tenemos la Z, bueno, vamos a la segunda ecuación, nos dice que I-2Z es 1, entonces I es igual a 1 más 2Z, entonces I es 1 más 2 por 1 sobre lambda más 2, entonces la equidad que I vale lambda más 3, vamos a plantear un pasito más, pero lo mismo, sería, no puedo grabar, ¿no?
+[00:03:39] me queda lambda más 2, más 2 sobre lambda más 2, o sea, la Y vale lambda más 4 sobre lambda más 2. Y por último, bueno, nos queda ya la X, entonces, vamos a seguirlo por acá, me queda X más Y menos Z es igual a 2, entonces la X va a ser 2 más Z de menos Y,
+[00:04:21] O sea, x va a ser 2 más z, que es 1 sobre lambda más 2, menos lambda más 4 sobre lambda más 2. Entonces x nos queda 2 lambda más 2, más 1 menos lambda menos 4, sobre lambda más 2.
+[00:04:53] O sea que la X nos queda, sería 2 lambda menos 1, me queda lambda, y me queda 4 más 1, ¿no? Acá. Este me queda 4, se me va con este 4, más 1, y sobre lambda más 2, ¿no? ¿Sí? ¿Qué digo yo? ¿Bien? ¿Una duda? O sea, si lambda es distinto de 2,
+[00:05:27] Y lambda distinto de menos 2, es un sistema compatible determinado, y la solución es x igual lambda más 1 sobre lambda más 2, la n vale lambda más 4 sobre lambda más 2, y la z vale 1 sobre lambda más 2.
+[00:06:05] ¿bien? bueno, ahora nos queda entonces ¿qué pasaría si lambda vale 2 y si lambda vale menos 2? ¿lo pensaron? si lambda vale menos 2 si lambda vale menos 2 si sin compatibles se te anula acá porque es raíz y acá te queda menos 4 y si lambda vale 2 se te anula acá y acá, ahí sería compatible interminable bueno, borro por acá
+
+[00:06:56] Entonces, si lambda vale menos 2, queda 0, 0, 0, menos 4. Bueno, entonces, acá corresponde un sistema en compal del n, ¿no? Y si lambda vale 2, nos queda 1, 1, menos 1, 2.
+
+[00:07:51] Sí, ¿no? Sí. Ahí va. Entonces, bueno, este sistema es compatible indeterminado en cuanto es la realidad. La realidad. Ahí va. Es una realidad. R es n menos p. Tenemos tres incógnitas, dos ecuaciones de r. Entonces, tenemos una realidad.
+[00:08:12] Entonces la solución nos quedaría y menos 2z es igual a 1. Si quieren acá podemos tomar, representando el grado de libertad, z igual a alfa. Entonces ahí y me quedaría 1 más 2 alfa. Y la x me quedaría, hay que despejarla, x más y menos z es igual a 2. Entonces x es...
+[00:08:41] Sería 2 más z menos i, o sea, 2 más alfa menos i, o sea, menos 1 más 2 alfa. Por lo tanto la x nos queda, sería 3 menos 2 alfa, ¿no?
+
+[00:09:13] Entonces, si lambda es distinto de 2 y lambda es distinto de menos 12, sistema compatible determinado con esa solución en función de lambda. Si lambda es igual a menos 2, es sistema incompatible. Y si lambda es igual a 2, es un sistema compatible determinado de un grado de libertad. Y la solución es, x es igual a 3 menos 2 alfa, y es igual a,
+[00:09:47] 1 más 2 alfa y z igual a alfa. Bien, entonces el resultado. Bien, si se entendió, les propongo seguir con la parte B. También les doy unos minutos y los comentamos. Vamos a comentar entonces el 3B.
+[00:10:34] ¿Qué pasó? ¿Lo aplicaron acá? Yo no sé la conclusión de ahí, pero yo lo que arranqué haciendo fue que la fila 3 me marcara 2. ¿Ahí va? Sí. Después de 2, me viene 2. Por fila 1 y fila 2. ¿Ahí va? Y ahí ya está. Y ahí ya le quedas generalizado. La fila 1 me queda igual. No te genera 0. Te queda... 1.
+[00:11:16] acá si queda 0 y es un número 9
+[00:11:28] O sea, yo desperté de esa opción porque generaba un 0 ahí. No, pero no importa. Lo importante es que tuviste un 0 acá, un 0 acá y un 0 acá. Lo importante es que... Acá te va a quedar menos 2 por este más este, menos 9, ¿no? Pues acá te queda 0, 0. Lambda menos... Lambda menos 1. Te queda menos lambda cuadrado menos 1, ¿no? Y acá lambda más 1.
+[00:12:02] ¿Hay alguien? ¿No sería Landa? Perdón, acá me faltó Landa Maseca.
+[00:12:12] Ahora sí, lo que me dice la fila 3 es menos lambda cuadrado menos 1 por lambda es igual a lambda más 6. Acá lo que dice el compañero es que menos lambda cuadrado menos 1 no tiene raíz. ¿Sí? Porque siempre va a haber... No hay ningún número que te anule este polinomio. Por lo tanto, acá es para... Podemos pasar viviendo sin inconvenientes. Entonces...
+[00:12:41] Acá no se importa, no hay porceta. Z es igual a lambda más I sobre menos lambda cuadrado más I. Menos I acá. Menos I. Sí, le puso el menos I. Entonces, este sistema, ya lo podemos clasificar, es sistema compatible determinado para todo el ámbito.
+[00:13:16] Bueno, y ahora ya tenemos la Z, la Y, no depende de la Z, la Y es menos 9, y luego tenemos que X más Y más Z es igual a 2.
+[00:13:39] Entonces, la X va a ser 2 menos Y más Z. Menos Y, menos Z. Entonces nos queda 2 menos 9. No, 2 menos menos 9 nos queda más 9. Y menos Z, que es positivo también, o sea, más lambda más Z sobre lambda cuadrado más 1. Y esto entonces sería...
+[00:14:09] 11 por lambda cuadrado más 1, más lambda más 6, sobre lambda cuadrado más 1. Y esto se puede simplificar un poco más, ¿no? Sí, por acá me queda que la X es... A ver, queda 11 lambda cuadrado más 12 lambda más 6, ¿no?
+[00:14:41] Dividido la anda cuadrada más 1 Y... Sí, eso no se puede explicar
+[00:14:59] Entonces es sistema compatible determinado para todos los landas en pretensión de los reales, y la solución es hacer la función de landa, x es igual a 11 cuadrado más 2 y landa más 6, sobre landa cuadrado más 1, y igual a menos 9, y z igual a menos landa más 6,
+[00:15:29] sobre lambda cuadrado azul. ¿Sí? ¿Se entendió entonces? ¿Los que están online? ¿Se entendió? ¿A ver Jonathan? Bueno, bien. Sony 17. Si bien ya lo he visto venir, nada más puedo hacer otro más.
+[00:16:03] Así que... Bueno, nos vemos mañana. Mañana empezamos con geometría 2. Nos vemos, profe. Nos vemos. Hasta mañana.
