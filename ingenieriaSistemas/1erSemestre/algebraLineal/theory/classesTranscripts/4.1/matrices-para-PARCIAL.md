@@ -1389,32 +1389,72 @@ Demo paso a paso en `matrices-DEMOSTRACIONES.md` §G.1.
 
 ## 🟢 Ejercicio VI.3 — $A^3 = \mathcal{O} \implies (A + \text{Id})^{-1} = A^2 - A + \text{Id}$
 
-**Enunciado.** $A$ con $A^3 = \mathcal{O}$.
+**Enunciado.** $A$ matriz con $A^3 = \mathcal{O}$.
 
 1. Probar que $(A + \text{Id})$ es invertible y $(A + \text{Id})^{-1} = A^2 - A + \text{Id}$.
 2. Aplicar para hallar $B^{-1}$ con $B = \begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}$.
 
 ### Solución
 
-**Parte 1 — demo:** ver `matrices-DEMOSTRACIONES.md` §H.2 (la idea es verificar $(A+\text{Id})(A^2 - A + \text{Id}) = A^3 + \text{Id} = \text{Id}$).
+#### Parte 1 — demostración
 
-**Parte 2 — aplicación.** Identificamos $A = B - \text{Id} = \begin{pmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}$.
+Demo paso a paso en `matrices-DEMOSTRACIONES.md` §H.2.
 
-Verificás $A^3 = \mathcal{O}$ ($A^2$ tiene un $1$ aislado en $(1,4)$; $A^3 = \mathcal{O}$). Aplicando la fórmula:
+> **Idea:** verificar que $(A + \text{Id})(A^2 - A + \text{Id}) = A^3 + \text{Id} = \mathcal{O} + \text{Id} = \text{Id}$. Eso prueba que $A^2 - A + \text{Id}$ es la inversa.
 
-$$B^{-1} = A^2 - A + \text{Id} = \begin{pmatrix} 1 & -1 & 0 & 1 \\ 0 & 1 & 0 & -1 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}$$
+#### Parte 2 — aplicación al $B$ concreto
 
-**Verificación:** $B \cdot B^{-1} = ?$
+**Paso 1 — Reconocer la estructura.** $B$ tiene unos en la diagonal y "perturbaciones" arriba: $B = \text{Id} + (\text{algo nilpotente})$. Definimos:
 
-$$\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} 1 & -1 & 0 & 1 \\ 0 & 1 & 0 & -1 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}$$
+$$A = B - \text{Id}$$
 
-Calculo entrada por entrada (la fila $i$ de $B$ por la columna $j$ de $B^{-1}$):
-- $(1,1) = 1 \cdot 1 = 1$, $(1,2) = 1 \cdot (-1) + 1 \cdot 1 = 0$, $(1,3) = 0$, $(1,4) = 1 \cdot 1 + 1 \cdot (-1) = 0$
-- $(2,1) = 0$, $(2,2) = 1 \cdot 1 = 1$, $(2,3) = 0$, $(2,4) = 1 \cdot (-1) + 1 \cdot 1 = 0$
-- $(3,1) = 0$, $(3,2) = 0$, $(3,3) = 1$, $(3,4) = 0$
-- $(4,1) = 0$, $(4,2) = 0$, $(4,3) = 0$, $(4,4) = 1$
+Restando entrada por entrada (sólo la diagonal cambia):
+
+$$A = \begin{pmatrix} 1-1 & 1 & 0 & 0 \\ 0 & 1-1 & 0 & 1 \\ 0 & 0 & 1-1 & 0 \\ 0 & 0 & 0 & 1-1 \end{pmatrix} = \begin{pmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}$$
+
+> **¿Por qué hago esto?** Porque la fórmula del ejercicio aplica a $A + \text{Id}$, así que necesito identificar quién es $A$ a partir de $B$. Despejando: $A = B - \text{Id}$.
+
+**Paso 2 — Verificar que $A^3 = \mathcal{O}$ (la hipótesis necesaria).** Calculo $A^2$:
+
+Para la entrada $(1,4)$ de $A^2$: fila 1 de $A$ = $(0, 1, 0, 0)$, columna 4 de $A$ = $(0, 1, 0, 0)^T$. Producto: $0 \cdot 0 + 1 \cdot 1 + 0 \cdot 0 + 0 \cdot 0 = 1$.
+
+El resto de entradas dan cero (ejercicio: convencete). Entonces:
+
+$$A^2 = \begin{pmatrix} 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}$$
+
+Calculo $A^3 = A^2 \cdot A$. La fila 1 de $A^2$ es $(0, 0, 0, 1)$ y solo "ve" la fila 4 de $A$, que es toda ceros. Entonces todas las entradas de $A^3$ son cero:
+
+$$A^3 = \mathcal{O} \quad \checkmark$$
+
+**Paso 3 — Aplicar la fórmula del ejercicio.** Como $A^3 = \mathcal{O}$, podemos usar:
+
+$$(A + \text{Id})^{-1} = A^2 - A + \text{Id}$$
+
+Y como $B = A + \text{Id}$, eso es justamente $B^{-1}$:
+
+$$B^{-1} = A^2 - A + \text{Id}$$
+
+**Paso 4 — Calcular numéricamente $A^2 - A + \text{Id}$.**
+
+$$A^2 = \begin{pmatrix} 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}, \quad -A = \begin{pmatrix} 0 & -1 & 0 & 0 \\ 0 & 0 & 0 & -1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}, \quad \text{Id} = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}$$
+
+Sumando entrada por entrada:
+
+$$\boxed{B^{-1} = A^2 - A + \text{Id} = \begin{pmatrix} 1 & -1 & 0 & 1 \\ 0 & 1 & 0 & -1 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}}$$
+
+**Paso 5 — Verificación: comprobar $B \cdot B^{-1} = \text{Id}$.** Calculamos algunas entradas para asegurarnos:
+
+- $(1,1)$: fila 1 de $B$ = $(1,1,0,0)$, col 1 de $B^{-1}$ = $(1,0,0,0)^T$. $1 \cdot 1 + 1 \cdot 0 + 0 \cdot 0 + 0 \cdot 0 = 1$ ✓
+- $(1,2)$: col 2 de $B^{-1}$ = $(-1,1,0,0)^T$. $1 \cdot (-1) + 1 \cdot 1 + 0 + 0 = 0$ ✓
+- $(1,4)$: col 4 = $(1,-1,0,1)^T$. $1 \cdot 1 + 1 \cdot (-1) + 0 + 0 = 0$ ✓
+- $(2,2)$: fila 2 = $(0,1,0,1)$, col 2 = $(-1,1,0,0)^T$. $0 + 1 \cdot 1 + 0 + 1 \cdot 0 = 1$ ✓
+- $(2,4)$: col 4 = $(1,-1,0,1)^T$. $0 \cdot 1 + 1 \cdot (-1) + 0 + 1 \cdot 1 = 0$ ✓
+
+Continuando con todas las entradas:
 
 $$B \cdot B^{-1} = \text{Id}_{4 \times 4} \quad \checkmark$$
+
+> **Idea central del ejercicio:** identificar la estructura $B = \text{Id} + A$ con $A$ nilpotente te permite aplicar una fórmula cerrada para la inversa. Sin esa estructura, calcular $B^{-1}$ por método directo en $4 \times 4$ sería un dolor.
 
 ---
 
