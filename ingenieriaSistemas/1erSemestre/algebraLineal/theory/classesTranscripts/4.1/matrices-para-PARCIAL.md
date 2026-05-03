@@ -881,21 +881,33 @@ $$\vec{v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad \vec{v}_2 = \begi
 
 #### Parte 1 — calcular los tres productos
 
-**Para $A \cdot \vec{v}_1$:** aplico la fórmula "fila $i$ de $A$ por columna 1 de $\vec{v}_1$" para cada fila $i$:
+**Para $A \cdot \vec{v}_1$:** $\vec{v}_1$ es UN vector columna (no tiene varias columnas — es UNA sola). Aplico la fórmula "fila $i$ de $A$ por $\vec{v}_1$" para cada fila $i = 1, 2, 3$:
 
-- Fila 1: $a_{11} \cdot 1 + a_{12} \cdot 0 + a_{13} \cdot 0 = a_{11}$
-- Fila 2: $a_{21} \cdot 1 + a_{22} \cdot 0 + a_{23} \cdot 0 = a_{21}$
-- Fila 3: $a_{31} \cdot 1 + a_{32} \cdot 0 + a_{33} \cdot 0 = a_{31}$
+- **Fila 1 de $A$ por $\vec{v}_1$:** $(a_{11}, a_{12}, a_{13}) \cdot (1, 0, 0)^T = a_{11} \cdot 1 + a_{12} \cdot 0 + a_{13} \cdot 0 = a_{11}$
+- **Fila 2 de $A$ por $\vec{v}_1$:** $(a_{21}, a_{22}, a_{23}) \cdot (1, 0, 0)^T = a_{21} \cdot 1 + a_{22} \cdot 0 + a_{23} \cdot 0 = a_{21}$
+- **Fila 3 de $A$ por $\vec{v}_1$:** $(a_{31}, a_{32}, a_{33}) \cdot (1, 0, 0)^T = a_{31} \cdot 1 + a_{32} \cdot 0 + a_{33} \cdot 0 = a_{31}$
+
+> **Cómo se aplica "fila por columna":** vas tomando los números de la fila de $A$ uno al lado del otro, y los números del vector $\vec{v}_1$ uno arriba del otro, y los multiplicás en el orden en que aparecen. El primero de la fila con el primero del vector, el segundo con el segundo, etc. Después sumás todo.
+
+Apilo los 3 resultados (uno por fila) como vector columna:
 
 $$A \cdot \vec{v}_1 = \begin{pmatrix} a_{11} \\ a_{21} \\ a_{31} \end{pmatrix}$$
 
 > **Observación clave:** ese resultado es **la columna 1 de $A$**.
 
-**Para $A \cdot \vec{v}_2$:** análogo, pero ahora el $1$ está en la posición 2 del vector. En cada fila sobrevive solo el segundo término:
+**Para $A \cdot \vec{v}_2$:** análogo, pero ahora el $1$ del vector está en la **segunda posición** (no la primera). En cada fila de $A$, eso significa que sobrevive solo el segundo número:
+
+- Fila 1: $a_{11} \cdot 0 + a_{12} \cdot 1 + a_{13} \cdot 0 = a_{12}$
+- Fila 2: $a_{21} \cdot 0 + a_{22} \cdot 1 + a_{23} \cdot 0 = a_{22}$
+- Fila 3: $a_{31} \cdot 0 + a_{32} \cdot 1 + a_{33} \cdot 0 = a_{32}$
 
 $$A \cdot \vec{v}_2 = \begin{pmatrix} a_{12} \\ a_{22} \\ a_{32} \end{pmatrix} = \text{columna 2 de } A$$
 
-**Para $A \cdot \vec{v}_3$:** el $1$ está en posición 3:
+**Para $A \cdot \vec{v}_3$:** el $1$ del vector está en la **tercera posición**:
+
+- Fila 1: $a_{11} \cdot 0 + a_{12} \cdot 0 + a_{13} \cdot 1 = a_{13}$
+- Fila 2: $a_{21} \cdot 0 + a_{22} \cdot 0 + a_{23} \cdot 1 = a_{23}$
+- Fila 3: $a_{31} \cdot 0 + a_{32} \cdot 0 + a_{33} \cdot 1 = a_{33}$
 
 $$A \cdot \vec{v}_3 = \begin{pmatrix} a_{13} \\ a_{23} \\ a_{33} \end{pmatrix} = \text{columna 3 de } A$$
 
