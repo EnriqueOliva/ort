@@ -684,11 +684,27 @@ $$\boxed{X = A^{-1} \cdot B}$$
 
 Una matriz cuadrada $A$ es **idempotente** si $A^2 = A$.
 
+> **En palabras:** multiplicarla por sí misma da la misma matriz. Es como un número que es igual a su propio cuadrado — los únicos números así son $0$ y $1$. Pero con matrices hay más posibilidades.
+>
+> **Consecuencia útil:** si $A^2 = A$, entonces $A^3 = A \cdot A^2 = A \cdot A = A^2 = A$. Y por inducción, $A^k = A$ para todo $k \geq 1$.
+
 ### Ejemplos
 
-- La identidad: $\text{Id}^2 = \text{Id}$. Es idempotente.
-- La nula: $\mathcal{O}^2 = \mathcal{O}$. Es idempotente.
-- $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ — verificá: $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}^2 = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$. Es idempotente y **no es ni la identidad ni la nula**.
+**Ejemplo 1 — la identidad.** $\text{Id}^2 = \text{Id} \cdot \text{Id} = \text{Id}$ (multiplicar por la identidad nunca cambia nada). ✓ Es idempotente.
+
+**Ejemplo 2 — la nula.** $\mathcal{O}^2 = \mathcal{O} \cdot \mathcal{O} = \mathcal{O}$ (cualquier producto que tenga la nula da la nula). ✓ Es idempotente.
+
+**Ejemplo 3 — una matriz "interesante".** $A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$.
+
+Calculo $A^2$ entrada por entrada:
+- $(1,1)$: $1 \cdot 1 + 0 \cdot 0 = 1$
+- $(1,2)$: $1 \cdot 0 + 0 \cdot 0 = 0$
+- $(2,1)$: $0 \cdot 1 + 0 \cdot 0 = 0$
+- $(2,2)$: $0 \cdot 0 + 0 \cdot 0 = 0$
+
+$$A^2 = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} = A \quad \checkmark$$
+
+Es idempotente. Y **no** es ni la identidad ni la nula — esto demuestra que hay matrices idempotentes "no triviales".
 
 ### Resultados clave que el profesor demostró sobre idempotente
 
