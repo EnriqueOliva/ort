@@ -921,13 +921,32 @@ $$A^n = \begin{pmatrix} 1 & n & \frac{n^2 + n}{2} \\ 0 & 1 & n \\ 0 & 0 & 1 \end
 
 ### Solución
 
-**Cálculos previos:**
+#### Paso 1 — calcular $A^2 = A \cdot A$ entrada por entrada
 
-$$A^2 = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \end{pmatrix}, \quad A^3 = \begin{pmatrix} 1 & 3 & 6 \\ 0 & 1 & 3 \\ 0 & 0 & 1 \end{pmatrix}$$
+Hago "fila × columna" en cada una de las 9 entradas. Algunos ejemplos:
+- Entrada $(1,2)$ de $A^2$: fila 1 de $A$ = $(1,1,1)$, col 2 de $A$ = $(1,1,0)^T$. Producto: $1 \cdot 1 + 1 \cdot 1 + 1 \cdot 0 = 2$.
+- Entrada $(1,3)$: fila 1 = $(1,1,1)$, col 3 = $(1,1,1)^T$. Producto: $1 + 1 + 1 = 3$.
+- Entrada $(2,3)$: fila 2 = $(0,1,1)$, col 3 = $(1,1,1)^T$. Producto: $0 + 1 + 1 = 2$.
 
-(Verificar: $\frac{2^2+2}{2}=3$ y $\frac{3^2+3}{2}=6$ ✓)
+$$A^2 = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \end{pmatrix}$$
 
-**Inducción:** demo paso a paso en `matrices-DEMOSTRACIONES.md` §G.3.
+> **Verificación con la fórmula:** para $n = 2$, la fórmula da $\frac{2^2+2}{2} = \frac{6}{2} = 3$ en posición $(1,3)$. ✓
+
+#### Paso 2 — calcular $A^3 = A^2 \cdot A$ entrada por entrada
+
+Ejemplos:
+- Entrada $(1,3)$ de $A^3$: fila 1 de $A^2$ = $(1,2,3)$, col 3 de $A$ = $(1,1,1)^T$. Producto: $1 + 2 + 3 = 6$.
+- Entrada $(2,3)$: fila 2 = $(0,1,2)$, col 3 = $(1,1,1)^T$. Producto: $0 + 1 + 2 = 3$.
+
+$$A^3 = \begin{pmatrix} 1 & 3 & 6 \\ 0 & 1 & 3 \\ 0 & 0 & 1 \end{pmatrix}$$
+
+> **Verificación:** $\frac{3^2+3}{2} = 6$ en posición $(1,3)$. ✓
+
+#### Paso 3 — generalizar por inducción
+
+Demo paso a paso de la inducción completa en `matrices-DEMOSTRACIONES.md` §G.3.
+
+> **Idea de la inducción:** la base son los casos $n=1$, $n=2$ que acabamos de verificar. Asumimos que la fórmula vale para $n=h$ y probamos que vale para $n=h+1$ multiplicando $A^h \cdot A$. La entrada $(1,3)$ es la que requiere más álgebra ($1 + h + \frac{h(h+1)}{2}$ tiene que dar $\frac{(h+1)(h+2)}{2}$).
 
 ---
 
@@ -975,13 +994,41 @@ $$A^2 = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \end{pmatrix}, \quad
 
 ### Solución
 
-**Parte 1 (cálculo).**
+#### Parte 1 — calcular potencias hasta encontrar la nula
 
-$$A^2 = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix} \neq \mathcal{O}, \quad A^3 = \mathcal{O}$$
+**Paso 1 — Calcular $A^2 = A \cdot A$ entrada por entrada.**
 
-Como $A^3 = \mathcal{O}$ y $A^2 \neq \mathcal{O}$, **$A$ es nilpotente de grado $3$**. $\blacksquare$
+- Entrada $(1,1)$: fila 1 = $(0,1,1)$, col 1 = $(0,0,0)^T$. Producto: $0+0+0 = 0$.
+- Entrada $(1,2)$: fila 1 = $(0,1,1)$, col 2 = $(1,0,0)^T$. Producto: $0\cdot 1 + 1\cdot 0 + 1\cdot 0 = 0$.
+- Entrada $(1,3)$: fila 1 = $(0,1,1)$, col 3 = $(1,1,0)^T$. Producto: $0\cdot 1 + 1\cdot 1 + 1\cdot 0 = 1$. ← ¡no cero!
+- Otras entradas: el resto da cero por la estructura triangular.
 
-**Parte 2.** $P^{-1} A P$ es nilpotente del mismo grado que $A$ (grado 3). **Demo en `matrices-DEMOSTRACIONES.md` §F.3.**
+$$A^2 = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
+
+$A^2 \neq \mathcal{O}$ porque tiene un $1$ en la entrada $(1,3)$.
+
+**Paso 2 — Calcular $A^3 = A^2 \cdot A$.**
+
+- La fila 1 de $A^2$ es $(0, 0, 1)$. Solo "ve" la fila 3 de $A$, que es $(0, 0, 0)$ (toda nula).
+- Las filas 2 y 3 de $A^2$ son nulas.
+
+Todas las entradas de $A^3$ dan cero:
+
+$$A^3 = \mathcal{O}$$
+
+**Paso 3 — Conclusión sobre el grado.** Como $A^3 = \mathcal{O}$ pero $A^2 \neq \mathcal{O}$, la **primera potencia** que anula es la $3$. Por definición de nilpotente:
+
+$$\boxed{A \text{ es nilpotente de grado } 3} \;\;\blacksquare$$
+
+> **¿Qué significa "grado $k$"?** $k$ es el menor entero tal que $A^k = \mathcal{O}$. No basta con que SE anule en algún punto — también hay que decir CUÁNDO se anula por primera vez.
+
+#### Parte 2 — $P^{-1} A P$ tiene el mismo grado
+
+Como $A$ es nilpotente de grado $3$, **$P^{-1} A P$ también es nilpotente de grado $3$**.
+
+> **Idea (demo completa en `matrices-DEMOSTRACIONES.md` §F.3):**
+> - Por un lado, $(P^{-1} A P)^3 = P^{-1} A^3 P = P^{-1} \mathcal{O} P = \mathcal{O}$ (los $P P^{-1}$ del medio se cancelan).
+> - Por otro, $(P^{-1} A P)^2 = P^{-1} A^2 P \neq \mathcal{O}$ (porque $A^2 \neq \mathcal{O}$ y $P$ es invertible — si fuera cero, podríamos despejar $A^2 = \mathcal{O}$, contradicción).
 
 ---
 
