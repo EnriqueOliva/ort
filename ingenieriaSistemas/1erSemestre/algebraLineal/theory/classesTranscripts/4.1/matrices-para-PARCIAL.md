@@ -24,7 +24,7 @@ Asumí que no fuiste a clase y que no te acordás de nada. Todo está explicado 
 
 > "El parcial, si bien tiene alguna demostración teórica, es resolver ejercicios" *(clase 1, 17-mar)*
 
-**Sobre demostraciones específicamente:** En la **PARTE 8** de este documento hay una **auditoría exhaustiva** que va propiedad por propiedad indicando si el profesor dijo que se pide demostrar, si quedó como opcional, o si demostró ese caso en clase. Leela antes de elegir qué priorizar al estudiar.
+**Sobre demostraciones específicamente:** todas las demos formales del módulo viven en el archivo aparte **`matrices-DEMOSTRACIONES.md`** (mismo folder), organizadas por sección con índice. Cuando una propiedad lleva el ícono 🟢 en este doc, hay una demo paso a paso esperándote en ese archivo.
 
 ---
 
@@ -65,7 +65,7 @@ Para la auditoría completa con citas de clase, ver **PARTE 8**.
 | 5 | Matriz inversa: concepto, método directo, propiedades |
 | 6 | Tipos especiales: idempotente, nilpotente, ortogonal |
 | 7 | **Práctico completo resuelto (V.1 a V.17 + VI.1 a VI.3)** |
-| 8 | **Errores comunes, auditoría exhaustiva y checklist para el parcial** |
+| 8 | **Errores comunes que el profesor mencionó explícitamente** |
 | 9 | **Resumen final imprescindible** |
 
 📐 **Aparte:** las demostraciones formales viven en el archivo `matrices-DEMOSTRACIONES.md` (mismo folder). Acá vas a ver referencias del estilo *"demo en demos.md §B.2"* cuando aparezca una propiedad — el cuerpo de la demo está en ese archivo.
@@ -1076,7 +1076,7 @@ $$B \cdot B^{-1} = \text{Id}_{4 \times 4} \quad \checkmark$$
 
 ---
 
-# PARTE 8 — Estrategia de parcial: errores comunes y checklist
+# PARTE 8 — Errores comunes que el profesor mencionó
 
 ## Los errores que el profesor mencionó explícitamente
 
@@ -1099,246 +1099,7 @@ Este es el oro del documento. El profesor dice repetidamente cuáles son los err
 
 > "La verdad que en ningún parcial aparece que asume que conmuta y cuando no, no es así"
 
----
-
-## Checklist mental antes de cada cuenta
-
-Antes de hacer una operación, hacete estas preguntas:
-
-| Operación | Pregunta |
-|-----------|----------|
-| Suma $A + B$ | ¿Tienen la misma dimensión? |
-| Producto $A \cdot B$ | ¿Las columnas de $A$ coinciden con las filas de $B$? (Conformabilidad) |
-| Inversa $A^{-1}$ | ¿$A$ es cuadrada? ¿Se planteó si es invertible? |
-| Despejar $X$ | ¿En qué lado está $X$? ¿Multiplico por la inversa por ese mismo lado? |
-| Trasponer producto | ¿Invertí el orden? |
-| Invertir producto | ¿Invertí el orden? |
-| Conmutar $AB \to BA$ | ¿Tengo hipótesis que lo permita? |
-| Sacar factor común con $X$ | ¿Tengo que poner $\text{Id} \cdot X$ explícitamente? |
-
----
-
-## Auditoría exhaustiva: ¿qué demostraciones de matrices pueden caer en parcial?
-
-Esta sección audita **cada propiedad y cada demostración** del módulo de matrices contra lo que el profesor dijo textualmente en las 12 clases del semestre. La metodología fue: leer las 12 transcripciones completas, encontrar cada vez que el profesor habló de qué entra o no entra en parcial respecto a demostraciones, y mapear sus citas a las propiedades concretas del módulo.
-
-### Conclusión central (leé esto antes que la tabla)
-
-> **El profesor NUNCA dijo "esta demostración NO se pide en parcial" para ninguna propiedad o teorema de matrices.** La instrucción literal y repetida fue **"tenemos que manejar"** las 4 propiedades de traspuesta, las 4 de traza, y las 4 de inversa — eso significa estar preparado para **demostrar cualquiera de ellas**. La única exclusión explícita en todo el módulo fue el **ejercicio V.17, marcado como "podría ser opcional"**.
-
-### Las 6 reglas explícitas del profesor sobre demostraciones en parcial
-
-| # | Regla | Cita textual del profesor (clase:fecha) |
-|---|-------|------------------------------------------|
-| 1 | El parcial **sí** tiene demostraciones teóricas, no es solo cuentas | *"el parcial, si bien tiene alguna demostración teórica, es resolver ejercicios"* (clase 1, 17-mar) |
-| 2 | En cualquier demostración hay que **citar qué propiedad estás aplicando** | *"en los parciales si se pide justificar las propiedades que aplican"* (clase 2, 18-mar) |
-| 3 | No hace falta memorizar el **número** de la propiedad — basta **describirla con palabras** | *"eso no importa. Lo que importa es saber aplicarla y aclarar qué propiedad estás aplicando. No hay un texto así... describí con palabras"* (clase 5, 7-abr) |
-| 4 | Las **4 propiedades de traspuesta** "tenemos que manejar" | *"vamos a ver cuatro propiedades que tenemos que manejar en esta operación"* (clase 2, 18-mar) |
-| 5 | Las **4 propiedades de traza** "tenemos que manejar" | *"al igual que las traspuestas son 4 propiedades que tenemos que manejar"* (clase 2, 18-mar) |
-| 6 | Las **4 propiedades de inversa** "tenemos que manejar y demostrar algunas" | *"vamos a ver ahora las propiedades de la inversa, algunas que tenemos que manejar y vamos a demostrar algunas de ellas"* (clase 3, 24-mar) |
-
-### Tabla maestra: cada demostración del módulo y su veredicto
-
-> ⚠️ **OJO con los emojis acá:** En esta tabla de auditoría, los emojis describen **cómo el profesor presentó cada propiedad en clase** (evidencia bruta). NO es lo mismo que la **leyenda de prioridad** que usás en el resto del documento. Para "qué hago con esto al estudiar", mirá el resto del doc — la leyenda al inicio resume el sistema de prioridad simplificado a 4 niveles. Esta tabla es la fuente cruda de evidencia.
-
-**Leyenda de evidencia (solo para esta tabla):**
-- 🟢 **DEMOSTRADA EN PIZARRÓN** — el profesor la hizo entera en clase. **Demo pedible en parcial — prioridad MÁXIMA.**
-- 🟡 **EN ESQUEMA / ANALOGÍA** — el profesor la sketcheó o dijo "es análoga a esta otra". **Demo pedible — saberla deducir.**
-- 🔵 **ENUNCIADA "QUE TENEMOS QUE MANEJAR"** — propiedad listada pero el profesor no la demostró formalmente. **La mayoría son demo pedible** (ver columna "Veredicto").
-- ⚪ **DEFINICIÓN / CÁLCULO** — no hay demostración formal asociada; es definicional o computacional. Va como 🟡 (saber/aplicar) o 🔵 (cálculo) en la prioridad de estudio.
-- 🔴 **EXCLUIDA EXPLÍCITAMENTE** — el profesor dijo que NO entra en parcial.
-
-**Veredicto:**
-- **SE PIDE** = puede caer como demostración (prioridad de estudio: 🟢 en el sistema simplificado).
-- **NO SE PIDE** = el profesor lo excluyó explícitamente (prioridad de estudio: 🔴).
-- **SE APLICA** = entra como herramienta de cálculo, no como demostración (prioridad de estudio: 🟡 saber, o 🔵 procedimiento).
-
-#### A. Suma de matrices y producto por escalar
-
-| Propiedad | Estado | Veredicto | Evidencia |
-|-----------|--------|-----------|-----------|
-| Asociativa de la suma: $(A+B)+C = A+(B+C)$ | 🔵 Enunciada | SE PIDE | Clase 1, 17-mar (líneas 170-187) — enunciada sin demo, dentro de las "que tenemos que manejar" |
-| Conmutativa de la suma: $A+B = B+A$ | 🔵 Enunciada | SE PIDE | Idem |
-| Neutro de la suma: $A + \mathcal{O} = A$ | 🔵 Enunciada | SE PIDE | Idem |
-| Opuesto: $A + (-A) = \mathcal{O}$ | 🔵 Enunciada | SE PIDE | Idem |
-| Asociativa del escalar: $\alpha(\beta A) = (\alpha\beta)A$ | 🔵 Enunciada | SE PIDE | Clase 1, 17-mar |
-| Distributiva 1: $\alpha(A+B) = \alpha A + \alpha B$ | 🔵 Enunciada | SE PIDE | Idem |
-| Distributiva 2: $(\alpha+\beta)A = \alpha A + \beta A$ | 🔵 Enunciada | SE PIDE | Idem |
-| Neutro escalar: $1 \cdot A = A$ | 🔵 Enunciada | SE PIDE | Idem |
-
-#### B. Producto de matrices
-
-| Propiedad | Estado | Veredicto | Evidencia |
-|-----------|--------|-----------|-----------|
-| Asociativa: $A(BC) = (AB)C$ | 🔵 Enunciada | SE PIDE | Clase 1, 17-mar (línea 233-242) |
-| Distributiva izq: $A(B+C) = AB+AC$ | 🔵 Enunciada | SE PIDE | Idem |
-| Distributiva der: $(A+B)C = AC+BC$ | 🔵 Enunciada | SE PIDE | Idem |
-| Neutro: $A \cdot \text{Id} = \text{Id} \cdot A = A$ | 🔵 Enunciada | SE PIDE | Idem |
-| Escalar entre factores: $k(AB) = (kA)B = A(kB)$ | 🔵 Enunciada | SE PIDE | Idem |
-| **NO conmutatividad: $AB \neq BA$ en general** | 🟢 Enfatizada con contraejemplo | SE PIDE saber aplicar | Clase 1, 17-mar (231-233): *"lo veo siempre en los parciales A por B igual a B por A que lo asumen... vamos a hacer énfasis en eso, en ningún parcial aparece que asume que conmuta"* |
-| Producto por vector canónico extrae columna $j$ | 🟢 Demostrada en clase | SE PIDE | Clase 2, 18-mar (líneas 165-171); ejercicio V.3 lo pide explícitamente |
-
-#### C. Traspuesta — las 4 propiedades
-
-> Cita maestra: *"vamos a ver cuatro propiedades que tenemos que manejar en esta operación"* (clase 2, 18-mar, línea 35).
-
-| Propiedad | Estado | Veredicto | Evidencia |
-|-----------|--------|-----------|-----------|
-| Prop 1: $(A^T)^T = A$ | 🔵 Enunciada | SE PIDE | Clase 2, 18-mar — bajo "tenemos que manejar" |
-| Prop 2: $(A+B)^T = A^T + B^T$ | 🟢 **Demostrada en este doc** | SE PIDE | Esquema modelo de demostración |
-| Prop 3: $(\alpha A)^T = \alpha A^T$ | 🟢 **Demostrada en este doc** + error común flagged en clase | SE PIDE | Clase 2, 18-mar (46-48): *"un error común... ponen alfa por a traspuesta igual a alfa traspuesta por a traspuesta"* |
-| Prop 4: $(AB)^T = B^T A^T$ — **orden invertido** | 🟢 Error común enfatizado en clase | SE PIDE | Clase 2, 18-mar (52-58): *"esto está mal porque las matrices no conmutan... los corregirían si lo ponés así como mal"* |
-
-#### D. Simétrica y antisimétrica
-
-| Propiedad / Teorema | Estado | Veredicto | Evidencia |
-|---------------------|--------|-----------|-----------|
-| Definición simétrica: $A^T = A$ | ⚪ Definición | Definicional | Clase 2, 18-mar |
-| Definición antisimétrica: $A^T = -A$ + diagonal nula | ⚪ Definición | Definicional | Idem |
-| Suma de simétricas es simétrica | 🟢 **Demostrada completa en clase** | SE PIDE | Clase 2, 18-mar (líneas 81-90) |
-| $\alpha \cdot A$ simétrica si $A$ simétrica | 🟡 Esquema en clase | SE PIDE | Clase 2, 18-mar (90-93): *"algo muy similar se puede hacer para la propiedad 2"* |
-| Suma de antisimétricas es antisimétrica | 🟡 Análoga | SE PIDE | Clase 2, 18-mar (90-93): *"algo muy parecido acá se podría hacer / la propiedad de la antisimétrica"* |
-| $\alpha \cdot A$ antisimétrica si $A$ antisimétrica | 🟡 Análoga | SE PIDE | Idem |
-| **$AB$ simétrica $\iff AB = BA$** (con $A, B$ simétricas) — directo y recíproco | 🟢 **Demostrada completa en clase**, ambas direcciones | SE PIDE | Clase 2, 18-mar (177-198) — ejercicio V.5.2 |
-| $\frac{1}{2}(A + A^T)$ es simétrica | 🟢 **Demostrada completa en clase** | SE PIDE | Clase 2, 18-mar (199-218) — ejercicio V.6.1 |
-| $\frac{1}{2}(A - A^T)$ es antisimétrica | ⚪ Tarea (análoga) | SE PIDE | Clase 2, 18-mar (218): *"les dejo para que ustedes hagan la parte 2"* |
-| Toda matriz cuadrada = simétrica + antisimétrica | ⚪ Tarea | SE PIDE | Clase 2, 18-mar (218); también clase 4, 25-mar (33) |
-
-#### E. Traza — las 4 propiedades
-
-> Cita maestra: *"al igual que las traspuestas son 4 propiedades que tenemos que manejar... vamos a demostrar por ejemplo la 1 y la 2 a partir de la definición de la traza"* (clase 2, 18-mar, línea 103).
-
-| Propiedad | Estado | Veredicto | Evidencia |
-|-----------|--------|-----------|-----------|
-| Prop 1: $tr(A+B) = tr(A) + tr(B)$ | 🟢 **Demostrada completa en clase con sumatorias** | SE PIDE | Clase 2, 18-mar (111-122) |
-| Prop 2: $tr(\alpha A) = \alpha \cdot tr(A)$ | 🟡 Esquema en clase ("análoga") | SE PIDE | Clase 2, 18-mar (122) |
-| Prop 3: $tr(A^T) = tr(A)$ | 🟡 Explicada verbalmente | SE PIDE | Clase 2, 18-mar (106): *"como la diagonal principal no cambia al traspone, la traza tampoco"* |
-| Prop 4: $tr(AB) = tr(BA)$ | 🔵 Enunciada (no demostrada formal) pero **muy importante** | SE PIDE | Clase 2, 18-mar (106-107): *"la que es muy poco intuitiva... siempre se cumple"* |
-| **Aplicación: NO existen $A, B$ con $AB - BA = \text{Id}$** | 🟢 **Demostrada por absurdo en clase** | SE PIDE | Clase 3, 24-mar (276-298) — usa traza prop 4 |
-| $tr(A - B) = tr(A) - tr(B)$ | 🟢 Verificada en clase | SE PIDE | Clase 3, 24-mar (264-275) |
-
-#### F. Inversa — las 4 propiedades
-
-> Cita maestra: *"vamos a ver ahora las propiedades de la inversa, algunas que tenemos que manejar y vamos a demostrar algunas de ellas"* (clase 3, 24-mar, línea 48).
-
-| Propiedad | Estado | Veredicto | Evidencia |
-|-----------|--------|-----------|-----------|
-| Definición: $A \cdot A^{-1} = A^{-1} \cdot A = \text{Id}$ | ⚪ Definición | Definicional | Clase 3, 24-mar |
-| Unicidad de la inversa | 🔵 Enunciada | SE PIDE | Clase 3, 24-mar (48): *"4 propiedades... unicidad"* |
-| Prop 1: $(A^{-1})^{-1} = A$ | 🔵 Enunciada (intuitiva) | SE PIDE | Clase 3, 24-mar |
-| Prop 2: $(AB)^{-1} = B^{-1} A^{-1}$ — **orden invertido** | 🟢 **Demostrada completa en clase y en este doc** | SE PIDE | Clase 3, 24-mar (54-66) |
-| Prop 3: $(\alpha A)^{-1} = \frac{1}{\alpha} A^{-1}$ | 🔵 Enunciada | SE PIDE | Clase 3, 24-mar |
-| Prop 4: $(A^T)^{-1} = (A^{-1})^T$ | 🔵 Enunciada + ejercicio V.16.3 lo pide demostrar | SE PIDE | Clase 3, 24-mar; ejercicio V.16.3 |
-| **Cálculo de inversa por método directo** | 🟢 Hecho en clase | SE PIDE como ejercicio | Clase 3, 24-mar (8): *"generalmente en los parciales se dice 'hallen la inversa' y ustedes aplican el método"* |
-| **Despeje matricial $A \cdot X = B$, $X \cdot A = B$** | 🟢 Estilo "ejercicio de parcial" | SE PIDE | Clase 3, 24-mar (312): *"lo que vemos ahora son más apuntando, son más ejercicios de parcial"* |
-
-#### G. Tipos especiales
-
-| Concepto | Estado | Veredicto | Evidencia |
-|----------|--------|-----------|-----------|
-| Definición idempotente: $A^2 = A$ | ⚪ Definición | Definicional | Clase 3, 24-mar |
-| **Idempotente + invertible $\Rightarrow A = \text{Id}$** | 🟢 **Demostrada completa en clase** | SE PIDE | Clase 3, 24-mar (79-86) — ejercicio VI.2 |
-| $(A+\text{Id})^3 = \text{Id} + 7A$ si $A$ idempotente | 🟢 **Demostrada completa en clase** | SE PIDE | Clase 4, 25-mar (17-29) |
-| Definición nilpotente: $A^k = \mathcal{O}$, $A^{k-1} \neq \mathcal{O}$ | ⚪ Definición | Definicional | Clase 4, 25-mar (33-34) |
-| **$P^{-1} A P$ nilpotente del mismo grado que $A$** | 🟢 **Demostrada completa en clase** (V.7.2) | SE PIDE | Clase 4, 25-mar (71-84) |
-| Definición ortogonal: $A^T = A^{-1}$ | ⚪ Definición | Definicional | Clase 4, 25-mar (89, 94) |
-| Propiedades formales de ortogonal | 🔴 *"no lo vimos en el teórico"* | NO se piden propiedades formales | Clase 4, 25-mar (89): *"esto es ortogonal, no lo vimos en el teórico, pero esto lo podrían hacer"* |
-| Ejercicios con ortogonal (V.12) | 🟢 Hechos en clase | SE PIDE como ejercicio | Idem |
-
-#### H. Inducción y factorización (técnicas de los ejercicios V.4, V.8, V.10, V.11, VI.1, VI.3)
-
-| Técnica / Ejercicio | Estado | Veredicto | Evidencia |
-|---------------------|--------|-----------|-----------|
-| **Inducción para potencia $A^n$ (V.4)** | 🟢 Anunciada como pedible | SE PIDE | Clase 4, 25-mar (31-32): *"con eso podrían hacer el ejercicio 4"*; clase 12, 29-abr (232-233): *"repasen la inducción completa"* |
-| **Inducción $A^2 = 2A - \text{Id} \Rightarrow A^n$ (V.10.3)** | 🟢 Anunciada como pedible | SE PIDE | Clase 4, 25-mar (40); clase 12, 29-abr |
-| **Inducción $A^n$ para triangular 2×2 (VI.1)** | 🟢 Demostrada en clase para caso similar | SE PIDE | Clase 3, 24-mar (165-172) hace una versión análoga |
-| **Inducción para diagonal $A^k$** | 🟢 Demostrada en clase | SE PIDE | Clase 3, 24-mar (231-237) |
-| **Factorización para invertibilidad: $A^3 - A = \text{Id} \Rightarrow A^{-1} = A^2 - \text{Id}$** | 🟢 Demostrada en clase | SE PIDE | Clase 4, 25-mar (9-14) |
-| **Factorización $A^3 = \mathcal{O} \Rightarrow (A+\text{Id})^{-1} = A^2 - A + \text{Id}$ (VI.3)** | 🟢 Demostrada en clase | SE PIDE | Clase 3, 24-mar (115-130) |
-| **Ley de simplificación V.11**: $AB = AC, A$ invertible $\Rightarrow B = C$ | 🟢 Demostrada en clase | SE PIDE | Clase 4, 25-mar (86-87) |
-| **V.16 V/F (3 partes)**: identificar enunciados ciertos/falsos + agregar hipótesis | 🟢 Estilo de parcial | SE PIDE | Clase 4, 25-mar (105) |
-| **V.17 — $\lambda \text{Id}$ conmuta con todo** | 🔴 **MARCADO COMO OPCIONAL** | NO SE PIDE | Clase 4, 25-mar (105): *"el 17 podría ser opcional"* |
-
-### En lenguaje práctico: ¿qué significa todo esto para Enrique?
-
-**Todo entra como demostración pedible, salvo V.17 (opcional).** El profesor no descartó ninguna otra. Ahora bien, no todo tiene la misma probabilidad — la prioridad para estudiar es:
-
-1. **Prioridad MÁXIMA (🟢 demostradas en pizarrón por el profesor — el modelo exacto que esperaría ver):**
-   - Suma de simétricas es simétrica
-   - $AB$ simétrica $\iff AB = BA$ (con $A, B$ simétricas)
-   - $\frac{1}{2}(A + A^T)$ es simétrica
-   - $tr(A+B) = tr(A) + tr(B)$ — la demo con sumatorias
-   - **NO existen $A, B$ con $AB - BA = \text{Id}$** ← la estrella del módulo
-   - $(AB)^{-1} = B^{-1} A^{-1}$
-   - Idempotente + invertible $\Rightarrow A = \text{Id}$
-   - $A^3 - A = \text{Id} \Rightarrow A^{-1} = A^2 - \text{Id}$
-   - $A^3 = \mathcal{O} \Rightarrow (A + \text{Id})^{-1} = A^2 - A + \text{Id}$
-   - $P^{-1}AP$ nilpotente del mismo grado que $A$
-   - Inducción para potencias (V.4, V.10, VI.1)
-
-2. **Prioridad ALTA (🔵 enunciadas pero "que tenemos que manejar" — probables como demo):**
-   - Las **3 propiedades restantes de traspuesta** (1, 2, 3 — ya tenés el modelo de la 2 y 3 en el doc)
-   - Las **2 propiedades restantes de traza** (3, 4 — sobre todo la 4 con sumatorias dobles)
-   - Las **3 propiedades restantes de inversa** (1, 3, 4)
-
-3. **Prioridad MEDIA (🟡 esquemas / análogas — saber deducirlas):**
-   - $\alpha A$ simétrica si $A$ es simétrica (análoga a suma)
-   - Mismas para antisimétrica
-   - $tr(\alpha A) = \alpha \cdot tr(A)$
-
-4. **NO estudiar para demo (🔴):**
-   - **V.17** — opcional explícito.
-   - **Propiedades formales de matriz ortogonal** — el profesor dijo que no entró al teórico, aunque la **definición** y los **ejercicios** sí.
-
-### Lo que el profesor reiteró sobre cómo presentar una demo en parcial
-
-| Regla | Por qué importa |
-|-------|------------------|
-| Escribir **hipótesis** y **tesis** explícitamente | Estructura mínima esperada |
-| Justificar cada paso citando la propiedad usada | Sin esto, te bajan puntos |
-| No hace falta el número de la propiedad — describila con palabras | Te quita estrés de memorización |
-| Cerrar con $\blacksquare$ o "L.Q.Q.D." o "queda demostrado" | Cierre formal |
-| **Nunca asumir $AB = BA$** salvo hipótesis explícita | Es el error #1 que el prof flageó: *"lo veo siempre en los parciales"* |
-
----
-
-## Patrón de demostraciones que aparecen en parcial
-
-El profesor estructura las demostraciones siempre igual. Si en parcial te piden una demostración, segui este esquema:
-
-1. **Escribir la hipótesis** explícitamente (lo que te dan)
-2. **Escribir la tesis** (lo que tenés que probar)
-3. **Justificar cada paso** (qué propiedad usaste, qué hipótesis aplicaste)
-4. **Cerrar con QED** (escribir "queda demostrado", "L.Q.Q.D." o el símbolo $\blacksquare$ al final)
-
-Ejemplo del esqueleto:
-
-> **Hipótesis:** $A^T = A$, $B^T = B$, $AB = BA$.
-> **Tesis:** $AB$ es simétrica.
->
-> $(AB)^T = B^T A^T$ — *propiedad 4 de la traspuesta*
-> $= BA$ — *hipótesis: $A, B$ simétricas*
-> $= AB$ — *hipótesis: conmutan* $\blacksquare$
-
----
-
-## Mapa de qué herramienta usar según el tipo de ejercicio
-
-| Tipo de ejercicio del práctico | Técnica clave |
-|--------------------------------|---------------|
-| Cálculo directo (V.1, V.2) | Aplicar definiciones, cuidar conformabilidad |
-| Producto por canónicos (V.3) | Saber que extrae columnas |
-| Potencias por inducción (V.4, V.10.3, VI.1) | Base + hipótesis + tesis + demostración usando $A^{h+1} = A^h \cdot A$ |
-| Simétricas / antisimétricas (V.5, V.6, V.16.2) | Aplicar $(\cdot)^T$ y propiedades 1-4 de traspuesta |
-| Nilpotente (V.7) | Calcular potencias hasta encontrar la nula; usar $P P^{-1} = \text{Id}$ |
-| Ecuación polinomial → inversa (V.8, V.10.1, VI.3) | Despejar $A^{-1}$ multiplicando por $A^{-1}$, o factorizar $A \cdot (\ldots) = \text{Id}$ |
-| Inversa por método directo (V.9) | Plantear $AX = \text{Id}$, resolver sistema |
-| Ley de simplificación (V.11) | Multiplicar por $A^{-1}$ por izquierda |
-| Ortogonal (V.12) | Imponer $A^T A = \text{Id}$, resolver sistema |
-| Diagonalización ($P^{-1}AP$, V.13) | Multiplicar por $P$ para evitar calcular $P^{-1}$ |
-| ¿Invertible? Contraejemplo (V.14) | Probar con $\text{Id}$ y $-\text{Id}$ |
-| Conmutatividad (V.15, V.17) | Plantear $AB = BA$ con incógnitas, resolver sistema |
-| V/F (V.16) | Buscar contraejemplos con $\text{Id}$, $\mathcal{O}$, $\begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}$ |
+> 📐 **Sobre demostraciones, esquema oficial, auditoría con citas de clase y mapa de técnicas por ejercicio:** todo eso vive en `matrices-DEMOSTRACIONES.md` (mismo folder). Acá no se duplica.
 
 ---
 
