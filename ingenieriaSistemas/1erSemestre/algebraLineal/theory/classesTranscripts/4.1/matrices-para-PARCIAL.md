@@ -465,39 +465,81 @@ Es el método clásico. Funciona siempre, pero para matrices grandes (3x3 o más
 
 ### Ejemplo: hallar la inversa de $A = \begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix}$
 
-**Paso 1.** Buscar $B = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ tal que $A \cdot B = \text{Id}$.
+**Paso 1 — Plantear la incógnita.** Busco una matriz $B$ del mismo tamaño que $A$ ($2 \times 2$) tal que $A \cdot B = \text{Id}$. Llamo a las entradas de $B$ con letras:
 
-**Paso 2.** Multiplicar:
+$$B = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$$
 
-$$A \cdot B = \begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} \cdot \begin{pmatrix} a & b \\ c & d \end{pmatrix} = \begin{pmatrix} a + 2c & b + 2d \\ 3a - 4c & 3b - 4d \end{pmatrix}$$
+> **Por qué uso letras:** porque $B$ es desconocida. Las letras $a, b, c, d$ son las **incógnitas** que voy a despejar.
 
-**Paso 3.** Igualar a la identidad:
+**Paso 2 — Multiplicar $A \cdot B$ entrada por entrada.** Aplico fila × columna en cada una de las 4 entradas:
+
+- Entrada $(1,1)$: fila 1 de $A$ por col 1 de $B$ = $1 \cdot a + 2 \cdot c = a + 2c$
+- Entrada $(1,2)$: fila 1 por col 2 = $1 \cdot b + 2 \cdot d = b + 2d$
+- Entrada $(2,1)$: fila 2 por col 1 = $3 \cdot a + (-4) \cdot c = 3a - 4c$
+- Entrada $(2,2)$: fila 2 por col 2 = $3 \cdot b + (-4) \cdot d = 3b - 4d$
+
+Quedando:
+
+$$A \cdot B = \begin{pmatrix} a + 2c & b + 2d \\ 3a - 4c & 3b - 4d \end{pmatrix}$$
+
+**Paso 3 — Igualar a la identidad.** Como queremos $A \cdot B = \text{Id}$:
 
 $$\begin{pmatrix} a + 2c & b + 2d \\ 3a - 4c & 3b - 4d \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$$
 
-Sistema (igualando entrada por entrada):
+Dos matrices son iguales si lo son entrada por entrada, así que esto se traduce en 4 ecuaciones:
 
-$$\begin{cases} a + 2c = 1 \\ b + 2d = 0 \\ 3a - 4c = 0 \\ 3b - 4d = 1 \end{cases}$$
+$$\begin{cases} a + 2c = 1 \quad \text{(de la entrada (1,1))} \\ b + 2d = 0 \quad \text{(de la (1,2))} \\ 3a - 4c = 0 \quad \text{(de la (2,1))} \\ 3b - 4d = 1 \quad \text{(de la (2,2))} \end{cases}$$
 
-**Paso 4.** Resolver:
-- De $a + 2c = 1$ y $3a - 4c = 0$: multiplicando la primera por $2$, $2a + 4c = 2$, sumando con $3a - 4c = 0$ → $5a = 2$ → $a = 2/5$. Luego $c = (1 - 2/5)/2 = 3/10$.
-- De $b + 2d = 0$ y $3b - 4d = 1$: $b = -2d$, sustituyendo: $-6d - 4d = 1$ → $d = -1/10$. Luego $b = 1/5$.
+> **Notá:** las ecuaciones se separan en dos parejas independientes. Las que tienen $a, c$ (1ra y 3ra) y las que tienen $b, d$ (2da y 4ta). Las resuelvo por separado.
 
-**Resultado:**
+**Paso 4 — Resolver para $a$ y $c$ (ecuaciones 1 y 3).**
 
-$$A^{-1} = \begin{pmatrix} 2/5 & 1/5 \\ 3/10 & -1/10 \end{pmatrix}$$
+$$\begin{cases} a + 2c = 1 \\ 3a - 4c = 0 \end{cases}$$
+
+Multiplico la primera ecuación por $2$ para que el coeficiente de $c$ sea $4$:
+
+$$2a + 4c = 2$$
+
+Ahora sumo con la segunda ($3a - 4c = 0$). Los términos en $c$ se cancelan:
+
+$$2a + 3a + 4c - 4c = 2 + 0$$
+$$5a = 2 \implies a = \tfrac{2}{5}$$
+
+Vuelvo a la primera ecuación con $a = \frac{2}{5}$:
+
+$$\tfrac{2}{5} + 2c = 1 \implies 2c = 1 - \tfrac{2}{5} = \tfrac{3}{5} \implies c = \tfrac{3}{10}$$
+
+**Paso 5 — Resolver para $b$ y $d$ (ecuaciones 2 y 4).**
+
+$$\begin{cases} b + 2d = 0 \\ 3b - 4d = 1 \end{cases}$$
+
+De la primera: $b = -2d$. Sustituyo en la segunda:
+
+$$3(-2d) - 4d = 1 \implies -6d - 4d = 1 \implies -10d = 1 \implies d = -\tfrac{1}{10}$$
+
+Y vuelvo a $b = -2d = -2 \cdot (-\frac{1}{10}) = \frac{2}{10} = \frac{1}{5}$.
+
+**Paso 6 — Armar la inversa.**
+
+$$\boxed{A^{-1} = \begin{pmatrix} 2/5 & 1/5 \\ 3/10 & -1/10 \end{pmatrix}}$$
+
+**Paso 7 — Verificar (opcional pero recomendable).** Multiplicá $A \cdot A^{-1}$ y debería dar $\text{Id}$. Por ejemplo, entrada $(1,1)$: $1 \cdot \frac{2}{5} + 2 \cdot \frac{3}{10} = \frac{2}{5} + \frac{6}{10} = \frac{4}{10} + \frac{6}{10} = 1$ ✓
 
 ### Cuando NO es invertible
 
-Si al armar el sistema te queda **incompatible** (no tiene solución), la matriz no es invertible.
+Si al armar el sistema queda **incompatible** (sin solución), la matriz no tiene inversa.
 
-**Ejemplo:** $C = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$. Si planteás $C \cdot B = \text{Id}$, te queda:
+**Ejemplo:** $C = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$.
 
-$$\begin{cases} a + 2c = 1 \\ 2a + 4c = 0 \end{cases}$$
+Planteando $C \cdot B = \text{Id}$ y sacando las dos primeras ecuaciones (las que involucran $a$ y $c$):
 
-La segunda ecuación es $2$ veces la primera, pero los lados derechos no son proporcionales ($1$ y $0$). Sistema incompatible. $C$ no es invertible.
+$$\begin{cases} a + 2c = 1 \quad \text{(de entrada (1,1) = 1)} \\ 2a + 4c = 0 \quad \text{(de entrada (2,1) = 0)} \end{cases}$$
 
-**Pista visual:** la fila 2 de $C$ es $2$ veces la fila 1. Cuando una fila es múltiplo de otra, la matriz no es invertible.
+> **Mirá la trampa:** la segunda ecuación es exactamente $2$ veces la primera del lado izquierdo. Si la primera dice $a + 2c = 1$, multiplicada por $2$ daría $2a + 4c = 2$. Pero la ecuación dada es $2a + 4c = 0$. **Contradicción:** una misma cosa ($2a + 4c$) no puede valer $2$ y $0$ al mismo tiempo.
+
+Por lo tanto el sistema es **incompatible** — no existe $a, c$ que cumpla ambas. **$C$ no es invertible.**
+
+**Pista visual rápida:** la fila 2 de $C$ es $2$ veces la fila 1. Cuando una fila es múltiplo de otra, la matriz nunca es invertible.
 
 ---
 
@@ -524,15 +566,40 @@ Mismo motivo que la traspuesta: como las matrices no conmutan, no podés escribi
 
 **Regla de oro:** no existe división. Para "pasar" una matriz al otro lado, multiplicás por su inversa **del mismo lado en ambos miembros**.
 
-| Si la ecuación es... | Despejás $X$ así... |
-|----------------------|----------------------|
-| $A \cdot X = B$, $A$ invertible | $X = A^{-1} \cdot B$ (multiplicar por $A^{-1}$ a izquierda) |
-| $X \cdot A = B$, $A$ invertible | $X = B \cdot A^{-1}$ (multiplicar por $A^{-1}$ a derecha) |
-| $A \cdot X + X = B$ | factorizar como $(A + \text{Id}) X = B$, luego $X = (A + \text{Id})^{-1} B$ |
+### Ejemplo paso a paso: despejar $X$ de $A \cdot X = B$ (con $A$ invertible)
 
-> **Errores típicos del parcial:**
-> 1. **Mover $A^{-1}$ al lado equivocado.** Si la $A$ estaba a izquierda, $A^{-1}$ va a izquierda — no podés saltar al otro lado porque las matrices no conmutan.
-> 2. **Factorizar $A X + X$ como $(A+1)X$.** "$1$" es número, $A$ es matriz, no se suman. Hay que escribir $\text{Id} \cdot X$ explícito y queda $(A + \text{Id})X$.
+**Paso 1 — Identificar la incógnita y su posición.** $X$ es lo que querés despejar. Está a la **derecha** de $A$, multiplicada a izquierda por $A$.
+
+**Paso 2 — Elegir el lado por el que multiplicar $A^{-1}$.** Como $A$ está a izquierda de $X$, multiplico por $A^{-1}$ a izquierda en ambos lados de la ecuación:
+
+$$A \cdot X = B \quad\Longrightarrow\quad A^{-1} \cdot (A \cdot X) = A^{-1} \cdot B$$
+
+**Paso 3 — Reagrupar usando asociativa.** Muevo paréntesis:
+
+$$(A^{-1} \cdot A) \cdot X = A^{-1} \cdot B$$
+
+**Paso 4 — Aplicar $A^{-1} \cdot A = \text{Id}$.**
+
+$$\text{Id} \cdot X = A^{-1} \cdot B$$
+
+**Paso 5 — Aplicar $\text{Id} \cdot X = X$.**
+
+$$\boxed{X = A^{-1} \cdot B}$$
+
+> **Importante:** $A^{-1}$ tiene que ir **a la izquierda** de $B$, NO a la derecha. Si pusieras $X = B \cdot A^{-1}$ estarías equivocado, porque las matrices no conmutan.
+
+### Tabla de los 3 casos típicos
+
+| Ecuación | Despejás $X$ así... | Razón |
+|----------|---------------------|-------|
+| $A \cdot X = B$, $A$ invertible | $X = A^{-1} \cdot B$ | Multiplicás por $A^{-1}$ **a izquierda** porque $A$ estaba a izquierda. |
+| $X \cdot A = B$, $A$ invertible | $X = B \cdot A^{-1}$ | Multiplicás por $A^{-1}$ **a derecha** porque $A$ estaba a derecha. |
+| $A \cdot X + X = B$ | $X = (A + \text{Id})^{-1} \cdot B$ | Factorizás $X$: $(A + \text{Id}) X = B$, después multiplicás por $(A+\text{Id})^{-1}$ a izquierda (asumiendo que existe). |
+
+### Errores típicos del parcial
+
+1. **Mover $A^{-1}$ al lado equivocado.** Si $A$ estaba a izquierda de $X$, $A^{-1}$ va a izquierda. No podés saltar al otro lado porque las matrices no conmutan.
+2. **Factorizar $AX + X$ como $(A+1)X$.** "$1$" es un número, $A$ es una matriz — no se suman. Lo correcto es escribir $X = \text{Id} \cdot X$ explícitamente, y entonces $AX + X = AX + \text{Id} \cdot X = (A + \text{Id}) X$.
 
 ---
 
