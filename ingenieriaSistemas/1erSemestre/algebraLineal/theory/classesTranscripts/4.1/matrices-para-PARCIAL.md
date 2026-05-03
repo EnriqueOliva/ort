@@ -400,12 +400,33 @@ $$A^T = \begin{pmatrix} 1 & 3 & 2 \\ 2 & -4 & 1 \end{pmatrix}$$
 
 ## Matriz simétrica y antisimétrica
 
-| Tipo | Definición | Consecuencia | Ejemplo |
-|------|------------|--------------|---------|
-| **Simétrica** 🟡 | $A^T = A$ | $a_{ij} = a_{ji}$ — espejo en la diagonal | $\begin{pmatrix} 1 & 3 & 2 \\ 3 & -4 & 1 \\ 2 & 1 & 2 \end{pmatrix}$ |
-| **Antisimétrica** 🟡 | $A^T = -A$ | $a_{ij} = -a_{ji}$ — y **diagonal siempre nula** (pues $a_{ii} = -a_{ii} \Rightarrow a_{ii} = 0$) | $\begin{pmatrix} 0 & 3 & -2 \\ -3 & 0 & 1 \\ 2 & -1 & 0 \end{pmatrix}$ |
+### Definiciones
 
-> **Por qué la diagonal nula en antisimétrica:** el único número que es igual a su opuesto es el $0$, así que $a_{ii} = -a_{ii}$ obliga $a_{ii} = 0$.
+- **Simétrica 🟡:** $A^T = A$. Lo que está arriba de la diagonal es **igual** a lo que está abajo (en posiciones espejo).
+- **Antisimétrica 🟡:** $A^T = -A$. Lo que está arriba de la diagonal es el **opuesto** de lo que está abajo. Y la **diagonal es siempre nula**.
+
+> **Por qué la diagonal de una antisimétrica es nula:** la condición $A^T = -A$ aplicada a la diagonal dice $a_{ii} = -a_{ii}$. El único número que es igual a su opuesto es el $0$, así que cada entrada de la diagonal forzosamente es $0$.
+
+### Ejemplo de simétrica
+
+$$A = \begin{pmatrix} 1 & 3 & 2 \\ 3 & -4 & 1 \\ 2 & 1 & 2 \end{pmatrix}$$
+
+Verifico que $a_{ij} = a_{ji}$ en las posiciones que no son diagonales:
+- $a_{12} = 3$ y $a_{21} = 3$ ✓ (iguales)
+- $a_{13} = 2$ y $a_{31} = 2$ ✓
+- $a_{23} = 1$ y $a_{32} = 1$ ✓
+
+> **Truco visual:** imaginá un espejo en la diagonal. Los números arriba se reflejan iguales abajo.
+
+### Ejemplo de antisimétrica
+
+$$A = \begin{pmatrix} 0 & 3 & -2 \\ -3 & 0 & 1 \\ 2 & -1 & 0 \end{pmatrix}$$
+
+Verifico:
+- **Diagonal nula:** $a_{11} = a_{22} = a_{33} = 0$ ✓
+- $a_{12} = 3$ y $a_{21} = -3$, opuestos ✓
+- $a_{13} = -2$ y $a_{31} = 2$, opuestos ✓
+- $a_{23} = 1$ y $a_{32} = -1$, opuestos ✓
 
 ---
 
@@ -433,11 +454,25 @@ $$A^T = \begin{pmatrix} 1 & 3 & 2 \\ 2 & -4 & 1 \end{pmatrix}$$
 
 ## Traza de una matriz
 
-**Definición.** La traza de $A$ cuadrada es la **suma de los elementos de la diagonal principal**:
+**Definición.** La traza de una matriz cuadrada $A$ es **la suma de los elementos de la diagonal principal**.
 
-$$tr(A) = \sum_{i=1}^{n} a_{ii}$$
+$$tr(A) = \sum_{i=1}^{n} a_{ii} = a_{11} + a_{22} + a_{33} + \cdots + a_{nn}$$
 
-**Ejemplo:** $A = \begin{pmatrix} 1 & 2 & 3 \\ 3 & -4 & 2 \\ 2 & 1 & 10 \end{pmatrix} \;\implies\; tr(A) = 1 + (-4) + 10 = 7$.
+> **Cómo leer la fórmula:** $tr(A)$ es un **número** (no una matriz). Sumás solamente las entradas $a_{ii}$ donde fila e índice columna coinciden — la diagonal de la esquina superior izquierda a la inferior derecha.
+
+**Requisito:** $A$ debe ser **cuadrada** (si no, no hay diagonal bien definida).
+
+**Ejemplo paso a paso:**
+
+$$A = \begin{pmatrix} 1 & 2 & 3 \\ 3 & -4 & 2 \\ 2 & 1 & 10 \end{pmatrix}$$
+
+Identifico la diagonal: $a_{11} = 1$, $a_{22} = -4$, $a_{33} = 10$.
+
+Sumo:
+
+$$tr(A) = 1 + (-4) + 10 = 7$$
+
+> **Notá:** los números fuera de la diagonal ($2, 3, 1$, etc.) **no se usan** para la traza. Solo importa la diagonal.
 
 ### Las 4 propiedades de la traza (las 4 son demo pedible)
 
