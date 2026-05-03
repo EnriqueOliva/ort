@@ -39,8 +39,9 @@ Asumí que no fuiste a clase y que no te acordás de nada. Todo está explicado 
 | 5 | Matriz inversa: concepto, método directo, propiedades |
 | 6 | Tipos especiales: idempotente, nilpotente, ortogonal |
 | 7 | **Práctico completo resuelto (V.1 a V.17 + VI.1 a VI.3)** |
-| 8 | **Errores comunes y checklist para el parcial** |
+| 8 | **Errores comunes, auditoría exhaustiva y checklist para el parcial** |
 | 9 | **Resumen final imprescindible** |
+| 10 | **Banco de demostraciones 🟢 paso a paso (todas las que el profesor hizo)** |
 
 ---
 
@@ -1977,4 +1978,586 @@ Si tenés que repasar 30 minutos antes del parcial, mirá esto.
 
 > "En el parcial..." — *referencia constante; tomalo como aviso*
 
-¡Suerte en el parcial! Si entendés todo lo de acá (especialmente la PARTE 7 con todos los ejercicios del práctico resueltos), tenés cubierto el módulo entero de matrices.
+---
+
+# PARTE 10 — Banco de demostraciones 🟢 paso a paso
+
+Esta parte reúne **todas las demostraciones que el profesor hizo en pizarrón** (las marcadas como 🟢 en la auditoría de PARTE 8). Están escritas siguiendo el esquema oficial que pidió el profesor en parcial:
+
+1. **Hipótesis** explícita (qué te dan)
+2. **Tesis** explícita (qué probar)
+3. **Pasos** con justificación de cada uno
+4. **Cierre con $\blacksquare$**
+
+Estas son las demos de **prioridad MÁXIMA** para parcial. Si las dominás todas, estás cubierto.
+
+---
+
+## Sección A — Producto y vectores canónicos
+
+### A.1 — Producto por vector canónico extrae columna $j$
+
+**Hipótesis:** $A \in \mathcal{M}_{n \times n}$ y $\vec{v}_j$ es el vector canónico (columna con un $1$ en la posición $j$ y ceros en el resto).
+
+**Tesis:** $A \cdot \vec{v}_j$ es la columna $j$ de $A$.
+
+**Demostración:**
+
+Sea $A = ((a_{ik}))$ y $\vec{v}_j$ con componentes $v_k = 1$ si $k = j$, $v_k = 0$ si $k \neq j$.
+
+La fila $i$ del producto es:
+
+$$(A \cdot \vec{v}_j)_i = \sum_{k=1}^{n} a_{ik} \cdot v_k \quad \text{(definición de producto fila}\times\text{columna)}$$
+
+$$= a_{ij} \cdot 1 + \sum_{k \neq j} a_{ik} \cdot 0 \quad \text{(porque }v_k = 0\text{ salvo en }k=j\text{)}$$
+
+$$= a_{ij}$$
+
+Como esto vale para toda fila $i$, el resultado es la columna $j$ de $A$. $\blacksquare$
+
+> Ejemplo numérico desarrollado: ver PARTE 3, sección "Producto por vectores canónicos".
+
+---
+
+## Sección B — Traspuesta
+
+### B.1 — Propiedad 2: $(A + B)^T = A^T + B^T$
+
+**Hipótesis:** $A, B \in \mathcal{M}_{m \times n}$.
+
+**Tesis:** $(A + B)^T = A^T + B^T$.
+
+**Demostración:**
+
+$$[A + B]^T = [((a_{ij})) + ((b_{ij}))]^T \quad \text{(definición de }A\text{ y }B\text{ por entradas)}$$
+
+$$= [((a_{ij} + b_{ij}))]^T \quad \text{(definición de suma entrada por entrada)}$$
+
+$$= ((a_{ji} + b_{ji})) \quad \text{(definición de traspuesta: intercambiar }i\text{ con }j\text{)}$$
+
+$$= ((a_{ji})) + ((b_{ji})) \quad \text{(separar la suma)}$$
+
+$$= A^T + B^T \quad \blacksquare$$
+
+### B.2 — Propiedad 3: $(\alpha \cdot A)^T = \alpha \cdot A^T$
+
+**Hipótesis:** $A \in \mathcal{M}_{m \times n}$, $\alpha \in \mathbb{R}$.
+
+**Tesis:** $(\alpha A)^T = \alpha A^T$.
+
+**Demostración:**
+
+$$(\alpha \cdot A)^T = ((\alpha \cdot a_{ij}))^T \quad \text{(definición de producto por escalar)}$$
+
+$$= ((\alpha \cdot a_{ji})) \quad \text{(definición de traspuesta)}$$
+
+$$= \alpha \cdot ((a_{ji})) \quad \text{(sacar el escalar como factor común)}$$
+
+$$= \alpha \cdot A^T \quad \blacksquare$$
+
+> **Error común a evitar:** escribir $(\alpha A)^T = \alpha^T A^T$. Los escalares no se trasponen — un número real es lo que es.
+
+### B.3 — Propiedad 4: $(A \cdot B)^T = B^T \cdot A^T$ (orden invertido)
+
+**Hipótesis:** $A \in \mathcal{M}_{m \times n}$, $B \in \mathcal{M}_{n \times p}$ (conformables para producto).
+
+**Tesis:** $(AB)^T = B^T A^T$.
+
+**Demostración:**
+
+Llamemos $C = AB$ con entradas $c_{ij} = \sum_{k=1}^{n} a_{ik} \cdot b_{kj}$.
+
+La entrada $(i, j)$ de $C^T$ es la entrada $(j, i)$ de $C$:
+
+$$(C^T)_{ij} = c_{ji} = \sum_{k=1}^{n} a_{jk} \cdot b_{ki} \quad \text{(definición de producto)}$$
+
+Ahora calculemos la entrada $(i, j)$ de $B^T A^T$. Como $(B^T)_{ik} = b_{ki}$ y $(A^T)_{kj} = a_{jk}$:
+
+$$(B^T A^T)_{ij} = \sum_{k=1}^{n} (B^T)_{ik} \cdot (A^T)_{kj} = \sum_{k=1}^{n} b_{ki} \cdot a_{jk} \quad \text{(definición de producto + traspuesta)}$$
+
+$$= \sum_{k=1}^{n} a_{jk} \cdot b_{ki} \quad \text{(conmutar números reales adentro de la suma)}$$
+
+Comparando: $(C^T)_{ij} = (B^T A^T)_{ij}$ para todo $i, j$. Entonces $C^T = (AB)^T = B^T A^T$. $\blacksquare$
+
+> **Error común a evitar:** escribir $(AB)^T = A^T B^T$. **El orden se invierte** porque las matrices no conmutan, y porque las dimensiones ni siquiera te dejan en general.
+
+---
+
+## Sección C — Simétrica y antisimétrica
+
+### C.1 — Suma de simétricas es simétrica
+
+**Hipótesis:** $A, B$ simétricas (es decir, $A^T = A$ y $B^T = B$).
+
+**Tesis:** $A + B$ es simétrica.
+
+**Demostración:**
+
+$$(A + B)^T = A^T + B^T \quad \text{(propiedad 2 de traspuesta)}$$
+
+$$= A + B \quad \text{(hipótesis: }A, B\text{ simétricas)}$$
+
+Entonces $(A+B)^T = A + B$, que es la definición de simétrica. $\blacksquare$
+
+### C.2 — $AB$ simétrica $\iff AB = BA$ (con $A, B$ simétricas)
+
+**Hipótesis:** $A, B$ matrices simétricas, es decir, $A^T = A$ y $B^T = B$.
+
+**Tesis:** $AB$ es simétrica $\iff AB = BA$.
+
+Hay que probar las **dos direcciones** ("$\iff$" pide ambas).
+
+**Directo ($\Rightarrow$):** asumimos $AB$ simétrica, queremos llegar a $AB = BA$.
+
+$$AB = (AB)^T \quad \text{(hipótesis: }AB\text{ simétrica)}$$
+
+$$= B^T A^T \quad \text{(propiedad 4 de traspuesta)}$$
+
+$$= B \cdot A \quad \text{(hipótesis: }A, B\text{ simétricas)}$$
+
+Entonces $AB = BA$. ✓
+
+**Recíproco ($\Leftarrow$):** asumimos $AB = BA$, queremos llegar a que $AB$ es simétrica.
+
+$$(AB)^T = B^T A^T \quad \text{(propiedad 4 de traspuesta)}$$
+
+$$= B \cdot A \quad \text{(hipótesis: }A, B\text{ simétricas)}$$
+
+$$= A \cdot B \quad \text{(hipótesis: }AB = BA\text{)}$$
+
+Entonces $(AB)^T = AB$, o sea $AB$ es simétrica. ✓
+
+Probadas ambas direcciones. $\blacksquare$
+
+### C.3 — $\frac{1}{2}(A + A^T)$ es simétrica
+
+**Hipótesis:** $A$ matriz cuadrada cualquiera.
+
+**Tesis:** $S = \frac{1}{2}(A + A^T)$ es simétrica.
+
+**Demostración:**
+
+$$S^T = \left[\tfrac{1}{2}(A + A^T)\right]^T$$
+
+$$= \tfrac{1}{2}(A + A^T)^T \quad \text{(propiedad 3 de traspuesta: el escalar sale)}$$
+
+$$= \tfrac{1}{2}(A^T + (A^T)^T) \quad \text{(propiedad 2 de traspuesta: traspuesta de una suma)}$$
+
+$$= \tfrac{1}{2}(A^T + A) \quad \text{(propiedad 1 de traspuesta: }(A^T)^T = A\text{)}$$
+
+$$= \tfrac{1}{2}(A + A^T) \quad \text{(conmutativa de la suma)}$$
+
+$$= S$$
+
+Como $S^T = S$, $S$ es simétrica. $\blacksquare$
+
+> **Análoga (queda como ejercicio):** $\frac{1}{2}(A - A^T)$ es antisimétrica. Mismo esquema, terminás llegando a $-S$.
+
+---
+
+## Sección D — Traza
+
+### D.1 — Propiedad 1: $tr(A + B) = tr(A) + tr(B)$
+
+**Hipótesis:** $A, B \in \mathcal{M}_{n \times n}$ (cuadradas, misma dimensión).
+
+**Tesis:** $tr(A + B) = tr(A) + tr(B)$.
+
+**Demostración:**
+
+$$tr(A + B) = \sum_{i=1}^{n} (A + B)_{ii} \quad \text{(definición de traza)}$$
+
+$$= \sum_{i=1}^{n} (a_{ii} + b_{ii}) \quad \text{(definición de suma de matrices)}$$
+
+$$= \sum_{i=1}^{n} a_{ii} + \sum_{i=1}^{n} b_{ii} \quad \text{(separar la sumatoria)}$$
+
+$$= tr(A) + tr(B) \quad \text{(definición de traza)}$$
+
+$\blacksquare$
+
+### D.2 — Corolario: $tr(A - B) = tr(A) - tr(B)$
+
+**Hipótesis:** $A, B \in \mathcal{M}_{n \times n}$.
+
+**Tesis:** $tr(A - B) = tr(A) - tr(B)$.
+
+**Demostración:**
+
+$$tr(A - B) = tr(A + (-1) \cdot B) \quad \text{(reescribir resta como suma con escalar }-1\text{)}$$
+
+$$= tr(A) + tr((-1) \cdot B) \quad \text{(propiedad 1 de traza)}$$
+
+$$= tr(A) + (-1) \cdot tr(B) \quad \text{(propiedad 2 de traza: el escalar sale)}$$
+
+$$= tr(A) - tr(B) \quad \blacksquare$$
+
+### D.3 — Aplicación clásica: NO existen $A, B$ tales que $AB - BA = \text{Id}$
+
+> Esta es **la estrella del módulo** — la demo más probable de caer en parcial dentro de traza.
+
+**Tesis:** No existen matrices cuadradas $A, B$ tales que $AB - BA = \text{Id}$.
+
+**Demostración por absurdo:** supongamos que sí existen. Entonces:
+
+$$AB - BA = \text{Id}$$
+
+Tomamos traza a ambos lados:
+
+$$tr(AB - BA) = tr(\text{Id})$$
+
+**Lado izquierdo:**
+
+$$tr(AB - BA) = tr(AB) - tr(BA) \quad \text{(corolario D.2)}$$
+
+$$= tr(AB) - tr(AB) \quad \text{(propiedad 4 de traza: }tr(AB) = tr(BA)\text{)}$$
+
+$$= 0$$
+
+**Lado derecho:**
+
+$$tr(\text{Id}) = \underbrace{1 + 1 + \cdots + 1}_{n \text{ veces}} = n$$
+
+Igualando: $0 = n$. Como $n \geq 1$ (la matriz tiene al menos una fila), esto es **absurdo**. Por lo tanto, no pueden existir $A, B$ con $AB - BA = \text{Id}$. $\blacksquare$
+
+---
+
+## Sección E — Inversa
+
+### E.1 — Propiedad 2: $(A \cdot B)^{-1} = B^{-1} \cdot A^{-1}$ (orden invertido)
+
+**Hipótesis:** $A, B$ invertibles, ambas cuadradas $n \times n$.
+
+**Tesis:** $(AB)^{-1} = B^{-1} A^{-1}$.
+
+**Estrategia:** para probar que $X$ es la inversa de $Y$, basta verificar que $Y \cdot X = \text{Id}$ (por unicidad de la inversa, alcanza con un lado).
+
+**Demostración:** verificamos $(AB) \cdot (B^{-1} A^{-1}) = \text{Id}$.
+
+$$(AB)(B^{-1} A^{-1}) = A \cdot (B \cdot B^{-1}) \cdot A^{-1} \quad \text{(asociativa del producto)}$$
+
+$$= A \cdot \text{Id} \cdot A^{-1} \quad \text{(definición de inversa: }B \cdot B^{-1} = \text{Id}\text{)}$$
+
+$$= A \cdot A^{-1} \quad \text{(neutro del producto: }M \cdot \text{Id} = M\text{)}$$
+
+$$= \text{Id} \quad \text{(definición de inversa)}$$
+
+Entonces $B^{-1} A^{-1}$ es la inversa de $AB$, es decir, $(AB)^{-1} = B^{-1} A^{-1}$. $\blacksquare$
+
+> **Por qué se invierte el orden:** porque las matrices no conmutan. Analogía: si te ponés medias y después zapatos, para sacártelos el orden inverso — primero zapatos, después medias. **Lo último que entró es lo primero que sale.**
+
+---
+
+## Sección F — Idempotente y nilpotente
+
+### F.1 — Idempotente + invertible $\Rightarrow A = \text{Id}$ (ejercicio VI.2)
+
+**Hipótesis:** $A$ idempotente ($A^2 = A$) **y** $A$ invertible (existe $A^{-1}$).
+
+**Tesis:** $A = \text{Id}$.
+
+**Demostración:** partimos de la hipótesis de idempotencia y multiplicamos por $A^{-1}$ a izquierda en ambos lados:
+
+$$A^2 = A$$
+
+$$A^{-1} \cdot A^2 = A^{-1} \cdot A \quad \text{(multiplicar por }A^{-1}\text{ a izquierda)}$$
+
+$$A^{-1} \cdot A \cdot A = A^{-1} \cdot A \quad \text{(reescribir }A^2\text{ como }A \cdot A\text{)}$$
+
+$$\text{Id} \cdot A = \text{Id} \quad \text{(}A^{-1} \cdot A = \text{Id}\text{ por definición de inversa)}$$
+
+$$A = \text{Id} \quad \blacksquare$$
+
+> **Cuidado:** esto NO dice que toda matriz idempotente sea $\text{Id}$. Solo cuando además es invertible. Hay idempotentes no invertibles (como la matriz nula).
+
+### F.2 — Si $A$ es idempotente, entonces $(A + \text{Id})^3 = \text{Id} + 7A$
+
+**Hipótesis:** $A$ idempotente ($A^2 = A$, lo que implica también $A^k = A$ para todo $k \geq 1$).
+
+**Tesis:** $(A + \text{Id})^3 = \text{Id} + 7A$.
+
+**Demostración:** desarrollamos el cubo del binomio. **Cuidado:** $A$ y $\text{Id}$ sí conmutan (siempre conmutan con $\text{Id}$), así que podemos usar el binomio de Newton libremente.
+
+$$(A + \text{Id})^3 = A^3 + 3 A^2 \text{Id} + 3 A \text{Id}^2 + \text{Id}^3 \quad \text{(binomio de Newton — conmutan)}$$
+
+$$= A^3 + 3 A^2 + 3 A + \text{Id} \quad \text{(}\text{Id}^k = \text{Id}\text{; multiplicar por }\text{Id}\text{ no cambia nada)}$$
+
+$$= A + 3 A + 3 A + \text{Id} \quad \text{(hipótesis: }A^2 = A\text{ implica }A^3 = A \cdot A^2 = A \cdot A = A\text{)}$$
+
+$$= 7A + \text{Id} \quad \text{(suma de términos en }A\text{)}$$
+
+$$= \text{Id} + 7A \quad \blacksquare$$
+
+### F.3 — $P^{-1} A P$ es nilpotente del mismo grado que $A$ (ejercicio V.7.2)
+
+**Hipótesis:** $A$ nilpotente de grado $k$ (es decir, $A^k = \mathcal{O}$ y $A^{k-1} \neq \mathcal{O}$); $P$ invertible.
+
+**Tesis:** $B = P^{-1} A P$ es nilpotente del mismo grado $k$, o sea $B^k = \mathcal{O}$ y $B^{k-1} \neq \mathcal{O}$.
+
+**Demostración:**
+
+**Paso 1: $B^k = \mathcal{O}$.**
+
+Calculemos $B^k = (P^{-1} A P)^k$. Probamos por inducción (o por desarrollo directo):
+
+$$B^2 = (P^{-1} A P)(P^{-1} A P) = P^{-1} A (P P^{-1}) A P = P^{-1} A \cdot \text{Id} \cdot A P = P^{-1} A^2 P$$
+
+Por inducción se generaliza: $B^k = P^{-1} A^k P$.
+
+$$B^k = P^{-1} A^k P \quad \text{(asociativa + }P P^{-1} = \text{Id}\text{ aplicado }k-1\text{ veces)}$$
+
+$$= P^{-1} \cdot \mathcal{O} \cdot P \quad \text{(hipótesis: }A^k = \mathcal{O}\text{)}$$
+
+$$= \mathcal{O} \quad \text{(cualquier producto con la matriz nula da la nula)}$$
+
+**Paso 2: $B^{k-1} \neq \mathcal{O}$.**
+
+Supongamos por absurdo que $B^{k-1} = \mathcal{O}$. Entonces:
+
+$$P^{-1} A^{k-1} P = \mathcal{O}$$
+
+Multiplicando por $P$ a izquierda y por $P^{-1}$ a derecha:
+
+$$P \cdot P^{-1} A^{k-1} P \cdot P^{-1} = P \cdot \mathcal{O} \cdot P^{-1}$$
+
+$$\text{Id} \cdot A^{k-1} \cdot \text{Id} = \mathcal{O}$$
+
+$$A^{k-1} = \mathcal{O}$$
+
+Pero esto **contradice** la hipótesis de que $A^{k-1} \neq \mathcal{O}$. Absurdo. Por lo tanto, $B^{k-1} \neq \mathcal{O}$.
+
+Combinando paso 1 y paso 2: $B$ es nilpotente de grado exactamente $k$. $\blacksquare$
+
+---
+
+## Sección G — Inducción y factorización
+
+### G.1 — Inducción para $A^n$ con $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ (ejercicio VI.1)
+
+**Tesis:** Para todo $n \geq 1$:
+
+$$A^n = \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix}$$
+
+**Demostración por inducción completa sobre $n$:**
+
+**Base ($n = 1$):**
+
+$$A^1 = A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} \;\;\checkmark$$
+
+Coincide con la fórmula tomando $n = 1$.
+
+**Hipótesis inductiva ($n = h$):** asumimos válido para $h$:
+
+$$A^h = \begin{pmatrix} 1 & h \\ 0 & 1 \end{pmatrix}$$
+
+**Tesis ($n = h+1$):** queremos probar:
+
+$$A^{h+1} = \begin{pmatrix} 1 & h+1 \\ 0 & 1 \end{pmatrix}$$
+
+**Paso inductivo:**
+
+$$A^{h+1} = A^h \cdot A \quad \text{(propiedad de potencias)}$$
+
+$$= \begin{pmatrix} 1 & h \\ 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} \quad \text{(hipótesis inductiva)}$$
+
+Multiplicando fila por columna:
+
+$$= \begin{pmatrix} 1 \cdot 1 + h \cdot 0 & 1 \cdot 1 + h \cdot 1 \\ 0 \cdot 1 + 1 \cdot 0 & 0 \cdot 1 + 1 \cdot 1 \end{pmatrix} = \begin{pmatrix} 1 & h+1 \\ 0 & 1 \end{pmatrix} \;\;\checkmark$$
+
+Coincide con la fórmula para $n = h + 1$. Por inducción, vale para todo $n \geq 1$. $\blacksquare$
+
+### G.2 — Inducción para $A^n$ con $A^2 = 2A - \text{Id}$ (ejercicio V.10.3)
+
+**Hipótesis:** $A$ cuadrada con $A^2 = 2A - \text{Id}$.
+
+**Tesis:** Para todo $n \geq 1$:
+
+$$A^n = nA - (n-1)\text{Id}$$
+
+**Demostración por inducción:**
+
+**Base ($n = 1$):** $A^1 = A = 1 \cdot A - 0 \cdot \text{Id}$. ✓
+
+**Hipótesis ($n = h$):** $A^h = hA - (h-1)\text{Id}$.
+
+**Tesis ($n = h+1$):** $A^{h+1} = (h+1)A - h \cdot \text{Id}$.
+
+**Paso inductivo:**
+
+$$A^{h+1} = A^h \cdot A$$
+
+$$= [hA - (h-1)\text{Id}] \cdot A \quad \text{(hipótesis inductiva)}$$
+
+$$= hA^2 - (h-1)\text{Id} \cdot A \quad \text{(distributiva)}$$
+
+$$= hA^2 - (h-1) A \quad \text{(}\text{Id} \cdot A = A\text{)}$$
+
+$$= h(2A - \text{Id}) - (h-1) A \quad \text{(hipótesis: }A^2 = 2A - \text{Id}\text{)}$$
+
+$$= 2hA - h\,\text{Id} - (h-1) A$$
+
+$$= [2h - (h-1)] A - h \,\text{Id}$$
+
+$$= (h+1) A - h \,\text{Id} \;\;\checkmark$$
+
+Coincide con la tesis. $\blacksquare$
+
+### G.3 — Inducción para $A^n$ con $A = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$ (ejercicio V.4)
+
+**Tesis:** Para todo $n \geq 1$:
+
+$$A^n = \begin{pmatrix} 1 & n & \frac{n(n+1)}{2} \\ 0 & 1 & n \\ 0 & 0 & 1 \end{pmatrix}$$
+
+> **Nota:** la fórmula equivalente $\frac{n^2 + n}{2}$ aparece en el resumen anterior (es lo mismo: $\frac{n(n+1)}{2} = \frac{n^2+n}{2}$).
+
+**Demostración por inducción:**
+
+**Base ($n = 1$):** $A^1 = A$. La fórmula da $\frac{1 \cdot 2}{2} = 1$ en la posición $(1,3)$, que coincide. ✓
+
+**Hipótesis ($n = h$):**
+
+$$A^h = \begin{pmatrix} 1 & h & \frac{h(h+1)}{2} \\ 0 & 1 & h \\ 0 & 0 & 1 \end{pmatrix}$$
+
+**Tesis ($n = h+1$):**
+
+$$A^{h+1} = \begin{pmatrix} 1 & h+1 & \frac{(h+1)(h+2)}{2} \\ 0 & 1 & h+1 \\ 0 & 0 & 1 \end{pmatrix}$$
+
+**Paso inductivo:**
+
+$$A^{h+1} = A^h \cdot A = \begin{pmatrix} 1 & h & \frac{h(h+1)}{2} \\ 0 & 1 & h \\ 0 & 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$$
+
+Calculando entrada por entrada:
+
+- $(1,1)$: $1 \cdot 1 + h \cdot 0 + \tfrac{h(h+1)}{2} \cdot 0 = 1$ ✓
+- $(1,2)$: $1 \cdot 1 + h \cdot 1 + \tfrac{h(h+1)}{2} \cdot 0 = 1 + h = h + 1$ ✓
+- $(1,3)$: $1 \cdot 1 + h \cdot 1 + \tfrac{h(h+1)}{2} \cdot 1 = 1 + h + \tfrac{h(h+1)}{2} = \tfrac{2 + 2h + h(h+1)}{2} = \tfrac{h^2 + 3h + 2}{2} = \tfrac{(h+1)(h+2)}{2}$ ✓
+- $(2,1)$: $0$, $(2,2)$: $1$, $(2,3)$: $0 + 1 + h = h + 1$ ✓
+- $(3,*)$: $0, 0, 1$ ✓
+
+Coincide con la tesis. $\blacksquare$
+
+### G.4 — $A^k$ para matriz diagonal
+
+**Hipótesis:** $A = \text{diag}(d_1, d_2, \ldots, d_n)$ (matriz diagonal).
+
+**Tesis:** Para todo $k \geq 1$:
+
+$$A^k = \text{diag}(d_1^k, d_2^k, \ldots, d_n^k)$$
+
+**Demostración por inducción sobre $k$:**
+
+**Base ($k = 1$):** trivial, $A^1 = A$ y los $d_i^1 = d_i$. ✓
+
+**Hipótesis ($k = h$):** $A^h = \text{diag}(d_1^h, \ldots, d_n^h)$.
+
+**Paso inductivo ($k = h + 1$):**
+
+$$A^{h+1} = A^h \cdot A = \text{diag}(d_1^h, \ldots, d_n^h) \cdot \text{diag}(d_1, \ldots, d_n)$$
+
+Cuando multiplicás dos matrices diagonales, el resultado es diagonal con entradas obtenidas multiplicando las correspondientes:
+
+$$= \text{diag}(d_1^h \cdot d_1, \, d_2^h \cdot d_2, \, \ldots, \, d_n^h \cdot d_n) = \text{diag}(d_1^{h+1}, \ldots, d_n^{h+1}) \;\;\checkmark$$
+
+$\blacksquare$
+
+### G.5 — Factorización: $A^3 - A = \text{Id} \implies A$ invertible y $A^{-1} = A^2 - \text{Id}$
+
+**Hipótesis:** $A$ cuadrada con $A^3 - A = \text{Id}$.
+
+**Tesis:** $A$ es invertible y $A^{-1} = A^2 - \text{Id}$.
+
+**Demostración:** factorizamos para que aparezca un producto $A \cdot (\ldots) = \text{Id}$:
+
+$$A^3 - A = \text{Id}$$
+
+$$A \cdot A^2 - A \cdot \text{Id} = \text{Id} \quad \text{(reescribir}A^3 = A \cdot A^2\text{ y }A = A \cdot \text{Id}\text{)}$$
+
+$$A \cdot (A^2 - \text{Id}) = \text{Id} \quad \text{(factor común }A\text{ a izquierda)}$$
+
+Esto significa que **existe** una matriz $B = A^2 - \text{Id}$ tal que $A \cdot B = \text{Id}$. Por la definición de inversa, $A$ es invertible y:
+
+$$A^{-1} = A^2 - \text{Id} \quad \blacksquare$$
+
+> **Por qué alcanza con un lado:** se puede probar (por unicidad) que si $AB = \text{Id}$ con $A, B$ cuadradas de la misma dimensión, entonces también $BA = \text{Id}$. Por eso al ver $A \cdot (A^2 - \text{Id}) = \text{Id}$, ya tenemos la inversa.
+
+### G.6 — Factorización: $A^3 = \mathcal{O} \implies (A + \text{Id})^{-1} = A^2 - A + \text{Id}$ (ejercicio VI.3)
+
+**Hipótesis:** $A$ cuadrada con $A^3 = \mathcal{O}$ (o sea, $A$ es nilpotente de grado $\leq 3$).
+
+**Tesis:** $A + \text{Id}$ es invertible, y su inversa es $A^2 - A + \text{Id}$.
+
+**Demostración:** verificamos que $(A + \text{Id}) \cdot (A^2 - A + \text{Id}) = \text{Id}$.
+
+$$(A + \text{Id})(A^2 - A + \text{Id}) = A \cdot A^2 - A \cdot A + A \cdot \text{Id} + \text{Id} \cdot A^2 - \text{Id} \cdot A + \text{Id} \cdot \text{Id} \quad \text{(distributiva)}$$
+
+$$= A^3 - A^2 + A + A^2 - A + \text{Id} \quad \text{(simplificar productos con }\text{Id}\text{)}$$
+
+$$= A^3 + (-A^2 + A^2) + (A - A) + \text{Id} \quad \text{(agrupar términos)}$$
+
+$$= A^3 + \text{Id}$$
+
+$$= \mathcal{O} + \text{Id} \quad \text{(hipótesis: }A^3 = \mathcal{O}\text{)}$$
+
+$$= \text{Id}$$
+
+Como $(A + \text{Id})(A^2 - A + \text{Id}) = \text{Id}$, por definición de inversa:
+
+$$(A + \text{Id})^{-1} = A^2 - A + \text{Id} \quad \blacksquare$$
+
+> **Truco general:** este es un caso particular de la identidad $(x+1)(x^2 - x + 1) = x^3 + 1$ del álgebra de polinomios, aplicada a matrices. Cuando veas estructuras así en parcial, pensá en factorizaciones algebraicas conocidas.
+
+---
+
+## Sección H — Ley de simplificación y V/F
+
+### H.1 — Ley de simplificación a izquierda (ejercicio V.11)
+
+**Enunciado:** Si $A$ es invertible y $A \cdot B = A \cdot C$, entonces $B = C$.
+
+**Hipótesis:** $A$ invertible; $AB = AC$.
+
+**Tesis:** $B = C$.
+
+**Demostración:** multiplicamos a **izquierda** por $A^{-1}$ en ambos lados:
+
+$$AB = AC$$
+
+$$A^{-1} \cdot (AB) = A^{-1} \cdot (AC) \quad \text{(multiplicar por }A^{-1}\text{ a izquierda)}$$
+
+$$(A^{-1} A) B = (A^{-1} A) C \quad \text{(asociativa)}$$
+
+$$\text{Id} \cdot B = \text{Id} \cdot C \quad \text{(definición de inversa)}$$
+
+$$B = C \quad \blacksquare$$
+
+> **Cuidado: esto NO vale si $A$ no es invertible.** Contraejemplo (V.11.3): $A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$, $B = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$, $C = \begin{pmatrix} 1 & 1 \\ 2 & 2 \end{pmatrix}$. Verificás que $AB = AC$ pero $B \neq C$.
+
+### H.2 — Ejercicio V.16: $A$ invertible $\implies A^T$ invertible y $(A^T)^{-1} = (A^{-1})^T$
+
+**Hipótesis:** $A$ invertible.
+
+**Tesis:** $A^T$ es invertible y $(A^T)^{-1} = (A^{-1})^T$.
+
+**Demostración:** verificamos que $(A^{-1})^T$ funciona como inversa de $A^T$, es decir, $A^T \cdot (A^{-1})^T = \text{Id}$.
+
+$$A^T \cdot (A^{-1})^T = (A^{-1} \cdot A)^T \quad \text{(propiedad 4 de traspuesta:}(XY)^T = Y^T X^T\text{, leyendo de derecha a izquierda)}$$
+
+$$= \text{Id}^T \quad \text{(definición de inversa: }A^{-1} A = \text{Id}\text{)}$$
+
+$$= \text{Id} \quad \text{(la identidad es simétrica, }\text{Id}^T = \text{Id}\text{)}$$
+
+Como $A^T \cdot (A^{-1})^T = \text{Id}$, por definición de inversa:
+
+$$A^T \text{ es invertible y } (A^T)^{-1} = (A^{-1})^T \quad \blacksquare$$
+
+---
+
+## Cómo usar este banco para estudiar
+
+| Si tenés... | Hacé esto |
+|-------------|-----------|
+| 30 minutos antes del parcial | Revisá las demos D.3, E.1, F.1, C.2 (las que tienen mayor probabilidad) |
+| Una hora | Sumá las demos B.3 (traspuesta del producto) y G.5/G.6 (factorización) |
+| Más tiempo | Hacé todas las inducciones G.1-G.4 una vez sin mirar el papel |
+| Querés sentirte seguro | Reescribí cada demo desde cero solo viendo la tesis. Si podés hacerlo, dominás el módulo |
+
+¡Suerte en el parcial! Si entendés todo lo de acá (especialmente la PARTE 7 con todos los ejercicios del práctico resueltos y este banco de demostraciones), tenés cubierto el módulo entero de matrices.
