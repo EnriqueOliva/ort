@@ -28,6 +28,27 @@ Asumí que no fuiste a clase y que no te acordás de nada. Todo está explicado 
 
 ---
 
+## 🚦 Leyenda de prioridad para el parcial
+
+A lo largo del documento vas a encontrar estos íconos al lado de cada propiedad, demostración y ejercicio. Te dicen cuánta atención ponerle.
+
+| Ícono | Significado | Qué hacer al estudiarla |
+|-------|-------------|-------------------------|
+| 🟢 | **Demostrada en pizarrón** por el profesor | **Prioridad MÁXIMA.** Sabe la demo paso a paso. Es de las más probables de caer. |
+| 🟡 | Demostrada en **esquema o por analogía** con otra | **Prioridad ALTA.** Saber deducirla siguiendo el patrón análogo. |
+| 🔵 | Enunciada como "**que tenemos que manejar**" | **Prioridad ALTA.** El profesor la incluye en las que hay que manejar — saber demostrarla aunque no la haya hecho él. |
+| ⚪ | **Definición / cálculo** sin demostración asociada | Saberla **aplicar**, no demostrarla. |
+| 🔴 | **Excluida explícitamente** por el profesor | **No estudiar para parcial.** Solo V.17 y propiedades formales de ortogonal cayeron acá. |
+
+**Veredicto:**
+- **SE PIDE** = puede caer como demostración o como ejercicio
+- **SE APLICA** = entra como herramienta de cálculo, no como demostración
+- **NO SE PIDE** = el profesor lo descartó
+
+Para una versión completa con citas de clase, ver la **auditoría exhaustiva en PARTE 8**.
+
+---
+
 ## Mapa de lo que vamos a ver
 
 | Parte | ¿Qué se aprende? |
@@ -238,15 +259,17 @@ $$\begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} + \begin{pmatrix} 2 & 1 \\ 3 & 4
 
 ### Propiedades
 
-| Propiedad | Significado |
-|-----------|-------------|
-| Cerradura | La suma de dos matrices $m \times n$ es otra $m \times n$ |
-| Conmutativa | $A + B = B + A$ |
-| Asociativa | $(A + B) + C = A + B + C$ |
-| Existencia de neutro | Existe la nula $\mathcal{O}$ tal que $A + \mathcal{O} = A$ |
-| Existencia de opuesto | Para toda $A$ existe $-A$ tal que $A + (-A) = \mathcal{O}$ |
+| Propiedad | Significado | Estado parcial |
+|-----------|-------------|---------------|
+| Cerradura | La suma de dos matrices $m \times n$ es otra $m \times n$ | 🔵 SE PIDE |
+| Conmutativa | $A + B = B + A$ | 🔵 SE PIDE |
+| Asociativa | $(A + B) + C = A + B + C$ | 🔵 SE PIDE |
+| Existencia de neutro | Existe la nula $\mathcal{O}$ tal que $A + \mathcal{O} = A$ | 🔵 SE PIDE |
+| Existencia de opuesto | Para toda $A$ existe $-A$ tal que $A + (-A) = \mathcal{O}$ | 🔵 SE PIDE |
 
 **Importante:** la suma **sí es conmutativa**, a diferencia del producto. Acordate de esto, porque el producto NO conmuta y se confunde fácil.
+
+> 🔵 **Cómo leer "SE PIDE" acá:** estas 5 propiedades el profesor las enunció pero no las demostró en clase. Igual entran bajo el paraguas de "que tenemos que manejar" — saber demostrarlas si llegaran a pedirlas. Las demos son cortas y salen aplicando definición de suma entrada por entrada.
 
 ---
 
@@ -266,12 +289,12 @@ $$2 \cdot \begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} = \begin{pmatrix} 2 \cdo
 
 ### Propiedades
 
-| Propiedad | Significado |
-|-----------|-------------|
-| $(\alpha \cdot \beta) \cdot A = \alpha \cdot (\beta \cdot A)$ | Asociativa de escalares |
-| $(\alpha + \beta) \cdot A = \alpha A + \beta A$ | Distributiva sobre suma de escalares |
-| $\alpha \cdot (A + B) = \alpha A + \alpha B$ | Distributiva sobre suma de matrices |
-| $1 \cdot A = A$ | El $1$ es neutro del escalar |
+| Propiedad | Significado | Estado parcial |
+|-----------|-------------|---------------|
+| $(\alpha \cdot \beta) \cdot A = \alpha \cdot (\beta \cdot A)$ | Asociativa de escalares | 🔵 SE PIDE |
+| $(\alpha + \beta) \cdot A = \alpha A + \beta A$ | Distributiva sobre suma de escalares | 🔵 SE PIDE |
+| $\alpha \cdot (A + B) = \alpha A + \alpha B$ | Distributiva sobre suma de matrices | 🔵 SE PIDE |
+| $1 \cdot A = A$ | El $1$ es neutro del escalar | 🔵 SE PIDE |
 
 ---
 
@@ -451,15 +474,15 @@ Fijate que en el $2 \times 2$ multiplicábamos y sumábamos **2 pares** de núme
 
 ### Propiedades del producto
 
-| Propiedad | Significado |
-|-----------|-------------|
-| Asociativa | $(A \cdot B) \cdot C = A \cdot (B \cdot C)$ |
-| Distributiva por izquierda | $A \cdot (B + C) = A \cdot B + A \cdot C$ |
-| Distributiva por derecha | $(A + B) \cdot C = A \cdot C + B \cdot C$ |
-| Existencia de neutro | $A \cdot \text{Id} = \text{Id} \cdot A = A$ |
-| Escalar entre factores | $k \cdot (A \cdot B) = (k \cdot A) \cdot B = A \cdot (k \cdot B)$ |
+| Propiedad | Significado | Estado parcial |
+|-----------|-------------|---------------|
+| Asociativa | $(A \cdot B) \cdot C = A \cdot (B \cdot C)$ | 🔵 SE PIDE |
+| Distributiva por izquierda | $A \cdot (B + C) = A \cdot B + A \cdot C$ | 🔵 SE PIDE |
+| Distributiva por derecha | $(A + B) \cdot C = A \cdot C + B \cdot C$ | 🔵 SE PIDE |
+| Existencia de neutro | $A \cdot \text{Id} = \text{Id} \cdot A = A$ | 🔵 SE PIDE |
+| Escalar entre factores | $k \cdot (A \cdot B) = (k \cdot A) \cdot B = A \cdot (k \cdot B)$ | 🔵 SE PIDE |
 
-### LO MÁS IMPORTANTE: el producto NO es conmutativo
+### 🟢 LO MÁS IMPORTANTE: el producto NO es conmutativo
 
 > "Es un error común a su vez que A por B es igual a B por A. El producto de matrices no es conmutativo"
 
@@ -489,7 +512,9 @@ $$A \cdot B = \begin{pmatrix} 8 & 9 \\ -6 & -13 \end{pmatrix} \neq \begin{pmatri
 
 ---
 
-## Producto por vectores canónicos (un truco que cae en parcial)
+## 🟢 Producto por vectores canónicos (cae como ejercicio V.3)
+
+> **Estado parcial: 🟢 SE PIDE.** El profesor lo demostró en clase 2 (líneas 165-171) y el ejercicio V.3 del práctico lo pide explícitamente. Es un atajo que ahorra mucho tiempo en parciales. Demostración formal en **PARTE 10 — sección A.1**.
 
 ### El nombre asusta, la idea no
 
@@ -623,18 +648,20 @@ La fila 1 de $A^T$ es la columna 1 de $A$. La fila 2 de $A^T$ es la columna 2 de
 
 ### Las 4 propiedades de la traspuesta (tienen que estar memorizadas)
 
-| # | Propiedad | Comentario |
-|---|-----------|-----------|
-| 1 | $(A^T)^T = A$ | Trasponer dos veces te devuelve a la original |
-| 2 | $(A + B)^T = A^T + B^T$ | La traspuesta de la suma es la suma de las traspuestas |
-| 3 | $(\alpha \cdot A)^T = \alpha \cdot A^T$ | Los escalares no se afectan |
-| 4 | $(A \cdot B)^T = B^T \cdot A^T$ | **EL ORDEN SE INVIERTE** |
+| # | Propiedad | Comentario | Estado parcial |
+|---|-----------|-----------|---------------|
+| 1 | $(A^T)^T = A$ | Trasponer dos veces te devuelve a la original | 🔵 SE PIDE |
+| 2 | $(A + B)^T = A^T + B^T$ | La traspuesta de la suma es la suma de las traspuestas | 🟢 SE PIDE — demo abajo |
+| 3 | $(\alpha \cdot A)^T = \alpha \cdot A^T$ | Los escalares no se afectan | 🟢 SE PIDE — demo abajo |
+| 4 | $(A \cdot B)^T = B^T \cdot A^T$ | **EL ORDEN SE INVIERTE** | 🟢 SE PIDE — demo abajo |
 
-### Demostración de la propiedad 2
+> 🔵 **Sobre la propiedad 1:** el profesor no la demostró formalmente, pero entra bajo "tenemos que manejar". Si la piden, sale aplicando la definición de traspuesta dos veces. Cuando trasponés, $(a_{ij}) \to (a_{ji})$. Si trasponés de vuelta, $(a_{ji}) \to (a_{ij})$. Volviste a la original.
 
-> **Estado parcial:** El profesor dijo en clase 2 (18-mar) que "tenemos que manejar" las 4 propiedades de traspuesta. **Cualquiera de las 4 puede pedirse** — ver auditoría en PARTE 8. Mostramos esta como modelo del esquema de demostración.
+### 🟢 Demostración de la propiedad 2: $(A + B)^T = A^T + B^T$
 
-Tesis: $(A + B)^T = A^T + B^T$.
+> **Estado parcial: 🟢 SE PIDE.** El profesor dijo en clase 2 (18-mar) que "tenemos que manejar" las 4 propiedades. Esta es el esquema modelo. **Versión completa con todas las justificaciones en PARTE 10 — sección B.1.**
+
+**Hipótesis:** $A, B \in \mathcal{M}_{m \times n}$. **Tesis:** $(A + B)^T = A^T + B^T$.
 
 $$[A + B]^T = [((a_{ij})) + ((b_{ij}))]^T \quad \text{(definición de suma)}$$
 $$= [((a_{ij} + b_{ij}))]^T \quad \text{(suma entrada por entrada)}$$
@@ -642,9 +669,30 @@ $$= ((a_{ji} + b_{ji})) \quad \text{(definición de traspuesta: cambiar }i\text{
 $$= ((a_{ji})) + ((b_{ji})) \quad \text{(separar la suma)}$$
 $$= A^T + B^T \quad \blacksquare$$
 
-### Demostración de la propiedad 3
+### 🟢 Demostración de la propiedad 3: $(\alpha A)^T = \alpha A^T$
+
+> **Estado parcial: 🟢 SE PIDE.** El profesor flageó esta como una donde aparece un error común en parcial: poner "$(\alpha A)^T = \alpha^T A^T$", lo cual está mal porque los escalares no se trasponen. **Versión completa en PARTE 10 — sección B.2.**
 
 $$(\alpha \cdot A)^T = ((\alpha \cdot a_{ij}))^T = ((\alpha \cdot a_{ji})) = \alpha \cdot ((a_{ji})) = \alpha \cdot A^T \quad \blacksquare$$
+
+### 🟢 Demostración de la propiedad 4: $(A \cdot B)^T = B^T \cdot A^T$
+
+> **Estado parcial: 🟢 SE PIDE.** Es el error #2 más flageado por el profesor en clase: escribir $(AB)^T = A^T B^T$. **El orden SE INVIERTE.** Esta demo necesita sumatorias.
+
+**Hipótesis:** $A \in \mathcal{M}_{m \times n}$, $B \in \mathcal{M}_{n \times p}$ (conformables).
+**Tesis:** $(AB)^T = B^T A^T$.
+
+Sea $C = AB$ con $c_{ij} = \sum_{k=1}^{n} a_{ik} \cdot b_{kj}$.
+
+La entrada $(i, j)$ de $C^T$ es la entrada $(j, i)$ de $C$:
+
+$$(C^T)_{ij} = c_{ji} = \sum_{k=1}^{n} a_{jk} \cdot b_{ki} \quad \text{(definición de producto)}$$
+
+La entrada $(i, j)$ de $B^T A^T$, sabiendo que $(B^T)_{ik} = b_{ki}$ y $(A^T)_{kj} = a_{jk}$:
+
+$$(B^T A^T)_{ij} = \sum_{k=1}^{n} b_{ki} \cdot a_{jk} = \sum_{k=1}^{n} a_{jk} \cdot b_{ki} \quad \text{(números reales conmutan dentro de la suma)}$$
+
+Las dos sumatorias son iguales término a término. Entonces $C^T = B^T A^T$, es decir, $(AB)^T = B^T A^T$. $\blacksquare$
 
 ### El error común en la propiedad 4
 
@@ -692,12 +740,52 @@ Diagonal nula. Y $a_{12} = 3 = -a_{21} = -(-3)$. Es antisimétrica.
 
 ## Propiedades de simétricas y antisimétricas
 
-| Propiedad | Significado |
-|-----------|-------------|
-| 1 | La suma de dos simétricas es simétrica |
-| 2 | La suma de dos antisimétricas es antisimétrica |
-| 3 | $\alpha \cdot A$ es simétrica si $A$ lo es |
-| 4 | $\alpha \cdot A$ es antisimétrica si $A$ lo es |
+| # | Propiedad | Estado parcial |
+|---|-----------|---------------|
+| 1 | La suma de dos simétricas es simétrica | 🟢 SE PIDE — demo abajo |
+| 2 | La suma de dos antisimétricas es antisimétrica | 🟡 SE PIDE — análoga a la 1 |
+| 3 | $\alpha \cdot A$ es simétrica si $A$ lo es | 🟡 SE PIDE — esquema en clase |
+| 4 | $\alpha \cdot A$ es antisimétrica si $A$ lo es | 🟡 SE PIDE — análoga |
+
+### 🟢 Demostración: suma de simétricas es simétrica
+
+> **Estado parcial: 🟢 SE PIDE.** El profesor la hizo completa en clase 2 (18-mar, líneas 81-90). **Versión completa en PARTE 10 — sección C.1.**
+
+**Hipótesis:** $A, B$ simétricas, es decir, $A^T = A$ y $B^T = B$.
+**Tesis:** $A + B$ es simétrica.
+
+$$(A + B)^T = A^T + B^T \quad \text{(propiedad 2 de traspuesta)}$$
+$$= A + B \quad \text{(hipótesis: }A, B\text{ simétricas)}$$
+
+Como $(A+B)^T = A+B$, $A+B$ es simétrica. $\blacksquare$
+
+### 🟢 Resultado clave: $AB$ simétrica $\iff AB = BA$ (con $A, B$ simétricas) — ejercicio V.5.2
+
+> **Estado parcial: 🟢 SE PIDE.** El profesor demostró ambas direcciones completas en clase 2 (líneas 177-198). Es uno de los resultados más típicos del módulo. **Versión completa en PARTE 10 — sección C.2.**
+
+**Hipótesis:** $A^T = A$ y $B^T = B$. **Tesis:** $AB$ simétrica $\iff AB = BA$.
+
+**Directo ($\Rightarrow$):** asumimos $AB$ simétrica:
+
+$$AB = (AB)^T = B^T A^T = BA \quad \text{(simétrica + prop 4 trasp + }A^T=A, B^T=B\text{)}$$
+
+**Recíproco ($\Leftarrow$):** asumimos $AB = BA$:
+
+$$(AB)^T = B^T A^T = BA = AB \quad \text{(prop 4 trasp + simétricas + hipótesis)}$$
+
+Como $(AB)^T = AB$, $AB$ es simétrica. Probadas ambas direcciones. $\blacksquare$
+
+### 🟢 Resultado clave: $\frac{1}{2}(A + A^T)$ es simétrica — ejercicio V.6.1
+
+> **Estado parcial: 🟢 SE PIDE.** El profesor lo demostró completo en clase 2 (líneas 199-218). Junto con la análoga $\frac{1}{2}(A - A^T)$ antisimétrica, es la base de la **descomposición $A = $ simétrica $+$ antisimétrica**. **Versión completa en PARTE 10 — sección C.3.**
+
+**Hipótesis:** $A$ cuadrada cualquiera. **Tesis:** $S = \frac{1}{2}(A + A^T)$ es simétrica.
+
+$$S^T = \tfrac{1}{2}(A + A^T)^T = \tfrac{1}{2}(A^T + (A^T)^T) = \tfrac{1}{2}(A^T + A) = \tfrac{1}{2}(A + A^T) = S$$
+
+Por lo tanto $S^T = S$, es decir, $S$ es simétrica. $\blacksquare$
+
+> **Análoga (queda como ejercicio):** $\frac{1}{2}(A - A^T)$ es antisimétrica. Mismo esquema, terminás llegando a $-S$.
 
 ---
 
@@ -717,20 +805,38 @@ $$A = \begin{pmatrix} 1 & 2 & 3 \\ 3 & -4 & 2 \\ 2 & 1 & 10 \end{pmatrix} \impli
 
 ### Las 4 propiedades de la traza (memorizar)
 
-| # | Propiedad | Comentario |
-|---|-----------|-----------|
-| 1 | $tr(A + B) = tr(A) + tr(B)$ | La traza distribuye sobre la suma |
-| 2 | $tr(\alpha \cdot A) = \alpha \cdot tr(A)$ | Los escalares salen afuera |
-| 3 | $tr(A^T) = tr(A)$ | La traspuesta no cambia la diagonal |
-| 4 | $tr(A \cdot B) = tr(B \cdot A)$ | **¡Aunque $AB \neq BA$, sus trazas coinciden!** |
+| # | Propiedad | Comentario | Estado parcial |
+|---|-----------|-----------|---------------|
+| 1 | $tr(A + B) = tr(A) + tr(B)$ | La traza distribuye sobre la suma | 🟢 SE PIDE — demo abajo |
+| 2 | $tr(\alpha \cdot A) = \alpha \cdot tr(A)$ | Los escalares salen afuera | 🟡 SE PIDE — esquema análogo |
+| 3 | $tr(A^T) = tr(A)$ | La traspuesta no cambia la diagonal | 🟡 SE PIDE — explicada verbalmente en clase |
+| 4 | $tr(A \cdot B) = tr(B \cdot A)$ | **¡Aunque $AB \neq BA$, sus trazas coinciden!** | 🔵 SE PIDE — usada en aplicación 🟢 |
 
 > "A por B es una matriz, B por A es otra, pero sumo las diagonales principales y me da lo mismo. Es algo bastante curioso"
+
+### 🟢 Demostración de la propiedad 1: $tr(A+B) = tr(A) + tr(B)$
+
+> **Estado parcial: 🟢 SE PIDE.** El profesor la hizo completa con sumatorias en clase 2 (líneas 111-122). Es la demo modelo de cómo se prueba algo con sumatorias. **Versión completa en PARTE 10 — sección D.1.**
+
+**Hipótesis:** $A, B \in \mathcal{M}_{n \times n}$. **Tesis:** $tr(A+B) = tr(A) + tr(B)$.
+
+$$tr(A + B) = \sum_{i=1}^{n} (A + B)_{ii} \quad \text{(definición de traza)}$$
+$$= \sum_{i=1}^{n} (a_{ii} + b_{ii}) \quad \text{(definición de suma)}$$
+$$= \sum_{i=1}^{n} a_{ii} + \sum_{i=1}^{n} b_{ii} \quad \text{(separar la sumatoria)}$$
+$$= tr(A) + tr(B) \quad \blacksquare$$
+
+> 🟡 **Análogas (esquema mental):** 
+> - $tr(\alpha A) = \alpha \cdot tr(A)$: misma demo pero sale $\alpha$ como factor común de la sumatoria.
+> - $tr(A-B) = tr(A) - tr(B)$: corolario inmediato escribiendo $A - B = A + (-1)B$ y aplicando props 1 y 2.
+> - $tr(A^T) = tr(A)$: la diagonal principal no cambia al trasponer (el $a_{ii}$ queda en su lugar).
 
 ### Por qué la propiedad 4 es importante
 
 Es una excepción notable. Aunque el producto **no conmuta**, la **traza del producto sí**. Esta propiedad permite probar cosas que de otro modo no se podrían.
 
-### Aplicación clásica: NO existen $A, B$ tales que $AB - BA = \text{Id}$
+### 🟢 Aplicación clásica: NO existen $A, B$ tales que $AB - BA = \text{Id}$
+
+> **Estado parcial: 🟢 SE PIDE.** Es **la estrella del módulo de traza**. El profesor la demostró completa en clase 3 (líneas 276-298) y dijo *"vamos a probarla por lo que se llama el absurdo"*. Probabilidad alta de caer en parcial. **Versión completa con todos los detalles en PARTE 10 — sección D.3.**
 
 Probar por **el absurdo**: supongamos que existen.
 
@@ -830,16 +936,20 @@ La segunda ecuación es $2$ veces la primera, pero los lados derechos no son pro
 
 ## Las 4 propiedades de la inversa (memorizar)
 
-| # | Propiedad | Comentario |
-|---|-----------|-----------|
-| 1 | $(A^{-1})^{-1} = A$ | Invertir dos veces vuelve al original |
-| 2 | $(A \cdot B)^{-1} = B^{-1} \cdot A^{-1}$ | **EL ORDEN SE INVIERTE** |
-| 3 | $(\alpha \cdot A)^{-1} = \frac{1}{\alpha} \cdot A^{-1}$, $\alpha \neq 0$ | El escalar se invierte también |
-| 4 | $(A^T)^{-1} = (A^{-1})^T$ | Inversa de la traspuesta = traspuesta de la inversa |
+| # | Propiedad | Comentario | Estado parcial |
+|---|-----------|-----------|---------------|
+| 1 | $(A^{-1})^{-1} = A$ | Invertir dos veces vuelve al original | 🔵 SE PIDE |
+| 2 | $(A \cdot B)^{-1} = B^{-1} \cdot A^{-1}$ | **EL ORDEN SE INVIERTE** | 🟢 SE PIDE — demo abajo |
+| 3 | $(\alpha \cdot A)^{-1} = \frac{1}{\alpha} \cdot A^{-1}$, $\alpha \neq 0$ | El escalar se invierte también | 🔵 SE PIDE |
+| 4 | $(A^T)^{-1} = (A^{-1})^T$ | Inversa de la traspuesta = traspuesta de la inversa | 🔵 SE PIDE — aparece en V.16.3 |
 
-### Demostración de la propiedad 2
+> 🔵 **Sobre las propiedades 1, 3 y 4:** el profesor solo demostró la 2 en clase, pero dijo *"4 propiedades que tenemos que manejar"*. La **prop 4** además aparece como ejercicio del V.16. Las demos de las 3 (en PARTE 10 — sección H.2 hay demo de la 4) salen verificando que el "candidato" multiplicado da $\text{Id}$. Por ejemplo:
+> - **Prop 1:** $A^{-1} \cdot A = \text{Id}$ ya prueba que $A$ es la inversa de $A^{-1}$, o sea $(A^{-1})^{-1} = A$.
+> - **Prop 3:** $(\alpha A) \cdot (\frac{1}{\alpha} A^{-1}) = (\alpha \cdot \frac{1}{\alpha}) (A \cdot A^{-1}) = 1 \cdot \text{Id} = \text{Id}$.
 
-> **Estado parcial:** Esta demostración el profesor la hizo **completa en pizarrón en clase 3 (24-mar)**. Dijo "vamos a ver ahora las propiedades de la inversa, algunas que tenemos que manejar y vamos a demostrar algunas de ellas". **Las 4 son pedibles** — ver auditoría en PARTE 8.
+### 🟢 Demostración de la propiedad 2: $(AB)^{-1} = B^{-1} A^{-1}$
+
+> **Estado parcial: 🟢 SE PIDE.** Esta demo el profesor la hizo **completa en pizarrón en clase 3 (24-mar, líneas 54-66)**. Dijo *"vamos a ver ahora las propiedades de la inversa, algunas que tenemos que manejar y vamos a demostrar algunas de ellas"*. **Versión completa con todas las justificaciones en PARTE 10 — sección E.1.**
 
 **Tesis:** $(AB)^{-1} = B^{-1} A^{-1}$.
 
@@ -900,7 +1010,7 @@ Y ahora si $(A + \text{Id})$ es invertible: $X = (A + \text{Id})^{-1} \cdot B$.
 
 ## Matriz idempotente
 
-### Definición
+### Definición ⚪
 
 Una matriz cuadrada $A$ es **idempotente** si $A^2 = A$.
 
@@ -910,11 +1020,31 @@ Una matriz cuadrada $A$ es **idempotente** si $A^2 = A$.
 - La nula: $\mathcal{O}^2 = \mathcal{O}$. Es idempotente.
 - $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ — verificá: $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}^2 = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$. Es idempotente y **no es ni la identidad ni la nula**.
 
+### 🟢 Resultado clave: idempotente $+$ invertible $\Rightarrow A = \text{Id}$ (ejercicio VI.2)
+
+> **Estado parcial: 🟢 SE PIDE.** Demostrada completa por el profesor en clase 3 (líneas 79-86). **Versión completa en PARTE 10 — sección F.1.**
+
+**Hipótesis:** $A^2 = A$ y $A$ invertible. **Tesis:** $A = \text{Id}$.
+
+$$A^2 = A \implies A^{-1} \cdot A^2 = A^{-1} \cdot A \implies A^{-1} \cdot A \cdot A = \text{Id} \implies \text{Id} \cdot A = \text{Id} \implies A = \text{Id} \quad \blacksquare$$
+
+> **Cuidado:** esto NO dice que toda idempotente sea $\text{Id}$. Solo si además es invertible. Hay idempotentes no invertibles (la nula, $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$).
+
+### 🟢 Identidad útil: si $A$ idempotente, $(A + \text{Id})^3 = \text{Id} + 7A$
+
+> **Estado parcial: 🟢 SE PIDE.** Demostrada completa en clase 4 (líneas 17-29). **Versión completa en PARTE 10 — sección F.2.**
+
+Como $A$ idempotente y $A$ conmuta con $\text{Id}$ (siempre conmutan), aplicamos el binomio de Newton:
+
+$$(A + \text{Id})^3 = A^3 + 3A^2 + 3A + \text{Id} = A + 3A + 3A + \text{Id} = 7A + \text{Id} \quad \blacksquare$$
+
+(Usando $A^k = A$ para todo $k \geq 1$ porque $A^2 = A \Rightarrow A^3 = A \cdot A^2 = A \cdot A = A$.)
+
 ---
 
 ## Matriz nilpotente
 
-### Definición
+### Definición ⚪
 
 Una matriz cuadrada $A$ es **nilpotente de grado $k$** si:
 1. $A^k = \mathcal{O}$ (alguna potencia da la nula)
@@ -922,15 +1052,26 @@ Una matriz cuadrada $A$ es **nilpotente de grado $k$** si:
 
 Es decir, $k$ es la **primera** potencia que la anula. Si la primera potencia que la anula es $A^3$, decimos que es nilpotente de grado $3$.
 
+### 🟢 Resultado clave: $P^{-1} A P$ es nilpotente del mismo grado que $A$ (ejercicio V.7.2)
+
+> **Estado parcial: 🟢 SE PIDE.** Demostrada completa por el profesor en clase 4 (líneas 71-84). **Versión completa con paso 1 + paso 2 (absurdo) en PARTE 10 — sección F.3.**
+
+**Hipótesis:** $A$ nilpotente de grado $k$ ($A^k = \mathcal{O}$, $A^{k-1} \neq \mathcal{O}$); $P$ invertible.
+**Tesis:** $B = P^{-1} A P$ es nilpotente de grado $k$.
+
+**Idea clave:** $B^k = (P^{-1} A P)^k = P^{-1} A^k P = P^{-1} \cdot \mathcal{O} \cdot P = \mathcal{O}$ (los $P P^{-1}$ del medio se cancelan asociando). Y por absurdo, $B^{k-1} = \mathcal{O}$ implicaría $A^{k-1} = \mathcal{O}$, contradicción.
+
 ---
 
 ## Matriz ortogonal
 
-### Definición
+### Definición ⚪
 
 Una matriz cuadrada $A$ es **ortogonal** si y solo si $A$ es invertible y $A^{-1} = A^T$.
 
 **Equivalentemente:** $A \cdot A^T = A^T \cdot A = \text{Id}$.
+
+> 🔴 **Estado parcial sobre ortogonal:** El profesor dijo en clase 4 *"esto es ortogonal, no lo vimos en el teórico, pero esto lo podrían hacer"*. La **definición SÍ entra** y los **ejercicios sí entran** (V.12), pero las **propiedades formales de ortogonal NO entran como teórico**. No te preocupes por demostrar resultados sobre ortogonal — sí por aplicarla en ejercicios.
 
 ---
 
@@ -940,7 +1081,7 @@ Esta es la sección más importante para el parcial. Acá están todos los ejerc
 
 ---
 
-## Ejercicio V.1 — Operaciones básicas
+## ⚪ Ejercicio V.1 — Operaciones básicas (SE APLICA — cálculo directo)
 
 **Enunciado.** Dadas las matrices:
 
@@ -975,7 +1116,7 @@ $$D = \begin{pmatrix} -3 & 0 & -7 \\ -2 & -4 & -11 \\ -4 & -2 & -1 \end{pmatrix}
 
 ---
 
-## Ejercicio V.2 — Productos posibles
+## ⚪ Ejercicio V.2 — Productos posibles (SE APLICA — verificar conformabilidad)
 
 **Enunciado.** Dadas las matrices:
 
@@ -1009,7 +1150,7 @@ $$B \cdot C = \begin{pmatrix} 1 & 11 \\ 4 & 18 \\ 7 & 10 \end{pmatrix}$$
 
 ---
 
-## Ejercicio V.3 — Producto por vectores canónicos
+## 🟢 Ejercicio V.3 — Producto por vectores canónicos (SE PIDE)
 
 **Enunciado.** Dadas:
 
@@ -1030,7 +1171,7 @@ Cada producto pertenece a $\mathcal{M}_{3 \times 1}(\mathbb{R})$.
 
 ---
 
-## Ejercicio V.4 — Potencias por inducción
+## 🟢 Ejercicio V.4 — Potencias por inducción (SE PIDE — el profe dijo "podrían hacerlo")
 
 **Enunciado.** Dada la matriz $A = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$. Calcular $A^2$, $A^3$ y probar que:
 
@@ -1071,7 +1212,7 @@ $$A^{h+1} = \begin{pmatrix} 1 & h+1 & \frac{(h+1)^2 + (h+1)}{2} \\ 0 & 1 & h+1 \
 
 ---
 
-## Ejercicio V.5 — Suma y producto de simétricas
+## 🟢 Ejercicio V.5 — Suma y producto de simétricas (SE PIDE — demostrado entero en clase 2)
 
 **Enunciado.** Sean $A$ y $B$ matrices $n \times n$ simétricas y $\lambda \in \mathbb{R}$.
 
@@ -1107,7 +1248,7 @@ $$= AB \quad \text{(hipótesis)} \quad \blacksquare$$
 
 ---
 
-## Ejercicio V.6 — Descomposición simétrica + antisimétrica
+## 🟢 Ejercicio V.6 — Descomposición simétrica + antisimétrica (SE PIDE — parte 1 demostrada en clase)
 
 **Enunciado.** Sea $A$ una matriz $n \times n$ cualquiera.
 
@@ -1137,7 +1278,7 @@ $$\frac{1}{2}(A + A^T) + \frac{1}{2}(A - A^T) = \frac{1}{2}A + \frac{1}{2}A^T + 
 
 ---
 
-## Ejercicio V.7 — Matriz nilpotente
+## 🟢 Ejercicio V.7 — Matriz nilpotente (SE PIDE — parte 2 demostrada por el profesor en clase 4)
 
 **Enunciado.** Una matriz $n \times n$ $A$ es **nilpotente de grado $k$** si y solo si $A^k = \mathcal{O}_{n \times n}$ y $A^{k-1} \neq \mathcal{O}_{n \times n}$.
 
@@ -1170,7 +1311,7 @@ Es decir, $(P^{-1} A P)^3 = \mathcal{O}$ y $(P^{-1} A P)^2 = P^{-1} A^2 P \neq \
 
 ---
 
-## Ejercicio V.8 — Ecuación matricial polinomial
+## 🟢 Ejercicio V.8 — Ecuación matricial polinomial (SE PIDE — factorización clave)
 
 **Enunciado.** Dada $A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 3 \end{pmatrix}$.
 
@@ -1209,7 +1350,7 @@ $$A^{-1} = \frac{1}{3}\begin{pmatrix} 3 & -3 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 1 \end{
 
 ---
 
-## Ejercicio V.9 — Inversas por método directo
+## ⚪ Ejercicio V.9 — Inversas por método directo (SE APLICA — el profe dijo "en parciales se dice 'hallen la inversa'")
 
 **Enunciado.** Encontrar la inversa (si existe) de:
 
@@ -1238,7 +1379,7 @@ Sistema: $a + 2c = 1$, $b + 2d = 0$, $3a + c = 0$, $3b + d = 1$. Resolviendo: $a
 
 ---
 
-## Ejercicio V.10 — $A^2 = 2A - \text{Id}$ (ejercicio clave para parcial)
+## 🟢 Ejercicio V.10 — $A^2 = 2A - \text{Id}$ (SE PIDE — ejercicio CLAVE para parcial)
 
 **Enunciado.** Sea $A = \begin{pmatrix} 5 & -4 & 2 \\ 2 & -1 & 1 \\ -4 & 4 & -1 \end{pmatrix}$.
 
@@ -1300,7 +1441,7 @@ $$= (h + 1) \cdot A - h \cdot \text{Id} \quad \blacksquare$$
 
 ---
 
-## Ejercicio V.11 — Ley de simplificación
+## 🟢 Ejercicio V.11 — Ley de simplificación (SE PIDE — comentado por el profe en clase 4)
 
 **Enunciado.**
 
@@ -1334,7 +1475,7 @@ Entonces $AB = AC$ pero $B \neq C$.
 
 ---
 
-## Ejercicio V.12 — Matriz ortogonal
+## 🟢 Ejercicio V.12 — Matriz ortogonal (SE PIDE como ejercicio — propiedades formales de ortogonal NO entran)
 
 **Enunciado.** Una matriz $n \times n$ $A$ es **ortogonal** si y solo si $A$ es invertible y $A^{-1} = A^T$.
 
@@ -1360,7 +1501,7 @@ Las dos parejas que cumplen las tres condiciones:
 
 ---
 
-## Ejercicio V.13 — Hallar parámetros para $P^{-1} A P$
+## 🔵 Ejercicio V.13 — Hallar parámetros para $P^{-1} A P$ (SE PIDE)
 
 **Enunciado.** Dadas $A = \begin{pmatrix} 1 & 2 \\ 5 & 4 \end{pmatrix}$ y $P = \begin{pmatrix} 2 & 1 \\ x & y \end{pmatrix}$, con $x, y \in \mathbb{R}$, hallar $x$ e $y$ para que:
 
@@ -1393,7 +1534,7 @@ Igualando entrada por entrada:
 
 ---
 
-## Ejercicio V.14 — ¿$A + B$ y $AB$ son invertibles si $A, B$ lo son?
+## 🟢 Ejercicio V.14 — ¿$A + B$ y $AB$ son invertibles si $A, B$ lo son? (SE PIDE — comentado por el profe)
 
 **Enunciado.** Sean matrices reales $n \times n$.
 
@@ -1422,7 +1563,7 @@ Análogamente $(B^{-1} A^{-1}) \cdot AB = \text{Id}$. Por lo tanto $AB$ es inver
 
 ---
 
-## Ejercicio V.15 — Conmutatividad
+## 🔵 Ejercicio V.15 — Conmutatividad (SE PIDE)
 
 **Enunciado.** Dos matrices $A$ y $B$ conmutan si y solo si $AB = BA$.
 
@@ -1461,7 +1602,7 @@ $$B = \begin{pmatrix} a & b \\ -b & a + b \end{pmatrix}, \quad \forall a, b \in 
 
 ---
 
-## Ejercicio V.16 — VERDADERO o FALSO
+## 🟢 Ejercicio V.16 — VERDADERO o FALSO (SE PIDE — estilo de parcial confirmado)
 
 **Enunciado.** Demostrar las siguientes afirmaciones si son ciertas, o mostrar un contraejemplo si no lo son. Si es posible, agregar hipótesis adicionales para que se cumplan. Sean $A, B$ matrices reales $n \times n$.
 
@@ -1507,7 +1648,7 @@ $$A^T \cdot (A^{-1})^T \stackrel{(*)}{=} (A^{-1} \cdot A)^T = \text{Id}^T = \tex
 
 ---
 
-## Ejercicio V.17 (opcional) — $\lambda \text{Id}$ conmuta con todo
+## 🔴 Ejercicio V.17 — $\lambda \text{Id}$ conmuta con todo (NO SE PIDE — el profe dijo "podría ser opcional")
 
 **Enunciado.**
 
@@ -1528,7 +1669,7 @@ Conmutan. $\blacksquare$
 
 ---
 
-## Ejercicio VI.1 (evaluación) — Inducción sobre $A^n$
+## 🟢 Ejercicio VI.1 — Inducción sobre $A^n$ (SE PIDE — ejercicio de evaluación continua)
 
 **Enunciado.** Sea $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$. Demostrar por inducción completa sobre $n$ que:
 
@@ -1548,7 +1689,7 @@ $$A^{h+1} = A^h \cdot A \stackrel{(\text{H.I.})}{=} \begin{pmatrix} 1 & h \\ 0 &
 
 ---
 
-## Ejercicio VI.2 (evaluación) — Idempotente e invertible
+## 🟢 Ejercicio VI.2 — Idempotente e invertible (SE PIDE — demostrado entero en clase 3)
 
 **Enunciado.** Una matriz $A$, $n \times n$, real, es **idempotente** si y solo si $A^2 = A$.
 
@@ -1575,7 +1716,7 @@ Y $A \neq \mathcal{O}$ (tiene un $1$), $A \neq \text{Id}$ (tiene un $0$ en la di
 
 ---
 
-## Ejercicio VI.3 (evaluación) — $A^3 = \mathcal{O} \implies (A + \text{Id})^{-1} = A^2 - A + \text{Id}$
+## 🟢 Ejercicio VI.3 — $A^3 = \mathcal{O} \implies (A + \text{Id})^{-1} = A^2 - A + \text{Id}$ (SE PIDE — demostrado en clase 3)
 
 **Enunciado.** Sea $A$ matriz real $n \times n$ tal que $A^3 = \mathcal{O}$ ($\mathcal{O}$ es la matriz nula).
 
@@ -1982,7 +2123,7 @@ Si tenés que repasar 30 minutos antes del parcial, mirá esto.
 
 # PARTE 10 — Banco de demostraciones 🟢 paso a paso
 
-Esta parte reúne **todas las demostraciones que el profesor hizo en pizarrón** (las marcadas como 🟢 en la auditoría de PARTE 8). Están escritas siguiendo el esquema oficial que pidió el profesor en parcial:
+Esta parte reúne **todas las demostraciones que el profesor hizo en pizarrón** (las marcadas como 🟢 en la auditoría de PARTE 8) en un solo lugar consolidado. Están escritas siguiendo el esquema oficial que pidió el profesor en parcial:
 
 1. **Hipótesis** explícita (qué te dan)
 2. **Tesis** explícita (qué probar)
@@ -1990,6 +2131,22 @@ Esta parte reúne **todas las demostraciones que el profesor hizo en pizarrón**
 4. **Cierre con $\blacksquare$**
 
 Estas son las demos de **prioridad MÁXIMA** para parcial. Si las dominás todas, estás cubierto.
+
+> 📌 **Sobre la duplicación con secciones anteriores:** muchas de estas demos ya aparecen en sus secciones naturales del documento (PARTE 4 trata traspuesta/sym/traza, PARTE 5 trata inversa, PARTE 6 trata idempotente/nilpotente, PARTE 7 trata los ejercicios del práctico). Esta PARTE 10 las **consolida en un mismo lugar para repaso final** — útil para los 30 minutos antes del parcial. Cada subsección de abajo cita la sección original para referencia cruzada.
+
+### Mapa de dónde vive cada demo en el documento
+
+| Demo | Aparece en (sección original) | Aparece consolidada en |
+|------|-------------------------------|------------------------|
+| Producto por vector canónico extrae columna | PARTE 3 (con ejemplo numérico) | PARTE 10.A.1 |
+| Traspuesta props 2, 3, 4 | PARTE 4 — Traspuesta | PARTE 10.B.1, B.2, B.3 |
+| Suma simétricas + ½(A+Aᵀ) sim + AB sim ⟺ conmutan | PARTE 4 — Simétricas | PARTE 10.C.1, C.2, C.3 |
+| Traza prop 1 + corolario tr(A−B) + NO ∃ AB−BA=Id | PARTE 4 — Traza | PARTE 10.D.1, D.2, D.3 |
+| Inversa prop 2: (AB)⁻¹ = B⁻¹A⁻¹ | PARTE 5 — Inversa | PARTE 10.E.1 |
+| Idempotente+invertible⇒Id, (A+Id)³, P⁻¹AP nilpotente | PARTE 6 — Tipos especiales | PARTE 10.F.1, F.2, F.3 |
+| Inducciones (V.4, V.10, VI.1) + diagonal Aᵏ | PARTE 7 — Ejercicios | PARTE 10.G.1, G.2, G.3, G.4 |
+| Factorizaciones (V.8, VI.3) | PARTE 7 — Ejercicios | PARTE 10.G.5, G.6 |
+| Ley simplificación V.11 + (Aᵀ)⁻¹ = (A⁻¹)ᵀ | PARTE 7 — Ejercicios | PARTE 10.H.1, H.2 |
 
 ---
 
