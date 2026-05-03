@@ -30,22 +30,27 @@ Asumí que no fuiste a clase y que no te acordás de nada. Todo está explicado 
 
 ## 🚦 Leyenda de prioridad para el parcial
 
-A lo largo del documento vas a encontrar estos íconos al lado de cada propiedad, demostración y ejercicio. Te dicen cuánta atención ponerle.
+Cada propiedad, teorema y ejercicio en este documento tiene un ícono que te dice **qué tipo de pregunta puede aparecer en parcial sobre ese contenido**. Es la guía de "¿cuánto debo estudiar esto y cómo?".
 
-| Ícono | Significado | Qué hacer al estudiarla |
-|-------|-------------|-------------------------|
-| 🟢 | **Demostrada en pizarrón** por el profesor | **Prioridad MÁXIMA.** Sabe la demo paso a paso. Es de las más probables de caer. |
-| 🟡 | Demostrada en **esquema o por analogía** con otra | **Prioridad ALTA.** Saber deducirla siguiendo el patrón análogo. |
-| 🔵 | Enunciada como "**que tenemos que manejar**" | **Prioridad ALTA.** El profesor la incluye en las que hay que manejar — saber demostrarla aunque no la haya hecho él. |
-| ⚪ | **Definición / cálculo** sin demostración asociada | Saberla **aplicar**, no demostrarla. |
-| 🔴 | **Excluida explícitamente** por el profesor | **No estudiar para parcial.** Solo V.17 y propiedades formales de ortogonal cayeron acá. |
+| Ícono | Significado | Qué hacer al estudiar |
+|-------|-------------|------------------------|
+| 🟢 | **Aparece en parcial Y se puede pedir su demostración.** Es decir, podría haber un ejercicio que diga literalmente *"demostrar que esta propiedad/teorema es cierto"*. | **PRIORIDAD MÁXIMA.** Memorizá la demo paso a paso hasta poder reproducirla en blanco. Esquema oficial: hipótesis → tesis → pasos justificados → $\blacksquare$. |
+| 🟡 | **Aparece en parcial pero NO se va a pedir demostración** (porque no hay demo formal, o porque es una definición / "no propiedad" / contraejemplo / propiedad básica de aplicación). Te lo van a pedir como **V/F, justificación, citar al aplicarla, dar contraejemplo, etc.** | **PRIORIDAD ALTA.** Saberla bien. Saber cuándo aplicarla. Saber reconocerla en V/F. Pero no necesitás escribir una demo formal de ella. |
+| 🔵 | **Ejercicio puramente computacional.** Procedimientos / cálculos directos sin componente teórica. | **PRIORIDAD MEDIA.** Practicar el procedimiento hasta que salga rápido y sin errores. Sin teoría — puro cálculo. |
+| 🔴 | **NO entra al parcial.** El profesor lo descartó explícitamente. | **NO ESTUDIAR.** Solo V.17 y las propiedades formales de la matriz ortogonal cayeron acá. |
 
-**Veredicto:**
-- **SE PIDE** = puede caer como demostración o como ejercicio
-- **SE APLICA** = entra como herramienta de cálculo, no como demostración
-- **NO SE PIDE** = el profesor lo descartó
+**Regla mnemotécnica para distinguir 🟢 de 🟡:**
+> Preguntate: *"¿el profesor podría escribir como ejercicio del parcial 'demostrar que ...'?"*
+> - Si SÍ → 🟢 (estudiá la demo).
+> - Si NO (porque es definición, no propiedad, hecho básico que solo se aplica) → 🟡 (saberla, no demostrarla).
 
-Para una versión completa con citas de clase, ver la **auditoría exhaustiva en PARTE 8**.
+**Ejemplo de cada nivel:**
+- 🟢 *"Demostrar que $(AB)^{-1} = B^{-1} A^{-1}$"* — el profesor PUEDE pedir esto literal.
+- 🟡 *"El producto de matrices NO es conmutativo"* — tenés que saberlo y aplicarlo, pero no se demuestra (se da contraejemplo).
+- 🔵 *"Calcular $A \cdot B$ donde A y B son las matrices..."* — puro cálculo.
+- 🔴 *V.17 (opcional)* — no preocuparte.
+
+Para la auditoría completa con citas de clase, ver **PARTE 8**.
 
 ---
 
@@ -261,15 +266,15 @@ $$\begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} + \begin{pmatrix} 2 & 1 \\ 3 & 4
 
 | Propiedad | Significado | Estado parcial |
 |-----------|-------------|---------------|
-| Cerradura | La suma de dos matrices $m \times n$ es otra $m \times n$ | 🔵 SE PIDE |
-| Conmutativa | $A + B = B + A$ | 🔵 SE PIDE |
-| Asociativa | $(A + B) + C = A + B + C$ | 🔵 SE PIDE |
-| Existencia de neutro | Existe la nula $\mathcal{O}$ tal que $A + \mathcal{O} = A$ | 🔵 SE PIDE |
-| Existencia de opuesto | Para toda $A$ existe $-A$ tal que $A + (-A) = \mathcal{O}$ | 🔵 SE PIDE |
+| Cerradura | La suma de dos matrices $m \times n$ es otra $m \times n$ | 🟡 saber/aplicar |
+| Conmutativa | $A + B = B + A$ | 🟡 saber/aplicar |
+| Asociativa | $(A + B) + C = A + B + C$ | 🟡 saber/aplicar |
+| Existencia de neutro | Existe la nula $\mathcal{O}$ tal que $A + \mathcal{O} = A$ | 🟡 saber/aplicar |
+| Existencia de opuesto | Para toda $A$ existe $-A$ tal que $A + (-A) = \mathcal{O}$ | 🟡 saber/aplicar |
 
 **Importante:** la suma **sí es conmutativa**, a diferencia del producto. Acordate de esto, porque el producto NO conmuta y se confunde fácil.
 
-> 🔵 **Cómo leer "SE PIDE" acá:** estas 5 propiedades el profesor las enunció pero no las demostró en clase. Igual entran bajo el paraguas de "que tenemos que manejar" — saber demostrarlas si llegaran a pedirlas. Las demos son cortas y salen aplicando definición de suma entrada por entrada.
+> 🟡 **Por qué van como "saber/aplicar":** estas 5 propiedades son las propiedades clásicas de cualquier suma. El profesor no las demostró en clase ni las puso como demos pedibles — son hechos básicos que tenés que tener internalizados para usar al manipular matrices en cualquier ejercicio. **No estudies una demo formal de estas; estudiá saber CUÁL aplicaste cuando hagas un despeje.**
 
 ---
 
@@ -291,10 +296,10 @@ $$2 \cdot \begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} = \begin{pmatrix} 2 \cdo
 
 | Propiedad | Significado | Estado parcial |
 |-----------|-------------|---------------|
-| $(\alpha \cdot \beta) \cdot A = \alpha \cdot (\beta \cdot A)$ | Asociativa de escalares | 🔵 SE PIDE |
-| $(\alpha + \beta) \cdot A = \alpha A + \beta A$ | Distributiva sobre suma de escalares | 🔵 SE PIDE |
-| $\alpha \cdot (A + B) = \alpha A + \alpha B$ | Distributiva sobre suma de matrices | 🔵 SE PIDE |
-| $1 \cdot A = A$ | El $1$ es neutro del escalar | 🔵 SE PIDE |
+| $(\alpha \cdot \beta) \cdot A = \alpha \cdot (\beta \cdot A)$ | Asociativa de escalares | 🟡 saber/aplicar |
+| $(\alpha + \beta) \cdot A = \alpha A + \beta A$ | Distributiva sobre suma de escalares | 🟡 saber/aplicar |
+| $\alpha \cdot (A + B) = \alpha A + \alpha B$ | Distributiva sobre suma de matrices | 🟡 saber/aplicar |
+| $1 \cdot A = A$ | El $1$ es neutro del escalar | 🟡 saber/aplicar |
 
 ---
 
@@ -476,13 +481,15 @@ Fijate que en el $2 \times 2$ multiplicábamos y sumábamos **2 pares** de núme
 
 | Propiedad | Significado | Estado parcial |
 |-----------|-------------|---------------|
-| Asociativa | $(A \cdot B) \cdot C = A \cdot (B \cdot C)$ | 🔵 SE PIDE |
-| Distributiva por izquierda | $A \cdot (B + C) = A \cdot B + A \cdot C$ | 🔵 SE PIDE |
-| Distributiva por derecha | $(A + B) \cdot C = A \cdot C + B \cdot C$ | 🔵 SE PIDE |
-| Existencia de neutro | $A \cdot \text{Id} = \text{Id} \cdot A = A$ | 🔵 SE PIDE |
-| Escalar entre factores | $k \cdot (A \cdot B) = (k \cdot A) \cdot B = A \cdot (k \cdot B)$ | 🔵 SE PIDE |
+| Asociativa | $(A \cdot B) \cdot C = A \cdot (B \cdot C)$ | 🟡 saber/aplicar |
+| Distributiva por izquierda | $A \cdot (B + C) = A \cdot B + A \cdot C$ | 🟡 saber/aplicar |
+| Distributiva por derecha | $(A + B) \cdot C = A \cdot C + B \cdot C$ | 🟡 saber/aplicar |
+| Existencia de neutro | $A \cdot \text{Id} = \text{Id} \cdot A = A$ | 🟡 saber/aplicar |
+| Escalar entre factores | $k \cdot (A \cdot B) = (k \cdot A) \cdot B = A \cdot (k \cdot B)$ | 🟡 saber/aplicar |
 
-### 🟢 LO MÁS IMPORTANTE: el producto NO es conmutativo
+### 🟡 LO MÁS IMPORTANTE: el producto NO es conmutativo
+
+> **Estado parcial: 🟡 SABER/APLICAR (NO se pide demostración).** Esto NO es un teorema con demo — es una **"no propiedad"** que se ilustra con un **contraejemplo**. El profesor dijo que es el error que más aparece en parciales: alumnos que asumen $AB = BA$ donde no corresponde. En parcial puede aparecer como pregunta V/F, justificar por qué NO, dar contraejemplo, o como trampa en un despeje. **No estudies una "demostración" — estudiá el contraejemplo y los casos donde sí conmutan ($A$ con $\text{Id}$, $A$ con $\mathcal{O}$, $A$ con $A^k$).**
 
 > "Es un error común a su vez que A por B es igual a B por A. El producto de matrices no es conmutativo"
 
@@ -646,16 +653,16 @@ $$A = \begin{pmatrix} 1 & 2 \\ 3 & -4 \\ 2 & 1 \end{pmatrix} \in \mathcal{M}_{3 
 
 La fila 1 de $A^T$ es la columna 1 de $A$. La fila 2 de $A^T$ es la columna 2 de $A$. Al revés también funciona: la columna 1 de $A^T$ es la fila 1 de $A$.
 
-### Las 4 propiedades de la traspuesta (tienen que estar memorizadas)
+### Las 4 propiedades de la traspuesta (las 4 son demo pedible)
 
 | # | Propiedad | Comentario | Estado parcial |
 |---|-----------|-----------|---------------|
-| 1 | $(A^T)^T = A$ | Trasponer dos veces te devuelve a la original | 🔵 SE PIDE |
+| 1 | $(A^T)^T = A$ | Trasponer dos veces te devuelve a la original | 🟢 SE PIDE — demo pedible |
 | 2 | $(A + B)^T = A^T + B^T$ | La traspuesta de la suma es la suma de las traspuestas | 🟢 SE PIDE — demo abajo |
 | 3 | $(\alpha \cdot A)^T = \alpha \cdot A^T$ | Los escalares no se afectan | 🟢 SE PIDE — demo abajo |
 | 4 | $(A \cdot B)^T = B^T \cdot A^T$ | **EL ORDEN SE INVIERTE** | 🟢 SE PIDE — demo abajo |
 
-> 🔵 **Sobre la propiedad 1:** el profesor no la demostró formalmente, pero entra bajo "tenemos que manejar". Si la piden, sale aplicando la definición de traspuesta dos veces. Cuando trasponés, $(a_{ij}) \to (a_{ji})$. Si trasponés de vuelta, $(a_{ji}) \to (a_{ij})$. Volviste a la original.
+> 🟢 **Las 4 son demo pedible.** El profesor dijo en clase 2: *"vamos a ver cuatro propiedades que tenemos que manejar en esta operación"*. **Cualquiera de las 4 puede aparecer como ejercicio "demostrar que..."**. Demostró la 2 y la 3 en clase como modelo. La demo de la 1 es la más corta: si $A = ((a_{ij}))$, entonces $A^T = ((a_{ji}))$, y al trasponer de nuevo $(A^T)^T = ((a_{ij})) = A$. La de la 4 está abajo (necesita sumatorias).
 
 ### 🟢 Demostración de la propiedad 2: $(A + B)^T = A^T + B^T$
 
@@ -743,9 +750,11 @@ Diagonal nula. Y $a_{12} = 3 = -a_{21} = -(-3)$. Es antisimétrica.
 | # | Propiedad | Estado parcial |
 |---|-----------|---------------|
 | 1 | La suma de dos simétricas es simétrica | 🟢 SE PIDE — demo abajo |
-| 2 | La suma de dos antisimétricas es antisimétrica | 🟡 SE PIDE — análoga a la 1 |
-| 3 | $\alpha \cdot A$ es simétrica si $A$ lo es | 🟡 SE PIDE — esquema en clase |
-| 4 | $\alpha \cdot A$ es antisimétrica si $A$ lo es | 🟡 SE PIDE — análoga |
+| 2 | La suma de dos antisimétricas es antisimétrica | 🟢 SE PIDE — demo análoga |
+| 3 | $\alpha \cdot A$ es simétrica si $A$ lo es | 🟢 SE PIDE — demo análoga |
+| 4 | $\alpha \cdot A$ es antisimétrica si $A$ lo es | 🟢 SE PIDE — demo análoga |
+
+> 🟢 **Las 4 son demo pedible.** El profesor dijo en clase 2: *"vamos a denunciar cuatro propiedades del estilo y vamos a demostrar alguna de ellas"*. Demostró la 1 entera; las otras 3 las dejó como análogas. **Cualquiera puede aparecer como "demostrar que..."**.
 
 ### 🟢 Demostración: suma de simétricas es simétrica
 
@@ -803,14 +812,16 @@ $$tr(A) = \sum_{i=1}^{n} a_{ii} = a_{11} + a_{22} + \cdots + a_{nn}$$
 
 $$A = \begin{pmatrix} 1 & 2 & 3 \\ 3 & -4 & 2 \\ 2 & 1 & 10 \end{pmatrix} \implies tr(A) = 1 + (-4) + 10 = 7$$
 
-### Las 4 propiedades de la traza (memorizar)
+### Las 4 propiedades de la traza (las 4 son demo pedible)
 
 | # | Propiedad | Comentario | Estado parcial |
 |---|-----------|-----------|---------------|
 | 1 | $tr(A + B) = tr(A) + tr(B)$ | La traza distribuye sobre la suma | 🟢 SE PIDE — demo abajo |
-| 2 | $tr(\alpha \cdot A) = \alpha \cdot tr(A)$ | Los escalares salen afuera | 🟡 SE PIDE — esquema análogo |
-| 3 | $tr(A^T) = tr(A)$ | La traspuesta no cambia la diagonal | 🟡 SE PIDE — explicada verbalmente en clase |
-| 4 | $tr(A \cdot B) = tr(B \cdot A)$ | **¡Aunque $AB \neq BA$, sus trazas coinciden!** | 🔵 SE PIDE — usada en aplicación 🟢 |
+| 2 | $tr(\alpha \cdot A) = \alpha \cdot tr(A)$ | Los escalares salen afuera | 🟢 SE PIDE — demo análoga a la 1 |
+| 3 | $tr(A^T) = tr(A)$ | La traspuesta no cambia la diagonal | 🟢 SE PIDE — demo corta usando que $a_{ii}$ no cambia al trasponer |
+| 4 | $tr(A \cdot B) = tr(B \cdot A)$ | **¡Aunque $AB \neq BA$, sus trazas coinciden!** | 🟢 SE PIDE — demo con doble sumatoria |
+
+> 🟢 **Las 4 son demo pedible.** El profesor dijo: *"al igual que las traspuestas son 4 propiedades que tenemos que manejar"* (clase 2). Demostró la 1 entera. La 4 es la más importante porque es la base de la aplicación estrella *"NO existen $A, B$ con $AB - BA = \text{Id}$"*. **Cualquiera puede aparecer como "demostrar que..."**.
 
 > "A por B es una matriz, B por A es otra, pero sumo las diagonales principales y me da lo mismo. Es algo bastante curioso"
 
@@ -934,18 +945,19 @@ La segunda ecuación es $2$ veces la primera, pero los lados derechos no son pro
 
 ---
 
-## Las 4 propiedades de la inversa (memorizar)
+## Las 4 propiedades de la inversa (las 4 son demo pedible)
 
 | # | Propiedad | Comentario | Estado parcial |
 |---|-----------|-----------|---------------|
-| 1 | $(A^{-1})^{-1} = A$ | Invertir dos veces vuelve al original | 🔵 SE PIDE |
+| 1 | $(A^{-1})^{-1} = A$ | Invertir dos veces vuelve al original | 🟢 SE PIDE — demo corta |
 | 2 | $(A \cdot B)^{-1} = B^{-1} \cdot A^{-1}$ | **EL ORDEN SE INVIERTE** | 🟢 SE PIDE — demo abajo |
-| 3 | $(\alpha \cdot A)^{-1} = \frac{1}{\alpha} \cdot A^{-1}$, $\alpha \neq 0$ | El escalar se invierte también | 🔵 SE PIDE |
-| 4 | $(A^T)^{-1} = (A^{-1})^T$ | Inversa de la traspuesta = traspuesta de la inversa | 🔵 SE PIDE — aparece en V.16.3 |
+| 3 | $(\alpha \cdot A)^{-1} = \frac{1}{\alpha} \cdot A^{-1}$, $\alpha \neq 0$ | El escalar se invierte también | 🟢 SE PIDE — demo corta |
+| 4 | $(A^T)^{-1} = (A^{-1})^T$ | Inversa de la traspuesta = traspuesta de la inversa | 🟢 SE PIDE — aparece como V.16.3 |
 
-> 🔵 **Sobre las propiedades 1, 3 y 4:** el profesor solo demostró la 2 en clase, pero dijo *"4 propiedades que tenemos que manejar"*. La **prop 4** además aparece como ejercicio del V.16. Las demos de las 3 (en PARTE 10 — sección H.2 hay demo de la 4) salen verificando que el "candidato" multiplicado da $\text{Id}$. Por ejemplo:
+> 🟢 **Las 4 son demo pedible.** El profesor dijo: *"vamos a ver ahora las propiedades de la inversa, algunas que tenemos que manejar y vamos a demostrar algunas de ellas"* (clase 3). Demostró la 2 entera. **Cualquiera puede aparecer como "demostrar que..."**. Demos cortas para las otras (estilo: verificar que el "candidato" multiplicado da $\text{Id}$):
 > - **Prop 1:** $A^{-1} \cdot A = \text{Id}$ ya prueba que $A$ es la inversa de $A^{-1}$, o sea $(A^{-1})^{-1} = A$.
 > - **Prop 3:** $(\alpha A) \cdot (\frac{1}{\alpha} A^{-1}) = (\alpha \cdot \frac{1}{\alpha}) (A \cdot A^{-1}) = 1 \cdot \text{Id} = \text{Id}$.
+> - **Prop 4:** ver demo completa en PARTE 10 — sección H.2.
 
 ### 🟢 Demostración de la propiedad 2: $(AB)^{-1} = B^{-1} A^{-1}$
 
@@ -1010,7 +1022,9 @@ Y ahora si $(A + \text{Id})$ es invertible: $X = (A + \text{Id})^{-1} \cdot B$.
 
 ## Matriz idempotente
 
-### Definición ⚪
+### Definición 🟡
+
+> **Estado parcial: 🟡 saber/aplicar.** La definición no se demuestra (es definición), pero tenés que reconocer si una matriz es idempotente para usarla en ejercicios.
 
 Una matriz cuadrada $A$ es **idempotente** si $A^2 = A$.
 
@@ -1044,7 +1058,9 @@ $$(A + \text{Id})^3 = A^3 + 3A^2 + 3A + \text{Id} = A + 3A + 3A + \text{Id} = 7A
 
 ## Matriz nilpotente
 
-### Definición ⚪
+### Definición 🟡
+
+> **Estado parcial: 🟡 saber/aplicar.** Definición — no se demuestra.
 
 Una matriz cuadrada $A$ es **nilpotente de grado $k$** si:
 1. $A^k = \mathcal{O}$ (alguna potencia da la nula)
@@ -1065,13 +1081,14 @@ Es decir, $k$ es la **primera** potencia que la anula. Si la primera potencia qu
 
 ## Matriz ortogonal
 
-### Definición ⚪
+### Definición 🟡
+
+> **Estado parcial: 🟡 saber/aplicar.** Definición — no se demuestra. ⚠️ Las **propiedades formales** de matriz ortogonal NO entran al parcial (🔴) — el profesor dijo *"esto es ortogonal, no lo vimos en el teórico"* (clase 4). Sí entran ejercicios que la apliquen (V.12).
 
 Una matriz cuadrada $A$ es **ortogonal** si y solo si $A$ es invertible y $A^{-1} = A^T$.
 
 **Equivalentemente:** $A \cdot A^T = A^T \cdot A = \text{Id}$.
 
-> 🔴 **Estado parcial sobre ortogonal:** El profesor dijo en clase 4 *"esto es ortogonal, no lo vimos en el teórico, pero esto lo podrían hacer"*. La **definición SÍ entra** y los **ejercicios sí entran** (V.12), pero las **propiedades formales de ortogonal NO entran como teórico**. No te preocupes por demostrar resultados sobre ortogonal — sí por aplicarla en ejercicios.
 
 ---
 
@@ -1081,7 +1098,7 @@ Esta es la sección más importante para el parcial. Acá están todos los ejerc
 
 ---
 
-## ⚪ Ejercicio V.1 — Operaciones básicas (SE APLICA — cálculo directo)
+## 🔵 Ejercicio V.1 — Operaciones básicas (cálculo directo)
 
 **Enunciado.** Dadas las matrices:
 
@@ -1116,7 +1133,7 @@ $$D = \begin{pmatrix} -3 & 0 & -7 \\ -2 & -4 & -11 \\ -4 & -2 & -1 \end{pmatrix}
 
 ---
 
-## ⚪ Ejercicio V.2 — Productos posibles (SE APLICA — verificar conformabilidad)
+## 🔵 Ejercicio V.2 — Productos posibles (verificar conformabilidad)
 
 **Enunciado.** Dadas las matrices:
 
@@ -1350,7 +1367,7 @@ $$A^{-1} = \frac{1}{3}\begin{pmatrix} 3 & -3 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 1 \end{
 
 ---
 
-## ⚪ Ejercicio V.9 — Inversas por método directo (SE APLICA — el profe dijo "en parciales se dice 'hallen la inversa'")
+## 🔵 Ejercicio V.9 — Inversas por método directo (cálculo — el profe dijo "en parciales se dice 'hallen la inversa'")
 
 **Enunciado.** Encontrar la inversa (si existe) de:
 
@@ -1563,7 +1580,7 @@ Análogamente $(B^{-1} A^{-1}) \cdot AB = \text{Id}$. Por lo tanto $AB$ es inver
 
 ---
 
-## 🔵 Ejercicio V.15 — Conmutatividad (SE PIDE)
+## 🟢 Ejercicio V.15 — Conmutatividad (SE PIDE — demo de conmutatividad bajo hipótesis)
 
 **Enunciado.** Dos matrices $A$ y $B$ conmutan si y solo si $AB = BA$.
 
@@ -1832,17 +1849,19 @@ Esta sección audita **cada propiedad y cada demostración** del módulo de matr
 
 ### Tabla maestra: cada demostración del módulo y su veredicto
 
-**Leyenda de estado:**
-- 🟢 **DEMOSTRADA EN PIZARRÓN** — el profesor la hizo entera en clase. **Probabilidad alta de parcial.** Es la demostración que más estudiaría primero.
-- 🟡 **EN ESQUEMA / ANALOGÍA** — el profesor la sketcheó o dijo "es análoga a esta otra". **Pedible — saberla deducir.**
-- 🔵 **ENUNCIADA "QUE TENEMOS QUE MANEJAR"** — propiedad listada pero el profesor no la demostró. **Igual pedible** — entra bajo el paraguas de "manejar".
-- ⚪ **DEFINICIÓN / CÁLCULO** — no hay demostración formal asociada; es definicional o computacional.
+> ⚠️ **OJO con los emojis acá:** En esta tabla de auditoría, los emojis describen **cómo el profesor presentó cada propiedad en clase** (evidencia bruta). NO es lo mismo que la **leyenda de prioridad** que usás en el resto del documento. Para "qué hago con esto al estudiar", mirá el resto del doc — la leyenda al inicio resume el sistema de prioridad simplificado a 4 niveles. Esta tabla es la fuente cruda de evidencia.
+
+**Leyenda de evidencia (solo para esta tabla):**
+- 🟢 **DEMOSTRADA EN PIZARRÓN** — el profesor la hizo entera en clase. **Demo pedible en parcial — prioridad MÁXIMA.**
+- 🟡 **EN ESQUEMA / ANALOGÍA** — el profesor la sketcheó o dijo "es análoga a esta otra". **Demo pedible — saberla deducir.**
+- 🔵 **ENUNCIADA "QUE TENEMOS QUE MANEJAR"** — propiedad listada pero el profesor no la demostró formalmente. **La mayoría son demo pedible** (ver columna "Veredicto").
+- ⚪ **DEFINICIÓN / CÁLCULO** — no hay demostración formal asociada; es definicional o computacional. Va como 🟡 (saber/aplicar) o 🔵 (cálculo) en la prioridad de estudio.
 - 🔴 **EXCLUIDA EXPLÍCITAMENTE** — el profesor dijo que NO entra en parcial.
 
 **Veredicto:**
-- **SE PIDE** = puede caer como demostración en parcial.
-- **NO SE PIDE** = el profesor lo excluyó explícitamente.
-- **SE APLICA** = entra como herramienta de cálculo, no como demostración.
+- **SE PIDE** = puede caer como demostración (prioridad de estudio: 🟢 en el sistema simplificado).
+- **NO SE PIDE** = el profesor lo excluyó explícitamente (prioridad de estudio: 🔴).
+- **SE APLICA** = entra como herramienta de cálculo, no como demostración (prioridad de estudio: 🟡 saber, o 🔵 procedimiento).
 
 #### A. Suma de matrices y producto por escalar
 
