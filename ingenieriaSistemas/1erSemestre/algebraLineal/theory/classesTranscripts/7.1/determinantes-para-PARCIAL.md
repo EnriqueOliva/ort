@@ -1,46 +1,29 @@
-# Determinantes — Explicación paso a paso, desde cero
+# Determinantes — Material para el PARCIAL
 
-Este documento cubre **determinantes**: qué son, cómo se calculan, las 9 propiedades, el teorema central, y ejercicios. Al final hay preparación para la evaluación continua del 15 de abril. Todo explicado asumiendo que no sabés nada.
+Este documento cubre todo lo de **determinantes** que entra en parcial: qué son, cómo se calculan, las 9 propiedades con demostración, los dos teoremas (que cierran el "si y solo si" entre invertibilidad y determinante distinto de cero), la fórmula de la inversa por cofactores, y los resultados de matrices nilpotentes, antisimétricas y ortogonales. Al final está todo el práctico (V.1 a V.12) resuelto. Todo explicado asumiendo que no sabés nada — partimos de cero.
 
 ---
 
 ## Mapa de lo que vamos a ver
 
-| Parte | ¿Qué se aprende? |
-|-------|-------------------|
-| 1 | Qué es un determinante, cómo calcularlo, y las 9 propiedades (Clase 5) |
-| 2 | El teorema que conecta "invertible" con "determinante ≠ 0", más ejercicios (Clase 6) |
-| 3 | Teorema 2 (la vuelta: det ≠ 0 → invertible), nueva fórmula para la inversa, demostraciones de propiedades (Clase 7) |
-| 4 | **Prep evaluación continua: errores comunes, checklist, preguntas de práctica** |
+| Sección | Tema | ¿Qué se aprende? |
+|---------|------|------------------|
+| 1 | Definición y cómo calcular | Determinante 1×1, 2×2, 3×3 (Sarrus), n×n (cofactores) |
+| 2 | Las 9 propiedades | Cada una con ejemplo + demostración |
+| 3 | El "si y solo si" | Teorema 1 + Teorema 2: invertible ⇔ det ≠ 0 |
+| 4 | Inversa por cofactores | Cómo calcular A⁻¹ usando determinantes |
+| 5 | Resultados clásicos | Nilpotente, antisimétrica impar, ortogonal, triangular |
+| 6 | Errores típicos | Las trampas que aparecen en parcial |
+| 7 | Checklist y referencia | Antes de calcular cualquier determinante |
+| 8 | Ejemplos modelo del práctico | IV.1, IV.2, IV.3 — pre-resueltos |
+| 9 | Práctico resuelto (V.1 a V.12) | Cada ejercicio del práctico oficial, paso a paso |
+| 10 | Estrategia para el parcial | Qué dominar, qué practicar |
 
 ---
 
-# PARTE 1 — ¿Qué es un determinante? (Clase 5, 7 de abril)
+# 1. ¿Qué es un determinante? Y cómo se calcula
 
-## La Gran Pregunta de Hoy: ¿Qué es el determinante y cómo se calcula?
-
-Esta es la primera clase después de vacaciones y arranca un tema completamente nuevo. Vamos a ver:
-1. Qué es un determinante (en palabras simples)
-2. Cómo calcularlo (empezando por las matrices más chicas)
-3. Las 9 propiedades (atajos que ahorran cuentas en el parcial)
-
-## Anuncio sobre la prueba
-
-> "La prueba va a ser de determinantes específicas"
-
-**Traducción:** La segunda prueba de evaluación continua será el miércoles 16 de abril, sobre determinantes. Mismo formato que la primera: nivel básico, en grupo, con material.
-
----
-
-## Conexión con la Clase Anterior
-
-La clase 4 fue práctica, cerró matrices. Hubo prueba de evaluación continua y luego vacaciones. Hoy arranca un tema nuevo desde cero.
-
----
-
-## ¿Qué es un determinante?
-
-### La idea en una oración
+## 1.1. La idea en una oración
 
 El determinante es **un número** que le asignamos a una matriz cuadrada y que nos dice si esa matriz es invertible o no.
 
@@ -58,7 +41,7 @@ Pensá en el determinante como un **semáforo** de la matriz:
 
 Hasta ahora, para saber si una matriz tenía inversa, teníamos que hacer toda la cuenta del método directo (plantear el sistema de ecuaciones, resolverlo, y ver si tiene solución). El determinante nos da una respuesta **mucho más rápida**: si el número da distinto de cero, la matriz es invertible. Punto.
 
-### Notación
+## 1.2. Notación
 
 Hay dos formas de escribir "el determinante de la matriz $A$":
 
@@ -71,15 +54,11 @@ Hay dos formas de escribir "el determinante de la matriz $A$":
 
 **Traducción:** Cuidado con las barras verticales. Cuando rodean una **matriz**, significan "determinante". No es valor absoluto. De hecho, el determinante **puede ser negativo** (el valor absoluto no puede).
 
-### Requisito fundamental
+## 1.3. Requisito fundamental
 
 Solo se puede calcular el determinante de **matrices cuadradas** ($n \times n$). Si la matriz tiene distinta cantidad de filas que de columnas (por ejemplo $3 \times 4$), no existe su determinante.
 
----
-
-## Cómo calcular un determinante
-
-### Antes de calcular: ¿de dónde sale la fórmula del determinante?
+## 1.4. ¿De dónde sale la fórmula?
 
 Cuando tenés un sistema de 2 ecuaciones con 2 incógnitas:
 
@@ -92,15 +71,15 @@ $$x = \frac{e \cdot d - b \cdot f}{a \cdot d - b \cdot c}, \quad y = \frac{a \cd
 
 Mirá el **denominador**: $a \cdot d - b \cdot c$. Si ese número es $0$, estás dividiendo por cero y el sistema no tiene solución única. Si es $\neq 0$, el sistema sí tiene solución única.
 
-Ese denominador es exactamente el **determinante** de la matriz de coeficientes $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$. El determinante no es una fórmula arbitraria — es el número que aparece naturalmente cuando intentás resolver un sistema de ecuaciones. Si vale $0$, no hay solución única. Si vale $\neq 0$, sí la hay.
+Ese denominador es exactamente el **determinante** de la matriz de coeficientes $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$. El determinante no es una fórmula arbitraria — es el número que aparece naturalmente cuando intentás resolver un sistema de ecuaciones.
 
-### La regla general para calcular un determinante
+## 1.5. La regla general para calcular un determinante
 
 La regla es: **elegir un número de cada fila, sin repetir columna**, multiplicarlos entre sí, y sumar todos esos productos con cierto signo ($+$ o $-$).
 
 En una $1 \times 1$: hay **1 sola manera** de elegir (el único número). Así que $\det(A) = a_{11}$.
 
-En una $2 \times 2$: hay **2 maneras** de elegir un número por fila sin repetir columna, y las dos resultan ser las dos diagonales:
+En una $2 \times 2$: hay **2 maneras**, y las dos resultan ser las dos diagonales:
 
 ```
 | a  b |
@@ -112,8 +91,6 @@ Manera 2: fila 1→col 2 (=b), fila 2→col 1 (=c) → b·c     signo -
 det = a·d - b·c
 ```
 
-En $2 \times 2$, la regla y "multiplicar diagonales" dan lo mismo. Pero en $3 \times 3$ ya no, porque hay **6 maneras** de elegir un número por fila sin repetir columna, y solo 2 de las 6 parecen diagonales. Las otras 4 no forman ninguna línea visual en la matriz.
-
 **Ejemplo numérico $2 \times 2$:**
 
 $$A = \begin{pmatrix} 2 & 4 \\ 6 & 1 \end{pmatrix}$$
@@ -124,42 +101,23 @@ $$\det(A) = 2 - 24 = -22$$
 
 Como es $\neq 0$, la matriz es invertible.
 
----
+## 1.6. Matrices $3 \times 3$ — las 6 combinaciones y la regla de Sarrus
 
-### Matrices $3 \times 3$: las 6 combinaciones
+En $3 \times 3$ la regla general da **6 combinaciones**. Solo 2 de las 6 parecen diagonales; las otras 4 no forman ninguna línea visual. La fórmula es:
 
-**Ejemplo con números:**
-
-$$A = \begin{pmatrix} 4 & 1 & 3 \\ 2 & 5 & 7 \\ 6 & 0 & 8 \end{pmatrix}$$
-
-Las 6 maneras de elegir (un número por fila, columnas distintas):
-
-| # | Fila 1 → | Fila 2 → | Fila 3 → | Producto | Signo |
-|---|----------|----------|----------|----------|-------|
-| 1 | col 1 = $4$ | col 2 = $5$ | col 3 = $8$ | $160$ | $+$ |
-| 2 | col 2 = $1$ | col 3 = $7$ | col 1 = $6$ | $42$ | $+$ |
-| 3 | col 3 = $3$ | col 1 = $2$ | col 2 = $0$ | $0$ | $+$ |
-| 4 | col 3 = $3$ | col 2 = $5$ | col 1 = $6$ | $90$ | $-$ |
-| 5 | col 1 = $4$ | col 3 = $7$ | col 2 = $0$ | $0$ | $-$ |
-| 6 | col 2 = $1$ | col 1 = $2$ | col 3 = $8$ | $16$ | $-$ |
-
-$$\det(A) = (160 + 42 + 0) - (90 + 0 + 16) = 96$$
-
-¿Por qué unas van con $+$ y otras con $-$? La regla de los signos tiene que ver con permutaciones y no hace falta saberla. La **regla de Sarrus** (abajo) te da los 6 productos con sus signos correctos de forma visual, sin pensar.
+$$\det(A) = a_{11}a_{22}a_{33} + a_{21}a_{32}a_{13} + a_{31}a_{12}a_{23} - a_{31}a_{22}a_{13} - a_{11}a_{32}a_{23} - a_{21}a_{12}a_{33}$$
 
 > "Sinceramente no me la sé de memoria"
 
-**Traducción:** Ni el profesor se la sabe de memoria. Sarrus resuelve todo.
+**Traducción:** Ni el profesor se la sabe de memoria. **Sarrus** resuelve todo.
 
----
-
-### Regla de Sarrus (solo para $3 \times 3$ — esto es muy importante)
+### Regla de Sarrus (solo para $3 \times 3$)
 
 > "Tengan presente que la regla de Sarrus solo para matrices 3x3. He visto varias veces en parciales que aplican la regla de Sarrus para matrices 4x4 o otras dimensiones, no sea 3x3, y está mal"
 
 **Traducción:** Sarrus **SOLAMENTE funciona para matrices $3 \times 3$**. Si la matriz es $4 \times 4$ o más grande, Sarrus no sirve. Esto aparece como error en parciales.
 
-#### ¿Cómo funciona Sarrus?
+#### Cómo funciona Sarrus
 
 Es un truco visual que convierte las 6 combinaciones de la regla en 6 diagonales que podés ver y recorrer con el dedo.
 
@@ -175,49 +133,9 @@ Es un truco visual que convierte las 6 combinaciones de la regla en 6 diagonales
 
 Ahora tenés una grilla de 5 filas × 3 columnas. En esta grilla aparecen **6 diagonales de largo 3**: 3 van hacia abajo-derecha (↘) y 3 van hacia abajo-izquierda (↙).
 
-**Paso 2:** Las 3 diagonales ↘ arrancan desde la **columna 1**, una en cada fila (filas 1, 2 y 3). Van con $+$:
+**Paso 2:** Las 3 diagonales ↘ arrancan desde la **columna 1**, una en cada fila (filas 1, 2 y 3). Van con $+$.
 
-```
- [a₁₁] a₁₂   a₁₃       ↘ desde fila 1: a₁₁ · a₂₂ · a₃₃
-  a₂₁ [a₂₂]  a₂₃
-  a₃₁  a₃₂  [a₃₃]
-  a₁₁  a₁₂   a₁₃
-  a₂₁  a₂₂   a₂₃
-
-  a₁₁  a₁₂   a₁₃       ↘ desde fila 2: a₂₁ · a₃₂ · a₁₃
- [a₂₁] a₂₂   a₂₃
-  a₃₁ [a₃₂]  a₃₃
-  a₁₁  a₁₂  [a₁₃]  ← esta es la copia de fila 1
-  a₂₁  a₂₂   a₂₃
-
-  a₁₁  a₁₂   a₁₃       ↘ desde fila 3: a₃₁ · a₁₂ · a₂₃
-  a₂₁  a₂₂   a₂₃
- [a₃₁] a₃₂   a₃₃
-  a₁₁ [a₁₂]  a₁₃   ← copia de fila 1
-  a₂₁  a₂₂  [a₂₃]  ← copia de fila 2
-```
-
-**Paso 3:** Las 3 diagonales ↙ arrancan desde la **columna 3**, una en cada fila (filas 1, 2 y 3). Van con $-$:
-
-```
-  a₁₁  a₁₂  [a₁₃]      ↙ desde fila 1: a₁₃ · a₂₂ · a₃₁
-  a₂₁ [a₂₂]  a₂₃
- [a₃₁] a₃₂   a₃₃
-  a₁₁  a₁₂   a₁₃
-  a₂₁  a₂₂   a₂₃
-
-  a₁₁  a₁₂   a₁₃       ↙ desde fila 2: a₂₃ · a₃₂ · a₁₁
-  a₂₁  a₂₂  [a₂₃]
-  a₃₁ [a₃₂]  a₃₃
- [a₁₁] a₁₂   a₁₃   ← copia de fila 1
-  a₂₁  a₂₂   a₂₃
-
-  a₁₁  a₁₂   a₁₃       ↙ desde fila 3: a₃₃ · a₁₂ · a₂₁
-  a₂₁  a₂₂   a₂₃
-  a₃₁  a₃₂  [a₃₃]
-  a₁₁ [a₁₂]  a₁₃   ← copia de fila 1
- [a₂₁] a₂₂   a₂₃   ← copia de fila 2
-```
+**Paso 3:** Las 3 diagonales ↙ arrancan desde la **columna 3**, una en cada fila (filas 1, 2 y 3). Van con $-$.
 
 **Paso 4:** Restá: (suma de las 3 positivas) − (suma de las 3 negativas). Eso es el determinante.
 
@@ -235,75 +153,37 @@ $$A = \begin{pmatrix} 1 & 0 & 2 \\ 1 & 0 & 1 \\ 0 & 1 & 1 \end{pmatrix}$$
   1  0  1
 ```
 
-**Paso 2:** Diagonales positivas (↘), arrancando desde columna 1:
-
-```
- [1] 0  2       ↘ desde fila 1: 1·0·1 = 0
-  1 [0] 1
-  0  1 [1]
-  1  0  2
-  1  0  1
-
-  1  0  2       ↘ desde fila 2: 1·1·2 = 2
- [1] 0  1
-  0 [1] 1
-  1  0 [2]
-  1  0  1
-
-  1  0  2       ↘ desde fila 3: 0·0·1 = 0
-  1  0  1
- [0] 1  1
-  1 [0] 2
-  1  0 [1]
-```
+**Paso 2 — diagonales positivas (↘) desde columna 1:**
+- Desde fila 1: $1 \cdot 0 \cdot 1 = 0$
+- Desde fila 2: $1 \cdot 1 \cdot 2 = 2$
+- Desde fila 3: $0 \cdot 0 \cdot 1 = 0$
 
 Suma: $0 + 2 + 0 = 2$
 
-**Paso 3:** Diagonales negativas (↙), arrancando desde columna 3:
-
-```
-  1  0 [2]      ↙ desde fila 1: 2·0·0 = 0
-  1 [0] 1
- [0] 1  1
-  1  0  2
-  1  0  1
-
-  1  0  2       ↙ desde fila 2: 1·1·1 = 1
-  1  0 [1]
-  0 [1] 1
- [1] 0  2
-  1  0  1
-
-  1  0  2       ↙ desde fila 3: 1·0·1 = 0
-  1  0  1
-  0  1 [1]
-  1 [0] 2
- [1] 0  1
-```
+**Paso 3 — diagonales negativas (↙) desde columna 3:**
+- Desde fila 1: $2 \cdot 0 \cdot 0 = 0$
+- Desde fila 2: $1 \cdot 1 \cdot 1 = 1$
+- Desde fila 3: $1 \cdot 0 \cdot 1 = 0$
 
 Suma: $0 + 1 + 0 = 1$
 
 **Paso 4:** $\det(A) = 2 - 1 = 1$
 
----
-
-### Método recursivo (para matrices de cualquier tamaño)
+## 1.7. Método recursivo (para matrices de cualquier tamaño)
 
 > "Precisamos ahora un método que nos sirva para matrices n por n"
 
 **Traducción:** Sarrus solo funciona para $3 \times 3$. Para $4 \times 4$ o más necesitamos otro método.
 
-#### La idea en una oración
+### La idea en una oración
 
 Convertir un determinante grande en varios determinantes más chicos. Un determinante de $4 \times 4$ se convierte en varios de $3 \times 3$ (que ya sabés hacer con Sarrus). Uno de $3 \times 3$ se convierte en varios de $2 \times 2$ (que son triviales).
 
----
-
-#### Paso 1: Aprender a "borrar" una fila y una columna (esto se llama "menor")
+### Paso 1 — Aprender a "borrar" una fila y una columna (matriz adjunta)
 
 > "La matriz adjunta del elemento ij de A surge de quitarle a la matriz A la fila i y la columna j"
 
-Antes de ver el método completo, necesitás saber hacer una sola cosa: dada una matriz, **tachar una fila entera y una columna entera**, y quedarte con lo que sobra. Lo que sobra se llama **menor**.
+Antes de ver el método completo, necesitás saber hacer una sola cosa: dada una matriz, **tachar una fila entera y una columna entera**, y quedarte con lo que sobra. Lo que sobra se llama **matriz adjunta del elemento $(i,j)$**, y se nota $\text{Adj}_{ij}(A)$. Otros libros la llaman **menor** del elemento $(i,j)$.
 
 **Ejemplo:** Partimos de esta matriz $3 \times 3$:
 
@@ -319,245 +199,210 @@ Antes:                  Tachamos fila 2 y col 2:       Queda:
 | 7  8  9 |             | 7  ✕  9 |
 ```
 
-La menor es $\begin{pmatrix} 1 & 3 \\ 7 & 9 \end{pmatrix}$. Es una $2 \times 2$ (una dimensión menos que la original).
+$\text{Adj}_{22}(A) = \begin{pmatrix} 1 & 3 \\ 7 & 9 \end{pmatrix}$. Es una $2 \times 2$ (una dimensión menos que la original).
 
-**Otro ejemplo:** Borramos fila 1 y columna 3 (donde está el $3$):
+### Paso 2 — La fórmula del desarrollo recursivo
+
+Dada una matriz $n \times n$, $A = ((a_{ij}))$, el determinante es:
+
+$$\det(A) = \sum_{j=1}^{n} a_{ij} \cdot (-1)^{i+j} \cdot \det(\text{Adj}_{ij}(A))$$
+
+para cualquier fila $i$ que vos elijas.
+
+**Lo que dice la fórmula en palabras:** Elegís una fila. Para cada número de esa fila, hacés tres cosas: lo multiplicás por el signo $(-1)^{i+j}$ (el "tablero de ajedrez"), y por el determinante de la adjunta (matriz más chica). Sumás todo.
+
+**Observación importante:** la fórmula es **igual de válida desarrollando por columnas** que por filas. Da exactamente lo mismo.
+
+### El "tablero de ajedrez" de signos
+
+El factor $(-1)^{i+j}$ alterna entre $+$ y $-$ siguiendo el patrón del tablero de ajedrez:
 
 ```
-Antes:                  Tachamos fila 1 y col 3:       Queda:
-
-| 1  2  3 |             | ✕  ✕  ✕ |                    | 4  5 |
-| 4  5  6 |      →      | 4  5  ✕ |              →     | 7  8 |
-| 7  8  9 |             | 7  8  ✕ |
+| +  -  +  - |
+| -  +  -  + |
+| +  -  +  - |
+| -  +  -  + |
 ```
 
-La menor es $\begin{pmatrix} 4 & 5 \\ 7 & 8 \end{pmatrix}$.
+Empieza con $+$ en la esquina superior izquierda.
 
-Eso es todo lo que es una menor: **tachar una fila y una columna, quedarte con el resto**.
-
----
-
-#### Paso 2: El método completo
-
-**¿Cuál es el objetivo?** Queremos calcular el determinante de una $3 \times 3$ (o más grande) convirtiéndolo en varios determinantes de $2 \times 2$ (que ya sabemos hacer). El truco es "descomponer" el determinante grande en pedacitos más chicos.
-
-**¿Cómo funciona la descomposición?** Elegís una fila de la matriz. Para cada número de esa fila, hacés lo siguiente: borrás su fila y su columna (te queda una matriz más chica), le calculás el determinante a esa matriz más chica, y multiplicás ese determinante por el número original. Al final sumás todo, y eso te da el determinante de la matriz grande.
-
-Hay un detalle extra: algunos de esos pedacitos van con signo $+$ y otros con signo $-$. El signo depende de la posición y sigue un patrón fijo de tablero de ajedrez (se ve abajo en el ejemplo). No tiene una explicación intuitiva — es simplemente parte de cómo funciona la fórmula del determinante.
-
----
-
-#### Ejemplo completo, paso a paso
+### Ejemplo completo paso a paso
 
 $$A = \begin{pmatrix} 1 & 0 & 2 \\ 1 & 0 & 1 \\ 0 & 1 & 1 \end{pmatrix}$$
 
 Queremos calcular $\det(A)$. La matriz es $3 \times 3$, así que vamos a descomponerla en determinantes de $2 \times 2$.
 
-**Paso A — Elegir una fila.** Elegimos la **fila 1**: sus elementos son $1$, $0$, $2$. Vamos a procesar cada uno de estos tres elementos por separado, y después sumar los resultados.
+**Paso A — Elegir una fila.** Elegimos la **fila 1**: sus elementos son $1$, $0$, $2$. Vamos a procesar cada uno.
 
-**Paso B — Anotar el signo de cada posición.** Cada posición de la matriz tiene un signo fijo que alterna como un tablero de ajedrez. Empieza con $+$ en la esquina superior izquierda:
+**Paso B — Procesar cada elemento.**
 
-```
-| +  -  + |       Posición (1,1) → +
-| -  +  - |       Posición (1,2) → -
-| +  -  + |       Posición (1,3) → +
-```
+**Elemento $(1,1) = 1$:** signo $+$, adjunta $= \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix}$, determinante $= 0 - 1 = -1$.
+Aporte: $1 \cdot (+1) \cdot (-1) = -1$.
 
-¿Para qué sirve este signo? Cuando multipliquemos cada número por el determinante de su menor, le vamos a aplicar este signo. Si es $+$, dejamos el resultado como está. Si es $-$, le cambiamos el signo.
+**Elemento $(1,2) = 0$:** como es $0$, aporte $= 0$ sin hacer cuentas.
 
-**Paso C — Procesar cada elemento de la fila 1, uno por uno.**
+**Elemento $(1,3) = 2$:** signo $+$, adjunta $= \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$, determinante $= 1$.
+Aporte: $2 \cdot (+1) \cdot 1 = 2$.
 
----
+**Paso C — Sumar.**
 
-**Elemento 1: el $1$ que está en la posición $(1,1)$**
+$$\det(A) = (-1) + 0 + 2 = 1$$
 
-¿Qué hacemos con este elemento? Lo multiplicamos por el signo de su posición y por el determinante de la matriz que queda al borrar su fila y su columna.
+**Verificación con Sarrus:** $(0+2+0) - (0+1+0) = 1$ ✓
 
-1. El número es $1$.
-2. El signo de la posición $(1,1)$ es $+$ (miramos el tablero de arriba).
-3. Borramos la fila 1 y la columna 1. Lo que queda es la **menor**:
-
-```
-| ✕  ✕  ✕ |           | 0  1 |
-| 1  0  1 |     →     | 1  1 |
-| 0  1  1 |
-```
-
-4. Calculamos el determinante de esa $2 \times 2$: $0 \cdot 1 - 1 \cdot 1 = -1$
-5. Multiplicamos todo: número $\times$ signo $\times$ determinante de la menor = $1 \times (+1) \times (-1) = -1$
-
-El aporte del primer elemento al determinante total es $-1$.
-
----
-
-**Elemento 2: el $0$ que está en la posición $(1,2)$**
-
-1. El número es $0$.
-2. Como el número es $0$, al multiplicar $0 \times \text{lo que sea}$ siempre da $0$. No hace falta calcular ni el signo ni la menor.
-
-El aporte del segundo elemento es $0$.
-
----
-
-**Elemento 3: el $2$ que está en la posición $(1,3)$**
-
-1. El número es $2$.
-2. El signo de la posición $(1,3)$ es $+$ (miramos el tablero).
-3. Borramos la fila 1 y la columna 3. Lo que queda es la **menor**:
-
-```
-| ✕  ✕  ✕ |           | 1  0 |
-| 1  0  ✕ |     →     | 0  1 |
-| 0  1  ✕ |
-```
-
-4. Calculamos el determinante de esa $2 \times 2$: $1 \cdot 1 - 0 \cdot 0 = 1$
-5. Multiplicamos todo: $2 \times (+1) \times 1 = 2$
-
-El aporte del tercer elemento es $2$.
-
----
-
-**Paso D — Sumar los aportes de todos los elementos.**
-
-$$\det(A) = \underbrace{(-1)}_{\text{elemento 1}} + \underbrace{0}_{\text{elemento 2}} + \underbrace{2}_{\text{elemento 3}} = 1$$
-
-**Verificación con Sarrus** (misma matriz, positivas $-$ negativas = $(0+0+2) - (0+1+0) = 1$). Mismo resultado, dos caminos distintos.
-
----
-
-#### Truco: elegí la fila o columna con más ceros
+### Truco: elegí la fila o columna con más ceros
 
 > "Siempre sirve lo más fácil es desarrollar por la fila o columna que presente la mayor cantidad de ceros, así tengo que calcular la menor cantidad de matrices adjuntas"
 
-**Traducción:** Cuando un elemento es $0$, su resultado es $0$ sin hacer cuentas. Así que cuantos más ceros tenga la fila que elegís, menos menores tenés que calcular.
+**Traducción:** Cuando un elemento es $0$, su aporte es $0$ sin hacer cuentas. Cuantos más ceros tenga la fila o columna que elegís, menos adjuntas tenés que calcular.
 
-En nuestra matriz, la **columna 2** es $(0, 0, 1)$ — tiene dos ceros. Si desarrollamos por columna 2 en vez de fila 1, solo hay que calcular UNA menor (la del $1$):
+En la matriz de arriba, la **columna 2** tiene dos ceros. Si desarrollamos por columna 2 en vez de fila 1, solo hay que calcular UNA adjunta:
 
-- El $0$ en $(1,2)$: resultado $0$
-- El $0$ en $(2,2)$: resultado $0$
-- El $1$ en $(3,2)$: signo del tablero → $-$, menor $= \begin{pmatrix} 1 & 2 \\ 1 & 1 \end{pmatrix}$, $\det = 1-2 = -1$
+- $(1,2)$ es $0$: aporte $0$
+- $(2,2)$ es $0$: aporte $0$
+- $(3,2)$ es $1$: signo $-$, adjunta $= \begin{pmatrix} 1 & 2 \\ 1 & 1 \end{pmatrix}$, det $= 1 - 2 = -1$. Aporte: $1 \cdot (-1) \cdot (-1) = 1$.
 
-$$\det(A) = 0 + 0 + 1 \cdot (-1) \cdot (-1) = 1$$
+$$\det(A) = 0 + 0 + 1 = 1$$
 
 Mismo resultado, mucho menos trabajo.
 
----
-
-#### Para matrices $4 \times 4$
+### Para matrices $4 \times 4$ o más grandes
 
 > "Si es 4x4, ahí sí, ya no le va a quedar otra que desarrollar por una fila o columna"
 
-Es exactamente el mismo procedimiento:
-1. Elegís la fila o columna con más ceros
-2. Para cada elemento, borrás su fila y columna → te queda una menor de $3 \times 3$
-3. A cada menor $3 \times 3$ le calculás el determinante con Sarrus
-
-#### Da igual qué fila o columna elijas
-
-> "No importa por qué fila o columna desarrollemos, siempre el resultado del determinante me da lo mismo"
-
-**Traducción:** Podés elegir **cualquier** fila o columna. Siempre da lo mismo. Elegí la que tenga más ceros.
+Mismo procedimiento: elegís fila o columna con más ceros, para cada elemento generás una adjunta de $3 \times 3$ y le calculás el determinante con Sarrus, sumás todo con los signos correctos.
 
 ---
 
-## Las 9 propiedades del determinante (atajos para el parcial)
+# 2. Las 9 propiedades del determinante
 
-Estas propiedades son **atajos**. En vez de calcular un determinante desde cero (lo cual puede llevar mucho tiempo), las propiedades te dejan manipular la matriz para simplificarla, o te dicen el resultado directamente. Cada propiedad viene con un "¿cuándo la uso?" para que sepas cuándo aplicarla.
+Estas propiedades son **atajos**. En vez de calcular un determinante desde cero (lo cual puede llevar mucho tiempo), las propiedades te dejan manipular la matriz para simplificarla, o te dicen el resultado directamente.
 
----
-
-### Propiedad 1: Si hay sumas adentro de la matriz, podés separar
-
-**Aclaración antes de arrancar:** Recordá que el determinante de una matriz **es un número**, no una matriz. Cuando escribimos $\det\begin{pmatrix} 2 & 3 \\ 4 & 4 \end{pmatrix}$, lo que está adentro del $\det(...)$ es la **matriz a la que le calculamos el determinante**. El resultado es un número: $2 \cdot 4 - 3 \cdot 4 = -4$.
-
-**¿Para qué sirve esta propiedad?** Es una herramienta de manipulación. No es algo que "encontrás" en una matriz — es algo que VOS decidís aplicar cuando te conviene para simplificar un cálculo o avanzar en una demostración. Aparece en dos situaciones:
-
-1. **Dentro de demostraciones:** Cuando estás probando algo sobre determinantes y necesitás desarmar una fila que fue construida sumando cosas (por ejemplo, cuando la propiedad 7 le suma a una fila un múltiplo de otra, esa fila queda como una suma — y esta propiedad te deja separarla).
-2. **En ejercicios:** Cuando el problema te dice que una fila es "fila 1 + 3·fila 2" o algo similar, y necesitás separar para simplificar.
-
-**¿Qué dice exactamente?** Si en alguna fila de la matriz, cada entrada se puede expresar como una suma de dos cosas, entonces podés separar el determinante en dos determinantes: uno con las primeras partes de cada suma, y otro con las segundas partes. Las demás filas quedan iguales en ambos.
-
-**Ejemplo concreto — una situación donde realmente aparece:**
-
-Tenés una matriz $A$ con fila 1 = $(1, 3)$ y fila 2 = $(4, 4)$. Alguien te dice: "sumale la fila 2 a la fila 1". Entonces la nueva fila 1 pasa a ser $(1+4, \; 3+4) = (5, 7)$. Llamemos $B$ a la nueva matriz.
-
-La propiedad dice que podés separar el determinante de $B$ así:
-
-$$\det\underbrace{\begin{pmatrix} 1+4 & 3+4 \\ 4 & 4 \end{pmatrix}}_{\text{fila 1 tiene sumas}} = \det\begin{pmatrix} 1 & 3 \\ 4 & 4 \end{pmatrix} + \det\begin{pmatrix} 4 & 4 \\ 4 & 4 \end{pmatrix}$$
-
-Paso a paso:
-1. La fila 1 de $B$ tiene entradas que son sumas: "$1+4$" y "$3+4$"
-2. Separamos: el primer determinante toma las primeras partes ($1$ y $3$), el segundo toma las segundas ($4$ y $4$)
-3. La fila 2 no tenía sumas, así que queda $(4, 4)$ en ambos
-
-Y fijate algo útil: el segundo determinante tiene fila 1 = fila 2 = $(4, 4)$, así que por la **propiedad 5** (dos filas iguales) vale $0$. Entonces:
-
-$$\det(B) = \det\begin{pmatrix} 1 & 3 \\ 4 & 4 \end{pmatrix} + 0 = \det(A)$$
-
-Esto es exactamente cómo se demuestra la propiedad 7 (que sumar filas no cambia el determinante). La propiedad 1 es la herramienta que permite desarmar esa suma.
+Para el parcial necesitás: (a) saber cada propiedad, (b) saber cuándo usarla, y (c) **saber demostrarla** (las demos sí entran en parcial).
 
 ---
 
-### Propiedad 2: Factor común de una fila sale multiplicando
+## Propiedad 1: Si hay sumas adentro de una fila, podés separar
 
-**¿Qué problema resuelve?** A veces una fila de la matriz tiene números grandes o complicados, pero todos están multiplicados por lo mismo. Si sacás ese factor para afuera, la matriz queda con números más chicos y es más fácil de calcular.
+### Enunciado
 
-**Analogía con números normales:** Si tenés $2 \cdot 5 - 2 \cdot 3$, podés sacar el $2$ como factor común: $2 \cdot (5 - 3) = 2 \cdot 2 = 4$. Acá es lo mismo pero con una fila entera de la matriz.
+Si en alguna fila (o columna) de la matriz, cada entrada es la suma de dos cosas, podés separar el determinante en la suma de dos determinantes:
 
-**¿Qué dice exactamente?** Si todas las entradas de una fila están multiplicadas por un número $k$, podés "sacar" ese $k$ fuera del determinante. El determinante queda multiplicado por $k$.
+$$\det\begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ b_{21}+c_{21} & b_{22}+c_{22} & \cdots & b_{2n}+c_{2n} \\ \vdots & & & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn} \end{pmatrix} = \det\begin{pmatrix} a_{11} & \cdots & a_{1n} \\ b_{21} & \cdots & b_{2n} \\ \vdots & & \vdots \\ a_{n1} & \cdots & a_{nn} \end{pmatrix} + \det\begin{pmatrix} a_{11} & \cdots & a_{1n} \\ c_{21} & \cdots & c_{2n} \\ \vdots & & \vdots \\ a_{n1} & \cdots & a_{nn} \end{pmatrix}$$
 
-**Ejemplo — situación real:** Te dan esta matriz y te piden el determinante:
+Las demás filas quedan iguales en ambos determinantes.
 
-$$\begin{pmatrix} 2 & 2 \\ 4 & 8 \end{pmatrix}$$
+### Cuándo aparece
 
-Mirás la fila 1: tiene $2$ y $2$. Ambas están multiplicadas por $2$ (el factor común). Sacás el $2$ afuera:
+1. **Dentro de demostraciones:** cuando una fila fue construida sumando cosas (por ejemplo, la propiedad 7 le suma a una fila un múltiplo de otra).
+2. **En ejercicios:** cuando el problema te dice que una fila es "fila 1 + 3·fila 2" o algo similar.
+3. **En el práctico (V.10 parte 1):** cuando la matriz te llega con sumas explícitas en una fila.
+
+### Ejemplo concreto
+
+Tenés $A$ con fila 1 = $(1, 3)$ y fila 2 = $(4, 4)$. Te dicen: "sumale la fila 2 a la fila 1". Llamemos $B$ a la nueva matriz:
+
+$$\det\begin{pmatrix} 1+4 & 3+4 \\ 4 & 4 \end{pmatrix} = \det\begin{pmatrix} 1 & 3 \\ 4 & 4 \end{pmatrix} + \det\begin{pmatrix} 4 & 4 \\ 4 & 4 \end{pmatrix}$$
+
+El segundo determinante tiene fila 1 = fila 2 = $(4, 4)$, así que por la **propiedad 5** vale $0$. Quedó: $\det(B) = \det(A) + 0 = \det(A)$.
+
+### Demostración
+
+**Método directo.** Llamamos $A$, $B$ y $C$ a las tres matrices: $A$ la que tiene la suma, $B$ y $C$ las que tienen los sumandos por separado. Desarrollamos $\det(A)$ por la fila que tiene los sumandos (fila 2 en el enunciado):
+
+$$\det(A) = \sum_{j=1}^{n} (b_{2j} + c_{2j}) \cdot (-1)^{2+j} \cdot \det(\text{Adj}_{2j}(A))$$
+
+Como las matrices adjuntas $\text{Adj}_{2j}$ surgen de borrar la fila 2 y se obtienen iguales en $A$, $B$ y $C$ (porque al borrar la fila 2 la única fila que difería desaparece), separamos la sumatoria:
+
+$$\det(A) = \sum_{j=1}^{n} b_{2j} \cdot (-1)^{2+j} \cdot \det(\text{Adj}_{2j}(B)) + \sum_{j=1}^{n} c_{2j} \cdot (-1)^{2+j} \cdot \det(\text{Adj}_{2j}(C))$$
+
+$$\det(A) = \det(B) + \det(C) \quad \blacksquare$$
+
+**Método por inducción completa.** El paso base ($n=1$ y $n=2$) es directo. El paso inductivo desarrolla por una fila que **no** sea la que tiene los sumandos, para poder aplicar la hipótesis de inducción a las adjuntas (que son $n \times n$ y heredan la fila con sumandos).
+
+> "¿Por qué no se puede por la fila 2? Si yo desarrollo por la fila 2, al aplicar la matriz adjunta se me va esa fila 2. Se me va la fila 2, por lo tanto no puedo aplicar la hipótesis"
+
+---
+
+## Propiedad 2: Factor común de una fila sale multiplicando
+
+### Enunciado
+
+Si todas las entradas de una fila (o columna) están multiplicadas por un número $k$, podés "sacar" ese $k$ fuera del determinante:
+
+$$\det\begin{pmatrix} a_{11} & \cdots & a_{1n} \\ k \cdot a_{21} & \cdots & k \cdot a_{2n} \\ \vdots & & \vdots \\ a_{n1} & \cdots & a_{nn} \end{pmatrix} = k \cdot \det\begin{pmatrix} a_{11} & \cdots & a_{1n} \\ a_{21} & \cdots & a_{2n} \\ \vdots & & \vdots \\ a_{n1} & \cdots & a_{nn} \end{pmatrix}$$
+
+### Cuándo aparece
+
+Cuando mirás una fila y ves que todos los números son múltiplos de algo (todos pares, todos múltiplos de 3, todos tienen un $(x-1)$ como factor, etc.). Sacás el factor para simplificar antes de calcular.
+
+### Ejemplo
 
 $$\det\begin{pmatrix} 2 & 2 \\ 4 & 8 \end{pmatrix} = 2 \cdot \det\begin{pmatrix} 1 & 1 \\ 4 & 8 \end{pmatrix}$$
 
-Ahora la fila 1 quedó con números más chicos ($1, 1$). La fila 2 no se tocó.
+Verificación: izquierda $= 16 - 8 = 8$. Derecha $= 2 \cdot (8 - 4) = 8$ ✓
 
-Verificación: izquierda $= 16 - 8 = 8$. Derecha $= 2 \cdot (8 - 4) = 8$. Coincide.
+### Demostración
 
-**¿Cuándo la uso?** Cuando mirás una fila y ves que todos los números son múltiplos de algo (todos pares, todos múltiplos de 3, todos tienen un $(x-1)$ como factor, etc.). Sacás el factor para simplificar antes de calcular.
+Sean $A = ((a_{ij}))$ y $B = ((b_{ij}))$ con $b_{1j} = k \cdot a_{1j}$ y $b_{ij} = a_{ij}$ para $i \geq 2$. Desarrollamos $\det(B)$ por la primera fila:
+
+$$\det(B) = \sum_{j=1}^{n} b_{1j} \cdot (-1)^{1+j} \cdot \det(\text{Adj}_{1j}(B))$$
+
+Como $\text{Adj}_{1j}(B) = \text{Adj}_{1j}(A)$ (porque al borrar la fila 1, ambas matrices quedan iguales) y $b_{1j} = k \cdot a_{1j}$:
+
+$$\det(B) = \sum_{j=1}^{n} k \cdot a_{1j} \cdot (-1)^{1+j} \cdot \det(\text{Adj}_{1j}(A)) = k \cdot \det(A) \quad \blacksquare$$
 
 ---
 
-### Propiedad 3: Factor común de TODA la matriz sale elevado a $n$
+## Propiedad 3: Factor común de TODA la matriz sale elevado a $n$
 
-**¿Qué problema resuelve?** En ejercicios te piden calcular cosas como $\det(3A)$ o $\det(-A)$. No te dan la matriz explícita — solo te dicen cuánto vale $\det(A)$ y te piden que calcules el determinante de la matriz multiplicada por un número. Esta propiedad te deja hacerlo sin conocer la matriz.
-
-**¿Qué dice?** Si toda la matriz está multiplicada por un número $k$:
+### Enunciado
 
 $$\det(k \cdot A) = k^n \cdot \det(A)$$
 
 donde $n$ es la cantidad de filas (y columnas) de la matriz.
 
-**¿Por qué $k^n$ y no simplemente $k$?** Porque multiplicar toda la matriz por $k$ significa que CADA fila queda multiplicada por $k$. Por la propiedad 2, cada vez que sacás un $k$ de una fila, el determinante queda multiplicado por $k$. Si tenés $n$ filas, sacás $k$ $n$ veces, y te queda $k \cdot k \cdot k \cdot \ldots$ ($n$ veces) $= k^n$.
+### Cuándo aparece
+
+En ejercicios te piden calcular cosas como $\det(3A)$, $\det(-A)$, $\det((2A)^{-1})$. No te dan la matriz explícita — solo te dicen cuánto vale $\det(A)$ y te piden el determinante de la matriz multiplicada por un número.
+
+### ¿Por qué $k^n$?
+
+Porque multiplicar toda la matriz por $k$ significa que CADA fila queda multiplicada por $k$. Por la propiedad 2, cada vez que sacás un $k$ de una fila, el determinante queda multiplicado por $k$. Si tenés $n$ filas, sacás $k$ $n$ veces, y queda $k \cdot k \cdot \ldots = k^n$.
 
 > "La propiedad 3 no es más que aplicar n veces la propiedad 2"
 
-**Ejemplo paso a paso:** Si $A$ es $3 \times 3$ y $\det(A) = 5$, ¿cuánto vale $\det(4A)$?
+### Ejemplo
 
-$4A$ significa que TODAS las entradas de $A$ están multiplicadas por $4$. Eso es lo mismo que decir: la fila 1 está multiplicada por $4$, la fila 2 está multiplicada por $4$, y la fila 3 está multiplicada por $4$.
+Si $A$ es $3 \times 3$ y $\det(A) = 5$, ¿cuánto vale $\det(4A)$?
 
-- Sacamos el $4$ de la fila 1 (propiedad 2): queda $4 \cdot \det(\text{resto})$
-- Sacamos el $4$ de la fila 2 (propiedad 2 de nuevo): queda $4 \cdot 4 \cdot \det(\text{resto})$
-- Sacamos el $4$ de la fila 3 (propiedad 2 una vez más): queda $4 \cdot 4 \cdot 4 \cdot \det(A) = 4^3 \cdot 5 = 320$
+$$\det(4A) = 4^3 \cdot \det(A) = 64 \cdot 5 = 320$$
 
-**Error común en parciales:** Pensar que $\det(4A) = 4 \cdot \det(A) = 20$. **NO.** El $4$ sale una vez por cada fila, no una sola vez.
+### Demostración (Ejercicio II.1 del práctico — basta con aplicar P2 $n$ veces)
 
-| Dimensión | $\det(kA)$ | ¿Por qué? |
-|-----------|-----------|-----------|
-| $2 \times 2$ | $k^2 \cdot \det(A)$ | 2 filas, sacás $k$ dos veces |
-| $3 \times 3$ | $k^3 \cdot \det(A)$ | 3 filas, sacás $k$ tres veces |
-| $5 \times 5$ | $k^5 \cdot \det(A)$ | 5 filas, sacás $k$ cinco veces |
+$$\det(k A) = \det\begin{pmatrix} k a_{11} & \cdots & k a_{1n} \\ \vdots & & \vdots \\ k a_{n1} & \cdots & k a_{nn} \end{pmatrix}$$
+
+Aplicando **P2** a la fila 1: sale un factor $k$. Aplicando **P2** a la fila 2: sale otro factor $k$. Y así $n$ veces:
+
+$$\det(k A) = k \cdot k \cdot \ldots \cdot k \cdot \det(A) = k^n \cdot \det(A) \quad \blacksquare$$
+
+### Error común en parciales
+
+| MAL | BIEN | ¿Por qué? |
+|-----|------|-----------|
+| $\det(4A) = 4 \cdot \det(A)$ | $\det(4A) = 4^n \cdot \det(A)$ | El $k$ sale UNA vez por cada fila, no una sola vez |
+
+| Dimensión | $\det(kA)$ |
+|-----------|-----------|
+| $2 \times 2$ | $k^2 \cdot \det(A)$ |
+| $3 \times 3$ | $k^3 \cdot \det(A)$ |
+| $5 \times 5$ | $k^5 \cdot \det(A)$ |
 
 ---
 
-### Propiedad 4: Determinante de un producto = producto de determinantes
+## Propiedad 4: Determinante de un producto = producto de determinantes
 
-**¿Qué dice?**
+### Enunciado
 
 $$\det(A \cdot B) = \det(A) \cdot \det(B)$$
 
@@ -565,181 +410,253 @@ $$\det(A \cdot B) = \det(A) \cdot \det(B)$$
 
 **Traducción:** Las matrices $A \cdot B$ y $B \cdot A$ son matrices distintas (el producto no conmuta). Pero cuando les calculás el determinante, el número que sale es el mismo, porque $\det(A) \cdot \det(B)$ es una multiplicación de números reales, y esa sí conmuta.
 
-**¿Cuándo la uso?** Cuando ves un determinante de un producto de matrices, o cuando necesitás calcular $\det(A^3)$, que es $\det(A) \cdot \det(A) \cdot \det(A) = \det(A)^3$.
+### Cuándo aparece
 
-**Ejemplo:** $\det(A) = 1$, $\det(B) = 2 \implies \det(A \cdot B) = 1 \cdot 2 = 2$.
+Cuando ves un determinante de un producto, o cuando necesitás calcular $\det(A^3) = \det(A) \cdot \det(A) \cdot \det(A) = \det(A)^3$.
+
+### Ejemplo
+
+$\det(A) = 1$, $\det(B) = 2 \implies \det(A \cdot B) = 1 \cdot 2 = 2$.
 
 **Verificación con matrices concretas:**
 
 $$A = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}, \quad B = \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix}$$
 
-$\det(A) = 1 \cdot 1 - 0 \cdot 2 = 1$, $\det(B) = 2 \cdot 1 - 0 \cdot 0 = 2$.
+$\det(A) = 1$, $\det(B) = 2$.
 
-$$A \cdot B = \begin{pmatrix} 2 & 2 \\ 0 & 1 \end{pmatrix} \implies \det(A \cdot B) = 2 - 0 = 2 = 1 \cdot 2 \quad \checkmark$$
+$$A \cdot B = \begin{pmatrix} 2 & 2 \\ 0 & 1 \end{pmatrix} \implies \det(A \cdot B) = 2 = 1 \cdot 2 \quad \checkmark$$
+
+### Demostración
+
+No se demuestra en el curso. La propiedad se enuncia y se usa.
 
 ---
 
-### Propiedad 5: Dos filas o columnas iguales → determinante es 0
+## Propiedad 5: Dos filas o columnas iguales → det = 0
 
-**¿Qué problema resuelve?** A veces te dan una matriz enorme (como $7 \times 7$) y te piden el determinante. Calcularlo directamente llevaría mucho tiempo. Pero si mirás bien y descubrís que dos filas son iguales, la respuesta es $0$ instantáneamente, sin hacer una sola cuenta.
+### Enunciado
+
+Si una matriz tiene dos filas iguales entre sí (o dos columnas iguales entre sí), su determinante vale $0$.
 
 > "En un parcial si ustedes ven una matriz de 7x7, capaz que un compañero se tira a hacer las cuentas y otro se da cuenta que la fila 1 es igual a la fila 5 y el determinante vale 0"
 
-**¿Qué dice?** Si una matriz tiene dos filas iguales entre sí (o dos columnas iguales entre sí), su determinante vale $0$.
+### Cuándo aparece
 
-**¿Cuándo aparecen dos filas iguales?**
-- **En un parcial:** te dan una matriz grande y esperan que MIRES antes de calcular. Si dos filas coinciden, la respuesta es $0$ y terminaste.
-- **Dentro de demostraciones:** cuando la propiedad 1 separa un determinante en dos, uno de ellos a veces tiene filas iguales y vale $0$ (como vimos en el ejemplo de la propiedad 1 arriba).
-- **En ejercicios teóricos:** te preguntan "¿puede una matriz con dos columnas iguales ser invertible?" — no, porque su determinante es $0$.
+- **En cálculos directos:** te dan una matriz grande y esperan que MIRES antes de calcular.
+- **Dentro de demostraciones:** cuando la propiedad 1 separa un determinante en dos, uno de ellos a veces tiene filas iguales.
+- **En ejercicios teóricos:** "¿puede una matriz con dos columnas iguales ser invertible?" — no.
+- **En el práctico (V.10 parte 1):** después de aplicar P1 y P2, una de las matrices tiene F1 = F3 → det = 0.
 
-**Ejemplo:**
+### Ejemplo
 
 $$\det\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 1 & 2 & 3 \end{pmatrix} = 0$$
 
-La fila 1 es $(1, 2, 3)$ y la fila 3 también es $(1, 2, 3)$. Son iguales → $\det = 0$ sin hacer cuentas.
+La fila 1 = fila 3 → $\det = 0$ sin hacer cuentas.
 
-**Aclaración:** Tiene que ser **fila con fila**, o **columna con columna**. Si una fila es igual a una columna, esta propiedad no aplica.
+### Demostración (por inducción completa, fila 1 = fila 2)
 
----
+**Paso base ($n=2$):** $A = \begin{pmatrix} a & b \\ a & b \end{pmatrix}$, $\det(A) = ab - ba = 0$ ✓
 
-### Propiedad 6: Intercambiar dos filas o columnas cambia el signo
+**Paso inductivo:** Tenemos $(n+1) \times (n+1)$ con fila 1 = fila 2. Desarrollamos por una fila que NO sea la 1 ni la 2 (por ejemplo la fila 3):
 
-**¿Qué problema resuelve?** A veces querés reorganizar las filas de la matriz para que quede más cómoda de calcular (por ejemplo, poner una fila con muchos ceros arriba para simplificar). Si hacés eso, necesitás saber qué le pasa al determinante. La respuesta: cambia de signo.
+$$\det(A) = \sum_{j=1}^{n+1} a_{3j} \cdot (-1)^{3+j} \cdot \det(\text{Adj}_{3j}(A))$$
 
-**¿Qué dice?** Si intercambiás dos filas (o dos columnas) de una matriz, el determinante se multiplica por $-1$: si era positivo, pasa a negativo, y viceversa.
+Cada $\text{Adj}_{3j}(A)$ es $n \times n$ y mantiene fila 1 = fila 2. Por hipótesis de inducción, $\det(\text{Adj}_{3j}(A)) = 0$. Entonces $\det(A) = \sum a_{3j} \cdot (-1)^{3+j} \cdot 0 = 0$. $\blacksquare$
 
-$$\det(B) = -\det(A)$$
+> "Bueno, en este caso es distinta la demostración. Desarrollo por la fila 3 pero puede ser por cualquier fila que no sea la 1 y la 2"
 
-donde $B$ es la misma matriz que $A$ pero con dos filas intercambiadas.
+### Aclaración
 
-**Ejemplo — situación real:** Querés calcular el determinante de esta matriz, y te resulta más cómodo tener la fila con números chicos arriba:
-
-$$A = \begin{pmatrix} 3 & 2 & 4 \\ 4 & 6 & 8 \\ 1 & 1 & 6 \end{pmatrix}$$
-
-Intercambiás fila 1 con fila 3 para tener el $1$ arriba:
-
-$$B = \begin{pmatrix} 1 & 1 & 6 \\ 4 & 6 & 8 \\ 3 & 2 & 4 \end{pmatrix}$$
-
-Ahora calculás $\det(B)$ (que es más cómodo con el $1$ arriba). Pero como intercambiaste filas, sabés que $\det(A) = -\det(B)$.
+Tiene que ser **fila con fila**, o **columna con columna**. Si una fila es igual a una columna, esta propiedad no aplica.
 
 ---
 
-### Propiedad 7: Sumar combinación lineal de filas NO cambia el determinante (la más útil)
+## Propiedad 6: Intercambiar dos filas o columnas cambia el signo
 
-**¿Qué problema resuelve?** Querés calcular el determinante de una matriz, pero los números son feos. Si pudieras meter ceros en alguna fila o columna, el cálculo sería mucho más fácil (porque al desarrollar por cofactores, los ceros eliminan términos). Esta propiedad te dice: podés sumarle a una fila múltiplos de otras filas para generar esos ceros, y el determinante no cambia.
+### Enunciado
 
-**¿Qué dice exactamente?** Si a una fila le sumás un múltiplo de otra fila (o una combinación de varias), el determinante **no cambia**. Pero hay una regla importante: la fila que modificás NO puede estar multiplicada ella misma por un número. Solo le sumás cosas de las OTRAS filas.
+Si intercambiás dos filas (o dos columnas) de una matriz, el determinante se multiplica por $-1$:
+
+$$\det(B) = -\det(A) \quad \text{donde } B \text{ es } A \text{ con dos filas intercambiadas}$$
+
+### Cuándo aparece
+
+- Cuando querés reorganizar la matriz para que quede más cómoda (por ejemplo, poner una fila con muchos ceros arriba).
+- En el práctico (V.2 parte A, B, E): aplicaciones directas.
+
+### Ejemplo
+
+$$A = \begin{pmatrix} 3 & 2 & 4 \\ 4 & 6 & 8 \\ 1 & 1 & 6 \end{pmatrix}, \quad B = \begin{pmatrix} 1 & 1 & 6 \\ 4 & 6 & 8 \\ 3 & 2 & 4 \end{pmatrix} \text{ (intercambié F1 y F3)}$$
+
+$\det(B) = -\det(A)$.
+
+### Demostración (a partir de P1 y P5)
+
+Sean $A$ y $B$ matrices que difieren solo en que $B$ tiene F1 y F2 intercambiadas. Construimos una matriz auxiliar $C$ con F1 = F2 = $F_1 + F_2$ (ambas filas son la suma):
+
+$$C = \begin{pmatrix} F_1 + F_2 \\ F_1 + F_2 \\ \vdots \end{pmatrix}$$
+
+Por **P5** (dos filas iguales), $\det(C) = 0$.
+
+Aplicamos **P1** en F1 de $C$ (la suma se separa en dos determinantes):
+
+$$\det(C) = \det\begin{pmatrix} F_1 \\ F_1 + F_2 \\ \vdots \end{pmatrix} + \det\begin{pmatrix} F_2 \\ F_1 + F_2 \\ \vdots \end{pmatrix}$$
+
+Aplicamos **P1** otra vez en F2 de cada uno:
+
+$$\det(C) = \det\begin{pmatrix} F_1 \\ F_1 \\ \vdots \end{pmatrix} + \det\begin{pmatrix} F_1 \\ F_2 \\ \vdots \end{pmatrix} + \det\begin{pmatrix} F_2 \\ F_1 \\ \vdots \end{pmatrix} + \det\begin{pmatrix} F_2 \\ F_2 \\ \vdots \end{pmatrix}$$
+
+El 1° y el 4° tienen F1 = F2 → valen $0$ por P5. Quedan los del medio: el 2° es $\det(A)$, el 3° es $\det(B)$.
+
+Como $\det(C) = 0$:
+
+$$0 = \det(A) + \det(B) \implies \det(B) = -\det(A) \quad \blacksquare$$
+
+---
+
+## Propiedad 7: Sumar combinación lineal de filas NO cambia el det
+
+### Enunciado
+
+Si a una fila le sumás un múltiplo de otra fila (o una combinación lineal de varias), el determinante **no cambia**.
+
+**Regla importante:** la fila que modificás NO puede estar multiplicada por un número. Solo le sumás cosas de las OTRAS filas.
 
 > "¿Por qué? Porque si yo la multiplico por un número, el determinante queda multiplicado por ese número por la propiedad 2"
 
-**Traducción:** Si multiplicaras la fila en sí por un número, estarías aplicando la propiedad 2 y el determinante cambiaría. El truco de esta propiedad es que solo le sumás cosas — no la multiplicás.
+### Cuándo aparece
 
-**¿Por qué funciona?** Justamente por la propiedad 1. Cuando le sumás algo a una fila, esa fila queda como "la fila original + lo que le sumaste". Por la propiedad 1, podés separar en dos determinantes. Uno es el determinante original ($\det(A)$). El otro tiene dos filas iguales (la fila que sumaste y la fila de donde salió), así que vale $0$ por la propiedad 5. Queda: $\det(A) + 0 = \det(A)$.
+Es **la herramienta principal** para simplificar matrices grandes antes de calcularles el determinante. Generás ceros en una fila/columna para que el desarrollo por cofactores se simplifique.
 
-**Ejemplo — el caso útil (generar ceros):**
+- En el práctico (V.1 parte E): F3 ← F3 - F1 para generar ceros y desarrollar fácil.
+- En el práctico (V.11): F1 ← F1 - F3 para generar ceros.
+- En el práctico (V.2 parte F): C1 ← C1 - C2.
+
+### Ejemplo (generar ceros)
 
 $$A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$$
 
-Queremos generar ceros en la columna 1 para que el desarrollo por cofactores sea más fácil. La fila 1 tiene un $1$ en la posición $(1,1)$, así que le restamos $4$ veces la fila 1 a la fila 2, y $7$ veces la fila 1 a la fila 3:
+Para generar ceros en la columna 1:
+- $F_2 \leftarrow F_2 - 4 \cdot F_1$: nueva $F_2 = (0, -3, -6)$
+- $F_3 \leftarrow F_3 - 7 \cdot F_1$: nueva $F_3 = (0, -6, -12)$
 
-- $F_2 \leftarrow F_2 - 4 \cdot F_1$: nueva fila 2 = $(4-4, \; 5-8, \; 6-12) = (0, -3, -6)$
-- $F_3 \leftarrow F_3 - 7 \cdot F_1$: nueva fila 3 = $(7-7, \; 8-14, \; 9-21) = (0, -6, -12)$
+$$B = \begin{pmatrix} 1 & 2 & 3 \\ 0 & -3 & -6 \\ 0 & -6 & -12 \end{pmatrix}, \quad \det(B) = \det(A)$$
 
-$$B = \begin{pmatrix} 1 & 2 & 3 \\ 0 & -3 & -6 \\ 0 & -6 & -12 \end{pmatrix}$$
+### Demostración (a partir de P1, P2 y P5)
 
-$\det(A) = \det(B)$. La matriz cambió, pero el determinante es el mismo. Y ahora $B$ tiene dos ceros en la columna 1, lo que hace el cálculo mucho más fácil.
+Sea $B$ la matriz que resulta de sumarle a la fila $j$ de $A$ una combinación lineal de las demás filas: $\lambda_1 F_1 + \lambda_2 F_2 + \ldots + F_j + \ldots + \lambda_n F_n$.
+
+**Paso 1 (P1):** Como la fila $j$ es una suma, separamos $\det(B)$ en $n$ determinantes (uno por cada sumando).
+
+**Paso 2 (P2):** En cada determinante salvo uno, sacamos el $\lambda_k$ correspondiente afuera.
+
+**Paso 3 (P5):** Cada uno de esos determinantes (salvo uno) tiene dos filas iguales (la fila $j$ ahora es una copia de otra fila $F_k$, y la fila $k$ original sigue ahí). Por P5, valen $0$.
+
+**Paso 4:** El único determinante que sobrevive es aquel donde la fila $j$ quedó como $F_j$ original. Ese es $\det(A)$.
+
+> "Bueno, cero más cero más determinante de A más cero más cero, nos queda que el determinante de B es igual al determinante de A"
+
+$\blacksquare$
 
 ---
 
-### Propiedad 8: Transponer no cambia el determinante
+## Propiedad 8: Transponer no cambia el determinante
 
-**¿Qué dice?**
+### Enunciado
 
 $$\det(A) = \det(A^T)$$
 
-El determinante de una matriz es igual al determinante de su transpuesta.
+### Cuándo aparece
 
-**¿Cuándo la uso?** Cuando algo te conviene más en columnas que en filas, o viceversa.
+Cuando algo te conviene más en columnas que en filas, o viceversa. También aparece en demostraciones que mezclan filas y columnas (ortogonal, antisimétrica, etc).
 
-**Consecuencia importantísima:** Como el determinante no cambia al transponer, **toda propiedad que vale para filas también vale para columnas**, y viceversa. Por eso cada propiedad dice "filas o columnas".
+### Consecuencia importantísima
 
-**Ejemplo:**
+Como el determinante no cambia al transponer, **toda propiedad que vale para filas también vale para columnas**, y viceversa. Por eso cada propiedad dice "filas o columnas".
 
-$$A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \implies A^T = \begin{pmatrix} 1 & 3 \\ 2 & 4 \end{pmatrix}$$
+### Ejemplo
 
-$\det(A) = 4 - 6 = -2$, $\det(A^T) = 4 - 6 = -2$. Son iguales.
+$$A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}, \quad A^T = \begin{pmatrix} 1 & 3 \\ 2 & 4 \end{pmatrix}$$
+
+$\det(A) = 4 - 6 = -2$, $\det(A^T) = 4 - 6 = -2$ ✓
+
+### Demostración
+
+No se demuestra en el curso (queda como Ejercicio II.2 del práctico, por inducción). El profesor lo enuncia como propiedad y se usa.
 
 ---
 
-### Propiedad 9: Matrices triangulares → multiplicar la diagonal y listo
+## Propiedad 9: Triangular → producto de la diagonal
 
-**¿Qué es una matriz triangular?** Una matriz donde todos los números que están debajo de la diagonal principal son $0$ (se llama **triangular superior**), o todos los que están arriba son $0$ (se llama **triangular inferior**). Visualmente:
+### ¿Qué es triangular?
+
+Una matriz donde todos los números **debajo** de la diagonal principal son $0$ (triangular superior), o todos los que están **arriba** son $0$ (triangular inferior):
 
 ```
 Triangular superior:          Triangular inferior:
 
 | 7  3  5 |                   | 7  0  0 |
-| 0  6  2 |    ← ceros       | 3  6  0 |    ← ceros
-| 0  0  1 |      abajo       | 5  2  1 |      arriba
+| 0  6  2 |                   | 3  6  0 |
+| 0  0  1 |                   | 5  2  1 |
 ```
 
-**¿Qué problema resuelve?** Calcular el determinante de una matriz triangular es instantáneo: solo multiplicás los números de la diagonal. No hace falta Sarrus, ni cofactores, ni nada.
+### Enunciado
+
+Si $A$ es triangular:
+
+$$\det(A) = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}$$
+
+(producto de la diagonal).
+
+### Cuándo aparece
+
+- **Antes de calcular:** Siempre mirá si la matriz ya es triangular. Si lo es, multiplicá la diagonal y terminaste.
+- **Combinada con P7:** Si la matriz no es triangular, podés usar P7 (sumar filas para generar ceros) hasta convertirla en triangular, y después multiplicar la diagonal.
+- **Práctico V.6:** "una matriz triangular con todas las entradas de la diagonal $\neq 0$ es invertible" — porque $\det = $ producto de la diagonal $\neq 0$ → P9 + Teorema 2.
 
 > "Si un compañero se da cuenta que es triangular superior y multiplica la diagonal principal, lo saca en 12 segundos"
 
-**¿Qué dice?** Si la matriz es triangular, su determinante es:
+### Ejemplo
 
-$$\det(A) = a_{11} \cdot a_{22} \cdot a_{33} \cdot \ldots \cdot a_{nn}$$
+$$A = \begin{pmatrix} 7 & 3 & 5 \\ 0 & 6 & 2 \\ 0 & 0 & 1 \end{pmatrix} \implies \det(A) = 7 \cdot 6 \cdot 1 = 42$$
 
-Es decir, el producto de los números que están en la diagonal (de arriba-izquierda a abajo-derecha).
-
-**Ejemplo — triangular superior:**
-
-$$A = \begin{pmatrix} 7 & 3 & 5 \\ 0 & 6 & 2 \\ 0 & 0 & 1 \end{pmatrix}$$
-
-La diagonal tiene $7$, $6$, $1$. Entonces $\det(A) = 7 \cdot 6 \cdot 1 = 42$. Listo, sin ninguna cuenta más.
-
-**Ejemplo — diagonal** (caso particular: ceros arriba Y abajo):
+**Caso particular — diagonal** (ceros arriba Y abajo):
 
 $$A = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 6 & 0 \\ 0 & 0 & 4 \end{pmatrix} \implies \det(A) = 2 \cdot 6 \cdot 4 = 48$$
 
-**Consecuencia:** La identidad $I$ es diagonal con unos, así que $\det(I) = 1 \cdot 1 \cdot \ldots \cdot 1 = 1$.
+### Consecuencia: $\det(I) = 1$
 
-**¿Cuándo la uso?** Dos situaciones:
-1. **Antes de calcular:** Siempre mirá si la matriz ya es triangular. Si lo es, multiplicá la diagonal y terminaste.
-2. **Combinada con la propiedad 7:** Si la matriz no es triangular, podés usar la propiedad 7 (sumar filas para generar ceros) hasta convertirla en triangular, y después multiplicar la diagonal. Esto es una estrategia de cálculo muy poderosa.
+La identidad es diagonal con todos unos: $\det(I) = 1 \cdot 1 \cdot \ldots \cdot 1 = 1$. Esta consecuencia aparece en casi toda demostración.
 
----
+### Demostración (triangular superior, por desarrollo por C1)
 
-### Resumen de las 9 propiedades
+Sea $A$ triangular superior, $A = ((a_{ij}))$ con $a_{ij} = 0$ para $i > j$:
 
-| # | ¿Qué te deja hacer? | Regla | ¿Cuándo aparece? |
-|---|---------------------|-------|-----------------|
-| 1 | Separar sumas dentro de una fila | $\det$ se separa en suma de dos $\det$ | Dentro de demostraciones, cuando una fila fue construida sumando cosas |
-| 2 | Sacar factor común de una fila | $k$ sale multiplicando al $\det$ | Cuando todos los números de una fila son múltiplos de algo |
-| 3 | Sacar factor de toda la matriz | $\det(kA) = k^n \cdot \det(A)$ | Ejercicios que piden $\det(3A)$, $\det(-A)$, etc. |
-| 4 | Separar producto de matrices | $\det(AB) = \det(A) \cdot \det(B)$ | Ejercicios con $\det(A \cdot B)$ o $\det(A^3)$ |
-| 5 | Detectar det = 0 sin calcular | Dos filas iguales → $\det = 0$ | Primer chequeo, y dentro de demostraciones |
-| 6 | Reorganizar filas para simplificar | Intercambiar filas → $\det$ cambia de signo | Cuando querés mover una fila cómoda arriba |
-| 7 | Generar ceros para simplificar | Sumar filas a otra → $\det$ no cambia | La herramienta principal para matrices grandes |
-| 8 | Pasar de filas a columnas | $\det(A) = \det(A^T)$ | Cuando una columna te conviene más que una fila |
-| 9 | Atajo para triangulares | $\det = $ producto de la diagonal | Si la matriz ya es triangular, o después de usar P7 |
+$$A = \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ 0 & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & a_{nn} \end{pmatrix}$$
+
+Desarrollamos por la **columna 1**. Toda la C1 es $0$ excepto $a_{11}$. Solo sobrevive el primer término:
+
+$$\det(A) = a_{11} \cdot (-1)^{1+1} \cdot \det\begin{pmatrix} a_{22} & a_{23} & \cdots & a_{2n} \\ 0 & a_{33} & \cdots & a_{3n} \\ \vdots & & & \vdots \\ 0 & 0 & \cdots & a_{nn} \end{pmatrix}$$
+
+La submatriz también es triangular superior. Repetimos: desarrollamos por C1, sobrevive $a_{22}$, etc. Llegamos a $\det(A) = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}$. $\blacksquare$
+
+> "Es clave acá ir desarrollando por la columna 1"
 
 ---
 
-### Lo que NO es una propiedad: la suma
+## Lo que NO es propiedad: la suma
 
 > "El determinante de A más B, en general, es distinto del determinante de A más el determinante de B"
 
 $$\det(A + B) \neq \det(A) + \det(B) \quad \text{(en general)}$$
 
-**Traducción:** Es tentador pensar que así como $\det(AB) = \det(A) \cdot \det(B)$ (propiedad 4), también valdría $\det(A + B) = \det(A) + \det(B)$. Pero **no**. Eso es falso.
+**Traducción:** Es tentador pensar que así como $\det(AB) = \det(A) \cdot \det(B)$, también valdría $\det(A + B) = \det(A) + \det(B)$. Pero **no**.
 
-**Contraejemplo:**
+### Contraejemplo (Ejercicio II.3 del práctico)
 
 $$A = \begin{pmatrix} 1 & 3 \\ -1 & 2 \end{pmatrix}, \quad B = \begin{pmatrix} 1 & 5 \\ 1 & 1 \end{pmatrix}$$
 
-$\det(A) = 2 - (-3) = 5$, $\det(B) = 1 - 5 = -4$, $\det(A) + \det(B) = 1$.
+$\det(A) = 2 + 3 = 5$, $\det(B) = 1 - 5 = -4$, $\det(A) + \det(B) = 1$.
 
 $$A + B = \begin{pmatrix} 2 & 8 \\ 0 & 3 \end{pmatrix} \implies \det(A + B) = 6 - 0 = 6$$
 
@@ -747,520 +664,128 @@ $6 \neq 1$. No se cumple.
 
 ---
 
-## Ejercicio de clase: Determinante en función de $x$
+## Resumen de las 9 propiedades
+
+| # | ¿Qué te deja hacer? | Regla | ¿Cuándo aparece? |
+|---|---------------------|-------|-----------------|
+| 1 | Separar sumas dentro de una fila | $\det$ se separa en suma de dos $\det$ | Demostraciones, ejercicios con sumas explícitas en fila |
+| 2 | Sacar factor común de una fila | $k$ sale multiplicando | Cuando todos los números de una fila son múltiplos de algo |
+| 3 | Sacar factor de toda la matriz | $\det(kA) = k^n \cdot \det(A)$ | Ejercicios con $\det(3A)$, $\det(-A)$, etc. |
+| 4 | Separar producto de matrices | $\det(AB) = \det(A) \cdot \det(B)$ | $\det(A \cdot B)$, $\det(A^3) = \det(A)^3$ |
+| 5 | Detectar det = 0 sin calcular | Dos filas iguales → $\det = 0$ | Primer chequeo, demostraciones |
+| 6 | Reorganizar filas para simplificar | Intercambiar → $\det$ cambia de signo | Mover una fila cómoda arriba |
+| 7 | Generar ceros para simplificar | Sumar filas a otra → $\det$ no cambia | Herramienta principal para matrices grandes |
+| 8 | Pasar de filas a columnas | $\det(A) = \det(A^T)$ | Cuando una columna te conviene más que una fila |
+| 9 | Atajo para triangulares | $\det = $ producto de la diagonal | Si la matriz ya es triangular, o después de usar P7 |
+
+---
+
+# 3. El "si y solo si": invertibilidad ↔ determinante distinto de cero
+
+Toda la teoría de determinantes converge en un teorema central que tiene dos direcciones (una en cada teorema). Juntos forman un **si y solo si**:
+
+> "Quédense con el si solo si. Matriz invertible, determinante distinto de cero, determinante distinto de cero, matriz invertible."
+
+| Dirección | Enunciado | Teorema |
+|-----------|-----------|---------|
+| → | Si $A$ es invertible, entonces $\det(A) \neq 0$ | Teorema 1 |
+| ← | Si $\det(A) \neq 0$, entonces $A$ es invertible | Teorema 2 |
+
+**Traducción:** Ser invertible y tener determinante distinto de cero son **exactamente lo mismo**. Saber una cosa es saber la otra.
+
+---
+
+## Teorema 1: Invertible → det ≠ 0
 
 ### Enunciado
 
-Calcular el determinante de una matriz $3 \times 3$ cuyas filas tienen factores comunes que involucran $x$.
-
-### La idea del ejercicio
-
-Las filas de la matriz tienen expresiones con $x$. En vez de expandir todo (que sería un quilombo), usamos la **propiedad 2** para sacar factores comunes de cada fila y simplificar la cuenta.
-
-### Desarrollo
-
-**Paso 1:** La fila 1 tiene factor $(x-1)$ en todas sus entradas (por ejemplo, $x^2 - 1 = (x+1)(x-1)$). Sacamos $(x-1)$ afuera por la propiedad 2.
-
-**Paso 2:** La fila 2 tiene factor $x$ en todas sus entradas. Sacamos $x$ afuera.
-
-**Paso 3:** La fila 3 tiene factor $(x-2)$ en todas sus entradas. Sacamos $(x-2)$ afuera.
-
-**Paso 4:** Lo que queda adentro es una $3 \times 3$ más simple, que calculamos con Sarrus.
-
-**Resultado:**
-
-$$\det(A) = (x-1) \cdot x \cdot (x-2) \cdot (x+1)$$
-
-> "Se podía hacer por Sarrus toda la expresión original, se podía desarrollar por fila o columna, y vamos a llegar a lo mismo, sí, pero aplicando acá la propiedad 2 se simplifica bastante"
-
-**Traducción:** Siempre intentá simplificar antes de calcular. Sacar factores comunes (propiedad 2) es uno de los atajos más útiles.
-
----
-
-## Ejercicio de clase: Determinante $4 \times 4$ con propiedades 1 y 5
-
-### Enunciado
-
-Se tiene una matriz $4 \times 4$ cuya cuarta columna se puede descomponer como suma de dos vectores columna, y cada uno coincide con otra columna de la matriz.
-
-### Desarrollo
-
-**Paso 1:** Usamos la **propiedad 1** en la columna 4 (que tiene dos sumandos). Esto separa un determinante en la suma de dos determinantes.
-
-**Paso 2:** En el primer determinante, la columna 4 resultante es igual a la columna 1 → por **propiedad 5**, ese determinante vale $0$.
-
-**Paso 3:** En el segundo determinante, la columna 4 resultante es igual a la columna 2 → por **propiedad 5**, ese determinante también vale $0$.
-
-**Resultado:** $\det(A) = 0 + 0 = 0$.
-
-> "Es importante dominarlas porque pueden facilitar temas de tiempos en un parcial"
-
----
-
-# PARTE 2 — El teorema central y ejercicios (Clase 6, 8 de abril)
-
-## La Gran Pregunta de Hoy: ¿Cómo se conectan "ser invertible" y "tener determinante distinto de cero"?
-
-Hoy se demuestra formalmente algo que ya anticipamos: que si una matriz es invertible, su determinante es distinto de cero. Además se ve cómo calcular el determinante de la inversa. Después, ejercicios que combinan todas las propiedades.
-
----
-
-## Conexión con la Clase Anterior
-
-La clase 5 definió determinantes, vio los métodos de cálculo y las 9 propiedades. Hoy se cierra la teoría con un teorema y se practica. La semana que viene viene la otra dirección del teorema ($\det \neq 0 \implies$ invertible) y el método de cofactores para calcular la inversa.
-
----
-
-## Teorema 1: Si una matriz es invertible, su determinante es distinto de cero
-
-### ¿Qué dice este teorema?
-
-Si $A$ es invertible (es decir, tiene inversa), entonces:
-1. $\det(A) \neq 0$ (el determinante no puede ser cero)
-2. $\det(A^{-1}) = \dfrac{1}{\det(A)}$ (el determinante de la inversa es 1 dividido el determinante original)
+Si $A$ es una matriz $n \times n$ invertible, entonces:
+1. $\det(A) \neq 0$
+2. $\det(A^{-1}) = \dfrac{1}{\det(A)}$
 
 ### ¿Por qué importa?
 
 Porque nos da un **criterio rápido**. Si calculamos el determinante y nos da $0$, sabemos que la matriz NO es invertible, sin tener que intentar calcular la inversa.
 
-### Demostración (es cortita y usa las propiedades que ya vimos)
+### Demostración
 
 > "Por la definición de inversa, si A es invertible, significa que existe una matriz A a la menos 1, tal que A por A a la menos 1 me da la identidad"
 
-**Paso 1:** Si $A$ es invertible, existe $A^{-1}$ tal que:
+**Paso 1:** Si $A$ es invertible, existe $A^{-1}$ tal que $A \cdot A^{-1} = I$.
 
-$$A \cdot A^{-1} = I$$
+**Paso 2:** Tomamos determinante de ambos lados: $\det(A \cdot A^{-1}) = \det(I)$
 
-Esto es la **definición** de inversa, nada nuevo.
+**Paso 3:** Por **P4**: $\det(A) \cdot \det(A^{-1}) = \det(I)$
 
-**Paso 2:** Tomamos el determinante de ambos lados de la ecuación:
-
-$$\det(A \cdot A^{-1}) = \det(I)$$
-
-**Paso 3:** Del lado izquierdo usamos la **propiedad 4** ($\det$ del producto = producto de $\det$):
-
-$$\det(A) \cdot \det(A^{-1}) = \det(I)$$
-
-**Paso 4:** Del lado derecho: $\det(I) = 1$ (la identidad es diagonal con unos, propiedad 9). Entonces:
+**Paso 4:** Por **P9** (la identidad es diagonal con unos): $\det(I) = 1$. Entonces:
 
 $$\det(A) \cdot \det(A^{-1}) = 1$$
 
-**Paso 5:** Ahora pensemos. Tenemos dos números que multiplicados dan $1$. ¿Puede alguno de ellos ser $0$? No, porque $0$ multiplicado por cualquier cosa da $0$, no $1$. Entonces:
+**Paso 5:** Si dos números multiplicados dan $1$, ninguno puede ser $0$ (porque $0$ por cualquier cosa da $0$). Entonces:
 
 $$\det(A) \neq 0 \quad \blacksquare$$
 
-**Paso 6:** Además, si $\det(A) \cdot \det(A^{-1}) = 1$, podemos despejar:
-
-$$\det(A^{-1}) = \frac{1}{\det(A)} \quad \blacksquare$$
+**Paso 6:** Despejando: $\det(A^{-1}) = \dfrac{1}{\det(A)}$ $\blacksquare$
 
 **Analogía:** Es exactamente como con números: si $a \cdot b = 1$, entonces ni $a$ ni $b$ pueden ser cero, y $b = \frac{1}{a}$.
 
 ---
 
-## Ejercicio 1: Calcular determinantes usando propiedades
+## Teorema 2: det ≠ 0 → invertible
 
 ### Enunciado
 
-$A$ y $B$ son matrices $2 \times 2$. $\det(A) = 2$. $B = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$.
+Si $A$ es una matriz $n \times n$ con $\det(A) \neq 0$, entonces $A$ es invertible y:
 
-Calcular: (a) $\det(3A^3 \cdot B^T)$, (b) $\det((2A)^{-1})$, (c) $\det(2 \cdot A^{-1})$.
+$$A^{-1} = \frac{1}{\det(A)} \cdot \left[\text{Cof}(A)\right]^T$$
 
-### Dato previo
+donde $\text{Cof}(A)$ es la **matriz de cofactores** (que vemos en la sección 4).
 
-$\det(B) = 2 \cdot 2 - 0 \cdot 1 = 4$.
+### ¿Por qué importa?
 
-### Parte (a): $\det(3A^3 \cdot B^T)$
-
-Esto parece complicado, pero vamos paso a paso aplicando propiedades:
-
-**Paso 1 — Propiedad 4** (el $\det$ del producto es el producto de los $\det$):
-
-$$\det(3A^3 \cdot B^T) = \det(3A^3) \cdot \det(B^T)$$
-
-**Paso 2 — Propiedad 3** (sacar el $3$ de la primera):
-
-$3A^3$ es la matriz $A^3$ multiplicada por el escalar $3$. Como $A$ es $2 \times 2$:
-
-$$\det(3A^3) = 3^2 \cdot \det(A^3) = 9 \cdot \det(A^3)$$
-
-El exponente es $2$ (no $3$) porque $A$ es $2 \times 2$.
-
-**Paso 3 — Propiedad 4** (de nuevo, para separar $A^3 = A \cdot A \cdot A$):
-
-$$\det(A^3) = \det(A)^3 = 2^3 = 8$$
-
-**Paso 4 — Propiedad 8** (la transpuesta no cambia el determinante):
-
-$$\det(B^T) = \det(B) = 4$$
-
-**Resultado:**
-
-$$\det(3A^3 \cdot B^T) = 9 \cdot 8 \cdot 4 = 288$$
-
-### Parte (b): $\det((2A)^{-1})$
-
-Acá tenemos la inversa de la matriz $2A$ (primero multiplicamos $A$ por $2$, y después le buscamos la inversa a eso).
-
-**Paso 1 — Teorema 1** (el determinante de la inversa es $1$ dividido el determinante):
-
-$$\det((2A)^{-1}) = \frac{1}{\det(2A)}$$
-
-**Paso 2 — Propiedad 3:**
-
-$$\det(2A) = 2^2 \cdot \det(A) = 4 \cdot 2 = 8$$
-
-**Resultado:**
-
-$$\det((2A)^{-1}) = \frac{1}{8}$$
-
-### Parte (c): $\det(2 \cdot A^{-1})$
-
-> "Se entiende la diferencia, ¿no? Acá puedo aplicar el teorema porque está todo invertido. Acá es la inversa por 2"
-
-**Traducción:** Esto NO es lo mismo que la parte (b). En la parte (b), primero se multiplica por $2$ y después se invierte: $(2A)^{-1}$. Acá, primero se invierte y después se multiplica por $2$: $2 \cdot A^{-1}$. Son cosas distintas.
-
-**Paso 1 — Propiedad 3** (sacar el $2$):
-
-$$\det(2 \cdot A^{-1}) = 2^2 \cdot \det(A^{-1}) = 4 \cdot \det(A^{-1})$$
-
-**Paso 2 — Teorema 1:**
-
-$$\det(A^{-1}) = \frac{1}{\det(A)} = \frac{1}{2}$$
-
-**Resultado:**
-
-$$\det(2 \cdot A^{-1}) = 4 \cdot \frac{1}{2} = 2$$
-
-### Comparación de las tres partes
-
-| Expresión | Resultado | Propiedades usadas |
-|-----------|-----------|-------------------|
-| $\det(3A^3 \cdot B^T)$ | $288$ | P4, P3, P4, P8 |
-| $\det((2A)^{-1})$ | $\frac{1}{8}$ | Teorema 1, P3 |
-| $\det(2 \cdot A^{-1})$ | $2$ | P3, Teorema 1 |
-
----
-
-## Ejercicio 2: Probar $\det(A) = \det(B)$ sin usar propiedad 7
-
-### Enunciado
-
-La matriz $B$ difiere de $A$ solo en la fila 2: la fila 2 de $B$ es la fila 2 de $A$ más un múltiplo de la fila 1. Probar que $\det(A) = \det(B)$ sin usar directamente la propiedad 7.
-
-### ¿Cuál es el punto de este ejercicio?
-
-Mostrar que la propiedad 7 se puede **deducir** de las propiedades 1, 2 y 5. Es un ejercicio de práctica con propiedades.
-
-### Desarrollo
-
-**Paso 1 — Propiedad 1:** La fila 2 de $B$ tiene dos sumandos (la fila 2 original + $k$ veces la fila 1). Separamos en dos determinantes:
-
-$$\det(B) = \det(A) + \det(C)$$
-
-donde $C$ es una matriz que tiene la fila 1 de $A$ como fila 1, y $k$ veces la fila 1 de $A$ como fila 2 (y el resto igual).
-
-**Paso 2 — Propiedad 2:** En $C$, la fila 2 es $k$ veces la fila 1. Sacamos el $k$:
-
-$$\det(C) = k \cdot \det(C')$$
-
-donde $C'$ tiene la fila 1 repetida en la fila 2 (las dos filas son iguales).
-
-**Paso 3 — Propiedad 5:** $C'$ tiene fila 1 = fila 2, así que $\det(C') = 0$.
-
-**Conclusión:** $\det(B) = \det(A) + k \cdot 0 = \det(A) \quad \blacksquare$
-
-> "Era para mostrarles el ejemplo y cómo aplicar las propiedades. La propiedad 7 básicamente se deduce de las propiedades 1, 2 y 5"
-
----
-
-## Ejercicio 3: Valores posibles del determinante cuando $A^3 = A$
-
-### Enunciado
-
-Sea $A \in M_{n \times n}(\mathbb{R})$ tal que $A^3 = A$. Hallar los posibles valores de $\det(A)$.
-
-### Desarrollo
-
-**Paso 1:** Tomamos determinante de ambos lados de $A^3 = A$:
-
-$$\det(A^3) = \det(A)$$
-
-**Paso 2:** Por la propiedad 4: $\det(A^3) = \det(A)^3$. Entonces:
-
-$$\det(A)^3 = \det(A)$$
-
-**Paso 3:** Esto ya es una ecuación con números (no con matrices). Llamemos $x = \det(A)$:
-
-$$x^3 = x$$
-
-$$x^3 - x = 0$$
-
-$$x(x^2 - 1) = 0$$
-
-$$x(x-1)(x+1) = 0$$
-
-**Paso 4:** Un producto de factores es cero cuando al menos uno de ellos es cero:
-- $x = 0$, o
-- $x - 1 = 0 \implies x = 1$, o
-- $x + 1 = 0 \implies x = -1$
-
-**Resultado:** Los posibles valores de $\det(A)$ son $\{0, \; 1, \; -1\}$.
-
-### Parte 2: ¿Existen matrices reales para cada valor?
-
-Sí. Acá van ejemplos:
-
-| Valor de $\det(A)$ | Ejemplo | ¿Cumple $A^3 = A$? |
-|---------------------|---------|---------------------|
-| $0$ | La matriz nula $O$ | $O^3 = O \quad \checkmark$ |
-| $1$ | La identidad $I$ | $I^3 = I \quad \checkmark$ |
-| $-1$ | $A = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ | $A^3 = A \quad \checkmark$, $\det(A) = -1$ |
-
----
-
-## Ejercicio 4: Determinante complejo con matrices dadas
-
-### Enunciado
-
-$A = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}$ (diagonal), $B$ invertible $3 \times 3$, $C = B^{-1}AB$.
-
-Dada la ecuación: $\det(C - AC) + \det((2A + A^T) \cdot A^{-1}) + \det(C \cdot D) = 0$.
-
-Calcular $\det(D)$.
-
-### Desarrollo
-
-Este ejercicio parece intimidante, pero es cuestión de ir paso a paso usando las propiedades.
-
-**Dato previo:** $A$ es diagonal, así que por la **propiedad 9**: $\det(A) = 2 \cdot 2 \cdot 3 = 12$.
-
-**Cálculo de $\det(C)$:**
-
-$C = B^{-1}AB$. Por la **propiedad 4**:
-
-$$\det(C) = \det(B^{-1}) \cdot \det(A) \cdot \det(B)$$
-
-Por el **Teorema 1**: $\det(B^{-1}) = \frac{1}{\det(B)}$. Entonces:
-
-$$\det(C) = \frac{1}{\det(B)} \cdot \det(A) \cdot \det(B) = \det(A) = 12$$
-
-Los $\det(B)$ se cancelan. El determinante de $C$ es igual al de $A$.
-
-**Término 1: $\det(C - AC)$**
-
-Primero factorizamos: $C - AC = (I - A) \cdot C$.
-
-Por **propiedad 4**: $\det((I-A) \cdot C) = \det(I - A) \cdot \det(C)$
-
-Calculamos $I - A$:
-
-$$I - A = \begin{pmatrix} 1-2 & 0 & 0 \\ 0 & 1-2 & 0 \\ 0 & 0 & 1-3 \end{pmatrix} = \begin{pmatrix} -1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & -2 \end{pmatrix}$$
-
-Es diagonal, así que $\det(I - A) = (-1)(-1)(-2) = -2$.
-
-Término 1 $= -2 \cdot 12 = -24$.
-
-**Término 2: $\det((2A + A^T) \cdot A^{-1})$**
-
-Como $A$ es diagonal, $A^T = A$ (la transpuesta de una diagonal es ella misma). Entonces el profesor llegó en clase a que la expresión se simplifica a $4I$:
-
-$\det(4I) = 4^3 \cdot \det(I) = 64 \cdot 1 = 64$.
-
-Término 2 $= 64$.
-
-**Término 3: $\det(C \cdot D)$**
-
-Por **propiedad 4**: $\det(C \cdot D) = \det(C) \cdot \det(D) = 12 \cdot \det(D)$.
-
-**Despeje:**
-
-$$-24 + 64 + 12 \cdot \det(D) = 0$$
-
-$$40 + 12 \cdot \det(D) = 0$$
-
-$$12 \cdot \det(D) = -40$$
-
-$$\det(D) = \frac{-40}{12} = -\frac{10}{3}$$
-
----
-
-## Ejercicio 5: Probar que un determinante es par sin calcularlo
-
-### Enunciado
-
-Se tiene una matriz $4 \times 4$ con entradas enteras. Probar que $\det(A)$ es un número par.
-
-### La idea
-
-No podemos calcular el determinante (no nos dan números concretos). Pero podemos usar las propiedades para demostrar que **tiene** que ser par.
-
-### Desarrollo
-
-**Paso 1 — Propiedad 7:** Aplicamos una combinación lineal en la columna 2 (sumamos la columna 4 a la columna 2). El determinante no cambia.
-
-**Paso 2:** Después de la operación, todas las entradas de la columna 2 resultan ser números pares (por cómo están construidas las entradas originales en el enunciado concreto).
-
-**Paso 3 — Propiedad 2:** Como toda la columna 2 tiene factor $2$, lo sacamos afuera:
-
-$$\det(A) = 2 \cdot \det(A')$$
-
-**Paso 4:** $A'$ tiene entradas enteras (sumas y productos de enteros dan entero), así que $\det(A')$ es un entero. Llamémoslo $k$.
-
-$$\det(A) = 2 \cdot k \quad \text{con } k \in \mathbb{Z}$$
-
-Un número que es $2$ veces un entero es, por definición, **par**. $\blacksquare$
-
----
-
-## Resultado extra: las matrices nilpotentes tienen determinante 0
-
-### Enunciado
-
-Si $A$ es nilpotente (o sea, $A^k = O$ para algún $k$), entonces $\det(A) = 0$.
+Cierra el "si y solo si". Y además te da una **fórmula explícita** para calcular la inversa, que es alternativa al método directo.
 
 ### Demostración
 
-Sabemos que $A^k = O$ (la nula). Tomamos determinante:
-
-$$\det(A^k) = \det(O) = 0$$
-
-Por la **propiedad 4**: $\det(A^k) = \det(A)^k$. Entonces:
-
-$$\det(A)^k = 0$$
-
-¿Qué número elevado a cualquier potencia da $0$? Solamente el $0$:
-
-$$\det(A) = 0 \quad \blacksquare$$
-
-**Consecuencia:** Toda matriz nilpotente es **no invertible** (porque su determinante es $0$ y el Teorema 1 dice que si fuera invertible, el determinante sería $\neq 0$).
+No se demuestra en el curso. La fórmula se enuncia y se usa.
 
 ---
 
-## Resultado extra: matrices antisimétricas de dimensión impar tienen determinante 0
-
-### Recordatorio: ¿qué es antisimétrica?
-
-Una matriz es **antisimétrica** si $A^T = -A$ (la transpuesta es el negativo de la original).
-
-### Enunciado
-
-Si $A$ es antisimétrica y la dimensión $n$ es impar, entonces $\det(A) = 0$.
-
-### Demostración — Parte 1: una igualdad general
-
-Partimos de $A^T = -A$. Tomamos determinante de ambos lados:
-
-$$\det(A^T) = \det(-A)$$
-
-Lado izquierdo — por la **propiedad 8**: $\det(A^T) = \det(A)$.
-
-Lado derecho — por la **propiedad 3**: $\det(-A) = (-1)^n \cdot \det(A)$.
-
-Igualando:
-
-$$\det(A) = (-1)^n \cdot \det(A)$$
-
-### Demostración — Parte 2: si $n$ es impar
-
-Si $n$ es impar (1, 3, 5, 7...), entonces $(-1)^n = -1$. Reemplazamos:
-
-$$\det(A) = -\det(A)$$
-
-Pasamos $\det(A)$ al otro lado:
-
-$$\det(A) + \det(A) = 0$$
-
-$$2 \cdot \det(A) = 0$$
-
-$$\det(A) = 0 \quad \blacksquare$$
-
-**Traducción final:** Toda matriz antisimétrica de dimensión impar ($3 \times 3$, $5 \times 5$, $7 \times 7$, ...) tiene determinante $0$ y por lo tanto es **no invertible**.
-
----
-
-# PARTE 3 — Teorema 2, inversa por cofactores, demostraciones (Clase 7, 14 de abril)
-
-## La Gran Pregunta de Hoy: Si el determinante es distinto de cero, ¿la matriz es invertible? ¿Y cómo calculo la inversa con el determinante?
-
-En la clase 6 demostramos que si una matriz es invertible, su determinante es $\neq 0$. Hoy se demuestra **la vuelta**: si el determinante es $\neq 0$, entonces la matriz ES invertible. Además, se ve una nueva forma de calcular la inversa usando el determinante y los cofactores. Después, demostraciones de las propiedades (para parcial/examen, no para la evaluación de mañana).
-
----
-
-## Conexión con la Clase Anterior
-
-La clase 6 cerró con el Teorema 1: invertible $\implies \det \neq 0$. Hoy se completa la otra dirección ($\det \neq 0 \implies$ invertible) y se cierra todo el teórico de determinantes.
-
----
-
-## Teorema 2: Si $\det(A) \neq 0$, entonces $A$ es invertible
-
-### ¿Qué dice este teorema?
-
-> "Lo que nos dice el teorema es que sea n por n, el determinante de A es distinto de cero, entonces A es invertible"
-
-Con el Teorema 1 (clase 6) y el Teorema 2 (hoy), queda establecido el **"si y solo si"**:
-
-> "Quédense con el si solo si. Matriz invertible, determinante distinto de cero, determinante distinto de cero, matriz invertible."
-
-| Dirección | Enunciado | ¿Dónde se demostró? |
-|-----------|-----------|---------------------|
-| → | Si $A$ es invertible, entonces $\det(A) \neq 0$ | Teorema 1 (clase 6) |
-| ← | Si $\det(A) \neq 0$, entonces $A$ es invertible | Teorema 2 (hoy) |
-
-**Traducción:** Ser invertible y tener determinante distinto de cero son **exactamente lo mismo**. Saber una cosa es saber la otra.
-
-### Además: nueva fórmula para calcular la inversa
-
-El Teorema 2 no solo dice que la inversa existe — también dice cómo calcularla:
-
-$$A^{-1} = \frac{1}{\det(A)} \cdot C_A^T$$
-
-**¿Qué significa cada parte?**
-
-- $A^{-1}$: la inversa que queremos encontrar
-- $\frac{1}{\det(A)}$: uno dividido el determinante (por eso necesitamos que sea $\neq 0$)
-- $C_A$: la **matriz de cofactores** de $A$ (se explica abajo)
-- $C_A^T$: la matriz de cofactores **transpuesta**
-
----
-
-## Qué es la matriz de cofactores
-
-### Paso 1: Qué es un cofactor
-
-El **cofactor** de la posición $(i,j)$ es un número que se calcula así:
-
-1. Tomás el **signo** de esa posición (el tablero de ajedrez: $(-1)^{i+j}$)
-2. Calculás el **determinante de la menor** (borrás fila $i$ y columna $j$, y sacás el determinante de lo que queda)
-3. Multiplicás el signo por el determinante de la menor
-
-$$C_{ij} = (-1)^{i+j} \cdot \det(M_{ij})$$
-
-Es exactamente lo que ya hacías en el método recursivo, pero ahora tiene nombre: **cofactor**.
-
-### Paso 2: La matriz de cofactores
-
-La **matriz de cofactores** $C_A$ es una matriz del mismo tamaño que $A$, donde cada entrada es el cofactor de esa posición. Si $A$ es $3 \times 3$, la matriz de cofactores tiene 9 entradas ($C_{11}$, $C_{12}$, ..., $C_{33}$).
-
-### Paso 3: Transponer y multiplicar
-
-Una vez que tenés la matriz de cofactores, la transponés (intercambiás filas por columnas) y multiplicás cada entrada por $\frac{1}{\det(A)}$. El resultado es $A^{-1}$.
-
----
-
-## Ejemplo completo: inversa por cofactores
+# 4. Calcular la inversa por cofactores
 
 > "Vamos a ver un ejemplo igual para bajar la tierra a esto"
+
+## 4.1. Cofactor de una posición
+
+El **cofactor** de la posición $(i,j)$ es:
+
+$$C_{ij} = (-1)^{i+j} \cdot \det(\text{Adj}_{ij}(A))$$
+
+En palabras: el signo del tablero, multiplicado por el determinante de la adjunta (lo que queda al borrar fila $i$ y columna $j$).
+
+Es exactamente lo que hacías en el desarrollo recursivo, pero ahora tiene nombre.
+
+## 4.2. Matriz de cofactores
+
+La matriz de cofactores $\text{Cof}(A)$ tiene la misma forma que $A$, pero cada entrada es el cofactor correspondiente:
+
+$$\text{Cof}(A) = \begin{pmatrix} C_{11} & C_{12} & \cdots & C_{1n} \\ C_{21} & C_{22} & \cdots & C_{2n} \\ \vdots & & & \vdots \\ C_{n1} & C_{n2} & \cdots & C_{nn} \end{pmatrix}$$
+
+## 4.3. Fórmula final
+
+$$A^{-1} = \frac{1}{\det(A)} \cdot \left[\text{Cof}(A)\right]^T$$
+
+Es decir: armás la matriz de cofactores, la transponés, y dividís cada entrada por $\det(A)$.
+
+## 4.4. Ejemplo completo (Ejercicio III.1 del práctico)
 
 $$A = \begin{pmatrix} 1 & 2 & -1 \\ 2 & 2 & 4 \\ 1 & 3 & -3 \end{pmatrix}$$
 
 ### Paso 1: Calcular $\det(A)$ con Sarrus
 
-Copiamos filas 1 y 2 abajo y hacemos Sarrus:
+Diagonales positivas: $1 \cdot 2 \cdot (-3) + 2 \cdot 4 \cdot 1 + (-1) \cdot 2 \cdot 3 = -6 + 8 - 6 = -4$
 
-Diagonales positivas: $1 \cdot 2 \cdot (-3) + 2 \cdot 4 \cdot 1 + (-1) \cdot 2 \cdot 3 = -6 + 8 + (-6) = -4$
-
-Diagonales negativas: $(-1) \cdot 2 \cdot 1 + 1 \cdot 4 \cdot 3 + 2 \cdot 2 \cdot (-3) = -2 + 12 + (-12) = -2$
+Diagonales negativas: $(-1) \cdot 2 \cdot 1 + 1 \cdot 4 \cdot 3 + 2 \cdot 2 \cdot (-3) = -2 + 12 - 12 = -2$
 
 $$\det(A) = -4 - (-2) = -2$$
 
@@ -1268,7 +793,7 @@ Como $\det(A) = -2 \neq 0$, la matriz es invertible.
 
 ### Paso 2: Calcular los 9 cofactores
 
-Recordá el tablero de signos para $3 \times 3$:
+Tablero de signos para $3 \times 3$:
 
 ```
 | +  -  + |
@@ -1276,49 +801,25 @@ Recordá el tablero de signos para $3 \times 3$:
 | +  -  + |
 ```
 
-**$C_{11}$** (signo $+$, borramos fila 1 col 1):
-
-$\det\begin{pmatrix} 2 & 4 \\ 3 & -3 \end{pmatrix} = -6 - 12 = -18$. Con signo $+$: $C_{11} = -18$
-
-**$C_{12}$** (signo $-$, borramos fila 1 col 2):
-
-$\det\begin{pmatrix} 2 & 4 \\ 1 & -3 \end{pmatrix} = -6 - 4 = -10$. Con signo $-$: $C_{12} = -(-10) = 10$
-
-**$C_{13}$** (signo $+$, borramos fila 1 col 3):
-
-$\det\begin{pmatrix} 2 & 2 \\ 1 & 3 \end{pmatrix} = 6 - 2 = 4$. Con signo $+$: $C_{13} = 4$
-
-**$C_{21}$** (signo $-$, borramos fila 2 col 1):
-
-$\det\begin{pmatrix} 2 & -1 \\ 3 & -3 \end{pmatrix} = -6 + 3 = -3$. Con signo $-$: $C_{21} = -(-3) = 3$
-
-**$C_{22}$** (signo $+$, borramos fila 2 col 2):
-
-$\det\begin{pmatrix} 1 & -1 \\ 1 & -3 \end{pmatrix} = -3 + 1 = -2$. Con signo $+$: $C_{22} = -2$
-
-**$C_{23}$** (signo $-$, borramos fila 2 col 3):
-
-$\det\begin{pmatrix} 1 & 2 \\ 1 & 3 \end{pmatrix} = 3 - 2 = 1$. Con signo $-$: $C_{23} = -1$
-
-**$C_{31}$** (signo $+$, borramos fila 3 col 1):
-
-$\det\begin{pmatrix} 2 & -1 \\ 2 & 4 \end{pmatrix} = 8 + 2 = 10$. Con signo $+$: $C_{31} = 10$
-
-**$C_{32}$** (signo $-$, borramos fila 3 col 2):
-
-$\det\begin{pmatrix} 1 & -1 \\ 2 & 4 \end{pmatrix} = 4 + 2 = 6$. Con signo $-$: $C_{32} = -6$
-
-**$C_{33}$** (signo $+$, borramos fila 3 col 3):
-
-$\det\begin{pmatrix} 1 & 2 \\ 2 & 2 \end{pmatrix} = 2 - 4 = -2$. Con signo $+$: $C_{33} = -2$
+| Posición | Signo | Adjunta (borrar fila $i$, col $j$) | $\det$ adjunta | Cofactor |
+|----------|-------|------------------------------------|----------------|----------|
+| $(1,1)$ | $+$ | $\begin{pmatrix} 2 & 4 \\ 3 & -3 \end{pmatrix}$ | $-6 - 12 = -18$ | $C_{11} = -18$ |
+| $(1,2)$ | $-$ | $\begin{pmatrix} 2 & 4 \\ 1 & -3 \end{pmatrix}$ | $-6 - 4 = -10$ | $C_{12} = 10$ |
+| $(1,3)$ | $+$ | $\begin{pmatrix} 2 & 2 \\ 1 & 3 \end{pmatrix}$ | $6 - 2 = 4$ | $C_{13} = 4$ |
+| $(2,1)$ | $-$ | $\begin{pmatrix} 2 & -1 \\ 3 & -3 \end{pmatrix}$ | $-6 + 3 = -3$ | $C_{21} = 3$ |
+| $(2,2)$ | $+$ | $\begin{pmatrix} 1 & -1 \\ 1 & -3 \end{pmatrix}$ | $-3 + 1 = -2$ | $C_{22} = -2$ |
+| $(2,3)$ | $-$ | $\begin{pmatrix} 1 & 2 \\ 1 & 3 \end{pmatrix}$ | $3 - 2 = 1$ | $C_{23} = -1$ |
+| $(3,1)$ | $+$ | $\begin{pmatrix} 2 & -1 \\ 2 & 4 \end{pmatrix}$ | $8 + 2 = 10$ | $C_{31} = 10$ |
+| $(3,2)$ | $-$ | $\begin{pmatrix} 1 & -1 \\ 2 & 4 \end{pmatrix}$ | $4 + 2 = 6$ | $C_{32} = -6$ |
+| $(3,3)$ | $+$ | $\begin{pmatrix} 1 & 2 \\ 2 & 2 \end{pmatrix}$ | $2 - 4 = -2$ | $C_{33} = -2$ |
 
 ### Paso 3: Armar la matriz de cofactores
 
-$$C_A = \begin{pmatrix} -18 & 10 & 4 \\ 3 & -2 & -1 \\ 10 & -6 & -2 \end{pmatrix}$$
+$$\text{Cof}(A) = \begin{pmatrix} -18 & 10 & 4 \\ 3 & -2 & -1 \\ 10 & -6 & -2 \end{pmatrix}$$
 
 ### Paso 4: Transponer
 
-$$C_A^T = \begin{pmatrix} -18 & 3 & 10 \\ 10 & -2 & -6 \\ 4 & -1 & -2 \end{pmatrix}$$
+$$[\text{Cof}(A)]^T = \begin{pmatrix} -18 & 3 & 10 \\ 10 & -2 & -6 \\ 4 & -1 & -2 \end{pmatrix}$$
 
 ### Paso 5: Multiplicar por $\frac{1}{\det(A)} = \frac{1}{-2}$
 
@@ -1326,195 +827,103 @@ $$A^{-1} = \frac{1}{-2} \begin{pmatrix} -18 & 3 & 10 \\ 10 & -2 & -6 \\ 4 & -1 &
 
 > "Parece un poco largo pero tengan en cuenta por ejemplo, si van a calcular la inversa con el método directo y las ecuaciones son medias feas, también le va a llevar tiempo"
 
-**Traducción:** Este método es largo (9 cofactores + transponer + dividir), pero el método directo (plantear el sistema de ecuaciones) también es largo. Después cada uno elige el que le resulte más cómodo.
+**Traducción:** Largo pero mecánico. El método directo (sistema de ecuaciones) también lleva tiempo. Cada uno elige el que le resulte más cómodo.
 
 ---
 
-## Demostraciones de las propiedades (para parcial/examen)
+# 5. Resultados clave (entran en parcial)
 
-> "Estas demostraciones no van para mañana. Esto es teórico, pero para parcial examen. Mañana es mucho más fácil, más práctico y más nivel más bajo"
+## 5.1. Triangular con diagonal no nula → invertible
 
-**Traducción:** Las demostraciones de abajo **no entran en la evaluación continua de mañana**. Son para el parcial y examen. La evaluación de mañana es práctica: calcular determinantes y aplicar propiedades.
+(Práctico V.6)
 
----
+**Enunciado:** Si $A$ es triangular y todas las entradas de la diagonal son no nulas, $A$ es invertible.
 
-### Demostración de la Propiedad 1 (dos sumandos en una fila)
-
-**Lo que dice la propiedad:** Si una fila tiene dos sumandos, el determinante se separa en la suma de dos determinantes.
-
-**Idea de la demostración (método directo):** Desarrollás el determinante por la fila que tiene los dos sumandos. Como cada entrada de esa fila es $b_{2j} + c_{2j}$, la sumatoria se separa en dos sumatorias (una con los $b$ y otra con los $c$). Las menores son las mismas en ambos casos (porque al borrar la fila 2, las tres matrices $A$, $B$, $C$ quedan iguales). Cada sumatoria resulta ser el determinante de $B$ y el determinante de $C$ respectivamente.
-
-**También se demostró por inducción completa:**
-- Paso base ($1 \times 1$): $\det(b_{11} + c_{11}) = b_{11} + c_{11} = \det(b_{11}) + \det(c_{11})$. Trivial.
-- Paso inductivo: Se asume que vale para $n \times n$ y se prueba para $(n+1) \times (n+1)$. Se desarrolla por una fila que NO sea la que tiene los sumandos (por ejemplo la fila 1). Las menores son $n \times n$ y tienen dos sumandos en una fila, así que se les puede aplicar la hipótesis.
-
-> "¿Por qué no se puede por la fila 2? Si yo desarrollo por la fila 2, al aplicar la matriz de juntas se me va esa fila 2. Se me va la fila 2, por lo tanto no puedo aplicar la hipótesis"
-
-**Traducción:** Si desarrollás por la fila que tiene los sumandos, al borrar esa fila para hacer la menor, los sumandos desaparecen y no podés aplicar la hipótesis de inducción. Por eso hay que desarrollar por cualquier OTRA fila.
+**Justificación:** Por **P9**, $\det(A) = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}$. Como cada factor es no nulo, el producto es no nulo. Entonces $\det(A) \neq 0$ y por **Teorema 2**, $A$ es invertible. $\blacksquare$
 
 ---
 
-### Demostración de la Propiedad 2 (factor común de una fila)
+## 5.2. Nilpotente → det = 0
 
-**Lo que dice la propiedad:** Si toda una fila está multiplicada por $k$, el determinante queda multiplicado por $k$.
+(Práctico V.3)
 
-**Idea de la demostración:** Desarrollás por la fila multiplicada por $k$. Cada entrada es $k \cdot a_{1j}$. El $k$ está en cada término de la sumatoria, así que sale como factor común. Las menores de $A$ y de $B$ son iguales (porque al borrar la fila 1, ambas matrices quedan iguales). Queda $k$ por el determinante de $A$.
+**Recordatorio:** $A$ es **nilpotente de grado $k$** si $A^k = O$ (la matriz nula) y $A^{k-1} \neq O$.
 
----
+**Enunciado:** Si $A$ es nilpotente, $\det(A) = 0$.
 
-### Demostración de la Propiedad 3 (factor de toda la matriz)
+**Demostración:**
 
-**Lo que dice la propiedad:** $\det(\lambda A) = \lambda^n \cdot \det(A)$
+$$\det(A^k) \overset{P4}{=} \det(A)^k$$
 
-**Idea de la demostración:** Si toda la matriz está multiplicada por $\lambda$, eso significa que CADA una de las $n$ filas está multiplicada por $\lambda$. Aplicamos la Propiedad 2 en la fila 1 (sale un $\lambda$), luego en la fila 2 (sale otro $\lambda$), así hasta la fila $n$. Quedan $n$ lambdas afuera: $\lambda^n \cdot \det(A)$.
+Por otro lado, $A^k = O$, entonces $\det(A^k) = \det(O) = 0$.
 
----
+Igualando: $\det(A)^k = 0$.
 
-### Demostración de la Propiedad 5 (dos filas iguales → det = 0)
+¿Qué número elevado a una potencia da $0$? Solo el $0$. Entonces $\det(A) = 0$ $\blacksquare$.
 
-Se demostró **por inducción completa** con fila 1 = fila 2.
-
-**Paso base** ($2 \times 2$): Si fila 1 = fila 2, la matriz es $\begin{pmatrix} a & a \\ a & a \end{pmatrix}$, y $\det = a \cdot a - a \cdot a = 0$.
-
-**Paso inductivo:** Tenemos una matriz $(n+1) \times (n+1)$ con fila 1 = fila 2. Desarrollamos por una fila que NO sea la 1 ni la 2 (por ejemplo la fila 3). Cada menor es $n \times n$ y sigue teniendo fila 1 = fila 2. Por hipótesis de inducción, el determinante de cada menor es $0$. Como estamos sumando cosas multiplicadas por $0$, todo da $0$.
-
-> "Bueno, en este caso es distinta la demostración. Desarrollo por la fila 3 pero puede ser por cualquier fila que no sea la 1 y la 2"
+**Consecuencia:** Toda matriz nilpotente es **no invertible** (porque $\det = 0$).
 
 ---
 
-### Demostración de la Propiedad 6 (intercambiar filas cambia el signo)
+## 5.3. Antisimétrica de dimensión impar → det = 0
 
-**Lo que dice la propiedad:** Si intercambiamos dos filas, el determinante cambia de signo.
+(Práctico V.4)
 
-**Idea de la demostración:** Se construye una matriz auxiliar $C$ con fila 1 = (fila 1 + fila 2) y fila 2 = (fila 2 + fila 1). Como ambas filas son iguales ($f_1 + f_2 = f_2 + f_1$), por la Propiedad 5 $\det(C) = 0$.
+**Recordatorio:** $A$ es **antisimétrica** si $A^T = -A$.
 
-Después se aplica la Propiedad 1 dos veces (una en fila 1, otra en fila 2), separando $\det(C)$ en 4 determinantes. Dos de ellos tienen filas iguales (y valen $0$ por Propiedad 5). Los otros dos son $\det(A)$ y $\det(B)$. Como $\det(C) = 0$:
+**Enunciado parte 1:** $\det(A^T) = (-1)^n \cdot \det(A)$.
 
-$$0 = \det(A) + \det(B) \implies \det(B) = -\det(A)$$
+**Demostración parte 1:**
 
----
+$$\det(A^T) \overset{\text{hipótesis}}{=} \det(-A) \overset{P3}{=} (-1)^n \cdot \det(A) \quad \blacksquare$$
 
-### Demostración de la Propiedad 7 (combinación lineal de filas no cambia el det)
+**Enunciado parte 2:** Si $n$ es impar, $\det(A) = 0$.
 
-**Lo que dice la propiedad:** Si a una fila le sumás combinación lineal de las demás, el determinante no cambia.
+**Demostración parte 2:** Por la parte 1: $\det(A^T) = (-1)^n \cdot \det(A)$. Si $n$ es impar, $(-1)^n = -1$:
 
-**Idea de la demostración:** La fila $j$ tiene la forma: $\lambda_1 \cdot f_1 + \lambda_2 \cdot f_2 + \ldots + f_j + \ldots + \lambda_n \cdot f_n$. Por la Propiedad 1, separamos en $n$ determinantes. Por la Propiedad 2, sacamos cada $\lambda_k$ afuera. En cada uno de esos determinantes (salvo uno), hay dos filas iguales (la fila original y la que se copió), así que por la Propiedad 5 valen $0$. El único que sobrevive es el que tiene la fila $j$ sin modificar, que es $\det(A)$.
+$$\det(A^T) = -\det(A)$$
 
-> "Bueno, cero más cero más determinante de A más cero más cero, nos queda que el determinante de B es igual al determinante de A"
+Por **P8**: $\det(A^T) = \det(A)$. Entonces:
 
----
+$$\det(A) = -\det(A) \implies 2 \det(A) = 0 \implies \det(A) = 0 \quad \blacksquare$$
 
-### Propiedad 8 — No se demostró
-
-$\det(A) = \det(A^T)$. El profesor indicó que esta propiedad no se demuestra en el curso.
+**Consecuencia:** Toda matriz antisimétrica de dimensión impar es **no invertible**.
 
 ---
 
-### Demostración de la Propiedad 9 (triangular → producto de la diagonal)
+## 5.4. Ortogonal → det = ±1
 
-**Lo que dice la propiedad:** Si $A$ es triangular superior, $\det(A) = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}$.
+(Práctico V.5)
 
-**Idea de la demostración:** Desarrollamos por la columna 1. Como $A$ es triangular superior, todos los elementos debajo de la diagonal en la columna 1 son $0$. Entonces solo sobrevive el primer término: $a_{11} \cdot \det(\text{menor})$. La menor es otra triangular (más chica), así que repetimos: desarrollamos por la columna 1 de la menor, y solo sobrevive $a_{22}$. Seguimos hasta llegar a una $1 \times 1$ que es $a_{nn}$. Queda: $a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}$.
+**Recordatorio:** $A$ es **ortogonal** si $A$ es invertible y $A^{-1} = A^T$. Equivalentemente: $A \cdot A^T = I$.
 
-> "Es clave acá ir desarrollando por la columna 1"
+**Enunciado parte 1:** Si $A$ es ortogonal, $\det(A) = 1$ o $\det(A) = -1$.
 
----
+**Demostración:**
 
-## Ejercicio 5: Matrices ortogonales y el determinante
-
-### Enunciado
-
-Si $A$ es ortogonal (es decir, $A^{-1} = A^T$), probar que $\det(A) = 1$ o $\det(A) = -1$. Investigar si vale el recíproco.
-
-### Parte 1: Prueba de que $\det(A) = \pm 1$
-
-Si $A$ es ortogonal, entonces $A^{-1} = A^T$. Eso implica que $A \cdot A^T = I$.
-
-Tomamos determinante de ambos lados:
+Por hipótesis $A \cdot A^T = I$. Tomamos determinante:
 
 $$\det(A \cdot A^T) = \det(I) = 1$$
 
-Por la **Propiedad 4**: $\det(A) \cdot \det(A^T) = 1$
+Por **P4** y **P8** ($\det(A^T) = \det(A)$):
 
-Por la **Propiedad 8**: $\det(A^T) = \det(A)$
+$$\det(A)^2 = 1 \implies \det(A) = 1 \text{ o } \det(A) = -1 \quad \blacksquare$$
 
-Entonces: $\det(A) \cdot \det(A) = 1$, es decir $\det(A)^2 = 1$
+**Parte 2: ¿Vale el recíproco?** Es decir, si $\det(A) = \pm 1$, ¿$A$ es ortogonal? **No**. Contraejemplos:
 
-Las soluciones son: $\det(A) = 1$ o $\det(A) = -1$. $\blacksquare$
+$$A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}, \det(A) = 2 - 1 = 1$$
 
-### Parte 2: ¿Vale el recíproco?
+Pero:
 
-El recíproco sería: si $\det(A) = \pm 1$, ¿es $A$ ortogonal?
+$$A \cdot A^T = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} \cdot \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} = \begin{pmatrix} 5 & 3 \\ 3 & 2 \end{pmatrix} \neq I$$
 
-**No.** Contraejemplo:
+→ $A$ no es ortogonal a pesar de tener $\det = 1$.
 
-$$A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$$
-
-$\det(A) = 1$, pero $A^T \cdot A = \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix} \neq I$. Entonces $A$ no es ortogonal a pesar de tener determinante $1$.
+Análogamente $B = \begin{pmatrix} 1 & 2 \\ 1 & 1 \end{pmatrix}$ tiene $\det(B) = -1$ pero $B \cdot B^T \neq I$.
 
 ---
 
-## Notas prácticas del profesor sobre los ejercicios
-
-- **Ejercicio 6:** Una matriz triangular con todas las entradas de la diagonal $\neq 0$ es invertible. Justificación: Propiedad 9 (det = producto de la diagonal, que es $\neq 0$) + Teorema 2 (det $\neq 0$ → invertible).
-- **Ejercicio 7 (verdadero/falso):** Una matriz con una fila entera de ceros NO es invertible (desarrollar por esa fila da det = 0). Una matriz con dos filas iguales tampoco (Propiedad 5 → det = 0 → no invertible).
-- **Ejercicio 8:** Para encontrar los valores de $\lambda$ para los cuales una matriz es invertible, calcular el determinante en función de $\lambda$, y ver para qué valores se anula. Donde se anula → no invertible. Para el resto → invertible.
-
----
-
-## Anuncios
-
-> "Mañana las primeras dos horas, ver dudas práctico. 9 y media tenemos la prueba. Va a durar media hora la prueba. El mismo formato. Nada que no hayamos visto, tenemos conceptos claros. Las demostraciones de hoy no van"
-
-- La evaluación continua es mañana (15 de abril), a las 9:30, media hora, en grupo
-- Mismo formato que la primera evaluación
-- Las demostraciones de hoy **NO entran**
-- La semana que viene empieza el tercer tema: **sistemas de ecuaciones**
-
----
-
-# PARTE 4 — Preparación para la evaluación continua (15 de abril)
-
-Evaluación sobre **determinantes**. Nivel básico, en grupo, con material. Lo que importa: saber calcular determinantes rápido, aplicar propiedades sin dudar, y no caer en las trampas clásicas.
-
----
-
-## Lo que SÍ necesitás manejar
-
-- Calcular determinantes de $2 \times 2$ (diagonal principal menos la otra)
-- Calcular determinantes de $3 \times 3$ con **Sarrus**
-- Calcular determinantes de $4 \times 4$ o más con **desarrollo por cofactores** (elegir fila/columna con más ceros)
-- Saber qué es una **menor** (borrar fila $i$ y columna $j$)
-- El **patrón de signos** del cofactor: $(-1)^{i+j}$
-- Las **9 propiedades** — no memorizarlas textual, sino saber qué hace cada una y cuándo usarla
-- El **Teorema 1**: si $A$ es invertible $\implies \det(A) \neq 0$ y $\det(A^{-1}) = \frac{1}{\det(A)}$
-- Combinar propiedades para calcular expresiones tipo $\det(3A^2 \cdot B^T)$
-- Que $\det(A+B) \neq \det(A) + \det(B)$
-
-## Lo que NO necesitás memorizar
-
-- La fórmula directa del determinante $3 \times 3$ (para eso está Sarrus)
-- Demostraciones completas (pero sí el razonamiento general de cada una)
-- La fórmula $\sum_{j=1}^{n}$ exacta del cofactor (basta con entender el procedimiento: elegir fila, recorrer columnas, signo alternado, multiplicar por la menor)
-
-## Prerrequisitos de matrices que SÍ necesitás para determinantes
-
-No te piden matrices en esta evaluación, pero necesitás estos conceptos para entender determinantes:
-
-| Concepto de matrices | ¿Por qué lo necesitás? |
-|---------------------|----------------------|
-| Matriz cuadrada ($n \times n$) | El determinante solo existe para cuadradas |
-| Transpuesta ($A^T$) | Propiedad 8: $\det(A) = \det(A^T)$ |
-| Matriz invertible y $A^{-1}$ | El Teorema 1 conecta invertibilidad con $\det \neq 0$ |
-| Identidad ($I$) | $\det(I) = 1$ — aparece en casi toda demostración |
-| Triangular (superior/inferior) | Propiedad 9: $\det = $ producto de la diagonal |
-| Diagonal | Caso particular de triangular |
-| Nilpotente ($A^k = O$) | Si es nilpotente $\implies \det = 0$ |
-| Antisimétrica ($A^T = -A$) | Si $n$ es impar $\implies \det = 0$ |
-
----
-
-## 5 errores que aparecen en evaluaciones (según el profesor)
+# 6. Errores típicos en parcial
 
 ### Error 1: Usar Sarrus en matrices que NO son $3 \times 3$
 
@@ -1524,181 +933,775 @@ Sarrus **solo** para $3 \times 3$. Para $4 \times 4$ o más: desarrollo por cofa
 
 ### Error 2: Pensar que $\det(kA) = k \cdot \det(A)$
 
-**MAL:** $\det(4A) = 4 \cdot \det(A)$
-
-**BIEN:** $\det(4A) = 4^n \cdot \det(A)$, donde $n$ es la dimensión.
+| MAL | BIEN |
+|-----|------|
+| $\det(4A) = 4 \cdot \det(A)$ | $\det(4A) = 4^n \cdot \det(A)$ |
 
 Si $A$ es $3 \times 3$: $\det(4A) = 4^3 \cdot \det(A) = 64 \cdot \det(A)$.
 
 ### Error 3: Pensar que $\det(A+B) = \det(A) + \det(B)$
 
-Esto es **falso**. No existe una propiedad de la suma. Lo que sí existe es $\det(A \cdot B) = \det(A) \cdot \det(B)$ (producto, no suma).
+**Falso.** No existe propiedad de la suma. Lo que existe es $\det(A \cdot B) = \det(A) \cdot \det(B)$ (producto, no suma).
 
 ### Error 4: No mirar la matriz antes de calcular
 
 Antes de hacer ninguna cuenta, chequeá:
-- ¿Tiene dos filas o columnas iguales? → $\det = 0$ (propiedad 5)
-- ¿Es triangular? → multiplicar la diagonal (propiedad 9)
+- ¿Tiene dos filas o columnas iguales? → $\det = 0$ (P5)
+- ¿Es triangular? → multiplicar la diagonal (P9)
 - ¿Hay una fila/columna con muchos ceros? → desarrollar por ahí
 
-### Error 5: Multiplicar la fila objetivo al usar propiedad 7
+### Error 5: Multiplicar la fila objetivo al usar P7
 
-Cuando sumás combinación lineal de filas a una fila (propiedad 7), la fila que modificás **no puede estar multiplicada** por un número. Si la multiplicás, cambiaste el determinante (propiedad 2).
+Cuando sumás combinación lineal a una fila (P7), la fila que modificás **no puede estar multiplicada** por un número. Si la multiplicás, cambiaste el determinante (P2).
+
+### Error 6: Confundir $(2A)^{-1}$ con $2 \cdot A^{-1}$
+
+> "Se entiende la diferencia, ¿no? Acá puedo aplicar el teorema porque está todo invertido. Acá es la inversa por 2"
+
+| Expresión | ¿Qué significa? | Cálculo (con $A$ $n \times n$, $\det(A) = d$) |
+|-----------|-----------------|-----|
+| $(2A)^{-1}$ | Primero multiplicás $A$ por $2$, después invertís | $\det((2A)^{-1}) = \dfrac{1}{2^n \cdot d}$ |
+| $2 \cdot A^{-1}$ | Primero invertís, después multiplicás por $2$ | $\det(2 \cdot A^{-1}) = 2^n \cdot \dfrac{1}{d}$ |
+
+Son cosas distintas y se calculan distinto.
 
 ---
 
-## Checklist rápido antes de calcular un determinante
+# 7. Checklist y referencia rápida
 
-1. ¿Hay dos filas (o columnas) iguales? → $\det = 0$, listo
-2. ¿Es triangular (o diagonal)? → multiplicar la diagonal, listo
+## Checklist antes de calcular un determinante
+
+1. ¿Hay dos filas (o columnas) iguales? → $\det = 0$, listo (P5)
+2. ¿Es triangular (o diagonal)? → multiplicar la diagonal, listo (P9)
 3. ¿Hay alguna fila/columna entera de ceros? → $\det = 0$, listo
-4. ¿Puedo sacar factor común de alguna fila? → sacarlo (propiedad 2) y simplificar
-5. ¿Es $3 \times 3$? → Sarrus
-6. ¿Es $4 \times 4$ o más? → buscar la fila/columna con más ceros y desarrollar por cofactores
-
----
+4. ¿Puedo sacar factor común de alguna fila? → sacarlo (P2) y simplificar
+5. ¿Puedo generar ceros con P7? → hacerlo y después desarrollar por la fila/columna con ceros
+6. ¿Es $3 \times 3$? → Sarrus
+7. ¿Es $4 \times 4$ o más? → desarrollo por cofactores por la fila/columna con más ceros
 
 ## Referencia rápida de propiedades
 
-| # | Nombre corto | Qué hace | Fórmula |
-|---|-------------|----------|---------|
-| 1 | Separar sumandos | Si una fila tiene sumas, separá en dos $\det$ | $\det = \det_1 + \det_2$ |
-| 2 | Factor de fila | Sacás $k$ de una fila | $k$ sale multiplicando |
-| 3 | Factor de toda la matriz | Sacás $k$ de todo | $\det(kA) = k^n \cdot \det(A)$ |
-| 4 | Producto | $\det$ del producto = producto de $\det$ | $\det(AB) = \det(A) \cdot \det(B)$ |
-| 5 | Filas iguales | Dos filas iguales | $\det = 0$ |
-| 6 | Intercambio | Intercambiar dos filas | $\det$ cambia de signo |
-| 7 | Comb. lineal | Sumar múltiplos de filas a otra | $\det$ no cambia |
-| 8 | Transpuesta | Transponer | $\det(A) = \det(A^T)$ |
-| 9 | Triangular | Si es triangular | $\det = $ diagonal multiplicada |
-| ✗ | Suma (NO vale) | $\det(A+B)$ | $\neq \det(A) + \det(B)$ |
+| # | Nombre corto | Fórmula |
+|---|-------------|---------|
+| 1 | Separar sumandos | $\det = \det_1 + \det_2$ |
+| 2 | Factor de fila | $k$ sale multiplicando |
+| 3 | Factor de toda la matriz | $\det(kA) = k^n \cdot \det(A)$ |
+| 4 | Producto | $\det(AB) = \det(A) \cdot \det(B)$ |
+| 5 | Filas iguales | $\det = 0$ |
+| 6 | Intercambio | cambia de signo |
+| 7 | Comb. lineal de filas | no cambia |
+| 8 | Transpuesta | $\det(A) = \det(A^T)$ |
+| 9 | Triangular | producto de la diagonal |
+| ✗ | Suma (NO) | $\neq \det(A) + \det(B)$ |
+
+## Atajos para la inversa
+
+| Resultado | Fórmula |
+|-----------|---------|
+| Inversa | $A^{-1} = \dfrac{1}{\det(A)} \cdot [\text{Cof}(A)]^T$ |
+| Det de la inversa | $\det(A^{-1}) = \dfrac{1}{\det(A)}$ |
+| Det de potencia | $\det(A^k) = \det(A)^k$ |
 
 ---
 
-## Preguntas de práctica
+# 8. Ejemplos modelo del práctico (IV.1, IV.2, IV.3)
 
-### Pregunta 1 (cálculo directo $2 \times 2$)
-
-Calcular $\det\begin{pmatrix} 5 & 3 \\ -2 & 4 \end{pmatrix}$.
-
-> **Respuesta:** $5 \cdot 4 - 3 \cdot (-2) = 20 + 6 = 26$.
+Estos son los tres ejemplos pre-resueltos del práctico oficial. Aparecen ANTES de la sección de ejercicios, justo para mostrar cómo combinar propiedades.
 
 ---
 
-### Pregunta 2 (cálculo con Sarrus $3 \times 3$)
+## Ejemplo IV.1: Determinante con polinomios en $x$
 
-Calcular $\det\begin{pmatrix} 2 & 1 & 3 \\ 0 & -1 & 4 \\ 1 & 0 & 2 \end{pmatrix}$.
+**Enunciado:** Calcular $\det(A)$ donde
 
-> **Respuesta:** Por Sarrus: positivas $= 2 \cdot (-1) \cdot 2 + 1 \cdot 4 \cdot 1 + 3 \cdot 0 \cdot 0 = -4 + 4 + 0 = 0$. Negativas $= 1 \cdot (-1) \cdot 3 + 2 \cdot 4 \cdot 0 + 2 \cdot 0 \cdot 1 = -3 + 0 + 0 = -3$. Det $= 0 - (-3) = 3$.
+$$A = \begin{pmatrix} x-1 & x^2 - 1 & 0 \\ 2x & x & x \\ 3x - 6 & x - 2 & x - 2 \end{pmatrix}$$
 
-**Verificación por cofactores (columna 2, tiene un cero):**
+### Resolución
 
-Columna 2: entradas $1, -1, 0$. El $0$ está en posición $(3,2)$, así que solo dos términos:
+**Paso 1 — Factorizar cada fila:**
+- Fila 1: $(x-1)$, $(x^2-1) = (x-1)(x+1)$, $0$. **Factor común** $(x-1)$.
+- Fila 2: $2x$, $x$, $x$. **Factor común** $x$.
+- Fila 3: $3(x-2)$, $(x-2)$, $(x-2)$. **Factor común** $(x-2)$.
 
-- $(1,2)$: $1 \cdot (-1)^{1+2} \cdot \det\begin{pmatrix} 0 & 4 \\ 1 & 2 \end{pmatrix} = 1 \cdot (-1) \cdot (0 - 4) = (-1)(-4) = 4$
+**Paso 2 — Sacar factores (P2 tres veces):**
 
-- $(2,2)$: $(-1) \cdot (-1)^{2+2} \cdot \det\begin{pmatrix} 2 & 3 \\ 1 & 2 \end{pmatrix} = (-1)(+1)(4 - 3) = -1$
+$$\det(A) = (x-1) \cdot x \cdot (x-2) \cdot \det\begin{pmatrix} 1 & x+1 & 0 \\ 2 & 1 & 1 \\ 3 & 1 & 1 \end{pmatrix}$$
 
-- $(3,2)$: $0 \cdot \ldots = 0$
+**Paso 3 — Calcular la $3 \times 3$ con Sarrus:**
 
-Total: $4 + (-1) + 0 = 3 \quad \checkmark$
+Positivas: $1 \cdot 1 \cdot 1 + 2 \cdot 1 \cdot 0 + 3 \cdot (x+1) \cdot 1 = 1 + 0 + 3(x+1) = 1 + 3x + 3 = 3x + 4$
 
----
+Negativas: $3 \cdot 1 \cdot 0 + 1 \cdot 1 \cdot 1 + 2 \cdot (x+1) \cdot 1 = 0 + 1 + 2x + 2 = 2x + 3$
 
-### Pregunta 3 (propiedad 3 — factor de toda la matriz)
+$\det(\text{interna}) = (3x + 4) - (2x + 3) = x + 1$
 
-Si $A$ es $3 \times 3$ y $\det(A) = -2$, ¿cuánto vale $\det(5A)$?
+**Paso 4 — Resultado:**
 
-> **Respuesta:** $\det(5A) = 5^3 \cdot \det(A) = 125 \cdot (-2) = -250$.
+$$\det(A) = (x-1) \cdot x \cdot (x-2) \cdot (x+1)$$
 
-No es $5 \cdot (-2) = -10$. El $5$ sale elevado a la dimensión.
+> "Se podía hacer por Sarrus toda la expresión original, se podía desarrollar por fila o columna, y vamos a llegar a lo mismo, sí, pero aplicando acá la propiedad 2 se simplifica bastante"
 
----
-
-### Pregunta 4 (propiedad 4 — producto)
-
-Si $\det(A) = 3$ y $\det(B) = -4$, ¿cuánto vale $\det(A^2 \cdot B)$?
-
-> **Respuesta:** $\det(A^2 \cdot B) = \det(A^2) \cdot \det(B) = \det(A)^2 \cdot \det(B) = 9 \cdot (-4) = -36$.
+**Traducción:** Sin sacar factores con P2, hubiéramos tenido que hacer Sarrus con expresiones polinómicas largas. Sacando factores antes, queda una matriz numérica simple.
 
 ---
 
-### Pregunta 5 (Teorema 1 — inversa)
+## Ejemplo IV.2: Combinar propiedades con $\det(A) = 2$
 
-Si $\det(A) = 6$, ¿cuánto vale $\det(A^{-1})$?
+**Enunciado:** Sean $A$ y $B$ matrices $2 \times 2$ tales que $\det(A) = 2$ y $B = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$.
 
-> **Respuesta:** $\det(A^{-1}) = \frac{1}{\det(A)} = \frac{1}{6}$.
+Calcular: (a) $\det(3A^3 \cdot B^T)$, (b) $\det((2A)^{-1})$, (c) $\det(2 \cdot A^{-1})$.
+
+### Dato previo
+
+$\det(B) = 2 \cdot 2 - 0 \cdot 1 = 4$ (es triangular superior, P9: $2 \cdot 2 = 4$).
+
+### Parte (a) — $\det(3A^3 \cdot B^T)$
+
+**Paso 1 — P4** (separar el producto):
+
+$$\det(3A^3 \cdot B^T) = \det(3A^3) \cdot \det(B^T)$$
+
+**Paso 2 — P3** sobre $3A^3$ ($A$ es $2 \times 2$, exponente $2$):
+
+$$\det(3A^3) = 3^2 \cdot \det(A^3) = 9 \cdot \det(A^3)$$
+
+**Paso 3 — P4** sobre $A^3 = A \cdot A \cdot A$:
+
+$$\det(A^3) = \det(A)^3 = 2^3 = 8$$
+
+**Paso 4 — P8** sobre $B^T$:
+
+$$\det(B^T) = \det(B) = 4$$
+
+**Resultado:** $\det(3A^3 \cdot B^T) = 9 \cdot 8 \cdot 4 = 288$.
+
+### Parte (b) — $\det((2A)^{-1})$
+
+**Paso 1 — Teorema 1** (det de la inversa):
+
+$$\det((2A)^{-1}) = \frac{1}{\det(2A)}$$
+
+**Paso 2 — P3** sobre $2A$:
+
+$$\det(2A) = 2^2 \cdot \det(A) = 4 \cdot 2 = 8$$
+
+**Resultado:** $\det((2A)^{-1}) = \dfrac{1}{8}$.
+
+### Parte (c) — $\det(2 \cdot A^{-1})$
+
+> "Se entiende la diferencia, ¿no? Acá puedo aplicar el teorema porque está todo invertido. Acá es la inversa por 2"
+
+**Traducción:** Esto NO es lo mismo que (b). Acá primero invertimos $A$ y después multiplicamos por $2$.
+
+**Paso 1 — P3:**
+
+$$\det(2 \cdot A^{-1}) = 2^2 \cdot \det(A^{-1}) = 4 \cdot \det(A^{-1})$$
+
+**Paso 2 — Teorema 1:**
+
+$$\det(A^{-1}) = \frac{1}{\det(A)} = \frac{1}{2}$$
+
+**Resultado:** $\det(2 \cdot A^{-1}) = 4 \cdot \dfrac{1}{2} = 2$.
+
+### Comparación de las tres partes
+
+| Expresión | Resultado | Propiedades usadas |
+|-----------|-----------|-------------------|
+| $\det(3A^3 \cdot B^T)$ | $288$ | P4, P3, P4, P8 |
+| $\det((2A)^{-1})$ | $\frac{1}{8}$ | T1, P3 |
+| $\det(2 \cdot A^{-1})$ | $2$ | P3, T1 |
 
 ---
 
-### Pregunta 6 (combinar varias propiedades)
+## Ejemplo IV.3: $4 \times 4$ con P1 y P5
 
-$A$ es $2 \times 2$, $\det(A) = 3$. Calcular $\det(2A^{-1})$.
+**Enunciado:** Calcular el determinante de
 
-> **Respuesta:** Propiedad 3: $\det(2A^{-1}) = 2^2 \cdot \det(A^{-1}) = 4 \cdot \frac{1}{3} = \frac{4}{3}$.
+$$A = \begin{pmatrix} 1 & -2 & -1 & -1 \\ 2 & 3 & -2 & 5 \\ 0 & 1 & -3 & 1 \\ 1 & 1 & 0 & 2 \end{pmatrix}$$
 
----
+### Resolución
 
-### Pregunta 7 (propiedad 5 — sin calcular)
+**Observación inicial:** Si miramos las columnas, vemos que **C4 = C1 + C2**:
+- $-1 = 1 + (-2)$
+- $5 = 2 + 3$
+- $1 = 0 + 1$
+- $2 = 1 + 1$
 
-¿Cuánto vale $\det\begin{pmatrix} 1 & 5 & 3 \\ 2 & 4 & 7 \\ 1 & 5 & 3 \end{pmatrix}$?
+**Paso 1 — Reescribir C4 como suma:**
 
-> **Respuesta:** $0$. La fila 1 es igual a la fila 3.
+$$\det(A) = \det\begin{pmatrix} 1 & -2 & -1 & 1 + (-2) \\ 2 & 3 & -2 & 2 + 3 \\ 0 & 1 & -3 & 0 + 1 \\ 1 & 1 & 0 & 1 + 1 \end{pmatrix}$$
 
----
+**Paso 2 — P1 (separar la suma en C4):**
 
-### Pregunta 8 (propiedad 9 — triangular)
+$$\det(A) = \det\begin{pmatrix} 1 & -2 & -1 & 1 \\ 2 & 3 & -2 & 2 \\ 0 & 1 & -3 & 0 \\ 1 & 1 & 0 & 1 \end{pmatrix} + \det\begin{pmatrix} 1 & -2 & -1 & -2 \\ 2 & 3 & -2 & 3 \\ 0 & 1 & -3 & 1 \\ 1 & 1 & 0 & 1 \end{pmatrix}$$
 
-¿Cuánto vale $\det\begin{pmatrix} 3 & 1 & 8 & 2 \\ 0 & -2 & 5 & 1 \\ 0 & 0 & 4 & 7 \\ 0 & 0 & 0 & -1 \end{pmatrix}$?
+**Paso 3 — P5 en cada determinante:**
 
-> **Respuesta:** Es triangular superior. $\det = 3 \cdot (-2) \cdot 4 \cdot (-1) = 24$.
+- En el primero, **C1 = C4** (ambas son $(1, 2, 0, 1)$). Por P5, vale $0$.
+- En el segundo, **C2 = C4** (ambas son $(-2, 3, 1, 1)$). Por P5, vale $0$.
 
----
+**Paso 4 — Resultado:** $\det(A) = 0 + 0 = 0$.
 
-### Pregunta 9 (propiedad 6 — intercambio)
+> "Es importante dominarlas porque pueden facilitar temas de tiempos en un parcial"
 
-Si $\det(A) = 7$ y $B$ se obtiene intercambiando las filas 2 y 4 de $A$, ¿cuánto vale $\det(B)$?
-
-> **Respuesta:** $\det(B) = -\det(A) = -7$.
-
----
-
-### Pregunta 10 (tramposa — la NO propiedad)
-
-Si $\det(A) = 3$ y $\det(B) = 5$, ¿cuánto vale $\det(A + B)$?
-
-> **Respuesta:** **No se puede saber.** $\det(A+B) \neq \det(A) + \det(B)$. No hay ninguna propiedad que relacione el determinante de la suma con los determinantes individuales.
+**Traducción:** Calcular un determinante $4 \times 4$ con cofactores hubiera llevado mucho tiempo. Mirar la matriz y descubrir la relación entre columnas resolvió todo en 4 pasos.
 
 ---
 
-### Pregunta 11 (nilpotente)
+# 9. Práctico resuelto (V.1 a V.12)
 
-Si $A^4 = O$ (la nula), ¿cuánto vale $\det(A)$?
+## Ejercicio V.1: Calcular determinantes
 
-> **Respuesta:** $\det(A^4) = \det(O) = 0$. Por propiedad 4: $\det(A)^4 = 0$. El único número cuya cuarta potencia es $0$ es el $0$. Entonces $\det(A) = 0$.
+Calcular los determinantes detallando las propiedades utilizadas.
+
+### Parte A — $A = \begin{pmatrix} 2 & -5 \\ 2 & 6 \end{pmatrix}$ (2×2)
+
+$\det(A) = 2 \cdot 6 - (-5) \cdot 2 = 12 + 10 = 22$ (definición de $2 \times 2$).
+
+**Resultado:** $\det(A) = 22$.
+
+### Parte B — $B = \begin{pmatrix} -1 & 0 & 2 \\ 3 & 1 & 4 \\ 2 & 0 & -6 \end{pmatrix}$ (3×3)
+
+Por Sarrus:
+
+Positivas: $(-1)(1)(-6) + (3)(0)(2) + (2)(0)(4) = 6 + 0 + 0 = 6$
+
+Negativas: $(2)(1)(2) + (-1)(0)(4) + (3)(0)(-6) = 4 + 0 + 0 = 4$
+
+$\det(B) = 6 - 4 = 2$.
+
+**Atajo:** la columna 2 tiene dos ceros (en posiciones $(1,2)$ y $(3,2)$). Desarrollando por C2 solo sobrevive el cofactor de $b_{22} = 1$, signo $+$:
+
+$\det(B) = 1 \cdot \det\begin{pmatrix} -1 & 2 \\ 2 & -6 \end{pmatrix} = (-1)(-6) - (2)(2) = 6 - 4 = 2$ ✓
+
+**Resultado:** $\det(B) = 2$.
+
+### Parte C — $C = \begin{pmatrix} -3 & 2 & 4 \\ 1 & -1 & 2 \\ -1 & 4 & 0 \end{pmatrix}$ (3×3)
+
+Por Sarrus:
+
+Positivas: $(-3)(-1)(0) + (1)(4)(4) + (-1)(2)(2) = 0 + 16 - 4 = 12$
+
+Negativas: $(-1)(-1)(4) + (-3)(4)(2) + (1)(2)(0) = 4 - 24 + 0 = -20$
+
+$\det(C) = 12 - (-20) = 32$.
+
+**Resultado:** $\det(C) = 32$.
+
+### Parte D — $D = \begin{pmatrix} 2 & -1 & 3 \\ 4 & 0 & 6 \\ 5 & -2 & 3 \end{pmatrix}$ (3×3)
+
+Por Sarrus:
+
+Positivas: $(2)(0)(3) + (4)(-2)(3) + (5)(-1)(6) = 0 - 24 - 30 = -54$
+
+Negativas: $(5)(0)(3) + (2)(-2)(6) + (4)(-1)(3) = 0 - 24 - 12 = -36$
+
+$\det(D) = -54 - (-36) = -18$.
+
+**Resultado:** $\det(D) = -18$.
+
+### Parte E — $E = \begin{pmatrix} 1 & -1 & 2 & 4 \\ 0 & -3 & 0 & 6 \\ 1 & 4 & 5 & 3 \\ 0 & 5 & -6 & 7 \end{pmatrix}$ (4×4)
+
+Sarrus no sirve (es $4 \times 4$). Estrategia: usamos **P7** para generar ceros en la columna 1 y después desarrollamos por C1.
+
+**Paso 1 (P7):** $F_3 \leftarrow F_3 - F_1$:
+
+$$E' = \begin{pmatrix} 1 & -1 & 2 & 4 \\ 0 & -3 & 0 & 6 \\ 0 & 5 & 3 & -1 \\ 0 & 5 & -6 & 7 \end{pmatrix}$$
+
+$\det(E') = \det(E)$ (P7 no cambia det).
+
+**Paso 2 — Desarrollo por C1:** Solo sobrevive el cofactor de $e_{11} = 1$, signo $+$:
+
+$$\det(E') = 1 \cdot \det\begin{pmatrix} -3 & 0 & 6 \\ 5 & 3 & -1 \\ 5 & -6 & 7 \end{pmatrix}$$
+
+**Paso 3 — Sarrus en la 3×3:**
+
+Positivas: $(-3)(3)(7) + (5)(-6)(6) + (5)(0)(-1) = -63 - 180 + 0 = -243$
+
+Negativas: $(5)(3)(6) + (-3)(-6)(-1) + (5)(0)(7) = 90 - 18 + 0 = 72$
+
+$\det = -243 - 72 = -315$.
+
+**Resultado:** $\det(E) = -315$.
 
 ---
 
-### Pregunta 12 (antisimétrica)
+## Ejercicio V.2: Operaciones con $\det(A) = 8$
 
-Si $A$ es antisimétrica ($A^T = -A$) y $A$ es $5 \times 5$, ¿cuánto vale $\det(A)$?
+Sabiendo que $\det\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix} = 8$, calcular los determinantes de las siguientes matrices.
 
-> **Respuesta:** $\det(A^T) = \det(-A)$. Lado izquierdo: $\det(A)$ (propiedad 8). Lado derecho: $(-1)^5 \cdot \det(A) = -\det(A)$ (propiedad 3). Entonces $\det(A) = -\det(A)$, lo que implica $2\det(A) = 0$, entonces $\det(A) = 0$.
+### Parte A — $A = \begin{pmatrix} a_{31} & a_{32} & a_{33} \\ a_{21} & a_{22} & a_{23} \\ a_{11} & a_{12} & a_{13} \end{pmatrix}$
+
+Las filas están en orden 3, 2, 1. Esto es la matriz original con **F1 ↔ F3**. Un solo intercambio.
+
+Por **P6**: $\det(A) = -8$.
+
+### Parte B — $B = \begin{pmatrix} a_{31} & a_{32} & a_{33} \\ a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \end{pmatrix}$
+
+Las filas están en orden 3, 1, 2. Hay que pensarlo en pasos:
+- Original: F1, F2, F3
+- Intercambio F1 ↔ F3: queda F3, F2, F1 → cambia signo
+- Intercambio F2 ↔ F3: queda F3, F1, F2 → vuelve a cambiar signo
+
+Dos intercambios → $\det(B) = (-1)^2 \cdot 8 = 8$.
+
+### Parte C — $C = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ 2 a_{21} & 2 a_{22} & 2 a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}$
+
+La fila 2 está multiplicada por 2. Por **P2**: $\det(C) = 2 \cdot 8 = 16$.
+
+### Parte D — $D = \begin{pmatrix} -3 a_{11} & -3 a_{12} & -3 a_{13} \\ 2 a_{21} & 2 a_{22} & 2 a_{23} \\ 5 a_{31} & 5 a_{32} & 5 a_{33} \end{pmatrix}$
+
+Cada fila está multiplicada por un escalar distinto. Aplicamos **P2** tres veces, una por fila:
+
+$\det(D) = (-3) \cdot 2 \cdot 5 \cdot \det(\text{original}) = -30 \cdot 8 = -240$.
+
+### Parte E — $E = \begin{pmatrix} a_{11} & a_{13} & a_{12} \\ a_{21} & a_{23} & a_{22} \\ a_{31} & a_{33} & a_{32} \end{pmatrix}$
+
+Las columnas están en orden 1, 3, 2. Esto es la matriz original con **C2 ↔ C3**. Un solo intercambio.
+
+Por **P6**: $\det(E) = -8$.
+
+### Parte F — $F = \begin{pmatrix} a_{11}-a_{12} & a_{12} & a_{13} \\ a_{21}-a_{22} & a_{22} & a_{23} \\ a_{31}-a_{32} & a_{32} & a_{33} \end{pmatrix}$
+
+La C1 nueva es $C_1 - C_2$. Las otras columnas no cambiaron.
+
+Esto es **P7 aplicada a columnas**: a la C1 le restamos la C2 (combinación lineal de las otras columnas). El determinante **no cambia**:
+
+$\det(F) = 8$.
 
 ---
 
-### Pregunta 13 (ejercicio completo — estilo evaluación)
+## Ejercicio V.3: Determinante de una matriz nilpotente
 
-$A$ es $3 \times 3$ invertible, $\det(A) = 4$, $B = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 2 \end{pmatrix}$.
+¿Cuánto vale el determinante de una matriz nilpotente?
 
-Calcular: $\det(2A^3 \cdot B^T \cdot A^{-1})$.
+**Definición:** $A$ es nilpotente de grado $k$ si $A^k = O$ y $A^{k-1} \neq O$.
 
-> **Respuesta:**
->
-> Propiedad 4 (separar el producto): $\det(2A^3) \cdot \det(B^T) \cdot \det(A^{-1})$
->
-> - $\det(2A^3) = 2^3 \cdot \det(A^3) = 8 \cdot \det(A)^3 = 8 \cdot 64 = 512$ (P3 + P4)
-> - $\det(B^T) = \det(B) = 1 \cdot 3 \cdot 2 = 6$ (P8 + P9)
-> - $\det(A^{-1}) = \frac{1}{4}$ (Teorema 1)
->
-> Resultado: $512 \cdot 6 \cdot \frac{1}{4} = \frac{3072}{4} = 768$.
+**Resolución:**
+
+Tomamos determinante de $A^k = O$:
+
+$$\det(A^k) = \det(O) = 0$$
+
+Por **P4** aplicada $k$ veces ($\det(A \cdot A) = \det(A)^2$, etc.):
+
+$$\det(A)^k = 0$$
+
+El único número real cuya potencia $k$-ésima es $0$ es el $0$:
+
+$$\det(A) = 0 \quad \blacksquare$$
+
+**Consecuencia:** Toda matriz nilpotente es no invertible.
+
+---
+
+## Ejercicio V.4: Antisimétrica
+
+Sea $A$ una matriz $n \times n$ antisimétrica ($A^T = -A$).
+
+### Parte 1: Mostrar que $\det(A^T) = (-1)^n \cdot \det(A)$
+
+$$\det(A^T) \overset{\text{hipótesis}}{=} \det(-A) \overset{P3}{=} (-1)^n \cdot \det(A) \quad \blacksquare$$
+
+### Parte 2: Si $n$ es impar, ¿cuánto vale $\det(A)$?
+
+Por la parte 1: $\det(A^T) = (-1)^n \cdot \det(A)$.
+
+Si $n$ es impar, $(-1)^n = -1$:
+
+$$\det(A^T) = -\det(A)$$
+
+Por **P8**: $\det(A^T) = \det(A)$. Entonces:
+
+$$\det(A) = -\det(A) \implies 2 \det(A) = 0 \implies \det(A) = 0 \quad \blacksquare$$
+
+---
+
+## Ejercicio V.5: Ortogonal
+
+### Parte 1: Si $A$ es ortogonal, $\det(A) = 1$ o $\det(A) = -1$
+
+Por hipótesis $A^{-1} = A^T$, entonces $A \cdot A^T = I$. Tomamos determinante:
+
+$$\det(A \cdot A^T) = \det(I) = 1$$
+
+Por **P4** y **P8** ($\det(A^T) = \det(A)$):
+
+$$\det(A)^2 = 1 \implies \det(A) = 1 \text{ o } \det(A) = -1 \quad \blacksquare$$
+
+### Parte 2: ¿Vale el recíproco?
+
+Es decir: si $\det(A) = \pm 1$, ¿$A$ es ortogonal? **No**. Contraejemplos:
+
+$$A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}, \det(A) = 2 - 1 = 1$$
+
+Pero:
+
+$$A \cdot A^T = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} \cdot \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} = \begin{pmatrix} 5 & 3 \\ 3 & 2 \end{pmatrix} \neq I$$
+
+→ $A$ no es ortogonal a pesar de tener $\det = 1$.
+
+Análogamente $B = \begin{pmatrix} 1 & 2 \\ 1 & 1 \end{pmatrix}$ tiene $\det(B) = -1$ pero $B \cdot B^T \neq I$.
+
+---
+
+## Ejercicio V.6: Triangular con diagonal no nula es invertible
+
+**Enunciado:** Explicar por qué una matriz triangular con todas las entradas de la diagonal principal no nulas tiene inversa.
+
+**Resolución:** Sea $A$ triangular superior (igual razonamiento si es inferior). Por **P9**:
+
+$$\det(A) = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}$$
+
+Como cada factor es no nulo (por hipótesis), el producto es no nulo: $\det(A) \neq 0$.
+
+Por **Teorema 2**, $A$ es invertible. $\blacksquare$
+
+---
+
+## Ejercicio V.7: Verdadero/falso
+
+### 1. $A$ es invertible ⇔ $A^T$ es invertible
+
+**Verdadero.** Por **P8**, $\det(A) = \det(A^T)$. Entonces $A$ invertible $\iff \det(A) \neq 0 \iff \det(A^T) \neq 0 \iff A^T$ invertible.
+
+### 2. Si $\det(A) \neq 0$, $A$ es invertible y $\det(A^{-1}) = 1/\det(A)$
+
+**Verdadero.** Esto es directamente el **Teorema 2** (la dirección det ≠ 0 → invertible) y la fórmula del **Teorema 1** ($\det(A^{-1}) = 1/\det(A)$).
+
+### 3. Una matriz $A$ con una fila de ceros puede ser invertible
+
+**Falso.** Si $A$ tiene una fila de ceros, al desarrollar el determinante por esa fila, todos los términos llevan un cero como factor. Entonces $\det(A) = 0$ → $A$ no invertible (por **Teorema 1** contrapositivo).
+
+### 4. Una matriz $A$ con una columna de ceros puede tener determinante no nulo
+
+**Falso.** Mismo razonamiento que el anterior, desarrollando por la columna: $\det(A) = 0$.
+
+### 5. Una matriz con dos filas iguales no es invertible
+
+**Verdadero.** Por **P5**, $\det(A) = 0$. Por **Teorema 1** contrapositivo, $A$ no es invertible.
+
+### 6. Es posible hallar la inversa de una matriz con dos columnas iguales
+
+**Falso.** Por **P5** (vale para columnas también), $\det(A) = 0$. La matriz no es invertible, no existe $A^{-1}$.
+
+---
+
+## Ejercicio V.8: Valores de $\lambda$ para los cuales la matriz es invertible
+
+### Matriz A — $A = \begin{pmatrix} \lambda & 1 & 0 & 0 \\ 0 & \lambda & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 0 & \lambda & 0 & 0 \end{pmatrix}$ (4×4)
+
+**Estrategia:** Desarrollamos por F4 (tiene tres ceros). Solo sobrevive $a_{42} = \lambda$, signo $(-1)^{4+2} = +$:
+
+$$\det(A) = \lambda \cdot \det\begin{pmatrix} \lambda & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix}$$
+
+Esa 3×3 tiene C1 con dos ceros. Desarrollamos por C1: solo sobrevive $\lambda$ en posición $(1,1)$, signo $+$:
+
+$$\det(A) = \lambda \cdot \lambda \cdot \det\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \lambda^2 \cdot (0 - 1) = -\lambda^2$$
+
+**Conclusión:** $A$ invertible $\iff \det(A) \neq 0 \iff -\lambda^2 \neq 0 \iff \lambda \neq 0$.
+
+### Matriz B — $B = \begin{pmatrix} \lambda & 0 & \lambda \\ 1 & 1 & \lambda \\ \lambda & 1 & 0 \end{pmatrix}$ (3×3)
+
+**Estrategia:** Desarrollamos por F1 (tiene un cero):
+
+$$\det(B) = \lambda \cdot \det\begin{pmatrix} 1 & \lambda \\ 1 & 0 \end{pmatrix} - 0 + \lambda \cdot \det\begin{pmatrix} 1 & 1 \\ \lambda & 1 \end{pmatrix}$$
+
+$= \lambda \cdot (0 - \lambda) + \lambda \cdot (1 - \lambda) = -\lambda^2 + \lambda - \lambda^2 = -2\lambda^2 + \lambda$
+
+**Conclusión:** $\det(B) = -2\lambda^2 + \lambda = \lambda(1 - 2\lambda)$. Vale $0 \iff \lambda = 0$ o $\lambda = 1/2$.
+
+$B$ invertible $\iff \lambda \neq 0$ y $\lambda \neq 1/2$.
+
+### Matriz C — $C = \begin{pmatrix} \lambda & 0 & \lambda & 0 \\ 1 & 1 & \lambda & 0 \\ \lambda & 1 & 0 & 0 \\ 0 & 0 & 0 & \lambda \end{pmatrix}$ (4×4)
+
+**Estrategia:** F4 tiene tres ceros. Desarrollamos por F4: solo sobrevive $c_{44} = \lambda$, signo $(-1)^{4+4} = +$:
+
+$$\det(C) = \lambda \cdot \det\begin{pmatrix} \lambda & 0 & \lambda \\ 1 & 1 & \lambda \\ \lambda & 1 & 0 \end{pmatrix} = \lambda \cdot \det(B) = \lambda \cdot (-2\lambda^2 + \lambda) = -2\lambda^3 + \lambda^2$$
+
+**Conclusión:** $\det(C) = \lambda^2(1 - 2\lambda)$. Vale $0 \iff \lambda = 0$ o $\lambda = 1/2$.
+
+$C$ invertible $\iff \lambda \neq 0$ y $\lambda \neq 1/2$.
+
+---
+
+## Ejercicio V.9: Investigar si $A$ es invertible
+
+Sean $A$ y $B$ matrices $3 \times 3$ tales que:
+
+$$\det\left[A \cdot \left(\frac{1}{2} B\right)^{-1}\right] = \det(3B) + \det(A - A \cdot B)$$
+
+con $B = \begin{pmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 0 & 2 & 1 \end{pmatrix}$. Investigar si $A$ es invertible.
+
+**Paso 1: Calcular $\det(B)$.** $B$ es triangular inferior. Por **P9**: $\det(B) = 1 \cdot 1 \cdot 1 = 1$.
+
+**Paso 2: Lado izquierdo.**
+
+$$\det\left[A \cdot \left(\tfrac{1}{2}B\right)^{-1}\right] \overset{P4}{=} \det(A) \cdot \det\left[\left(\tfrac{1}{2}B\right)^{-1}\right] \overset{T1}{=} \det(A) \cdot \frac{1}{\det\left(\tfrac{1}{2}B\right)} \overset{P3}{=} \det(A) \cdot \frac{1}{(1/2)^3 \cdot \det(B)}$$
+
+$= \det(A) \cdot \dfrac{1}{(1/8) \cdot 1} = 8 \cdot \det(A)$
+
+**Paso 3: Primer término del lado derecho.**
+
+$$\det(3B) \overset{P3}{=} 3^3 \cdot \det(B) = 27 \cdot 1 = 27$$
+
+**Paso 4: Segundo término del lado derecho.**
+
+Factorizamos: $A - A \cdot B = A \cdot (I - B)$. Por **P4**:
+
+$$\det(A - AB) = \det(A) \cdot \det(I - B)$$
+
+Calculamos $I - B$:
+
+$$I - B = \begin{pmatrix} 0 & 0 & 0 \\ -2 & 0 & 0 \\ 0 & -2 & 0 \end{pmatrix}$$
+
+Esta matriz tiene F1 toda de ceros → $\det(I - B) = 0$ (al desarrollar por F1, todos los términos son $0$).
+
+Entonces el segundo término vale $\det(A) \cdot 0 = 0$.
+
+**Paso 5: Despejar.**
+
+$$8 \cdot \det(A) = 27 + 0 = 27 \implies \det(A) = \frac{27}{8}$$
+
+Como $\det(A) = 27/8 \neq 0$, por **Teorema 2**, $A$ es invertible. $\blacksquare$
+
+---
+
+## Ejercicio V.10: $\det(A) = 3$, calcular varios determinantes
+
+Sea $A$ una matriz $3 \times 3$ con $\det(A) = 3$.
+
+### Parte 1: Determinante de la matriz transformada
+
+$$M = \begin{pmatrix} 2 a_{12} & 2 a_{11} & 2 a_{13} \\ -2 a_{22} & -2 a_{21} & -2 a_{23} \\ \tfrac{1}{2} a_{32} + 10 a_{12} & \tfrac{1}{2} a_{31} + 10 a_{11} & \tfrac{1}{2} a_{33} + 10 a_{13} \end{pmatrix}$$
+
+**Paso 1 (P1):** F3 tiene sumandos. Separamos en dos determinantes — el primero con $\tfrac{1}{2}a_{3j}$, el segundo con $10 a_{1j}$:
+
+$$\det_1 = \det\begin{pmatrix} 2 a_{12} & 2 a_{11} & 2 a_{13} \\ -2 a_{22} & -2 a_{21} & -2 a_{23} \\ \tfrac{1}{2} a_{32} & \tfrac{1}{2} a_{31} & \tfrac{1}{2} a_{33} \end{pmatrix}$$
+
+$$\det_2 = \det\begin{pmatrix} 2 a_{12} & 2 a_{11} & 2 a_{13} \\ -2 a_{22} & -2 a_{21} & -2 a_{23} \\ 10 a_{12} & 10 a_{11} & 10 a_{13} \end{pmatrix}$$
+
+**Paso 2 — $\det_2 = 0$:** En $\det_2$, F3 = $5 \cdot$ F1 (porque $10 = 5 \cdot 2$, y los términos coinciden con los de F1 multiplicados por $5$). Sacando factor 2 de F1 y factor 10 de F3 con **P2**, queda F1 = F3 = $(a_{12}, a_{11}, a_{13})$. Por **P5**, $\det_2 = 0$.
+
+**Paso 3 — $\det_1$:** Sacamos factores de cada fila por **P2**:
+- F1: factor $2$
+- F2: factor $-2$
+- F3: factor $1/2$
+
+Producto: $2 \cdot (-2) \cdot (1/2) = -2$.
+
+Queda:
+
+$$\det_1 = -2 \cdot \det\begin{pmatrix} a_{12} & a_{11} & a_{13} \\ a_{22} & a_{21} & a_{23} \\ a_{32} & a_{31} & a_{33} \end{pmatrix}$$
+
+Esa matriz interior es $A$ con **C1 ↔ C2**. Por **P6**:
+
+$$\det\begin{pmatrix} a_{12} & a_{11} & a_{13} \\ a_{22} & a_{21} & a_{23} \\ a_{32} & a_{31} & a_{33} \end{pmatrix} = -\det(A) = -3$$
+
+Entonces $\det_1 = -2 \cdot (-3) = 6$.
+
+**Paso 4 — total:**
+
+$$\det(M) = \det_1 + \det_2 = 6 + 0 = 6$$
+
+**Resultado:** $6$.
+
+### Parte 2: Calcular $\det(A^T) \cdot \det(6 A (2A)^{-1})$
+
+$$\det(A^T) \overset{P8}{=} \det(A) = 3$$
+
+$$\det(6 A (2A)^{-1}) \overset{P3}{=} 6^3 \cdot \det(A (2A)^{-1}) \overset{P4}{=} 216 \cdot \det(A) \cdot \det((2A)^{-1})$$
+
+$$\det((2A)^{-1}) \overset{T1}{=} \frac{1}{\det(2A)} \overset{P3}{=} \frac{1}{2^3 \cdot \det(A)} = \frac{1}{8 \cdot 3} = \frac{1}{24}$$
+
+$$\det(6A (2A)^{-1}) = 216 \cdot 3 \cdot \frac{1}{24} = \frac{648}{24} = 27$$
+
+**Resultado total:** $3 \cdot 27 = 81$.
+
+### Parte 3: ¿Es invertible $B = 2 \cdot A^2 \cdot (4A)^{-1} \cdot \left(\frac{1}{2} A^T\right)$?
+
+$B$ invertible $\iff \det(B) \neq 0$. Calculamos:
+
+$$\det(B) = \det\left(2 \cdot A^2 \cdot (4A)^{-1} \cdot \tfrac{1}{2} A^T\right) \overset{P3}{=} 2^3 \cdot \det\left(A^2 (4A)^{-1} \tfrac{1}{2} A^T\right)$$
+
+$$\overset{P4}{=} 8 \cdot \det(A^2) \cdot \det((4A)^{-1}) \cdot \det\left(\tfrac{1}{2} A^T\right)$$
+
+Cada factor:
+- $\det(A^2) = \det(A)^2 = 9$ (P4)
+- $\det((4A)^{-1}) = \dfrac{1}{\det(4A)} = \dfrac{1}{4^3 \cdot 3} = \dfrac{1}{192}$ (T1 + P3)
+- $\det(\tfrac{1}{2} A^T) = (\tfrac{1}{2})^3 \cdot \det(A^T) = \dfrac{1}{8} \cdot 3 = \dfrac{3}{8}$ (P3 + P8)
+
+Total:
+
+$$\det(B) = 8 \cdot 9 \cdot \frac{1}{192} \cdot \frac{3}{8} = \frac{8 \cdot 9 \cdot 3}{192 \cdot 8} = \frac{216}{1536} = \frac{9}{64}$$
+
+Como $\det(B) = 9/64 \neq 0$, $B$ es invertible.
+
+---
+
+## Ejercicio V.11: Para qué $\lambda$ es invertible
+
+Determinar para qué valores de $\lambda$ la matriz
+
+$$A = \begin{pmatrix} \lambda^2 - 4 & \lambda - 3 & 3\lambda \\ \lambda - 2 & \lambda^2 - 9 & 3\lambda^2 \\ 2\lambda - 4 & \lambda - 3 & 3\lambda \end{pmatrix}$$
+
+es invertible.
+
+**Paso 1 — Factorizar cada columna:**
+- C1: $\lambda^2 - 4 = (\lambda-2)(\lambda+2)$, $\lambda - 2$, $2\lambda - 4 = 2(\lambda-2)$. Factor común: $(\lambda - 2)$.
+- C2: $\lambda - 3$, $\lambda^2 - 9 = (\lambda-3)(\lambda+3)$, $\lambda - 3$. Factor común: $(\lambda - 3)$.
+- C3: $3\lambda$, $3\lambda^2$, $3\lambda$. Factor común: $3\lambda$.
+
+**Paso 2 — Sacar factores comunes (P2 aplicada a columnas):**
+
+$$\det(A) = (\lambda-2)(\lambda-3)(3\lambda) \cdot \det\begin{pmatrix} \lambda+2 & 1 & 1 \\ 1 & \lambda+3 & \lambda \\ 2 & 1 & 1 \end{pmatrix}$$
+
+**Paso 3 — Generar ceros con P7:** $F_1 \leftarrow F_1 - F_3$:
+
+Nueva F1 = $(\lambda + 2 - 2, \; 1 - 1, \; 1 - 1) = (\lambda, 0, 0)$.
+
+$$\det(A) = (\lambda-2)(\lambda-3)(3\lambda) \cdot \det\begin{pmatrix} \lambda & 0 & 0 \\ 1 & \lambda+3 & \lambda \\ 2 & 1 & 1 \end{pmatrix}$$
+
+**Paso 4 — Desarrollo por F1:** Solo sobrevive el $\lambda$ de $(1,1)$:
+
+$$\det\begin{pmatrix} \lambda & 0 & 0 \\ 1 & \lambda+3 & \lambda \\ 2 & 1 & 1 \end{pmatrix} = \lambda \cdot \det\begin{pmatrix} \lambda+3 & \lambda \\ 1 & 1 \end{pmatrix} = \lambda \cdot ((\lambda+3) - \lambda) = \lambda \cdot 3 = 3\lambda$$
+
+**Paso 5 — Total:**
+
+$$\det(A) = (\lambda-2)(\lambda-3)(3\lambda) \cdot 3\lambda = (\lambda-2)(\lambda-3)(3\lambda)^2$$
+
+$\det(A) = 0$ cuando $\lambda = 2$, $\lambda = 3$, o $\lambda = 0$.
+
+**Conclusión:** $A$ invertible $\iff \lambda \neq 0, 2, 3$.
+
+---
+
+## Ejercicio V.12: Producto y determinantes con parámetros
+
+Sean
+
+$$A = \begin{pmatrix} 0 & \alpha & 0 \\ \alpha & 0 & 0 \\ 0 & 0 & \alpha \end{pmatrix}, \quad B = \begin{pmatrix} -4 & 0 & -3 \\ 0 & \beta & 0 \\ -3 & 0 & 4 \end{pmatrix}$$
+
+con $\alpha, \beta$ reales positivos.
+
+### Parte 1: Calcular $C = A \cdot B$
+
+Producto fila por columna:
+
+| Posición | Cálculo | Valor |
+|----------|---------|-------|
+| $C_{11}$ | $0 \cdot (-4) + \alpha \cdot 0 + 0 \cdot (-3)$ | $0$ |
+| $C_{12}$ | $0 \cdot 0 + \alpha \cdot \beta + 0 \cdot 0$ | $\alpha\beta$ |
+| $C_{13}$ | $0 \cdot (-3) + \alpha \cdot 0 + 0 \cdot 4$ | $0$ |
+| $C_{21}$ | $\alpha \cdot (-4) + 0 \cdot 0 + 0 \cdot (-3)$ | $-4\alpha$ |
+| $C_{22}$ | $\alpha \cdot 0 + 0 \cdot \beta + 0 \cdot 0$ | $0$ |
+| $C_{23}$ | $\alpha \cdot (-3) + 0 \cdot 0 + 0 \cdot 4$ | $-3\alpha$ |
+| $C_{31}$ | $0 \cdot (-4) + 0 \cdot 0 + \alpha \cdot (-3)$ | $-3\alpha$ |
+| $C_{32}$ | $0 \cdot 0 + 0 \cdot \beta + \alpha \cdot 0$ | $0$ |
+| $C_{33}$ | $0 \cdot (-3) + 0 \cdot 0 + \alpha \cdot 4$ | $4\alpha$ |
+
+$$C = \begin{pmatrix} 0 & \alpha\beta & 0 \\ -4\alpha & 0 & -3\alpha \\ -3\alpha & 0 & 4\alpha \end{pmatrix}$$
+
+### Parte 2: $\det(A)$, $\det(B)$, $\det(AB)$
+
+**$\det(A)$:** F1 tiene dos ceros (en $(1,1)$ y $(1,3)$). Desarrollo por F1: solo sobrevive el $\alpha$ en posición $(1,2)$, signo $(-1)^{1+2} = -$:
+
+$$\det(A) = -\alpha \cdot \det\begin{pmatrix} \alpha & 0 \\ 0 & \alpha \end{pmatrix} = -\alpha \cdot \alpha^2 = -\alpha^3$$
+
+**$\det(B)$:** F2 tiene dos ceros (en $(2,1)$ y $(2,3)$). Desarrollo por F2: solo sobrevive el $\beta$ en $(2,2)$, signo $+$:
+
+$$\det(B) = \beta \cdot \det\begin{pmatrix} -4 & -3 \\ -3 & 4 \end{pmatrix} = \beta \cdot (-16 - 9) = -25\beta$$
+
+**$\det(AB)$:** Por **P4**:
+
+$$\det(AB) = \det(A) \cdot \det(B) = (-\alpha^3) \cdot (-25\beta) = 25\alpha^3 \beta$$
+
+---
+
+# 10. Para el parcial: estrategia y lo que tenés que saber
+
+## 10.1. Lo que SÍ entra (y hay que dominar)
+
+| Tema | Nivel exigido |
+|------|---------------|
+| Calcular determinantes 2×2 | Mecánico |
+| Sarrus en 3×3 | Mecánico |
+| Desarrollo por cofactores en 4×4+ | Mecánico, eligiendo fila/columna óptima |
+| Adjunta de un elemento (menor) | Saber qué es y cómo se obtiene |
+| Las 9 propiedades | Cuándo usarlas + saber demostrarlas |
+| Teorema 1 + Teorema 2 (el "si y solo si") | Enunciado, idea de demostración del T1 |
+| Inversa por cofactores | Procedimiento + ejemplo completo |
+| $\det(A^{-1}) = 1/\det(A)$ | Aplicación directa |
+| Combinar propiedades | $\det(3A^2 \cdot B^T)$, $\det((2A)^{-1})$, etc. |
+| Nilpotente → $\det = 0$ | Resultado + demostración |
+| Antisimétrica + $n$ impar → $\det = 0$ | Resultado + demostración |
+| Ortogonal → $\det = \pm 1$ | Resultado + demostración + recíproco con contraejemplo |
+| Triangular con diagonal no nula → invertible | Justificar con P9 + T2 |
+| Para qué $\lambda$ es invertible | Calcular $\det$ en función de $\lambda$, ver dónde se anula |
+
+## 10.2. Lo que NO hace falta memorizar al pie de la letra
+
+- La fórmula directa de Sarrus (es para entender cómo funciona, pero en la práctica ejecutás el procedimiento visual)
+- La fórmula explícita $\sum_{j=1}^{n}$ del cofactor (basta con entender el procedimiento)
+- Los exponentes de $(-1)^{i+j}$ — el tablero de signos es más rápido visualmente
+
+## 10.3. Antes de calcular cualquier determinante en parcial
+
+Aplicar el **checklist**:
+
+1. ¿Filas/columnas iguales? → $0$
+2. ¿Triangular? → producto diagonal
+3. ¿Fila/columna entera de ceros? → $0$
+4. ¿Sumas en alguna fila? → P1 + P5 (ojo si dos sumandos generan filas iguales)
+5. ¿Factor común en alguna fila/columna? → P2
+6. ¿Hay forma de generar ceros con P7? → hacerlo
+7. ¿Sigue siendo $3 \times 3$? → Sarrus. ¿Es más grande? → cofactores
+
+## 10.4. Recetas rápidas para combinar propiedades
+
+| Si te piden... | Aplicá... |
+|----------------|-----------|
+| $\det(kA)$ | P3: $k^n \cdot \det(A)$ |
+| $\det(A^k)$ | P4 $k$ veces: $\det(A)^k$ |
+| $\det(A^{-1})$ | T1: $1/\det(A)$ |
+| $\det(A^T)$ | P8: $\det(A)$ |
+| $\det(A \cdot B)$ | P4: $\det(A) \cdot \det(B)$ |
+| $\det((kA)^{-1})$ | T1 + P3: $1/(k^n \cdot \det(A))$ |
+| $\det(k \cdot A^{-1})$ | P3 + T1: $k^n / \det(A)$ |
+
+## 10.5. Cuando aparece "investigar si es invertible"
+
+Tres caminos posibles:
+
+| Camino | Cuándo usarlo |
+|--------|--------------|
+| Calcular $\det(A)$ y verificar $\neq 0$ | Si te dan la matriz explícita o expresión computable |
+| Argumento estructural | Si la matriz es triangular, antisimétrica impar, nilpotente, etc. |
+| Despejar $\det(A)$ de una ecuación | Si te dan una ecuación que involucra $\det(A)$ junto con otras cosas (V.9, V.10) |
+
+## 10.6. Cuando aparece "para qué $\lambda$ es invertible"
+
+1. Calcular $\det(A)$ en función de $\lambda$
+2. Factorizar el polinomio resultante
+3. Las raíces dicen "para qué $\lambda$ NO es invertible"
+4. La respuesta: "$\lambda \neq$ esas raíces"
+
+## 10.7. Demostrar igualdades del tipo $\det(\ldots) = $ algo
+
+Estrategia general:
+1. Empezar del lado más complicado
+2. Aplicar **P4** para separar productos
+3. Aplicar **P3** para sacar escalares
+4. Aplicar **P8** si aparece transpuesta
+5. Aplicar **T1** si aparece inversa
+6. Llegar al lado más simple
+
+---
+
+## Cierre
+
+El tema de determinantes es **casi todo procedimiento**. No hay teoría rara — hay 9 propiedades, 2 teoremas, una fórmula para la inversa, y unos resultados clásicos (nilpotente, antisimétrica, ortogonal, triangular). Con eso y práctica, todos los ejercicios del parcial salen.
+
+> "Es importante dominarlas porque pueden facilitar temas de tiempos en un parcial"
+
+**Traducción:** En el parcial el tiempo es escaso. Las propiedades son atajos. Saber cuándo aplicar cada una te ahorra cuentas. **Antes de calcular nada, mirá la matriz.**
