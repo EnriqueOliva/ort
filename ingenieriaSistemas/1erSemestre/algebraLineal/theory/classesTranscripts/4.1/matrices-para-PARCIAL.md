@@ -1027,62 +1027,105 @@ Demo completa paso a paso en `matrices-DEMOSTRACIONES.md` §G.2. Es la generaliz
 
 ---
 
-## 🟢 Ejercicio V.12 — Matriz ortogonal (SE PIDE como ejercicio — propiedades formales de ortogonal NO entran)
+## 🟢 Ejercicio V.12 — Matriz ortogonal
 
-**Enunciado.** Una matriz $n \times n$ $A$ es **ortogonal** si y solo si $A$ es invertible y $A^{-1} = A^T$.
+**Enunciado.** $A$ ortogonal significa que $A^{-1} = A^T$, lo que es equivalente a $A^T \cdot A = \text{Id}$.
 
-Dada $A = \begin{pmatrix} 4/5 & 3/5 \\ \alpha & \beta \end{pmatrix}$, con $\alpha, \beta \in \mathbb{R}$, determinar los valores de $\alpha$ y $\beta$ para que $A$ sea ortogonal y hallar su inversa.
+Dada $A = \begin{pmatrix} 4/5 & 3/5 \\ \alpha & \beta \end{pmatrix}$, hallar $\alpha, \beta \in \mathbb{R}$ para que $A$ sea ortogonal y dar su inversa.
 
 ### Solución
 
-$A^{-1} = A^T \implies A^T \cdot A = \text{Id}$. Imponemos esa condición:
+**Paso 1 — Traducir la condición.** "$A$ ortogonal" significa $A^{-1} = A^T$. Eso es equivalente a $A^T \cdot A = \text{Id}$ (por definición de inversa). Vamos a usar esta segunda forma porque se calcula directamente.
 
-$$A^T \cdot A = \begin{pmatrix} 4/5 & \alpha \\ 3/5 & \beta \end{pmatrix} \cdot \begin{pmatrix} 4/5 & 3/5 \\ \alpha & \beta \end{pmatrix} = \begin{pmatrix} 16/25 + \alpha^2 & 12/25 + \alpha\beta \\ 12/25 + \alpha\beta & 9/25 + \beta^2 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$$
+**Paso 2 — Calcular $A^T$.** Trasponer = intercambiar fila por columna:
 
-Igualando entrada por entrada:
+$$A^T = \begin{pmatrix} 4/5 & \alpha \\ 3/5 & \beta \end{pmatrix}$$
 
-- $16/25 + \alpha^2 = 1 \implies \alpha^2 = 9/25 \implies \alpha = \pm 3/5$
-- $9/25 + \beta^2 = 1 \implies \beta^2 = 16/25 \implies \beta = \pm 4/5$
-- $12/25 + \alpha \beta = 0 \implies \alpha \beta = -12/25$
+**Paso 3 — Calcular $A^T \cdot A$ entrada por entrada.**
 
-Las dos parejas que cumplen las tres condiciones:
+- $(1,1)$: $\frac{4}{5} \cdot \frac{4}{5} + \alpha \cdot \alpha = \frac{16}{25} + \alpha^2$
+- $(1,2)$: $\frac{4}{5} \cdot \frac{3}{5} + \alpha \cdot \beta = \frac{12}{25} + \alpha\beta$
+- $(2,1)$: $\frac{3}{5} \cdot \frac{4}{5} + \beta \cdot \alpha = \frac{12}{25} + \alpha\beta$
+- $(2,2)$: $\frac{3}{5} \cdot \frac{3}{5} + \beta \cdot \beta = \frac{9}{25} + \beta^2$
 
-**Caso 1:** $\alpha = 3/5, \beta = -4/5 \implies A^{-1} = A^T = \begin{pmatrix} 4/5 & 3/5 \\ 3/5 & -4/5 \end{pmatrix}$
+Quedando:
 
-**Caso 2:** $\alpha = -3/5, \beta = 4/5 \implies A^{-1} = A^T = \begin{pmatrix} 4/5 & -3/5 \\ 3/5 & 4/5 \end{pmatrix}$
+$$A^T \cdot A = \begin{pmatrix} 16/25 + \alpha^2 & 12/25 + \alpha\beta \\ 12/25 + \alpha\beta & 9/25 + \beta^2 \end{pmatrix}$$
+
+**Paso 4 — Igualar a $\text{Id}$.** Pedimos $A^T \cdot A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$. Eso da el sistema:
+
+$$\begin{cases} \frac{16}{25} + \alpha^2 = 1 \\ \frac{9}{25} + \beta^2 = 1 \\ \frac{12}{25} + \alpha\beta = 0 \end{cases}$$
+
+> **Nota:** las entradas $(1,2)$ y $(2,1)$ son la misma ecuación, por eso solo cuentan como una.
+
+**Paso 5 — Resolver $\alpha$.** De la primera: $\alpha^2 = 1 - \frac{16}{25} = \frac{9}{25}$. Tomando raíz:
+
+$$\alpha = \pm \frac{3}{5}$$
+
+> **¿Por qué dos signos?** Porque tanto $\frac{3}{5}$ como $-\frac{3}{5}$ elevados al cuadrado dan $\frac{9}{25}$.
+
+**Paso 6 — Resolver $\beta$.** Análogo: $\beta^2 = 1 - \frac{9}{25} = \frac{16}{25}$, así que $\beta = \pm \frac{4}{5}$.
+
+**Paso 7 — Usar la tercera ecuación para combinar signos.** La tercera ecuación dice $\alpha\beta = -\frac{12}{25}$. Como $\frac{3}{5} \cdot \frac{4}{5} = \frac{12}{25}$ es positivo, $\alpha$ y $\beta$ deben tener **signos opuestos** (uno positivo, otro negativo).
+
+**Paso 8 — Las dos soluciones.**
+
+- **Caso 1:** $\alpha = \frac{3}{5}, \beta = -\frac{4}{5}$. Entonces $A^{-1} = A^T = \begin{pmatrix} 4/5 & 3/5 \\ 3/5 & -4/5 \end{pmatrix}$.
+
+- **Caso 2:** $\alpha = -\frac{3}{5}, \beta = \frac{4}{5}$. Entonces $A^{-1} = A^T = \begin{pmatrix} 4/5 & -3/5 \\ 3/5 & 4/5 \end{pmatrix}$.
+
+> **Idea central:** ortogonal $\Leftrightarrow A^T A = \text{Id}$. Plantear esa condición da un sistema con $n^2$ ecuaciones en las incógnitas, que se resuelve con álgebra básica.
 
 ---
 
-## 🔵 Ejercicio V.13 — Hallar parámetros para $P^{-1} A P$ (SE PIDE)
+## 🔵 Ejercicio V.13 — Hallar parámetros para $P^{-1} A P$
 
-**Enunciado.** Dadas $A = \begin{pmatrix} 1 & 2 \\ 5 & 4 \end{pmatrix}$ y $P = \begin{pmatrix} 2 & 1 \\ x & y \end{pmatrix}$, con $x, y \in \mathbb{R}$, hallar $x$ e $y$ para que:
+**Enunciado.** Dadas $A = \begin{pmatrix} 1 & 2 \\ 5 & 4 \end{pmatrix}$ y $P = \begin{pmatrix} 2 & 1 \\ x & y \end{pmatrix}$, hallar $x, y$ para que:
 
 $$P^{-1} \cdot A \cdot P = \begin{pmatrix} 6 & 0 \\ 0 & -1 \end{pmatrix}$$
 
 ### Solución
 
-**Truco:** multiplicar ambos lados por $P$ por la izquierda para eliminar $P^{-1}$ (sin tener que calcularlo):
+**Paso 1 — Truco para evitar calcular $P^{-1}$.** Calcular $P^{-1}$ explícitamente sería un fastidio (y encima depende de $x, y$, así que sería con incógnitas). Mejor: **multiplico por $P$ a izquierda en ambos lados** para que el $P^{-1}$ se cancele.
 
 $$P \cdot (P^{-1} \cdot A \cdot P) = P \cdot \begin{pmatrix} 6 & 0 \\ 0 & -1 \end{pmatrix}$$
 
-Por asociativa: $(P \cdot P^{-1}) \cdot A \cdot P = \text{Id} \cdot A \cdot P = A \cdot P$. Entonces:
+> **¿Por qué a izquierda?** Porque $P^{-1}$ está a izquierda de $A \cdot P$. Para que $P \cdot P^{-1} = \text{Id}$ se forme, $P$ tiene que estar a la izquierda de $P^{-1}$.
+
+**Paso 2 — Reagrupar usando asociativa.**
+
+$$\underbrace{(P \cdot P^{-1})}_{=\text{Id}} \cdot A \cdot P = P \cdot \begin{pmatrix} 6 & 0 \\ 0 & -1 \end{pmatrix}$$
+
+$P \cdot P^{-1} = \text{Id}$, y $\text{Id} \cdot A = A$. Queda:
 
 $$A \cdot P = P \cdot \begin{pmatrix} 6 & 0 \\ 0 & -1 \end{pmatrix}$$
 
-Calculamos ambos lados:
+> **¡Listo!** Ya no aparece $P^{-1}$. Es una ecuación con incógnitas $x, y$ que podemos resolver.
 
-$$A \cdot P = \begin{pmatrix} 1 & 2 \\ 5 & 4 \end{pmatrix} \begin{pmatrix} 2 & 1 \\ x & y \end{pmatrix} = \begin{pmatrix} 2 + 2x & 1 + 2y \\ 10 + 4x & 5 + 4y \end{pmatrix}$$
+**Paso 3 — Calcular el lado izquierdo $A \cdot P$.** Multiplicación entrada por entrada:
+
+$$A \cdot P = \begin{pmatrix} 1 & 2 \\ 5 & 4 \end{pmatrix} \begin{pmatrix} 2 & 1 \\ x & y \end{pmatrix} = \begin{pmatrix} 1 \cdot 2 + 2 \cdot x & 1 \cdot 1 + 2 \cdot y \\ 5 \cdot 2 + 4 \cdot x & 5 \cdot 1 + 4 \cdot y \end{pmatrix} = \begin{pmatrix} 2 + 2x & 1 + 2y \\ 10 + 4x & 5 + 4y \end{pmatrix}$$
+
+**Paso 4 — Calcular el lado derecho $P \cdot \begin{pmatrix} 6 & 0 \\ 0 & -1 \end{pmatrix}$.**
 
 $$P \cdot \begin{pmatrix} 6 & 0 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} 2 & 1 \\ x & y \end{pmatrix} \begin{pmatrix} 6 & 0 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} 12 & -1 \\ 6x & -y \end{pmatrix}$$
 
-Igualando entrada por entrada:
+> **Cálculo de la entrada $(2,2)$ del lado derecho:** fila 2 de $P$ es $(x, y)$, columna 2 de la diagonal es $(0, -1)^T$. Entonces $x \cdot 0 + y \cdot (-1) = -y$.
 
-- $2 + 2x = 12 \implies x = 5$
-- $1 + 2y = -1 \implies y = -1$
-- (verificación) $10 + 4(5) = 30 = 6(5)$ ✓
-- (verificación) $5 + 4(-1) = 1 = -(-1)$ ✓
+**Paso 5 — Igualar entrada por entrada.** Las dos matrices tienen que ser iguales:
 
-**Resultado:** $x = 5$, $y = -1$.
+$$\begin{cases} 2 + 2x = 12 & \text{(entrada } (1,1) \text{)} \\ 1 + 2y = -1 & \text{(entrada } (1,2) \text{)} \\ 10 + 4x = 6x & \text{(entrada } (2,1) \text{)} \\ 5 + 4y = -y & \text{(entrada } (2,2) \text{)} \end{cases}$$
+
+**Paso 6 — Resolver.** De la primera ecuación: $2x = 10 \Rightarrow x = 5$. De la segunda: $2y = -2 \Rightarrow y = -1$.
+
+**Paso 7 — Verificar las dos restantes (deberían ser consistentes).**
+
+- Ecuación (3): $10 + 4(5) = 30$, ¿igual a $6(5) = 30$? Sí ✓
+- Ecuación (4): $5 + 4(-1) = 1$, ¿igual a $-(-1) = 1$? Sí ✓
+
+**Resultado:** $\boxed{x = 5, \;\; y = -1}$.
+
+> **Idea central del ejercicio:** cuando aparece $P^{-1}$ en una ecuación matricial, casi siempre conviene multiplicar por $P$ del lado correcto para hacer desaparecer el $P^{-1}$, en lugar de calcularlo.
 
 ---
 
@@ -1110,15 +1153,52 @@ Igualando entrada por entrada:
 
 ### Solución
 
-**Parte 1 — demo:** ver `matrices-DEMOSTRACIONES.md` §I.3.
+#### Parte 1 — demo
 
-**Parte 2 — sistema:** Sea $B = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$. Imponiendo $AB = BA$ y resolviendo el sistema entrada por entrada se llega a $c = -b$ y $d = a+b$. Así:
+Ver `matrices-DEMOSTRACIONES.md` §I.3 paso a paso. Idea: usar las hipótesis $AB = BA$ y $AC = CA$ junto con la distributiva.
 
-$$\boxed{B = \begin{pmatrix} a & b \\ -b & a+b \end{pmatrix}, \quad a, b \in \mathbb{R}}$$
+#### Parte 2 — hallar todas las matrices que conmutan con $A$
 
-**Verificaciones rápidas:** $A$ misma se obtiene con $a=1, b=-1$. $\text{Id}$ se obtiene con $a=1, b=0$.
+**Paso 1 — Plantear $B$ con incógnitas.** Sea $B = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ una matriz $2 \times 2$ genérica. Vamos a encontrar qué relaciones deben cumplir $a, b, c, d$ para que $AB = BA$.
 
-**$D_1, D_2$ sin multiplicar:** $D_1 = A + \text{Id}$ y $D_2 = A - \text{Id}$. Como $A$ conmuta consigo misma y con $\text{Id}$, por **parte 1** conmuta con cualquier combinación lineal — incluyendo $D_1$ y $D_2$.
+**Paso 2 — Calcular $AB$.**
+
+$$AB = \begin{pmatrix} 1 & -1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} a & b \\ c & d \end{pmatrix} = \begin{pmatrix} 1 \cdot a + (-1) \cdot c & 1 \cdot b + (-1) \cdot d \\ 1 \cdot a + 0 \cdot c & 1 \cdot b + 0 \cdot d \end{pmatrix} = \begin{pmatrix} a - c & b - d \\ a & b \end{pmatrix}$$
+
+**Paso 3 — Calcular $BA$.**
+
+$$BA = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} 1 & -1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} a \cdot 1 + b \cdot 1 & a \cdot (-1) + b \cdot 0 \\ c \cdot 1 + d \cdot 1 & c \cdot (-1) + d \cdot 0 \end{pmatrix} = \begin{pmatrix} a + b & -a \\ c + d & -c \end{pmatrix}$$
+
+**Paso 4 — Imponer $AB = BA$ y obtener el sistema.** Igualamos entrada por entrada:
+
+$$\begin{cases} a - c = a + b & (1,1) \\ b - d = -a & (1,2) \\ a = c + d & (2,1) \\ b = -c & (2,2) \end{cases}$$
+
+**Paso 5 — Resolver el sistema.**
+
+- De la ecuación $(1,1)$: $a - c = a + b \Rightarrow -c = b \Rightarrow \boxed{c = -b}$
+- De la ecuación $(2,2)$: $b = -c$ — consistente con la anterior.
+- De la ecuación $(1,2)$: $b - d = -a \Rightarrow d = a + b \Rightarrow \boxed{d = a + b}$
+- De la ecuación $(2,1)$: $a = c + d$. Sustituyo $c = -b$ y $d = a + b$: $a = -b + a + b = a$ ✓ (siempre cierto, no agrega info nueva).
+
+**Paso 6 — Conclusión.** Las matrices que conmutan con $A$ son las de la forma:
+
+$$\boxed{B = \begin{pmatrix} a & b \\ -b & a+b \end{pmatrix}, \quad \text{con } a, b \in \mathbb{R} \text{ libres}}$$
+
+> **¿Por qué solo dos parámetros libres?** Porque las ecuaciones del paso 4 fijaron $c$ y $d$ en términos de $a$ y $b$. Quedan 2 grados de libertad.
+
+**Paso 7 — Verificar casos particulares.**
+
+- ¿$A$ conmuta consigo misma? $A = \begin{pmatrix} 1 & -1 \\ 1 & 0 \end{pmatrix}$. Identifico $a = 1, b = -1$, así que $-b = 1$ ✓ y $a+b = 0$ ✓. Sí, $A$ tiene esa forma.
+- ¿$\text{Id}$ conmuta con $A$? $\text{Id} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$. Identifico $a = 1, b = 0$, así que $-b = 0$ ✓ y $a + b = 1$ ✓. Sí, $\text{Id}$ tiene esa forma.
+
+**Paso 8 — Concluir sin multiplicar para $D_1, D_2$.** En lugar de multiplicar, escribo cada $D$ como combinación lineal de $A$ y $\text{Id}$:
+
+- $D_1 = \begin{pmatrix} 2 & -1 \\ 1 & 1 \end{pmatrix} = \begin{pmatrix} 1 & -1 \\ 1 & 0 \end{pmatrix} + \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = A + \text{Id}$
+- $D_2 = \begin{pmatrix} 0 & -1 \\ 1 & -1 \end{pmatrix} = \begin{pmatrix} 1 & -1 \\ 1 & 0 \end{pmatrix} - \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = A - \text{Id}$
+
+Como $A$ conmuta consigo misma (trivial) y $A$ conmuta con $\text{Id}$ (la identidad conmuta con todas), **por la parte 1** $A$ conmuta con cualquier combinación lineal de $A$ y $\text{Id}$ — incluyendo $D_1$ y $D_2$. ✓
+
+> **Idea central de la parte 2:** plantear $B$ genérico, hacer los productos, obtener un sistema, resolverlo. Eso te da TODAS las matrices que conmutan con $A$ (no solo una).
 
 ---
 
