@@ -604,42 +604,60 @@ Esta es la sección más importante para el parcial. Acá están todos los ejerc
 
 ---
 
-## 🔵 Ejercicio V.1 — Operaciones básicas (cálculo directo)
+## 🔵 Ejercicio V.1 — Operaciones básicas
 
 **Enunciado.** Dadas las matrices:
 
 $$A = \begin{pmatrix} 2 & -1 & 4 \\ 1 & 0 & 6 \\ 1 & -1 & 2 \end{pmatrix}, \quad B = \begin{pmatrix} 0 & 0 & 1 \\ 3 & 0 & 5 \\ 3 & -2 & 0 \end{pmatrix}, \quad C = \begin{pmatrix} 1 & 1 & 2 \\ -2 & 4 & 0 \\ 0 & 5 & -1 \end{pmatrix}$$
 
 1. Calcular: (i) $A - 2B$, (ii) $3A - C$, (iii) $A + B + C$.
-2. Encontrar una matriz $D$, $3 \times 3$, tal que $A + B + C + D = \mathcal{O}_{3 \times 3}$.
+2. Encontrar $D$ tal que $A + B + C + D = \mathcal{O}_{3 \times 3}$.
 
 ### Solución
 
-**(i)** $A - 2B$. Primero hacemos $-2 \cdot B$ (producto escalar por matriz):
+#### (i) $A - 2B$
 
-$$-2 B = \begin{pmatrix} 0 & 0 & -2 \\ -6 & 0 & -10 \\ -6 & 4 & 0 \end{pmatrix}$$
+**Paso 1 — Calcular $2B$ (escalar por matriz).** Multiplicás cada entrada de $B$ por $2$:
 
-Ahora sumamos $A + (-2B)$:
+$$2B = \begin{pmatrix} 0 \cdot 2 & 0 \cdot 2 & 1 \cdot 2 \\ 3 \cdot 2 & 0 \cdot 2 & 5 \cdot 2 \\ 3 \cdot 2 & -2 \cdot 2 & 0 \cdot 2 \end{pmatrix} = \begin{pmatrix} 0 & 0 & 2 \\ 6 & 0 & 10 \\ 6 & -4 & 0 \end{pmatrix}$$
 
-$$A - 2B = \begin{pmatrix} 2 & -1 & 4 \\ 1 & 0 & 6 \\ 1 & -1 & 2 \end{pmatrix} + \begin{pmatrix} 0 & 0 & -2 \\ -6 & 0 & -10 \\ -6 & 4 & 0 \end{pmatrix} = \begin{pmatrix} 2 & -1 & 2 \\ -5 & 0 & -4 \\ -5 & 3 & 2 \end{pmatrix}$$
+**Paso 2 — Restar entrada por entrada.** $A - 2B$ es la matriz cuya entrada $(i,j)$ es $a_{ij} - (2B)_{ij}$:
 
-**(ii)** $3A - C$:
+$$A - 2B = \begin{pmatrix} 2-0 & -1-0 & 4-2 \\ 1-6 & 0-0 & 6-10 \\ 1-6 & -1-(-4) & 2-0 \end{pmatrix} = \begin{pmatrix} 2 & -1 & 2 \\ -5 & 0 & -4 \\ -5 & 3 & 2 \end{pmatrix}$$
 
-$$3A = \begin{pmatrix} 6 & -3 & 12 \\ 3 & 0 & 18 \\ 3 & -3 & 6 \end{pmatrix}, \quad -C = \begin{pmatrix} -1 & -1 & -2 \\ 2 & -4 & 0 \\ 0 & -5 & 1 \end{pmatrix}$$
+> **Detalle de $(3,2)$:** $-1 - (-4) = -1 + 4 = 3$. Restar un negativo es sumar.
 
-$$3A - C = \begin{pmatrix} 5 & -4 & 10 \\ 5 & -4 & 18 \\ 3 & -8 & 7 \end{pmatrix}$$
+#### (ii) $3A - C$
 
-**(iii)** $A + B + C$:
+**Paso 1 — Calcular $3A$.**
 
-$$A + B + C = \begin{pmatrix} 3 & 0 & 7 \\ 2 & 4 & 11 \\ 4 & 2 & 1 \end{pmatrix}$$
+$$3A = \begin{pmatrix} 6 & -3 & 12 \\ 3 & 0 & 18 \\ 3 & -3 & 6 \end{pmatrix}$$
 
-**Parte 2.** $A + B + C + D = \mathcal{O}_{3 \times 3}$. Como ya sabemos que $A + B + C = \begin{pmatrix} 3 & 0 & 7 \\ 2 & 4 & 11 \\ 4 & 2 & 1 \end{pmatrix}$, para que la suma con $D$ dé la nula, $D$ debe ser **el opuesto** de $A + B + C$:
+**Paso 2 — Restar $C$.** Entrada por entrada $3a_{ij} - c_{ij}$:
+
+$$3A - C = \begin{pmatrix} 6-1 & -3-1 & 12-2 \\ 3-(-2) & 0-4 & 18-0 \\ 3-0 & -3-5 & 6-(-1) \end{pmatrix} = \begin{pmatrix} 5 & -4 & 10 \\ 5 & -4 & 18 \\ 3 & -8 & 7 \end{pmatrix}$$
+
+#### (iii) $A + B + C$
+
+Sumás las tres entrada por entrada. Por ejemplo, entrada $(1,1)$: $2 + 0 + 1 = 3$. Entrada $(2,3)$: $6 + 5 + 0 = 11$.
+
+$$A + B + C = \begin{pmatrix} 2+0+1 & -1+0+1 & 4+1+2 \\ 1+3+(-2) & 0+0+4 & 6+5+0 \\ 1+3+0 & -1+(-2)+5 & 2+0+(-1) \end{pmatrix} = \begin{pmatrix} 3 & 0 & 7 \\ 2 & 4 & 11 \\ 4 & 2 & 1 \end{pmatrix}$$
+
+#### Parte 2 — hallar $D$ tal que la suma total dé $\mathcal{O}$
+
+**Paso 1 — Despejar $D$.** Partimos de $A + B + C + D = \mathcal{O}$. Pasando $A + B + C$ al otro lado:
+
+$$D = \mathcal{O} - (A + B + C) = -(A + B + C)$$
+
+> **¿Por qué $D$ es el opuesto?** Porque la suma de algo más su opuesto da la nula. Si $A + B + C = M$, necesitamos $M + D = \mathcal{O}$, así que $D = -M$.
+
+**Paso 2 — Calcular $-(A+B+C)$.** Tomo la matriz del paso (iii) y le cambio el signo a cada entrada:
 
 $$D = \begin{pmatrix} -3 & 0 & -7 \\ -2 & -4 & -11 \\ -4 & -2 & -1 \end{pmatrix}$$
 
 ---
 
-## 🔵 Ejercicio V.2 — Productos posibles (verificar conformabilidad)
+## 🔵 Ejercicio V.2 — Productos posibles
 
 **Enunciado.** Dadas las matrices:
 
@@ -649,48 +667,95 @@ Realizar todos los productos posibles entre dos de ellas.
 
 ### Solución
 
-Dimensiones: $A$ es $2 \times 3$, $B$ es $3 \times 3$, $C$ es $3 \times 2$.
+#### Paso 1 — Anotar las dimensiones
+
+Antes de multiplicar, siempre conviene anotar las dimensiones:
+
+- $A$ es $2 \times 3$ (2 filas, 3 columnas)
+- $B$ es $3 \times 3$
+- $C$ es $3 \times 2$
+
+#### Paso 2 — Decidir qué productos son posibles
+
+**Regla de oro:** $X \cdot Y$ se puede hacer si las **columnas de $X$ coinciden con las filas de $Y$**. El resultado tiene las **filas de $X$ y las columnas de $Y$**.
+
+Probamos todas las combinaciones de a pares (12 en total: $A\cdot A, A\cdot B, A\cdot C, B\cdot A, B\cdot B, B\cdot C, C\cdot A, C\cdot B, C\cdot C$, más $A\cdot A$, etc.). Anotando solo las "cruzadas":
+
+| Producto | Dimensiones | ¿Coinciden? | Resultado |
+|----------|-------------|-------------|-----------|
+| $A \cdot B$ | $(2 \times \mathbf{3}) \cdot (\mathbf{3} \times 3)$ | sí, ambos $3$ | $2 \times 3$ ✓ |
+| $A \cdot C$ | $(2 \times \mathbf{3}) \cdot (\mathbf{3} \times 2)$ | sí | $2 \times 2$ ✓ |
+| $B \cdot A$ | $(3 \times \mathbf{3}) \cdot (\mathbf{2} \times 3)$ | NO ($3 \neq 2$) | imposible ✗ |
+| $B \cdot C$ | $(3 \times \mathbf{3}) \cdot (\mathbf{3} \times 2)$ | sí | $3 \times 2$ ✓ |
+| $C \cdot A$ | $(3 \times \mathbf{2}) \cdot (\mathbf{2} \times 3)$ | sí | $3 \times 3$ ✓ |
+| $C \cdot B$ | $(3 \times \mathbf{2}) \cdot (\mathbf{3} \times 3)$ | NO ($2 \neq 3$) | imposible ✗ |
 
 **Productos posibles:** $A \cdot B$, $A \cdot C$, $C \cdot A$, $B \cdot C$.
 
-**No se puede hacer** $B \cdot A$ (las columnas de $B$ son $3$, las filas de $A$ son $2$, no coinciden). **Tampoco** $C \cdot B$ (columnas de $C$ son $2$, filas de $B$ son $3$).
+#### Paso 3 — Calcular cada producto
 
-**$A \cdot B$** ($2 \times 3$ por $3 \times 3$ → $2 \times 3$):
+**$A \cdot B$ ($2 \times 3$).** Cada entrada $(i,k)$ = fila $i$ de $A$ por columna $k$ de $B$. Por ejemplo, entrada $(1,1)$: $2 \cdot 1 + (-1) \cdot 2 + 4 \cdot 3 = 2 - 2 + 12 = 12$. Haciendo todas:
 
 $$A \cdot B = \begin{pmatrix} 12 & -7 & 0 \\ 19 & -12 & 1 \end{pmatrix}$$
 
-**$A \cdot C$** ($2 \times 3$ por $3 \times 2$ → $2 \times 2$):
+**$A \cdot C$ ($2 \times 2$).** Por ejemplo, entrada $(1,1)$: $2 \cdot 1 + (-1) \cdot (-2) + 4 \cdot 0 = 2 + 2 + 0 = 4$.
 
 $$A \cdot C = \begin{pmatrix} 4 & 28 \\ 1 & 36 \end{pmatrix}$$
 
-**$C \cdot A$** ($3 \times 2$ por $2 \times 3$ → $3 \times 3$):
+**$C \cdot A$ ($3 \times 3$).** Por ejemplo, entrada $(1,1)$: $1 \cdot 2 + 6 \cdot 1 = 8$. Notá que las filas de $C$ tienen 2 entradas (no 3), así que cada producto suma 2 términos:
 
 $$C \cdot A = \begin{pmatrix} 8 & -1 & 40 \\ 0 & 2 & 16 \\ 5 & 0 & 30 \end{pmatrix}$$
 
-**$B \cdot C$** ($3 \times 3$ por $3 \times 2$ → $3 \times 2$):
+> **Importante:** $A \cdot C \neq C \cdot A$ — ni siquiera tienen la misma dimensión ($2 \times 2$ vs $3 \times 3$). Esto ilustra la **no conmutatividad** del producto.
+
+**$B \cdot C$ ($3 \times 2$).** Por ejemplo, entrada $(1,1)$: $1 \cdot 1 + 0 \cdot (-2) + 1 \cdot 0 = 1$.
 
 $$B \cdot C = \begin{pmatrix} 1 & 11 \\ 4 & 18 \\ 7 & 10 \end{pmatrix}$$
 
 ---
 
-## 🟢 Ejercicio V.3 — Producto por vectores canónicos (SE PIDE)
+## 🟢 Ejercicio V.3 — Producto por vectores canónicos
 
-**Enunciado.** Dadas:
+**Enunciado.** Sea $A$ una matriz $3 \times 3$ con entradas $a_{ij}$ y los tres vectores canónicos:
 
-$$A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}, \quad \vec{v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad \vec{v}_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad \vec{v}_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$$
+$$\vec{v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad \vec{v}_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad \vec{v}_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$$
 
 1. Calcular $A \cdot \vec{v}_1$, $A \cdot \vec{v}_2$, $A \cdot \vec{v}_3$.
-2. Describir con palabras los resultados.
+2. Describir el resultado con palabras.
 
 ### Solución
 
-**Parte 1.** Aplicando la fórmula del producto:
+#### Parte 1 — calcular los tres productos
 
-$$A \cdot \vec{v}_1 = \begin{pmatrix} a_{11} \\ a_{21} \\ a_{31} \end{pmatrix}, \quad A \cdot \vec{v}_2 = \begin{pmatrix} a_{12} \\ a_{22} \\ a_{32} \end{pmatrix}, \quad A \cdot \vec{v}_3 = \begin{pmatrix} a_{13} \\ a_{23} \\ a_{33} \end{pmatrix}$$
+**Para $A \cdot \vec{v}_1$:** aplico la fórmula "fila $i$ de $A$ por columna 1 de $\vec{v}_1$" para cada fila $i$:
 
-Cada producto pertenece a $\mathcal{M}_{3 \times 1}(\mathbb{R})$.
+- Fila 1: $a_{11} \cdot 1 + a_{12} \cdot 0 + a_{13} \cdot 0 = a_{11}$
+- Fila 2: $a_{21} \cdot 1 + a_{22} \cdot 0 + a_{23} \cdot 0 = a_{21}$
+- Fila 3: $a_{31} \cdot 1 + a_{32} \cdot 0 + a_{33} \cdot 0 = a_{31}$
 
-**Parte 2.** En palabras: **multiplicar $A$ por el vector canónico $\vec{v}_j$ extrae la columna $j$-ésima de $A$**. Es decir, $A \cdot \vec{v}_j$ devuelve la columna $j$ de $A$ como vector columna.
+$$A \cdot \vec{v}_1 = \begin{pmatrix} a_{11} \\ a_{21} \\ a_{31} \end{pmatrix}$$
+
+> **Observación clave:** ese resultado es **la columna 1 de $A$**.
+
+**Para $A \cdot \vec{v}_2$:** análogo, pero ahora el $1$ está en la posición 2 del vector. En cada fila sobrevive solo el segundo término:
+
+$$A \cdot \vec{v}_2 = \begin{pmatrix} a_{12} \\ a_{22} \\ a_{32} \end{pmatrix} = \text{columna 2 de } A$$
+
+**Para $A \cdot \vec{v}_3$:** el $1$ está en posición 3:
+
+$$A \cdot \vec{v}_3 = \begin{pmatrix} a_{13} \\ a_{23} \\ a_{33} \end{pmatrix} = \text{columna 3 de } A$$
+
+Cada producto es un vector columna ($3 \times 1$).
+
+#### Parte 2 — descripción en palabras
+
+**Multiplicar $A$ por el vector canónico $\vec{v}_j$ devuelve exactamente la columna $j$-ésima de $A$.**
+
+> **Demo formal en `matrices-DEMOSTRACIONES.md` §A.1.**
+>
+> **Idea central:** los ceros del vector "borran" las otras columnas; el $1$ "selecciona" una sola.
+>
+> **Para qué sirve este truco en parcial:** si te piden la columna $j$ de un producto $A \cdot B$, no hace falta calcular toda la matriz $AB$ — alcanza con calcular $A \cdot B \cdot \vec{v}_j$. Te ahorra cuentas.
 
 ---
 
@@ -1212,19 +1277,67 @@ Como $A$ conmuta consigo misma (trivial) y $A$ conmuta con $\text{Id}$ (la ident
 
 ### Solución
 
-**Parte 1. FALSO** en general. $(A+B)^2 = A^2 + AB + BA + B^2$. Solo da $A^2 + 2AB + B^2$ si $AB = BA$.
+#### Parte 1 — FALSO en general
 
-> **Contraejemplo oficial:** $A = \begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}$, $B = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}$. Calculá $(A+B)^2$ y $A^2 + 2AB + B^2$ y verificá que no coinciden.
->
-> **Hipótesis para que sea cierta:** $AB = BA$.
+**Paso 1 — Desarrollar $(A+B)^2$ honestamente.** $(A+B)^2$ significa $(A+B) \cdot (A+B)$. Aplicando la distributiva (cuidado: como las matrices NO conmutan en general, hay que mantener el orden):
 
-**Parte 2. FALSO** en general. $(AB)^T = B^T A^T = BA$, así que $AB$ es simétrica solo si $AB = BA$.
+$$(A+B)(A+B) = A \cdot A + A \cdot B + B \cdot A + B \cdot B = A^2 + AB + BA + B^2$$
 
-> **Contraejemplo oficial:** $A = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$, $B = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$. Ambas simétricas pero $AB = \begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix}$ no lo es.
->
-> **Hipótesis para que sea cierta:** $AB = BA$ (este es el resultado de §V.5.2).
+> **¡Atención!** Aparecen $AB$ **y** $BA$ por separado.
 
-**Parte 3. VERDADERO.** Demo en `matrices-DEMOSTRACIONES.md` §E.4.
+**Paso 2 — Comparar con $A^2 + 2AB + B^2$.** Esta segunda expresión tiene $2AB$ en lugar de $AB + BA$. Solo serían iguales si $AB = BA$ — lo cual NO siempre pasa.
+
+**Paso 3 — Contraejemplo oficial.** $A = \begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}$, $B = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}$.
+
+Calculo $A + B = \begin{pmatrix} 2 & 1 \\ 2 & 0 \end{pmatrix}$.
+
+Calculo $(A+B)^2 = (A+B)(A+B)$:
+- $(1,1)$: $2 \cdot 2 + 1 \cdot 2 = 6$
+- $(1,2)$: $2 \cdot 1 + 1 \cdot 0 = 2$
+- $(2,1)$: $2 \cdot 2 + 0 \cdot 2 = 4$
+- $(2,2)$: $2 \cdot 1 + 0 \cdot 0 = 2$
+
+$$(A+B)^2 = \begin{pmatrix} 6 & 2 \\ 4 & 2 \end{pmatrix}$$
+
+Calculo $A^2 + 2AB + B^2$:
+- $A^2 = \begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}$
+- $AB = \begin{pmatrix} 1 \cdot 1 + 0 \cdot 1 & 1 \cdot 1 + 0 \cdot 0 \\ 1 \cdot 1 + 0 \cdot 1 & 1 \cdot 1 + 0 \cdot 0 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$, así $2AB = \begin{pmatrix} 2 & 2 \\ 2 & 2 \end{pmatrix}$
+- $B^2 = \begin{pmatrix} 1 \cdot 1 + 1 \cdot 1 & 1 \cdot 1 + 1 \cdot 0 \\ 1 \cdot 1 + 0 \cdot 1 & 1 \cdot 1 + 0 \cdot 0 \end{pmatrix} = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$
+
+Suma: $A^2 + 2AB + B^2 = \begin{pmatrix} 1+2+2 & 0+2+1 \\ 1+2+1 & 0+2+1 \end{pmatrix} = \begin{pmatrix} 5 & 3 \\ 4 & 3 \end{pmatrix}$
+
+**No coinciden:** $\begin{pmatrix} 6 & 2 \\ 4 & 2 \end{pmatrix} \neq \begin{pmatrix} 5 & 3 \\ 4 & 3 \end{pmatrix}$ ✓ contraejemplo válido.
+
+**Paso 4 — Hipótesis adicional para que la igualdad sea cierta.** Necesitamos $AB = BA$. Bajo esa hipótesis, $AB + BA = AB + AB = 2AB$, y la fórmula del paso 1 colapsa en $A^2 + 2AB + B^2$.
+
+#### Parte 2 — FALSO en general
+
+**Paso 1 — Aplicar la traspuesta a $AB$.** Como $A$ y $B$ son simétricas, $A^T = A$ y $B^T = B$. Entonces:
+
+$$(AB)^T = B^T A^T = BA$$
+
+**Paso 2 — Comparar con $AB$.** Para que $AB$ sea simétrica necesitaríamos $(AB)^T = AB$, o sea $BA = AB$. Pero eso no siempre se cumple.
+
+**Paso 3 — Contraejemplo oficial.** $A = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$, $B = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$. Verificá:
+
+- $A^T = A$ ✓ (simétrica)
+- $B^T = B$ ✓ (simétrica)
+
+Ahora calculá $AB$:
+- $(1,1)$: $1 \cdot 1 + (-1) \cdot 1 = 0$
+- $(1,2)$: $1 \cdot 1 + (-1) \cdot 1 = 0$
+- $(2,1)$: $-1 \cdot 1 + 2 \cdot 1 = 1$
+- $(2,2)$: $-1 \cdot 1 + 2 \cdot 1 = 1$
+
+$$AB = \begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix}$$
+
+**No es simétrica:** la entrada $(1,2) = 0$ y la $(2,1) = 1$, no son iguales. ✓ contraejemplo válido.
+
+**Paso 4 — Hipótesis adicional.** $AB = BA$ (es el resultado del ejercicio V.5.2 — bajo simetría, $AB$ simétrica $\iff AB = BA$).
+
+#### Parte 3 — VERDADERO
+
+Demo paso a paso en `matrices-DEMOSTRACIONES.md` §E.4. Idea: verificar que $(A^{-1})^T$ multiplicada por $A^T$ da $\text{Id}$, usando la propiedad 4 de traspuesta al revés.
 
 ---
 
