@@ -137,11 +137,21 @@ Los elementos $a_{ii}$ (fila = columna) forman la **diagonal principal**: $a_{11
 
 $$(A + B)_{ij} = a_{ij} + b_{ij}$$
 
-**Requisito:** $A$ y $B$ deben tener la **misma dimensión**. Si no, no se pueden sumar.
+> **Cómo leer la fórmula:** la entrada en posición $(i,j)$ del resultado es la suma de las entradas en posición $(i,j)$ de $A$ y de $B$. No hay misterio: cada lugar se suma con su correspondiente.
 
-**Ejemplo:**
+**Requisito:** $A$ y $B$ deben tener la **misma dimensión**. Si no, no se pueden sumar (no hay con quién sumar la entrada faltante).
 
-$$\begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} + \begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix} = \begin{pmatrix} 3 & 3 \\ 6 & 0 \end{pmatrix}$$
+**Ejemplo paso a paso:**
+
+$$\begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} + \begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix}$$
+
+Sumo entrada por entrada:
+- Entrada $(1,1)$: $1 + 2 = 3$
+- Entrada $(1,2)$: $2 + 1 = 3$
+- Entrada $(2,1)$: $3 + 3 = 6$
+- Entrada $(2,2)$: $-4 + 4 = 0$
+
+$$= \begin{pmatrix} 3 & 3 \\ 6 & 0 \end{pmatrix}$$
 
 ### Propiedades
 
@@ -161,13 +171,25 @@ $$\begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} + \begin{pmatrix} 2 & 1 \\ 3 & 4
 
 ## Producto por un escalar
 
-**Definición.** Multiplicás cada entrada por el escalar $k$:
+**Definición.** "Escalar" = un número (real). Multiplicar una matriz por un escalar $k$ significa multiplicar **cada entrada** por $k$:
 
 $$k \cdot A = ((k \cdot a_{ij}))$$
 
-### Ejemplo numérico
+> **Cómo leer la fórmula:** la matriz resultante tiene las mismas dimensiones que $A$, y en cada posición $(i,j)$ está $k$ veces lo que estaba antes.
 
-$$2 \cdot \begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} = \begin{pmatrix} 2 \cdot 1 & 2 \cdot 2 \\ 2 \cdot 3 & 2 \cdot (-4) \end{pmatrix} = \begin{pmatrix} 2 & 4 \\ 6 & -8 \end{pmatrix}$$
+### Ejemplo paso a paso
+
+Quiero calcular $2 \cdot A$ con $A = \begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix}$.
+
+Multiplico cada entrada por $2$:
+- Entrada $(1,1)$: $2 \cdot 1 = 2$
+- Entrada $(1,2)$: $2 \cdot 2 = 4$
+- Entrada $(2,1)$: $2 \cdot 3 = 6$
+- Entrada $(2,2)$: $2 \cdot (-4) = -8$
+
+$$2 \cdot \begin{pmatrix} 1 & 2 \\ 3 & -4 \end{pmatrix} = \begin{pmatrix} 2 & 4 \\ 6 & -8 \end{pmatrix}$$
+
+> **Notá la diferencia con la suma de matrices:** en la suma necesitás dos matrices del mismo tamaño. Acá necesitás un número y una matriz cualquiera — el escalar "se reparte" sobre cada entrada.
 
 ### Propiedades
 
@@ -335,13 +357,27 @@ Es **lo mismo** que el ejemplo numérico, solo que ahora cada número está disf
 
 ## Matriz traspuesta
 
-**Definición.** $A^T$ se obtiene **intercambiando filas por columnas**: si $A = ((a_{ij}))$, entonces $A^T = ((a_{ji}))$. Si $A$ es $m \times n$, $A^T$ es $n \times m$.
+**Definición.** $A^T$ se obtiene **intercambiando filas por columnas**.
 
-**Ejemplo:**
+> **En palabras:** la fila 1 de $A^T$ es la columna 1 de $A$, la fila 2 de $A^T$ es la columna 2 de $A$, etc. Es como "girar" la matriz por la diagonal.
 
-$$A = \begin{pmatrix} 1 & 2 \\ 3 & -4 \\ 2 & 1 \end{pmatrix} \in \mathcal{M}_{3 \times 2} \;\;\implies\;\; A^T = \begin{pmatrix} 1 & 3 & 2 \\ 2 & -4 & 1 \end{pmatrix} \in \mathcal{M}_{2 \times 3}$$
+Formalmente: si $A = ((a_{ij}))$, entonces $A^T = ((a_{ji}))$ (los subíndices se intercambian).
 
-La fila $i$ de $A^T$ = columna $i$ de $A$, y viceversa.
+**Cambio de dimensión:** si $A$ es $m \times n$, $A^T$ es $n \times m$ (las dimensiones se invierten).
+
+**Ejemplo paso a paso:**
+
+$$A = \begin{pmatrix} 1 & 2 \\ 3 & -4 \\ 2 & 1 \end{pmatrix}$$
+
+$A$ tiene 3 filas y 2 columnas (es $3 \times 2$). Entonces $A^T$ tendrá 2 filas y 3 columnas ($2 \times 3$).
+
+Construyo $A^T$:
+- **Fila 1 de $A^T$** = columna 1 de $A$ = $(1, 3, 2)$
+- **Fila 2 de $A^T$** = columna 2 de $A$ = $(2, -4, 1)$
+
+$$A^T = \begin{pmatrix} 1 & 3 & 2 \\ 2 & -4 & 1 \end{pmatrix}$$
+
+> **Verificación rápida:** la entrada $(2,3)$ de $A^T$ debería ser la entrada $(3,2)$ de $A$. En $A^T$ vemos $1$ en posición $(2,3)$. En $A$ vemos $1$ en posición $(3,2)$. ✓
 
 ### Las 4 propiedades de la traspuesta (las 4 son demo pedible)
 
