@@ -881,13 +881,23 @@ $$\vec{v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \quad \vec{v}_2 = \begi
 
 #### Parte 1 — calcular los tres productos
 
-**Para $A \cdot \vec{v}_1$:** $\vec{v}_1$ es UN vector columna (no tiene varias columnas — es UNA sola). Aplico la fórmula "fila $i$ de $A$ por $\vec{v}_1$" para cada fila $i = 1, 2, 3$:
+**Para $A \cdot \vec{v}_1$:** $\vec{v}_1$ es UN vector columna (no tiene varias columnas — es UNA sola). Aplico la regla "fila por columna" para cada fila de $A$.
 
-- **Fila 1 de $A$ por $\vec{v}_1$:** $(a_{11}, a_{12}, a_{13}) \cdot (1, 0, 0)^T = a_{11} \cdot 1 + a_{12} \cdot 0 + a_{13} \cdot 0 = a_{11}$
-- **Fila 2 de $A$ por $\vec{v}_1$:** $(a_{21}, a_{22}, a_{23}) \cdot (1, 0, 0)^T = a_{21} \cdot 1 + a_{22} \cdot 0 + a_{23} \cdot 0 = a_{21}$
-- **Fila 3 de $A$ por $\vec{v}_1$:** $(a_{31}, a_{32}, a_{33}) \cdot (1, 0, 0)^T = a_{31} \cdot 1 + a_{32} \cdot 0 + a_{33} \cdot 0 = a_{31}$
+> **Recordá cómo se aplica "fila por columna":** tomás los números de la fila de $A$ (que están uno al lado del otro horizontalmente) y los números del vector $\vec{v}_1$ (que están uno arriba del otro verticalmente). Multiplicás el primero de la fila por el primero del vector, el segundo por el segundo, el tercero por el tercero, y al final sumás esos productos.
 
-> **Cómo se aplica "fila por columna":** vas tomando los números de la fila de $A$ uno al lado del otro, y los números del vector $\vec{v}_1$ uno arriba del otro, y los multiplicás en el orden en que aparecen. El primero de la fila con el primero del vector, el segundo con el segundo, etc. Después sumás todo.
+Aplicando la regla a cada fila:
+
+**Fila 1 de $A$** es $(a_{11}, a_{12}, a_{13})$. Multiplico contra $\vec{v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$:
+
+$$a_{11} \cdot 1 + a_{12} \cdot 0 + a_{13} \cdot 0 = a_{11}$$
+
+**Fila 2 de $A$** es $(a_{21}, a_{22}, a_{23})$. Multiplico contra $\vec{v}_1$:
+
+$$a_{21} \cdot 1 + a_{22} \cdot 0 + a_{23} \cdot 0 = a_{21}$$
+
+**Fila 3 de $A$** es $(a_{31}, a_{32}, a_{33})$. Multiplico contra $\vec{v}_1$:
+
+$$a_{31} \cdot 1 + a_{32} \cdot 0 + a_{33} \cdot 0 = a_{31}$$
 
 Apilo los 3 resultados (uno por fila) como vector columna:
 
@@ -936,9 +946,12 @@ $$A^n = \begin{pmatrix} 1 & n & \frac{n^2 + n}{2} \\ 0 & 1 & n \\ 0 & 0 & 1 \end
 #### Paso 1 — calcular $A^2 = A \cdot A$ entrada por entrada
 
 Hago "fila × columna" en cada una de las 9 entradas. Algunos ejemplos:
-- Entrada $(1,2)$ de $A^2$: fila 1 de $A$ = $(1,1,1)$, col 2 de $A$ = $(1,1,0)^T$. Producto: $1 \cdot 1 + 1 \cdot 1 + 1 \cdot 0 = 2$.
-- Entrada $(1,3)$: fila 1 = $(1,1,1)$, col 3 = $(1,1,1)^T$. Producto: $1 + 1 + 1 = 3$.
-- Entrada $(2,3)$: fila 2 = $(0,1,1)$, col 3 = $(1,1,1)^T$. Producto: $0 + 1 + 1 = 2$.
+
+- Entrada $(1,2)$ de $A^2$: tomo la fila 1 de $A$ (cuyas entradas son $1, 1, 1$) y la multiplico contra la columna 2 de $A$ (cuyas entradas, leídas de arriba a abajo, son $1, 1, 0$). Producto par-a-par y suma: $1 \cdot 1 + 1 \cdot 1 + 1 \cdot 0 = 2$.
+
+- Entrada $(1,3)$: fila 1 ($1, 1, 1$) por columna 3 ($1, 1, 1$ de arriba a abajo): $1 \cdot 1 + 1 \cdot 1 + 1 \cdot 1 = 3$.
+
+- Entrada $(2,3)$: fila 2 ($0, 1, 1$) por columna 3 ($1, 1, 1$): $0 \cdot 1 + 1 \cdot 1 + 1 \cdot 1 = 2$.
 
 $$A^2 = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \end{pmatrix}$$
 
@@ -947,8 +960,10 @@ $$A^2 = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \end{pmatrix}$$
 #### Paso 2 — calcular $A^3 = A^2 \cdot A$ entrada por entrada
 
 Ejemplos:
-- Entrada $(1,3)$ de $A^3$: fila 1 de $A^2$ = $(1,2,3)$, col 3 de $A$ = $(1,1,1)^T$. Producto: $1 + 2 + 3 = 6$.
-- Entrada $(2,3)$: fila 2 = $(0,1,2)$, col 3 = $(1,1,1)^T$. Producto: $0 + 1 + 2 = 3$.
+
+- Entrada $(1,3)$ de $A^3$: fila 1 de $A^2$ ($1, 2, 3$) por columna 3 de $A$ ($1, 1, 1$ de arriba a abajo): $1 \cdot 1 + 2 \cdot 1 + 3 \cdot 1 = 6$.
+
+- Entrada $(2,3)$: fila 2 de $A^2$ ($0, 1, 2$) por columna 3 de $A$ ($1, 1, 1$): $0 \cdot 1 + 1 \cdot 1 + 2 \cdot 1 = 3$.
 
 $$A^3 = \begin{pmatrix} 1 & 3 & 6 \\ 0 & 1 & 3 \\ 0 & 0 & 1 \end{pmatrix}$$
 
@@ -1010,9 +1025,9 @@ Demo paso a paso de la inducción completa en `matrices-DEMOSTRACIONES.md` §G.3
 
 **Paso 1 — Calcular $A^2 = A \cdot A$ entrada por entrada.**
 
-- Entrada $(1,1)$: fila 1 = $(0,1,1)$, col 1 = $(0,0,0)^T$. Producto: $0+0+0 = 0$.
-- Entrada $(1,2)$: fila 1 = $(0,1,1)$, col 2 = $(1,0,0)^T$. Producto: $0\cdot 1 + 1\cdot 0 + 1\cdot 0 = 0$.
-- Entrada $(1,3)$: fila 1 = $(0,1,1)$, col 3 = $(1,1,0)^T$. Producto: $0\cdot 1 + 1\cdot 1 + 1\cdot 0 = 1$. ← ¡no cero!
+- Entrada $(1,1)$: fila 1 de $A$ ($0, 1, 1$) por columna 1 de $A$ ($0, 0, 0$ leída de arriba a abajo): $0 + 0 + 0 = 0$.
+- Entrada $(1,2)$: fila 1 ($0, 1, 1$) por columna 2 ($1, 0, 0$ de arriba a abajo): $0 \cdot 1 + 1 \cdot 0 + 1 \cdot 0 = 0$.
+- Entrada $(1,3)$: fila 1 ($0, 1, 1$) por columna 3 ($1, 1, 0$ de arriba a abajo): $0 \cdot 1 + 1 \cdot 1 + 1 \cdot 0 = 1$. ← ¡no cero!
 - Otras entradas: el resto da cero por la estructura triangular.
 
 $$A^2 = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
@@ -1063,7 +1078,7 @@ Haciendo todas las entradas:
 
 $$A^2 = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 9 \end{pmatrix}$$
 
-> **¿Por qué la entrada $(3,3)$ es $9$?** Porque la fila 3 es $(0, 0, 3)$ y la columna 3 es $(0, 0, 3)^T$, entonces $0 \cdot 0 + 0 \cdot 0 + 3 \cdot 3 = 9$.
+> **¿Por qué la entrada $(3,3)$ es $9$?** Porque la fila 3 de $A$ es $0, 0, 3$ (horizontal) y la columna 3 de $A$ tiene las entradas $0, 0, 3$ leídas de arriba a abajo (vertical). Multiplicando par a par: $0 \cdot 0 + 0 \cdot 0 + 3 \cdot 3 = 9$.
 
 **Paso 2 — Calcular $A^3$ haciendo $A^2 \cdot A$.**
 
@@ -1388,7 +1403,7 @@ $$A \cdot P = \begin{pmatrix} 1 & 2 \\ 5 & 4 \end{pmatrix} \begin{pmatrix} 2 & 1
 
 $$P \cdot \begin{pmatrix} 6 & 0 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} 2 & 1 \\ x & y \end{pmatrix} \begin{pmatrix} 6 & 0 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} 12 & -1 \\ 6x & -y \end{pmatrix}$$
 
-> **Cálculo de la entrada $(2,2)$ del lado derecho:** fila 2 de $P$ es $(x, y)$, columna 2 de la diagonal es $(0, -1)^T$. Entonces $x \cdot 0 + y \cdot (-1) = -y$.
+> **Cálculo de la entrada $(2,2)$ del lado derecho:** la fila 2 de $P$ es $x, y$ (horizontal). La columna 2 de la matriz diagonal es $0, -1$ leída de arriba a abajo (vertical). Multiplicando par a par y sumando: $x \cdot 0 + y \cdot (-1) = -y$.
 
 **Paso 5 — Igualar entrada por entrada.** Las dos matrices tienen que ser iguales:
 
@@ -1629,7 +1644,7 @@ $$A = \begin{pmatrix} 1-1 & 1 & 0 & 0 \\ 0 & 1-1 & 0 & 1 \\ 0 & 0 & 1-1 & 0 \\ 0
 
 **Paso 2 — Verificar que $A^3 = \mathcal{O}$ (la hipótesis necesaria).** Calculo $A^2$:
 
-Para la entrada $(1,4)$ de $A^2$: fila 1 de $A$ = $(0, 1, 0, 0)$, columna 4 de $A$ = $(0, 1, 0, 0)^T$. Producto: $0 \cdot 0 + 1 \cdot 1 + 0 \cdot 0 + 0 \cdot 0 = 1$.
+Para la entrada $(1,4)$ de $A^2$: fila 1 de $A$ es $0, 1, 0, 0$ (horizontal). Columna 4 de $A$ es $0, 1, 0, 0$ leída de arriba a abajo (vertical). Multiplicando par a par y sumando: $0 \cdot 0 + 1 \cdot 1 + 0 \cdot 0 + 0 \cdot 0 = 1$.
 
 El resto de entradas dan cero (ejercicio: convencete). Entonces:
 
@@ -1657,11 +1672,11 @@ $$\boxed{B^{-1} = A^2 - A + \text{Id} = \begin{pmatrix} 1 & -1 & 0 & 1 \\ 0 & 1 
 
 **Paso 5 — Verificación: comprobar $B \cdot B^{-1} = \text{Id}$.** Calculamos algunas entradas para asegurarnos:
 
-- $(1,1)$: fila 1 de $B$ = $(1,1,0,0)$, col 1 de $B^{-1}$ = $(1,0,0,0)^T$. $1 \cdot 1 + 1 \cdot 0 + 0 \cdot 0 + 0 \cdot 0 = 1$ ✓
-- $(1,2)$: col 2 de $B^{-1}$ = $(-1,1,0,0)^T$. $1 \cdot (-1) + 1 \cdot 1 + 0 + 0 = 0$ ✓
-- $(1,4)$: col 4 = $(1,-1,0,1)^T$. $1 \cdot 1 + 1 \cdot (-1) + 0 + 0 = 0$ ✓
-- $(2,2)$: fila 2 = $(0,1,0,1)$, col 2 = $(-1,1,0,0)^T$. $0 + 1 \cdot 1 + 0 + 1 \cdot 0 = 1$ ✓
-- $(2,4)$: col 4 = $(1,-1,0,1)^T$. $0 \cdot 1 + 1 \cdot (-1) + 0 + 1 \cdot 1 = 0$ ✓
+- $(1,1)$: fila 1 de $B$ es $1, 1, 0, 0$ (horizontal). Columna 1 de $B^{-1}$ es $1, 0, 0, 0$ de arriba a abajo. Producto: $1 \cdot 1 + 1 \cdot 0 + 0 \cdot 0 + 0 \cdot 0 = 1$ ✓
+- $(1,2)$: misma fila 1 de $B$ ($1, 1, 0, 0$). Columna 2 de $B^{-1}$ es $-1, 1, 0, 0$ de arriba a abajo. Producto: $1 \cdot (-1) + 1 \cdot 1 + 0 + 0 = 0$ ✓
+- $(1,4)$: misma fila 1. Columna 4 de $B^{-1}$ es $1, -1, 0, 1$ de arriba a abajo. Producto: $1 \cdot 1 + 1 \cdot (-1) + 0 + 0 = 0$ ✓
+- $(2,2)$: fila 2 de $B$ es $0, 1, 0, 1$. Columna 2 de $B^{-1}$ ($-1, 1, 0, 0$). Producto: $0 + 1 \cdot 1 + 0 + 1 \cdot 0 = 1$ ✓
+- $(2,4)$: misma fila 2. Columna 4 ($1, -1, 0, 1$). Producto: $0 \cdot 1 + 1 \cdot (-1) + 0 + 1 \cdot 1 = 0$ ✓
 
 Continuando con todas las entradas:
 
