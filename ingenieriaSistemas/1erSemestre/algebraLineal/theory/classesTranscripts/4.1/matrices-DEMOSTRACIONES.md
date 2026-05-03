@@ -422,35 +422,69 @@ $$= S$$
 
 ### C.5 — $\frac{1}{2}(A - A^T)$ es antisimétrica
 
+> **Cómo leer esta demo (en una frase):** mismo esquema que C.4 pero con resta en lugar de suma. La traspuesta del paréntesis lo da vuelta de signo, lo que prueba antisimetría.
+
 **Hipótesis:** $A$ matriz cuadrada cualquiera.
 
-**Tesis:** $T = \frac{1}{2}(A - A^T)$ es antisimétrica.
+**Tesis:** $T = \frac{1}{2}(A - A^T)$ es antisimétrica — o sea, $T^T = -T$.
 
-**Demostración:**
+**Demostración paso a paso:**
 
-$$T^T = \left[\tfrac{1}{2}(A - A^T)\right]^T = \tfrac{1}{2}(A - A^T)^T$$
+**Paso 1 — Calcular $T^T$.**
 
-$$= \tfrac{1}{2}\left(A^T - (A^T)^T\right) \quad \text{(prop 2 + linealidad de traspuesta)}$$
+$$T^T = \left[\tfrac{1}{2}(A - A^T)\right]^T$$
 
-$$= \tfrac{1}{2}(A^T - A) \quad \text{(prop 1)}$$
+**Paso 2 — Sacar el $\frac{1}{2}$ afuera (propiedad 3 de traspuesta).**
+
+$$= \tfrac{1}{2}(A - A^T)^T$$
+
+**Paso 3 — Trasponer la resta (props 2 y 3 combinadas).** $(X - Y)^T = X^T - Y^T$:
+
+$$= \tfrac{1}{2}\left(A^T - (A^T)^T\right)$$
+
+**Paso 4 — Aplicar $(A^T)^T = A$ (propiedad 1).**
+
+$$= \tfrac{1}{2}(A^T - A)$$
+
+**Paso 5 — Sacar un signo $-1$ como factor común.** $A^T - A = -(A - A^T)$:
 
 $$= -\tfrac{1}{2}(A - A^T) = -T$$
 
-Como $T^T = -T$, $T$ es antisimétrica. $\blacksquare$
+**Conclusión.** $T^T = -T$, así que $T$ es antisimétrica. $\blacksquare$
 
 ### C.6 — Toda matriz cuadrada $A$ se escribe como simétrica $+$ antisimétrica
+
+> **Cómo leer esta demo (en una frase):** definimos $S$ y $T$ usando $A$ y $A^T$, mostramos que $S$ es simétrica (por C.4), $T$ antisimétrica (por C.5), y verificamos que $S + T = A$.
 
 **Hipótesis:** $A$ matriz cuadrada cualquiera.
 
 **Tesis:** existen $S$ simétrica y $T$ antisimétrica tales que $A = S + T$.
 
-**Demostración:** definimos:
+**Demostración constructiva paso a paso:**
+
+**Paso 1 — Proponer candidatos.** Definimos:
 
 $$S = \tfrac{1}{2}(A + A^T), \qquad T = \tfrac{1}{2}(A - A^T)$$
 
-Por C.4, $S$ es simétrica. Por C.5, $T$ es antisimétrica. Verificamos que $S + T = A$:
+> **¿De dónde salen estos candidatos?** Son la "parte simétrica" y la "parte antisimétrica" de $A$. La idea: si $A = S + T$ con $S$ simétrica y $T$ antisimétrica, entonces $A^T = S - T$ (porque $S^T = S$ y $T^T = -T$). Sumando: $A + A^T = 2S$, así que $S = \frac{1}{2}(A + A^T)$. Restando: $A - A^T = 2T$, así $T = \frac{1}{2}(A - A^T)$. Eso motiva las definiciones.
 
-$$S + T = \tfrac{1}{2}(A + A^T) + \tfrac{1}{2}(A - A^T) = \tfrac{1}{2}A + \tfrac{1}{2}A^T + \tfrac{1}{2}A - \tfrac{1}{2}A^T = A \quad \blacksquare$$
+**Paso 2 — Verificar que $S$ es simétrica.** Por la demo §C.4, $\frac{1}{2}(A + A^T)$ es simétrica. ✓
+
+**Paso 3 — Verificar que $T$ es antisimétrica.** Por la demo §C.5, $\frac{1}{2}(A - A^T)$ es antisimétrica. ✓
+
+**Paso 4 — Verificar que $S + T = A$.** Sumamos:
+
+$$S + T = \tfrac{1}{2}(A + A^T) + \tfrac{1}{2}(A - A^T)$$
+
+Distribuyendo los $\frac{1}{2}$:
+
+$$= \tfrac{1}{2}A + \tfrac{1}{2}A^T + \tfrac{1}{2}A - \tfrac{1}{2}A^T$$
+
+Los $\pm \frac{1}{2}A^T$ se cancelan, y los dos $\frac{1}{2}A$ se suman:
+
+$$= A \quad \blacksquare$$
+
+> **Idea central:** la descomposición existe **siempre** y es **única**. Es como descomponer una función en parte par + parte impar — una herramienta muy útil del álgebra.
 
 ---
 
@@ -611,19 +645,33 @@ $$tr(AB) = tr(BA) \quad \blacksquare$$
 
 ### D.5 — Corolario: $tr(A - B) = tr(A) - tr(B)$
 
+> **Cómo leer esta demo (en una frase):** la resta es lo mismo que sumar el opuesto ($-B = (-1) \cdot B$), así que aplicamos las propiedades 1 y 2 de traza en cadena.
+
 **Hipótesis:** $A, B \in \mathcal{M}_{n \times n}$.
 
 **Tesis:** $tr(A - B) = tr(A) - tr(B)$.
 
-**Demostración:**
+**Demostración paso a paso:**
 
-$$tr(A - B) = tr(A + (-1) \cdot B) \quad \text{(reescribir la resta)}$$
+**Paso 1 — Reescribir la resta como suma con escalar $-1$.**
 
-$$= tr(A) + tr((-1) B) \quad \text{(propiedad 1, §D.1)}$$
+$$tr(A - B) = tr(A + (-1) \cdot B)$$
 
-$$= tr(A) + (-1) \cdot tr(B) \quad \text{(propiedad 2, §D.2)}$$
+> **¿Por qué?** Porque $A - B = A + (-B) = A + (-1) \cdot B$. Es solo cambiar el signo y volver a la suma.
+
+**Paso 2 — Aplicar la propiedad 1 de traza ($tr$ distribuye sobre la suma).**
+
+$$= tr(A) + tr((-1) \cdot B)$$
+
+**Paso 3 — Aplicar la propiedad 2 de traza (el escalar sale).**
+
+$$= tr(A) + (-1) \cdot tr(B)$$
+
+**Paso 4 — Reescribir como resta.**
 
 $$= tr(A) - tr(B) \quad \blacksquare$$
+
+> **Idea central:** todo corolario que necesite "sacar afuera" un signo o un escalar se prueba combinando las props 1 y 2.
 
 ### D.6 — Aplicación clásica: NO existen $A, B$ tales que $AB - BA = \text{Id}$
 
@@ -1533,31 +1581,43 @@ $$B = C \quad \blacksquare$$
 
 ### I.2 — V.14: $A, B$ invertibles $\Rightarrow AB$ invertible (con su inversa explícita)
 
+> **Cómo leer esta demo (en una frase):** es exactamente lo mismo que ya probamos en §E.2 — encontrar la inversa explícita de $AB$ ya prueba que $AB$ es invertible.
+
 **Hipótesis:** $A, B$ invertibles.
 
-**Tesis:** $AB$ es invertible y $(AB)^{-1} = B^{-1} A^{-1}$.
+**Tesis:** $AB$ es invertible **y** $(AB)^{-1} = B^{-1} A^{-1}$.
 
-**Demostración:** ya hecha en §E.2. $\blacksquare$
+**Demostración:** ya hecha en §E.2. La idea era multiplicar $(AB) \cdot (B^{-1} A^{-1})$, reagrupar usando asociativa para que $B \cdot B^{-1} = \text{Id}$ se cancele en el medio, y después $A \cdot A^{-1} = \text{Id}$ termina de simplificar. $\blacksquare$
 
-> **Contraparte:** $A + B$ NO necesariamente invertible. Contraejemplo: $A = \text{Id}$, $B = -\text{Id}$. Ambas son invertibles pero $A + B = \mathcal{O}$ no lo es.
+> **Contraparte importante (parte 1 del ejercicio V.14):** $A + B$ NO necesariamente es invertible aunque $A$ y $B$ lo sean. **Contraejemplo:** $A = \text{Id}$, $B = -\text{Id}$. Ambas son invertibles ($A^{-1} = A$ y $B^{-1} = B$), pero $A + B = \mathcal{O}$ no es invertible.
 
 ### I.3 — V.15: Si $AB = BA$ y $AC = CA$, entonces $A$ conmuta con $\mu B + \lambda C$
 
+> **Cómo leer esta demo (en una frase):** distribuimos $A$ contra $\mu B + \lambda C$, usamos las dos hipótesis de conmutatividad para "dar vuelta" cada producto, y reagrupamos.
+
 **Hipótesis:** $AB = BA$, $AC = CA$, $\mu, \lambda \in \mathbb{R}$.
 
-**Tesis:** $A$ conmuta con $D = \mu B + \lambda C$, es decir $AD = DA$.
+**Tesis:** $A \cdot D = D \cdot A$, donde $D = \mu B + \lambda C$.
 
-**Demostración:**
+**Demostración paso a paso:**
 
-$$A \cdot D = A \cdot (\mu B + \lambda C) \quad \text{(definición de }D\text{)}$$
+**Paso 1 — Sustituir la definición de $D$.**
 
-$$= \mu (AB) + \lambda (AC) \quad \text{(distributiva + escalar entre factores)}$$
+$$A \cdot D = A \cdot (\mu B + \lambda C)$$
 
-$$= \mu (BA) + \lambda (CA) \quad \text{(hipótesis: }AB = BA\text{, }AC = CA\text{)}$$
+**Paso 2 — Distribuir y sacar los escalares.** Distributiva: $A \cdot (X + Y) = AX + AY$. Y escalar entre factores: $A \cdot (\mu X) = \mu (AX)$.
 
-$$= (\mu B + \lambda C) \cdot A \quad \text{(distributiva)}$$
+$$= \mu (AB) + \lambda (AC)$$
 
-$$= D \cdot A \quad \blacksquare$$
+**Paso 3 — Aplicar las hipótesis de conmutatividad.** $AB = BA$ y $AC = CA$:
+
+$$= \mu (BA) + \lambda (CA)$$
+
+**Paso 4 — Volver a juntar (distributiva al revés).** Saco $A$ a derecha como factor común:
+
+$$= (\mu B + \lambda C) \cdot A = D \cdot A \quad \blacksquare$$
+
+> **Idea central:** la conmutatividad se "traslada" a las combinaciones lineales. Si $A$ conmuta con dos matrices, conmuta con cualquier combinación de ellas.
 
 ---
 
