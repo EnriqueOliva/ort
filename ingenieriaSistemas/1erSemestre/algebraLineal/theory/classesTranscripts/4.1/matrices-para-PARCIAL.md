@@ -775,48 +775,131 @@ Como $A^3 = \mathcal{O}$ y $A^2 \neq \mathcal{O}$, **$A$ es nilpotente de grado 
 
 ### Solución
 
-**Parte 1.** Calculamos las potencias necesarias:
+#### Parte 1 — Verificar la ecuación $-A^3 + 5A^2 - 7A + 3\text{Id} = \mathcal{O}$
 
-$$A^2 = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 9 \end{pmatrix}, \quad A^3 = \begin{pmatrix} 1 & 3 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 27 \end{pmatrix}$$
+**Paso 1 — Calcular $A^2$ haciendo $A \cdot A$.** Hago "fila × columna" en cada entrada. Por ejemplo, entrada $(1,2)$ de $A^2$:
 
-Multiplicamos escalarmente: $A^3 \cdot (-1)$, $A^2 \cdot 5$, $A \cdot (-7)$, $\text{Id} \cdot 3$, y sumamos las cuatro matrices. Entrada por entrada se obtiene la matriz nula $\mathcal{O}_{3 \times 3}$. ✓
+$$\text{fila 1 de } A \cdot \text{col 2 de } A = 1 \cdot 1 + 1 \cdot 1 + 0 \cdot 0 = 2$$
 
-**Parte 2.** $A$ es triangular superior con todas las entradas de la diagonal distintas de $0$, así que su determinante es no nulo (cosa que se verá más adelante en el curso). Por lo tanto $A$ es invertible: existe $A^{-1}$ tal que $A \cdot A^{-1} = A^{-1} \cdot A = \text{Id}$.
+Haciendo todas las entradas:
 
-**Asumiendo eso, despejamos la inversa de la ecuación de la parte 1:**
+$$A^2 = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 9 \end{pmatrix}$$
 
-Multiplicamos toda la ecuación por $A^{-1}$ por la derecha:
+> **¿Por qué la entrada $(3,3)$ es $9$?** Porque la fila 3 es $(0, 0, 3)$ y la columna 3 es $(0, 0, 3)^T$, entonces $0 \cdot 0 + 0 \cdot 0 + 3 \cdot 3 = 9$.
 
-$$-A^3 \cdot A^{-1} + 5 A^2 \cdot A^{-1} - 7 A \cdot A^{-1} + 3 \text{Id} \cdot A^{-1} = \mathcal{O} \cdot A^{-1}$$
+**Paso 2 — Calcular $A^3$ haciendo $A^2 \cdot A$.**
 
-$$-A^2 + 5A - 7\text{Id} + 3 A^{-1} = \mathcal{O}$$
+$$A^3 = \begin{pmatrix} 1 & 3 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 27 \end{pmatrix}$$
 
-Despejamos $A^{-1}$:
+> **Observación:** la entrada $(1,2)$ pasó de $1 \to 2 \to 3$, y la $(3,3)$ pasó de $3 \to 9 \to 27$. Eso pasa porque $A$ es casi diagonal y las potencias siguen un patrón.
 
-$$3 A^{-1} = A^2 - 5A + 7\text{Id}$$
+**Paso 3 — Calcular cada término de la ecuación con su signo y escalar.**
 
-$$A^{-1} = \frac{1}{3}\left(A^2 - 5A + 7\text{Id}\right)$$
+$$-A^3 = \begin{pmatrix} -1 & -3 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & -27 \end{pmatrix}, \quad 5A^2 = \begin{pmatrix} 5 & 10 & 0 \\ 0 & 5 & 0 \\ 0 & 0 & 45 \end{pmatrix}$$
 
-Calculamos:
+$$-7A = \begin{pmatrix} -7 & -7 & 0 \\ 0 & -7 & 0 \\ 0 & 0 & -21 \end{pmatrix}, \quad 3\text{Id} = \begin{pmatrix} 3 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{pmatrix}$$
 
-$$A^2 - 5A + 7\text{Id} = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 9 \end{pmatrix} - \begin{pmatrix} 5 & 5 & 0 \\ 0 & 5 & 0 \\ 0 & 0 & 15 \end{pmatrix} + \begin{pmatrix} 7 & 0 & 0 \\ 0 & 7 & 0 \\ 0 & 0 & 7 \end{pmatrix} = \begin{pmatrix} 3 & -3 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
+**Paso 4 — Sumar las cuatro matrices.** Entrada por entrada. Por ejemplo, $(1,1)$: $-1 + 5 - 7 + 3 = 0$. $(1,2)$: $-3 + 10 - 7 + 0 = 0$. $(3,3)$: $-27 + 45 - 21 + 3 = 0$. Y así todas:
 
-$$A^{-1} = \frac{1}{3}\begin{pmatrix} 3 & -3 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & -1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1/3 \end{pmatrix}$$
+$$-A^3 + 5A^2 - 7A + 3\text{Id} = \mathcal{O}_{3 \times 3} \quad \checkmark$$
+
+#### Parte 2 — Demostrar que $A$ es invertible y hallar $A^{-1}$
+
+**Paso 1 — Estrategia: usar la ecuación de la parte 1 para despejar $A^{-1}$.** La idea es factorizar la ecuación hasta tener algo de la forma $A \cdot (\text{algo}) = \text{Id}$.
+
+**Paso 2 — Reordenar la ecuación.** De la parte 1: $-A^3 + 5A^2 - 7A + 3\text{Id} = \mathcal{O}$. Pasando $3\text{Id}$ a la derecha:
+
+$$-A^3 + 5A^2 - 7A = -3\text{Id}$$
+
+Multiplicando por $-1$:
+
+$$A^3 - 5A^2 + 7A = 3\text{Id}$$
+
+**Paso 3 — Sacar $A$ como factor común a izquierda.**
+
+$$A \cdot (A^2 - 5A + 7\text{Id}) = 3\text{Id}$$
+
+> **¿Por qué puedo factorizar?** Porque $A^3 = A \cdot A^2$, $5A^2 = A \cdot 5A$ (escalar entre factores), y $7A = A \cdot 7\text{Id}$. Todos tienen $A$ a izquierda.
+
+**Paso 4 — Dividir ambos lados por $3$ (multiplicar por $\frac{1}{3}$).**
+
+$$A \cdot \tfrac{1}{3}(A^2 - 5A + 7\text{Id}) = \text{Id}$$
+
+> **¡Ahí está!** Tengo la forma $A \cdot (\text{algo}) = \text{Id}$. Por definición de inversa, ese "algo" es $A^{-1}$:
+
+$$A^{-1} = \tfrac{1}{3}(A^2 - 5A + 7\text{Id})$$
+
+**Paso 5 — Calcular numéricamente $A^2 - 5A + 7\text{Id}$.**
+
+$$A^2 - 5A + 7\text{Id} = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 9 \end{pmatrix} - \begin{pmatrix} 5 & 5 & 0 \\ 0 & 5 & 0 \\ 0 & 0 & 15 \end{pmatrix} + \begin{pmatrix} 7 & 0 & 0 \\ 0 & 7 & 0 \\ 0 & 0 & 7 \end{pmatrix}$$
+
+Entrada por entrada: $(1,1) = 1 - 5 + 7 = 3$, $(1,2) = 2 - 5 + 0 = -3$, etc.
+
+$$= \begin{pmatrix} 3 & -3 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
+
+**Paso 6 — Multiplicar por $\frac{1}{3}$ (cada entrada se divide por $3$).**
+
+$$\boxed{A^{-1} = \begin{pmatrix} 1 & -1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1/3 \end{pmatrix}}$$
 
 ---
 
-## 🔵 Ejercicio V.9 — Inversas por método directo (cálculo — el profe dijo "en parciales se dice 'hallen la inversa'")
+## 🔵 Ejercicio V.9 — Inversas por método directo
 
 **Enunciado.** Encontrar la inversa (si existe) de:
 
-$$A = \begin{pmatrix} 1 & 2 \\ 3 & 1 \end{pmatrix}, \quad B = \begin{pmatrix} 2 & 1 \\ 4 & 2 \end{pmatrix}, \quad C = \begin{pmatrix} 1 & 1 & -1 \\ 1 & -1 & 1 \\ 1 & 1 & 1 \end{pmatrix}, \quad D = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 5 & 0 \\ 2 & 4 & 3 \end{pmatrix}, \quad E = \begin{pmatrix} 1 & 0 & 1 & -1 \\ 2 & 1 & 1 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & -1 & 2 & 1 \end{pmatrix}$$
+$$A = \begin{pmatrix} 1 & 2 \\ 3 & 1 \end{pmatrix}, \;\; B = \begin{pmatrix} 2 & 1 \\ 4 & 2 \end{pmatrix}, \;\; C = \begin{pmatrix} 1 & 1 & -1 \\ 1 & -1 & 1 \\ 1 & 1 & 1 \end{pmatrix}, \;\; D = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 5 & 0 \\ 2 & 4 & 3 \end{pmatrix}, \;\; E = \begin{pmatrix} 1 & 0 & 1 & -1 \\ 2 & 1 & 1 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & -1 & 2 & 1 \end{pmatrix}$$
 
-### Soluciones (oficiales)
+### Solución paso a paso (caso $A$, modelo)
 
-$$A^{-1} = \begin{pmatrix} -1/5 & 2/5 \\ 3/5 & -1/5 \end{pmatrix}$$
+> El método directo es el mismo procedimiento mecánico para todas. Te lo desarrollo entero para $A$ y después listo solo los resultados.
+
+**Paso 1 — Plantear la incógnita.** Buscamos una matriz $X$ del mismo tamaño que $A$ ($2 \times 2$) tal que $A \cdot X = \text{Id}$. Llamamos a sus entradas $a, b, c, d$:
+
+$$X = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$$
+
+**Paso 2 — Multiplicar $A \cdot X$ entrada por entrada.** Hacemos "fila × columna" en cada una de las 4 entradas:
+
+- Entrada $(1,1)$: $1 \cdot a + 2 \cdot c = a + 2c$
+- Entrada $(1,2)$: $1 \cdot b + 2 \cdot d = b + 2d$
+- Entrada $(2,1)$: $3 \cdot a + 1 \cdot c = 3a + c$
+- Entrada $(2,2)$: $3 \cdot b + 1 \cdot d = 3b + d$
+
+Quedando:
+
+$$A \cdot X = \begin{pmatrix} a + 2c & b + 2d \\ 3a + c & 3b + d \end{pmatrix}$$
+
+**Paso 3 — Igualar a la identidad.** Por hipótesis queremos $A \cdot X = \text{Id}$:
+
+$$\begin{pmatrix} a + 2c & b + 2d \\ 3a + c & 3b + d \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$$
+
+**Paso 4 — Sacar el sistema de ecuaciones.** Dos matrices son iguales si lo son entrada por entrada:
+
+$$\begin{cases} a + 2c = 1 \\ b + 2d = 0 \\ 3a + c = 0 \\ 3b + d = 1 \end{cases}$$
+
+> **Notá:** son 4 ecuaciones con 4 incógnitas. Y se separan naturalmente en dos parejas: $(a, c)$ usan las ecuaciones 1 y 3; $(b, d)$ usan las 2 y 4.
+
+**Paso 5 — Resolver para $a, c$ (ecuaciones 1 y 3).** Sistema:
+
+$$\begin{cases} a + 2c = 1 \\ 3a + c = 0 \end{cases}$$
+
+De la segunda ecuación, $c = -3a$. Sustituyo en la primera: $a + 2(-3a) = 1 \Rightarrow a - 6a = 1 \Rightarrow -5a = 1 \Rightarrow a = -\frac{1}{5}$. Y $c = -3 \cdot (-\frac{1}{5}) = \frac{3}{5}$.
+
+**Paso 6 — Resolver para $b, d$ (ecuaciones 2 y 4).** Sistema:
+
+$$\begin{cases} b + 2d = 0 \\ 3b + d = 1 \end{cases}$$
+
+De la primera, $b = -2d$. Sustituyo: $3(-2d) + d = 1 \Rightarrow -6d + d = 1 \Rightarrow -5d = 1 \Rightarrow d = -\frac{1}{5}$. Y $b = -2 \cdot (-\frac{1}{5}) = \frac{2}{5}$.
+
+**Paso 7 — Armar la inversa.**
+
+$$\boxed{A^{-1} = \begin{pmatrix} -1/5 & 2/5 \\ 3/5 & -1/5 \end{pmatrix}}$$
+
+> **Verificación rápida:** podés multiplicar $A \cdot A^{-1}$ y ver que da $\text{Id}$. Es buena costumbre hacerlo.
+
+### Resultados (oficiales) para las otras matrices
 
 $$B^{-1} \text{ no existe}$$
-(la fila 2 es $2$ veces la fila 1 → sistema incompatible al plantear $B \cdot X = \text{Id}$)
+> **¿Por qué?** La fila 2 de $B$ es $2$ veces la fila 1. Cuando planteás $B \cdot X = \text{Id}$, el sistema queda incompatible (una ecuación pide $0 = 1$, imposible).
 
 $$C^{-1} = \begin{pmatrix} 1/2 & 1/2 & 0 \\ 0 & -1/2 & 1/2 \\ -1/2 & 0 & 1/2 \end{pmatrix}$$
 
@@ -824,13 +907,7 @@ $$D^{-1} = \begin{pmatrix} -1 & -2/5 & 1 \\ 0 & 1/5 & 0 \\ 2/3 & 0 & -1/3 \end{p
 
 $$E^{-1} = \begin{pmatrix} 0 & 1/2 & -1/2 & 0 \\ -1/4 & 1/8 & 5/8 & -1/4 \\ 1/4 & -1/8 & 3/8 & 1/4 \\ -3/4 & 3/8 & -1/8 & 1/4 \end{pmatrix}$$
 
-**Nota de la cátedra:** "En los casos $3 \times 3$ y $4 \times 4$ se recomienda calcular la inversa por escalerización (Gauss-Jordan que se verá más adelante)". Para el parcial actual, el método directo (planteando el sistema) sigue siendo el válido.
-
-**Ejemplo del paso a paso para $A$:** Buscamos $X = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ tal que $A \cdot X = \text{Id}$:
-
-$$\begin{pmatrix} 1 & 2 \\ 3 & 1 \end{pmatrix} \begin{pmatrix} a & b \\ c & d \end{pmatrix} = \begin{pmatrix} a + 2c & b + 2d \\ 3a + c & 3b + d \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$$
-
-Sistema: $a + 2c = 1$, $b + 2d = 0$, $3a + c = 0$, $3b + d = 1$. Resolviendo: $a = -1/5$, $b = 2/5$, $c = 3/5$, $d = -1/5$.
+**Nota de la cátedra:** *"En los casos $3 \times 3$ y $4 \times 4$ se recomienda calcular la inversa por escalerización (Gauss-Jordan que se verá más adelante)"*. Para este parcial el método directo es el válido.
 
 ---
 
@@ -844,21 +921,93 @@ Sistema: $a + 2c = 1$, $b + 2d = 0$, $3a + c = 0$, $3b + d = 1$. Resolviendo: $a
 
 ### Solución
 
-**Parte 1 — verificación numérica:**
+#### Parte 1 — verificar $A^2 = 2A - \text{Id}$ y deducir invertibilidad
 
-$$A^2 = \begin{pmatrix} 9 & -8 & 4 \\ 4 & -3 & 2 \\ -8 & 8 & -3 \end{pmatrix} = 2A - \text{Id} \;\;\checkmark$$
+**Paso 1 — Calcular $A^2$ haciendo $A \cdot A$ entrada por entrada.** Aplico fila × columna en cada una de las 9 entradas. Por ejemplo, la entrada $(1,1)$ de $A^2$ es:
 
-**Invertibilidad por factorización:** despejando $A^2 - 2A = -\text{Id}$, agrupás $A(2\text{Id} - A) = \text{Id}$, así que:
+$$\text{fila 1 de } A \cdot \text{col 1 de } A = 5 \cdot 5 + (-4) \cdot 2 + 2 \cdot (-4) = 25 - 8 - 8 = 9$$
 
-$$A^{-1} = 2\text{Id} - A = \begin{pmatrix} -3 & 4 & -2 \\ -2 & 3 & -1 \\ 4 & -4 & 3 \end{pmatrix}$$
+Haciendo lo mismo con las otras 8 entradas:
 
-> "Si probaste que esta es la inversa, estás probando las dos cosas a la misma vez" — *el profesor*
+$$A^2 = \begin{pmatrix} 9 & -8 & 4 \\ 4 & -3 & 2 \\ -8 & 8 & -3 \end{pmatrix}$$
 
-**Parte 2.** Usando la igualdad de la parte 1: $A^3 = A^2 \cdot A = (2A - \text{Id}) A = 2A^2 - A = 2(2A - \text{Id}) - A = 3A - 2\text{Id}$.
+**Paso 2 — Calcular $2A - \text{Id}$.** Primero $2A$ (multiplicar cada entrada por 2):
+
+$$2A = \begin{pmatrix} 10 & -8 & 4 \\ 4 & -2 & 2 \\ -8 & 8 & -2 \end{pmatrix}$$
+
+Después restamos $\text{Id}$ (que tiene unos en la diagonal y ceros afuera):
+
+$$2A - \text{Id} = \begin{pmatrix} 10-1 & -8 & 4 \\ 4 & -2-1 & 2 \\ -8 & 8 & -2-1 \end{pmatrix} = \begin{pmatrix} 9 & -8 & 4 \\ 4 & -3 & 2 \\ -8 & 8 & -3 \end{pmatrix}$$
+
+> **¿Qué cambió?** Solo restamos $1$ a las entradas de la diagonal: $10 \to 9$, $-2 \to -3$, $-2 \to -3$. El resto queda igual.
+
+**Paso 3 — Comparar.** Los pasos 1 y 2 dan la misma matriz: ✓ se cumple $A^2 = 2A - \text{Id}$.
+
+**Paso 4 — Deducir invertibilidad por factorización.** Empiezo de la igualdad recién probada y voy moviendo términos hasta que aparezca un producto $A \cdot (\text{algo}) = \text{Id}$:
+
+$$A^2 = 2A - \text{Id}$$
+
+Paso $\text{Id}$ a la izquierda:
+
+$$A^2 - 2A = -\text{Id}$$
+
+Multiplico ambos lados por $-1$ (cambia los signos):
+
+$$-A^2 + 2A = \text{Id}$$
+
+Agrupo factor común $A$ a izquierda. $-A^2 = -A \cdot A$ y $2A = A \cdot 2\text{Id}$, así que:
+
+$$A \cdot (-A) + A \cdot (2\text{Id}) = A \cdot (-A + 2\text{Id}) = A \cdot (2\text{Id} - A)$$
+
+Igualando con el lado derecho:
+
+$$A \cdot (2\text{Id} - A) = \text{Id}$$
+
+> **¿Qué dice esto?** Encontré una matriz ($2\text{Id} - A$) que multiplicada por $A$ da $\text{Id}$. Por definición de inversa, esa es $A^{-1}$.
+
+**Paso 5 — Calcular numéricamente $A^{-1} = 2\text{Id} - A$.**
+
+$$2\text{Id} - A = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 2 \end{pmatrix} - \begin{pmatrix} 5 & -4 & 2 \\ 2 & -1 & 1 \\ -4 & 4 & -1 \end{pmatrix} = \begin{pmatrix} -3 & 4 & -2 \\ -2 & 3 & -1 \\ 4 & -4 & 3 \end{pmatrix}$$
+
+$$\boxed{A^{-1} = \begin{pmatrix} -3 & 4 & -2 \\ -2 & 3 & -1 \\ 4 & -4 & 3 \end{pmatrix}}$$
+
+> **Cita del profesor:** *"Si probaste que esta es la inversa, estás probando las dos cosas a la misma vez"* — porque encontrar la inversa explícita es prueba directa de que $A$ es invertible.
+
+#### Parte 2 — probar $A^3 = 3A - 2\text{Id}$
+
+**Paso 1 — Reescribir $A^3$ como $A^2 \cdot A$.**
+
+$$A^3 = A^2 \cdot A$$
+
+**Paso 2 — Reemplazar $A^2$ usando la parte 1 ($A^2 = 2A - \text{Id}$).**
+
+$$A^3 = (2A - \text{Id}) \cdot A$$
+
+**Paso 3 — Distribuir el producto.**
+
+$$= 2A \cdot A - \text{Id} \cdot A = 2 A^2 - A$$
+
+> **¿Qué pasó?** $2A \cdot A = 2 A^2$ (los escalares salen y $A \cdot A = A^2$). Y $\text{Id} \cdot A = A$.
+
+**Paso 4 — Reemplazar $A^2$ otra vez por $2A - \text{Id}$.**
+
+$$= 2(2A - \text{Id}) - A$$
+
+**Paso 5 — Distribuir el $2$ y juntar términos.**
+
+$$= 4A - 2\text{Id} - A = (4-1)A - 2\text{Id} = 3A - 2\text{Id} \quad \checkmark$$
+
+**Paso 6 — Calcular numéricamente.**
+
+$$3A = \begin{pmatrix} 15 & -12 & 6 \\ 6 & -3 & 3 \\ -12 & 12 & -3 \end{pmatrix}, \quad 2\text{Id} = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 2 \end{pmatrix}$$
 
 $$A^3 = 3A - 2\text{Id} = \begin{pmatrix} 13 & -12 & 6 \\ 6 & -5 & 3 \\ -12 & 12 & -5 \end{pmatrix}$$
 
-**Parte 3 — inducción:** demo paso a paso en `matrices-DEMOSTRACIONES.md` §G.2.
+#### Parte 3 — inducción $A^n = nA - (n-1)\text{Id}$
+
+Demo completa paso a paso en `matrices-DEMOSTRACIONES.md` §G.2. Es la generalización por inducción de lo que hicimos en la Parte 2.
+
+> **Idea de toda la inducción:** lo que en la parte 2 hicimos para pasar de $A^2$ a $A^3$, lo hacemos en general para pasar de $A^h$ a $A^{h+1}$. La hipótesis $A^2 = 2A - \text{Id}$ se usa en cada paso para "bajar la potencia".
 
 ---
 
