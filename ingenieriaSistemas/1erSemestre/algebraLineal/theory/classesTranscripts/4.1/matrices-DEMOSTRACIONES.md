@@ -266,7 +266,7 @@ $$C^T = (AB)^T = B^T A^T \quad \blacksquare$$
 
 ### C.1 — Suma de simétricas es simétrica
 
-> **Cómo leer esta demo (en una frase):** trasponemos la suma usando la propiedad 2, después usamos que $A$ y $B$ son simétricas para volver a tener $A + B$. Como $(A+B)^T = A+B$, la suma es simétrica.
+> **Cómo leer esta demo (en una frase):** trasponemos la suma usando la regla **"la traspuesta de una suma es la suma de las traspuestas"** ($(X+Y)^T = X^T + Y^T$), después usamos que $A$ y $B$ son simétricas para volver a tener $A + B$. Como $(A+B)^T = A+B$, la suma es simétrica.
 
 #### Antes de empezar — qué significa "simétrica"
 
@@ -294,11 +294,17 @@ $$(A+B)^T = A + B$$
 
 #### Demostración paso a paso
 
-**Paso 1 — Trasponer la suma.** Empezamos por el lado izquierdo $(A+B)^T$ y le aplicamos una herramienta que ya conocemos: la **propiedad 2 de traspuesta** (§B.2), que dice que la traspuesta de una suma es la suma de las traspuestas:
+**Paso 1 — Trasponer la suma.** Empezamos por el lado izquierdo $(A+B)^T$ y le aplicamos una herramienta que ya conocemos: la regla que dice que **trasponer una suma es lo mismo que sumar las traspuestas**. En fórmula: para cualesquiera matrices $X, Y$ del mismo tamaño,
+
+$$(X + Y)^T = X^T + Y^T$$
+
+(esta regla está demostrada en §B.2 — es lo que la teoría llama "propiedad 2 de la traspuesta").
+
+Aplicándola con $X = A$ y $Y = B$:
 
 $$(A + B)^T = A^T + B^T$$
 
-> **¿Por qué puedo hacer esto?** Porque la propiedad 2 dice exactamente eso: $(X + Y)^T = X^T + Y^T$ para cualesquiera matrices del mismo tamaño. La estoy aplicando con $X = A$ y $Y = B$.
+> **¿Por qué puedo hacer esto?** Porque esa regla vale para cualquier par de matrices que tengan la misma dimensión. La estoy aplicando con $X = A$ y $Y = B$.
 
 **Paso 2 — Usar la hipótesis.** En la hipótesis tengo $A^T = A$ y $B^T = B$. Esto me deja **reemplazar** $A^T$ por $A$ y $B^T$ por $B$ en la expresión anterior:
 
@@ -318,7 +324,7 @@ Eso es exactamente la condición de simetría aplicada a $A+B$. Por lo tanto, $A
 
 ### C.2 — $\alpha A$ es simétrica si $A$ es simétrica
 
-> **Cómo leer esta demo (en una frase):** trasponemos $\alpha A$ usando la propiedad 3 (el escalar sale), luego usamos que $A$ es simétrica para volver a $\alpha A$.
+> **Cómo leer esta demo (en una frase):** trasponemos $\alpha A$ usando la regla **"el escalar sale fuera de la traspuesta sin trasponerse"** ($(\alpha X)^T = \alpha X^T$), luego usamos que $A$ es simétrica para volver a $\alpha A$.
 
 **Hipótesis:** $A$ simétrica ($A^T = A$); $\alpha \in \mathbb{R}$ un número real cualquiera.
 
@@ -326,21 +332,27 @@ Eso es exactamente la condición de simetría aplicada a $A+B$. Por lo tanto, $A
 
 **Demostración paso a paso:**
 
-**Paso 1 — Sacar $\alpha$ afuera de la traspuesta.** Por la propiedad 3 (§B.3), trasponer un escalar por matriz es lo mismo que dejar el escalar afuera:
+**Paso 1 — Sacar $\alpha$ afuera de la traspuesta.** Uso la regla **"trasponer un escalar por matriz es lo mismo que dejar el escalar afuera y trasponer la matriz"**:
+
+$$(\alpha X)^T = \alpha \cdot X^T \qquad \text{para cualquier matriz } X$$
+
+(esta regla está demostrada en §B.3 — es lo que la teoría llama "propiedad 3 de la traspuesta"). Aplicándola con $X = A$:
 
 $$(\alpha A)^T = \alpha \cdot A^T$$
 
-**Paso 2 — Usar que $A$ es simétrica.** Reemplazamos $A^T$ por $A$ (eso dice la hipótesis):
+> **¿Por qué el escalar no se traspone?** Porque un escalar es un número solo — no tiene filas ni columnas, así que "trasponerlo" no significa nada. Se queda como está.
+
+**Paso 2 — Usar que $A$ es simétrica.** En la hipótesis tengo $A^T = A$. Reemplazo $A^T$ por $A$:
 
 $$= \alpha \cdot A$$
 
-**Paso 3 — Concluir.** Logré $(\alpha A)^T = \alpha A$. Por definición, eso significa que $\alpha A$ es simétrica. $\blacksquare$
+**Paso 3 — Concluir.** Encadenando: $(\alpha A)^T = \alpha A$. Eso es exactamente la condición de simetría aplicada a $\alpha A$. Por lo tanto $\alpha A$ es simétrica. $\blacksquare$
 
 > **Análoga:** si $A$ es antisimétrica ($A^T = -A$), seguís el mismo camino y terminás en $\alpha (-A) = -(\alpha A)$, así que $\alpha A$ resulta antisimétrica.
 
 ### C.3 — $AB$ simétrica $\iff AB = BA$ (con $A, B$ simétricas)
 
-> **Cómo leer esta demo (en una frase):** "$\iff$" significa "si y solo si" — hay que probar **dos cosas**: ida (si $AB$ es simétrica entonces $AB = BA$) y vuelta (si $AB = BA$ entonces $AB$ es simétrica). En ambas direcciones se usa la propiedad 4 de traspuesta.
+> **Cómo leer esta demo (en una frase):** "$\iff$" significa "si y solo si" — hay que probar **dos cosas**: ida (si $AB$ es simétrica entonces $AB = BA$) y vuelta (si $AB = BA$ entonces $AB$ es simétrica). En ambas direcciones se usa la regla **"trasponer un producto invierte el orden"** ($(XY)^T = Y^T X^T$).
 
 **Hipótesis:** $A^T = A$ y $B^T = B$ ($A$ y $B$ son simétricas).
 
@@ -362,7 +374,15 @@ $$AB = (AB)^T$$
 
 > **¿De dónde sale esto?** Estoy usando la definición de simetría aplicada a $AB$.
 
-**Paso 2 — Aplicar la propiedad 4 de traspuesta.** $(AB)^T = B^T A^T$:
+**Paso 2 — Aplicar la regla "trasponer un producto invierte el orden".** Para cualesquiera matrices $X, Y$ conformables vale:
+
+$$(XY)^T = Y^T \cdot X^T$$
+
+(esta regla está demostrada en §B.4 — es lo que la teoría llama "propiedad 4 de la traspuesta"). Aplicándola con $X = A$, $Y = B$:
+
+$$(AB)^T = B^T A^T$$
+
+Sustituyo en el paso 1:
 
 $$= B^T A^T$$
 
@@ -378,7 +398,7 @@ $$= B \cdot A$$
 
 #### Dirección VUELTA ($\Leftarrow$): asumimos $AB = BA$, probamos $AB$ simétrica
 
-**Paso 1 — Trasponer $AB$.** Por la propiedad 4:
+**Paso 1 — Trasponer $AB$.** Por la misma regla "trasponer un producto invierte el orden" ($(XY)^T = Y^T X^T$):
 
 $$(AB)^T = B^T A^T$$
 
@@ -396,11 +416,11 @@ $$= A \cdot B$$
 
 **Conclusión.** Probadas las dos direcciones, queda probada la equivalencia. $\blacksquare$
 
-> **Idea central:** la propiedad 4 ($(XY)^T = Y^T X^T$) hace casi todo el trabajo. Combinándola con la simetría de $A$ y $B$, ambas direcciones salen en 3-4 pasos.
+> **Idea central:** la regla $(XY)^T = Y^T X^T$ hace casi todo el trabajo. Combinándola con la simetría de $A$ y $B$, ambas direcciones salen en 3-4 pasos.
 
 ### C.4 — $\frac{1}{2}(A + A^T)$ es simétrica
 
-> **Cómo leer esta demo (en una frase):** llamamos $S$ a la matriz $\frac{1}{2}(A + A^T)$ y trasponemos. Usando las propiedades 1, 2 y 3 de traspuesta, llegamos a que $S^T = S$, lo que significa que $S$ es simétrica.
+> **Cómo leer esta demo (en una frase):** llamamos $S$ a la matriz $\frac{1}{2}(A + A^T)$ y trasponemos. Usando 3 reglas de traspuesta — "doble traspuesta vuelve al original" $((X^T)^T = X)$, "traspuesta de suma = suma de traspuestas" $((X+Y)^T = X^T + Y^T)$, y "el escalar sale sin trasponerse" $((\alpha X)^T = \alpha X^T)$ — llegamos a que $S^T = S$, lo que significa que $S$ es simétrica.
 
 **Hipótesis:** $A$ es una matriz cuadrada **cualquiera** (no hace falta que sea simétrica).
 
@@ -416,17 +436,17 @@ $$S^T = \left[\tfrac{1}{2}(A + A^T)\right]^T$$
 
 > **Estrategia:** voy a transformar $S^T$ paso a paso hasta volver a obtener $S$ — eso prueba que $S^T = S$.
 
-**Paso 2 — Sacar el $\frac{1}{2}$ afuera (propiedad 3 de traspuesta).** Como $\frac{1}{2}$ es un escalar, sale sin trasponerse:
+**Paso 2 — Sacar el $\frac{1}{2}$ afuera.** Uso la regla **"el escalar sale sin trasponerse"** ($(\alpha X)^T = \alpha X^T$, demostrada en §B.3 — la teoría la llama "propiedad 3"). Como $\frac{1}{2}$ es un escalar:
 
 $$= \tfrac{1}{2} (A + A^T)^T$$
 
-**Paso 3 — Trasponer la suma (propiedad 2).** $(X+Y)^T = X^T + Y^T$ aplicado con $X = A$, $Y = A^T$:
+**Paso 3 — Trasponer la suma.** Uso la regla **"traspuesta de suma = suma de traspuestas"** ($(X+Y)^T = X^T + Y^T$, demostrada en §B.2 — la teoría la llama "propiedad 2"), aplicada con $X = A$, $Y = A^T$:
 
 $$= \tfrac{1}{2}(A^T + (A^T)^T)$$
 
 > **¿Qué pasó?** Cada sumando se traspuso por separado.
 
-**Paso 4 — Aplicar $(A^T)^T = A$ (propiedad 1).** El segundo sumando vuelve a ser $A$:
+**Paso 4 — Aplicar la regla "doble traspuesta vuelve al original"** ($(X^T)^T = X$, demostrada en §B.1 — la teoría la llama "propiedad 1"). El segundo sumando $(A^T)^T$ vuelve a ser $A$:
 
 $$= \tfrac{1}{2}(A^T + A)$$
 
@@ -442,7 +462,7 @@ $$= S$$
 
 **Conclusión.** $S^T = S$, así que $S$ es simétrica. $\blacksquare$
 
-> **Idea central:** apliqué las 3 propiedades de traspuesta en cadena, más la conmutativa de la suma. Todo eran herramientas del repertorio que ya conocíamos.
+> **Idea central:** apliqué las 3 reglas de traspuesta en cadena (sacar escalar, separar suma, doble traspuesta) más la conmutativa de la suma. Todo eran herramientas del repertorio que ya conocíamos.
 
 ### C.5 — $\frac{1}{2}(A - A^T)$ es antisimétrica
 
