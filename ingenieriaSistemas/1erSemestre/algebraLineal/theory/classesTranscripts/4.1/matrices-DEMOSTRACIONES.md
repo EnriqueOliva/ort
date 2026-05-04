@@ -268,27 +268,51 @@ $$C^T = (AB)^T = B^T A^T \quad \blacksquare$$
 
 > **Cómo leer esta demo (en una frase):** trasponemos la suma usando la propiedad 2, después usamos que $A$ y $B$ son simétricas para volver a tener $A + B$. Como $(A+B)^T = A+B$, la suma es simétrica.
 
-**Hipótesis:** $A, B$ son simétricas, lo que significa $A^T = A$ y $B^T = B$.
+#### Antes de empezar — qué significa "simétrica"
 
-> **Recordá:** "matriz simétrica" significa "es igual a su traspuesta". Es la definición.
+> **Recordatorio (definición de matriz simétrica):** una matriz $M$ es **simétrica** si $M^T = M$, es decir, **es igual a su propia traspuesta**. En la práctica, eso significa que los números arriba de la diagonal son iguales a los de abajo (espejados por la diagonal). Por ejemplo, $\begin{pmatrix} 1 & 3 \\ 3 & 2 \end{pmatrix}$ es simétrica porque al trasponerla queda igual.
+>
+> **Por qué importa para la demo:** "que $A$ es simétrica" y "que $A^T = A$" son **exactamente lo mismo**, dicho de dos formas. En la demo voy a usar la forma con la fórmula ($A^T = A$) porque es la que me sirve para hacer cuentas.
 
-**Tesis:** $A + B$ es simétrica — o sea, queremos llegar a $(A+B)^T = A + B$.
+#### Hipótesis y tesis
 
-**Demostración paso a paso:**
+**Hipótesis:** $A$ es simétrica **y** $B$ es simétrica.
 
-**Paso 1 — Trasponer la suma.** Por la propiedad 2 de traspuesta (§B.2), trasponer una suma es lo mismo que sumar las traspuestas:
+Eso, traducido a fórmulas (que es lo que vamos a usar para operar), es:
+
+$$A^T = A \qquad \text{y} \qquad B^T = B$$
+
+> **Cómo leer:** "$A^T = A$" es decir "la traspuesta de $A$ es la misma matriz $A$". Es lo que define que $A$ sea simétrica. Lo mismo con $B$.
+
+**Tesis:** queremos probar que $A + B$ **también** es simétrica.
+
+Por la misma definición de simetría aplicada a $A+B$, eso significa que tenemos que llegar a:
+
+$$(A+B)^T = A + B$$
+
+> **Resumen del plan:** vamos a calcular $(A+B)^T$ y mostrar que da $A+B$. Si lo logramos, por definición $A+B$ es simétrica.
+
+#### Demostración paso a paso
+
+**Paso 1 — Trasponer la suma.** Empezamos por el lado izquierdo $(A+B)^T$ y le aplicamos una herramienta que ya conocemos: la **propiedad 2 de traspuesta** (§B.2), que dice que la traspuesta de una suma es la suma de las traspuestas:
 
 $$(A + B)^T = A^T + B^T$$
 
-> **¿Por qué puedo hacer esto?** Esa es exactamente la propiedad 2 que demostramos antes. La estoy aplicando.
+> **¿Por qué puedo hacer esto?** Porque la propiedad 2 dice exactamente eso: $(X + Y)^T = X^T + Y^T$ para cualesquiera matrices del mismo tamaño. La estoy aplicando con $X = A$ y $Y = B$.
 
-**Paso 2 — Usar la hipótesis (que son simétricas).** Por hipótesis $A^T = A$ y $B^T = B$, así que reemplazo:
+**Paso 2 — Usar la hipótesis.** En la hipótesis tengo $A^T = A$ y $B^T = B$. Esto me deja **reemplazar** $A^T$ por $A$ y $B^T$ por $B$ en la expresión anterior:
 
-$$= A + B$$
+$$A^T + B^T = A + B$$
 
-**Paso 3 — Concluir.** Logré $(A + B)^T = A + B$. Eso es la **definición** de matriz simétrica aplicada a $A+B$. Por lo tanto $A+B$ es simétrica. $\blacksquare$
+> **¿Por qué puedo hacer esto?** Porque "$A$ simétrica" SIGNIFICA "$A^T = A$" — son lo mismo. Si en cualquier expresión veo $A^T$ y sé que $A$ es simétrica, lo puedo cambiar por $A$ sin que la igualdad se rompa.
 
-> **Idea central:** trasponemos, usamos la simetría, llegamos al inicio. Solo dos pasos.
+**Paso 3 — Conclusión.** Encadenando los pasos 1 y 2:
+
+$$(A + B)^T = A^T + B^T = A + B$$
+
+Eso es exactamente la condición de simetría aplicada a $A+B$. Por lo tanto, $A+B$ es simétrica. $\blacksquare$
+
+> **Idea central:** trasponemos, usamos la hipótesis de simetría, llegamos al lado derecho. Dos pasos y listo.
 >
 > **Análoga (ejercicio mental):** la suma de antisimétricas es antisimétrica. Misma demo pero con $A^T = -A$ y $B^T = -B$, terminás en $-(A+B)$.
 
