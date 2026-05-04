@@ -973,7 +973,16 @@ $$A^3 = \begin{pmatrix} 1 & 3 & 6 \\ 0 & 1 & 3 \\ 0 & 0 & 1 \end{pmatrix}$$
 
 Demo paso a paso de la inducción completa en `matrices-DEMOSTRACIONES.md` §G.3.
 
-> **Idea de la inducción:** la base son los casos $n=1$, $n=2$ que acabamos de verificar. Asumimos que la fórmula vale para $n=h$ y probamos que vale para $n=h+1$ multiplicando $A^h \cdot A$. La entrada $(1,3)$ es la que requiere más álgebra ($1 + h + \frac{h(h+1)}{2}$ tiene que dar $\frac{(h+1)(h+2)}{2}$).
+> **Idea de la inducción en palabras simples:** ya verificamos que la fórmula funciona para $n = 1$ y $n = 2$. Esos son los **casos chicos** que ya están listos. La inducción es la herramienta para probar que la fórmula también funciona para $n = 3, 4, 5, \ldots$ y todos los siguientes, **sin tener que verificarlos uno por uno**.
+>
+> **Cómo funciona el truco:** en lugar de probar caso por caso (que sería infinito), probás algo más astuto:
+>
+> 1. **Suponés** que la fórmula ya funciona para algún número $h$ (cualquiera).
+> 2. **Probás** que entonces TAMBIÉN funciona para el siguiente, $h+1$.
+>
+> Si lográs eso, automáticamente la fórmula vale para todos los $n$: como funciona para $1$, también para $2$. Como funciona para $2$, también para $3$. Y así infinitamente.
+>
+> **Cómo se hace la cuenta del paso $h \to h+1$:** para encontrar $A^{h+1}$, usás que $A^{h+1} = A^h \cdot A$, reemplazás $A^h$ por la fórmula (que asumiste que vale para $h$), multiplicás, y verificás que el resultado es la fórmula para $h+1$. La parte difícil es la entrada $(1,3)$ del resultado, que requiere algo de álgebra para simplificar — pero en demos.md §G.3 está todo desglosado paso a paso.
 
 ---
 
