@@ -1153,50 +1153,76 @@ $$A = \begin{pmatrix} 1 & 2 \\ 3 & 1 \end{pmatrix}, \;\; B = \begin{pmatrix} 2 &
 
 ### Solución paso a paso (caso $A$, modelo)
 
-> El método directo es el mismo procedimiento mecánico para todas. Te lo desarrollo entero para $A$ y después listo solo los resultados.
+> **El razonamiento general que vamos a seguir.** No tenemos fórmula directa para escupir $A^{-1}$. Lo que sí sabemos es la **definición de inversa**: $A^{-1}$ es la matriz que multiplicada por $A$ da $\text{Id}$. Estrategia: vamos a inventar una matriz desconocida $X$ con incógnitas, imponer $A \cdot X = \text{Id}$, y resolver el sistema de ecuaciones que sale. Si tiene solución, esa $X$ es $A^{-1}$. Si no tiene solución, $A$ no es invertible.
 
-**Paso 1 — Plantear la incógnita.** Buscamos una matriz $X$ del mismo tamaño que $A$ ($2 \times 2$) tal que $A \cdot X = \text{Id}$. Llamamos a sus entradas $a, b, c, d$:
+**Paso 1 — Plantear la incógnita.**
+
+> **Razonamiento del paso 1:** queremos encontrar la matriz $A^{-1}$, pero no sabemos cuáles son sus entradas. Por eso le ponemos letras a sus 4 lugares ($a, b, c, d$) para tratarlas como incógnitas a despejar después. Es lo mismo que cuando en una ecuación con números le ponés "$x$" a lo que querés encontrar.
+
+Buscamos $X$ del mismo tamaño que $A$ (acá, $2 \times 2$) tal que $A \cdot X = \text{Id}$. Llamamos a sus entradas $a, b, c, d$:
 
 $$X = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$$
 
-**Paso 2 — Multiplicar $A \cdot X$ entrada por entrada.** Hacemos "fila × columna" en cada una de las 4 entradas:
+**Paso 2 — Multiplicar $A \cdot X$ entrada por entrada.**
 
-- Entrada $(1,1)$: $1 \cdot a + 2 \cdot c = a + 2c$
-- Entrada $(1,2)$: $1 \cdot b + 2 \cdot d = b + 2d$
-- Entrada $(2,1)$: $3 \cdot a + 1 \cdot c = 3a + c$
-- Entrada $(2,2)$: $3 \cdot b + 1 \cdot d = 3b + d$
+> **Razonamiento del paso 2:** queremos imponer la condición $A \cdot X = \text{Id}$ pero todavía no podemos compararla con $\text{Id}$ porque del lado izquierdo tenemos un producto sin calcular. Entonces **primero hacemos el producto** usando "fila × columna", que es la única forma de multiplicar matrices que conocemos. El resultado va a quedar en función de $a, b, c, d$ — y recién ahí podremos compararlo con la identidad.
 
-Quedando:
+Hago "fila × columna" en cada una de las 4 entradas. Recordatorio: la entrada $(i,k)$ del producto se calcula tomando la fila $i$ de la primera matriz, la columna $k$ de la segunda, multiplicando par a par y sumando.
+
+- **Entrada $(1,1)$:** fila 1 de $A$ es $1, 2$. Columna 1 de $X$ es $a, c$ (de arriba a abajo). Producto par a par y suma: $1 \cdot a + 2 \cdot c = a + 2c$.
+- **Entrada $(1,2)$:** fila 1 de $A$ ($1, 2$) por columna 2 de $X$ ($b, d$): $1 \cdot b + 2 \cdot d = b + 2d$.
+- **Entrada $(2,1)$:** fila 2 de $A$ ($3, 1$) por columna 1 de $X$ ($a, c$): $3 \cdot a + 1 \cdot c = 3a + c$.
+- **Entrada $(2,2)$:** fila 2 de $A$ ($3, 1$) por columna 2 de $X$ ($b, d$): $3 \cdot b + 1 \cdot d = 3b + d$.
+
+Apilando las 4 entradas en su lugar:
 
 $$A \cdot X = \begin{pmatrix} a + 2c & b + 2d \\ 3a + c & 3b + d \end{pmatrix}$$
 
-**Paso 3 — Igualar a la identidad.** Por hipótesis queremos $A \cdot X = \text{Id}$:
+**Paso 3 — Igualar a la identidad.**
+
+> **Razonamiento del paso 3:** el objetivo desde el principio era que $A \cdot X = \text{Id}$. Ya tenemos $A \cdot X$ calculado en el paso 2. Ahora simplemente lo escribimos igualado a la identidad — eso es la **condición** que tienen que cumplir $a, b, c, d$ para que $X$ sea la inversa.
 
 $$\begin{pmatrix} a + 2c & b + 2d \\ 3a + c & 3b + d \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$$
 
-**Paso 4 — Sacar el sistema de ecuaciones.** Dos matrices son iguales si lo son entrada por entrada:
+**Paso 4 — Sacar el sistema de ecuaciones.**
 
-$$\begin{cases} a + 2c = 1 \\ b + 2d = 0 \\ 3a + c = 0 \\ 3b + d = 1 \end{cases}$$
+> **Razonamiento del paso 4:** dos matrices son iguales si y solo si lo son **en cada posición**. Entonces la igualdad matricial del paso 3 es exactamente la misma información que 4 igualdades numéricas (una por cada entrada). Eso sí lo sabemos resolver con álgebra básica.
 
-> **Notá:** son 4 ecuaciones con 4 incógnitas. Y se separan naturalmente en dos parejas: $(a, c)$ usan las ecuaciones 1 y 3; $(b, d)$ usan las 2 y 4.
+$$\begin{cases} a + 2c = 1 & \text{(de la entrada (1,1))} \\ b + 2d = 0 & \text{(de la (1,2))} \\ 3a + c = 0 & \text{(de la (2,1))} \\ 3b + d = 1 & \text{(de la (2,2))} \end{cases}$$
 
-**Paso 5 — Resolver para $a, c$ (ecuaciones 1 y 3).** Sistema:
+> **Observación útil:** son 4 ecuaciones con 4 incógnitas, **pero se separan en 2 parejas independientes** porque las ecuaciones 1 y 3 solo usan $a, c$ (no aparecen $b, d$), y las ecuaciones 2 y 4 solo usan $b, d$. Eso me deja resolver dos sistemas chicos de $2 \times 2$ en lugar de un sistema gigante.
+
+**Paso 5 — Resolver para $a, c$ (ecuaciones 1 y 3).**
+
+> **Razonamiento del paso 5:** uso el método de sustitución estándar — despejo una variable de una ecuación, la meto en la otra para tener una sola incógnita, resuelvo, y vuelvo atrás para encontrar la otra.
 
 $$\begin{cases} a + 2c = 1 \\ 3a + c = 0 \end{cases}$$
 
-De la segunda ecuación, $c = -3a$. Sustituyo en la primera: $a + 2(-3a) = 1 \Rightarrow a - 6a = 1 \Rightarrow -5a = 1 \Rightarrow a = -\frac{1}{5}$. Y $c = -3 \cdot (-\frac{1}{5}) = \frac{3}{5}$.
+De la **segunda ecuación** despejo $c$: $c = -3a$.
 
-**Paso 6 — Resolver para $b, d$ (ecuaciones 2 y 4).** Sistema:
+Sustituyo en la **primera ecuación**: $a + 2(-3a) = 1$, o sea $a - 6a = 1$, o sea $-5a = 1$. Despejando: $a = -\frac{1}{5}$.
+
+Vuelvo a $c = -3a = -3 \cdot (-\frac{1}{5}) = \frac{3}{5}$.
+
+**Paso 6 — Resolver para $b, d$ (ecuaciones 2 y 4).**
+
+> **Razonamiento del paso 6:** mismo método de sustitución que el paso 5, ahora con la otra pareja de ecuaciones.
 
 $$\begin{cases} b + 2d = 0 \\ 3b + d = 1 \end{cases}$$
 
-De la primera, $b = -2d$. Sustituyo: $3(-2d) + d = 1 \Rightarrow -6d + d = 1 \Rightarrow -5d = 1 \Rightarrow d = -\frac{1}{5}$. Y $b = -2 \cdot (-\frac{1}{5}) = \frac{2}{5}$.
+De la **primera ecuación** despejo $b$: $b = -2d$.
+
+Sustituyo en la **segunda**: $3(-2d) + d = 1$, o sea $-6d + d = 1$, o sea $-5d = 1$. Despejando: $d = -\frac{1}{5}$.
+
+Vuelvo a $b = -2d = -2 \cdot (-\frac{1}{5}) = \frac{2}{5}$.
 
 **Paso 7 — Armar la inversa.**
 
+> **Razonamiento del paso 7:** ya tengo los 4 valores que cumplen la condición $A \cdot X = \text{Id}$. Los pongo en sus lugares originales (los lugares de las incógnitas $a, b, c, d$ en $X$).
+
 $$\boxed{A^{-1} = \begin{pmatrix} -1/5 & 2/5 \\ 3/5 & -1/5 \end{pmatrix}}$$
 
-> **Verificación rápida:** podés multiplicar $A \cdot A^{-1}$ y ver que da $\text{Id}$. Es buena costumbre hacerlo.
+> **Verificación opcional pero recomendada:** multiplicá $A \cdot A^{-1}$ y comprobá que da $\text{Id}$. Si te da otra cosa, hay un error de cuentas en el camino.
 
 ### Resultados (oficiales) para las otras matrices
 
