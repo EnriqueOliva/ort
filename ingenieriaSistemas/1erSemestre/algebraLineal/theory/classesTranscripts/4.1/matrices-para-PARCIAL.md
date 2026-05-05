@@ -1271,27 +1271,50 @@ $$2A - \text{Id} = \begin{pmatrix} 10-1 & -8 & 4 \\ 4 & -2-1 & 2 \\ -8 & 8 & -2-
 
 **Paso 3 — Comparar.** Los pasos 1 y 2 dan la misma matriz: ✓ se cumple $A^2 = 2A - \text{Id}$.
 
-**Paso 4 — Deducir invertibilidad por factorización.** Empiezo de la igualdad recién probada y voy moviendo términos hasta que aparezca un producto $A \cdot (\text{algo}) = \text{Id}$:
+**Paso 4 — Deducir invertibilidad por factorización.**
+
+> **El razonamiento general que vamos a seguir.** Ya probamos que $A^2 = 2A - \text{Id}$. Lo que queremos ahora es **encontrar la inversa $A^{-1}$**. Por definición, $A^{-1}$ es una matriz que multiplicada por $A$ da $\text{Id}$. Entonces el plan es: agarrar la igualdad $A^2 = 2A - \text{Id}$ y manipularla algebraicamente hasta que del lado izquierdo me quede algo de la forma $A \cdot (\text{algo}) = \text{Id}$. Si lo logro, ese $(\text{algo})$ es $A^{-1}$ por definición.
+
+Punto de partida (la igualdad que ya probamos):
 
 $$A^2 = 2A - \text{Id}$$
 
-Paso $\text{Id}$ a la izquierda:
+**Sub-paso 4.1 — Mover el $2A$ al lado izquierdo.**
+
+> **Razonamiento del sub-paso 4.1:** quiero que del lado derecho me quede solo $\text{Id}$ (o algo proporcional a $\text{Id}$), porque mi objetivo final es comparar contra $\text{Id}$. El término $2A$ está estorbando del lado derecho, así que lo paso al izquierdo restando $2A$ a ambos lados.
+
+Resto $2A$ a ambos lados:
+
+$$A^2 - 2A = 2A - \text{Id} - 2A$$
+
+Del lado derecho, $2A - 2A = \mathcal{O}$ (matriz nula), entonces queda solo $-\text{Id}$:
 
 $$A^2 - 2A = -\text{Id}$$
 
-Multiplico ambos lados por $-1$ (cambia los signos):
+**Sub-paso 4.2 — Multiplicar ambos lados por $-1$ para que el lado derecho sea $\text{Id}$ (no $-\text{Id}$).**
+
+> **Razonamiento del sub-paso 4.2:** la definición de inversa pide $A \cdot A^{-1} = \text{Id}$ con signo positivo, no $-\text{Id}$. Por eso multiplico ambos lados por $-1$, lo cual cambia todos los signos pero no rompe la igualdad (si dos cosas son iguales, $-1$ veces cada una sigue siendo iguales).
 
 $$-A^2 + 2A = \text{Id}$$
 
-Agrupo factor común $A$ a izquierda. $-A^2 = -A \cdot A$ y $2A = A \cdot 2\text{Id}$, así que:
+**Sub-paso 4.3 — Sacar $A$ como factor común a la izquierda.**
 
-$$A \cdot (-A) + A \cdot (2\text{Id}) = A \cdot (-A + 2\text{Id}) = A \cdot (2\text{Id} - A)$$
+> **Razonamiento del sub-paso 4.3:** ahora del lado derecho ya tengo $\text{Id}$. Lo que quiero del lado izquierdo es algo de la forma $A \cdot (\text{algo})$. Para eso, miro los dos términos de la izquierda y veo si puedo sacar $A$ como factor común.
+>
+> - Primer término: $-A^2 = -A \cdot A$, así que tiene un factor $A$ a la izquierda.
+> - Segundo término: $2A = A \cdot 2\text{Id}$ (porque multiplicar por $2\text{Id}$ es lo mismo que multiplicar por el escalar $2$), así que también tiene un factor $A$ a la izquierda.
+>
+> Como ambos términos arrancan con $A$ a la izquierda, puedo factorizarlo (igual que $-x^2 + 2x = x(-x + 2)$ con números).
 
-Igualando con el lado derecho:
+Aplicando factor común:
+
+$$A \cdot (-A) + A \cdot (2\text{Id}) = A \cdot (-A + 2\text{Id})$$
+
+Reordenando lo de adentro del paréntesis (sumas conmutan):
 
 $$A \cdot (2\text{Id} - A) = \text{Id}$$
 
-> **¿Qué dice esto?** Encontré una matriz ($2\text{Id} - A$) que multiplicada por $A$ da $\text{Id}$. Por definición de inversa, esa es $A^{-1}$.
+> **¿Qué dice esto?** Encontré una matriz ($2\text{Id} - A$) que multiplicada por $A$ da $\text{Id}$. Por **definición de inversa**, esa matriz es $A^{-1}$. Es decir: $A^{-1} = 2\text{Id} - A$.
 
 **Paso 5 — Calcular numéricamente $A^{-1} = 2\text{Id} - A$.**
 
@@ -1394,13 +1417,44 @@ $$\alpha = \pm \frac{3}{5}$$
 
 **Paso 6 — Resolver $\beta$.** Análogo: $\beta^2 = 1 - \frac{9}{25} = \frac{16}{25}$, así que $\beta = \pm \frac{4}{5}$.
 
-**Paso 7 — Usar la tercera ecuación para combinar signos.** La tercera ecuación dice $\alpha\beta = -\frac{12}{25}$. Como $\frac{3}{5} \cdot \frac{4}{5} = \frac{12}{25}$ es positivo, $\alpha$ y $\beta$ deben tener **signos opuestos** (uno positivo, otro negativo).
+**Paso 7 — Usar la tercera ecuación para descartar combinaciones de signos.**
+
+> **Razonamiento del paso 7:** los pasos 5 y 6 me dieron 4 combinaciones posibles de signos ($\alpha = \pm\frac{3}{5}$ combinado con $\beta = \pm\frac{4}{5}$). Pero todavía no usé la **tercera ecuación** del sistema, $\alpha\beta = -\frac{12}{25}$. Esa ecuación filtra cuáles combinaciones son válidas.
+
+La tercera ecuación dice:
+
+$$\alpha \beta = -\frac{12}{25}$$
+
+El producto $\alpha\beta$ tiene que ser **negativo** ($-\frac{12}{25}$ es menor que cero). Eso significa que $\alpha$ y $\beta$ tienen que tener **signos opuestos** (porque positivo $\times$ positivo o negativo $\times$ negativo dan resultado positivo; solo positivo $\times$ negativo da resultado negativo).
+
+Repaso las 4 combinaciones posibles:
+
+| $\alpha$ | $\beta$ | $\alpha \cdot \beta$ | ¿Cumple $\alpha\beta = -\frac{12}{25}$? |
+|----------|---------|----------------------|-----------------------------------------|
+| $+\frac{3}{5}$ | $+\frac{4}{5}$ | $+\frac{12}{25}$ | ✗ No (sale positivo) |
+| $-\frac{3}{5}$ | $-\frac{4}{5}$ | $+\frac{12}{25}$ | ✗ No (sale positivo) |
+| $+\frac{3}{5}$ | $-\frac{4}{5}$ | $-\frac{12}{25}$ | ✓ Sí |
+| $-\frac{3}{5}$ | $+\frac{4}{5}$ | $-\frac{12}{25}$ | ✓ Sí |
+
+Sobreviven solo las **2 combinaciones de signos opuestos**. Esas son los "2 casos" que aparecen en el próximo paso.
 
 **Paso 8 — Las dos soluciones.**
 
-- **Caso 1:** $\alpha = \frac{3}{5}, \beta = -\frac{4}{5}$. Entonces $A^{-1} = A^T = \begin{pmatrix} 4/5 & 3/5 \\ 3/5 & -4/5 \end{pmatrix}$.
+> **Razonamiento del paso 8:** del paso 7 me quedaron exactamente 2 combinaciones válidas. Como ambas cumplen las 3 ecuaciones del sistema, ambas son soluciones legítimas: el ejercicio tiene **2 matrices ortogonales** que arrancan con la fila $(4/5, 3/5)$, no una sola. Por cada caso, escribo $A^{-1}$ usando el dato $A^{-1} = A^T$ (que es lo que pide la definición de ortogonal).
 
-- **Caso 2:** $\alpha = -\frac{3}{5}, \beta = \frac{4}{5}$. Entonces $A^{-1} = A^T = \begin{pmatrix} 4/5 & -3/5 \\ 3/5 & 4/5 \end{pmatrix}$.
+- **Caso 1:** $\alpha = \frac{3}{5}, \beta = -\frac{4}{5}$.
+
+  La matriz original queda $A = \begin{pmatrix} 4/5 & 3/5 \\ 3/5 & -4/5 \end{pmatrix}$, y como $A^{-1} = A^T$:
+
+  $$A^{-1} = A^T = \begin{pmatrix} 4/5 & 3/5 \\ 3/5 & -4/5 \end{pmatrix}$$
+
+  > **Detalle:** en este caso $A = A^T$ (la matriz es simétrica), así que $A^{-1}$ y $A$ coinciden visualmente.
+
+- **Caso 2:** $\alpha = -\frac{3}{5}, \beta = \frac{4}{5}$.
+
+  La matriz original queda $A = \begin{pmatrix} 4/5 & 3/5 \\ -3/5 & 4/5 \end{pmatrix}$, y trasponiendo (filas pasan a columnas):
+
+  $$A^{-1} = A^T = \begin{pmatrix} 4/5 & -3/5 \\ 3/5 & 4/5 \end{pmatrix}$$
 
 > **Idea central:** ortogonal $\Leftrightarrow A^T A = \text{Id}$. Plantear esa condición da un sistema con $n^2$ ecuaciones en las incógnitas, que se resuelve con álgebra básica.
 
@@ -1657,13 +1711,107 @@ Demo paso a paso en `matrices-DEMOSTRACIONES.md` §G.1.
 1. Probar que $(A + \text{Id})$ es invertible y $(A + \text{Id})^{-1} = A^2 - A + \text{Id}$.
 2. Aplicar para hallar $B^{-1}$ con $B = \begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}$.
 
+### Lectura del enunciado (qué te están pidiendo)
+
+El ejercicio tiene dos partes muy distintas:
+
+**Parte 1 — demostración abstracta.** Te dicen: "agarrá una matriz cualquiera $A$, pero **suponé** que cumple $A^3 = \mathcal{O}$ (matriz nula). Bajo esa suposición, demostrame dos cosas":
+
+- (a) que la matriz $A + \text{Id}$ tiene inversa (es invertible).
+- (b) que esa inversa, escrita explícitamente, es la matriz $A^2 - A + \text{Id}$.
+
+No te dan números. Es una demostración **general**: vale para cualquier $A$ que cumpla la hipótesis.
+
+> **Traducción literal del símbolo $\implies$:** la flecha doble significa "implica". Lo que dice el título del ejercicio es: *"si $A^3$ es la matriz nula, entonces la inversa de $A + \text{Id}$ es $A^2 - A + \text{Id}$"*.
+
+**Parte 2 — aplicación numérica.** Te dan una matriz $B$ específica de $4 \times 4$ y te piden calcular $B^{-1}$. La idea es **usar el resultado de la parte 1 como atajo** en lugar de calcular $B^{-1}$ desde cero. Para eso, hay que:
+
+1. Reescribir $B$ en la forma $B = A + \text{Id}$ (es decir, identificar quién es $A$).
+2. Verificar que ese $A$ cumple $A^3 = \mathcal{O}$ (la hipótesis de la parte 1).
+3. Aplicar la fórmula $B^{-1} = A^2 - A + \text{Id}$.
+
+### Propiedades / conceptos que se usan
+
+Antes de leer la solución, conviene tener estos cuatro conceptos a mano:
+
+1. **Matriz nula $\mathcal{O}$.** Es la matriz con **todos los ceros**. Cumple $\mathcal{O} + X = X$ para cualquier $X$ (sumarle la nula no cambia nada).
+
+2. **Matriz identidad $\text{Id}$.** Es la matriz cuadrada con **unos en la diagonal y ceros afuera**. Cumple $\text{Id} \cdot X = X \cdot \text{Id} = X$ (multiplicar por $\text{Id}$ no cambia nada — es el "1" del mundo matricial).
+
+3. **Definición de inversa.** Decir que $Y$ es la inversa de $X$ significa, **por definición**, que se cumple:
+
+    $$X \cdot Y = \text{Id}$$
+
+    Entonces, para probar que "$A^2 - A + \text{Id}$ es la inversa de $A + \text{Id}$", lo único que hay que hacer es verificar que el producto de esas dos matrices da $\text{Id}$.
+
+4. **Matriz nilpotente.** Una matriz $A$ se llama **nilpotente** si existe algún número entero $k$ tal que $A^k = \mathcal{O}$ (la potencia $k$-ésima da la matriz nula). En este ejercicio la hipótesis $A^3 = \mathcal{O}$ es exactamente la condición de "$A$ es nilpotente con $k = 3$".
+
+> **Analogía para entender la fórmula del ejercicio.** En álgebra de números reales sabés que $(1 + x)(1 - x + x^2) = 1 + x^3$. Si $x^3 = 0$ (cosa que con números reales solo pasa si $x = 0$, pero con matrices sí puede pasar para $A \neq \mathcal{O}$), el lado derecho queda $1$. Es decir: $(1 + x)(1 - x + x^2) = 1$, lo que dice que el inverso de $1 + x$ es $1 - x + x^2$. **El ejercicio es la versión matricial de esa identidad**, reemplazando $1 \to \text{Id}$, $x \to A$, y aprovechando que $A^3 = \mathcal{O}$.
+
 ### Solución
 
 #### Parte 1 — demostración
 
-Demo paso a paso en `matrices-DEMOSTRACIONES.md` §H.2.
+> **El razonamiento general que vamos a seguir.** Por **definición de inversa**, decir "$Y$ es la inversa de $X$" es decir "$X \cdot Y = \text{Id}$". Entonces, para probar que $A^2 - A + \text{Id}$ es la inversa de $A + \text{Id}$, lo único que hay que hacer es **multiplicar esas dos matrices y verificar que el resultado es $\text{Id}$**. Si la cuenta da $\text{Id}$, queda probado a la vez (a) que $A + \text{Id}$ es invertible y (b) que su inversa es exactamente $A^2 - A + \text{Id}$.
 
-> **Idea:** verificar que $(A + \text{Id})(A^2 - A + \text{Id}) = A^3 + \text{Id} = \mathcal{O} + \text{Id} = \text{Id}$. Eso prueba que $A^2 - A + \text{Id}$ es la inversa.
+**Paso 1 — Plantear la cuenta.** Quiero ver cuánto da el producto $(A + \text{Id}) \cdot (A^2 - A + \text{Id})$.
+
+**Paso 2 — Aplicar distributiva.**
+
+> **Razonamiento del paso 2:** la distributiva en matrices funciona igual que con números: cada término del primer paréntesis multiplica a cada término del segundo. El primer paréntesis tiene 2 términos ($A$ y $\text{Id}$) y el segundo tiene 3 ($A^2$, $-A$, $\text{Id}$), así que me van a quedar $2 \times 3 = 6$ productos.
+
+$$(A + \text{Id}) \cdot (A^2 - A + \text{Id}) = A \cdot A^2 + A \cdot (-A) + A \cdot \text{Id} + \text{Id} \cdot A^2 + \text{Id} \cdot (-A) + \text{Id} \cdot \text{Id}$$
+
+**Paso 3 — Simplificar cada uno de los 6 productos.**
+
+> **Razonamiento del paso 3:** cada producto de matrices se puede simplificar con reglas básicas que ya vimos:
+>
+> - $A \cdot A^2 = A^3$ (multiplicar potencias = sumar exponentes).
+> - $A \cdot (-A) = -A^2$ (el escalar $-1$ sale, $A \cdot A = A^2$).
+> - $A \cdot \text{Id} = A$ ($\text{Id}$ es el "1" matricial: no cambia nada).
+> - $\text{Id} \cdot A^2 = A^2$ (mismo motivo).
+> - $\text{Id} \cdot (-A) = -A$ (mismo motivo).
+> - $\text{Id} \cdot \text{Id} = \text{Id}$ ($\text{Id}$ multiplicada por sí misma sigue siendo $\text{Id}$).
+
+Aplicando todo esto:
+
+$$= A^3 - A^2 + A + A^2 - A + \text{Id}$$
+
+**Paso 4 — Cancelar términos opuestos.**
+
+> **Razonamiento del paso 4:** miro los términos que tengo y busco pares que se cancelen (uno con signo $+$ y el otro con signo $-$).
+>
+> - $-A^2$ y $+A^2$ se cancelan ($-A^2 + A^2 = \mathcal{O}$).
+> - $+A$ y $-A$ se cancelan ($A - A = \mathcal{O}$).
+
+Queda solo:
+
+$$= A^3 + \text{Id}$$
+
+**Paso 5 — Aplicar la hipótesis $A^3 = \mathcal{O}$.**
+
+> **Razonamiento del paso 5:** acá entra el dato del enunciado. La hipótesis dice que $A^3$ es la matriz nula. Sustituyo $A^3$ por $\mathcal{O}$.
+
+$$= \mathcal{O} + \text{Id}$$
+
+Y como sumar la matriz nula no cambia nada ($\mathcal{O} + X = X$):
+
+$$= \text{Id}$$
+
+**Paso 6 — Conclusión.**
+
+Probamos que:
+
+$$(A + \text{Id}) \cdot (A^2 - A + \text{Id}) = \text{Id}$$
+
+Por **definición de inversa**, eso significa dos cosas a la vez:
+
+1. $A + \text{Id}$ tiene inversa (es **invertible**) ✓
+2. Esa inversa es exactamente $A^2 - A + \text{Id}$ ✓
+
+> **¿Por qué la hipótesis $A^3 = \mathcal{O}$ es indispensable?** Porque sin ella, la cuenta llega hasta $A^3 + \text{Id}$, que **no es** $\text{Id}$ en general. La hipótesis es lo que hace desaparecer el término $A^3$ y permite cerrar la demostración.
+
+> **Versión paralela en `matrices-DEMOSTRACIONES.md` §H.2** — más densa, escrita con formato Hipótesis/Tesis. Esta versión de acá es la misma demo pero más despacio.
 
 #### Parte 2 — aplicación al $B$ concreto
 
